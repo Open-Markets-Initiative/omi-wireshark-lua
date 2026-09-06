@@ -2517,7 +2517,23 @@ jse_itac_marketdata_mitch_v4_07.sub_book.size = 1
 
 -- Display: Sub Book
 jse_itac_marketdata_mitch_v4_07.sub_book.display = function(value)
-  return "Sub Book: "..value
+  if value == 1 then
+    return "Sub Book: Regular (1)"
+  end
+  if value == 2 then
+    return "Sub Book: Off Book (2)"
+  end
+  if value == 9 then
+    return "Sub Book: Bulletin Board (9)"
+  end
+  if value == 11 then
+    return "Sub Book: Negotiated Trades (11)"
+  end
+  if value == 51 then
+    return "Sub Book: Fx Auction (51)"
+  end
+
+  return "Sub Book: Unknown("..value..")"
 end
 
 -- Dissect: Sub Book
