@@ -36,10 +36,10 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.expiryday" Tmx.Mx.Sola.Multicast.Hsvf.v1.
 grep "tmx.mx.sola.multicast.hsvf.v1.14.volume" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricen7" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricefractionindicator" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangesigna1" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangesign" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.netchange" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicatorx1" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.priceindicatormarkera1" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicator" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.priceindicatormarker" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradenumber" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.auctionid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 runuser -u tester -- tshark \
@@ -83,9 +83,9 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.volume" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricesign" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricen7" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricefractionindicator" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangesignx1" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangesign" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.netchange" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicatorx1" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.priceindicatormarkerx1" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicator" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.priceindicatormarker" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradenumber" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.auctionid" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json

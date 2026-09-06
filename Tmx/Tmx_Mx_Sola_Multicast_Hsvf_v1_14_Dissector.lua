@@ -95,10 +95,8 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_fraction_ind
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_n_7 = ProtoField.new("Minimum Threshold Price N 7", "tmx.mx.sola.multicast.hsvf.v1.14.minimumthresholdpricen7", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_x_7 = ProtoField.new("Minimum Threshold Price X 7", "tmx.mx.sola.multicast.hsvf.v1.14.minimumthresholdpricex7", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change = ProtoField.new("Net Change", "tmx.mx.sola.multicast.hsvf.v1.14.netchange", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_a_1 = ProtoField.new("Net Change Fraction Indicator A 1", "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicatora1", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_x_1 = ProtoField.new("Net Change Fraction Indicator X 1", "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicatorx1", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_a_1 = ProtoField.new("Net Change Sign A 1", "tmx.mx.sola.multicast.hsvf.v1.14.netchangesigna1", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_x_1 = ProtoField.new("Net Change Sign X 1", "tmx.mx.sola.multicast.hsvf.v1.14.netchangesignx1", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicator", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign = ProtoField.new("Net Change Sign", "tmx.mx.sola.multicast.hsvf.v1.14.netchangesign", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_ask_orders = ProtoField.new("Number Of Ask Orders", "tmx.mx.sola.multicast.hsvf.v1.14.numberofaskorders", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_bid_orders = ProtoField.new("Number Of Bid Orders", "tmx.mx.sola.multicast.hsvf.v1.14.numberofbidorders", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.number_of_bonds = ProtoField.new("Number Of Bonds", "tmx.mx.sola.multicast.hsvf.v1.14.numberofbonds", ftypes.STRING)
@@ -132,8 +130,7 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_price = ProtoFie
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.previous_settlement_price_fraction_indicator = ProtoField.new("Previous Settlement Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.previoussettlementpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price = ProtoField.new("Price", "tmx.mx.sola.multicast.hsvf.v1.14.price", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_fraction_indicator = ProtoField.new("Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.pricefractionindicator", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_a_1 = ProtoField.new("Price Indicator Marker A 1", "tmx.mx.sola.multicast.hsvf.v1.14.priceindicatormarkera1", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_x_1 = ProtoField.new("Price Indicator Marker X 1", "tmx.mx.sola.multicast.hsvf.v1.14.priceindicatormarkerx1", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "tmx.mx.sola.multicast.hsvf.v1.14.priceindicatormarker", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.reason = ProtoField.new("Reason", "tmx.mx.sola.multicast.hsvf.v1.14.reason", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.regular_bulletin_contents = ProtoField.new("Regular Bulletin Contents", "tmx.mx.sola.multicast.hsvf.v1.14.regularbulletincontents", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.regular_text_bulletin = ProtoField.new("Regular Text Bulletin", "tmx.mx.sola.multicast.hsvf.v1.14.regulartextbulletin", ftypes.STRING)
@@ -2436,94 +2433,48 @@ tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1 = {}
+-- Net Change Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator = {}
 
--- Size: Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size = 1
+-- Size: Net Change Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size = 1
 
--- Display: Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.display = function(value)
-  return "Net Change Fraction Indicator A 1: "..value
+-- Display: Net Change Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.display = function(value)
+  return "Net Change Fraction Indicator: "..value
 end
 
--- Dissect: Net Change Fraction Indicator A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size
+-- Dissect: Net Change Fraction Indicator
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_a_1, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
 
--- Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1 = {}
+-- Net Change Sign
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign = {}
 
--- Size: Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size = 1
+-- Size: Net Change Sign
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size = 1
 
--- Display: Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.display = function(value)
-  return "Net Change Fraction Indicator X 1: "..value
+-- Display: Net Change Sign
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.display = function(value)
+  return "Net Change Sign: "..value
 end
 
--- Dissect: Net Change Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size
+-- Dissect: Net Change Sign
+tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator_x_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1 = {}
-
--- Size: Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size = 1
-
--- Display: Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.display = function(value)
-  return "Net Change Sign A 1: "..value
-end
-
--- Dissect: Net Change Sign A 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_a_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1 = {}
-
--- Size: Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size = 1
-
--- Display: Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.display = function(value)
-  return "Net Change Sign X 1: "..value
-end
-
--- Dissect: Net Change Sign X 1
-tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign_x_1, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign, range, value, display)
 
   return offset + length, value
 end
@@ -3370,48 +3321,80 @@ tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.dissect = function(buf
   return offset + length, value
 end
 
--- Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1 = {}
+-- Price Indicator Marker
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker = {}
 
--- Size: Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size = 1
+-- Size: Price Indicator Marker
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size = 1
 
--- Display: Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.display = function(value)
-  return "Price Indicator Marker A 1: "..value
+-- Display: Price Indicator Marker
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.display = function(value)
+  if value == "A" then
+    return "Price Indicator Marker: Asof Trade (A)"
+  end
+  if value == "B" then
+    return "Price Indicator Marker: Block Trade (B)"
+  end
+  if value == " " then
+    return "Price Indicator Marker: Transaction (<whitespace>)"
+  end
+  if value == "D" then
+    return "Price Indicator Marker: Crossed (D)"
+  end
+  if value == "E" then
+    return "Price Indicator Marker: Efp Reporting (E)"
+  end
+  if value == "G" then
+    return "Price Indicator Marker: Contingent Trade (G)"
+  end
+  if value == "H" then
+    return "Price Indicator Marker: Riskless Basis Cross (H)"
+  end
+  if value == "I" then
+    return "Price Indicator Marker: Implied Trade (I)"
+  end
+  if value == "J" then
+    return "Price Indicator Marker: Delta Trade (J)"
+  end
+  if value == "K" then
+    return "Price Indicator Marker: Committed Block (K)"
+  end
+  if value == "L" then
+    return "Price Indicator Marker: Late Trade (L)"
+  end
+  if value == "P" then
+    return "Price Indicator Marker: Strategy Reporting (P)"
+  end
+  if value == "R" then
+    return "Price Indicator Marker: Efr Reporting (R)"
+  end
+  if value == "S" then
+    return "Price Indicator Marker: Reference Price (S)"
+  end
+  if value == "t" then
+    return "Price Indicator Marker: Trade Correction (t)"
+  end
+  if value == "T" then
+    return "Price Indicator Marker: Committed (T)"
+  end
+  if value == "U" then
+    return "Price Indicator Marker: Basis On Close (U)"
+  end
+  if value == "V" then
+    return "Price Indicator Marker: Price Volume Adjustment (V)"
+  end
+
+  return "Price Indicator Marker: Unknown("..value..")"
 end
 
--- Dissect: Price Indicator Marker A 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size
+-- Dissect: Price Indicator Marker
+tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_a_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1 = {}
-
--- Size: Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size = 1
-
--- Display: Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.display = function(value)
-  return "Price Indicator Marker X 1: "..value
-end
-
--- Dissect: Price Indicator Marker X 1
-tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker_x_1, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.price_indicator_marker, range, value, display)
 
   return offset + length, value
 end
@@ -5331,10 +5314,10 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_6.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size
 
 -- Display: Futures Trade Correction Message
@@ -5361,17 +5344,17 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.fields = funct
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: X
-  index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: X
-  index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
@@ -5892,9 +5875,9 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.low_price_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.low_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.reason.size
 
@@ -5973,14 +5956,14 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.fields = function(buff
   -- Low Price Fraction Indicator: X
   index, low_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: X
-  index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14.volume.dissect(buffer, index, packet, parent)
@@ -6032,9 +6015,9 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.low_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.settlement_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.previous_settlement_fraction_indicator.size + 
@@ -6107,14 +6090,14 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.fields = function(buffe
   -- Settlement Price Fraction Indicator: X
   index, settlement_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.settlement_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: X
-  index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14.volume.dissect(buffer, index, packet, parent)
@@ -6244,9 +6227,9 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.opening_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.opening_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.high_price.size + 
@@ -6310,14 +6293,14 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.fields = functio
   -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14.volume.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: X
-  index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Opening Price: N
   index, opening_price = tmx_mx_sola_multicast_hsvf_v1_14.opening_price.dissect(buffer, index, packet, parent)
@@ -6392,9 +6375,9 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.open_interest_date_n_6.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.open_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.open_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.high_price.size + 
@@ -6459,14 +6442,14 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.fields = function(buffer
   -- Volume: N
   index, volume = tmx_mx_sola_multicast_hsvf_v1_14.volume.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: X
-  index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
   index, open_price = tmx_mx_sola_multicast_hsvf_v1_14.open_price.dissect(buffer, index, packet, parent)
@@ -7489,7 +7472,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
@@ -7517,8 +7500,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_trade_cancellation_message.fields = func
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: X
-  index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
@@ -7557,7 +7540,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.size 
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
@@ -7585,8 +7568,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_cancellation_message.field
   -- Price Fraction Indicator: X
   index, price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: A
-  index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
@@ -7625,7 +7608,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
@@ -7653,8 +7636,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_trade_cancellation_message.fields = func
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: A
-  index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
@@ -8846,10 +8829,10 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
@@ -8880,17 +8863,17 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.fields = function(buffer
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: X
-  index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: X
-  index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
@@ -8929,10 +8912,10 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
@@ -8960,17 +8943,17 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.fields = function(buffer,
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign X 1: X
-  index, net_change_sign_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker X 1: X
-  index, price_indicator_marker_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_x_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
@@ -9009,10 +8992,10 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
@@ -9040,17 +9023,17 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.fields = function(
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: A
-  index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign A 1: A
-  index, net_change_sign_a_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator A 1: A
-  index, net_change_fraction_indicator_a_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_a_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
@@ -9089,10 +9072,10 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_n_7.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.net_change.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.trade_number.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.auction_id.size
 
@@ -9120,17 +9103,17 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.fields = function(buffer, 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Sign A 1: A
-  index, net_change_sign_a_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign_a_1.dissect(buffer, index, packet, parent)
+  -- Net Change Sign: A
+  index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_14.net_change_sign.dissect(buffer, index, packet, parent)
 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator X 1: X
-  index, net_change_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Net Change Fraction Indicator: X
+  index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price Indicator Marker A 1: A
-  index, price_indicator_marker_a_1 = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker_a_1.dissect(buffer, index, packet, parent)
+  -- Price Indicator Marker: A
+  index, price_indicator_marker = tmx_mx_sola_multicast_hsvf_v1_14.price_indicator_marker.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
   index, trade_number = tmx_mx_sola_multicast_hsvf_v1_14.trade_number.dissect(buffer, index, packet, parent)
