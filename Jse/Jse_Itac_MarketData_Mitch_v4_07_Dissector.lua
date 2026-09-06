@@ -21,8 +21,8 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.add_attributed_order_flags = ProtoFie
 omi_jse_itac_marketdata_mitch_v4_07.fields.add_order_flags = ProtoField.new("Add Order Flags", "jse.itac.marketdata.mitch.v4.07.addorderflags", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.attribution = ProtoField.new("Attribution", "jse.itac.marketdata.mitch.v4.07.attribution", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.auction_type = ProtoField.new("Auction Type", "jse.itac.marketdata.mitch.v4.07.auctiontype", ftypes.STRING)
-omi_jse_itac_marketdata_mitch_v4_07.fields.book_type_byte_1 = ProtoField.new("Book Type Byte 1", "jse.itac.marketdata.mitch.v4.07.booktypebyte1", ftypes.STRING)
-omi_jse_itac_marketdata_mitch_v4_07.fields.book_type_u_int_81 = ProtoField.new("Book Type U Int 81", "jse.itac.marketdata.mitch.v4.07.booktypeuint81", ftypes.UINT8)
+omi_jse_itac_marketdata_mitch_v4_07.fields.book_level = ProtoField.new("Book Level", "jse.itac.marketdata.mitch.v4.07.booklevel", ftypes.STRING)
+omi_jse_itac_marketdata_mitch_v4_07.fields.book_type = ProtoField.new("Book Type", "jse.itac.marketdata.mitch.v4.07.booktype", ftypes.UINT8)
 omi_jse_itac_marketdata_mitch_v4_07.fields.bulletin_board = ProtoField.new("Bulletin Board", "jse.itac.marketdata.mitch.v4.07.bulletinboard", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_jse_itac_marketdata_mitch_v4_07.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "jse.itac.marketdata.mitch.v4.07.contractmultiplier", ftypes.INT64)
 omi_jse_itac_marketdata_mitch_v4_07.fields.corporate_action = ProtoField.new("Corporate Action", "jse.itac.marketdata.mitch.v4.07.corporateaction", ftypes.STRING)
@@ -359,48 +359,71 @@ jse_itac_marketdata_mitch_v4_07.auction_type.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Book Type Byte 1
-jse_itac_marketdata_mitch_v4_07.book_type_byte_1 = {}
+-- Book Level
+jse_itac_marketdata_mitch_v4_07.book_level = {}
 
--- Size: Book Type Byte 1
-jse_itac_marketdata_mitch_v4_07.book_type_byte_1.size = 1
+-- Size: Book Level
+jse_itac_marketdata_mitch_v4_07.book_level.size = 1
 
--- Display: Book Type Byte 1
-jse_itac_marketdata_mitch_v4_07.book_type_byte_1.display = function(value)
-  return "Book Type Byte 1: "..value
+-- Display: Book Level
+jse_itac_marketdata_mitch_v4_07.book_level.display = function(value)
+  if value == "0" then
+    return "Book Level: Market By Order (0)"
+  end
+  if value == "1" then
+    return "Book Level: Top Of Book (1)"
+  end
+
+  return "Book Level: Unknown("..value..")"
 end
 
--- Dissect: Book Type Byte 1
-jse_itac_marketdata_mitch_v4_07.book_type_byte_1.dissect = function(buffer, offset, packet, parent)
-  local length = jse_itac_marketdata_mitch_v4_07.book_type_byte_1.size
+-- Dissect: Book Level
+jse_itac_marketdata_mitch_v4_07.book_level.dissect = function(buffer, offset, packet, parent)
+  local length = jse_itac_marketdata_mitch_v4_07.book_level.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = jse_itac_marketdata_mitch_v4_07.book_type_byte_1.display(value, buffer, offset, packet, parent)
+  local display = jse_itac_marketdata_mitch_v4_07.book_level.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.book_type_byte_1, range, value, display)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.book_level, range, value, display)
 
   return offset + length, value
 end
 
--- Book Type U Int 81
-jse_itac_marketdata_mitch_v4_07.book_type_u_int_81 = {}
+-- Book Type
+jse_itac_marketdata_mitch_v4_07.book_type = {}
 
--- Size: Book Type U Int 81
-jse_itac_marketdata_mitch_v4_07.book_type_u_int_81.size = 1
+-- Size: Book Type
+jse_itac_marketdata_mitch_v4_07.book_type.size = 1
 
--- Display: Book Type U Int 81
-jse_itac_marketdata_mitch_v4_07.book_type_u_int_81.display = function(value)
-  return "Book Type U Int 81: "..value
+-- Display: Book Type
+jse_itac_marketdata_mitch_v4_07.book_type.display = function(value)
+  if value == 1 then
+    return "Book Type: On Book (1)"
+  end
+  if value == 2 then
+    return "Book Type: Off Book (2)"
+  end
+  if value == 9 then
+    return "Book Type: Bulletin Board (9)"
+  end
+  if value == 11 then
+    return "Book Type: Negotiated Trades (11)"
+  end
+  if value == 51 then
+    return "Book Type: Fx Auction (51)"
+  end
+
+  return "Book Type: Unknown("..value..")"
 end
 
--- Dissect: Book Type U Int 81
-jse_itac_marketdata_mitch_v4_07.book_type_u_int_81.dissect = function(buffer, offset, packet, parent)
-  local length = jse_itac_marketdata_mitch_v4_07.book_type_u_int_81.size
+-- Dissect: Book Type
+jse_itac_marketdata_mitch_v4_07.book_type.dissect = function(buffer, offset, packet, parent)
+  local length = jse_itac_marketdata_mitch_v4_07.book_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = jse_itac_marketdata_mitch_v4_07.book_type_u_int_81.display(value, buffer, offset, packet, parent)
+  local display = jse_itac_marketdata_mitch_v4_07.book_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.book_type_u_int_81, range, value, display)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.book_type, range, value, display)
 
   return offset + length, value
 end
@@ -4333,7 +4356,7 @@ jse_itac_marketdata_mitch_v4_07.order_book_clear_message.size =
   jse_itac_marketdata_mitch_v4_07.nanosecond.size + 
   jse_itac_marketdata_mitch_v4_07.instrument_id.size + 
   jse_itac_marketdata_mitch_v4_07.sub_book.size + 
-  jse_itac_marketdata_mitch_v4_07.book_type_byte_1.size
+  jse_itac_marketdata_mitch_v4_07.book_level.size
 
 -- Display: Order Book Clear Message
 jse_itac_marketdata_mitch_v4_07.order_book_clear_message.display = function(packet, parent, length)
@@ -4353,8 +4376,8 @@ jse_itac_marketdata_mitch_v4_07.order_book_clear_message.fields = function(buffe
   -- Sub Book: UInt8
   index, sub_book = jse_itac_marketdata_mitch_v4_07.sub_book.dissect(buffer, index, packet, parent)
 
-  -- Book Type Byte 1: Byte
-  index, book_type_byte_1 = jse_itac_marketdata_mitch_v4_07.book_type_byte_1.dissect(buffer, index, packet, parent)
+  -- Book Level: Byte
+  index, book_level = jse_itac_marketdata_mitch_v4_07.book_level.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4820,7 +4843,7 @@ jse_itac_marketdata_mitch_v4_07.symbol_status_message.size =
   jse_itac_marketdata_mitch_v4_07.reason.size + 
   jse_itac_marketdata_mitch_v4_07.session_change_reason.size + 
   jse_itac_marketdata_mitch_v4_07.new_end_time.size + 
-  jse_itac_marketdata_mitch_v4_07.book_type_u_int_81.size
+  jse_itac_marketdata_mitch_v4_07.book_type.size
 
 -- Display: Symbol Status Message
 jse_itac_marketdata_mitch_v4_07.symbol_status_message.display = function(packet, parent, length)
@@ -4858,8 +4881,8 @@ jse_itac_marketdata_mitch_v4_07.symbol_status_message.fields = function(buffer, 
   -- New End Time: Extended Time
   index, new_end_time = jse_itac_marketdata_mitch_v4_07.new_end_time.dissect(buffer, index, packet, parent)
 
-  -- Book Type U Int 81: UInt8
-  index, book_type_u_int_81 = jse_itac_marketdata_mitch_v4_07.book_type_u_int_81.dissect(buffer, index, packet, parent)
+  -- Book Type: UInt8
+  index, book_type = jse_itac_marketdata_mitch_v4_07.book_type.dissect(buffer, index, packet, parent)
 
   return index
 end
