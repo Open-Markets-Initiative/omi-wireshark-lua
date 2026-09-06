@@ -12117,27 +12117,13 @@ end
 -- Message
 ice_icefutures_mdf_impact_v1_1_43.message = {}
 
--- Calculate size of: Message
-ice_icefutures_mdf_impact_v1_1_43.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_mdf_impact_v1_1_43.message_header.size
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 3, 1):string()
-  index = index + ice_icefutures_mdf_impact_v1_1_43.payload.size(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 ice_icefutures_mdf_impact_v1_1_43.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-ice_icefutures_mdf_impact_v1_1_43.message.fields = function(buffer, offset, packet, parent, message_index)
+ice_icefutures_mdf_impact_v1_1_43.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -12159,20 +12145,23 @@ ice_icefutures_mdf_impact_v1_1_43.message.fields = function(buffer, offset, pack
 end
 
 -- Dissect: Message
-ice_icefutures_mdf_impact_v1_1_43.message.dissect = function(buffer, offset, packet, parent, message_index)
+ice_icefutures_mdf_impact_v1_1_43.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.message, buffer(offset, 0))
-    local index = ice_icefutures_mdf_impact_v1_1_43.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = ice_icefutures_mdf_impact_v1_1_43.message.display(packet, parent, length)
+    local current = ice_icefutures_mdf_impact_v1_1_43.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = ice_icefutures_mdf_impact_v1_1_43.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return ice_icefutures_mdf_impact_v1_1_43.message.fields(buffer, offset, packet, parent, message_index)
+    ice_icefutures_mdf_impact_v1_1_43.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -12248,7 +12237,15 @@ ice_icefutures_mdf_impact_v1_1_43.packet.dissect = function(buffer, packet, pare
 
   -- Repeating: Message
   for message_index = 1, number_of_msgs do
-    index, message = ice_icefutures_mdf_impact_v1_1_43.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Length
+    local length = buffer(index + 1, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = length + 3
+
+    -- Message: Struct of 2 fields
+    index, message = ice_icefutures_mdf_impact_v1_1_43.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 
   return index
@@ -12307,7 +12304,7 @@ udp_table:add_for_decode_as(omi_ice_icefutures_mdf_impact_v1_1_43)
 --   Organization: Intercontinental Exchange
 --   Version: 1.1.43
 --   Date: Wednesday, November 18, 2020
---   Specification: ICE_iMpact_Multicast_Feed_Message_Spec_1.1.34.pdf
+--   Specification: ICE_iMpact_Multicast_Feed_Message_Spec_1.1.43.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
