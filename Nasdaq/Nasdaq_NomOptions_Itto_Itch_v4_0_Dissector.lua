@@ -252,7 +252,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_sequence_number, range, value, display)
@@ -275,7 +275,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.accepted_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.accepted_session, range, value, display)
@@ -1654,7 +1654,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.password.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.password, range, value, display)
@@ -1811,7 +1811,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_sequence_number, range, value, display)
@@ -1834,7 +1834,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.requested_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_session, range, value, display)
@@ -2304,7 +2304,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.username.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nomoptions_itto_itch_v4_0.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.username, range, value, display)

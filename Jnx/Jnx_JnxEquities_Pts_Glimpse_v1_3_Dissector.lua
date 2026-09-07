@@ -228,7 +228,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_sequence_number, range, value, display)
@@ -251,7 +251,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.accepted_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_session, range, value, display)
@@ -665,7 +665,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.password.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.password, range, value, display)
@@ -879,7 +879,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.requested_sequence_number, range, value, display)
@@ -902,7 +902,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.requested_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.requested_session, range, value, display)
@@ -1257,7 +1257,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.username.dissect = function(buffer, offset, packet, parent)
   local length = jnx_jnxequities_pts_glimpse_v1_3.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_jnxequities_pts_glimpse_v1_3.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.username, range, value, display)

@@ -175,6 +175,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Nasdaq Uqdf Output Utp 1.5 Fields
 -----------------------------------------------------------------------
 
@@ -270,7 +288,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.ask_adf_mpid, range, value, display)
@@ -583,7 +601,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.bid_adf_mpid, range, value, display)
@@ -972,7 +990,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.finra_market_participant.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.finra_market_participant.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.finra_market_participant.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.finra_market_participant, range, value, display)
@@ -1018,7 +1036,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.issue_name.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.issue_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.issue_name, range, value, display)
@@ -1041,7 +1059,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.issue_subtype.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.issue_subtype.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.issue_subtype.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.issue_subtype, range, value, display)
@@ -2126,7 +2144,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.old_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.old_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.old_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.old_symbol, range, value, display)
@@ -2409,7 +2427,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.session, range, value, display)
@@ -2590,7 +2608,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.symbol.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.symbol, range, value, display)
@@ -2613,7 +2631,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.symbol_short.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.symbol_short.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.symbol_short, range, value, display)
@@ -2714,7 +2732,7 @@ end
 nasdaq_uqdf_output_utp_v1_5.trading_action_reason.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_uqdf_output_utp_v1_5.trading_action_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_uqdf_output_utp_v1_5.trading_action_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.trading_action_reason, range, value, display)

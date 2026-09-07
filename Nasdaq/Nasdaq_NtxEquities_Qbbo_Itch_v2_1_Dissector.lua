@@ -54,11 +54,8 @@ omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.security_class = ProtoField.new("Se
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxequities.qbbo.itch.v2.1.sequencenumber", ftypes.UINT64)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.session = ProtoField.new("Session", "nasdaq.ntxequities.qbbo.itch.v2.1.session", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.ntxequities.qbbo.itch.v2.1.shortsalethresholdindicator", ftypes.STRING)
-omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock_alpha_8 = ProtoField.new("Stock Alpha 8", "nasdaq.ntxequities.qbbo.itch.v2.1.stockalpha8", ftypes.STRING)
-omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock_alphanumeric_8 = ProtoField.new("Stock Alphanumeric 8", "nasdaq.ntxequities.qbbo.itch.v2.1.stockalphanumeric8", ftypes.STRING)
+omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock = ProtoField.new("Stock", "nasdaq.ntxequities.qbbo.itch.v2.1.stock", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.time_stamp = ProtoField.new("Time Stamp", "nasdaq.ntxequities.qbbo.itch.v2.1.timestamp", ftypes.UINT64)
-omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.timestamp_integer_6 = ProtoField.new("Timestamp Integer 6", "nasdaq.ntxequities.qbbo.itch.v2.1.timestampinteger6", ftypes.UINT64)
-omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.timestamp_timestamp_6 = ProtoField.new("Timestamp Timestamp 6", "nasdaq.ntxequities.qbbo.itch.v2.1.timestamptimestamp6", ftypes.UINT64)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.tracking = ProtoField.new("Tracking", "nasdaq.ntxequities.qbbo.itch.v2.1.tracking", ftypes.UINT16)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.ntxequities.qbbo.itch.v2.1.trackingnumber", ftypes.UINT16)
 
@@ -1665,48 +1662,25 @@ nasdaq_ntxequities_qbbo_itch_v2_1.short_sale_threshold_indicator.dissect = funct
   return offset + length, value
 end
 
--- Stock Alpha 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8 = {}
+-- Stock
+nasdaq_ntxequities_qbbo_itch_v2_1.stock = {}
 
--- Size: Stock Alpha 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.size = 8
+-- Size: Stock
+nasdaq_ntxequities_qbbo_itch_v2_1.stock.size = 8
 
--- Display: Stock Alpha 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.display = function(value)
-  return "Stock Alpha 8: "..value
+-- Display: Stock
+nasdaq_ntxequities_qbbo_itch_v2_1.stock.display = function(value)
+  return "Stock: "..value
 end
 
--- Dissect: Stock Alpha 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.size
+-- Dissect: Stock
+nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxequities_qbbo_itch_v2_1.stock.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_ntxequities_qbbo_itch_v2_1.stock.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock_alpha_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Alphanumeric 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8 = {}
-
--- Size: Stock Alphanumeric 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.size = 8
-
--- Display: Stock Alphanumeric 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.display = function(value)
-  return "Stock Alphanumeric 8: "..value
-end
-
--- Dissect: Stock Alphanumeric 8
-nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock_alphanumeric_8, range, value, display)
+  parent:add(omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock, range, value, display)
 
   return offset + length, value
 end
@@ -1750,92 +1724,6 @@ nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect = function(buffer, offset, 
   local display = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.time_stamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp Integer 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6 = {}
-
--- Size: Timestamp Integer 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6.size = 6
-
--- Display: Timestamp Integer 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode
-  if nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_format == 0 then
-    return "Timestamp Integer 6: "..value
-  end
-
-  -- Parse nanoseconds since midnight
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  -- Full datetime mode (calculate from capture date + UTC offset)
-  if nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = nasdaq_ntxequities_qbbo_itch_v2_1.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
-
-    return "Timestamp Integer 6: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
-  end
-
-  -- Time of day mode
-  return "Timestamp Integer 6: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Timestamp Integer 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.timestamp_integer_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp Timestamp 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6 = {}
-
--- Size: Timestamp Timestamp 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.size = 6
-
--- Display: Timestamp Timestamp 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode
-  if nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_format == 0 then
-    return "Timestamp Timestamp 6: "..value
-  end
-
-  -- Parse nanoseconds since midnight
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  -- Full datetime mode (calculate from capture date + UTC offset)
-  if nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = nasdaq_ntxequities_qbbo_itch_v2_1.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
-
-    return "Timestamp Timestamp 6: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
-  end
-
-  -- Time of day mode
-  return "Timestamp Timestamp 6: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Timestamp Timestamp 6
-nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.timestamp_timestamp_6, range, value, display)
 
   return offset + length, value
 end
@@ -1898,7 +1786,7 @@ nasdaq_ntxequities_qbbo_itch_v2_1.ipo_quoting_period_update_message = {}
 nasdaq_ntxequities_qbbo_itch_v2_1.ipo_quoting_period_update_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.stock.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.ipo_quotation_release_time.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.ipo_quotation_release_qualifier.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.ipo_price.size
@@ -1918,8 +1806,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.ipo_quoting_period_update_message.fields = fun
   -- Time Stamp: Timestamp
   index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect(buffer, index, packet, parent)
 
   -- Ipo Quotation Release Time: Integer
   index, ipo_quotation_release_time = nasdaq_ntxequities_qbbo_itch_v2_1.ipo_quotation_release_time.dissect(buffer, index, packet, parent)
@@ -1958,7 +1846,7 @@ nasdaq_ntxequities_qbbo_itch_v2_1.price_improvement_message = {}
 nasdaq_ntxequities_qbbo_itch_v2_1.price_improvement_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.stock.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.interest_flag.size
 
 -- Display: Price Improvement Message
@@ -1976,8 +1864,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.price_improvement_message.fields = function(bu
   -- Time Stamp: Timestamp
   index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect(buffer, index, packet, parent)
 
   -- Interest Flag: Alphanumeric
   index, interest_flag = nasdaq_ntxequities_qbbo_itch_v2_1.interest_flag.dissect(buffer, index, packet, parent)
@@ -2010,7 +1898,7 @@ nasdaq_ntxequities_qbbo_itch_v2_1.bbo_quotation_message = {}
 nasdaq_ntxequities_qbbo_itch_v2_1.bbo_quotation_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.stock.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.security_class.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.best_bid_price.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.best_bid_size.size + 
@@ -2032,8 +1920,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.bbo_quotation_message.fields = function(buffer
   -- Time Stamp: Timestamp
   index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect(buffer, index, packet, parent)
 
   -- Security Class: Alphanumeric
   index, security_class = nasdaq_ntxequities_qbbo_itch_v2_1.security_class.dissect(buffer, index, packet, parent)
@@ -2077,8 +1965,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.operational_halt_message = {}
 -- Size: Operational Halt Message
 nasdaq_ntxequities_qbbo_itch_v2_1.operational_halt_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.stock.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.market_code.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.operational_halt_action.size
 
@@ -2094,11 +1982,11 @@ nasdaq_ntxequities_qbbo_itch_v2_1.operational_halt_message.fields = function(buf
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Integer 6: Integer
-  index, timestamp_integer_6 = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_integer_6.dissect(buffer, index, packet, parent)
+  -- Time Stamp: Timestamp
+  index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect(buffer, index, packet, parent)
 
   -- Market Code: Alpha
   index, market_code = nasdaq_ntxequities_qbbo_itch_v2_1.market_code.dissect(buffer, index, packet, parent)
@@ -2133,7 +2021,7 @@ nasdaq_ntxequities_qbbo_itch_v2_1.mwcb_breach_message = {}
 -- Size: Mwcb Breach Message
 nasdaq_ntxequities_qbbo_itch_v2_1.mwcb_breach_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.breached_level.size
 
 -- Display: Mwcb Breach Message
@@ -2148,8 +2036,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.mwcb_breach_message.fields = function(buffer, 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Time Stamp: Timestamp
+  index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
   -- Breached Level: Alphanumeric
   index, breached_level = nasdaq_ntxequities_qbbo_itch_v2_1.breached_level.dissect(buffer, index, packet, parent)
@@ -2181,7 +2069,7 @@ nasdaq_ntxequities_qbbo_itch_v2_1.mwcb_decline_level_message = {}
 -- Size: Mwcb Decline Level Message
 nasdaq_ntxequities_qbbo_itch_v2_1.mwcb_decline_level_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.level_1.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.level_2.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.level_3.size
@@ -2198,8 +2086,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.mwcb_decline_level_message.fields = function(b
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Time Stamp: Timestamp
+  index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
   -- Level 1: Price (8)
   index, level_1 = nasdaq_ntxequities_qbbo_itch_v2_1.level_1.dissect(buffer, index, packet, parent)
@@ -2237,8 +2125,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.reg_sho_restriction_message = {}
 -- Size: Reg Sho Restriction Message
 nasdaq_ntxequities_qbbo_itch_v2_1.reg_sho_restriction_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.stock.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.reg_sho_action.size
 
 -- Display: Reg Sho Restriction Message
@@ -2253,11 +2141,11 @@ nasdaq_ntxequities_qbbo_itch_v2_1.reg_sho_restriction_message.fields = function(
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Time Stamp: Timestamp
+  index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect(buffer, index, packet, parent)
 
   -- Reg Sho Action: Alphanumeric
   index, reg_sho_action = nasdaq_ntxequities_qbbo_itch_v2_1.reg_sho_action.dissect(buffer, index, packet, parent)
@@ -2290,7 +2178,7 @@ nasdaq_ntxequities_qbbo_itch_v2_1.stock_trading_action_message = {}
 nasdaq_ntxequities_qbbo_itch_v2_1.stock_trading_action_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.stock.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.security_class.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.current_trading_state.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.reason.size
@@ -2310,8 +2198,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.stock_trading_action_message.fields = function
   -- Time Stamp: Timestamp
   index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect(buffer, index, packet, parent)
 
   -- Security Class: Alphanumeric
   index, security_class = nasdaq_ntxequities_qbbo_itch_v2_1.security_class.dissect(buffer, index, packet, parent)
@@ -2349,8 +2237,8 @@ nasdaq_ntxequities_qbbo_itch_v2_1.stock_directory_message = {}
 -- Size: Stock Directory Message
 nasdaq_ntxequities_qbbo_itch_v2_1.stock_directory_message.size =
   nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.size + 
-  nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.size + 
+  nasdaq_ntxequities_qbbo_itch_v2_1.stock.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.market_category.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.financial_status_indicator.size + 
   nasdaq_ntxequities_qbbo_itch_v2_1.round_lot_size.size + 
@@ -2377,11 +2265,11 @@ nasdaq_ntxequities_qbbo_itch_v2_1.stock_directory_message.fields = function(buff
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_ntxequities_qbbo_itch_v2_1.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_ntxequities_qbbo_itch_v2_1.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Time Stamp: Timestamp
+  index, time_stamp = nasdaq_ntxequities_qbbo_itch_v2_1.time_stamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_ntxequities_qbbo_itch_v2_1.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_qbbo_itch_v2_1.stock.dissect(buffer, index, packet, parent)
 
   -- Market Category: Alpha
   index, market_category = nasdaq_ntxequities_qbbo_itch_v2_1.market_category.dissect(buffer, index, packet, parent)

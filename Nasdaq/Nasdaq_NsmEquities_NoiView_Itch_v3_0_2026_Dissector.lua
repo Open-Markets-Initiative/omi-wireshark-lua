@@ -60,8 +60,7 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.session = ProtoField.new("S
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.noiview.itch.v3.0.2026.shares", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.noiview.itch.v3.0.2026.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.noiview.itch.v3.0.2026.stock", ftypes.STRING)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp_integer_6 = ProtoField.new("Timestamp Integer 6", "nasdaq.nsmequities.noiview.itch.v3.0.2026.timestampinteger6", ftypes.UINT64)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp_timestamp_6 = ProtoField.new("Timestamp Timestamp 6", "nasdaq.nsmequities.noiview.itch.v3.0.2026.timestamptimestamp6", ftypes.UINT64)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.itch.v3.0.2026.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noiview.itch.v3.0.2026.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.upper_price_range_collar = ProtoField.new("Upper Price Range Collar", "nasdaq.nsmequities.noiview.itch.v3.0.2026.upperpricerangecollar", ftypes.DOUBLE)
 
@@ -121,7 +120,7 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.prefs.show_headers = Pref.bool("Sh
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.prefs.timestamp_format = Pref.enum("Timestamp Timestamp 6 Format", 2, "Timestamp Timestamp 6 display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
@@ -1813,17 +1812,17 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Timestamp Integer 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6 = {}
+-- Timestamp
+nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp = {}
 
--- Size: Timestamp Integer 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.size = 6
+-- Size: Timestamp
+nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size = 6
 
--- Display: Timestamp Integer 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.display = function(value, buffer, offset, packet, parent)
+-- Display: Timestamp
+nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.display = function(value, buffer, offset, packet, parent)
   -- Raw display mode
   if nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_format == 0 then
-    return "Timestamp Integer 6: "..value
+    return "Timestamp: "..value
   end
 
   -- Parse nanoseconds since midnight
@@ -1837,64 +1836,21 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.display = function
     local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
     local full_seconds = local_midnight + seconds
 
-    return "Timestamp Integer 6: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
   end
 
   -- Time of day mode
-  return "Timestamp Integer 6: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
--- Dissect: Timestamp Integer 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.size
+-- Dissect: Timestamp
+nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp_integer_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp Timestamp 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6 = {}
-
--- Size: Timestamp Timestamp 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size = 6
-
--- Display: Timestamp Timestamp 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.display = function(value, buffer, offset, packet, parent)
-  -- Raw display mode
-  if nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_format == 0 then
-    return "Timestamp Timestamp 6: "..value
-  end
-
-  -- Parse nanoseconds since midnight
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanoseconds = (value % UInt64(1000000000)):tonumber()
-
-  -- Full datetime mode (calculate from capture date + UTC offset)
-  if nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_format == 2 and packet then
-    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
-    local utc_offset_seconds = nasdaq_nsmequities_noiview_itch_v3_0_2026.utc_offset_hours * 3600
-    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
-    local full_seconds = local_midnight + seconds
-
-    return "Timestamp Timestamp 6: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
-  end
-
-  -- Time of day mode
-  return "Timestamp Timestamp 6: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
-end
-
--- Dissect: Timestamp Timestamp 6
-nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp_timestamp_6, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noiview_itch_v3_0_2026.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1962,7 +1918,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.direct_listing_with_capital_raise_pric
 -- Size: Direct Listing With Capital Raise Price Discovery Message
 nasdaq_nsmequities_noiview_itch_v3_0_2026.direct_listing_with_capital_raise_price_discovery_message.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.open_eligibility_status.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.minimum_allowable_price.size + 
@@ -1984,8 +1940,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.direct_listing_with_capital_raise_pric
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Integer 6: Integer
-  index, timestamp_integer_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
@@ -2038,7 +1994,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.ipo_quoting_period_update_message = {}
 -- Size: Ipo Quoting Period Update Message
 nasdaq_nsmequities_noiview_itch_v3_0_2026.ipo_quoting_period_update_message.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.ipo_quotation_release_time.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.ipo_quotation_release_qualifier.size + 
@@ -2056,8 +2012,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.ipo_quoting_period_update_message.fiel
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
@@ -2098,7 +2054,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.cross_trade_message = {}
 -- Size: Cross Trade Message
 nasdaq_nsmequities_noiview_itch_v3_0_2026.cross_trade_message.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.shares.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.cross_price.size + 
@@ -2117,8 +2073,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.cross_trade_message.fields = function(
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Shares: Integer
   index, shares = nasdaq_nsmequities_noiview_itch_v3_0_2026.shares.dissect(buffer, index, packet, parent)
@@ -2162,7 +2118,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.net_order_imbalance_indicator_message 
 -- Size: Net Order Imbalance Indicator Message
 nasdaq_nsmequities_noiview_itch_v3_0_2026.net_order_imbalance_indicator_message.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.paired_shares.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.imbalance_shares.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.imbalance_direction.size + 
@@ -2185,8 +2141,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.net_order_imbalance_indicator_message.
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Paired Shares: Integer
   index, paired_shares = nasdaq_nsmequities_noiview_itch_v3_0_2026.paired_shares.dissect(buffer, index, packet, parent)
@@ -2242,7 +2198,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.reg_sho_short_sale_price_test_restrict
 -- Size: Reg Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_nsmequities_noiview_itch_v3_0_2026.reg_sho_short_sale_price_test_restricted_indicator_message.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.reg_sho_action.size
 
@@ -2258,8 +2214,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.reg_sho_short_sale_price_test_restrict
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
@@ -2294,7 +2250,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.stock_trading_action_message = {}
 -- Size: Stock Trading Action Message
 nasdaq_nsmequities_noiview_itch_v3_0_2026.stock_trading_action_message.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.current_trading_state.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.reason.size
@@ -2311,8 +2267,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.stock_trading_action_message.fields = 
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
@@ -2350,7 +2306,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.stock_directory_message = {}
 -- Size: Stock Directory Message
 nasdaq_nsmequities_noiview_itch_v3_0_2026.stock_directory_message.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.market_category.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.financial_status_indicator.size + 
@@ -2378,8 +2334,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.stock_directory_message.fields = funct
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Integer 6: Integer
-  index, timestamp_integer_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_integer_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2026.stock.dissect(buffer, index, packet, parent)
@@ -2450,7 +2406,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.system_event = {}
 -- Size: System Event
 nasdaq_nsmequities_noiview_itch_v3_0_2026.system_event.size =
   nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.size + 
-  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.size + 
+  nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.size + 
   nasdaq_nsmequities_noiview_itch_v3_0_2026.event_code.size
 
 -- Display: System Event
@@ -2465,8 +2421,8 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.system_event.fields = function(buffer,
   -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2026.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp Timestamp 6: Timestamp
-  index, timestamp_timestamp_6 = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp_timestamp_6.dissect(buffer, index, packet, parent)
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: Alpha
   index, event_code = nasdaq_nsmequities_noiview_itch_v3_0_2026.event_code.dissect(buffer, index, packet, parent)

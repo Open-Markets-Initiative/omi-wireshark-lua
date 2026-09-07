@@ -40,11 +40,10 @@ omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_fraction = ProtoFiel
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_integer_18_n_8 = ProtoField.new("Price Integer 18 N 8", "nasdaq.nordicequities.lastsale.itch.v1.2.9.priceinteger18n8", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_notation = ProtoField.new("Price Notation", "nasdaq.nordicequities.lastsale.itch.v1.2.9.pricenotation", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_price_68 = ProtoField.new("Price Price 68", "nasdaq.nordicequities.lastsale.itch.v1.2.9.priceprice68", ftypes.DOUBLE)
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity = ProtoField.new("Quantity", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantity", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_fraction = ProtoField.new("Quantity Fraction", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantityfraction", ftypes.UINT8)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantityinmeasurementunit", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_in_measurement_unit_fraction = ProtoField.new("Quantity In Measurement Unit Fraction", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantityinmeasurementunitfraction", ftypes.UINT8)
-omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_integer_18_n_8 = ProtoField.new("Quantity Integer 18 N 8", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantityinteger18n8", ftypes.UINT64)
-omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_integer_8 = ProtoField.new("Quantity Integer 8", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantityinteger8", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicequities.lastsale.itch.v1.2.9.sequencenumber", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.session = ProtoField.new("Session", "nasdaq.nordicequities.lastsale.itch.v1.2.9.session", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.third_country_trading_venue_of_execution = ProtoField.new("Third Country Trading Venue Of Execution", "nasdaq.nordicequities.lastsale.itch.v1.2.9.thirdcountrytradingvenueofexecution", ftypes.STRING)
@@ -745,6 +744,29 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.dissect = function(buf
   return offset + length, value
 end
 
+-- Quantity
+nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity = {}
+
+-- Size: Quantity
+nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.size = 8
+
+-- Display: Quantity
+nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.display = function(value)
+  return "Quantity: "..value
+end
+
+-- Dissect: Quantity
+nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity, range, value, display)
+
+  return offset + length, value
+end
+
 -- Quantity Fraction
 nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_fraction = {}
 
@@ -810,52 +832,6 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_in_measurement_unit_fraction
   local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_in_measurement_unit_fraction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_in_measurement_unit_fraction, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8 = {}
-
--- Size: Quantity Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8.size = 8
-
--- Display: Quantity Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8.display = function(value)
-  return "Quantity Integer 18 N 8: "..value
-end
-
--- Dissect: Quantity Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_integer_18_n_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Integer 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8 = {}
-
--- Size: Quantity Integer 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8.size = 8
-
--- Display: Quantity Integer 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8.display = function(value)
-  return "Quantity Integer 8: "..value
-end
-
--- Dissect: Quantity Integer 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_integer_8, range, value, display)
 
   return offset + length, value
 end
@@ -1224,7 +1200,7 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.otc_trade_message.size =
   nasdaq_nordicequities_lastsale_itch_v1_2_9.price_fraction.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.price_currency.size + 
-  nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8.size + 
+  nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_fraction.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.notation_of_the_quantity_in_measurement_unit.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_in_measurement_unit.size + 
@@ -1279,8 +1255,8 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.otc_trade_message.fields = function(b
   -- Price Currency: Alpha-numeric
   index, price_currency = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_currency.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 18 N 8: Integer (18/n)
-  index, quantity_integer_18_n_8 = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_18_n_8.dissect(buffer, index, packet, parent)
+  -- Quantity: Integer (18/n)
+  index, quantity = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.dissect(buffer, index, packet, parent)
 
   -- Quantity Fraction: Integer
   index, quantity_fraction = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_fraction.dissect(buffer, index, packet, parent)
@@ -1358,7 +1334,7 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.on_exchange_trade_message.size =
   nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_date.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_time.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.size + 
-  nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8.size + 
+  nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.venue_of_execution.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_identifier_code.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.mmt_trade_flags.size + 
@@ -1400,8 +1376,8 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.on_exchange_trade_message.fields = fu
   -- Price Price 68: Price (6)
   index, price_price_68 = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.dissect(buffer, index, packet, parent)
 
-  -- Quantity Integer 8: Integer
-  index, quantity_integer_8 = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity_integer_8.dissect(buffer, index, packet, parent)
+  -- Quantity: Integer (18/n)
+  index, quantity = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.dissect(buffer, index, packet, parent)
 
   -- Venue Of Execution: Alpha-numeric
   index, venue_of_execution = nasdaq_nordicequities_lastsale_itch_v1_2_9.venue_of_execution.dissect(buffer, index, packet, parent)

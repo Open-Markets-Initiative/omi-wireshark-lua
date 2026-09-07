@@ -1853,7 +1853,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.protocol_version.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.protocol_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_asxderivatives_t24_itch_v1_13.protocol_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.protocol_version, range, value, display)

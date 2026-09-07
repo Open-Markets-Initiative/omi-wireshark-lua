@@ -1262,7 +1262,7 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_phlxoptions_orders_itch_v1_9.session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_phlxoptions_orders_itch_v1_9.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.session, range, value, display)

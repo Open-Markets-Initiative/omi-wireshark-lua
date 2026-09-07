@@ -246,7 +246,7 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_sequence_number, range, value, display)
@@ -269,7 +269,7 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.accepted_session, range, value, display)
@@ -1537,7 +1537,7 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.password.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_itch_v2_2.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.password, range, value, display)
@@ -1731,7 +1731,7 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.requested_sequence_number, range, value, display)
@@ -1754,7 +1754,7 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.requested_session, range, value, display)
@@ -2257,7 +2257,7 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.username.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxoptions_topofmarket_itch_v2_2.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.username, range, value, display)
