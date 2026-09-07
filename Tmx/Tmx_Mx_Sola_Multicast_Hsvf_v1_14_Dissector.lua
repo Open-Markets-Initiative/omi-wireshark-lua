@@ -5350,7 +5350,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_correction_message.fields = funct
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
@@ -5962,7 +5962,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.fields = function(buff
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -6096,7 +6096,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_summary_message.fields = function(buffe
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -6299,7 +6299,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_summary_message.fields = functio
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Opening Price: N
@@ -6448,7 +6448,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_summary_message.fields = function(buffer
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Price: N
@@ -8869,7 +8869,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.fields = function(buffer
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
@@ -8949,7 +8949,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_trade_message.fields = function(buffer,
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
@@ -9032,7 +9032,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_trade_message.fields = function(
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Trade Number: X
@@ -9109,7 +9109,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_trade_message.fields = function(buffer, 
   -- Net Change: N
   index, net_change = tmx_mx_sola_multicast_hsvf_v1_14.net_change.dissect(buffer, index, packet, parent)
 
-  -- Net Change Fraction Indicator: X
+  -- Net Change Fraction Indicator: A
   index, net_change_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
