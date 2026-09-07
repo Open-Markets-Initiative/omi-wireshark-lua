@@ -582,7 +582,7 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.requested_sequence_number, range, value, display)
@@ -605,7 +605,7 @@ end
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.requested_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.requested_session, range, value, display)

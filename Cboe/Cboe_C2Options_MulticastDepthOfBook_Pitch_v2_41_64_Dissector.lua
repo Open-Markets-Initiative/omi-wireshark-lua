@@ -33,6 +33,7 @@ omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.customer_indicator
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.display = ProtoField.new("Display", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.display", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.executedquantity", ftypes.UINT32)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.execution_id = ProtoField.new("Execution Id", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.executionid", ftypes.UINT64)
+omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.expandedsymbol", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.feedsymbol", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.gthtradingstatus", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.indicativeprice", ftypes.DOUBLE)
@@ -71,7 +72,6 @@ omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.soq_identifier = P
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.stock_symbol = ProtoField.new("Stock Symbol", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.stocksymbol", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.symbol = ProtoField.new("Symbol", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.symbol", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.symbolcondition", ftypes.STRING)
-omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.symbolextended", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.time = ProtoField.new("Time", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.time", ftypes.UINT32)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.time_offset = ProtoField.new("Time Offset", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.timeoffset", ftypes.UINT32)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.timestamp = ProtoField.new("Timestamp", "cboe.c2options.multicastdepthofbook.pitch.v2.41.64.timestamp", ftypes.UINT32)
@@ -618,6 +618,29 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.execution_id.dissect = functi
   local display = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.execution_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expanded Symbol
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol = {}
+
+-- Size: Expanded Symbol
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.size = 8
+
+-- Display: Expanded Symbol
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.display = function(value)
+  return "Expanded Symbol: "..value
+end
+
+-- Dissect: Expanded Symbol
+cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.expanded_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1502,29 +1525,6 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.dissect = fu
   return offset + length, value
 end
 
--- Symbol Extended
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended = {}
-
--- Size: Symbol Extended
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.size = 8
-
--- Display: Symbol Extended
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.display = function(value)
-  return "Symbol Extended: "..value
-end
-
--- Dissect: Symbol Extended
-cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_64.fields.symbol_extended, range, value, display)
-
-  return offset + length, value
-end
-
 -- Time
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.time = {}
 
@@ -1864,7 +1864,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_constituent_symbol_mapping
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.underlying.dissect(buffer, index, packet, parent)
 
   -- Soq Identifier: Printable ASCII
@@ -2185,7 +2185,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_mes
 -- Size: Ox Options Auction Update Message
 cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_message.size =
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.time_offset.size + 
-  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.size + 
+  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.reference_price.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.buy_contracts.size + 
@@ -2208,8 +2208,8 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_options_auction_update_mes
   -- Time Offset: Time Offset
   index, time_offset = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Expanded Symbol: Printable ASCII
+  index, expanded_symbol = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.auction_type.dissect(buffer, index, packet, parent)
@@ -2281,7 +2281,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_width_update_message.field
   -- Time Offset: Time Offset
   index, time_offset = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.underlying.dissect(buffer, index, packet, parent)
 
   -- Width Type: Alphanumeric
@@ -2403,7 +2403,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_symbol_mapping_message.fie
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -2520,7 +2520,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_expanded_message.siz
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.quantity_long.size + 
-  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.size + 
+  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.price_long.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.execution_id.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.trade_condition.size
@@ -2546,8 +2546,8 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_trade_expanded_message.fie
   -- Quantity Long: Binary
   index, quantity_long = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Expanded Symbol: Printable ASCII
+  index, expanded_symbol = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.price_long.dissect(buffer, index, packet, parent)
@@ -3192,7 +3192,7 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_expanded_message
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.order_id.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.side_indicator.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.quantity_long.size + 
-  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.size + 
+  cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.price_long.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.add_flags.size + 
   cboe_c2options_multicastdepthofbook_pitch_v2_41_64.participant_id.size + 
@@ -3221,8 +3221,8 @@ cboe_c2options_multicastdepthofbook_pitch_v2_41_64.ox_add_order_expanded_message
   -- Quantity Long: Binary
   index, quantity_long = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Expanded Symbol: Printable ASCII
+  index, expanded_symbol = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.expanded_symbol.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_c2options_multicastdepthofbook_pitch_v2_41_64.price_long.dissect(buffer, index, packet, parent)

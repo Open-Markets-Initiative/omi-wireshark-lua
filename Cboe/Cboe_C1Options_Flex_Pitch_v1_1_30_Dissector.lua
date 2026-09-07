@@ -63,8 +63,6 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.osi_symbol = ProtoField.new("Osi Sy
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1options.flex.pitch.v1.1.30.participantid", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.percentage = ProtoField.new("Percentage", "cboe.c1options.flex.pitch.v1.1.30.percentage", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.percentage_1 = ProtoField.new("Percentage 1", "cboe.c1options.flex.pitch.v1.1.30.percentage1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.price_binary_signed_long_price_8 = ProtoField.new("Price Binary Signed Long Price 8", "cboe.c1options.flex.pitch.v1.1.30.pricebinarysignedlongprice8", ftypes.DOUBLE)
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.price_binary_signed_short_price_2 = ProtoField.new("Price Binary Signed Short Price 2", "cboe.c1options.flex.pitch.v1.1.30.pricebinarysignedshortprice2", ftypes.DOUBLE)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.c1options.flex.pitch.v1.1.30.quantitylong", ftypes.UINT32)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.c1options.flex.pitch.v1.1.30.quantityshort", ftypes.UINT16)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c1options.flex.pitch.v1.1.30.reserved1", ftypes.BYTES)
@@ -76,6 +74,8 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.sequence = ProtoField.new("Sequence
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.settlement_type = ProtoField.new("Settlement Type", "cboe.c1options.flex.pitch.v1.1.30.settlementtype", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.side = ProtoField.new("Side", "cboe.c1options.flex.pitch.v1.1.30.side", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.c1options.flex.pitch.v1.1.30.sideindicator", ftypes.STRING)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.signed_price_long = ProtoField.new("Signed Price Long", "cboe.c1options.flex.pitch.v1.1.30.signedpricelong", ftypes.DOUBLE)
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.signed_price_short = ProtoField.new("Signed Price Short", "cboe.c1options.flex.pitch.v1.1.30.signedpriceshort", ftypes.DOUBLE)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.symbol = ProtoField.new("Symbol", "cboe.c1options.flex.pitch.v1.1.30.symbol", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c1options.flex.pitch.v1.1.30.symbolcondition", ftypes.STRING)
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.time = ProtoField.new("Time", "cboe.c1options.flex.pitch.v1.1.30.time", ftypes.UINT32)
@@ -1302,64 +1302,6 @@ cboe_c1options_flex_pitch_v1_1_30.percentage.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Price Binary Signed Long Price 8
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8 = {}
-
--- Size: Price Binary Signed Long Price 8
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.size = 8
-
--- Display: Price Binary Signed Long Price 8
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.display = function(value)
-  return "Price Binary Signed Long Price 8: "..value
-end
-
--- Translate: Price Binary Signed Long Price 8
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price Binary Signed Long Price 8
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.translate(raw)
-  local display = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.price_binary_signed_long_price_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Binary Signed Short Price 2
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2 = {}
-
--- Size: Price Binary Signed Short Price 2
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.size = 2
-
--- Display: Price Binary Signed Short Price 2
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.display = function(value)
-  return "Price Binary Signed Short Price 2: "..value
-end
-
--- Translate: Price Binary Signed Short Price 2
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price Binary Signed Short Price 2
-cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.translate(raw)
-  local display = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.price_binary_signed_short_price_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Quantity Long
 cboe_c1options_flex_pitch_v1_1_30.quantity_long = {}
 
@@ -1606,6 +1548,64 @@ cboe_c1options_flex_pitch_v1_1_30.side_indicator.dissect = function(buffer, offs
   local display = cboe_c1options_flex_pitch_v1_1_30.side_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.side_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Signed Price Long
+cboe_c1options_flex_pitch_v1_1_30.signed_price_long = {}
+
+-- Size: Signed Price Long
+cboe_c1options_flex_pitch_v1_1_30.signed_price_long.size = 8
+
+-- Display: Signed Price Long
+cboe_c1options_flex_pitch_v1_1_30.signed_price_long.display = function(value)
+  return "Signed Price Long: "..value
+end
+
+-- Translate: Signed Price Long
+cboe_c1options_flex_pitch_v1_1_30.signed_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Signed Price Long
+cboe_c1options_flex_pitch_v1_1_30.signed_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.translate(raw)
+  local display = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.signed_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Signed Price Short
+cboe_c1options_flex_pitch_v1_1_30.signed_price_short = {}
+
+-- Size: Signed Price Short
+cboe_c1options_flex_pitch_v1_1_30.signed_price_short.size = 2
+
+-- Display: Signed Price Short
+cboe_c1options_flex_pitch_v1_1_30.signed_price_short.display = function(value)
+  return "Signed Price Short: "..value
+end
+
+-- Translate: Signed Price Short
+cboe_c1options_flex_pitch_v1_1_30.signed_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Signed Price Short
+cboe_c1options_flex_pitch_v1_1_30.signed_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_flex_pitch_v1_1_30.signed_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = cboe_c1options_flex_pitch_v1_1_30.signed_price_short.translate(raw)
+  local display = cboe_c1options_flex_pitch_v1_1_30.signed_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_flex_pitch_v1_1_30.fields.signed_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -2072,7 +2072,7 @@ cboe_c1options_flex_pitch_v1_1_30.symbol_mapping_message.fields = function(buffe
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_pitch_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -2150,7 +2150,7 @@ cboe_c1options_flex_pitch_v1_1_30.dac_trade_message.size =
   cboe_c1options_flex_pitch_v1_1_30.side_indicator.size + 
   cboe_c1options_flex_pitch_v1_1_30.quantity_long.size + 
   cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.size + 
-  cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.size + 
+  cboe_c1options_flex_pitch_v1_1_30.signed_price_long.size + 
   cboe_c1options_flex_pitch_v1_1_30.execution_id.size + 
   cboe_c1options_flex_pitch_v1_1_30.trade_condition.size + 
   cboe_c1options_flex_pitch_v1_1_30.dac_reference_price.size + 
@@ -2181,8 +2181,8 @@ cboe_c1options_flex_pitch_v1_1_30.dac_trade_message.fields = function(buffer, of
   -- Flex Instrument Id: Printable ASCII
   index, flex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Long Price 8: Binary Signed Long Price
-  index, price_binary_signed_long_price_8 = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.dissect(buffer, index, packet, parent)
+  -- Signed Price Long: Binary Signed Long Price
+  index, signed_price_long = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_c1options_flex_pitch_v1_1_30.execution_id.dissect(buffer, index, packet, parent)
@@ -2230,7 +2230,7 @@ cboe_c1options_flex_pitch_v1_1_30.trade_short_message.size =
   cboe_c1options_flex_pitch_v1_1_30.side_indicator.size + 
   cboe_c1options_flex_pitch_v1_1_30.quantity_short.size + 
   cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.size + 
-  cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.size + 
+  cboe_c1options_flex_pitch_v1_1_30.signed_price_short.size + 
   cboe_c1options_flex_pitch_v1_1_30.execution_id.size + 
   cboe_c1options_flex_pitch_v1_1_30.trade_condition.size
 
@@ -2258,8 +2258,8 @@ cboe_c1options_flex_pitch_v1_1_30.trade_short_message.fields = function(buffer, 
   -- Flex Instrument Id: Printable ASCII
   index, flex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Short Price 2: Binary Signed Short Price
-  index, price_binary_signed_short_price_2 = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_short_price_2.dissect(buffer, index, packet, parent)
+  -- Signed Price Short: Binary Signed Short Price
+  index, signed_price_short = cboe_c1options_flex_pitch_v1_1_30.signed_price_short.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_c1options_flex_pitch_v1_1_30.execution_id.dissect(buffer, index, packet, parent)
@@ -2298,7 +2298,7 @@ cboe_c1options_flex_pitch_v1_1_30.trade_long_message.size =
   cboe_c1options_flex_pitch_v1_1_30.side_indicator.size + 
   cboe_c1options_flex_pitch_v1_1_30.quantity_long.size + 
   cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.size + 
-  cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.size + 
+  cboe_c1options_flex_pitch_v1_1_30.signed_price_long.size + 
   cboe_c1options_flex_pitch_v1_1_30.execution_id.size + 
   cboe_c1options_flex_pitch_v1_1_30.trade_condition.size
 
@@ -2326,8 +2326,8 @@ cboe_c1options_flex_pitch_v1_1_30.trade_long_message.fields = function(buffer, o
   -- Flex Instrument Id: Printable ASCII
   index, flex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.flex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Long Price 8: Binary Signed Long Price
-  index, price_binary_signed_long_price_8 = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.dissect(buffer, index, packet, parent)
+  -- Signed Price Long: Binary Signed Long Price
+  index, signed_price_long = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_c1options_flex_pitch_v1_1_30.execution_id.dissect(buffer, index, packet, parent)
@@ -2364,7 +2364,7 @@ cboe_c1options_flex_pitch_v1_1_30.auction_trade_message.size =
   cboe_c1options_flex_pitch_v1_1_30.time_offset.size + 
   cboe_c1options_flex_pitch_v1_1_30.auction_id.size + 
   cboe_c1options_flex_pitch_v1_1_30.execution_id.size + 
-  cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.size + 
+  cboe_c1options_flex_pitch_v1_1_30.signed_price_long.size + 
   cboe_c1options_flex_pitch_v1_1_30.quantity_long.size
 
 -- Display: Auction Trade Message
@@ -2385,8 +2385,8 @@ cboe_c1options_flex_pitch_v1_1_30.auction_trade_message.fields = function(buffer
   -- Execution Id: Binary
   index, execution_id = cboe_c1options_flex_pitch_v1_1_30.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Long Price 8: Binary Signed Long Price
-  index, price_binary_signed_long_price_8 = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.dissect(buffer, index, packet, parent)
+  -- Signed Price Long: Binary Signed Long Price
+  index, signed_price_long = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Quantity Long: Binary
   index, quantity_long = cboe_c1options_flex_pitch_v1_1_30.quantity_long.dissect(buffer, index, packet, parent)
@@ -2519,7 +2519,7 @@ cboe_c1options_flex_pitch_v1_1_30.dac_auction_notification_message.size = functi
 
   index = index + cboe_c1options_flex_pitch_v1_1_30.side.size
 
-  index = index + cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.size
+  index = index + cboe_c1options_flex_pitch_v1_1_30.signed_price_long.size
 
   index = index + cboe_c1options_flex_pitch_v1_1_30.quantity_long.size
 
@@ -2566,8 +2566,8 @@ cboe_c1options_flex_pitch_v1_1_30.dac_auction_notification_message.fields = func
   -- Side: Alphanumeric
   index, side = cboe_c1options_flex_pitch_v1_1_30.side.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Long Price 8: Binary Signed Long Price
-  index, price_binary_signed_long_price_8 = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.dissect(buffer, index, packet, parent)
+  -- Signed Price Long: Binary Signed Long Price
+  index, signed_price_long = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Quantity Long: Binary
   index, quantity_long = cboe_c1options_flex_pitch_v1_1_30.quantity_long.dissect(buffer, index, packet, parent)
@@ -2626,7 +2626,7 @@ cboe_c1options_flex_pitch_v1_1_30.auction_notification_message.size =
   cboe_c1options_flex_pitch_v1_1_30.auction_id.size + 
   cboe_c1options_flex_pitch_v1_1_30.auction_type.size + 
   cboe_c1options_flex_pitch_v1_1_30.side.size + 
-  cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.size + 
+  cboe_c1options_flex_pitch_v1_1_30.signed_price_long.size + 
   cboe_c1options_flex_pitch_v1_1_30.quantity_long.size + 
   cboe_c1options_flex_pitch_v1_1_30.customer_indicator.size + 
   cboe_c1options_flex_pitch_v1_1_30.participant_id.size + 
@@ -2657,8 +2657,8 @@ cboe_c1options_flex_pitch_v1_1_30.auction_notification_message.fields = function
   -- Side: Alphanumeric
   index, side = cboe_c1options_flex_pitch_v1_1_30.side.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Long Price 8: Binary Signed Long Price
-  index, price_binary_signed_long_price_8 = cboe_c1options_flex_pitch_v1_1_30.price_binary_signed_long_price_8.dissect(buffer, index, packet, parent)
+  -- Signed Price Long: Binary Signed Long Price
+  index, signed_price_long = cboe_c1options_flex_pitch_v1_1_30.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Quantity Long: Binary
   index, quantity_long = cboe_c1options_flex_pitch_v1_1_30.quantity_long.dissect(buffer, index, packet, parent)
@@ -2795,7 +2795,7 @@ cboe_c1options_flex_pitch_v1_1_30.complex_flex_instrument_definition_message.fie
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Type: Alphanumeric
@@ -2945,7 +2945,7 @@ cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message.fields = fu
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_pitch_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Exercise Style: Alphanumeric

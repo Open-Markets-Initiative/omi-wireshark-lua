@@ -40,7 +40,7 @@ omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.last_trade_time = ProtoField.
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.message_type = ProtoField.new("Message Type", "cboe.edgxequities.top.asciipitch.v1.3.9.messagetype", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.edgxequities.top.asciipitch.v1.3.9.milliseconds", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.password = ProtoField.new("Password", "cboe.edgxequities.top.asciipitch.v1.3.9.password", ftypes.STRING)
-omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.top.asciipitch.v1.3.9.regshoaction", ftypes.STRING)
+omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action = ProtoField.new("Reg SHO Action", "cboe.edgxequities.top.asciipitch.v1.3.9.regshoaction", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reject_reason = ProtoField.new("Reject Reason", "cboe.edgxequities.top.asciipitch.v1.3.9.rejectreason", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxequities.top.asciipitch.v1.3.9.reserved1", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.edgxequities.top.asciipitch.v1.3.9.reserved2", ftypes.STRING)
@@ -1099,25 +1099,25 @@ cboe_edgxequities_top_asciipitch_v1_3_9.password.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Reg Sho Action
+-- Reg SHO Action
 cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action = {}
 
--- Size: Reg Sho Action
+-- Size: Reg SHO Action
 cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.size = 1
 
--- Display: Reg Sho Action
+-- Display: Reg SHO Action
 cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.display = function(value)
   if value == "0" then
-    return "Reg Sho Action: No Price Test In Effect (0)"
+    return "Reg SHO Action: No Price Test In Effect (0)"
   end
   if value == "1" then
-    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
+    return "Reg SHO Action: Reg Sho Price Test Restriction In Effect (1)"
   end
 
-  return "Reg Sho Action: Unknown("..value..")"
+  return "Reg SHO Action: Unknown("..value..")"
 end
 
--- Dissect: Reg Sho Action
+-- Dissect: Reg SHO Action
 cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.size
   local range = buffer(offset, length)
@@ -1427,7 +1427,7 @@ cboe_edgxequities_top_asciipitch_v1_3_9.trading_status_message.fields = function
   -- Halt Status: Alpha
   index, halt_status = cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: Alpha
+  -- Reg SHO Action: Alpha
   index, reg_sho_action = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
@@ -2335,7 +2335,7 @@ cboe_edgxequities_top_asciipitch_v1_3_9.extended_spin_message.fields = function(
   -- Halt Status: Alpha
   index, halt_status = cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: Alpha
+  -- Reg SHO Action: Alpha
   index, reg_sho_action = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
@@ -2427,7 +2427,7 @@ cboe_edgxequities_top_asciipitch_v1_3_9.expanded_spin_message.fields = function(
   -- Halt Status: Alpha
   index, halt_status = cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: Alpha
+  -- Reg SHO Action: Alpha
   index, reg_sho_action = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha

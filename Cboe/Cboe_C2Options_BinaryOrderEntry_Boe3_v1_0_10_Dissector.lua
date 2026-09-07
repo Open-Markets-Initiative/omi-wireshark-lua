@@ -2282,6 +2282,11 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_text.size = 60
 
 -- Display: Login Response Text
 cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Login Response Text: No Value"
+  end
+
   return "Login Response Text: "..value
 end
 
@@ -2289,7 +2294,18 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_text.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_text.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.login_response_text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.login_response_text, range, value, display)
@@ -2338,6 +2354,11 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason_text.size = 60
 
 -- Display: Logout Reason Text
 cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason_text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Logout Reason Text: No Value"
+  end
+
   return "Logout Reason Text: "..value
 end
 
@@ -2345,7 +2366,18 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason_text.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason_text.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.logout_reason_text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.logout_reason_text, range, value, display)
@@ -3066,6 +3098,11 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.password.size = 10
 
 -- Display: Password
 cboe_c2options_binaryorderentry_boe3_v1_0_10.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -3073,7 +3110,18 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.password.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.password, range, value, display)
@@ -4140,6 +4188,11 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.session_id.size = 4
 
 -- Display: Session Id
 cboe_c2options_binaryorderentry_boe3_v1_0_10.session_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session Id: No Value"
+  end
+
   return "Session Id: "..value
 end
 
@@ -4147,7 +4200,18 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.session_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.session_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.session_id, range, value, display)
@@ -4163,6 +4227,11 @@ cboe_c2options_binaryorderentry_boe3_v1_0_10.session_sub_id.size = 4
 
 -- Display: Session Sub Id
 cboe_c2options_binaryorderentry_boe3_v1_0_10.session_sub_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session Sub Id: No Value"
+  end
+
   return "Session Sub Id: "..value
 end
 
@@ -4170,7 +4239,18 @@ end
 cboe_c2options_binaryorderentry_boe3_v1_0_10.session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c2options_binaryorderentry_boe3_v1_0_10.session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = cboe_c2options_binaryorderentry_boe3_v1_0_10.session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c2options_binaryorderentry_boe3_v1_0_10.fields.session_sub_id, range, value, display)

@@ -39,6 +39,7 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.customer = ProtoField.new(
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.customer_quantity_long = ProtoField.new("Customer Quantity Long", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.customerquantitylong", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.customer_quantity_short = ProtoField.new("Customer Quantity Short", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.customerquantityshort", ftypes.UINT16)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.executionid", ftypes.UINT64)
+omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.expandedsymbol", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.feedsymbol", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.gthtradingstatus", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.indicativeprice", ftypes.DOUBLE)
@@ -62,10 +63,9 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.second_reserved_1 = ProtoF
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.sellcontracts", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.sequence = ProtoField.new("Sequence", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.sequence", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.side = ProtoField.new("Side", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.side", ftypes.STRING)
+omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol = ProtoField.new("Symbol", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.symbol", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.symbolcondition", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol_id = ProtoField.new("Symbol Id", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.symbolid", ftypes.STRING)
-omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.symbollong", ftypes.STRING)
-omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.symbolshort", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.time = ProtoField.new("Time", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.time", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.time_offset = ProtoField.new("Time Offset", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.timeoffset", ftypes.UINT32)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.timestamp", ftypes.UINT32)
@@ -753,6 +753,29 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.execution_id.dissect = function(buffe
   return offset + length, value
 end
 
+-- Expanded Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol = {}
+
+-- Size: Expanded Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol.size = 8
+
+-- Display: Expanded Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol.display = function(value)
+  return "Expanded Symbol: "..value
+end
+
+-- Dissect: Expanded Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.expanded_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Feed Symbol
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.feed_symbol = {}
 
@@ -1287,6 +1310,29 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.side.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol = {}
+
+-- Size: Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size = 6
+
+-- Display: Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol Condition
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_condition = {}
 
@@ -1336,52 +1382,6 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_id.dissect = function(buffer, 
   local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Long
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long = {}
-
--- Size: Symbol Long
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long.size = 8
-
--- Display: Symbol Long
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long.display = function(value)
-  return "Symbol Long: "..value
-end
-
--- Dissect: Symbol Long
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol_long, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Short
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short = {}
-
--- Size: Symbol Short
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size = 6
-
--- Display: Symbol Short
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.display = function(value)
-  return "Symbol Short: "..value
-end
-
--- Dissect: Symbol Short
-cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -1776,7 +1776,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status_message = {}
 -- Size: Trading Status Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.reserved_2.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.reserved_1.size + 
@@ -1795,8 +1795,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.trading_status_message.fields = funct
   -- Time Offset: Time Offset
   index, time_offset = cboe_bzxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Printable ASCII
-  index, symbol_short = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Reserved
   index, reserved_2 = cboe_bzxoptions_multicasttop_pitch_v1_2_54.reserved_2.dissect(buffer, index, packet, parent)
@@ -1896,7 +1896,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.options_auction_update_message = {}
 -- Size: Options Auction Update Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.options_auction_update_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.auction_type.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.reference_price.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.buy_contracts.size + 
@@ -1919,8 +1919,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.options_auction_update_message.fields
   -- Time Offset: Time Offset
   index, time_offset = cboe_bzxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Long: Printable ASCII
-  index, symbol_long = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_long.dissect(buffer, index, packet, parent)
+  -- Expanded Symbol: Printable ASCII
+  index, expanded_symbol = cboe_bzxoptions_multicasttop_pitch_v1_2_54.expanded_symbol.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_bzxoptions_multicasttop_pitch_v1_2_54.auction_type.dissect(buffer, index, packet, parent)
@@ -1976,7 +1976,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.top_trade_message = {}
 -- Size: Top Trade Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.top_trade_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.quantity_long.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.price_long.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.execution_id.size + 
@@ -1995,8 +1995,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.top_trade_message.fields = function(b
   -- Time Offset: Time Offset
   index, time_offset = cboe_bzxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Printable ASCII
-  index, symbol_short = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.dissect(buffer, index, packet, parent)
 
   -- Quantity Long: Binary
   index, quantity_long = cboe_bzxoptions_multicasttop_pitch_v1_2_54.quantity_long.dissect(buffer, index, packet, parent)
@@ -2093,7 +2093,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_long_message
 -- Size: Two Side Update Expanded Long Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_long_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bit_fields.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bid_price_long.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bid_quantity_long.size + 
@@ -2114,8 +2114,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_long_message
   -- Time Offset: Time Offset
   index, time_offset = cboe_bzxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Printable ASCII
-  index, symbol_short = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.dissect(buffer, index, packet, parent)
 
   -- Bit Fields: Struct of 4 fields
   index, bit_fields = cboe_bzxoptions_multicasttop_pitch_v1_2_54.bit_fields.dissect(buffer, index, packet, parent)
@@ -2165,7 +2165,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_short_messag
 -- Size: Two Side Update Expanded Short Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_short_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bit_fields.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bid_price_short.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bid_quantity_short.size + 
@@ -2186,8 +2186,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.two_side_update_expanded_short_messag
   -- Time Offset: Time Offset
   index, time_offset = cboe_bzxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Printable ASCII
-  index, symbol_short = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.dissect(buffer, index, packet, parent)
 
   -- Bit Fields: Struct of 4 fields
   index, bit_fields = cboe_bzxoptions_multicasttop_pitch_v1_2_54.bit_fields.dissect(buffer, index, packet, parent)
@@ -2237,7 +2237,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_long_mess
 -- Size: Single Side Update Expanded Long Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_long_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.side.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bit_fields.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.price_long.size + 
@@ -2256,8 +2256,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_long_mess
   -- Time Offset: Time Offset
   index, time_offset = cboe_bzxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Printable ASCII
-  index, symbol_short = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_bzxoptions_multicasttop_pitch_v1_2_54.side.dissect(buffer, index, packet, parent)
@@ -2301,7 +2301,7 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_short_mes
 -- Size: Single Side Update Expanded Short Message
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_short_message.size =
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.size + 
+  cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.side.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.bit_fields.size + 
   cboe_bzxoptions_multicasttop_pitch_v1_2_54.price_short.size + 
@@ -2320,8 +2320,8 @@ cboe_bzxoptions_multicasttop_pitch_v1_2_54.single_side_update_expanded_short_mes
   -- Time Offset: Time Offset
   index, time_offset = cboe_bzxoptions_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Printable ASCII
-  index, symbol_short = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_bzxoptions_multicasttop_pitch_v1_2_54.symbol.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_bzxoptions_multicasttop_pitch_v1_2_54.side.dissect(buffer, index, packet, parent)

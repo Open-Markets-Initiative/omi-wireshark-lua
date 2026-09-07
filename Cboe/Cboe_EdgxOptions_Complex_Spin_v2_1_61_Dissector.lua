@@ -40,16 +40,16 @@ omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.order_count = ProtoField.new("O
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.order_id = ProtoField.new("Order Id", "cboe.edgxoptions.complex.spin.v2.1.61.orderid", ftypes.UINT64)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.edgxoptions.complex.spin.v2.1.61.osisymbol", ftypes.STRING)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.password = ProtoField.new("Password", "cboe.edgxoptions.complex.spin.v2.1.61.password", ftypes.STRING)
-omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.price_binary_signed_long_price_8 = ProtoField.new("Price Binary Signed Long Price 8", "cboe.edgxoptions.complex.spin.v2.1.61.pricebinarysignedlongprice8", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.price_binary_signed_short_price_2 = ProtoField.new("Price Binary Signed Short Price 2", "cboe.edgxoptions.complex.spin.v2.1.61.pricebinarysignedshortprice2", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_binary_2 = ProtoField.new("Quantity Binary 2", "cboe.edgxoptions.complex.spin.v2.1.61.quantitybinary2", ftypes.UINT16)
-omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_binary_4 = ProtoField.new("Quantity Binary 4", "cboe.edgxoptions.complex.spin.v2.1.61.quantitybinary4", ftypes.UINT32)
+omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.edgxoptions.complex.spin.v2.1.61.quantitylong", ftypes.UINT32)
+omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.edgxoptions.complex.spin.v2.1.61.quantityshort", ftypes.UINT16)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxoptions.complex.spin.v2.1.61.reserved1", ftypes.BYTES)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.edgxoptions.complex.spin.v2.1.61.reserved2", ftypes.BYTES)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.edgxoptions.complex.spin.v2.1.61.secondreserved1", ftypes.BYTES)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.sequence = ProtoField.new("Sequence", "cboe.edgxoptions.complex.spin.v2.1.61.sequence", ftypes.UINT32)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.edgxoptions.complex.spin.v2.1.61.sessionsubid", ftypes.STRING)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.edgxoptions.complex.spin.v2.1.61.sideindicator", ftypes.STRING)
+omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.signed_price_long = ProtoField.new("Signed Price Long", "cboe.edgxoptions.complex.spin.v2.1.61.signedpricelong", ftypes.DOUBLE)
+omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.signed_price_short = ProtoField.new("Signed Price Short", "cboe.edgxoptions.complex.spin.v2.1.61.signedpriceshort", ftypes.DOUBLE)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.edgxoptions.complex.spin.v2.1.61.spinresponsestatus", ftypes.STRING)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.edgxoptions.complex.spin.v2.1.61.symbolcondition", ftypes.STRING)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.time = ProtoField.new("Time", "cboe.edgxoptions.complex.spin.v2.1.61.time", ftypes.UINT32)
@@ -735,106 +735,48 @@ cboe_edgxoptions_complex_spin_v2_1_61.password.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Price Binary Signed Long Price 8
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8 = {}
+-- Quantity Long
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_long = {}
 
--- Size: Price Binary Signed Long Price 8
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.size = 8
+-- Size: Quantity Long
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_long.size = 4
 
--- Display: Price Binary Signed Long Price 8
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.display = function(value)
-  return "Price Binary Signed Long Price 8: "..value
+-- Display: Quantity Long
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_long.display = function(value)
+  return "Quantity Long: "..value
 end
 
--- Translate: Price Binary Signed Long Price 8
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price Binary Signed Long Price 8
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.translate(raw)
-  local display = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.price_binary_signed_long_price_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Binary Signed Short Price 2
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2 = {}
-
--- Size: Price Binary Signed Short Price 2
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.size = 2
-
--- Display: Price Binary Signed Short Price 2
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.display = function(value)
-  return "Price Binary Signed Short Price 2: "..value
-end
-
--- Translate: Price Binary Signed Short Price 2
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price Binary Signed Short Price 2
-cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.translate(raw)
-  local display = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.price_binary_signed_short_price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Binary 2
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2 = {}
-
--- Size: Quantity Binary 2
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2.size = 2
-
--- Display: Quantity Binary 2
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2.display = function(value)
-  return "Quantity Binary 2: "..value
-end
-
--- Dissect: Quantity Binary 2
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2.size
+-- Dissect: Quantity Long
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complex_spin_v2_1_61.quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complex_spin_v2_1_61.quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_long, range, value, display)
 
   return offset + length, value
 end
 
--- Quantity Binary 4
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4 = {}
+-- Quantity Short
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_short = {}
 
--- Size: Quantity Binary 4
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4.size = 4
+-- Size: Quantity Short
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_short.size = 2
 
--- Display: Quantity Binary 4
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4.display = function(value)
-  return "Quantity Binary 4: "..value
+-- Display: Quantity Short
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_short.display = function(value)
+  return "Quantity Short: "..value
 end
 
--- Dissect: Quantity Binary 4
-cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4.size
+-- Dissect: Quantity Short
+cboe_edgxoptions_complex_spin_v2_1_61.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complex_spin_v2_1_61.quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complex_spin_v2_1_61.quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -980,6 +922,64 @@ cboe_edgxoptions_complex_spin_v2_1_61.side_indicator.dissect = function(buffer, 
   local display = cboe_edgxoptions_complex_spin_v2_1_61.side_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.side_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Signed Price Long
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long = {}
+
+-- Size: Signed Price Long
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.size = 8
+
+-- Display: Signed Price Long
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.display = function(value)
+  return "Signed Price Long: "..value
+end
+
+-- Translate: Signed Price Long
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Signed Price Long
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.translate(raw)
+  local display = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.signed_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Signed Price Short
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short = {}
+
+-- Size: Signed Price Short
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.size = 2
+
+-- Display: Signed Price Short
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.display = function(value)
+  return "Signed Price Short: "..value
+end
+
+-- Translate: Signed Price Short
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Signed Price Short
+cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_int()
+  local value = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.translate(raw)
+  local display = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.signed_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1275,9 +1275,9 @@ cboe_edgxoptions_complex_spin_v2_1_61.add_order_short_message.size =
   cboe_edgxoptions_complex_spin_v2_1_61.time_offset.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.order_id.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.side_indicator.size + 
-  cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2.size + 
+  cboe_edgxoptions_complex_spin_v2_1_61.quantity_short.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.complex_instrument_id.size + 
-  cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.size + 
+  cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.reserved_1.size
 
 -- Display: Add Order Short Message
@@ -1298,14 +1298,14 @@ cboe_edgxoptions_complex_spin_v2_1_61.add_order_short_message.fields = function(
   -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_edgxoptions_complex_spin_v2_1_61.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Binary 2: Binary
-  index, quantity_binary_2 = cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Quantity Short: Binary
+  index, quantity_short = cboe_edgxoptions_complex_spin_v2_1_61.quantity_short.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_edgxoptions_complex_spin_v2_1_61.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Short Price 2: Binary Signed Short Price
-  index, price_binary_signed_short_price_2 = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_short_price_2.dissect(buffer, index, packet, parent)
+  -- Signed Price Short: Binary Signed Short Price
+  index, signed_price_short = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_edgxoptions_complex_spin_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)
@@ -1339,9 +1339,9 @@ cboe_edgxoptions_complex_spin_v2_1_61.add_order_long_message.size =
   cboe_edgxoptions_complex_spin_v2_1_61.time_offset.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.order_id.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.side_indicator.size + 
-  cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4.size + 
+  cboe_edgxoptions_complex_spin_v2_1_61.quantity_long.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.complex_instrument_id.size + 
-  cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.size + 
+  cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.size + 
   cboe_edgxoptions_complex_spin_v2_1_61.reserved_1.size
 
 -- Display: Add Order Long Message
@@ -1362,14 +1362,14 @@ cboe_edgxoptions_complex_spin_v2_1_61.add_order_long_message.fields = function(b
   -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_edgxoptions_complex_spin_v2_1_61.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Binary 4: Binary
-  index, quantity_binary_4 = cboe_edgxoptions_complex_spin_v2_1_61.quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_edgxoptions_complex_spin_v2_1_61.quantity_long.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_edgxoptions_complex_spin_v2_1_61.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Signed Long Price 8: Binary Signed Long Price
-  index, price_binary_signed_long_price_8 = cboe_edgxoptions_complex_spin_v2_1_61.price_binary_signed_long_price_8.dissect(buffer, index, packet, parent)
+  -- Signed Price Long: Binary Signed Long Price
+  index, signed_price_long = cboe_edgxoptions_complex_spin_v2_1_61.signed_price_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_edgxoptions_complex_spin_v2_1_61.reserved_1.dissect(buffer, index, packet, parent)

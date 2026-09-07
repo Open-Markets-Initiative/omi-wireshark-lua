@@ -15,26 +15,26 @@ local cboe_edgxoptions_complextop_spin_v1_1_54 = {}
 -----------------------------------------------------------------------
 
 -- Cboe EdgxOptions ComplexTop Spin 1.1.54 Fields
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_2 = ProtoField.new("Ask Customer Quantity Binary 2", "cboe.edgxoptions.complextop.spin.v1.1.54.askcustomerquantitybinary2", ftypes.UINT16)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_4 = ProtoField.new("Ask Customer Quantity Binary 4", "cboe.edgxoptions.complextop.spin.v1.1.54.askcustomerquantitybinary4", ftypes.UINT32)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_binary_long_price_8 = ProtoField.new("Ask Price Binary Long Price 8", "cboe.edgxoptions.complextop.spin.v1.1.54.askpricebinarylongprice8", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_binary_short_price_2 = ProtoField.new("Ask Price Binary Short Price 2", "cboe.edgxoptions.complextop.spin.v1.1.54.askpricebinaryshortprice2", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_binary_2 = ProtoField.new("Ask Quantity Binary 2", "cboe.edgxoptions.complextop.spin.v1.1.54.askquantitybinary2", ftypes.UINT16)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_binary_4 = ProtoField.new("Ask Quantity Binary 4", "cboe.edgxoptions.complextop.spin.v1.1.54.askquantitybinary4", ftypes.UINT32)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_binary_2 = ProtoField.new("Bid Customer Quantity Binary 2", "cboe.edgxoptions.complextop.spin.v1.1.54.bidcustomerquantitybinary2", ftypes.UINT16)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_binary_4 = ProtoField.new("Bid Customer Quantity Binary 4", "cboe.edgxoptions.complextop.spin.v1.1.54.bidcustomerquantitybinary4", ftypes.UINT32)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_binary_long_price_8 = ProtoField.new("Bid Price Binary Long Price 8", "cboe.edgxoptions.complextop.spin.v1.1.54.bidpricebinarylongprice8", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_binary_short_price_2 = ProtoField.new("Bid Price Binary Short Price 2", "cboe.edgxoptions.complextop.spin.v1.1.54.bidpricebinaryshortprice2", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_binary_2 = ProtoField.new("Bid Quantity Binary 2", "cboe.edgxoptions.complextop.spin.v1.1.54.bidquantitybinary2", ftypes.UINT16)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_binary_4 = ProtoField.new("Bid Quantity Binary 4", "cboe.edgxoptions.complextop.spin.v1.1.54.bidquantitybinary4", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_long = ProtoField.new("Ask Customer Quantity Long", "cboe.edgxoptions.complextop.spin.v1.1.54.askcustomerquantitylong", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_short = ProtoField.new("Ask Customer Quantity Short", "cboe.edgxoptions.complextop.spin.v1.1.54.askcustomerquantityshort", ftypes.UINT16)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.edgxoptions.complextop.spin.v1.1.54.askpricelong", ftypes.DOUBLE)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.edgxoptions.complextop.spin.v1.1.54.askpriceshort", ftypes.DOUBLE)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.edgxoptions.complextop.spin.v1.1.54.askquantitylong", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.edgxoptions.complextop.spin.v1.1.54.askquantityshort", ftypes.UINT16)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_long = ProtoField.new("Bid Customer Quantity Long", "cboe.edgxoptions.complextop.spin.v1.1.54.bidcustomerquantitylong", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_short = ProtoField.new("Bid Customer Quantity Short", "cboe.edgxoptions.complextop.spin.v1.1.54.bidcustomerquantityshort", ftypes.UINT16)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.edgxoptions.complextop.spin.v1.1.54.bidpricelong", ftypes.DOUBLE)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_short = ProtoField.new("Bid Price Short", "cboe.edgxoptions.complextop.spin.v1.1.54.bidpriceshort", ftypes.DOUBLE)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.edgxoptions.complextop.spin.v1.1.54.bidquantitylong", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.edgxoptions.complextop.spin.v1.1.54.bidquantityshort", ftypes.UINT16)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bit_fields = ProtoField.new("Bit Fields", "cboe.edgxoptions.complextop.spin.v1.1.54.bitfields", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.edgxoptions.complextop.spin.v1.1.54.complexinstrumentid", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.edgxoptions.complextop.spin.v1.1.54.complexinstrumenttype", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.complex_instrument_underlying = ProtoField.new("Complex Instrument Underlying", "cboe.edgxoptions.complextop.spin.v1.1.54.complexinstrumentunderlying", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.complex_leg = ProtoField.new("Complex Leg", "cboe.edgxoptions.complextop.spin.v1.1.54.complexleg", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.count = ProtoField.new("Count", "cboe.edgxoptions.complextop.spin.v1.1.54.count", ftypes.UINT8)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_binary_2 = ProtoField.new("Customer Quantity Binary 2", "cboe.edgxoptions.complextop.spin.v1.1.54.customerquantitybinary2", ftypes.UINT16)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_binary_4 = ProtoField.new("Customer Quantity Binary 4", "cboe.edgxoptions.complextop.spin.v1.1.54.customerquantitybinary4", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_long = ProtoField.new("Customer Quantity Long", "cboe.edgxoptions.complextop.spin.v1.1.54.customerquantitylong", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_short = ProtoField.new("Customer Quantity Short", "cboe.edgxoptions.complextop.spin.v1.1.54.customerquantityshort", ftypes.UINT16)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.execution_id = ProtoField.new("Execution Id", "cboe.edgxoptions.complextop.spin.v1.1.54.executionid", ftypes.UINT64)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.edgxoptions.complextop.spin.v1.1.54.feedsymbol", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.filler = ProtoField.new("Filler", "cboe.edgxoptions.complextop.spin.v1.1.54.filler", ftypes.STRING)
@@ -54,10 +54,10 @@ omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.message_type = ProtoField.ne
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.order_count = ProtoField.new("Order Count", "cboe.edgxoptions.complextop.spin.v1.1.54.ordercount", ftypes.UINT32)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.edgxoptions.complextop.spin.v1.1.54.osisymbol", ftypes.STRING)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.password = ProtoField.new("Password", "cboe.edgxoptions.complextop.spin.v1.1.54.password", ftypes.STRING)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_binary_long_price_8 = ProtoField.new("Price Binary Long Price 8", "cboe.edgxoptions.complextop.spin.v1.1.54.pricebinarylongprice8", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.edgxoptions.complextop.spin.v1.1.54.pricebinaryshortprice2", ftypes.DOUBLE)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_binary_2 = ProtoField.new("Quantity Binary 2", "cboe.edgxoptions.complextop.spin.v1.1.54.quantitybinary2", ftypes.UINT16)
-omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_binary_4 = ProtoField.new("Quantity Binary 4", "cboe.edgxoptions.complextop.spin.v1.1.54.quantitybinary4", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_long = ProtoField.new("Price Long", "cboe.edgxoptions.complextop.spin.v1.1.54.pricelong", ftypes.DOUBLE)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_short = ProtoField.new("Price Short", "cboe.edgxoptions.complextop.spin.v1.1.54.priceshort", ftypes.DOUBLE)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.edgxoptions.complextop.spin.v1.1.54.quantitylong", ftypes.UINT32)
+omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.edgxoptions.complextop.spin.v1.1.54.quantityshort", ftypes.UINT16)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxoptions.complextop.spin.v1.1.54.reserved1", ftypes.BYTES)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.edgxoptions.complextop.spin.v1.1.54.reserved2", ftypes.BYTES)
 omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.reserved_bits = ProtoField.new("Reserved Bits", "cboe.edgxoptions.complextop.spin.v1.1.54.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFF)
@@ -163,302 +163,302 @@ end
 -- Cboe EdgxOptions ComplexTop Spin 1.1.54 Fields
 -----------------------------------------------------------------------
 
--- Ask Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2 = {}
+-- Ask Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long = {}
 
--- Size: Ask Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2.size = 2
+-- Size: Ask Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long.size = 4
 
--- Display: Ask Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2.display = function(value)
-  return "Ask Customer Quantity Binary 2: "..value
+-- Display: Ask Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long.display = function(value)
+  return "Ask Customer Quantity Long: "..value
 end
 
--- Dissect: Ask Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2.size
+-- Dissect: Ask Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4 = {}
+-- Ask Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short = {}
 
--- Size: Ask Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4.size = 4
+-- Size: Ask Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short.size = 2
 
--- Display: Ask Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4.display = function(value)
-  return "Ask Customer Quantity Binary 4: "..value
+-- Display: Ask Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short.display = function(value)
+  return "Ask Customer Quantity Short: "..value
 end
 
--- Dissect: Ask Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4.size
+-- Dissect: Ask Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_customer_quantity_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8 = {}
+-- Ask Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long = {}
 
--- Size: Ask Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.size = 8
+-- Size: Ask Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.size = 8
 
--- Display: Ask Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.display = function(value)
-  return "Ask Price Binary Long Price 8: "..value
+-- Display: Ask Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.display = function(value)
+  return "Ask Price Long: "..value
 end
 
--- Translate: Ask Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.translate = function(raw)
+-- Translate: Ask Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Ask Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.size
+-- Dissect: Ask Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.translate(raw)
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.translate(raw)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_binary_long_price_8, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2 = {}
+-- Ask Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short = {}
 
--- Size: Ask Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.size = 2
+-- Size: Ask Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.size = 2
 
--- Display: Ask Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.display = function(value)
-  return "Ask Price Binary Short Price 2: "..value
+-- Display: Ask Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.display = function(value)
+  return "Ask Price Short: "..value
 end
 
--- Translate: Ask Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.translate = function(raw)
+-- Translate: Ask Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.translate = function(raw)
   return raw/100
 end
 
--- Dissect: Ask Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.size
+-- Dissect: Ask Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.translate(raw)
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.display(value, buffer, offset, packet, parent)
+  local value = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.translate(raw)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_binary_short_price_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2 = {}
+-- Ask Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long = {}
 
--- Size: Ask Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2.size = 2
+-- Size: Ask Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long.size = 4
 
--- Display: Ask Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2.display = function(value)
-  return "Ask Quantity Binary 2: "..value
+-- Display: Ask Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long.display = function(value)
+  return "Ask Quantity Long: "..value
 end
 
--- Dissect: Ask Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2.size
+-- Dissect: Ask Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4 = {}
+-- Ask Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short = {}
 
--- Size: Ask Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4.size = 4
+-- Size: Ask Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short.size = 2
 
--- Display: Ask Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4.display = function(value)
-  return "Ask Quantity Binary 4: "..value
+-- Display: Ask Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short.display = function(value)
+  return "Ask Quantity Short: "..value
 end
 
--- Dissect: Ask Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4.size
+-- Dissect: Ask Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.ask_quantity_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2 = {}
+-- Bid Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long = {}
 
--- Size: Bid Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2.size = 2
+-- Size: Bid Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long.size = 4
 
--- Display: Bid Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2.display = function(value)
-  return "Bid Customer Quantity Binary 2: "..value
+-- Display: Bid Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long.display = function(value)
+  return "Bid Customer Quantity Long: "..value
 end
 
--- Dissect: Bid Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2.size
+-- Dissect: Bid Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4 = {}
+-- Bid Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short = {}
 
--- Size: Bid Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4.size = 4
+-- Size: Bid Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short.size = 2
 
--- Display: Bid Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4.display = function(value)
-  return "Bid Customer Quantity Binary 4: "..value
+-- Display: Bid Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short.display = function(value)
+  return "Bid Customer Quantity Short: "..value
 end
 
--- Dissect: Bid Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4.size
+-- Dissect: Bid Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_customer_quantity_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8 = {}
+-- Bid Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long = {}
 
--- Size: Bid Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.size = 8
+-- Size: Bid Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.size = 8
 
--- Display: Bid Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.display = function(value)
-  return "Bid Price Binary Long Price 8: "..value
+-- Display: Bid Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
 end
 
--- Translate: Bid Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.translate = function(raw)
+-- Translate: Bid Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Bid Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.size
+-- Dissect: Bid Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.translate(raw)
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.translate(raw)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_binary_long_price_8, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2 = {}
+-- Bid Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short = {}
 
--- Size: Bid Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.size = 2
+-- Size: Bid Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.size = 2
 
--- Display: Bid Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.display = function(value)
-  return "Bid Price Binary Short Price 2: "..value
+-- Display: Bid Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
 end
 
--- Translate: Bid Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.translate = function(raw)
+-- Translate: Bid Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.translate = function(raw)
   return raw/100
 end
 
--- Dissect: Bid Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.size
+-- Dissect: Bid Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.translate(raw)
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.display(value, buffer, offset, packet, parent)
+  local value = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.translate(raw)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_binary_short_price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2 = {}
-
--- Size: Bid Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2.size = 2
-
--- Display: Bid Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2.display = function(value)
-  return "Bid Quantity Binary 2: "..value
-end
-
--- Dissect: Bid Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4 = {}
+-- Bid Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long = {}
 
--- Size: Bid Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4.size = 4
+-- Size: Bid Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long.size = 4
 
--- Display: Bid Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4.display = function(value)
-  return "Bid Quantity Binary 4: "..value
+-- Display: Bid Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long.display = function(value)
+  return "Bid Quantity Long: "..value
 end
 
--- Dissect: Bid Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4.size
+-- Dissect: Bid Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short = {}
+
+-- Size: Bid Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short.size = 2
+
+-- Display: Bid Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short.display = function(value)
+  return "Bid Quantity Short: "..value
+end
+
+-- Dissect: Bid Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.bid_quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -555,48 +555,48 @@ cboe_edgxoptions_complextop_spin_v1_1_54.count.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2 = {}
+-- Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long = {}
 
--- Size: Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2.size = 2
+-- Size: Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long.size = 4
 
--- Display: Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2.display = function(value)
-  return "Customer Quantity Binary 2: "..value
+-- Display: Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long.display = function(value)
+  return "Customer Quantity Long: "..value
 end
 
--- Dissect: Customer Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2.size
+-- Dissect: Customer Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_long, range, value, display)
 
   return offset + length, value
 end
 
--- Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4 = {}
+-- Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short = {}
 
--- Size: Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4.size = 4
+-- Size: Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short.size = 2
 
--- Display: Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4.display = function(value)
-  return "Customer Quantity Binary 4: "..value
+-- Display: Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short.display = function(value)
+  return "Customer Quantity Short: "..value
 end
 
--- Dissect: Customer Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4.size
+-- Dissect: Customer Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.customer_quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1077,106 +1077,106 @@ cboe_edgxoptions_complextop_spin_v1_1_54.password.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8 = {}
+-- Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.price_long = {}
 
--- Size: Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.size = 8
+-- Size: Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.price_long.size = 8
 
--- Display: Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.display = function(value)
-  return "Price Binary Long Price 8: "..value
+-- Display: Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Translate: Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.translate = function(raw)
+-- Translate: Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.price_long.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Price Binary Long Price 8
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.size
+-- Dissect: Price Long
+cboe_edgxoptions_complextop_spin_v1_1_54.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.translate(raw)
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_edgxoptions_complextop_spin_v1_1_54.price_long.translate(raw)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_binary_long_price_8, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2 = {}
+-- Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.price_short = {}
 
--- Size: Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.size = 2
+-- Size: Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.price_short.size = 2
 
--- Display: Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.display = function(value)
-  return "Price Binary Short Price 2: "..value
+-- Display: Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Translate: Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.translate = function(raw)
+-- Translate: Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.price_short.translate = function(raw)
   return raw/100
 end
 
--- Dissect: Price Binary Short Price 2
-cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.size
+-- Dissect: Price Short
+cboe_edgxoptions_complextop_spin_v1_1_54.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.translate(raw)
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.display(value, buffer, offset, packet, parent)
+  local value = cboe_edgxoptions_complextop_spin_v1_1_54.price_short.translate(raw)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_binary_short_price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2 = {}
-
--- Size: Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2.size = 2
-
--- Display: Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2.display = function(value)
-  return "Quantity Binary 2: "..value
-end
-
--- Dissect: Quantity Binary 2
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4 = {}
+-- Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long = {}
 
--- Size: Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.size = 4
+-- Size: Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.size = 4
 
--- Display: Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.display = function(value)
-  return "Quantity Binary 4: "..value
+-- Display: Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.display = function(value)
+  return "Quantity Long: "..value
 end
 
--- Dissect: Quantity Binary 4
-cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.size
+-- Dissect: Quantity Long
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short.size = 2
+
+-- Display: Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_complextop_spin_v1_1_54.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1702,8 +1702,8 @@ cboe_edgxoptions_complextop_spin_v1_1_54.top_trade_message = {}
 cboe_edgxoptions_complextop_spin_v1_1_54.top_trade_message.size =
   cboe_edgxoptions_complextop_spin_v1_1_54.time_offset.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.complex_instrument_id.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.price_long.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.execution_id.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.total_volume.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.trade_condition.size
@@ -1723,11 +1723,11 @@ cboe_edgxoptions_complextop_spin_v1_1_54.top_trade_message.fields = function(buf
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_edgxoptions_complextop_spin_v1_1_54.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity Binary 4: Binary
-  index, quantity_binary_4 = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Long Price 8: Binary Long Price
-  index, price_binary_long_price_8 = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: Binary Long Price
+  index, price_long = cboe_edgxoptions_complextop_spin_v1_1_54.price_long.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Binary
   index, execution_id = cboe_edgxoptions_complextop_spin_v1_1_54.execution_id.dissect(buffer, index, packet, parent)
@@ -1803,12 +1803,12 @@ cboe_edgxoptions_complextop_spin_v1_1_54.two_side_update_expanded_long_message.s
   cboe_edgxoptions_complextop_spin_v1_1_54.time_offset.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.complex_instrument_id.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4.size
+  cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long.size
 
 -- Display: Two Side Update Expanded Long Message
 cboe_edgxoptions_complextop_spin_v1_1_54.two_side_update_expanded_long_message.display = function(packet, parent, length)
@@ -1828,23 +1828,23 @@ cboe_edgxoptions_complextop_spin_v1_1_54.two_side_update_expanded_long_message.f
   -- Bit Fields: Struct of 1 fields
   index, bit_fields = cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Long Price 8: Binary Long Price
-  index, bid_price_binary_long_price_8 = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_long_price_8.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Binary Long Price
+  index, bid_price_long = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Binary 4: Binary
-  index, bid_quantity_binary_4 = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Binary
+  index, bid_quantity_long = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Customer Quantity Binary 4: Binary
-  index, bid_customer_quantity_binary_4 = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Bid Customer Quantity Long: Binary
+  index, bid_customer_quantity_long = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Binary Long Price 8: Binary Long Price
-  index, ask_price_binary_long_price_8 = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_long_price_8.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Binary Long Price
+  index, ask_price_long = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Binary 4: Binary
-  index, ask_quantity_binary_4 = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Binary
+  index, ask_quantity_long = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Customer Quantity Binary 4: Binary
-  index, ask_customer_quantity_binary_4 = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Ask Customer Quantity Long: Binary
+  index, ask_customer_quantity_long = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1875,12 +1875,12 @@ cboe_edgxoptions_complextop_spin_v1_1_54.two_side_update_expanded_short_message.
   cboe_edgxoptions_complextop_spin_v1_1_54.time_offset.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.complex_instrument_id.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2.size
+  cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short.size
 
 -- Display: Two Side Update Expanded Short Message
 cboe_edgxoptions_complextop_spin_v1_1_54.two_side_update_expanded_short_message.display = function(packet, parent, length)
@@ -1900,23 +1900,23 @@ cboe_edgxoptions_complextop_spin_v1_1_54.two_side_update_expanded_short_message.
   -- Bit Fields: Struct of 1 fields
   index, bit_fields = cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Short Price 2: Binary Short Price
-  index, bid_price_binary_short_price_2 = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_binary_short_price_2.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: Binary Short Price
+  index, bid_price_short = cboe_edgxoptions_complextop_spin_v1_1_54.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Binary 2: Binary
-  index, bid_quantity_binary_2 = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Short: Binary
+  index, bid_quantity_short = cboe_edgxoptions_complextop_spin_v1_1_54.bid_quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Customer Quantity Binary 2: Binary
-  index, bid_customer_quantity_binary_2 = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Bid Customer Quantity Short: Binary
+  index, bid_customer_quantity_short = cboe_edgxoptions_complextop_spin_v1_1_54.bid_customer_quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Binary Short Price 2: Binary Short Price
-  index, ask_price_binary_short_price_2 = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_binary_short_price_2.dissect(buffer, index, packet, parent)
+  -- Ask Price Short: Binary Short Price
+  index, ask_price_short = cboe_edgxoptions_complextop_spin_v1_1_54.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Binary 2: Binary
-  index, ask_quantity_binary_2 = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Short: Binary
+  index, ask_quantity_short = cboe_edgxoptions_complextop_spin_v1_1_54.ask_quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Customer Quantity Binary 2: Binary
-  index, ask_customer_quantity_binary_2 = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Ask Customer Quantity Short: Binary
+  index, ask_customer_quantity_short = cboe_edgxoptions_complextop_spin_v1_1_54.ask_customer_quantity_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1948,9 +1948,9 @@ cboe_edgxoptions_complextop_spin_v1_1_54.single_side_update_expanded_long_messag
   cboe_edgxoptions_complextop_spin_v1_1_54.complex_instrument_id.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.side.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4.size
+  cboe_edgxoptions_complextop_spin_v1_1_54.price_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long.size
 
 -- Display: Single Side Update Expanded Long Message
 cboe_edgxoptions_complextop_spin_v1_1_54.single_side_update_expanded_long_message.display = function(packet, parent, length)
@@ -1973,14 +1973,14 @@ cboe_edgxoptions_complextop_spin_v1_1_54.single_side_update_expanded_long_messag
   -- Bit Fields: Struct of 1 fields
   index, bit_fields = cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Long Price 8: Binary Long Price
-  index, price_binary_long_price_8 = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_long_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: Binary Long Price
+  index, price_long = cboe_edgxoptions_complextop_spin_v1_1_54.price_long.dissect(buffer, index, packet, parent)
 
-  -- Quantity Binary 4: Binary
-  index, quantity_binary_4 = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Customer Quantity Binary 4: Binary
-  index, customer_quantity_binary_4 = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Customer Quantity Long: Binary
+  index, customer_quantity_long = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2012,9 +2012,9 @@ cboe_edgxoptions_complextop_spin_v1_1_54.single_side_update_expanded_short_messa
   cboe_edgxoptions_complextop_spin_v1_1_54.complex_instrument_id.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.side.size + 
   cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2.size + 
-  cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2.size
+  cboe_edgxoptions_complextop_spin_v1_1_54.price_short.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short.size + 
+  cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short.size
 
 -- Display: Single Side Update Expanded Short Message
 cboe_edgxoptions_complextop_spin_v1_1_54.single_side_update_expanded_short_message.display = function(packet, parent, length)
@@ -2037,14 +2037,14 @@ cboe_edgxoptions_complextop_spin_v1_1_54.single_side_update_expanded_short_messa
   -- Bit Fields: Struct of 1 fields
   index, bit_fields = cboe_edgxoptions_complextop_spin_v1_1_54.bit_fields.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Short Price 2: Binary Short Price
-  index, price_binary_short_price_2 = cboe_edgxoptions_complextop_spin_v1_1_54.price_binary_short_price_2.dissect(buffer, index, packet, parent)
+  -- Price Short: Binary Short Price
+  index, price_short = cboe_edgxoptions_complextop_spin_v1_1_54.price_short.dissect(buffer, index, packet, parent)
 
-  -- Quantity Binary 2: Binary
-  index, quantity_binary_2 = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Quantity Short: Binary
+  index, quantity_short = cboe_edgxoptions_complextop_spin_v1_1_54.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Customer Quantity Binary 2: Binary
-  index, customer_quantity_binary_2 = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Customer Quantity Short: Binary
+  index, customer_quantity_short = cboe_edgxoptions_complextop_spin_v1_1_54.customer_quantity_short.dissect(buffer, index, packet, parent)
 
   return index
 end
