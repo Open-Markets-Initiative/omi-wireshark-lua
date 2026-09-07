@@ -7956,7 +7956,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.minimum_price_variant_level_re
   index, transact_time_timestamp_8 = nyse_amexoptions_binarygateway_pillarstream_v3_25.transact_time_timestamp_8.dissect(buffer, index, packet, parent)
 
   -- Dependency for Mpv Level Definition
-  local end_of_payload = buffer:len()
+  local end_of_payload = offset + size_of_minimum_price_variant_level_reference_data_message
 
   -- Mpv Level Definition: Struct of 5 fields
   local message_index = 0
@@ -8277,7 +8277,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.new_complex_series_request_mes
   index, mpid = nyse_amexoptions_binarygateway_pillarstream_v3_25.mpid.dissect(buffer, index, packet, parent)
 
   -- Dependency for Complex Series Leg Group
-  local end_of_payload = buffer:len()
+  local end_of_payload = offset + size_of_new_complex_series_request_message
 
   -- Complex Series Leg Group: Struct of 3 fields
   local message_index = 0

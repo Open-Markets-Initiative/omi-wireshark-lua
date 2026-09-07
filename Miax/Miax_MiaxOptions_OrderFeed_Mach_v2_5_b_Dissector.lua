@@ -67,10 +67,10 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.refresh_message_type = ProtoFi
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.miaxoptions.orderfeed.mach.v2.5.b.remainingvolumeopen", ftypes.UINT32)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.miaxoptions.orderfeed.mach.v2.5.b.requestedsequencenumber", ftypes.UINT64)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.miaxoptions.orderfeed.mach.v2.5.b.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved1", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved10", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved28", ftypes.STRING)
-omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved8", ftypes.STRING)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved1", ftypes.BYTES)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved10", ftypes.BYTES)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved28", ftypes.BYTES)
+omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.orderfeed.mach.v2.5.b.reserved8", ftypes.BYTES)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.restricted_option = ProtoField.new("Restricted Option", "miax.miaxoptions.orderfeed.mach.v2.5.b.restrictedoption", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.miaxoptions.orderfeed.mach.v2.5.b.retransmissionrequest", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.route_instruction = ProtoField.new("Route Instruction", "miax.miaxoptions.orderfeed.mach.v2.5.b.routeinstruction", ftypes.STRING)
@@ -1571,7 +1571,7 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_1, range, value, display)
@@ -1594,7 +1594,7 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_10, range, value, display)
@@ -1617,7 +1617,7 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_28.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_28.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_28.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_28, range, value, display)
@@ -1640,7 +1640,7 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_orderfeed_mach_v2_5_b.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.reserved_8, range, value, display)
@@ -1909,7 +1909,7 @@ end
 miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_miaxoptions_orderfeed_mach_v2_5_b.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.sesm_version, range, value, display)

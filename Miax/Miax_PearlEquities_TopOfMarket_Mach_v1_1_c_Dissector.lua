@@ -56,10 +56,10 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.refresh_message_type = Pro
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reportable_to_sip = ProtoField.new("Reportable To Sip", "miax.pearlequities.topofmarket.mach.v1.1.c.reportabletosip", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.c.requestedsequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.topofmarket.mach.v1.1.c.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.reserved1", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.reserved1", ftypes.BYTES)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_7 = ProtoField.new("Reserved 7", "miax.pearlequities.topofmarket.mach.v1.1.c.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.topofmarket.mach.v1.1.c.retransmissionrequest", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.secondreserved1", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.secondreserved1", ftypes.BYTES)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.c.seconds", ftypes.UINT32)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.c.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.sequenceddatapacket", ftypes.STRING)
@@ -515,7 +515,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.esesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.esesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.esesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.esesm_version, range, value, display)
@@ -821,15 +821,6 @@ miax_pearlequities_topofmarket_mach_v1_1_c.message_type.display = function(value
   end
   if value == 11 then
     return "Message Type: Trade Cancel Message (11)"
-  end
-  if value == R then
-    return "Message Type: Refresh Request Message (R)"
-  end
-  if value == r then
-    return "Message Type: Refresh Response Message (r)"
-  end
-  if value == E then
-    return "Message Type: End Of Refresh Notification Message (E)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -1230,7 +1221,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_1, range, value, display)
@@ -1253,7 +1244,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.second_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.second_reserved_1, range, value, display)
@@ -1710,7 +1701,17 @@ miax_pearlequities_topofmarket_mach_v1_1_c.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
 miax_pearlequities_topofmarket_mach_v1_1_c.unsequenced_message_type.display = function(value)
-  return "Unsequenced Message Type: "..value
+  if value == "R" then
+    return "Unsequenced Message Type: Refresh Request Message (R)"
+  end
+  if value == "r" then
+    return "Unsequenced Message Type: Refresh Response Message (r)"
+  end
+  if value == "E" then
+    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2338,7 +2339,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
-  -- Unsequenced Message Type: 1 Byte Ascii String
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 3 values
   index, unsequenced_message_type = miax_pearlequities_topofmarket_mach_v1_1_c.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Unsequenced Message: Runtime Type with 3 branches
@@ -3211,7 +3212,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, message_type = miax_pearlequities_topofmarket_mach_v1_1_c.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 8 branches

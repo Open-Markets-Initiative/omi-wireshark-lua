@@ -35,7 +35,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_side = ProtoField.
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.pearlequities.depthofmarket.mach.v1.3.a.price", ftypes.DOUBLE)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.depthofmarket.mach.v1.3.a.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable = ProtoField.new("Reportable", "miax.pearlequities.depthofmarket.mach.v1.3.a.reportable", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.a.reserved1", ftypes.STRING)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.depthofmarket.mach.v1.3.a.reserved1", ftypes.BYTES)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.depthofmarket.mach.v1.3.a.seconds", ftypes.UINT32)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.depthofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.depthofmarket.mach.v1.3.a.sessionid", ftypes.UINT8)
@@ -651,7 +651,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reserved_1, range, value, display)

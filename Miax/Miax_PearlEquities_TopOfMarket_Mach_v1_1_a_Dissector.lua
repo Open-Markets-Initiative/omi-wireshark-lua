@@ -32,8 +32,8 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.offer_size = ProtoField.ne
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.topofmarket.mach.v1.1.a.openingtime", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.price = ProtoField.new("Price", "miax.pearlequities.topofmarket.mach.v1.1.a.price", ftypes.DOUBLE)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.topofmarket.mach.v1.1.a.primarymarketcode", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.a.reserved1", ftypes.STRING)
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.a.secondreserved1", ftypes.STRING)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.a.reserved1", ftypes.BYTES)
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.a.secondreserved1", ftypes.BYTES)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.a.seconds", ftypes.UINT32)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.a.sequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.topofmarket.mach.v1.1.a.sessionid", ftypes.UINT8)
@@ -663,7 +663,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_topofmarket_mach_v1_1_a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.reserved_1, range, value, display)
@@ -686,7 +686,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_a.second_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_a.second_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_topofmarket_mach_v1_1_a.second_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.second_reserved_1, range, value, display)

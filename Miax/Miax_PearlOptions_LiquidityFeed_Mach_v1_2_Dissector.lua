@@ -60,8 +60,8 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.refresh_message_type = Prot
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.pearloptions.liquidityfeed.mach.v1.2.remainingvolumeopen", ftypes.UINT32)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearloptions.liquidityfeed.mach.v1.2.requestedsequencenumber", ftypes.UINT64)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearloptions.liquidityfeed.mach.v1.2.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearloptions.liquidityfeed.mach.v1.2.reserved12", ftypes.STRING)
-omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearloptions.liquidityfeed.mach.v1.2.reserved8", ftypes.STRING)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearloptions.liquidityfeed.mach.v1.2.reserved12", ftypes.BYTES)
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearloptions.liquidityfeed.mach.v1.2.reserved8", ftypes.BYTES)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.liquidityfeed.mach.v1.2.restrictedoption", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearloptions.liquidityfeed.mach.v1.2.retransmissionrequest", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.liquidityfeed.mach.v1.2.seconds", ftypes.UINT32)
@@ -715,15 +715,6 @@ miax_pearloptions_liquidityfeed_mach_v1_2.message_type.display = function(value)
   end
   if value == "x" then
     return "Message Type: Order Close Message (x)"
-  end
-  if value == "R" then
-    return "Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Message Type: End Of Refresh Notification Message (E)"
   end
 
   return "Message Type: Unknown("..value..")"
@@ -1398,7 +1389,7 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.reserved_12.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_liquidityfeed_mach_v1_2.reserved_12.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearloptions_liquidityfeed_mach_v1_2.reserved_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_12, range, value, display)
@@ -1421,7 +1412,7 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_liquidityfeed_mach_v1_2.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearloptions_liquidityfeed_mach_v1_2.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.reserved_8, range, value, display)
@@ -1660,7 +1651,7 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_version, range, value, display)
@@ -1938,7 +1929,17 @@ miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
 miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_message_type.display = function(value)
-  return "Unsequenced Message Type: "..value
+  if value == "R" then
+    return "Unsequenced Message Type: Refresh Request Message (R)"
+  end
+  if value == "r" then
+    return "Unsequenced Message Type: Refresh Response Message (r)"
+  end
+  if value == "E" then
+    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -2866,7 +2867,7 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 9 values
+  -- Message Type: 1 Byte Ascii String Enum with 6 values
   index, message_type = miax_pearloptions_liquidityfeed_mach_v1_2.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 6 branches
@@ -3036,7 +3037,7 @@ end
 miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
-  -- Unsequenced Message Type: 1 Byte Ascii String
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 3 values
   index, unsequenced_message_type = miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Unsequenced Message: Runtime Type with 3 branches

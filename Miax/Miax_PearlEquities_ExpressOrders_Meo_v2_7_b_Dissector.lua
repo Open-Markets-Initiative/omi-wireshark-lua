@@ -94,21 +94,21 @@ omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.primary_market_code = Pro
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.purge_group = ProtoField.new("Purge Group", "miax.pearlequities.expressorders.meo.v2.7.b.purgegroup", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.expressorders.meo.v2.7.b.requestedsequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.expressorders.meo.v2.7.b.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.expressorders.meo.v2.7.b.reserved1", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.pearlequities.expressorders.meo.v2.7.b.reserved10", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_11 = ProtoField.new("Reserved 11", "miax.pearlequities.expressorders.meo.v2.7.b.reserved11", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearlequities.expressorders.meo.v2.7.b.reserved12", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_17 = ProtoField.new("Reserved 17", "miax.pearlequities.expressorders.meo.v2.7.b.reserved17", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_19 = ProtoField.new("Reserved 19", "miax.pearlequities.expressorders.meo.v2.7.b.reserved19", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearlequities.expressorders.meo.v2.7.b.reserved8", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.pearlequities.expressorders.meo.v2.7.b.reserved9", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.expressorders.meo.v2.7.b.reserved1", ftypes.BYTES)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.pearlequities.expressorders.meo.v2.7.b.reserved10", ftypes.BYTES)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_11 = ProtoField.new("Reserved 11", "miax.pearlequities.expressorders.meo.v2.7.b.reserved11", ftypes.BYTES)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearlequities.expressorders.meo.v2.7.b.reserved12", ftypes.BYTES)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_17 = ProtoField.new("Reserved 17", "miax.pearlequities.expressorders.meo.v2.7.b.reserved17", ftypes.BYTES)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_19 = ProtoField.new("Reserved 19", "miax.pearlequities.expressorders.meo.v2.7.b.reserved19", ftypes.BYTES)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearlequities.expressorders.meo.v2.7.b.reserved8", ftypes.BYTES)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.pearlequities.expressorders.meo.v2.7.b.reserved9", ftypes.BYTES)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.retail_order = ProtoField.new("Retail Order", "miax.pearlequities.expressorders.meo.v2.7.b.retailorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.expressorders.meo.v2.7.b.retransmissionrequest", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.routing = ProtoField.new("Routing", "miax.pearlequities.expressorders.meo.v2.7.b.routing", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.routing_instruction = ProtoField.new("Routing Instruction", "miax.pearlequities.expressorders.meo.v2.7.b.routinginstruction", ftypes.UINT8, {[0]="Route Once", [1]="Reroutable", [2]="Do Not Route"}, base.DEC, 0x07)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.routing_strategy = ProtoField.new("Routing Strategy", "miax.pearlequities.expressorders.meo.v2.7.b.routingstrategy", ftypes.UINT8, {[0]="Not Applicable", [1]="Order Protection", [2]="Primary Auction"}, base.DEC, 0xF8)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.scope = ProtoField.new("Scope", "miax.pearlequities.expressorders.meo.v2.7.b.scope", ftypes.STRING)
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.expressorders.meo.v2.7.b.secondreserved1", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.expressorders.meo.v2.7.b.secondreserved1", ftypes.BYTES)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "miax.pearlequities.expressorders.meo.v2.7.b.secondaryorderid", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.self_trade_protection = ProtoField.new("Self Trade Protection", "miax.pearlequities.expressorders.meo.v2.7.b.selftradeprotection", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.self_trade_protection_group = ProtoField.new("Self Trade Protection Group", "miax.pearlequities.expressorders.meo.v2.7.b.selftradeprotectiongroup", ftypes.STRING)
@@ -952,7 +952,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.esesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.esesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_expressorders_meo_v2_7_b.esesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.esesm_version, range, value, display)
@@ -2654,7 +2654,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_1, range, value, display)
@@ -2677,7 +2677,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_10, range, value, display)
@@ -2700,7 +2700,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_11.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_11.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_11.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_11, range, value, display)
@@ -2723,7 +2723,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_12, range, value, display)
@@ -2746,7 +2746,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_17.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_17.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_17.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_17, range, value, display)
@@ -2769,7 +2769,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_19, range, value, display)
@@ -2792,7 +2792,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_8, range, value, display)
@@ -2815,7 +2815,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.reserved_9.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.reserved_9, range, value, display)
@@ -2865,7 +2865,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_7_b.second_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.second_reserved_1, range, value, display)

@@ -49,12 +49,12 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet_length = ProtoFi
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.1.packettype", ftypes.UINT8)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.miaxoptions.complextopofmarket.mach.v1.1.priorityquotewidth", ftypes.DOUBLE)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.product_id = ProtoField.new("Product Id", "miax.miaxoptions.complextopofmarket.mach.v1.1.productid", ftypes.UINT32)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved1", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved10", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved16", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_2 = ProtoField.new("Reserved 2", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved2", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_4 = ProtoField.new("Reserved 4", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved4", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved8", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved1", ftypes.BYTES)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved10", ftypes.BYTES)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved16", ftypes.BYTES)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_2 = ProtoField.new("Reserved 2", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved2", ftypes.BYTES)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_4 = ProtoField.new("Reserved 4", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved4", ftypes.BYTES)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved8", ftypes.BYTES)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.restricted_option = ProtoField.new("Restricted Option", "miax.miaxoptions.complextopofmarket.mach.v1.1.restrictedoption", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.1.seconds", ftypes.UINT32)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.seconds_part = ProtoField.new("Seconds Part", "miax.miaxoptions.complextopofmarket.mach.v1.1.secondspart", ftypes.UINT32)
@@ -1140,7 +1140,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_1, range, value, display)
@@ -1163,7 +1163,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_10, range, value, display)
@@ -1186,7 +1186,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_16.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_16, range, value, display)
@@ -1209,7 +1209,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_2, range, value, display)
@@ -1232,7 +1232,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_4, range, value, display)
@@ -1255,7 +1255,7 @@ end
 miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_8, range, value, display)

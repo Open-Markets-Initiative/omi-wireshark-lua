@@ -63,11 +63,11 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.refresh_message_type =
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.remainingvolumeopen", ftypes.UINT32)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.requestedsequencenumber", ftypes.UINT64)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved1", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved10", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved12", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved28", ftypes.STRING)
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved8", ftypes.STRING)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved1", ftypes.BYTES)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved10", ftypes.BYTES)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved12", ftypes.BYTES)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved28", ftypes.BYTES)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.reserved8", ftypes.BYTES)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.restricted_option = ProtoField.new("Restricted Option", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.restrictedoption", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.retransmissionrequest", ftypes.STRING)
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sapphire_bbo_posting_increment_indicator = ProtoField.new("Sapphire Bbo Posting Increment Indicator", "miax.sapphireoptions.liquidityfeed.mach.v1.0.a.sapphirebbopostingincrementindicator", ftypes.STRING)
@@ -1468,7 +1468,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_1, range, value, display)
@@ -1491,7 +1491,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_10, range, value, display)
@@ -1514,7 +1514,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_12.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_12.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_12, range, value, display)
@@ -1537,7 +1537,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_28.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_28.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_28.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_28, range, value, display)
@@ -1560,7 +1560,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.reserved_8, range, value, display)
@@ -1832,7 +1832,7 @@ end
 miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_sapphireoptions_liquidityfeed_mach_v1_0_a.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_a.fields.sesm_version, range, value, display)

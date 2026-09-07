@@ -264,7 +264,7 @@ end
 miax_pearlequities_headeronly_esesm_v1_0_a.esesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_headeronly_esesm_v1_0_a.esesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_pearlequities_headeronly_esesm_v1_0_a.esesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_version, range, value, display)

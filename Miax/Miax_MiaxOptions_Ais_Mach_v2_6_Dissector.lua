@@ -77,11 +77,11 @@ omi_miax_miaxoptions_ais_mach_v2_6.fields.quantity_4 = ProtoField.new("Quantity 
 omi_miax_miaxoptions_ais_mach_v2_6.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.miaxoptions.ais.mach.v2.6.refreshmessagetype", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_6.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.miaxoptions.ais.mach.v2.6.requestedsequencenumber", ftypes.UINT64)
 omi_miax_miaxoptions_ais_mach_v2_6.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.miaxoptions.ais.mach.v2.6.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.miaxoptions.ais.mach.v2.6.reserved1", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.miaxoptions.ais.mach.v2.6.reserved10", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.ais.mach.v2.6.reserved16", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_7 = ProtoField.new("Reserved 7", "miax.miaxoptions.ais.mach.v2.6.reserved7", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.ais.mach.v2.6.reserved8", ftypes.STRING)
+omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.miaxoptions.ais.mach.v2.6.reserved1", ftypes.BYTES)
+omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.miaxoptions.ais.mach.v2.6.reserved10", ftypes.BYTES)
+omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.ais.mach.v2.6.reserved16", ftypes.BYTES)
+omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_7 = ProtoField.new("Reserved 7", "miax.miaxoptions.ais.mach.v2.6.reserved7", ftypes.BYTES)
+omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.ais.mach.v2.6.reserved8", ftypes.BYTES)
 omi_miax_miaxoptions_ais_mach_v2_6.fields.restricted_option = ProtoField.new("Restricted Option", "miax.miaxoptions.ais.mach.v2.6.restrictedoption", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_6.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.miaxoptions.ais.mach.v2.6.retransmissionrequest", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_6.fields.sao_buy_quantity_1 = ProtoField.new("Sao Buy Quantity 1", "miax.miaxoptions.ais.mach.v2.6.saobuyquantity1", ftypes.UINT32)
@@ -1068,15 +1068,6 @@ miax_miaxoptions_ais_mach_v2_6.message_type.display = function(value)
   if value == "N" then
     return "Message Type: Theoretical Settlement Price Notification Message (N)"
   end
-  if value == "R" then
-    return "Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Message Type: End Of Refresh Notification Message (E)"
-  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -1887,7 +1878,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_6.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_ais_mach_v2_6.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_1, range, value, display)
@@ -1910,7 +1901,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_6.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_ais_mach_v2_6.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_10, range, value, display)
@@ -1933,7 +1924,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_6.reserved_16.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_ais_mach_v2_6.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_16, range, value, display)
@@ -1956,7 +1947,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.reserved_7.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_6.reserved_7.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_ais_mach_v2_6.reserved_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_7, range, value, display)
@@ -1979,7 +1970,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_6.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_ais_mach_v2_6.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_ais_mach_v2_6.fields.reserved_8, range, value, display)
@@ -2310,7 +2301,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_6.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_miaxoptions_ais_mach_v2_6.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_ais_mach_v2_6.fields.sesm_version, range, value, display)
@@ -2774,7 +2765,17 @@ miax_miaxoptions_ais_mach_v2_6.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
 miax_miaxoptions_ais_mach_v2_6.unsequenced_message_type.display = function(value)
-  return "Unsequenced Message Type: "..value
+  if value == "R" then
+    return "Unsequenced Message Type: Refresh Request Message (R)"
+  end
+  if value == "r" then
+    return "Unsequenced Message Type: Refresh Response Message (r)"
+  end
+  if value == "E" then
+    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -4123,7 +4124,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 12 values
+  -- Message Type: 1 Byte Ascii String Enum with 9 values
   index, message_type = miax_miaxoptions_ais_mach_v2_6.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 9 branches
@@ -4293,7 +4294,7 @@ end
 miax_miaxoptions_ais_mach_v2_6.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
-  -- Unsequenced Message Type: 1 Byte Ascii String
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 3 values
   index, unsequenced_message_type = miax_miaxoptions_ais_mach_v2_6.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Unsequenced Message: Runtime Type with 3 branches

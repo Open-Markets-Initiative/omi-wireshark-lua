@@ -73,11 +73,11 @@ omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.product_id = Prot
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.refreshmessagetype", ftypes.STRING)
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.requestedsequencenumber", ftypes.UINT64)
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved1", ftypes.STRING)
-omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved10", ftypes.STRING)
-omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved12", ftypes.STRING)
-omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_17 = ProtoField.new("Reserved 17", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved17", ftypes.STRING)
-omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved8", ftypes.STRING)
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved1", ftypes.BYTES)
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved10", ftypes.BYTES)
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved12", ftypes.BYTES)
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_17 = ProtoField.new("Reserved 17", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved17", ftypes.BYTES)
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.reserved8", ftypes.BYTES)
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.restricted_option = ProtoField.new("Restricted Option", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.restrictedoption", ftypes.STRING)
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.retransmissionrequest", ftypes.STRING)
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.sapphire_bbo_posting_increment_indicator = ProtoField.new("Sapphire Bbo Posting Increment Indicator", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.sapphirebbopostingincrementindicator", ftypes.STRING)
@@ -1055,15 +1055,6 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type.display = funct
   if value == "H" then
     return "Message Type: Underlying Trading Status Notification Message (H)"
   end
-  if value == "R" then
-    return "Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Message Type: End Of Refresh Notification Message (E)"
-  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -1766,7 +1757,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_1, range, value, display)
@@ -1789,7 +1780,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_10, range, value, display)
@@ -1812,7 +1803,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_12.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_12.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_12, range, value, display)
@@ -1835,7 +1826,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_17.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_17.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_17.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_17, range, value, display)
@@ -1858,7 +1849,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.reserved_8, range, value, display)
@@ -2130,7 +2121,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.sesm_version, range, value, display)
@@ -2470,7 +2461,17 @@ miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.siz
 
 -- Display: Unsequenced Message Type
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.display = function(value)
-  return "Unsequenced Message Type: "..value
+  if value == "R" then
+    return "Unsequenced Message Type: Refresh Request Message (R)"
+  end
+  if value == "r" then
+    return "Unsequenced Message Type: Refresh Response Message (r)"
+  end
+  if value == "E" then
+    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -3915,7 +3916,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 15 values
+  -- Message Type: 1 Byte Ascii String Enum with 12 values
   index, message_type = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 12 branches
@@ -4085,7 +4086,7 @@ end
 miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
-  -- Unsequenced Message Type: 1 Byte Ascii String
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 3 values
   index, unsequenced_message_type = miax_sapphireoptions_complextopofmarket_mach_v1_0_a.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Unsequenced Message: Runtime Type with 3 branches

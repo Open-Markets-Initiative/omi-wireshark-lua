@@ -67,11 +67,11 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type = ProtoFiel
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.purge_group = ProtoField.new("Purge Group", "miax.onyxfutures.expressinterface.fei.v1.0.c.purgegroup", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.requestedsequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_session = ProtoField.new("Requested Session", "miax.onyxfutures.expressinterface.fei.v1.0.c.requestedsession", ftypes.UINT8)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved10", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved16", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_32 = ProtoField.new("Reserved 32", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved32", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved8", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved9", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved10", ftypes.BYTES)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved16", ftypes.BYTES)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_32 = ProtoField.new("Reserved 32", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved32", ftypes.BYTES)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved8", ftypes.BYTES)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_9 = ProtoField.new("Reserved 9", "miax.onyxfutures.expressinterface.fei.v1.0.c.reserved9", ftypes.BYTES)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.retransmissionrequest", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.scope = ProtoField.new("Scope", "miax.onyxfutures.expressinterface.fei.v1.0.c.scope", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection = ProtoField.new("Self Trade Protection", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotection", ftypes.STRING)
@@ -406,7 +406,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.computer_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.computer_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.computer_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.computer_id, range, value, display)
@@ -1403,7 +1403,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_10, range, value, display)
@@ -1426,7 +1426,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_16, range, value, display)
@@ -1449,7 +1449,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_32, range, value, display)
@@ -1472,7 +1472,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_8, range, value, display)
@@ -1495,7 +1495,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_9.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.reserved_9, range, value, display)
@@ -1743,7 +1743,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version, range, value, display)
@@ -2186,7 +2186,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.username.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username, range, value, display)

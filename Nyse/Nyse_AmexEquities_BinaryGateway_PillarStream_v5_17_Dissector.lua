@@ -7879,7 +7879,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.minimum_price_variant_level_r
   index, transact_time = nyse_amexequities_binarygateway_pillarstream_v5_17.transact_time.dissect(buffer, index, packet, parent)
 
   -- Dependency for Mpv Level Definition
-  local end_of_payload = buffer:len()
+  local end_of_payload = offset + size_of_minimum_price_variant_level_reference_data_message
 
   -- Mpv Level Definition: Struct of 5 fields
   local message_index = 0

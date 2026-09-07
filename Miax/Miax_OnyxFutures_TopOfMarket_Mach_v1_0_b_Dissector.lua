@@ -42,8 +42,8 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet_length = ProtoField.n
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.topofmarket.mach.v1.0.b.packettype", ftypes.UINT8)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.price = ProtoField.new("Price", "miax.onyxfutures.topofmarket.mach.v1.0.b.price", ftypes.DOUBLE)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.topofmarket.mach.v1.0.b.productgroupcode", ftypes.STRING)
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.topofmarket.mach.v1.0.b.reserved16", ftypes.STRING)
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.onyxfutures.topofmarket.mach.v1.0.b.reserved8", ftypes.STRING)
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.topofmarket.mach.v1.0.b.reserved16", ftypes.BYTES)
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.onyxfutures.topofmarket.mach.v1.0.b.reserved8", ftypes.BYTES)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.topofmarket.mach.v1.0.b.sequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.sessionid", ftypes.UINT8)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.topofmarket.mach.v1.0.b.sessionnumber", ftypes.UINT8)
@@ -174,8 +174,8 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.currency.size = 1
 
 -- Display: Currency
 miax_onyxfutures_topofmarket_mach_v1_0_b.currency.display = function(value)
-  if value == "USD" then
-    return "Currency: U (USD)"
+  if value == "U" then
+    return "Currency: Usd (U)"
   end
 
   return "Currency: Unknown("..value..")"
@@ -831,7 +831,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_16.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.reserved_16, range, value, display)
@@ -854,7 +854,7 @@ end
 miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_topofmarket_mach_v1_0_b.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.reserved_8, range, value, display)

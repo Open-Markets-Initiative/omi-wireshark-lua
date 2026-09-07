@@ -1336,7 +1336,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.fields = funct
   index, price_scale_code = nyse_nyseequities_openbook_ultra_v2_1_b.price_scale_code.dissect(buffer, index, packet, parent)
 
   -- Dependency for Delta Price Point
-  local end_of_payload = buffer:len()
+  local end_of_payload = offset + size_of_delta_update_message_body
 
   -- Delta Price Point: Struct of 9 fields
   local message_index = 0
@@ -1573,7 +1573,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.fields = functi
   index, mpv = nyse_nyseequities_openbook_ultra_v2_1_b.mpv.dissect(buffer, index, packet, parent)
 
   -- Dependency for Full Price Point
-  local end_of_payload = buffer:len()
+  local end_of_payload = offset + size_of_full_update_message_body
 
   -- Full Price Point: Struct of 5 fields
   local message_index = 0

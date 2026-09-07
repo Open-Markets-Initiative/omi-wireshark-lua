@@ -48,7 +48,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_0.fields.pearl_bbo_posting_increment_i
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.product_id = ProtoField.new("Product Id", "miax.pearloptions.topofmarket.mach.v1.0.productid", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.pearloptions.topofmarket.mach.v1.0.referencecorrectionnumber", ftypes.UINT8)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.pearloptions.topofmarket.mach.v1.0.referencetradeid", ftypes.UINT32)
-omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearloptions.topofmarket.mach.v1.0.reserved12", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearloptions.topofmarket.mach.v1.0.reserved12", ftypes.BYTES)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.topofmarket.mach.v1.0.restrictedoption", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v1.0.seconds", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "miax.pearloptions.topofmarket.mach.v1.0.securitysymbol", ftypes.STRING)
@@ -546,8 +546,8 @@ miax_pearloptions_topofmarket_mach_v1_0.long_term_option.size = 1
 
 -- Display: Long Term Option
 miax_pearloptions_topofmarket_mach_v1_0.long_term_option.display = function(value)
-  if value == "“Y" then
-    return "Long Term Option: Far Month (“Y)"
+  if value == "Y" then
+    return "Long Term Option: Far Month (Y)"
   end
   if value == "N" then
     return "Long Term Option: Near Month (N)"
@@ -1153,7 +1153,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_0.reserved_12.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0.reserved_12.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearloptions_topofmarket_mach_v1_0.reserved_12.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0.fields.reserved_12, range, value, display)

@@ -36,8 +36,8 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.packet_type = ProtoField.new("Packet T
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.miaxoptions.mpf.mach.v1.1.refreshmessagetype", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.miaxoptions.mpf.mach.v1.1.requestedsequencenumber", ftypes.UINT64)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.miaxoptions.mpf.mach.v1.1.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.mpf.mach.v1.1.reserved16", ftypes.STRING)
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.mpf.mach.v1.1.reserved8", ftypes.STRING)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.mpf.mach.v1.1.reserved16", ftypes.BYTES)
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.mpf.mach.v1.1.reserved8", ftypes.BYTES)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.miaxoptions.mpf.mach.v1.1.retransmissionrequest", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.mpf.mach.v1.1.seconds", ftypes.UINT32)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.mpf.mach.v1.1.sequencenumber", ftypes.UINT64)
@@ -409,15 +409,6 @@ miax_miaxoptions_mpf_mach_v1_1.message_type.display = function(value)
   if value == "Z" then
     return "Message Type: Synthetic Future Value Message (Z)"
   end
-  if value == "R" then
-    return "Message Type: Refresh Request Message (R)"
-  end
-  if value == "r" then
-    return "Message Type: Refresh Response Message (r)"
-  end
-  if value == "E" then
-    return "Message Type: End Of Refresh Notification Message (E)"
-  end
 
   return "Message Type: Unknown("..value..")"
 end
@@ -630,7 +621,7 @@ end
 miax_miaxoptions_mpf_mach_v1_1.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_mpf_mach_v1_1.reserved_16.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_mpf_mach_v1_1.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_16, range, value, display)
@@ -653,7 +644,7 @@ end
 miax_miaxoptions_mpf_mach_v1_1.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_mpf_mach_v1_1.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_mpf_mach_v1_1.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_mpf_mach_v1_1.fields.reserved_8, range, value, display)
@@ -839,7 +830,7 @@ end
 miax_miaxoptions_mpf_mach_v1_1.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_mpf_mach_v1_1.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_miaxoptions_mpf_mach_v1_1.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_version, range, value, display)
@@ -1042,7 +1033,17 @@ miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.size = 1
 
 -- Display: Unsequenced Message Type
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.display = function(value)
-  return "Unsequenced Message Type: "..value
+  if value == "R" then
+    return "Unsequenced Message Type: Refresh Request Message (R)"
+  end
+  if value == "r" then
+    return "Unsequenced Message Type: Refresh Response Message (r)"
+  end
+  if value == "E" then
+    return "Unsequenced Message Type: End Of Refresh Notification Message (E)"
+  end
+
+  return "Unsequenced Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Unsequenced Message Type
@@ -1799,7 +1800,7 @@ end
 miax_miaxoptions_mpf_mach_v1_1.application_message.fields = function(buffer, offset, packet, parent, size_of_application_message)
   local index = offset
 
-  -- Message Type: 1 Byte Ascii String Enum with 7 values
+  -- Message Type: 1 Byte Ascii String Enum with 4 values
   index, message_type = miax_miaxoptions_mpf_mach_v1_1.message_type.dissect(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 4 branches
@@ -1969,7 +1970,7 @@ end
 miax_miaxoptions_mpf_mach_v1_1.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
-  -- Unsequenced Message Type: 1 Byte Ascii String
+  -- Unsequenced Message Type: 1 Byte Ascii String Enum with 3 values
   index, unsequenced_message_type = miax_miaxoptions_mpf_mach_v1_1.unsequenced_message_type.dissect(buffer, index, packet, parent)
 
   -- Unsequenced Message: Runtime Type with 3 branches

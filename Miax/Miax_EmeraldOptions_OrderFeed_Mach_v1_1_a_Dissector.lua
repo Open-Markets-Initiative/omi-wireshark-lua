@@ -67,10 +67,10 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.refresh_message_type = Prot
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.emeraldoptions.orderfeed.mach.v1.1.a.remainingvolumeopen", ftypes.UINT32)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.emeraldoptions.orderfeed.mach.v1.1.a.requestedsequencenumber", ftypes.UINT64)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.emeraldoptions.orderfeed.mach.v1.1.a.requestedtradingsessionid", ftypes.UINT8)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved1", ftypes.STRING)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved10", ftypes.STRING)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved28", ftypes.STRING)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved8", ftypes.STRING)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved1", ftypes.BYTES)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved10", ftypes.BYTES)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_28 = ProtoField.new("Reserved 28", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved28", ftypes.BYTES)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.emeraldoptions.orderfeed.mach.v1.1.a.reserved8", ftypes.BYTES)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.restricted_option = ProtoField.new("Restricted Option", "miax.emeraldoptions.orderfeed.mach.v1.1.a.restrictedoption", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.emeraldoptions.orderfeed.mach.v1.1.a.retransmissionrequest", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.route_instruction = ProtoField.new("Route Instruction", "miax.emeraldoptions.orderfeed.mach.v1.1.a.routeinstruction", ftypes.STRING)
@@ -1571,7 +1571,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_1, range, value, display)
@@ -1594,7 +1594,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_10, range, value, display)
@@ -1617,7 +1617,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_28.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_28.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_28.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_28, range, value, display)
@@ -1640,7 +1640,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.reserved_8, range, value, display)
@@ -1912,7 +1912,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_version.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_version.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_version, range, value, display)

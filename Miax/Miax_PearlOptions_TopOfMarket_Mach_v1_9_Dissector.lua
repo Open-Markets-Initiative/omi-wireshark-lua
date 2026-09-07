@@ -57,7 +57,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_9.fields.priority_quote_width = ProtoF
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.product_id = ProtoField.new("Product Id", "miax.pearloptions.topofmarket.mach.v1.9.productid", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.pearloptions.topofmarket.mach.v1.9.referencecorrectionnumber", ftypes.UINT8)
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.pearloptions.topofmarket.mach.v1.9.referencetradeid", ftypes.UINT32)
-omi_miax_pearloptions_topofmarket_mach_v1_9.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearloptions.topofmarket.mach.v1.9.reserved8", ftypes.STRING)
+omi_miax_pearloptions_topofmarket_mach_v1_9.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearloptions.topofmarket.mach.v1.9.reserved8", ftypes.BYTES)
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.topofmarket.mach.v1.9.restrictedoption", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v1.9.seconds", ftypes.UINT32)
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.seconds_part = ProtoField.new("Seconds Part", "miax.pearloptions.topofmarket.mach.v1.9.secondspart", ftypes.UINT32)
@@ -1355,7 +1355,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_9.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_9.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = miax_pearloptions_topofmarket_mach_v1_9.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_9.fields.reserved_8, range, value, display)
