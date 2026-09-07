@@ -73,8 +73,7 @@ omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.timestamp = ProtoField.new(
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.total_volume = ProtoField.new("Total Volume", "cboe.c2options.multicasttop.pitch.v1.2.54.totalvolume", ftypes.UINT32)
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.c2options.multicasttop.pitch.v1.2.54.tradecondition", ftypes.STRING)
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.trading_status = ProtoField.new("Trading Status", "cboe.c2options.multicasttop.pitch.v1.2.54.tradingstatus", ftypes.STRING)
-omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.underlying_alphanumeric_8 = ProtoField.new("Underlying Alphanumeric 8", "cboe.c2options.multicasttop.pitch.v1.2.54.underlyingalphanumeric8", ftypes.STRING)
-omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.underlying_printable_ascii_8 = ProtoField.new("Underlying Printable Ascii 8", "cboe.c2options.multicasttop.pitch.v1.2.54.underlyingprintableascii8", ftypes.STRING)
+omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.underlying = ProtoField.new("Underlying", "cboe.c2options.multicasttop.pitch.v1.2.54.underlying", ftypes.STRING)
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.unit = ProtoField.new("Unit", "cboe.c2options.multicasttop.pitch.v1.2.54.unit", ftypes.UINT8)
 omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.width_type = ProtoField.new("Width Type", "cboe.c2options.multicasttop.pitch.v1.2.54.widthtype", ftypes.STRING)
 
@@ -1656,48 +1655,25 @@ cboe_c2options_multicasttop_pitch_v1_2_54.trading_status.dissect = function(buff
   return offset + length, value
 end
 
--- Underlying Alphanumeric 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8 = {}
+-- Underlying
+cboe_c2options_multicasttop_pitch_v1_2_54.underlying = {}
 
--- Size: Underlying Alphanumeric 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8.size = 8
+-- Size: Underlying
+cboe_c2options_multicasttop_pitch_v1_2_54.underlying.size = 8
 
--- Display: Underlying Alphanumeric 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8.display = function(value)
-  return "Underlying Alphanumeric 8: "..value
+-- Display: Underlying
+cboe_c2options_multicasttop_pitch_v1_2_54.underlying.display = function(value)
+  return "Underlying: "..value
 end
 
--- Dissect: Underlying Alphanumeric 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8.size
+-- Dissect: Underlying
+cboe_c2options_multicasttop_pitch_v1_2_54.underlying.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c2options_multicasttop_pitch_v1_2_54.underlying.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_c2options_multicasttop_pitch_v1_2_54.underlying.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.underlying_alphanumeric_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Printable Ascii 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8 = {}
-
--- Size: Underlying Printable Ascii 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8.size = 8
-
--- Display: Underlying Printable Ascii 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8.display = function(value)
-  return "Underlying Printable Ascii 8: "..value
-end
-
--- Dissect: Underlying Printable Ascii 8
-cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.underlying_printable_ascii_8, range, value, display)
+  parent:add(omi_cboe_c2options_multicasttop_pitch_v1_2_54.fields.underlying, range, value, display)
 
   return offset + length, value
 end
@@ -1865,7 +1841,7 @@ cboe_c2options_multicasttop_pitch_v1_2_54.width_update_message = {}
 -- Size: Width Update Message
 cboe_c2options_multicasttop_pitch_v1_2_54.width_update_message.size =
   cboe_c2options_multicasttop_pitch_v1_2_54.time_offset.size + 
-  cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8.size + 
+  cboe_c2options_multicasttop_pitch_v1_2_54.underlying.size + 
   cboe_c2options_multicasttop_pitch_v1_2_54.width_type.size + 
   cboe_c2options_multicasttop_pitch_v1_2_54.multiplier.size
 
@@ -1881,8 +1857,8 @@ cboe_c2options_multicasttop_pitch_v1_2_54.width_update_message.fields = function
   -- Time Offset: Time Offset
   index, time_offset = cboe_c2options_multicasttop_pitch_v1_2_54.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying Printable Ascii 8: Printable ASCII
-  index, underlying_printable_ascii_8 = cboe_c2options_multicasttop_pitch_v1_2_54.underlying_printable_ascii_8.dissect(buffer, index, packet, parent)
+  -- Underlying: Alphanumeric
+  index, underlying = cboe_c2options_multicasttop_pitch_v1_2_54.underlying.dissect(buffer, index, packet, parent)
 
   -- Width Type: Alphanumeric
   index, width_type = cboe_c2options_multicasttop_pitch_v1_2_54.width_type.dissect(buffer, index, packet, parent)
@@ -2508,7 +2484,7 @@ cboe_c2options_multicasttop_pitch_v1_2_54.symbol_mapping_message.size =
   cboe_c2options_multicasttop_pitch_v1_2_54.feed_symbol.size + 
   cboe_c2options_multicasttop_pitch_v1_2_54.osi_symbol.size + 
   cboe_c2options_multicasttop_pitch_v1_2_54.symbol_condition.size + 
-  cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8.size
+  cboe_c2options_multicasttop_pitch_v1_2_54.underlying.size
 
 -- Display: Symbol Mapping Message
 cboe_c2options_multicasttop_pitch_v1_2_54.symbol_mapping_message.display = function(packet, parent, length)
@@ -2528,8 +2504,8 @@ cboe_c2options_multicasttop_pitch_v1_2_54.symbol_mapping_message.fields = functi
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c2options_multicasttop_pitch_v1_2_54.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying Alphanumeric 8: Alphanumeric
-  index, underlying_alphanumeric_8 = cboe_c2options_multicasttop_pitch_v1_2_54.underlying_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Underlying: Alphanumeric
+  index, underlying = cboe_c2options_multicasttop_pitch_v1_2_54.underlying.dissect(buffer, index, packet, parent)
 
   return index
 end

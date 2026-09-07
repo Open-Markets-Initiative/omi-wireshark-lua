@@ -2072,7 +2072,7 @@ cboe_c1options_flex_pitch_v1_1_30.symbol_mapping_message.fields = function(buffe
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_pitch_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -2795,7 +2795,7 @@ cboe_c1options_flex_pitch_v1_1_30.complex_flex_instrument_definition_message.fie
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_flex_pitch_v1_1_30.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Type: Alphanumeric
@@ -2945,7 +2945,7 @@ cboe_c1options_flex_pitch_v1_1_30.flex_instrument_definition_message.fields = fu
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_pitch_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_flex_pitch_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Exercise Style: Alphanumeric

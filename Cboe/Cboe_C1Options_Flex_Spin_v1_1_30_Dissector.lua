@@ -67,8 +67,7 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.symbol_condition = ProtoField.new("S
 omi_cboe_c1options_flex_spin_v1_1_30.fields.time = ProtoField.new("Time", "cboe.c1options.flex.spin.v1.1.30.time", ftypes.UINT32)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.time_offset = ProtoField.new("Time Offset", "cboe.c1options.flex.spin.v1.1.30.timeoffset", ftypes.UINT32)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.trading_status = ProtoField.new("Trading Status", "cboe.c1options.flex.spin.v1.1.30.tradingstatus", ftypes.STRING)
-omi_cboe_c1options_flex_spin_v1_1_30.fields.underlying_alphanumeric_8 = ProtoField.new("Underlying Alphanumeric 8", "cboe.c1options.flex.spin.v1.1.30.underlyingalphanumeric8", ftypes.STRING)
-omi_cboe_c1options_flex_spin_v1_1_30.fields.underlying_printable_ascii_8 = ProtoField.new("Underlying Printable Ascii 8", "cboe.c1options.flex.spin.v1.1.30.underlyingprintableascii8", ftypes.STRING)
+omi_cboe_c1options_flex_spin_v1_1_30.fields.underlying = ProtoField.new("Underlying", "cboe.c1options.flex.spin.v1.1.30.underlying", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.unit = ProtoField.new("Unit", "cboe.c1options.flex.spin.v1.1.30.unit", ftypes.UINT8)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.username = ProtoField.new("Username", "cboe.c1options.flex.spin.v1.1.30.username", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.year = ProtoField.new("Year", "cboe.c1options.flex.spin.v1.1.30.year", ftypes.STRING)
@@ -1357,48 +1356,25 @@ cboe_c1options_flex_spin_v1_1_30.trading_status.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Underlying Alphanumeric 8
-cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8 = {}
+-- Underlying
+cboe_c1options_flex_spin_v1_1_30.underlying = {}
 
--- Size: Underlying Alphanumeric 8
-cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8.size = 8
+-- Size: Underlying
+cboe_c1options_flex_spin_v1_1_30.underlying.size = 8
 
--- Display: Underlying Alphanumeric 8
-cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8.display = function(value)
-  return "Underlying Alphanumeric 8: "..value
+-- Display: Underlying
+cboe_c1options_flex_spin_v1_1_30.underlying.display = function(value)
+  return "Underlying: "..value
 end
 
--- Dissect: Underlying Alphanumeric 8
-cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8.size
+-- Dissect: Underlying
+cboe_c1options_flex_spin_v1_1_30.underlying.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_flex_spin_v1_1_30.underlying.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_flex_spin_v1_1_30.underlying.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.underlying_alphanumeric_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Printable Ascii 8
-cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8 = {}
-
--- Size: Underlying Printable Ascii 8
-cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.size = 8
-
--- Display: Underlying Printable Ascii 8
-cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.display = function(value)
-  return "Underlying Printable Ascii 8: "..value
-end
-
--- Dissect: Underlying Printable Ascii 8
-cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.underlying_printable_ascii_8, range, value, display)
+  parent:add(omi_cboe_c1options_flex_spin_v1_1_30.fields.underlying, range, value, display)
 
   return offset + length, value
 end
@@ -1606,7 +1582,7 @@ cboe_c1options_flex_spin_v1_1_30.complex_flex_instrument_definition_message.size
 
   index = index + cboe_c1options_flex_spin_v1_1_30.complex_instrument_id.size
 
-  index = index + cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.size
+  index = index + cboe_c1options_flex_spin_v1_1_30.underlying.size
 
   index = index + cboe_c1options_flex_spin_v1_1_30.complex_instrument_type.size
 
@@ -1640,8 +1616,8 @@ cboe_c1options_flex_spin_v1_1_30.complex_flex_instrument_definition_message.fiel
   -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_flex_spin_v1_1_30.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Printable Ascii 8: Printable ASCII
-  index, underlying_printable_ascii_8 = cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.dissect(buffer, index, packet, parent)
+  -- Underlying: Alphanumeric
+  index, underlying = cboe_c1options_flex_spin_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Complex Instrument Type: Alphanumeric
   index, complex_instrument_type = cboe_c1options_flex_spin_v1_1_30.complex_instrument_type.dissect(buffer, index, packet, parent)
@@ -1742,7 +1718,7 @@ cboe_c1options_flex_spin_v1_1_30.flex_instrument_definition_message.size =
   cboe_c1options_flex_spin_v1_1_30.dollar_strike.size + 
   cboe_c1options_flex_spin_v1_1_30.decimal_strike.size + 
   cboe_c1options_flex_spin_v1_1_30.symbol_condition.size + 
-  cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.size + 
+  cboe_c1options_flex_spin_v1_1_30.underlying.size + 
   cboe_c1options_flex_spin_v1_1_30.exercise_style.size + 
   cboe_c1options_flex_spin_v1_1_30.settlement_type.size + 
   cboe_c1options_flex_spin_v1_1_30.percentage_binary_4.size + 
@@ -1790,8 +1766,8 @@ cboe_c1options_flex_spin_v1_1_30.flex_instrument_definition_message.fields = fun
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_spin_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying Printable Ascii 8: Printable ASCII
-  index, underlying_printable_ascii_8 = cboe_c1options_flex_spin_v1_1_30.underlying_printable_ascii_8.dissect(buffer, index, packet, parent)
+  -- Underlying: Alphanumeric
+  index, underlying = cboe_c1options_flex_spin_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Exercise Style: Alphanumeric
   index, exercise_style = cboe_c1options_flex_spin_v1_1_30.exercise_style.dissect(buffer, index, packet, parent)
@@ -1843,7 +1819,7 @@ cboe_c1options_flex_spin_v1_1_30.symbol_mapping_message.size =
   cboe_c1options_flex_spin_v1_1_30.feed_symbol.size + 
   cboe_c1options_flex_spin_v1_1_30.osi_symbol.size + 
   cboe_c1options_flex_spin_v1_1_30.symbol_condition.size + 
-  cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8.size
+  cboe_c1options_flex_spin_v1_1_30.underlying.size
 
 -- Display: Symbol Mapping Message
 cboe_c1options_flex_spin_v1_1_30.symbol_mapping_message.display = function(packet, parent, length)
@@ -1863,8 +1839,8 @@ cboe_c1options_flex_spin_v1_1_30.symbol_mapping_message.fields = function(buffer
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_flex_spin_v1_1_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying Alphanumeric 8: Alphanumeric
-  index, underlying_alphanumeric_8 = cboe_c1options_flex_spin_v1_1_30.underlying_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Underlying: Alphanumeric
+  index, underlying = cboe_c1options_flex_spin_v1_1_30.underlying.dissect(buffer, index, packet, parent)
 
   return index
 end

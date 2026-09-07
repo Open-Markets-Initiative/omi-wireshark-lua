@@ -1304,7 +1304,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_mapping_message.fields = funct
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -1350,7 +1350,7 @@ cboe_edgxoptions_auctionfeed_pitch_v1_1_39.width_update_message.fields = functio
   -- Time Offset: Time Offset
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_edgxoptions_auctionfeed_pitch_v1_1_39.underlying.dissect(buffer, index, packet, parent)
 
   -- Width Type: Alphanumeric

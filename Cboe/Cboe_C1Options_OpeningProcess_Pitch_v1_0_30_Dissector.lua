@@ -1147,7 +1147,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.constituent_symbol_mapping_message.f
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_openingprocess_pitch_v1_0_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Soq Identifier: Printable ASCII
@@ -1294,7 +1294,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.symbol_mapping_message.fields = func
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_openingprocess_pitch_v1_0_30.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_openingprocess_pitch_v1_0_30.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -1340,7 +1340,7 @@ cboe_c1options_openingprocess_pitch_v1_0_30.width_update_message.fields = functi
   -- Time Offset: Time Offset
   index, time_offset = cboe_c1options_openingprocess_pitch_v1_0_30.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Alphanumeric
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_openingprocess_pitch_v1_0_30.underlying.dissect(buffer, index, packet, parent)
 
   -- Width Type: Alphanumeric

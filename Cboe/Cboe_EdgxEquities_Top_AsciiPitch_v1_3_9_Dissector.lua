@@ -40,8 +40,7 @@ omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.last_trade_time = ProtoField.
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.message_type = ProtoField.new("Message Type", "cboe.edgxequities.top.asciipitch.v1.3.9.messagetype", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.edgxequities.top.asciipitch.v1.3.9.milliseconds", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.password = ProtoField.new("Password", "cboe.edgxequities.top.asciipitch.v1.3.9.password", ftypes.STRING)
-omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alpha_1 = ProtoField.new("Reg Sho Action Alpha 1", "cboe.edgxequities.top.asciipitch.v1.3.9.regshoactionalpha1", ftypes.STRING)
-omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alphanumeric_1 = ProtoField.new("Reg Sho Action Alphanumeric 1", "cboe.edgxequities.top.asciipitch.v1.3.9.regshoactionalphanumeric1", ftypes.STRING)
+omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.top.asciipitch.v1.3.9.regshoaction", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reject_reason = ProtoField.new("Reject Reason", "cboe.edgxequities.top.asciipitch.v1.3.9.rejectreason", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxequities.top.asciipitch.v1.3.9.reserved1", ftypes.STRING)
 omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.edgxequities.top.asciipitch.v1.3.9.reserved2", ftypes.STRING)
@@ -1100,48 +1099,32 @@ cboe_edgxequities_top_asciipitch_v1_3_9.password.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Reg Sho Action Alpha 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1 = {}
+-- Reg Sho Action
+cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action = {}
 
--- Size: Reg Sho Action Alpha 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.size = 1
+-- Size: Reg Sho Action
+cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.size = 1
 
--- Display: Reg Sho Action Alpha 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.display = function(value)
-  return "Reg Sho Action Alpha 1: "..value
+-- Display: Reg Sho Action
+cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.display = function(value)
+  if value == "0" then
+    return "Reg Sho Action: No Price Test In Effect (0)"
+  end
+  if value == "1" then
+    return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
+  end
+
+  return "Reg Sho Action: Unknown("..value..")"
 end
 
--- Dissect: Reg Sho Action Alpha 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.size
+-- Dissect: Reg Sho Action
+cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alpha_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Reg Sho Action Alphanumeric 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1 = {}
-
--- Size: Reg Sho Action Alphanumeric 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1.size = 1
-
--- Display: Reg Sho Action Alphanumeric 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1.display = function(value)
-  return "Reg Sho Action Alphanumeric 1: "..value
-end
-
--- Dissect: Reg Sho Action Alphanumeric 1
-cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action_alphanumeric_1, range, value, display)
+  parent:add(omi_cboe_edgxequities_top_asciipitch_v1_3_9.fields.reg_sho_action, range, value, display)
 
   return offset + length, value
 end
@@ -1425,7 +1408,7 @@ cboe_edgxequities_top_asciipitch_v1_3_9.trading_status_message = {}
 cboe_edgxequities_top_asciipitch_v1_3_9.trading_status_message.size =
   cboe_edgxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.size + 
-  cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1.size + 
+  cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.reserved_1.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.reserved_2.size
 
@@ -1444,8 +1427,8 @@ cboe_edgxequities_top_asciipitch_v1_3_9.trading_status_message.fields = function
   -- Halt Status: Alpha
   index, halt_status = cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action Alphanumeric 1: Alphanumeric
-  index, reg_sho_action_alphanumeric_1 = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alphanumeric_1.dissect(buffer, index, packet, parent)
+  -- Reg Sho Action: Alpha
+  index, reg_sho_action = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
   index, reserved_1 = cboe_edgxequities_top_asciipitch_v1_3_9.reserved_1.dissect(buffer, index, packet, parent)
@@ -2306,7 +2289,7 @@ cboe_edgxequities_top_asciipitch_v1_3_9.extended_spin_message.size =
   cboe_edgxequities_top_asciipitch_v1_3_9.last_trade_size.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.size + 
-  cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.size + 
+  cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.reserved_1.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.reserved_2.size
 
@@ -2352,8 +2335,8 @@ cboe_edgxequities_top_asciipitch_v1_3_9.extended_spin_message.fields = function(
   -- Halt Status: Alpha
   index, halt_status = cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action Alpha 1: Alpha
-  index, reg_sho_action_alpha_1 = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.dissect(buffer, index, packet, parent)
+  -- Reg Sho Action: Alpha
+  index, reg_sho_action = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
   index, reserved_1 = cboe_edgxequities_top_asciipitch_v1_3_9.reserved_1.dissect(buffer, index, packet, parent)
@@ -2398,7 +2381,7 @@ cboe_edgxequities_top_asciipitch_v1_3_9.expanded_spin_message.size =
   cboe_edgxequities_top_asciipitch_v1_3_9.last_trade_size.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.size + 
-  cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.size + 
+  cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.reserved_1.size + 
   cboe_edgxequities_top_asciipitch_v1_3_9.reserved_2.size
 
@@ -2444,8 +2427,8 @@ cboe_edgxequities_top_asciipitch_v1_3_9.expanded_spin_message.fields = function(
   -- Halt Status: Alpha
   index, halt_status = cboe_edgxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action Alpha 1: Alpha
-  index, reg_sho_action_alpha_1 = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action_alpha_1.dissect(buffer, index, packet, parent)
+  -- Reg Sho Action: Alpha
+  index, reg_sho_action = cboe_edgxequities_top_asciipitch_v1_3_9.reg_sho_action.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: Alpha
   index, reserved_1 = cboe_edgxequities_top_asciipitch_v1_3_9.reserved_1.dissect(buffer, index, packet, parent)

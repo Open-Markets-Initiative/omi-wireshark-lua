@@ -1864,7 +1864,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_constituent_symbol_mappi
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.underlying.dissect(buffer, index, packet, parent)
 
   -- Soq Identifier: Printable ASCII
@@ -2281,7 +2281,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_width_update_message.fie
   -- Time Offset: Time Offset
   index, time_offset = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.underlying.dissect(buffer, index, packet, parent)
 
   -- Width Type: Alphanumeric
@@ -2403,7 +2403,7 @@ cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.ox_symbol_mapping_message.f
   -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: Printable ASCII
+  -- Underlying: Alphanumeric
   index, underlying = cboe_edgxoptions_multicastdepthofbook_pitch_v2_41_64.underlying.dissect(buffer, index, packet, parent)
 
   return index
