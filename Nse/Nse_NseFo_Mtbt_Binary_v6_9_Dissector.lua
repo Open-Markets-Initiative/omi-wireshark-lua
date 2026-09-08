@@ -38,8 +38,12 @@ omi_nse_nsefo_mtbt_binary_v6_9.fields.stream_header = ProtoField.new("Stream Hea
 
 -- Nse NseFo Mtbt 6.9 Application Messages
 omi_nse_nsefo_mtbt_binary_v6_9.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsefo.mtbt.binary.v6.9.heartbeatmessage", ftypes.STRING)
-omi_nse_nsefo_mtbt_binary_v6_9.fields.order_message = ProtoField.new("Order Message", "nse.nsefo.mtbt.binary.v6.9.ordermessage", ftypes.STRING)
-omi_nse_nsefo_mtbt_binary_v6_9.fields.spread_order_message = ProtoField.new("Spread Order Message", "nse.nsefo.mtbt.binary.v6.9.spreadordermessage", ftypes.STRING)
+omi_nse_nsefo_mtbt_binary_v6_9.fields.new_order_message = ProtoField.new("New Order Message", "nse.nsefo.mtbt.binary.v6.9.newordermessage", ftypes.STRING)
+omi_nse_nsefo_mtbt_binary_v6_9.fields.new_spread_order_message = ProtoField.new("New Spread Order Message", "nse.nsefo.mtbt.binary.v6.9.newspreadordermessage", ftypes.STRING)
+omi_nse_nsefo_mtbt_binary_v6_9.fields.order_cancellation_message = ProtoField.new("Order Cancellation Message", "nse.nsefo.mtbt.binary.v6.9.ordercancellationmessage", ftypes.STRING)
+omi_nse_nsefo_mtbt_binary_v6_9.fields.order_modification_message = ProtoField.new("Order Modification Message", "nse.nsefo.mtbt.binary.v6.9.ordermodificationmessage", ftypes.STRING)
+omi_nse_nsefo_mtbt_binary_v6_9.fields.spread_order_cancellation_message = ProtoField.new("Spread Order Cancellation Message", "nse.nsefo.mtbt.binary.v6.9.spreadordercancellationmessage", ftypes.STRING)
+omi_nse_nsefo_mtbt_binary_v6_9.fields.spread_order_modification_message = ProtoField.new("Spread Order Modification Message", "nse.nsefo.mtbt.binary.v6.9.spreadordermodificationmessage", ftypes.STRING)
 omi_nse_nsefo_mtbt_binary_v6_9.fields.spread_trade_message = ProtoField.new("Spread Trade Message", "nse.nsefo.mtbt.binary.v6.9.spreadtrademessage", ftypes.STRING)
 omi_nse_nsefo_mtbt_binary_v6_9.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nse.nsefo.mtbt.binary.v6.9.tradecancelmessage", ftypes.STRING)
 omi_nse_nsefo_mtbt_binary_v6_9.fields.trade_message = ProtoField.new("Trade Message", "nse.nsefo.mtbt.binary.v6.9.trademessage", ftypes.STRING)
@@ -153,25 +157,25 @@ nse_nsefo_mtbt_binary_v6_9.message_type.size = 1
 -- Display: Message Type
 nse_nsefo_mtbt_binary_v6_9.message_type.display = function(value)
   if value == "N" then
-    return "Message Type: Order Message (N)"
+    return "Message Type: New Order Message (N)"
   end
   if value == "M" then
-    return "Message Type: Order Message (M)"
+    return "Message Type: Order Modification Message (M)"
   end
   if value == "X" then
-    return "Message Type: Order Message (X)"
+    return "Message Type: Order Cancellation Message (X)"
   end
   if value == "T" then
     return "Message Type: Trade Message (T)"
   end
   if value == "G" then
-    return "Message Type: Spread Order Message (G)"
+    return "Message Type: New Spread Order Message (G)"
   end
   if value == "H" then
-    return "Message Type: Spread Order Message (H)"
+    return "Message Type: Spread Order Modification Message (H)"
   end
   if value == "J" then
-    return "Message Type: Spread Order Message (J)"
+    return "Message Type: Spread Order Cancellation Message (J)"
   end
   if value == "K" then
     return "Message Type: Spread Trade Message (K)"
@@ -596,7 +600,7 @@ nse_nsefo_mtbt_binary_v6_9.spread_trade_message.size =
   nse_nsefo_mtbt_binary_v6_9.sell_order_id.size + 
   nse_nsefo_mtbt_binary_v6_9.token.size + 
   nse_nsefo_mtbt_binary_v6_9.trade_price.size + 
-  nse_nsefo_mtbt_binary_v6_9.trade_quantity.size
+  nse_nsefo_mtbt_binary_v6_9.quantity.size
 
 -- Display: Spread Trade Message
 nse_nsefo_mtbt_binary_v6_9.spread_trade_message.display = function(packet, parent, length)
@@ -622,8 +626,8 @@ nse_nsefo_mtbt_binary_v6_9.spread_trade_message.fields = function(buffer, offset
   -- Trade Price: INT
   index, trade_price = nse_nsefo_mtbt_binary_v6_9.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Quantity: INT
-  index, trade_quantity = nse_nsefo_mtbt_binary_v6_9.trade_quantity.dissect(buffer, index, packet, parent)
+  -- Quantity: INT
+  index, quantity = nse_nsefo_mtbt_binary_v6_9.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -646,11 +650,11 @@ nse_nsefo_mtbt_binary_v6_9.spread_trade_message.dissect = function(buffer, offse
   end
 end
 
--- Spread Order Message
-nse_nsefo_mtbt_binary_v6_9.spread_order_message = {}
+-- Spread Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message = {}
 
--- Size: Spread Order Message
-nse_nsefo_mtbt_binary_v6_9.spread_order_message.size =
+-- Size: Spread Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.size =
   nse_nsefo_mtbt_binary_v6_9.timestamp.size + 
   nse_nsefo_mtbt_binary_v6_9.order_id.size + 
   nse_nsefo_mtbt_binary_v6_9.token.size + 
@@ -658,13 +662,13 @@ nse_nsefo_mtbt_binary_v6_9.spread_order_message.size =
   nse_nsefo_mtbt_binary_v6_9.price.size + 
   nse_nsefo_mtbt_binary_v6_9.quantity.size
 
--- Display: Spread Order Message
-nse_nsefo_mtbt_binary_v6_9.spread_order_message.display = function(packet, parent, length)
+-- Display: Spread Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Spread Order Message
-nse_nsefo_mtbt_binary_v6_9.spread_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Spread Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: LONG
@@ -688,21 +692,141 @@ nse_nsefo_mtbt_binary_v6_9.spread_order_message.fields = function(buffer, offset
   return index
 end
 
--- Dissect: Spread Order Message
-nse_nsefo_mtbt_binary_v6_9.spread_order_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Spread Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.spread_order_message, buffer(offset, 0))
-    local index = nse_nsefo_mtbt_binary_v6_9.spread_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.spread_order_cancellation_message, buffer(offset, 0))
+    local index = nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nse_nsefo_mtbt_binary_v6_9.spread_order_message.display(packet, parent, length)
+    local display = nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_mtbt_binary_v6_9.spread_order_message.fields(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Spread Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message = {}
+
+-- Size: Spread Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.size =
+  nse_nsefo_mtbt_binary_v6_9.timestamp.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_id.size + 
+  nse_nsefo_mtbt_binary_v6_9.token.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_type.size + 
+  nse_nsefo_mtbt_binary_v6_9.price.size + 
+  nse_nsefo_mtbt_binary_v6_9.quantity.size
+
+-- Display: Spread Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Spread Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_mtbt_binary_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_mtbt_binary_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_mtbt_binary_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_mtbt_binary_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_mtbt_binary_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_mtbt_binary_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Spread Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.spread_order_modification_message, buffer(offset, 0))
+    local index = nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Spread Order Message
+nse_nsefo_mtbt_binary_v6_9.new_spread_order_message = {}
+
+-- Size: New Spread Order Message
+nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.size =
+  nse_nsefo_mtbt_binary_v6_9.timestamp.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_id.size + 
+  nse_nsefo_mtbt_binary_v6_9.token.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_type.size + 
+  nse_nsefo_mtbt_binary_v6_9.price.size + 
+  nse_nsefo_mtbt_binary_v6_9.quantity.size
+
+-- Display: New Spread Order Message
+nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Spread Order Message
+nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_mtbt_binary_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_mtbt_binary_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_mtbt_binary_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_mtbt_binary_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_mtbt_binary_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_mtbt_binary_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Spread Order Message
+nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.new_spread_order_message, buffer(offset, 0))
+    local index = nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -766,11 +890,11 @@ nse_nsefo_mtbt_binary_v6_9.trade_message.dissect = function(buffer, offset, pack
   end
 end
 
--- Order Message
-nse_nsefo_mtbt_binary_v6_9.order_message = {}
+-- Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.order_cancellation_message = {}
 
--- Size: Order Message
-nse_nsefo_mtbt_binary_v6_9.order_message.size =
+-- Size: Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.size =
   nse_nsefo_mtbt_binary_v6_9.timestamp.size + 
   nse_nsefo_mtbt_binary_v6_9.order_id.size + 
   nse_nsefo_mtbt_binary_v6_9.token.size + 
@@ -778,13 +902,13 @@ nse_nsefo_mtbt_binary_v6_9.order_message.size =
   nse_nsefo_mtbt_binary_v6_9.price.size + 
   nse_nsefo_mtbt_binary_v6_9.quantity.size
 
--- Display: Order Message
-nse_nsefo_mtbt_binary_v6_9.order_message.display = function(packet, parent, length)
+-- Display: Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Message
-nse_nsefo_mtbt_binary_v6_9.order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: LONG
@@ -808,21 +932,141 @@ nse_nsefo_mtbt_binary_v6_9.order_message.fields = function(buffer, offset, packe
   return index
 end
 
--- Dissect: Order Message
-nse_nsefo_mtbt_binary_v6_9.order_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Order Cancellation Message
+nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.order_message, buffer(offset, 0))
-    local index = nse_nsefo_mtbt_binary_v6_9.order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.order_cancellation_message, buffer(offset, 0))
+    local index = nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nse_nsefo_mtbt_binary_v6_9.order_message.display(packet, parent, length)
+    local display = nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_mtbt_binary_v6_9.order_message.fields(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.order_modification_message = {}
+
+-- Size: Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.order_modification_message.size =
+  nse_nsefo_mtbt_binary_v6_9.timestamp.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_id.size + 
+  nse_nsefo_mtbt_binary_v6_9.token.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_type.size + 
+  nse_nsefo_mtbt_binary_v6_9.price.size + 
+  nse_nsefo_mtbt_binary_v6_9.quantity.size
+
+-- Display: Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.order_modification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.order_modification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_mtbt_binary_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_mtbt_binary_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_mtbt_binary_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_mtbt_binary_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_mtbt_binary_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_mtbt_binary_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Modification Message
+nse_nsefo_mtbt_binary_v6_9.order_modification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.order_modification_message, buffer(offset, 0))
+    local index = nse_nsefo_mtbt_binary_v6_9.order_modification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_mtbt_binary_v6_9.order_modification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_mtbt_binary_v6_9.order_modification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Message
+nse_nsefo_mtbt_binary_v6_9.new_order_message = {}
+
+-- Size: New Order Message
+nse_nsefo_mtbt_binary_v6_9.new_order_message.size =
+  nse_nsefo_mtbt_binary_v6_9.timestamp.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_id.size + 
+  nse_nsefo_mtbt_binary_v6_9.token.size + 
+  nse_nsefo_mtbt_binary_v6_9.order_type.size + 
+  nse_nsefo_mtbt_binary_v6_9.price.size + 
+  nse_nsefo_mtbt_binary_v6_9.quantity.size
+
+-- Display: New Order Message
+nse_nsefo_mtbt_binary_v6_9.new_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Message
+nse_nsefo_mtbt_binary_v6_9.new_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: LONG
+  index, timestamp = nse_nsefo_mtbt_binary_v6_9.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Order Id: DOUBLE
+  index, order_id = nse_nsefo_mtbt_binary_v6_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Token: INT
+  index, token = nse_nsefo_mtbt_binary_v6_9.token.dissect(buffer, index, packet, parent)
+
+  -- Order Type: CHAR
+  index, order_type = nse_nsefo_mtbt_binary_v6_9.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price: INT
+  index, price = nse_nsefo_mtbt_binary_v6_9.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: INT
+  index, quantity = nse_nsefo_mtbt_binary_v6_9.quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: New Order Message
+nse_nsefo_mtbt_binary_v6_9.new_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.new_order_message, buffer(offset, 0))
+    local index = nse_nsefo_mtbt_binary_v6_9.new_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_mtbt_binary_v6_9.new_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_mtbt_binary_v6_9.new_order_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -831,33 +1075,33 @@ nse_nsefo_mtbt_binary_v6_9.payload = {}
 
 -- Dissect: Payload
 nse_nsefo_mtbt_binary_v6_9.payload.dissect = function(buffer, offset, packet, parent, message_type)
-  -- Dissect Order Message
+  -- Dissect New Order Message
   if message_type == "N" then
-    return nse_nsefo_mtbt_binary_v6_9.order_message.dissect(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.new_order_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Message
+  -- Dissect Order Modification Message
   if message_type == "M" then
-    return nse_nsefo_mtbt_binary_v6_9.order_message.dissect(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.order_modification_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Message
+  -- Dissect Order Cancellation Message
   if message_type == "X" then
-    return nse_nsefo_mtbt_binary_v6_9.order_message.dissect(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.order_cancellation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
   if message_type == "T" then
     return nse_nsefo_mtbt_binary_v6_9.trade_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Spread Order Message
+  -- Dissect New Spread Order Message
   if message_type == "G" then
-    return nse_nsefo_mtbt_binary_v6_9.spread_order_message.dissect(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.new_spread_order_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Spread Order Message
+  -- Dissect Spread Order Modification Message
   if message_type == "H" then
-    return nse_nsefo_mtbt_binary_v6_9.spread_order_message.dissect(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.spread_order_modification_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Spread Order Message
+  -- Dissect Spread Order Cancellation Message
   if message_type == "J" then
-    return nse_nsefo_mtbt_binary_v6_9.spread_order_message.dissect(buffer, offset, packet, parent)
+    return nse_nsefo_mtbt_binary_v6_9.spread_order_cancellation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Spread Trade Message
   if message_type == "K" then
@@ -900,12 +1144,12 @@ nse_nsefo_mtbt_binary_v6_9.message.fields = function(buffer, offset, packet, par
   -- Dependency for Payload
   local end_of_payload = buffer:len()
 
-  -- Payload: Runtime Type with 6 branches
+  -- Payload: Runtime Type with 10 branches
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
 
-    -- Payload: Runtime Type with 6 branches
+    -- Payload: Runtime Type with 10 branches
     index = nse_nsefo_mtbt_binary_v6_9.payload.dissect(buffer, index, packet, parent, message_type)
   end
 
