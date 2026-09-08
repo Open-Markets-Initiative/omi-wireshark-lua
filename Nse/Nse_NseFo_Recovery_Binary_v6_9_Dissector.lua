@@ -733,7 +733,7 @@ nse_nsefo_recovery_binary_v6_9.client_packet = {}
 
 -- Verify required size of Tcp packet
 nse_nsefo_recovery_binary_v6_9.client_packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nsefo_recovery_binary_v6_9.client_message.size
+  return buffer:len() >= nse_nsefo_recovery_binary_v6_9.client_message_type.size
 end
 
 -- Dissect Client Packet
@@ -1527,7 +1527,7 @@ nse_nsefo_recovery_binary_v6_9.packet = {}
 
 -- Verify required size of Tcp packet
 nse_nsefo_recovery_binary_v6_9.packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nsefo_recovery_binary_v6_9.stream_header.size + nse_nsefo_recovery_binary_v6_9.message.size
+  return buffer:len() >= nse_nsefo_recovery_binary_v6_9.stream_header.size + nse_nsefo_recovery_binary_v6_9.message_type.size
 end
 
 -- Dissect Packet

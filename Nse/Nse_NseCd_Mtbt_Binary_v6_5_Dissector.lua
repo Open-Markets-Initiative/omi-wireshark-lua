@@ -983,7 +983,7 @@ nse_nsecd_mtbt_binary_v6_5.packet = {}
 
 -- Verify required size of Udp packet
 nse_nsecd_mtbt_binary_v6_5.packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nsecd_mtbt_binary_v6_5.stream_header.size + nse_nsecd_mtbt_binary_v6_5.message.size
+  return buffer:len() >= nse_nsecd_mtbt_binary_v6_5.stream_header.size + nse_nsecd_mtbt_binary_v6_5.message_type.size
 end
 
 -- Dissect Packet

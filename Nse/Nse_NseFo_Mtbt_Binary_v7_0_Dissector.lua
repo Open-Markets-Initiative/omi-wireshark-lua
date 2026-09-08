@@ -1227,7 +1227,7 @@ nse_nsefo_mtbt_binary_v7_0.packet = {}
 
 -- Verify required size of Udp packet
 nse_nsefo_mtbt_binary_v7_0.packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nsefo_mtbt_binary_v7_0.stream_header.size + nse_nsefo_mtbt_binary_v7_0.message.size
+  return buffer:len() >= nse_nsefo_mtbt_binary_v7_0.stream_header.size + nse_nsefo_mtbt_binary_v7_0.message_type.size
 end
 
 -- Dissect Packet

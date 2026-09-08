@@ -751,7 +751,7 @@ nse_nsefo_snapshot_binary_v6_9.response_packet = {}
 
 -- Verify required size of Tcp packet
 nse_nsefo_snapshot_binary_v6_9.response_packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nsefo_snapshot_binary_v6_9.stream_header.size + nse_nsefo_snapshot_binary_v6_9.response_message.size
+  return buffer:len() >= nse_nsefo_snapshot_binary_v6_9.stream_header.size + nse_nsefo_snapshot_binary_v6_9.response_message_type.size
 end
 
 -- Dissect Response Packet
@@ -888,7 +888,7 @@ nse_nsefo_snapshot_binary_v6_9.client_packet = {}
 
 -- Verify required size of Tcp packet
 nse_nsefo_snapshot_binary_v6_9.client_packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nsefo_snapshot_binary_v6_9.client_message.size
+  return buffer:len() >= nse_nsefo_snapshot_binary_v6_9.client_message_type.size
 end
 
 -- Dissect Client Packet
