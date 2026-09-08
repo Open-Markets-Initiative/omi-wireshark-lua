@@ -59,13 +59,11 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.execution_within_firm 
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.expire_time = ProtoField.new("Expire Time", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.expiretime", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.expire_time_value = ProtoField.new("Expire Time Value", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.expiretimevalue", ftypes.UINT16)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm = ProtoField.new("Firm", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.firm", ftypes.STRING)
-omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm_alpha_4 = ProtoField.new("Firm Alpha 4", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.firmalpha4", ftypes.STRING)
-omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm_alphanumeric_4 = ProtoField.new("Firm Alphanumeric 4", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.firmalphanumeric4", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm_value = ProtoField.new("Firm Value", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.firmvalue", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.instruction = ProtoField.new("Instruction", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.instruction", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.instruction_status = ProtoField.new("Instruction Status", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.instructionstatus", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.investment_decision_within_firm = ProtoField.new("Investment Decision Within Firm", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.investmentdecisionwithinfirm", ftypes.UINT8, {[0]="None", [2]="Algo", [3]="Natural Person"}, base.DEC, 0x0C)
-omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.investment_decision_within_firm_integer_4 = ProtoField.new("Investment Decision Within Firm Integer 4", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.investmentdecisionwithinfirminteger4", ftypes.UINT32)
+omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.investment_decision_within_firm_short_code = ProtoField.new("Investment Decision Within Firm Short Code", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.investmentdecisionwithinfirmshortcode", ftypes.UINT32)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.last_market = ProtoField.new("Last Market", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.lastmarket", ftypes.UINT8)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.length = ProtoField.new("Length", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.length", ftypes.UINT8)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.liquidity_attributes = ProtoField.new("Liquidity Attributes", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.liquidityattributes", ftypes.STRING)
@@ -1149,52 +1147,6 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.expire_time_value.dissect = funct
   return offset + length, value
 end
 
--- Firm Alpha 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4 = {}
-
--- Size: Firm Alpha 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4.size = 4
-
--- Display: Firm Alpha 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4.display = function(value)
-  return "Firm Alpha 4: "..value
-end
-
--- Dissect: Firm Alpha 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm_alpha_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Firm Alphanumeric 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4 = {}
-
--- Size: Firm Alphanumeric 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.size = 4
-
--- Display: Firm Alphanumeric 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.display = function(value)
-  return "Firm Alphanumeric 4: "..value
-end
-
--- Dissect: Firm Alphanumeric 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm_alphanumeric_4, range, value, display)
-
-  return offset + length, value
-end
-
 -- Firm Value
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_value = {}
 
@@ -1264,25 +1216,25 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.instruction_status.dissect = func
   return offset + length, value
 end
 
--- Investment Decision Within Firm Integer 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4 = {}
+-- Investment Decision Within Firm Short Code
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code = {}
 
--- Size: Investment Decision Within Firm Integer 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4.size = 4
+-- Size: Investment Decision Within Firm Short Code
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.size = 4
 
--- Display: Investment Decision Within Firm Integer 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4.display = function(value)
-  return "Investment Decision Within Firm Integer 4: "..value
+-- Display: Investment Decision Within Firm Short Code
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.display = function(value)
+  return "Investment Decision Within Firm Short Code: "..value
 end
 
--- Dissect: Investment Decision Within Firm Integer 4
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4.size
+-- Dissect: Investment Decision Within Firm Short Code
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.investment_decision_within_firm_integer_4, range, value, display)
+  parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.investment_decision_within_firm_short_code, range, value, display)
 
   return offset + length, value
 end
@@ -2738,6 +2690,46 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_heartbeat.dissect = functi
   return offset
 end
 
+-- Firm
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm = {}
+
+-- Size: Firm
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.size =
+  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_value.size
+
+-- Display: Firm
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Firm
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Firm Value: Alpha
+  index, firm_value = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_value.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Firm
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm, buffer(offset, 0))
+    local index = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Response To Mmi Notification Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.response_to_mmi_notification_message = {}
 
@@ -2748,7 +2740,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.response_to_mmi_notification_mess
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_book.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.instruction.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.add_or_remove.size + 
-  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.size + 
+  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.instruction_status.size
 
@@ -2776,8 +2768,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.response_to_mmi_notification_mess
   -- Add Or Remove: Alpha
   index, add_or_remove = nasdaq_nordicequities_orderentry_ouch_v5_01_14.add_or_remove.dissect(buffer, index, packet, parent)
 
-  -- Firm Alphanumeric 4: Alpha-numeric
-  index, firm_alphanumeric_4 = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.dissect(buffer, index, packet, parent)
+  -- Firm: Struct of 1 fields
+  index, firm = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.dissect(buffer, index, packet, parent)
 
   -- User: Alpha-numeric
   index, user = nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.dissect(buffer, index, packet, parent)
@@ -2988,7 +2980,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmo_refresh_request_message = {}
 -- Size: Mmo Refresh Request Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmo_refresh_request_message.size =
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.timestamp.size + 
-  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4.size + 
+  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_book.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmo_refresh_reason.size
 
@@ -3004,8 +2996,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmo_refresh_request_message.field
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nordicequities_orderentry_ouch_v5_01_14.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Firm Alpha 4: Alpha
-  index, firm_alpha_4 = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alpha_4.dissect(buffer, index, packet, parent)
+  -- Firm: Struct of 1 fields
+  index, firm = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.dissect(buffer, index, packet, parent)
 
   -- Order Book: Integer
   index, order_book = nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_book.dissect(buffer, index, packet, parent)
@@ -3671,46 +3663,6 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator.dis
   else
     -- Skip element, add fields directly
     return nasdaq_nordicequities_orderentry_ouch_v5_01_14.liquidity_provision_indicator.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Firm
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm = {}
-
--- Size: Firm
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.size =
-  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_value.size
-
--- Display: Firm
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Firm
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Firm Value: Alpha
-  index, firm_value = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_value.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Firm
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.firm, buffer(offset, 0))
-    local index = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4989,8 +4941,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_accepted_message.fields = f
   -- Execution Within Firm: Integer
   index, execution_within_firm = nasdaq_nordicequities_orderentry_ouch_v5_01_14.execution_within_firm.dissect(buffer, index, packet, parent)
 
-  -- Investment Decision Within Firm Integer 4: Integer
-  index, investment_decision_within_firm_integer_4 = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4.dissect(buffer, index, packet, parent)
+  -- Investment Decision Within Firm Short Code: Integer
+  index, investment_decision_within_firm_short_code = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Client Identifier: Integer
   index, client_identifier = nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_identifier.dissect(buffer, index, packet, parent)
@@ -5609,7 +5561,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmi_notification_request_message.
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.order_book.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.instruction.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.add_or_remove.size + 
-  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.size + 
+  nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.size + 
   nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.size
 
 -- Display: Mmi Notification Request Message
@@ -5633,8 +5585,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmi_notification_request_message.
   -- Add Or Remove: Alpha
   index, add_or_remove = nasdaq_nordicequities_orderentry_ouch_v5_01_14.add_or_remove.dissect(buffer, index, packet, parent)
 
-  -- Firm Alphanumeric 4: Alpha-numeric
-  index, firm_alphanumeric_4 = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm_alphanumeric_4.dissect(buffer, index, packet, parent)
+  -- Firm: Struct of 1 fields
+  index, firm = nasdaq_nordicequities_orderentry_ouch_v5_01_14.firm.dissect(buffer, index, packet, parent)
 
   -- User: Alpha-numeric
   index, user = nasdaq_nordicequities_orderentry_ouch_v5_01_14.user.dissect(buffer, index, packet, parent)
@@ -5824,8 +5776,8 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.enter_order_message.fields = func
   -- Execution Within Firm: Integer
   index, execution_within_firm = nasdaq_nordicequities_orderentry_ouch_v5_01_14.execution_within_firm.dissect(buffer, index, packet, parent)
 
-  -- Investment Decision Within Firm Integer 4: Integer
-  index, investment_decision_within_firm_integer_4 = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_integer_4.dissect(buffer, index, packet, parent)
+  -- Investment Decision Within Firm Short Code: Integer
+  index, investment_decision_within_firm_short_code = nasdaq_nordicequities_orderentry_ouch_v5_01_14.investment_decision_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Client Identifier: Integer
   index, client_identifier = nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_identifier.dissect(buffer, index, packet, parent)

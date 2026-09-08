@@ -37,9 +37,9 @@ omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.notional_currency = ProtoF
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.order_book = ProtoField.new("Order Book", "nasdaq.nordicequities.lastsale.itch.v1.2.9.orderbook", ftypes.UINT32)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_currency = ProtoField.new("Price Currency", "nasdaq.nordicequities.lastsale.itch.v1.2.9.pricecurrency", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_fraction = ProtoField.new("Price Fraction", "nasdaq.nordicequities.lastsale.itch.v1.2.9.pricefraction", ftypes.UINT8)
-omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_integer_18_n_8 = ProtoField.new("Price Integer 18 N 8", "nasdaq.nordicequities.lastsale.itch.v1.2.9.priceinteger18n8", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_notation = ProtoField.new("Price Notation", "nasdaq.nordicequities.lastsale.itch.v1.2.9.pricenotation", ftypes.STRING)
-omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_price_68 = ProtoField.new("Price Price 68", "nasdaq.nordicequities.lastsale.itch.v1.2.9.priceprice68", ftypes.DOUBLE)
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_on_exchange = ProtoField.new("Price On Exchange", "nasdaq.nordicequities.lastsale.itch.v1.2.9.priceonexchange", ftypes.DOUBLE)
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_otc = ProtoField.new("Price Otc", "nasdaq.nordicequities.lastsale.itch.v1.2.9.priceotc", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity = ProtoField.new("Quantity", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantity", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_fraction = ProtoField.new("Quantity Fraction", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantityfraction", ftypes.UINT8)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "nasdaq.nordicequities.lastsale.itch.v1.2.9.quantityinmeasurementunit", ftypes.UINT64)
@@ -656,29 +656,6 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.price_fraction.dissect = function(buf
   return offset + length, value
 end
 
--- Price Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8 = {}
-
--- Size: Price Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8.size = 8
-
--- Display: Price Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8.display = function(value)
-  return "Price Integer 18 N 8: "..value
-end
-
--- Dissect: Price Integer 18 N 8
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_integer_18_n_8, range, value, display)
-
-  return offset + length, value
-end
-
 -- Price Notation
 nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation = {}
 
@@ -715,31 +692,54 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.dissect = function(buf
   return offset + length, value
 end
 
--- Price Price 68
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68 = {}
+-- Price On Exchange
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange = {}
 
--- Size: Price Price 68
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.size = 8
+-- Size: Price On Exchange
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.size = 8
 
--- Display: Price Price 68
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.display = function(value)
-  return "Price Price 68: "..value
+-- Display: Price On Exchange
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.display = function(value)
+  return "Price On Exchange: "..value
 end
 
--- Translate: Price Price 68
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.translate = function(raw)
+-- Translate: Price On Exchange
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Price Price 68
-nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.size
+-- Dissect: Price On Exchange
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.translate(raw)
-  local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.translate(raw)
+  local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_price_68, range, value, display)
+  parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_on_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Otc
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc = {}
+
+-- Size: Price Otc
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc.size = 8
+
+-- Display: Price Otc
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc.display = function(value)
+  return "Price Otc: "..value
+end
+
+-- Dissect: Price Otc
+nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.price_otc, range, value, display)
 
   return offset + length, value
 end
@@ -1196,7 +1196,7 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.otc_trade_message.size =
   nasdaq_nordicequities_lastsale_itch_v1_2_9.instrument_identification_code.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_date.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_time.size + 
-  nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8.size + 
+  nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.price_fraction.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.price_notation.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.price_currency.size + 
@@ -1243,8 +1243,8 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.otc_trade_message.fields = function(b
   -- Agreement Time: Time
   index, agreement_time = nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_time.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 18 N 8: Integer (18/n)
-  index, price_integer_18_n_8 = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_integer_18_n_8.dissect(buffer, index, packet, parent)
+  -- Price Otc: Integer (18/n)
+  index, price_otc = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_otc.dissect(buffer, index, packet, parent)
 
   -- Price Fraction: Integer
   index, price_fraction = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_fraction.dissect(buffer, index, packet, parent)
@@ -1333,7 +1333,7 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.on_exchange_trade_message.size =
   nasdaq_nordicequities_lastsale_itch_v1_2_9.execution_time.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_date.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_time.size + 
-  nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.size + 
+  nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.venue_of_execution.size + 
   nasdaq_nordicequities_lastsale_itch_v1_2_9.transaction_identifier_code.size + 
@@ -1373,8 +1373,8 @@ nasdaq_nordicequities_lastsale_itch_v1_2_9.on_exchange_trade_message.fields = fu
   -- Agreement Time: Time
   index, agreement_time = nasdaq_nordicequities_lastsale_itch_v1_2_9.agreement_time.dissect(buffer, index, packet, parent)
 
-  -- Price Price 68: Price (6)
-  index, price_price_68 = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_price_68.dissect(buffer, index, packet, parent)
+  -- Price On Exchange: Price (6)
+  index, price_on_exchange = nasdaq_nordicequities_lastsale_itch_v1_2_9.price_on_exchange.dissect(buffer, index, packet, parent)
 
   -- Quantity: Integer (18/n)
   index, quantity = nasdaq_nordicequities_lastsale_itch_v1_2_9.quantity.dissect(buffer, index, packet, parent)

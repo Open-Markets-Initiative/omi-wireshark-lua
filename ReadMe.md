@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 930 | 6,598,788 |
+| 930 | 6,598,692 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -487,7 +487,7 @@ Enjoy.
 [Nasdaq.NordicEquities.TotalViewPureStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/TotalViewPureStream.md "Nordic Equity TotalView PureStream"
 [Nasdaq.NordicEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/LastSale.md "Nordic Equity Last Sale"
 [Nasdaq.NordicEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/OrderEntry.md "Nordic Ouch 5 Order Entry"
-[Nasdaq.NordicEquities.OrderEntryPureStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/OrderEntryPureStream.md "Nordic Ouch 5 Order Entry PureStream"
+[Nasdaq.NordicEquities.PureStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/PureStream.md "Nordic Ouch 5 PureStream"
 [Nse.NseCd.MtbtNdal]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nse/Protocols/NseCd/MtbtNdal.md "Multicast Tick By Tick Data Feed"
 [Nse.NseCm.MtbtNdal]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nse/Protocols/NseCm/MtbtNdal.md "Multicast Tick By Tick Data Feed"
 [Nse.NseCd.Mtbt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nse/Protocols/NseCd/Mtbt.md "Multicast Tick By Tick"
