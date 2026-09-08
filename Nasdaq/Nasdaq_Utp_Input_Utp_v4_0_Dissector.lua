@@ -20,10 +20,10 @@ omi_nasdaq_utp_input_utp_v4_0.fields.accepted_session = ProtoField.new("Accepted
 omi_nasdaq_utp_input_utp_v4_0.fields.action = ProtoField.new("Action", "nasdaq.utp.input.utp.v4.0.action", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.action_sequence = ProtoField.new("Action Sequence", "nasdaq.utp.input.utp.v4.0.actionsequence", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.input.utp.v4.0.actiontime", ftypes.UINT64)
-omi_nasdaq_utp_input_utp_v4_0.fields.ask_long_8 = ProtoField.new("Ask Long 8", "nasdaq.utp.input.utp.v4.0.asklong8", ftypes.UINT64)
-omi_nasdaq_utp_input_utp_v4_0.fields.ask_short_2 = ProtoField.new("Ask Short 2", "nasdaq.utp.input.utp.v4.0.askshort2", ftypes.UINT16)
-omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_int_4 = ProtoField.new("Ask Size Int 4", "nasdaq.utp.input.utp.v4.0.asksizeint4", ftypes.UINT32)
-omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_short_2 = ProtoField.new("Ask Size Short 2", "nasdaq.utp.input.utp.v4.0.asksizeshort2", ftypes.UINT16)
+omi_nasdaq_utp_input_utp_v4_0.fields.ask_long = ProtoField.new("Ask Long", "nasdaq.utp.input.utp.v4.0.asklong", ftypes.UINT64)
+omi_nasdaq_utp_input_utp_v4_0.fields.ask_short = ProtoField.new("Ask Short", "nasdaq.utp.input.utp.v4.0.askshort", ftypes.UINT16)
+omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.utp.input.utp.v4.0.asksizelong", ftypes.UINT32)
+omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.utp.input.utp.v4.0.asksizeshort", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_ask = ProtoField.new("Bbo Ask", "nasdaq.utp.input.utp.v4.0.bboask", ftypes.UINT64)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_ask_mpid = ProtoField.new("Bbo Ask Mpid", "nasdaq.utp.input.utp.v4.0.bboaskmpid", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_ask_price = ProtoField.new("Bbo Ask Price", "nasdaq.utp.input.utp.v4.0.bboaskprice", ftypes.DOUBLE)
@@ -34,10 +34,10 @@ omi_nasdaq_utp_input_utp_v4_0.fields.bbo_bid_price = ProtoField.new("Bbo Bid Pri
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_bid_size = ProtoField.new("Bbo Bid Size", "nasdaq.utp.input.utp.v4.0.bbobidsize", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_cond = ProtoField.new("Bbo Cond", "nasdaq.utp.input.utp.v4.0.bbocond", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "nasdaq.utp.input.utp.v4.0.bboindicator", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.bid_long_8 = ProtoField.new("Bid Long 8", "nasdaq.utp.input.utp.v4.0.bidlong8", ftypes.UINT64)
-omi_nasdaq_utp_input_utp_v4_0.fields.bid_short_2 = ProtoField.new("Bid Short 2", "nasdaq.utp.input.utp.v4.0.bidshort2", ftypes.UINT16)
-omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_int_4 = ProtoField.new("Bid Size Int 4", "nasdaq.utp.input.utp.v4.0.bidsizeint4", ftypes.UINT32)
-omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_short_2 = ProtoField.new("Bid Size Short 2", "nasdaq.utp.input.utp.v4.0.bidsizeshort2", ftypes.UINT16)
+omi_nasdaq_utp_input_utp_v4_0.fields.bid_long = ProtoField.new("Bid Long", "nasdaq.utp.input.utp.v4.0.bidlong", ftypes.UINT64)
+omi_nasdaq_utp_input_utp_v4_0.fields.bid_short = ProtoField.new("Bid Short", "nasdaq.utp.input.utp.v4.0.bidshort", ftypes.UINT16)
+omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.utp.input.utp.v4.0.bidsizelong", ftypes.UINT32)
+omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.utp.input.utp.v4.0.bidsizeshort", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.cancel_type = ProtoField.new("Cancel Type", "nasdaq.utp.input.utp.v4.0.canceltype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.utp.input.utp.v4.0.clientpackettype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.utp.input.utp.v4.0.collardownprice", ftypes.DOUBLE)
@@ -63,8 +63,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.new_price = ProtoField.new("New Price", "na
 omi_nasdaq_utp_input_utp_v4_0.fields.new_ssday = ProtoField.new("New Ssday", "nasdaq.utp.input.utp.v4.0.newssday", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.new_trcond = ProtoField.new("New Trcond", "nasdaq.utp.input.utp.v4.0.newtrcond", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.new_tt_exempt = ProtoField.new("New Tt Exempt", "nasdaq.utp.input.utp.v4.0.newttexempt", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.new_volume_int_4 = ProtoField.new("New Volume Int 4", "nasdaq.utp.input.utp.v4.0.newvolumeint4", ftypes.UINT32)
-omi_nasdaq_utp_input_utp_v4_0.fields.new_volume_long_8 = ProtoField.new("New Volume Long 8", "nasdaq.utp.input.utp.v4.0.newvolumelong8", ftypes.DOUBLE)
+omi_nasdaq_utp_input_utp_v4_0.fields.new_volume = ProtoField.new("New Volume", "nasdaq.utp.input.utp.v4.0.newvolume", ftypes.UINT32)
+omi_nasdaq_utp_input_utp_v4_0.fields.new_volume_fractional = ProtoField.new("New Volume Fractional", "nasdaq.utp.input.utp.v4.0.newvolumefractional", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.next_action_sequence = ProtoField.new("Next Action Sequence", "nasdaq.utp.input.utp.v4.0.nextactionsequence", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.next_trade_id = ProtoField.new("Next Trade Id", "nasdaq.utp.input.utp.v4.0.nexttradeid", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_adf_form_attachment = ProtoField.new("Odd Lot Ask Adf Form Attachment", "nasdaq.utp.input.utp.v4.0.oddlotaskadfformattachment", ftypes.STRING)
@@ -77,8 +77,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.ol_ask_level_count = ProtoField.new("Ol Ask
 omi_nasdaq_utp_input_utp_v4_0.fields.ol_attachmen_type = ProtoField.new("Ol Attachmen Type", "nasdaq.utp.input.utp.v4.0.olattachmentype", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.ol_attachment_count = ProtoField.new("Ol Attachment Count", "nasdaq.utp.input.utp.v4.0.olattachmentcount", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.ol_bid_level_count = ProtoField.new("Ol Bid Level Count", "nasdaq.utp.input.utp.v4.0.olbidlevelcount", ftypes.UINT16)
-omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_long_8 = ProtoField.new("Ol Price Long 8", "nasdaq.utp.input.utp.v4.0.olpricelong8", ftypes.DOUBLE)
-omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_short_2 = ProtoField.new("Ol Price Short 2", "nasdaq.utp.input.utp.v4.0.olpriceshort2", ftypes.DOUBLE)
+omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_long = ProtoField.new("Ol Price Long", "nasdaq.utp.input.utp.v4.0.olpricelong", ftypes.DOUBLE)
+omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_short = ProtoField.new("Ol Price Short", "nasdaq.utp.input.utp.v4.0.olpriceshort", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.ol_size = ProtoField.new("Ol Size", "nasdaq.utp.input.utp.v4.0.olsize", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.orig = ProtoField.new("Orig", "nasdaq.utp.input.utp.v4.0.orig", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.orig_price = ProtoField.new("Orig Price", "nasdaq.utp.input.utp.v4.0.origprice", ftypes.DOUBLE)
@@ -87,8 +87,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.orig_ssday = ProtoField.new("Orig Ssday", "
 omi_nasdaq_utp_input_utp_v4_0.fields.orig_trade_id = ProtoField.new("Orig Trade Id", "nasdaq.utp.input.utp.v4.0.origtradeid", ftypes.UINT32)
 omi_nasdaq_utp_input_utp_v4_0.fields.orig_trcond = ProtoField.new("Orig Trcond", "nasdaq.utp.input.utp.v4.0.origtrcond", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.orig_tt_exempt = ProtoField.new("Orig Tt Exempt", "nasdaq.utp.input.utp.v4.0.origttexempt", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_int_4 = ProtoField.new("Orig Volume Int 4", "nasdaq.utp.input.utp.v4.0.origvolumeint4", ftypes.UINT32)
-omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_long_8 = ProtoField.new("Orig Volume Long 8", "nasdaq.utp.input.utp.v4.0.origvolumelong8", ftypes.DOUBLE)
+omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume = ProtoField.new("Orig Volume", "nasdaq.utp.input.utp.v4.0.origvolume", ftypes.UINT32)
+omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_fractional = ProtoField.new("Orig Volume Fractional", "nasdaq.utp.input.utp.v4.0.origvolumefractional", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.utp.input.utp.v4.0.packetlength", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.part_token = ProtoField.new("Part Token", "nasdaq.utp.input.utp.v4.0.parttoken", ftypes.UINT64)
 omi_nasdaq_utp_input_utp_v4_0.fields.password = ProtoField.new("Password", "nasdaq.utp.input.utp.v4.0.password", ftypes.STRING)
@@ -109,8 +109,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.side = ProtoField.new("Side", "nasdaq.utp.i
 omi_nasdaq_utp_input_utp_v4_0.fields.sip_state = ProtoField.new("Sip State", "nasdaq.utp.input.utp.v4.0.sipstate", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.sip_time = ProtoField.new("Sip Time", "nasdaq.utp.input.utp.v4.0.siptime", ftypes.UINT64)
 omi_nasdaq_utp_input_utp_v4_0.fields.ssday = ProtoField.new("Ssday", "nasdaq.utp.input.utp.v4.0.ssday", ftypes.UINT16)
-omi_nasdaq_utp_input_utp_v4_0.fields.symbol_byte_11 = ProtoField.new("Symbol Byte 11", "nasdaq.utp.input.utp.v4.0.symbolbyte11", ftypes.STRING)
-omi_nasdaq_utp_input_utp_v4_0.fields.symbol_byte_5 = ProtoField.new("Symbol Byte 5", "nasdaq.utp.input.utp.v4.0.symbolbyte5", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.symbol_long = ProtoField.new("Symbol Long", "nasdaq.utp.input.utp.v4.0.symbollong", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.symbol_short = ProtoField.new("Symbol Short", "nasdaq.utp.input.utp.v4.0.symbolshort", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.symbol_state = ProtoField.new("Symbol State", "nasdaq.utp.input.utp.v4.0.symbolstate", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.syntax_violation = ProtoField.new("Syntax Violation", "nasdaq.utp.input.utp.v4.0.syntaxviolation", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.text = ProtoField.new("Text", "nasdaq.utp.input.utp.v4.0.text", ftypes.STRING)
@@ -123,8 +123,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.trcond = ProtoField.new("Trcond", "nasdaq.u
 omi_nasdaq_utp_input_utp_v4_0.fields.tt_exempt = ProtoField.new("Tt Exempt", "nasdaq.utp.input.utp.v4.0.ttexempt", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.username = ProtoField.new("Username", "nasdaq.utp.input.utp.v4.0.username", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.version = ProtoField.new("Version", "nasdaq.utp.input.utp.v4.0.version", ftypes.UINT8)
-omi_nasdaq_utp_input_utp_v4_0.fields.volume_int_4 = ProtoField.new("Volume Int 4", "nasdaq.utp.input.utp.v4.0.volumeint4", ftypes.UINT32)
-omi_nasdaq_utp_input_utp_v4_0.fields.volume_long_8 = ProtoField.new("Volume Long 8", "nasdaq.utp.input.utp.v4.0.volumelong8", ftypes.DOUBLE)
+omi_nasdaq_utp_input_utp_v4_0.fields.volume = ProtoField.new("Volume", "nasdaq.utp.input.utp.v4.0.volume", ftypes.UINT32)
+omi_nasdaq_utp_input_utp_v4_0.fields.volume_fractional = ProtoField.new("Volume Fractional", "nasdaq.utp.input.utp.v4.0.volumefractional", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.warning_code = ProtoField.new("Warning Code", "nasdaq.utp.input.utp.v4.0.warningcode", ftypes.UINT16)
 
 -- Nasdaq Utp Input Utp 4.0 Headers
@@ -411,94 +411,94 @@ nasdaq_utp_input_utp_v4_0.action_time.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Ask Long 8
-nasdaq_utp_input_utp_v4_0.ask_long_8 = {}
+-- Ask Long
+nasdaq_utp_input_utp_v4_0.ask_long = {}
 
--- Size: Ask Long 8
-nasdaq_utp_input_utp_v4_0.ask_long_8.size = 8
+-- Size: Ask Long
+nasdaq_utp_input_utp_v4_0.ask_long.size = 8
 
--- Display: Ask Long 8
-nasdaq_utp_input_utp_v4_0.ask_long_8.display = function(value)
-  return "Ask Long 8: "..value
+-- Display: Ask Long
+nasdaq_utp_input_utp_v4_0.ask_long.display = function(value)
+  return "Ask Long: "..value
 end
 
--- Dissect: Ask Long 8
-nasdaq_utp_input_utp_v4_0.ask_long_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.ask_long_8.size
+-- Dissect: Ask Long
+nasdaq_utp_input_utp_v4_0.ask_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.ask_long.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_input_utp_v4_0.ask_long_8.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.ask_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_long_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Short 2
-nasdaq_utp_input_utp_v4_0.ask_short_2 = {}
-
--- Size: Ask Short 2
-nasdaq_utp_input_utp_v4_0.ask_short_2.size = 2
-
--- Display: Ask Short 2
-nasdaq_utp_input_utp_v4_0.ask_short_2.display = function(value)
-  return "Ask Short 2: "..value
-end
-
--- Dissect: Ask Short 2
-nasdaq_utp_input_utp_v4_0.ask_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.ask_short_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.ask_short_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_short_2, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Size Int 4
-nasdaq_utp_input_utp_v4_0.ask_size_int_4 = {}
+-- Ask Short
+nasdaq_utp_input_utp_v4_0.ask_short = {}
 
--- Size: Ask Size Int 4
-nasdaq_utp_input_utp_v4_0.ask_size_int_4.size = 4
+-- Size: Ask Short
+nasdaq_utp_input_utp_v4_0.ask_short.size = 2
 
--- Display: Ask Size Int 4
-nasdaq_utp_input_utp_v4_0.ask_size_int_4.display = function(value)
-  return "Ask Size Int 4: "..value
+-- Display: Ask Short
+nasdaq_utp_input_utp_v4_0.ask_short.display = function(value)
+  return "Ask Short: "..value
 end
 
--- Dissect: Ask Size Int 4
-nasdaq_utp_input_utp_v4_0.ask_size_int_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.ask_size_int_4.size
+-- Dissect: Ask Short
+nasdaq_utp_input_utp_v4_0.ask_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.ask_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.ask_size_int_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.ask_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_int_4, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Size Short 2
-nasdaq_utp_input_utp_v4_0.ask_size_short_2 = {}
+-- Ask Size Long
+nasdaq_utp_input_utp_v4_0.ask_size_long = {}
 
--- Size: Ask Size Short 2
-nasdaq_utp_input_utp_v4_0.ask_size_short_2.size = 2
+-- Size: Ask Size Long
+nasdaq_utp_input_utp_v4_0.ask_size_long.size = 4
 
--- Display: Ask Size Short 2
-nasdaq_utp_input_utp_v4_0.ask_size_short_2.display = function(value)
-  return "Ask Size Short 2: "..value
+-- Display: Ask Size Long
+nasdaq_utp_input_utp_v4_0.ask_size_long.display = function(value)
+  return "Ask Size Long: "..value
 end
 
--- Dissect: Ask Size Short 2
-nasdaq_utp_input_utp_v4_0.ask_size_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.ask_size_short_2.size
+-- Dissect: Ask Size Long
+nasdaq_utp_input_utp_v4_0.ask_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.ask_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.ask_size_short_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.ask_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_short_2, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Size Short
+nasdaq_utp_input_utp_v4_0.ask_size_short = {}
+
+-- Size: Ask Size Short
+nasdaq_utp_input_utp_v4_0.ask_size_short.size = 2
+
+-- Display: Ask Size Short
+nasdaq_utp_input_utp_v4_0.ask_size_short.display = function(value)
+  return "Ask Size Short: "..value
+end
+
+-- Dissect: Ask Size Short
+nasdaq_utp_input_utp_v4_0.ask_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.ask_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utp_input_utp_v4_0.ask_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -780,94 +780,94 @@ nasdaq_utp_input_utp_v4_0.bbo_indicator.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Bid Long 8
-nasdaq_utp_input_utp_v4_0.bid_long_8 = {}
+-- Bid Long
+nasdaq_utp_input_utp_v4_0.bid_long = {}
 
--- Size: Bid Long 8
-nasdaq_utp_input_utp_v4_0.bid_long_8.size = 8
+-- Size: Bid Long
+nasdaq_utp_input_utp_v4_0.bid_long.size = 8
 
--- Display: Bid Long 8
-nasdaq_utp_input_utp_v4_0.bid_long_8.display = function(value)
-  return "Bid Long 8: "..value
+-- Display: Bid Long
+nasdaq_utp_input_utp_v4_0.bid_long.display = function(value)
+  return "Bid Long: "..value
 end
 
--- Dissect: Bid Long 8
-nasdaq_utp_input_utp_v4_0.bid_long_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.bid_long_8.size
+-- Dissect: Bid Long
+nasdaq_utp_input_utp_v4_0.bid_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.bid_long.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_utp_input_utp_v4_0.bid_long_8.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.bid_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_long_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Short 2
-nasdaq_utp_input_utp_v4_0.bid_short_2 = {}
-
--- Size: Bid Short 2
-nasdaq_utp_input_utp_v4_0.bid_short_2.size = 2
-
--- Display: Bid Short 2
-nasdaq_utp_input_utp_v4_0.bid_short_2.display = function(value)
-  return "Bid Short 2: "..value
-end
-
--- Dissect: Bid Short 2
-nasdaq_utp_input_utp_v4_0.bid_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.bid_short_2.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.bid_short_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_short_2, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Int 4
-nasdaq_utp_input_utp_v4_0.bid_size_int_4 = {}
+-- Bid Short
+nasdaq_utp_input_utp_v4_0.bid_short = {}
 
--- Size: Bid Size Int 4
-nasdaq_utp_input_utp_v4_0.bid_size_int_4.size = 4
+-- Size: Bid Short
+nasdaq_utp_input_utp_v4_0.bid_short.size = 2
 
--- Display: Bid Size Int 4
-nasdaq_utp_input_utp_v4_0.bid_size_int_4.display = function(value)
-  return "Bid Size Int 4: "..value
+-- Display: Bid Short
+nasdaq_utp_input_utp_v4_0.bid_short.display = function(value)
+  return "Bid Short: "..value
 end
 
--- Dissect: Bid Size Int 4
-nasdaq_utp_input_utp_v4_0.bid_size_int_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.bid_size_int_4.size
+-- Dissect: Bid Short
+nasdaq_utp_input_utp_v4_0.bid_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.bid_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.bid_size_int_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.bid_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_int_4, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Short 2
-nasdaq_utp_input_utp_v4_0.bid_size_short_2 = {}
+-- Bid Size Long
+nasdaq_utp_input_utp_v4_0.bid_size_long = {}
 
--- Size: Bid Size Short 2
-nasdaq_utp_input_utp_v4_0.bid_size_short_2.size = 2
+-- Size: Bid Size Long
+nasdaq_utp_input_utp_v4_0.bid_size_long.size = 4
 
--- Display: Bid Size Short 2
-nasdaq_utp_input_utp_v4_0.bid_size_short_2.display = function(value)
-  return "Bid Size Short 2: "..value
+-- Display: Bid Size Long
+nasdaq_utp_input_utp_v4_0.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
 end
 
--- Dissect: Bid Size Short 2
-nasdaq_utp_input_utp_v4_0.bid_size_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.bid_size_short_2.size
+-- Dissect: Bid Size Long
+nasdaq_utp_input_utp_v4_0.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.bid_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.bid_size_short_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.bid_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_short_2, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Short
+nasdaq_utp_input_utp_v4_0.bid_size_short = {}
+
+-- Size: Bid Size Short
+nasdaq_utp_input_utp_v4_0.bid_size_short.size = 2
+
+-- Display: Bid Size Short
+nasdaq_utp_input_utp_v4_0.bid_size_short.display = function(value)
+  return "Bid Size Short: "..value
+end
+
+-- Dissect: Bid Size Short
+nasdaq_utp_input_utp_v4_0.bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_utp_input_utp_v4_0.bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1422,54 +1422,54 @@ nasdaq_utp_input_utp_v4_0.new_tt_exempt.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- New Volume Int 4
-nasdaq_utp_input_utp_v4_0.new_volume_int_4 = {}
+-- New Volume
+nasdaq_utp_input_utp_v4_0.new_volume = {}
 
--- Size: New Volume Int 4
-nasdaq_utp_input_utp_v4_0.new_volume_int_4.size = 4
+-- Size: New Volume
+nasdaq_utp_input_utp_v4_0.new_volume.size = 4
 
--- Display: New Volume Int 4
-nasdaq_utp_input_utp_v4_0.new_volume_int_4.display = function(value)
-  return "New Volume Int 4: "..value
+-- Display: New Volume
+nasdaq_utp_input_utp_v4_0.new_volume.display = function(value)
+  return "New Volume: "..value
 end
 
--- Dissect: New Volume Int 4
-nasdaq_utp_input_utp_v4_0.new_volume_int_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.new_volume_int_4.size
+-- Dissect: New Volume
+nasdaq_utp_input_utp_v4_0.new_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.new_volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.new_volume_int_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.new_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.new_volume_int_4, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.new_volume, range, value, display)
 
   return offset + length, value
 end
 
--- New Volume Long 8
-nasdaq_utp_input_utp_v4_0.new_volume_long_8 = {}
+-- New Volume Fractional
+nasdaq_utp_input_utp_v4_0.new_volume_fractional = {}
 
--- Size: New Volume Long 8
-nasdaq_utp_input_utp_v4_0.new_volume_long_8.size = 8
+-- Size: New Volume Fractional
+nasdaq_utp_input_utp_v4_0.new_volume_fractional.size = 8
 
--- Display: New Volume Long 8
-nasdaq_utp_input_utp_v4_0.new_volume_long_8.display = function(value)
-  return "New Volume Long 8: "..value
+-- Display: New Volume Fractional
+nasdaq_utp_input_utp_v4_0.new_volume_fractional.display = function(value)
+  return "New Volume Fractional: "..value
 end
 
--- Translate: New Volume Long 8
-nasdaq_utp_input_utp_v4_0.new_volume_long_8.translate = function(raw)
+-- Translate: New Volume Fractional
+nasdaq_utp_input_utp_v4_0.new_volume_fractional.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: New Volume Long 8
-nasdaq_utp_input_utp_v4_0.new_volume_long_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.new_volume_long_8.size
+-- Dissect: New Volume Fractional
+nasdaq_utp_input_utp_v4_0.new_volume_fractional.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.new_volume_fractional.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = nasdaq_utp_input_utp_v4_0.new_volume_long_8.translate(raw)
-  local display = nasdaq_utp_input_utp_v4_0.new_volume_long_8.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_utp_input_utp_v4_0.new_volume_fractional.translate(raw)
+  local display = nasdaq_utp_input_utp_v4_0.new_volume_fractional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.new_volume_long_8, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.new_volume_fractional, range, value, display)
 
   return offset + length, value
 end
@@ -1612,60 +1612,60 @@ nasdaq_utp_input_utp_v4_0.ol_bid_level_count.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Ol Price Long 8
-nasdaq_utp_input_utp_v4_0.ol_price_long_8 = {}
+-- Ol Price Long
+nasdaq_utp_input_utp_v4_0.ol_price_long = {}
 
--- Size: Ol Price Long 8
-nasdaq_utp_input_utp_v4_0.ol_price_long_8.size = 8
+-- Size: Ol Price Long
+nasdaq_utp_input_utp_v4_0.ol_price_long.size = 8
 
--- Display: Ol Price Long 8
-nasdaq_utp_input_utp_v4_0.ol_price_long_8.display = function(value)
-  return "Ol Price Long 8: "..value
+-- Display: Ol Price Long
+nasdaq_utp_input_utp_v4_0.ol_price_long.display = function(value)
+  return "Ol Price Long: "..value
 end
 
--- Translate: Ol Price Long 8
-nasdaq_utp_input_utp_v4_0.ol_price_long_8.translate = function(raw)
+-- Translate: Ol Price Long
+nasdaq_utp_input_utp_v4_0.ol_price_long.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Ol Price Long 8
-nasdaq_utp_input_utp_v4_0.ol_price_long_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.ol_price_long_8.size
+-- Dissect: Ol Price Long
+nasdaq_utp_input_utp_v4_0.ol_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.ol_price_long.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = nasdaq_utp_input_utp_v4_0.ol_price_long_8.translate(raw)
-  local display = nasdaq_utp_input_utp_v4_0.ol_price_long_8.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_utp_input_utp_v4_0.ol_price_long.translate(raw)
+  local display = nasdaq_utp_input_utp_v4_0.ol_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_long_8, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ol Price Short 2
-nasdaq_utp_input_utp_v4_0.ol_price_short_2 = {}
+-- Ol Price Short
+nasdaq_utp_input_utp_v4_0.ol_price_short = {}
 
--- Size: Ol Price Short 2
-nasdaq_utp_input_utp_v4_0.ol_price_short_2.size = 2
+-- Size: Ol Price Short
+nasdaq_utp_input_utp_v4_0.ol_price_short.size = 2
 
--- Display: Ol Price Short 2
-nasdaq_utp_input_utp_v4_0.ol_price_short_2.display = function(value)
-  return "Ol Price Short 2: "..value
+-- Display: Ol Price Short
+nasdaq_utp_input_utp_v4_0.ol_price_short.display = function(value)
+  return "Ol Price Short: "..value
 end
 
--- Translate: Ol Price Short 2
-nasdaq_utp_input_utp_v4_0.ol_price_short_2.translate = function(raw)
+-- Translate: Ol Price Short
+nasdaq_utp_input_utp_v4_0.ol_price_short.translate = function(raw)
   return raw/100
 end
 
--- Dissect: Ol Price Short 2
-nasdaq_utp_input_utp_v4_0.ol_price_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.ol_price_short_2.size
+-- Dissect: Ol Price Short
+nasdaq_utp_input_utp_v4_0.ol_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.ol_price_short.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = nasdaq_utp_input_utp_v4_0.ol_price_short_2.translate(raw)
-  local display = nasdaq_utp_input_utp_v4_0.ol_price_short_2.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_utp_input_utp_v4_0.ol_price_short.translate(raw)
+  local display = nasdaq_utp_input_utp_v4_0.ol_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_short_2, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.ol_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1936,54 +1936,54 @@ nasdaq_utp_input_utp_v4_0.orig_tt_exempt.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Orig Volume Int 4
-nasdaq_utp_input_utp_v4_0.orig_volume_int_4 = {}
+-- Orig Volume
+nasdaq_utp_input_utp_v4_0.orig_volume = {}
 
--- Size: Orig Volume Int 4
-nasdaq_utp_input_utp_v4_0.orig_volume_int_4.size = 4
+-- Size: Orig Volume
+nasdaq_utp_input_utp_v4_0.orig_volume.size = 4
 
--- Display: Orig Volume Int 4
-nasdaq_utp_input_utp_v4_0.orig_volume_int_4.display = function(value)
-  return "Orig Volume Int 4: "..value
+-- Display: Orig Volume
+nasdaq_utp_input_utp_v4_0.orig_volume.display = function(value)
+  return "Orig Volume: "..value
 end
 
--- Dissect: Orig Volume Int 4
-nasdaq_utp_input_utp_v4_0.orig_volume_int_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.orig_volume_int_4.size
+-- Dissect: Orig Volume
+nasdaq_utp_input_utp_v4_0.orig_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.orig_volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.orig_volume_int_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.orig_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_int_4, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Orig Volume Long 8
-nasdaq_utp_input_utp_v4_0.orig_volume_long_8 = {}
+-- Orig Volume Fractional
+nasdaq_utp_input_utp_v4_0.orig_volume_fractional = {}
 
--- Size: Orig Volume Long 8
-nasdaq_utp_input_utp_v4_0.orig_volume_long_8.size = 8
+-- Size: Orig Volume Fractional
+nasdaq_utp_input_utp_v4_0.orig_volume_fractional.size = 8
 
--- Display: Orig Volume Long 8
-nasdaq_utp_input_utp_v4_0.orig_volume_long_8.display = function(value)
-  return "Orig Volume Long 8: "..value
+-- Display: Orig Volume Fractional
+nasdaq_utp_input_utp_v4_0.orig_volume_fractional.display = function(value)
+  return "Orig Volume Fractional: "..value
 end
 
--- Translate: Orig Volume Long 8
-nasdaq_utp_input_utp_v4_0.orig_volume_long_8.translate = function(raw)
+-- Translate: Orig Volume Fractional
+nasdaq_utp_input_utp_v4_0.orig_volume_fractional.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Orig Volume Long 8
-nasdaq_utp_input_utp_v4_0.orig_volume_long_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.orig_volume_long_8.size
+-- Dissect: Orig Volume Fractional
+nasdaq_utp_input_utp_v4_0.orig_volume_fractional.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.orig_volume_fractional.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = nasdaq_utp_input_utp_v4_0.orig_volume_long_8.translate(raw)
-  local display = nasdaq_utp_input_utp_v4_0.orig_volume_long_8.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_utp_input_utp_v4_0.orig_volume_fractional.translate(raw)
+  local display = nasdaq_utp_input_utp_v4_0.orig_volume_fractional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_long_8, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.orig_volume_fractional, range, value, display)
 
   return offset + length, value
 end
@@ -2586,48 +2586,48 @@ nasdaq_utp_input_utp_v4_0.ssday.dissect = function(buffer, offset, packet, paren
   return offset + length, value
 end
 
--- Symbol Byte 11
-nasdaq_utp_input_utp_v4_0.symbol_byte_11 = {}
+-- Symbol Long
+nasdaq_utp_input_utp_v4_0.symbol_long = {}
 
--- Size: Symbol Byte 11
-nasdaq_utp_input_utp_v4_0.symbol_byte_11.size = 11
+-- Size: Symbol Long
+nasdaq_utp_input_utp_v4_0.symbol_long.size = 11
 
--- Display: Symbol Byte 11
-nasdaq_utp_input_utp_v4_0.symbol_byte_11.display = function(value)
-  return "Symbol Byte 11: "..value
+-- Display: Symbol Long
+nasdaq_utp_input_utp_v4_0.symbol_long.display = function(value)
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol Byte 11
-nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.symbol_byte_11.size
+-- Dissect: Symbol Long
+nasdaq_utp_input_utp_v4_0.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_utp_input_utp_v4_0.symbol_byte_11.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.symbol_byte_11, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Byte 5
-nasdaq_utp_input_utp_v4_0.symbol_byte_5 = {}
+-- Symbol Short
+nasdaq_utp_input_utp_v4_0.symbol_short = {}
 
--- Size: Symbol Byte 5
-nasdaq_utp_input_utp_v4_0.symbol_byte_5.size = 5
+-- Size: Symbol Short
+nasdaq_utp_input_utp_v4_0.symbol_short.size = 5
 
--- Display: Symbol Byte 5
-nasdaq_utp_input_utp_v4_0.symbol_byte_5.display = function(value)
-  return "Symbol Byte 5: "..value
+-- Display: Symbol Short
+nasdaq_utp_input_utp_v4_0.symbol_short.display = function(value)
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol Byte 5
-nasdaq_utp_input_utp_v4_0.symbol_byte_5.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.symbol_byte_5.size
+-- Dissect: Symbol Short
+nasdaq_utp_input_utp_v4_0.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.symbol_short.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_utp_input_utp_v4_0.symbol_byte_5.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.symbol_byte_5, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -2947,54 +2947,54 @@ nasdaq_utp_input_utp_v4_0.version.dissect = function(buffer, offset, packet, par
   return offset + length, value
 end
 
--- Volume Int 4
-nasdaq_utp_input_utp_v4_0.volume_int_4 = {}
+-- Volume
+nasdaq_utp_input_utp_v4_0.volume = {}
 
--- Size: Volume Int 4
-nasdaq_utp_input_utp_v4_0.volume_int_4.size = 4
+-- Size: Volume
+nasdaq_utp_input_utp_v4_0.volume.size = 4
 
--- Display: Volume Int 4
-nasdaq_utp_input_utp_v4_0.volume_int_4.display = function(value)
-  return "Volume Int 4: "..value
+-- Display: Volume
+nasdaq_utp_input_utp_v4_0.volume.display = function(value)
+  return "Volume: "..value
 end
 
--- Dissect: Volume Int 4
-nasdaq_utp_input_utp_v4_0.volume_int_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.volume_int_4.size
+-- Dissect: Volume
+nasdaq_utp_input_utp_v4_0.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.volume.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_utp_input_utp_v4_0.volume_int_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_utp_input_utp_v4_0.volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.volume_int_4, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.volume, range, value, display)
 
   return offset + length, value
 end
 
--- Volume Long 8
-nasdaq_utp_input_utp_v4_0.volume_long_8 = {}
+-- Volume Fractional
+nasdaq_utp_input_utp_v4_0.volume_fractional = {}
 
--- Size: Volume Long 8
-nasdaq_utp_input_utp_v4_0.volume_long_8.size = 8
+-- Size: Volume Fractional
+nasdaq_utp_input_utp_v4_0.volume_fractional.size = 8
 
--- Display: Volume Long 8
-nasdaq_utp_input_utp_v4_0.volume_long_8.display = function(value)
-  return "Volume Long 8: "..value
+-- Display: Volume Fractional
+nasdaq_utp_input_utp_v4_0.volume_fractional.display = function(value)
+  return "Volume Fractional: "..value
 end
 
--- Translate: Volume Long 8
-nasdaq_utp_input_utp_v4_0.volume_long_8.translate = function(raw)
+-- Translate: Volume Fractional
+nasdaq_utp_input_utp_v4_0.volume_fractional.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Volume Long 8
-nasdaq_utp_input_utp_v4_0.volume_long_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_input_utp_v4_0.volume_long_8.size
+-- Dissect: Volume Fractional
+nasdaq_utp_input_utp_v4_0.volume_fractional.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.volume_fractional.size
   local range = buffer(offset, length)
   local raw = range:uint64()
-  local value = nasdaq_utp_input_utp_v4_0.volume_long_8.translate(raw)
-  local display = nasdaq_utp_input_utp_v4_0.volume_long_8.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_utp_input_utp_v4_0.volume_fractional.translate(raw)
+  local display = nasdaq_utp_input_utp_v4_0.volume_fractional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.volume_long_8, range, value, display)
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.volume_fractional, range, value, display)
 
   return offset + length, value
 end
@@ -3192,7 +3192,7 @@ nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_response_message = {}
 nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_response_message.size =
   nasdaq_utp_input_utp_v4_0.orig.size + 
   nasdaq_utp_input_utp_v4_0.sip_time.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.next_trade_id.size + 
   nasdaq_utp_input_utp_v4_0.next_action_sequence.size + 
   nasdaq_utp_input_utp_v4_0.symbol_state.size
@@ -3212,8 +3212,8 @@ nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_response_message.fields = functio
   -- Sip Time: long
   index, sip_time = nasdaq_utp_input_utp_v4_0.sip_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Next Trade Id: int
   index, next_trade_id = nasdaq_utp_input_utp_v4_0.next_trade_id.dissect(buffer, index, packet, parent)
@@ -3477,7 +3477,7 @@ nasdaq_utp_input_utp_v4_0.participant_input_warning_message.size =
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.warning_code.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.ol_attachmen_type.size + 
   nasdaq_utp_input_utp_v4_0.ol_attachment_count.size
 
@@ -3505,8 +3505,8 @@ nasdaq_utp_input_utp_v4_0.participant_input_warning_message.fields = function(bu
   -- Warning Code: short
   index, warning_code = nasdaq_utp_input_utp_v4_0.warning_code.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Ol Attachmen Type: byte
   index, ol_attachmen_type = nasdaq_utp_input_utp_v4_0.ol_attachmen_type.dissect(buffer, index, packet, parent)
@@ -3742,7 +3742,7 @@ nasdaq_utp_input_utp_v4_0.return_market_center_trading_action_acknowledgement_me
 nasdaq_utp_input_utp_v4_0.return_market_center_trading_action_acknowledgement_message.size =
   nasdaq_utp_input_utp_v4_0.orig.size + 
   nasdaq_utp_input_utp_v4_0.sip_time.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.action.size + 
   nasdaq_utp_input_utp_v4_0.action_time.size
 
@@ -3761,8 +3761,8 @@ nasdaq_utp_input_utp_v4_0.return_market_center_trading_action_acknowledgement_me
   -- Sip Time: long
   index, sip_time = nasdaq_utp_input_utp_v4_0.sip_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Action: byte
   index, action = nasdaq_utp_input_utp_v4_0.action.dissect(buffer, index, packet, parent)
@@ -3994,7 +3994,7 @@ nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size
+  nasdaq_utp_input_utp_v4_0.symbol_long.size
 
 -- Display: Symbol State Inquiry Message
 nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_message.display = function(packet, parent, length)
@@ -4017,8 +4017,8 @@ nasdaq_utp_input_utp_v4_0.symbol_state_inquiry_message.fields = function(buffer,
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4176,7 +4176,7 @@ nasdaq_utp_input_utp_v4_0.auction_collar_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.action_sequence.size + 
   nasdaq_utp_input_utp_v4_0.collar_reference_price.size + 
   nasdaq_utp_input_utp_v4_0.collar_up_price.size + 
@@ -4204,8 +4204,8 @@ nasdaq_utp_input_utp_v4_0.auction_collar_message.fields = function(buffer, offse
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Action Sequence: int
   index, action_sequence = nasdaq_utp_input_utp_v4_0.action_sequence.dissect(buffer, index, packet, parent)
@@ -4356,7 +4356,7 @@ nasdaq_utp_input_utp_v4_0.t_1_adjusted_closing_price_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.price.size
 
 -- Display: T 1 Adjusted Closing Price Message
@@ -4380,8 +4380,8 @@ nasdaq_utp_input_utp_v4_0.t_1_adjusted_closing_price_message.fields = function(b
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price: long
   index, price = nasdaq_utp_input_utp_v4_0.price.dissect(buffer, index, packet, parent)
@@ -4416,7 +4416,7 @@ nasdaq_utp_input_utp_v4_0.opening_reference_midpoint_price_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.price.size
 
 -- Display: Opening Reference Midpoint Price Message
@@ -4440,8 +4440,8 @@ nasdaq_utp_input_utp_v4_0.opening_reference_midpoint_price_message.fields = func
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price: long
   index, price = nasdaq_utp_input_utp_v4_0.price.dissect(buffer, index, packet, parent)
@@ -4476,7 +4476,7 @@ nasdaq_utp_input_utp_v4_0.reg_sho_short_sale_price_test_restricted_indicator_mes
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.action.size
 
 -- Display: Reg Sho Short Sale Price Test Restricted Indicator Message
@@ -4500,8 +4500,8 @@ nasdaq_utp_input_utp_v4_0.reg_sho_short_sale_price_test_restricted_indicator_mes
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Action: byte
   index, action = nasdaq_utp_input_utp_v4_0.action.dissect(buffer, index, packet, parent)
@@ -4604,7 +4604,7 @@ nasdaq_utp_input_utp_v4_0.market_center_trading_action_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.action.size + 
   nasdaq_utp_input_utp_v4_0.action_time.size
 
@@ -4629,8 +4629,8 @@ nasdaq_utp_input_utp_v4_0.market_center_trading_action_message.fields = function
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Action: byte
   index, action = nasdaq_utp_input_utp_v4_0.action.dissect(buffer, index, packet, parent)
@@ -4668,7 +4668,7 @@ nasdaq_utp_input_utp_v4_0.trading_action_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.action.size + 
   nasdaq_utp_input_utp_v4_0.action_sequence.size + 
   nasdaq_utp_input_utp_v4_0.action_time.size + 
@@ -4695,8 +4695,8 @@ nasdaq_utp_input_utp_v4_0.trading_action_message.fields = function(buffer, offse
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Action: byte
   index, action = nasdaq_utp_input_utp_v4_0.action.dissect(buffer, index, packet, parent)
@@ -4902,14 +4902,14 @@ nasdaq_utp_input_utp_v4_0.fractional_as_of_trade_report_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.trade_id.size + 
   nasdaq_utp_input_utp_v4_0.tt_exempt.size + 
   nasdaq_utp_input_utp_v4_0.trcond.size + 
   nasdaq_utp_input_utp_v4_0.ssday.size + 
   nasdaq_utp_input_utp_v4_0.side.size + 
   nasdaq_utp_input_utp_v4_0.price.size + 
-  nasdaq_utp_input_utp_v4_0.volume_long_8.size + 
+  nasdaq_utp_input_utp_v4_0.volume_fractional.size + 
   nasdaq_utp_input_utp_v4_0.trade_time.size + 
   nasdaq_utp_input_utp_v4_0.reversal.size
 
@@ -4934,8 +4934,8 @@ nasdaq_utp_input_utp_v4_0.fractional_as_of_trade_report_message.fields = functio
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: int
   index, trade_id = nasdaq_utp_input_utp_v4_0.trade_id.dissect(buffer, index, packet, parent)
@@ -4955,8 +4955,8 @@ nasdaq_utp_input_utp_v4_0.fractional_as_of_trade_report_message.fields = functio
   -- Price: long
   index, price = nasdaq_utp_input_utp_v4_0.price.dissect(buffer, index, packet, parent)
 
-  -- Volume Long 8: long
-  index, volume_long_8 = nasdaq_utp_input_utp_v4_0.volume_long_8.dissect(buffer, index, packet, parent)
+  -- Volume Fractional: long
+  index, volume_fractional = nasdaq_utp_input_utp_v4_0.volume_fractional.dissect(buffer, index, packet, parent)
 
   -- Trade Time: long
   index, trade_time = nasdaq_utp_input_utp_v4_0.trade_time.dissect(buffer, index, packet, parent)
@@ -4995,7 +4995,7 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.size =
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.trade_id.size + 
   nasdaq_utp_input_utp_v4_0.orig_trade_id.size + 
   nasdaq_utp_input_utp_v4_0.orig_tt_exempt.size + 
@@ -5003,12 +5003,12 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.size =
   nasdaq_utp_input_utp_v4_0.orig_ssday.size + 
   nasdaq_utp_input_utp_v4_0.side.size + 
   nasdaq_utp_input_utp_v4_0.orig_price.size + 
-  nasdaq_utp_input_utp_v4_0.orig_volume_long_8.size + 
+  nasdaq_utp_input_utp_v4_0.orig_volume_fractional.size + 
   nasdaq_utp_input_utp_v4_0.new_tt_exempt.size + 
   nasdaq_utp_input_utp_v4_0.new_trcond.size + 
   nasdaq_utp_input_utp_v4_0.new_ssday.size + 
   nasdaq_utp_input_utp_v4_0.new_price.size + 
-  nasdaq_utp_input_utp_v4_0.new_volume_long_8.size
+  nasdaq_utp_input_utp_v4_0.new_volume_fractional.size
 
 -- Display: Fractional Trade Correction Message
 nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.display = function(packet, parent, length)
@@ -5034,8 +5034,8 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.fields = function(
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: int
   index, trade_id = nasdaq_utp_input_utp_v4_0.trade_id.dissect(buffer, index, packet, parent)
@@ -5058,8 +5058,8 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.fields = function(
   -- Orig Price: long
   index, orig_price = nasdaq_utp_input_utp_v4_0.orig_price.dissect(buffer, index, packet, parent)
 
-  -- Orig Volume Long 8: long
-  index, orig_volume_long_8 = nasdaq_utp_input_utp_v4_0.orig_volume_long_8.dissect(buffer, index, packet, parent)
+  -- Orig Volume Fractional: long
+  index, orig_volume_fractional = nasdaq_utp_input_utp_v4_0.orig_volume_fractional.dissect(buffer, index, packet, parent)
 
   -- New Tt Exempt: byte
   index, new_tt_exempt = nasdaq_utp_input_utp_v4_0.new_tt_exempt.dissect(buffer, index, packet, parent)
@@ -5073,8 +5073,8 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_correction_message.fields = function(
   -- New Price: long
   index, new_price = nasdaq_utp_input_utp_v4_0.new_price.dissect(buffer, index, packet, parent)
 
-  -- New Volume Long 8: long
-  index, new_volume_long_8 = nasdaq_utp_input_utp_v4_0.new_volume_long_8.dissect(buffer, index, packet, parent)
+  -- New Volume Fractional: long
+  index, new_volume_fractional = nasdaq_utp_input_utp_v4_0.new_volume_fractional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5107,7 +5107,7 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_cancel_error_message.size =
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.cancel_type.size + 
   nasdaq_utp_input_utp_v4_0.orig_trade_id.size + 
   nasdaq_utp_input_utp_v4_0.orig_tt_exempt.size + 
@@ -5115,7 +5115,7 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_cancel_error_message.size =
   nasdaq_utp_input_utp_v4_0.orig_ssday.size + 
   nasdaq_utp_input_utp_v4_0.orig_side.size + 
   nasdaq_utp_input_utp_v4_0.orig_price.size + 
-  nasdaq_utp_input_utp_v4_0.orig_volume_long_8.size
+  nasdaq_utp_input_utp_v4_0.orig_volume_fractional.size
 
 -- Display: Fractional Trade Cancel Error Message
 nasdaq_utp_input_utp_v4_0.fractional_trade_cancel_error_message.display = function(packet, parent, length)
@@ -5141,8 +5141,8 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_cancel_error_message.fields = functio
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Cancel Type: byte
   index, cancel_type = nasdaq_utp_input_utp_v4_0.cancel_type.dissect(buffer, index, packet, parent)
@@ -5165,8 +5165,8 @@ nasdaq_utp_input_utp_v4_0.fractional_trade_cancel_error_message.fields = functio
   -- Orig Price: long
   index, orig_price = nasdaq_utp_input_utp_v4_0.orig_price.dissect(buffer, index, packet, parent)
 
-  -- Orig Volume Long 8: long
-  index, orig_volume_long_8 = nasdaq_utp_input_utp_v4_0.orig_volume_long_8.dissect(buffer, index, packet, parent)
+  -- Orig Volume Fractional: long
+  index, orig_volume_fractional = nasdaq_utp_input_utp_v4_0.orig_volume_fractional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5199,14 +5199,14 @@ nasdaq_utp_input_utp_v4_0.fractional_regular_trade_report_message.size =
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.trade_id.size + 
   nasdaq_utp_input_utp_v4_0.tt_exempt.size + 
   nasdaq_utp_input_utp_v4_0.trcond.size + 
   nasdaq_utp_input_utp_v4_0.ssday.size + 
   nasdaq_utp_input_utp_v4_0.side.size + 
   nasdaq_utp_input_utp_v4_0.price.size + 
-  nasdaq_utp_input_utp_v4_0.volume_long_8.size
+  nasdaq_utp_input_utp_v4_0.volume_fractional.size
 
 -- Display: Fractional Regular Trade Report Message
 nasdaq_utp_input_utp_v4_0.fractional_regular_trade_report_message.display = function(packet, parent, length)
@@ -5232,8 +5232,8 @@ nasdaq_utp_input_utp_v4_0.fractional_regular_trade_report_message.fields = funct
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: int
   index, trade_id = nasdaq_utp_input_utp_v4_0.trade_id.dissect(buffer, index, packet, parent)
@@ -5253,8 +5253,8 @@ nasdaq_utp_input_utp_v4_0.fractional_regular_trade_report_message.fields = funct
   -- Price: long
   index, price = nasdaq_utp_input_utp_v4_0.price.dissect(buffer, index, packet, parent)
 
-  -- Volume Long 8: long
-  index, volume_long_8 = nasdaq_utp_input_utp_v4_0.volume_long_8.dissect(buffer, index, packet, parent)
+  -- Volume Fractional: long
+  index, volume_fractional = nasdaq_utp_input_utp_v4_0.volume_fractional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5286,14 +5286,14 @@ nasdaq_utp_input_utp_v4_0.as_of_trade_report_message.size =
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.trade_id.size + 
   nasdaq_utp_input_utp_v4_0.tt_exempt.size + 
   nasdaq_utp_input_utp_v4_0.trcond.size + 
   nasdaq_utp_input_utp_v4_0.ssday.size + 
   nasdaq_utp_input_utp_v4_0.side.size + 
   nasdaq_utp_input_utp_v4_0.price.size + 
-  nasdaq_utp_input_utp_v4_0.volume_int_4.size + 
+  nasdaq_utp_input_utp_v4_0.volume.size + 
   nasdaq_utp_input_utp_v4_0.trade_time.size + 
   nasdaq_utp_input_utp_v4_0.reversal.size
 
@@ -5318,8 +5318,8 @@ nasdaq_utp_input_utp_v4_0.as_of_trade_report_message.fields = function(buffer, o
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: int
   index, trade_id = nasdaq_utp_input_utp_v4_0.trade_id.dissect(buffer, index, packet, parent)
@@ -5339,8 +5339,8 @@ nasdaq_utp_input_utp_v4_0.as_of_trade_report_message.fields = function(buffer, o
   -- Price: long
   index, price = nasdaq_utp_input_utp_v4_0.price.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 4: int
-  index, volume_int_4 = nasdaq_utp_input_utp_v4_0.volume_int_4.dissect(buffer, index, packet, parent)
+  -- Volume: int
+  index, volume = nasdaq_utp_input_utp_v4_0.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Time: long
   index, trade_time = nasdaq_utp_input_utp_v4_0.trade_time.dissect(buffer, index, packet, parent)
@@ -5379,7 +5379,7 @@ nasdaq_utp_input_utp_v4_0.trade_correction_message.size =
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.trade_id.size + 
   nasdaq_utp_input_utp_v4_0.orig_trade_id.size + 
   nasdaq_utp_input_utp_v4_0.orig_tt_exempt.size + 
@@ -5387,12 +5387,12 @@ nasdaq_utp_input_utp_v4_0.trade_correction_message.size =
   nasdaq_utp_input_utp_v4_0.orig_ssday.size + 
   nasdaq_utp_input_utp_v4_0.side.size + 
   nasdaq_utp_input_utp_v4_0.orig_price.size + 
-  nasdaq_utp_input_utp_v4_0.orig_volume_int_4.size + 
+  nasdaq_utp_input_utp_v4_0.orig_volume.size + 
   nasdaq_utp_input_utp_v4_0.new_tt_exempt.size + 
   nasdaq_utp_input_utp_v4_0.new_trcond.size + 
   nasdaq_utp_input_utp_v4_0.new_ssday.size + 
   nasdaq_utp_input_utp_v4_0.new_price.size + 
-  nasdaq_utp_input_utp_v4_0.new_volume_int_4.size
+  nasdaq_utp_input_utp_v4_0.new_volume.size
 
 -- Display: Trade Correction Message
 nasdaq_utp_input_utp_v4_0.trade_correction_message.display = function(packet, parent, length)
@@ -5418,8 +5418,8 @@ nasdaq_utp_input_utp_v4_0.trade_correction_message.fields = function(buffer, off
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: int
   index, trade_id = nasdaq_utp_input_utp_v4_0.trade_id.dissect(buffer, index, packet, parent)
@@ -5442,8 +5442,8 @@ nasdaq_utp_input_utp_v4_0.trade_correction_message.fields = function(buffer, off
   -- Orig Price: long
   index, orig_price = nasdaq_utp_input_utp_v4_0.orig_price.dissect(buffer, index, packet, parent)
 
-  -- Orig Volume Int 4: int
-  index, orig_volume_int_4 = nasdaq_utp_input_utp_v4_0.orig_volume_int_4.dissect(buffer, index, packet, parent)
+  -- Orig Volume: int
+  index, orig_volume = nasdaq_utp_input_utp_v4_0.orig_volume.dissect(buffer, index, packet, parent)
 
   -- New Tt Exempt: byte
   index, new_tt_exempt = nasdaq_utp_input_utp_v4_0.new_tt_exempt.dissect(buffer, index, packet, parent)
@@ -5457,8 +5457,8 @@ nasdaq_utp_input_utp_v4_0.trade_correction_message.fields = function(buffer, off
   -- New Price: long
   index, new_price = nasdaq_utp_input_utp_v4_0.new_price.dissect(buffer, index, packet, parent)
 
-  -- New Volume Int 4: int
-  index, new_volume_int_4 = nasdaq_utp_input_utp_v4_0.new_volume_int_4.dissect(buffer, index, packet, parent)
+  -- New Volume: int
+  index, new_volume = nasdaq_utp_input_utp_v4_0.new_volume.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5491,7 +5491,7 @@ nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.size =
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.cancel_type.size + 
   nasdaq_utp_input_utp_v4_0.orig_trade_id.size + 
   nasdaq_utp_input_utp_v4_0.orig_tt_exempt.size + 
@@ -5499,7 +5499,7 @@ nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.size =
   nasdaq_utp_input_utp_v4_0.orig_ssday.size + 
   nasdaq_utp_input_utp_v4_0.orig_side.size + 
   nasdaq_utp_input_utp_v4_0.orig_price.size + 
-  nasdaq_utp_input_utp_v4_0.orig_volume_int_4.size
+  nasdaq_utp_input_utp_v4_0.orig_volume.size
 
 -- Display: Trade Cancel Error Message
 nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.display = function(packet, parent, length)
@@ -5525,8 +5525,8 @@ nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.fields = function(buffer, o
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Cancel Type: byte
   index, cancel_type = nasdaq_utp_input_utp_v4_0.cancel_type.dissect(buffer, index, packet, parent)
@@ -5549,8 +5549,8 @@ nasdaq_utp_input_utp_v4_0.trade_cancel_error_message.fields = function(buffer, o
   -- Orig Price: long
   index, orig_price = nasdaq_utp_input_utp_v4_0.orig_price.dissect(buffer, index, packet, parent)
 
-  -- Orig Volume Int 4: int
-  index, orig_volume_int_4 = nasdaq_utp_input_utp_v4_0.orig_volume_int_4.dissect(buffer, index, packet, parent)
+  -- Orig Volume: int
+  index, orig_volume = nasdaq_utp_input_utp_v4_0.orig_volume.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5583,14 +5583,14 @@ nasdaq_utp_input_utp_v4_0.regular_trade_report_message.size =
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
   nasdaq_utp_input_utp_v4_0.trade_id.size + 
   nasdaq_utp_input_utp_v4_0.tt_exempt.size + 
   nasdaq_utp_input_utp_v4_0.trcond.size + 
   nasdaq_utp_input_utp_v4_0.ssday.size + 
   nasdaq_utp_input_utp_v4_0.side.size + 
   nasdaq_utp_input_utp_v4_0.price.size + 
-  nasdaq_utp_input_utp_v4_0.volume_int_4.size
+  nasdaq_utp_input_utp_v4_0.volume.size
 
 -- Display: Regular Trade Report Message
 nasdaq_utp_input_utp_v4_0.regular_trade_report_message.display = function(packet, parent, length)
@@ -5616,8 +5616,8 @@ nasdaq_utp_input_utp_v4_0.regular_trade_report_message.fields = function(buffer,
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: int
   index, trade_id = nasdaq_utp_input_utp_v4_0.trade_id.dissect(buffer, index, packet, parent)
@@ -5637,8 +5637,8 @@ nasdaq_utp_input_utp_v4_0.regular_trade_report_message.fields = function(buffer,
   -- Price: long
   index, price = nasdaq_utp_input_utp_v4_0.price.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 4: int
-  index, volume_int_4 = nasdaq_utp_input_utp_v4_0.volume_int_4.dissect(buffer, index, packet, parent)
+  -- Volume: int
+  index, volume = nasdaq_utp_input_utp_v4_0.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5760,7 +5760,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_adf_form_attachment = {}
 
 -- Size: Odd Lot Ask Adf Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_ask_adf_form_attachment.size =
-  nasdaq_utp_input_utp_v4_0.ol_price_long_8.size + 
+  nasdaq_utp_input_utp_v4_0.ol_price_long.size + 
   nasdaq_utp_input_utp_v4_0.ol_size.size + 
   nasdaq_utp_input_utp_v4_0.mpid.size
 
@@ -5779,8 +5779,8 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_adf_form_attachment.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Ol Price Long 8: long
-  index, ol_price_long_8 = nasdaq_utp_input_utp_v4_0.ol_price_long_8.dissect(buffer, index, packet, parent)
+  -- Ol Price Long: long
+  index, ol_price_long = nasdaq_utp_input_utp_v4_0.ol_price_long.dissect(buffer, index, packet, parent)
 
   -- Ol Size: short
   index, ol_size = nasdaq_utp_input_utp_v4_0.ol_size.dissect(buffer, index, packet, parent)
@@ -5814,7 +5814,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_adf_form_attachment = {}
 
 -- Size: Odd Lot Bid Adf Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_bid_adf_form_attachment.size =
-  nasdaq_utp_input_utp_v4_0.ol_price_long_8.size + 
+  nasdaq_utp_input_utp_v4_0.ol_price_long.size + 
   nasdaq_utp_input_utp_v4_0.ol_size.size + 
   nasdaq_utp_input_utp_v4_0.mpid.size
 
@@ -5833,8 +5833,8 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_adf_form_attachment.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Ol Price Long 8: long
-  index, ol_price_long_8 = nasdaq_utp_input_utp_v4_0.ol_price_long_8.dissect(buffer, index, packet, parent)
+  -- Ol Price Long: long
+  index, ol_price_long = nasdaq_utp_input_utp_v4_0.ol_price_long.dissect(buffer, index, packet, parent)
 
   -- Ol Size: short
   index, ol_size = nasdaq_utp_input_utp_v4_0.ol_size.dissect(buffer, index, packet, parent)
@@ -5880,15 +5880,15 @@ nasdaq_utp_input_utp_v4_0.finra_adf_combined_quote_message_with_bbo.size = funct
 
   index = index + nasdaq_utp_input_utp_v4_0.timestamp_2.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.symbol_byte_11.size
+  index = index + nasdaq_utp_input_utp_v4_0.symbol_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.bid_long_8.size
+  index = index + nasdaq_utp_input_utp_v4_0.bid_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.bid_size_int_4.size
+  index = index + nasdaq_utp_input_utp_v4_0.bid_size_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.ask_long_8.size
+  index = index + nasdaq_utp_input_utp_v4_0.ask_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.ask_size_int_4.size
+  index = index + nasdaq_utp_input_utp_v4_0.ask_size_long.size
 
   index = index + nasdaq_utp_input_utp_v4_0.cond.size
 
@@ -5949,20 +5949,20 @@ nasdaq_utp_input_utp_v4_0.finra_adf_combined_quote_message_with_bbo.fields = fun
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Long 8: long
-  index, bid_long_8 = nasdaq_utp_input_utp_v4_0.bid_long_8.dissect(buffer, index, packet, parent)
+  -- Bid Long: long
+  index, bid_long = nasdaq_utp_input_utp_v4_0.bid_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Int 4: int
-  index, bid_size_int_4 = nasdaq_utp_input_utp_v4_0.bid_size_int_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: int
+  index, bid_size_long = nasdaq_utp_input_utp_v4_0.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Long 8: long
-  index, ask_long_8 = nasdaq_utp_input_utp_v4_0.ask_long_8.dissect(buffer, index, packet, parent)
+  -- Ask Long: long
+  index, ask_long = nasdaq_utp_input_utp_v4_0.ask_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Int 4: int
-  index, ask_size_int_4 = nasdaq_utp_input_utp_v4_0.ask_size_int_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: int
+  index, ask_size_long = nasdaq_utp_input_utp_v4_0.ask_size_long.dissect(buffer, index, packet, parent)
 
   -- Cond: byte
   index, cond = nasdaq_utp_input_utp_v4_0.cond.dissect(buffer, index, packet, parent)
@@ -6048,7 +6048,7 @@ nasdaq_utp_input_utp_v4_0.finra_adf_odd_lot_quotation_message.size = function(bu
 
   index = index + nasdaq_utp_input_utp_v4_0.timestamp_2.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.symbol_byte_11.size
+  index = index + nasdaq_utp_input_utp_v4_0.symbol_long.size
 
   index = index + nasdaq_utp_input_utp_v4_0.ol_bid_level_count.size
 
@@ -6089,8 +6089,8 @@ nasdaq_utp_input_utp_v4_0.finra_adf_odd_lot_quotation_message.fields = function(
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Ol Bid Level Count: short
   index, ol_bid_level_count = nasdaq_utp_input_utp_v4_0.ol_bid_level_count.dissect(buffer, index, packet, parent)
@@ -6139,11 +6139,11 @@ nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_without_bbo_info_message
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
-  nasdaq_utp_input_utp_v4_0.bid_long_8.size + 
-  nasdaq_utp_input_utp_v4_0.bid_size_int_4.size + 
-  nasdaq_utp_input_utp_v4_0.ask_long_8.size + 
-  nasdaq_utp_input_utp_v4_0.ask_size_int_4.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
+  nasdaq_utp_input_utp_v4_0.bid_long.size + 
+  nasdaq_utp_input_utp_v4_0.bid_size_long.size + 
+  nasdaq_utp_input_utp_v4_0.ask_long.size + 
+  nasdaq_utp_input_utp_v4_0.ask_size_long.size + 
   nasdaq_utp_input_utp_v4_0.cond.size + 
   nasdaq_utp_input_utp_v4_0.mpid.size + 
   nasdaq_utp_input_utp_v4_0.bbo_indicator.size
@@ -6172,20 +6172,20 @@ nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_without_bbo_info_message
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Long 8: long
-  index, bid_long_8 = nasdaq_utp_input_utp_v4_0.bid_long_8.dissect(buffer, index, packet, parent)
+  -- Bid Long: long
+  index, bid_long = nasdaq_utp_input_utp_v4_0.bid_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Int 4: int
-  index, bid_size_int_4 = nasdaq_utp_input_utp_v4_0.bid_size_int_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: int
+  index, bid_size_long = nasdaq_utp_input_utp_v4_0.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Long 8: long
-  index, ask_long_8 = nasdaq_utp_input_utp_v4_0.ask_long_8.dissect(buffer, index, packet, parent)
+  -- Ask Long: long
+  index, ask_long = nasdaq_utp_input_utp_v4_0.ask_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Int 4: int
-  index, ask_size_int_4 = nasdaq_utp_input_utp_v4_0.ask_size_int_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: int
+  index, ask_size_long = nasdaq_utp_input_utp_v4_0.ask_size_long.dissect(buffer, index, packet, parent)
 
   -- Cond: byte
   index, cond = nasdaq_utp_input_utp_v4_0.cond.dissect(buffer, index, packet, parent)
@@ -6227,11 +6227,11 @@ nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_with_bbo_info_message.si
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
   nasdaq_utp_input_utp_v4_0.timestamp_2.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
-  nasdaq_utp_input_utp_v4_0.bid_long_8.size + 
-  nasdaq_utp_input_utp_v4_0.bid_size_int_4.size + 
-  nasdaq_utp_input_utp_v4_0.ask_long_8.size + 
-  nasdaq_utp_input_utp_v4_0.ask_size_int_4.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
+  nasdaq_utp_input_utp_v4_0.bid_long.size + 
+  nasdaq_utp_input_utp_v4_0.bid_size_long.size + 
+  nasdaq_utp_input_utp_v4_0.ask_long.size + 
+  nasdaq_utp_input_utp_v4_0.ask_size_long.size + 
   nasdaq_utp_input_utp_v4_0.cond.size + 
   nasdaq_utp_input_utp_v4_0.mpid.size + 
   nasdaq_utp_input_utp_v4_0.bbo_bid.size + 
@@ -6266,20 +6266,20 @@ nasdaq_utp_input_utp_v4_0.finra_protected_quote_message_with_bbo_info_message.fi
   -- Timestamp 2: long
   index, timestamp_2 = nasdaq_utp_input_utp_v4_0.timestamp_2.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Long 8: long
-  index, bid_long_8 = nasdaq_utp_input_utp_v4_0.bid_long_8.dissect(buffer, index, packet, parent)
+  -- Bid Long: long
+  index, bid_long = nasdaq_utp_input_utp_v4_0.bid_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Int 4: int
-  index, bid_size_int_4 = nasdaq_utp_input_utp_v4_0.bid_size_int_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: int
+  index, bid_size_long = nasdaq_utp_input_utp_v4_0.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Long 8: long
-  index, ask_long_8 = nasdaq_utp_input_utp_v4_0.ask_long_8.dissect(buffer, index, packet, parent)
+  -- Ask Long: long
+  index, ask_long = nasdaq_utp_input_utp_v4_0.ask_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Int 4: int
-  index, ask_size_int_4 = nasdaq_utp_input_utp_v4_0.ask_size_int_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: int
+  index, ask_size_long = nasdaq_utp_input_utp_v4_0.ask_size_long.dissect(buffer, index, packet, parent)
 
   -- Cond: byte
   index, cond = nasdaq_utp_input_utp_v4_0.cond.dissect(buffer, index, packet, parent)
@@ -6334,7 +6334,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_long_form_attachment = {}
 
 -- Size: Odd Lot Ask Long Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_ask_long_form_attachment.size =
-  nasdaq_utp_input_utp_v4_0.ol_price_long_8.size + 
+  nasdaq_utp_input_utp_v4_0.ol_price_long.size + 
   nasdaq_utp_input_utp_v4_0.ol_size.size
 
 -- Display: Odd Lot Ask Long Form Attachment
@@ -6352,8 +6352,8 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_long_form_attachment.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Ol Price Long 8: long
-  index, ol_price_long_8 = nasdaq_utp_input_utp_v4_0.ol_price_long_8.dissect(buffer, index, packet, parent)
+  -- Ol Price Long: long
+  index, ol_price_long = nasdaq_utp_input_utp_v4_0.ol_price_long.dissect(buffer, index, packet, parent)
 
   -- Ol Size: short
   index, ol_size = nasdaq_utp_input_utp_v4_0.ol_size.dissect(buffer, index, packet, parent)
@@ -6384,7 +6384,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_long_form_attachment = {}
 
 -- Size: Odd Lot Bid Long Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_bid_long_form_attachment.size =
-  nasdaq_utp_input_utp_v4_0.ol_price_long_8.size + 
+  nasdaq_utp_input_utp_v4_0.ol_price_long.size + 
   nasdaq_utp_input_utp_v4_0.ol_size.size
 
 -- Display: Odd Lot Bid Long Form Attachment
@@ -6402,8 +6402,8 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_long_form_attachment.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Ol Price Long 8: long
-  index, ol_price_long_8 = nasdaq_utp_input_utp_v4_0.ol_price_long_8.dissect(buffer, index, packet, parent)
+  -- Ol Price Long: long
+  index, ol_price_long = nasdaq_utp_input_utp_v4_0.ol_price_long.dissect(buffer, index, packet, parent)
 
   -- Ol Size: short
   index, ol_size = nasdaq_utp_input_utp_v4_0.ol_size.dissect(buffer, index, packet, parent)
@@ -6444,15 +6444,15 @@ nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_long_form_message.size
 
   index = index + nasdaq_utp_input_utp_v4_0.part_token.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.symbol_byte_11.size
+  index = index + nasdaq_utp_input_utp_v4_0.symbol_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.bid_long_8.size
+  index = index + nasdaq_utp_input_utp_v4_0.bid_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.bid_size_int_4.size
+  index = index + nasdaq_utp_input_utp_v4_0.bid_size_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.ask_long_8.size
+  index = index + nasdaq_utp_input_utp_v4_0.ask_long.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.ask_size_int_4.size
+  index = index + nasdaq_utp_input_utp_v4_0.ask_size_long.size
 
   index = index + nasdaq_utp_input_utp_v4_0.cond.size
 
@@ -6494,20 +6494,20 @@ nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_long_form_message.fiel
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Long 8: long
-  index, bid_long_8 = nasdaq_utp_input_utp_v4_0.bid_long_8.dissect(buffer, index, packet, parent)
+  -- Bid Long: long
+  index, bid_long = nasdaq_utp_input_utp_v4_0.bid_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Int 4: int
-  index, bid_size_int_4 = nasdaq_utp_input_utp_v4_0.bid_size_int_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: int
+  index, bid_size_long = nasdaq_utp_input_utp_v4_0.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Long 8: long
-  index, ask_long_8 = nasdaq_utp_input_utp_v4_0.ask_long_8.dissect(buffer, index, packet, parent)
+  -- Ask Long: long
+  index, ask_long = nasdaq_utp_input_utp_v4_0.ask_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Int 4: int
-  index, ask_size_int_4 = nasdaq_utp_input_utp_v4_0.ask_size_int_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: int
+  index, ask_size_long = nasdaq_utp_input_utp_v4_0.ask_size_long.dissect(buffer, index, packet, parent)
 
   -- Cond: byte
   index, cond = nasdaq_utp_input_utp_v4_0.cond.dissect(buffer, index, packet, parent)
@@ -6557,7 +6557,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_short_form_attachment = {}
 
 -- Size: Odd Lot Ask Short Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_ask_short_form_attachment.size =
-  nasdaq_utp_input_utp_v4_0.ol_price_short_2.size + 
+  nasdaq_utp_input_utp_v4_0.ol_price_short.size + 
   nasdaq_utp_input_utp_v4_0.ol_size.size
 
 -- Display: Odd Lot Ask Short Form Attachment
@@ -6575,8 +6575,8 @@ nasdaq_utp_input_utp_v4_0.odd_lot_ask_short_form_attachment.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Ol Price Short 2: short
-  index, ol_price_short_2 = nasdaq_utp_input_utp_v4_0.ol_price_short_2.dissect(buffer, index, packet, parent)
+  -- Ol Price Short: short
+  index, ol_price_short = nasdaq_utp_input_utp_v4_0.ol_price_short.dissect(buffer, index, packet, parent)
 
   -- Ol Size: short
   index, ol_size = nasdaq_utp_input_utp_v4_0.ol_size.dissect(buffer, index, packet, parent)
@@ -6607,7 +6607,7 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_short_form_attachment = {}
 
 -- Size: Odd Lot Bid Short Form Attachment
 nasdaq_utp_input_utp_v4_0.odd_lot_bid_short_form_attachment.size =
-  nasdaq_utp_input_utp_v4_0.ol_price_short_2.size + 
+  nasdaq_utp_input_utp_v4_0.ol_price_short.size + 
   nasdaq_utp_input_utp_v4_0.ol_size.size
 
 -- Display: Odd Lot Bid Short Form Attachment
@@ -6625,8 +6625,8 @@ nasdaq_utp_input_utp_v4_0.odd_lot_bid_short_form_attachment.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Ol Price Short 2: short
-  index, ol_price_short_2 = nasdaq_utp_input_utp_v4_0.ol_price_short_2.dissect(buffer, index, packet, parent)
+  -- Ol Price Short: short
+  index, ol_price_short = nasdaq_utp_input_utp_v4_0.ol_price_short.dissect(buffer, index, packet, parent)
 
   -- Ol Size: short
   index, ol_size = nasdaq_utp_input_utp_v4_0.ol_size.dissect(buffer, index, packet, parent)
@@ -6667,15 +6667,15 @@ nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_short_form_message.siz
 
   index = index + nasdaq_utp_input_utp_v4_0.part_token.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.symbol_byte_5.size
+  index = index + nasdaq_utp_input_utp_v4_0.symbol_short.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.bid_short_2.size
+  index = index + nasdaq_utp_input_utp_v4_0.bid_short.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.bid_size_short_2.size
+  index = index + nasdaq_utp_input_utp_v4_0.bid_size_short.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.ask_short_2.size
+  index = index + nasdaq_utp_input_utp_v4_0.ask_short.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.ask_size_short_2.size
+  index = index + nasdaq_utp_input_utp_v4_0.ask_size_short.size
 
   index = index + nasdaq_utp_input_utp_v4_0.cond.size
 
@@ -6717,20 +6717,20 @@ nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_short_form_message.fie
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 5: byte[]
-  index, symbol_byte_5 = nasdaq_utp_input_utp_v4_0.symbol_byte_5.dissect(buffer, index, packet, parent)
+  -- Symbol Short: byte[]
+  index, symbol_short = nasdaq_utp_input_utp_v4_0.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Short 2: short
-  index, bid_short_2 = nasdaq_utp_input_utp_v4_0.bid_short_2.dissect(buffer, index, packet, parent)
+  -- Bid Short: short
+  index, bid_short = nasdaq_utp_input_utp_v4_0.bid_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Short 2: short
-  index, bid_size_short_2 = nasdaq_utp_input_utp_v4_0.bid_size_short_2.dissect(buffer, index, packet, parent)
+  -- Bid Size Short: short
+  index, bid_size_short = nasdaq_utp_input_utp_v4_0.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Short 2: short
-  index, ask_short_2 = nasdaq_utp_input_utp_v4_0.ask_short_2.dissect(buffer, index, packet, parent)
+  -- Ask Short: short
+  index, ask_short = nasdaq_utp_input_utp_v4_0.ask_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Short 2: short
-  index, ask_size_short_2 = nasdaq_utp_input_utp_v4_0.ask_size_short_2.dissect(buffer, index, packet, parent)
+  -- Ask Size Short: short
+  index, ask_size_short = nasdaq_utp_input_utp_v4_0.ask_size_short.dissect(buffer, index, packet, parent)
 
   -- Cond: byte
   index, cond = nasdaq_utp_input_utp_v4_0.cond.dissect(buffer, index, packet, parent)
@@ -6790,7 +6790,7 @@ nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_long_form_message.size 
 
   index = index + nasdaq_utp_input_utp_v4_0.part_token.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.symbol_byte_11.size
+  index = index + nasdaq_utp_input_utp_v4_0.symbol_long.size
 
   index = index + nasdaq_utp_input_utp_v4_0.ol_bid_level_count.size
 
@@ -6828,8 +6828,8 @@ nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_long_form_message.field
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Ol Bid Level Count: short
   index, ol_bid_level_count = nasdaq_utp_input_utp_v4_0.ol_bid_level_count.dissect(buffer, index, packet, parent)
@@ -6883,7 +6883,7 @@ nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_short_form_message.size
 
   index = index + nasdaq_utp_input_utp_v4_0.part_token.size
 
-  index = index + nasdaq_utp_input_utp_v4_0.symbol_byte_5.size
+  index = index + nasdaq_utp_input_utp_v4_0.symbol_short.size
 
   index = index + nasdaq_utp_input_utp_v4_0.ol_bid_level_count.size
 
@@ -6921,8 +6921,8 @@ nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_short_form_message.fiel
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 5: byte[]
-  index, symbol_byte_5 = nasdaq_utp_input_utp_v4_0.symbol_byte_5.dissect(buffer, index, packet, parent)
+  -- Symbol Short: byte[]
+  index, symbol_short = nasdaq_utp_input_utp_v4_0.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Ol Bid Level Count: short
   index, ol_bid_level_count = nasdaq_utp_input_utp_v4_0.ol_bid_level_count.dissect(buffer, index, packet, parent)
@@ -6970,11 +6970,11 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.size
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_11.size + 
-  nasdaq_utp_input_utp_v4_0.bid_long_8.size + 
-  nasdaq_utp_input_utp_v4_0.bid_size_int_4.size + 
-  nasdaq_utp_input_utp_v4_0.ask_long_8.size + 
-  nasdaq_utp_input_utp_v4_0.ask_size_int_4.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_long.size + 
+  nasdaq_utp_input_utp_v4_0.bid_long.size + 
+  nasdaq_utp_input_utp_v4_0.bid_size_long.size + 
+  nasdaq_utp_input_utp_v4_0.ask_long.size + 
+  nasdaq_utp_input_utp_v4_0.ask_size_long.size + 
   nasdaq_utp_input_utp_v4_0.cond.size + 
   nasdaq_utp_input_utp_v4_0.rii.size
 
@@ -6999,20 +6999,20 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_longform_message.fiel
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 11: byte[]
-  index, symbol_byte_11 = nasdaq_utp_input_utp_v4_0.symbol_byte_11.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_utp_input_utp_v4_0.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Long 8: long
-  index, bid_long_8 = nasdaq_utp_input_utp_v4_0.bid_long_8.dissect(buffer, index, packet, parent)
+  -- Bid Long: long
+  index, bid_long = nasdaq_utp_input_utp_v4_0.bid_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Int 4: int
-  index, bid_size_int_4 = nasdaq_utp_input_utp_v4_0.bid_size_int_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: int
+  index, bid_size_long = nasdaq_utp_input_utp_v4_0.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Long 8: long
-  index, ask_long_8 = nasdaq_utp_input_utp_v4_0.ask_long_8.dissect(buffer, index, packet, parent)
+  -- Ask Long: long
+  index, ask_long = nasdaq_utp_input_utp_v4_0.ask_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Int 4: int
-  index, ask_size_int_4 = nasdaq_utp_input_utp_v4_0.ask_size_int_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: int
+  index, ask_size_long = nasdaq_utp_input_utp_v4_0.ask_size_long.dissect(buffer, index, packet, parent)
 
   -- Cond: byte
   index, cond = nasdaq_utp_input_utp_v4_0.cond.dissect(buffer, index, packet, parent)
@@ -7050,11 +7050,11 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.siz
   nasdaq_utp_input_utp_v4_0.timestamp_1.size + 
   nasdaq_utp_input_utp_v4_0.feed_sequence.size + 
   nasdaq_utp_input_utp_v4_0.part_token.size + 
-  nasdaq_utp_input_utp_v4_0.symbol_byte_5.size + 
-  nasdaq_utp_input_utp_v4_0.bid_short_2.size + 
-  nasdaq_utp_input_utp_v4_0.bid_size_short_2.size + 
-  nasdaq_utp_input_utp_v4_0.ask_short_2.size + 
-  nasdaq_utp_input_utp_v4_0.ask_size_short_2.size + 
+  nasdaq_utp_input_utp_v4_0.symbol_short.size + 
+  nasdaq_utp_input_utp_v4_0.bid_short.size + 
+  nasdaq_utp_input_utp_v4_0.bid_size_short.size + 
+  nasdaq_utp_input_utp_v4_0.ask_short.size + 
+  nasdaq_utp_input_utp_v4_0.ask_size_short.size + 
   nasdaq_utp_input_utp_v4_0.cond.size + 
   nasdaq_utp_input_utp_v4_0.rii.size
 
@@ -7079,20 +7079,20 @@ nasdaq_utp_input_utp_v4_0.protected_exchange_quote_message_shortform_message.fie
   -- Part Token: long
   index, part_token = nasdaq_utp_input_utp_v4_0.part_token.dissect(buffer, index, packet, parent)
 
-  -- Symbol Byte 5: byte[]
-  index, symbol_byte_5 = nasdaq_utp_input_utp_v4_0.symbol_byte_5.dissect(buffer, index, packet, parent)
+  -- Symbol Short: byte[]
+  index, symbol_short = nasdaq_utp_input_utp_v4_0.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Short 2: short
-  index, bid_short_2 = nasdaq_utp_input_utp_v4_0.bid_short_2.dissect(buffer, index, packet, parent)
+  -- Bid Short: short
+  index, bid_short = nasdaq_utp_input_utp_v4_0.bid_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Short 2: short
-  index, bid_size_short_2 = nasdaq_utp_input_utp_v4_0.bid_size_short_2.dissect(buffer, index, packet, parent)
+  -- Bid Size Short: short
+  index, bid_size_short = nasdaq_utp_input_utp_v4_0.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Short 2: short
-  index, ask_short_2 = nasdaq_utp_input_utp_v4_0.ask_short_2.dissect(buffer, index, packet, parent)
+  -- Ask Short: short
+  index, ask_short = nasdaq_utp_input_utp_v4_0.ask_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Short 2: short
-  index, ask_size_short_2 = nasdaq_utp_input_utp_v4_0.ask_size_short_2.dissect(buffer, index, packet, parent)
+  -- Ask Size Short: short
+  index, ask_size_short = nasdaq_utp_input_utp_v4_0.ask_size_short.dissect(buffer, index, packet, parent)
 
   -- Cond: byte
   index, cond = nasdaq_utp_input_utp_v4_0.cond.dissect(buffer, index, packet, parent)

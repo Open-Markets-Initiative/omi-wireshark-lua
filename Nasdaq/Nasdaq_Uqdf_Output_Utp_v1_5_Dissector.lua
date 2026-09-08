@@ -16,7 +16,7 @@ local nasdaq_uqdf_output_utp_v1_5 = {}
 
 -- Nasdaq Uqdf Output Utp 1.5 Fields
 omi_nasdaq_uqdf_output_utp_v1_5.fields.action_timestamp = ProtoField.new("Action Timestamp", "nasdaq.uqdf.output.utp.v1.5.actiontimestamp", ftypes.UINT64)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrative", "nasdaq.uqdf.output.utp.v1.5.administrative", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.uqdf.output.utp.v1.5.administrativemessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.uqdf.output.utp.v1.5.administrativemessagetype", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.ask_adf_mpid = ProtoField.new("Ask Adf Mpid", "nasdaq.uqdf.output.utp.v1.5.askadfmpid", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.uqdf.output.utp.v1.5.askprice", ftypes.DOUBLE)
@@ -39,7 +39,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Colla
 omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_extension_indicator = ProtoField.new("Collar Extension Indicator", "nasdaq.uqdf.output.utp.v1.5.collarextensionindicator", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.uqdf.output.utp.v1.5.collarreferenceprice", ftypes.DOUBLE)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.uqdf.output.utp.v1.5.collarupprice", ftypes.DOUBLE)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.control = ProtoField.new("Control", "nasdaq.uqdf.output.utp.v1.5.control", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.control_message = ProtoField.new("Control Message", "nasdaq.uqdf.output.utp.v1.5.controlmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.uqdf.output.utp.v1.5.controlmessagetype", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.count = ProtoField.new("Count", "nasdaq.uqdf.output.utp.v1.5.count", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.uqdf.output.utp.v1.5.financialstatusindicator", ftypes.STRING)
@@ -88,8 +88,8 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.number_of_market_center_attachments = Pro
 omi_nasdaq_uqdf_output_utp_v1_5.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.uqdf.output.utp.v1.5.oldsymbol", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "nasdaq.uqdf.output.utp.v1.5.participanttimestamp", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.participant_token = ProtoField.new("Participant Token", "nasdaq.uqdf.output.utp.v1.5.participanttoken", ftypes.UINT64)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.quote = ProtoField.new("Quote", "nasdaq.uqdf.output.utp.v1.5.quote", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.uqdf.output.utp.v1.5.quotecondition", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_message = ProtoField.new("Quote Message", "nasdaq.uqdf.output.utp.v1.5.quotemessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_message_type = ProtoField.new("Quote Message Type", "nasdaq.uqdf.output.utp.v1.5.quotemessagetype", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.uqdf.output.utp.v1.5.regshoaction", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "nasdaq.uqdf.output.utp.v1.5.retailinterestindicator", ftypes.STRING)
@@ -102,7 +102,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.sip_generated_update = ProtoField.new("Si
 omi_nasdaq_uqdf_output_utp_v1_5.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.uqdf.output.utp.v1.5.siptimestamp", ftypes.UINT64)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.special_condition = ProtoField.new("Special Condition", "nasdaq.uqdf.output.utp.v1.5.specialcondition", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.uqdf.output.utp.v1.5.submarketcenterid", ftypes.STRING)
-omi_nasdaq_uqdf_output_utp_v1_5.fields.symbol = ProtoField.new("Symbol", "nasdaq.uqdf.output.utp.v1.5.symbol", ftypes.STRING)
+omi_nasdaq_uqdf_output_utp_v1_5.fields.symbol_long = ProtoField.new("Symbol Long", "nasdaq.uqdf.output.utp.v1.5.symbollong", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.symbol_short = ProtoField.new("Symbol Short", "nasdaq.uqdf.output.utp.v1.5.symbolshort", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.text = ProtoField.new("Text", "nasdaq.uqdf.output.utp.v1.5.text", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.text_length = ProtoField.new("Text Length", "nasdaq.uqdf.output.utp.v1.5.textlength", ftypes.UINT16)
@@ -151,11 +151,13 @@ local show = {}
 -- Nasdaq Uqdf Output Utp 1.5 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.repeating_groups = true
 show.indexes = true
 
 -- Register Nasdaq Uqdf Output Utp 1.5 Show Options
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -164,6 +166,9 @@ function omi_nasdaq_uqdf_output_utp_v1_5.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages
+  end
+  if show.repeating_groups ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_repeating_groups
   end
   if show.structs ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_structs then
     show.structs = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_structs
@@ -204,7 +209,11 @@ nasdaq_uqdf_output_utp_v1_5.action_timestamp.size = 8
 
 -- Display: Action Timestamp
 nasdaq_uqdf_output_utp_v1_5.action_timestamp.display = function(value)
-  return "Action Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Action Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Action Timestamp
@@ -227,38 +236,7 @@ nasdaq_uqdf_output_utp_v1_5.administrative_message_type.size = 1
 
 -- Display: Administrative Message Type
 nasdaq_uqdf_output_utp_v1_5.administrative_message_type.display = function(value)
-  if value == "A" then
-    return "Administrative Message Type: General Administrative Message (A)"
-  end
-  if value == "H" then
-    return "Administrative Message Type: Cross Sro Trading Action Message (H)"
-  end
-  if value == "K" then
-    return "Administrative Message Type: Market Center Trading Action Message (K)"
-  end
-  if value == "B" then
-    return "Administrative Message Type: Issue Symbol Directory Message (B)"
-  end
-  if value == "V" then
-    return "Administrative Message Type: Regulation Sho Short Sale Price Test Restricted Indicator Message (V)"
-  end
-  if value == "P" then
-    return "Administrative Message Type: Limit Up Limit Down Price Band Message (P)"
-  end
-  if value == "C" then
-    return "Administrative Message Type: Market Wide Circuit Breaker Decline Level Message (C)"
-  end
-  if value == "D" then
-    return "Administrative Message Type: Market Wide Circuit Breaker Status Message (D)"
-  end
-  if value == "E" then
-    return "Administrative Message Type: Auction Collar Message (E)"
-  end
-  if value == "R" then
-    return "Administrative Message Type: Session Close Recap Message (R)"
-  end
-
-  return "Administrative Message Type: Unknown("..value..")"
+  return "Administrative Message Type: "..value
 end
 
 -- Dissect: Administrative Message Type
@@ -831,26 +809,7 @@ nasdaq_uqdf_output_utp_v1_5.control_message_type.size = 1
 
 -- Display: Control Message Type
 nasdaq_uqdf_output_utp_v1_5.control_message_type.display = function(value)
-  if value == "I" then
-    return "Control Message Type: Start Of Day Message (I)"
-  end
-  if value == "J" then
-    return "Control Message Type: End Of Day Message (J)"
-  end
-  if value == "O" then
-    return "Control Message Type: Market Session Open Message (O)"
-  end
-  if value == "C" then
-    return "Control Message Type: Market Session Close Message (C)"
-  end
-  if value == "Z" then
-    return "Control Message Type: End Of Transmissions Message (Z)"
-  end
-  if value == "P" then
-    return "Control Message Type: Quote Wipe Out Message (P)"
-  end
-
-  return "Control Message Type: Unknown("..value..")"
+  return "Control Message Type: "..value
 end
 
 -- Dissect: Control Message Type
@@ -1006,7 +965,11 @@ nasdaq_uqdf_output_utp_v1_5.finra_timestamp.size = 8
 
 -- Display: Finra Timestamp
 nasdaq_uqdf_output_utp_v1_5.finra_timestamp.display = function(value)
-  return "Finra Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Finra Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Finra Timestamp
@@ -1340,7 +1303,11 @@ nasdaq_uqdf_output_utp_v1_5.luld_timestamp.size = 8
 
 -- Display: Luld Timestamp
 nasdaq_uqdf_output_utp_v1_5.luld_timestamp.display = function(value)
-  return "Luld Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Luld Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Luld Timestamp
@@ -2160,7 +2127,11 @@ nasdaq_uqdf_output_utp_v1_5.participant_timestamp.size = 8
 
 -- Display: Participant Timestamp
 nasdaq_uqdf_output_utp_v1_5.participant_timestamp.display = function(value)
-  return "Participant Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Participant Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Participant Timestamp
@@ -2272,17 +2243,7 @@ nasdaq_uqdf_output_utp_v1_5.quote_message_type.size = 1
 
 -- Display: Quote Message Type
 nasdaq_uqdf_output_utp_v1_5.quote_message_type.display = function(value)
-  if value == "E" then
-    return "Quote Message Type: Quote Short Form Message (E)"
-  end
-  if value == "F" then
-    return "Quote Message Type: Quote Long Form Message (F)"
-  end
-  if value == "M" then
-    return "Quote Message Type: Finra Adf Market Participant Quotation Message (M)"
-  end
-
-  return "Quote Message Type: Unknown("..value..")"
+  return "Quote Message Type: "..value
 end
 
 -- Dissect: Quote Message Type
@@ -2506,7 +2467,11 @@ nasdaq_uqdf_output_utp_v1_5.sip_timestamp.size = 8
 
 -- Display: Sip Timestamp
 nasdaq_uqdf_output_utp_v1_5.sip_timestamp.display = function(value)
-  return "Sip Timestamp: "..value
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return "Sip Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sip Timestamp
@@ -2593,25 +2558,25 @@ nasdaq_uqdf_output_utp_v1_5.sub_market_center_id.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Symbol
-nasdaq_uqdf_output_utp_v1_5.symbol = {}
+-- Symbol Long
+nasdaq_uqdf_output_utp_v1_5.symbol_long = {}
 
--- Size: Symbol
-nasdaq_uqdf_output_utp_v1_5.symbol.size = 11
+-- Size: Symbol Long
+nasdaq_uqdf_output_utp_v1_5.symbol_long.size = 11
 
--- Display: Symbol
-nasdaq_uqdf_output_utp_v1_5.symbol.display = function(value)
-  return "Symbol: "..value
+-- Display: Symbol Long
+nasdaq_uqdf_output_utp_v1_5.symbol_long.display = function(value)
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol
-nasdaq_uqdf_output_utp_v1_5.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_uqdf_output_utp_v1_5.symbol.size
+-- Dissect: Symbol Long
+nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_uqdf_output_utp_v1_5.symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_uqdf_output_utp_v1_5.symbol.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_uqdf_output_utp_v1_5.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.symbol, range, value, display)
+  parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
@@ -2811,19 +2776,19 @@ end
 nasdaq_uqdf_output_utp_v1_5.message_info.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Center Originator Id: 1 Byte Ascii String Enum with 20 values
+  -- Market Center Originator Id: byte
   index, market_center_originator_id = nasdaq_uqdf_output_utp_v1_5.market_center_originator_id.dissect(buffer, index, packet, parent)
 
-  -- Sub Market Center Id: 1 Byte Ascii String Enum with 4 values
+  -- Sub Market Center Id: byte
   index, sub_market_center_id = nasdaq_uqdf_output_utp_v1_5.sub_market_center_id.dissect(buffer, index, packet, parent)
 
-  -- Sip Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Sip Timestamp: long
   index, sip_timestamp = nasdaq_uqdf_output_utp_v1_5.sip_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Participant Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Participant Timestamp: long
   index, participant_timestamp = nasdaq_uqdf_output_utp_v1_5.participant_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Participant Token: 8 Byte Unsigned Fixed Width Integer
+  -- Participant Token: long
   index, participant_token = nasdaq_uqdf_output_utp_v1_5.participant_token.dissect(buffer, index, packet, parent)
 
   return index
@@ -2850,15 +2815,9 @@ end
 -- Quote Wipe Out Message
 nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message = {}
 
--- Read runtime size of: Quote Wipe Out Message
-nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Quote Wipe Out Message
+nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size
 
 -- Display: Quote Wipe Out Message
 nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.display = function(packet, parent, length)
@@ -2866,7 +2825,7 @@ nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.display = function(packet, pa
 end
 
 -- Dissect Fields: Quote Wipe Out Message
-nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.fields = function(buffer, offset, packet, parent, size_of_quote_wipe_out_message)
+nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
@@ -2876,39 +2835,29 @@ nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.fields = function(buffer, off
 end
 
 -- Dissect: Quote Wipe Out Message
-nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.dissect = function(buffer, offset, packet, parent, size_of_quote_wipe_out_message)
-  local size_of_quote_wipe_out_message = nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.size(buffer, offset)
-  local index = offset + size_of_quote_wipe_out_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_wipe_out_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.fields(buffer, offset, packet, parent, size_of_quote_wipe_out_message)
-    parent:set_len(size_of_quote_wipe_out_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.fields(buffer, offset, packet, parent, size_of_quote_wipe_out_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.quote_wipe_out_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- End Of Transmissions Message
 nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message = {}
 
--- Read runtime size of: End Of Transmissions Message
-nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: End Of Transmissions Message
+nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size
 
 -- Display: End Of Transmissions Message
 nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.display = function(packet, parent, length)
@@ -2916,7 +2865,7 @@ nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.display = function(pack
 end
 
 -- Dissect Fields: End Of Transmissions Message
-nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.fields = function(buffer, offset, packet, parent, size_of_end_of_transmissions_message)
+nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
@@ -2926,39 +2875,29 @@ nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.fields = function(buffe
 end
 
 -- Dissect: End Of Transmissions Message
-nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_transmissions_message)
-  local size_of_end_of_transmissions_message = nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.size(buffer, offset)
-  local index = offset + size_of_end_of_transmissions_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.end_of_transmissions_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.fields(buffer, offset, packet, parent, size_of_end_of_transmissions_message)
-    parent:set_len(size_of_end_of_transmissions_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.fields(buffer, offset, packet, parent, size_of_end_of_transmissions_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.end_of_transmissions_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Market Session Close Message
 nasdaq_uqdf_output_utp_v1_5.market_session_close_message = {}
 
--- Read runtime size of: Market Session Close Message
-nasdaq_uqdf_output_utp_v1_5.market_session_close_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Market Session Close Message
+nasdaq_uqdf_output_utp_v1_5.market_session_close_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size
 
 -- Display: Market Session Close Message
 nasdaq_uqdf_output_utp_v1_5.market_session_close_message.display = function(packet, parent, length)
@@ -2966,7 +2905,7 @@ nasdaq_uqdf_output_utp_v1_5.market_session_close_message.display = function(pack
 end
 
 -- Dissect Fields: Market Session Close Message
-nasdaq_uqdf_output_utp_v1_5.market_session_close_message.fields = function(buffer, offset, packet, parent, size_of_market_session_close_message)
+nasdaq_uqdf_output_utp_v1_5.market_session_close_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
@@ -2976,39 +2915,29 @@ nasdaq_uqdf_output_utp_v1_5.market_session_close_message.fields = function(buffe
 end
 
 -- Dissect: Market Session Close Message
-nasdaq_uqdf_output_utp_v1_5.market_session_close_message.dissect = function(buffer, offset, packet, parent, size_of_market_session_close_message)
-  local size_of_market_session_close_message = nasdaq_uqdf_output_utp_v1_5.market_session_close_message.size(buffer, offset)
-  local index = offset + size_of_market_session_close_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.market_session_close_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_session_close_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.market_session_close_message.fields(buffer, offset, packet, parent, size_of_market_session_close_message)
-    parent:set_len(size_of_market_session_close_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.market_session_close_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.market_session_close_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.market_session_close_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.market_session_close_message.fields(buffer, offset, packet, parent, size_of_market_session_close_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.market_session_close_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Market Session Open Message
 nasdaq_uqdf_output_utp_v1_5.market_session_open_message = {}
 
--- Read runtime size of: Market Session Open Message
-nasdaq_uqdf_output_utp_v1_5.market_session_open_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Market Session Open Message
+nasdaq_uqdf_output_utp_v1_5.market_session_open_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size
 
 -- Display: Market Session Open Message
 nasdaq_uqdf_output_utp_v1_5.market_session_open_message.display = function(packet, parent, length)
@@ -3016,7 +2945,7 @@ nasdaq_uqdf_output_utp_v1_5.market_session_open_message.display = function(packe
 end
 
 -- Dissect Fields: Market Session Open Message
-nasdaq_uqdf_output_utp_v1_5.market_session_open_message.fields = function(buffer, offset, packet, parent, size_of_market_session_open_message)
+nasdaq_uqdf_output_utp_v1_5.market_session_open_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
@@ -3026,39 +2955,29 @@ nasdaq_uqdf_output_utp_v1_5.market_session_open_message.fields = function(buffer
 end
 
 -- Dissect: Market Session Open Message
-nasdaq_uqdf_output_utp_v1_5.market_session_open_message.dissect = function(buffer, offset, packet, parent, size_of_market_session_open_message)
-  local size_of_market_session_open_message = nasdaq_uqdf_output_utp_v1_5.market_session_open_message.size(buffer, offset)
-  local index = offset + size_of_market_session_open_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.market_session_open_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_session_open_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.market_session_open_message.fields(buffer, offset, packet, parent, size_of_market_session_open_message)
-    parent:set_len(size_of_market_session_open_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.market_session_open_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.market_session_open_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.market_session_open_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.market_session_open_message.fields(buffer, offset, packet, parent, size_of_market_session_open_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.market_session_open_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- End Of Day Message
 nasdaq_uqdf_output_utp_v1_5.end_of_day_message = {}
 
--- Read runtime size of: End Of Day Message
-nasdaq_uqdf_output_utp_v1_5.end_of_day_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: End Of Day Message
+nasdaq_uqdf_output_utp_v1_5.end_of_day_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size
 
 -- Display: End Of Day Message
 nasdaq_uqdf_output_utp_v1_5.end_of_day_message.display = function(packet, parent, length)
@@ -3066,7 +2985,7 @@ nasdaq_uqdf_output_utp_v1_5.end_of_day_message.display = function(packet, parent
 end
 
 -- Dissect Fields: End Of Day Message
-nasdaq_uqdf_output_utp_v1_5.end_of_day_message.fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
+nasdaq_uqdf_output_utp_v1_5.end_of_day_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
@@ -3076,39 +2995,29 @@ nasdaq_uqdf_output_utp_v1_5.end_of_day_message.fields = function(buffer, offset,
 end
 
 -- Dissect: End Of Day Message
-nasdaq_uqdf_output_utp_v1_5.end_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_end_of_day_message)
-  local size_of_end_of_day_message = nasdaq_uqdf_output_utp_v1_5.end_of_day_message.size(buffer, offset)
-  local index = offset + size_of_end_of_day_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.end_of_day_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.end_of_day_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
-    parent:set_len(size_of_end_of_day_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.end_of_day_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.end_of_day_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.end_of_day_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.end_of_day_message.fields(buffer, offset, packet, parent, size_of_end_of_day_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.end_of_day_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Start Of Day Message
 nasdaq_uqdf_output_utp_v1_5.start_of_day_message = {}
 
--- Read runtime size of: Start Of Day Message
-nasdaq_uqdf_output_utp_v1_5.start_of_day_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Start Of Day Message
+nasdaq_uqdf_output_utp_v1_5.start_of_day_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size
 
 -- Display: Start Of Day Message
 nasdaq_uqdf_output_utp_v1_5.start_of_day_message.display = function(packet, parent, length)
@@ -3116,7 +3025,7 @@ nasdaq_uqdf_output_utp_v1_5.start_of_day_message.display = function(packet, pare
 end
 
 -- Dissect Fields: Start Of Day Message
-nasdaq_uqdf_output_utp_v1_5.start_of_day_message.fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
+nasdaq_uqdf_output_utp_v1_5.start_of_day_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
@@ -3126,32 +3035,28 @@ nasdaq_uqdf_output_utp_v1_5.start_of_day_message.fields = function(buffer, offse
 end
 
 -- Dissect: Start Of Day Message
-nasdaq_uqdf_output_utp_v1_5.start_of_day_message.dissect = function(buffer, offset, packet, parent, size_of_start_of_day_message)
-  local size_of_start_of_day_message = nasdaq_uqdf_output_utp_v1_5.start_of_day_message.size(buffer, offset)
-  local index = offset + size_of_start_of_day_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.start_of_day_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.start_of_day_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
-    parent:set_len(size_of_start_of_day_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.start_of_day_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.start_of_day_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.start_of_day_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.start_of_day_message.fields(buffer, offset, packet, parent, size_of_start_of_day_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.start_of_day_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Control Payload
-nasdaq_uqdf_output_utp_v1_5.control_payload = {}
+-- Control Message Payload
+nasdaq_uqdf_output_utp_v1_5.control_message_payload = {}
 
--- Dissect: Control Payload
-nasdaq_uqdf_output_utp_v1_5.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Message Payload
+nasdaq_uqdf_output_utp_v1_5.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "I" then
     return nasdaq_uqdf_output_utp_v1_5.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -3180,56 +3085,56 @@ nasdaq_uqdf_output_utp_v1_5.control_payload.dissect = function(buffer, offset, p
   return offset
 end
 
--- Control
-nasdaq_uqdf_output_utp_v1_5.control = {}
+-- Control Message
+nasdaq_uqdf_output_utp_v1_5.control_message = {}
 
--- Read runtime size of: Control
-nasdaq_uqdf_output_utp_v1_5.control.size = function(buffer, offset)
-  local index = offset
+-- Calculate size of: Control Message
+nasdaq_uqdf_output_utp_v1_5.control_message.size = function(buffer, offset)
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
+  index = index + nasdaq_uqdf_output_utp_v1_5.control_message_type.size
 
-  return message_length - 2
-end
-
--- Display: Control
-nasdaq_uqdf_output_utp_v1_5.control.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Control
-nasdaq_uqdf_output_utp_v1_5.control.fields = function(buffer, offset, packet, parent, size_of_control)
-  local index = offset
-
-  -- Control Message Type: 1 Byte Ascii String Enum with 6 values
-  index, control_message_type = nasdaq_uqdf_output_utp_v1_5.control_message_type.dissect(buffer, index, packet, parent)
-
-  -- Control Payload: Runtime Type with 6 branches
-  index = nasdaq_uqdf_output_utp_v1_5.control_payload.dissect(buffer, index, packet, parent, control_message_type)
+  -- Calculate runtime size of Control Message Payload field
+  local control_message_payload_offset = offset + index
+  local control_message_payload_type = buffer(control_message_payload_offset - 1, 1):string()
+  index = index + nasdaq_uqdf_output_utp_v1_5.control_message_payload.size(buffer, control_message_payload_offset, control_message_payload_type)
 
   return index
 end
 
--- Dissect: Control
-nasdaq_uqdf_output_utp_v1_5.control.dissect = function(buffer, offset, packet, parent, size_of_control)
-  local size_of_control = nasdaq_uqdf_output_utp_v1_5.control.size(buffer, offset)
-  local index = offset + size_of_control
+-- Display: Control Message
+nasdaq_uqdf_output_utp_v1_5.control_message.display = function(packet, parent, length)
+  return ""
+end
 
-  -- Optionally add group/struct element to protocol tree
+-- Dissect Fields: Control Message
+nasdaq_uqdf_output_utp_v1_5.control_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Control Message Type: 1 Byte Ascii String
+  index, control_message_type = nasdaq_uqdf_output_utp_v1_5.control_message_type.dissect(buffer, index, packet, parent)
+
+  -- Control Message Payload: Runtime Type with 6 branches
+  index = nasdaq_uqdf_output_utp_v1_5.control_message_payload.dissect(buffer, index, packet, parent, control_message_type)
+
+  return index
+end
+
+-- Dissect: Control Message
+nasdaq_uqdf_output_utp_v1_5.control_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.control, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.control.fields(buffer, offset, packet, parent, size_of_control)
-    parent:set_len(size_of_control)
-    local display = nasdaq_uqdf_output_utp_v1_5.control.display(buffer, packet, parent)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.control_message, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5.control_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.control_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.control.fields(buffer, offset, packet, parent, size_of_control)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.control_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3259,19 +3164,19 @@ nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Market Center Identifier: 1 Byte Ascii String
+  -- Market Center Identifier: byte
   index, market_center_identifier = nasdaq_uqdf_output_utp_v1_5.market_center_identifier.dissect(buffer, index, packet, parent)
 
-  -- Market Center Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Market Center Bid Price: long
   index, market_center_bid_price = nasdaq_uqdf_output_utp_v1_5.market_center_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Market Center Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- Market Center Bid Size: long
   index, market_center_bid_size = nasdaq_uqdf_output_utp_v1_5.market_center_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Market Center Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- Market Center Ask Price: long
   index, market_center_ask_price = nasdaq_uqdf_output_utp_v1_5.market_center_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Market Center Ask Size: 8 Byte Unsigned Fixed Width Integer
+  -- Market Center Ask Size: long
   index, market_center_ask_size = nasdaq_uqdf_output_utp_v1_5.market_center_ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -3279,7 +3184,7 @@ end
 
 -- Dissect: Market Center Close Recap
 nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.dissect = function(buffer, offset, packet, parent, market_center_close_recap_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v1_5.market_center_close_recap.fields(buffer, offset, packet, parent, market_center_close_recap_index)
@@ -3298,14 +3203,35 @@ end
 -- Session Close Recap Message
 nasdaq_uqdf_output_utp_v1_5.session_close_recap_message = {}
 
--- Read runtime size of: Session Close Recap Message
+-- Calculate size of: Session Close Recap Message
 nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.size = function(buffer, offset)
-  local index = offset
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
+  index = index + nasdaq_uqdf_output_utp_v1_5.message_info.size
 
-  return message_length - 3
+  index = index + nasdaq_uqdf_output_utp_v1_5.symbol_long.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_bid_size.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.national_best_ask_size.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.special_condition.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.number_of_market_center_attachments.size
+
+  -- Calculate field size from count
+  local market_center_close_recap_count = buffer(offset + index - 2, 2):uint()
+  index = index + market_center_close_recap_count * 33
+
+  return index
 end
 
 -- Display: Session Close Recap Message
@@ -3314,37 +3240,37 @@ nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.display = function(packe
 end
 
 -- Dissect Fields: Session Close Recap Message
-nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.fields = function(buffer, offset, packet, parent, size_of_session_close_recap_message)
+nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- National Best Bid Market Center: 1 Byte Ascii String
+  -- National Best Bid Market Center: byte
   index, national_best_bid_market_center = nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.dissect(buffer, index, packet, parent)
 
-  -- National Best Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- National Best Bid Price: long
   index, national_best_bid_price = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price.dissect(buffer, index, packet, parent)
 
-  -- National Best Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- National Best Bid Size: long
   index, national_best_bid_size = nasdaq_uqdf_output_utp_v1_5.national_best_bid_size.dissect(buffer, index, packet, parent)
 
-  -- National Best Ask Market Center: 1 Byte Ascii String
+  -- National Best Ask Market Center: byte
   index, national_best_ask_market_center = nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.dissect(buffer, index, packet, parent)
 
-  -- National Best Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- National Best Ask Price: long
   index, national_best_ask_price = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price.dissect(buffer, index, packet, parent)
 
-  -- National Best Ask Size: 8 Byte Unsigned Fixed Width Integer
+  -- National Best Ask Size: long
   index, national_best_ask_size = nasdaq_uqdf_output_utp_v1_5.national_best_ask_size.dissect(buffer, index, packet, parent)
 
-  -- Special Condition: 1 Byte Ascii String Enum with 4 values
+  -- Special Condition: byte
   index, special_condition = nasdaq_uqdf_output_utp_v1_5.special_condition.dissect(buffer, index, packet, parent)
 
-  -- Number Of Market Center Attachments: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Market Center Attachments: short
   index, number_of_market_center_attachments = nasdaq_uqdf_output_utp_v1_5.number_of_market_center_attachments.dissect(buffer, index, packet, parent)
 
   -- Repeating: Market Center Close Recap
@@ -3356,39 +3282,35 @@ nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.fields = function(buffer
 end
 
 -- Dissect: Session Close Recap Message
-nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.dissect = function(buffer, offset, packet, parent, size_of_session_close_recap_message)
-  local size_of_session_close_recap_message = nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.size(buffer, offset)
-  local index = offset + size_of_session_close_recap_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.session_close_recap_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.fields(buffer, offset, packet, parent, size_of_session_close_recap_message)
-    parent:set_len(size_of_session_close_recap_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.fields(buffer, offset, packet, parent, size_of_session_close_recap_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.session_close_recap_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Auction Collar Message
 nasdaq_uqdf_output_utp_v1_5.auction_collar_message = {}
 
--- Read runtime size of: Auction Collar Message
-nasdaq_uqdf_output_utp_v1_5.auction_collar_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Auction Collar Message
+nasdaq_uqdf_output_utp_v1_5.auction_collar_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.symbol_long.size + 
+  nasdaq_uqdf_output_utp_v1_5.trading_action_sequence_number.size + 
+  nasdaq_uqdf_output_utp_v1_5.collar_reference_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.collar_up_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.collar_down_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.collar_extension_indicator.size
 
 -- Display: Auction Collar Message
 nasdaq_uqdf_output_utp_v1_5.auction_collar_message.display = function(packet, parent, length)
@@ -3396,67 +3318,58 @@ nasdaq_uqdf_output_utp_v1_5.auction_collar_message.display = function(packet, pa
 end
 
 -- Dissect Fields: Auction Collar Message
-nasdaq_uqdf_output_utp_v1_5.auction_collar_message.fields = function(buffer, offset, packet, parent, size_of_auction_collar_message)
+nasdaq_uqdf_output_utp_v1_5.auction_collar_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Trading Action Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trading Action Sequence Number: int
   index, trading_action_sequence_number = nasdaq_uqdf_output_utp_v1_5.trading_action_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Collar Reference Price: 8 Byte Unsigned Fixed Width Integer
+  -- Collar Reference Price: long
   index, collar_reference_price = nasdaq_uqdf_output_utp_v1_5.collar_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Collar Up Price: 8 Byte Unsigned Fixed Width Integer
+  -- Collar Up Price: long
   index, collar_up_price = nasdaq_uqdf_output_utp_v1_5.collar_up_price.dissect(buffer, index, packet, parent)
 
-  -- Collar Down Price: 8 Byte Unsigned Fixed Width Integer
+  -- Collar Down Price: long
   index, collar_down_price = nasdaq_uqdf_output_utp_v1_5.collar_down_price.dissect(buffer, index, packet, parent)
 
-  -- Collar Extension Indicator: 1 Byte Ascii String
+  -- Collar Extension Indicator: byte
   index, collar_extension_indicator = nasdaq_uqdf_output_utp_v1_5.collar_extension_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Collar Message
-nasdaq_uqdf_output_utp_v1_5.auction_collar_message.dissect = function(buffer, offset, packet, parent, size_of_auction_collar_message)
-  local size_of_auction_collar_message = nasdaq_uqdf_output_utp_v1_5.auction_collar_message.size(buffer, offset)
-  local index = offset + size_of_auction_collar_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.auction_collar_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.auction_collar_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.auction_collar_message.fields(buffer, offset, packet, parent, size_of_auction_collar_message)
-    parent:set_len(size_of_auction_collar_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.auction_collar_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.auction_collar_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.auction_collar_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.auction_collar_message.fields(buffer, offset, packet, parent, size_of_auction_collar_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.auction_collar_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Market Wide Circuit Breaker Status Message
 nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message = {}
 
--- Read runtime size of: Market Wide Circuit Breaker Status Message
-nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Market Wide Circuit Breaker Status Message
+nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator.size
 
 -- Display: Market Wide Circuit Breaker Status Message
 nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.display = function(packet, parent, length)
@@ -3464,52 +3377,45 @@ nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.display =
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Status Message
-nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Status Level Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Mwcb Status Level Indicator: byte
   index, mwcb_status_level_indicator = nasdaq_uqdf_output_utp_v1_5.mwcb_status_level_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
-nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
-  local size_of_market_wide_circuit_breaker_status_message = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.size(buffer, offset)
-  local index = offset + size_of_market_wide_circuit_breaker_status_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_wide_circuit_breaker_status_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
-    parent:set_len(size_of_market_wide_circuit_breaker_status_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_status_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Market Wide Circuit Breaker Decline Level Message
 nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message = {}
 
--- Read runtime size of: Market Wide Circuit Breaker Decline Level Message
-nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Market Wide Circuit Breaker Decline Level Message
+nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.mwcb_level_1.size + 
+  nasdaq_uqdf_output_utp_v1_5.mwcb_level_2.size + 
+  nasdaq_uqdf_output_utp_v1_5.mwcb_level_3.size
 
 -- Display: Market Wide Circuit Breaker Decline Level Message
 nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.display = function(packet, parent, length)
@@ -3517,58 +3423,53 @@ nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.di
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Decline Level Message
-nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_message)
+nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 1: 8 Byte Unsigned Fixed Width Integer
+  -- Mwcb Level 1: long
   index, mwcb_level_1 = nasdaq_uqdf_output_utp_v1_5.mwcb_level_1.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 2: 8 Byte Unsigned Fixed Width Integer
+  -- Mwcb Level 2: long
   index, mwcb_level_2 = nasdaq_uqdf_output_utp_v1_5.mwcb_level_2.dissect(buffer, index, packet, parent)
 
-  -- Mwcb Level 3: 8 Byte Unsigned Fixed Width Integer
+  -- Mwcb Level 3: long
   index, mwcb_level_3 = nasdaq_uqdf_output_utp_v1_5.mwcb_level_3.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Message
-nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_message)
-  local size_of_market_wide_circuit_breaker_decline_level_message = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.size(buffer, offset)
-  local index = offset + size_of_market_wide_circuit_breaker_decline_level_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_wide_circuit_breaker_decline_level_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_message)
-    parent:set_len(size_of_market_wide_circuit_breaker_decline_level_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.market_wide_circuit_breaker_decline_level_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Limit Up Limit Down Price Band Message
 nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message = {}
 
--- Read runtime size of: Limit Up Limit Down Price Band Message
-nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Limit Up Limit Down Price Band Message
+nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.symbol_long.size + 
+  nasdaq_uqdf_output_utp_v1_5.luld_price_band_indicator.size + 
+  nasdaq_uqdf_output_utp_v1_5.luld_timestamp.size + 
+  nasdaq_uqdf_output_utp_v1_5.limit_down_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.limit_up_price.size
 
 -- Display: Limit Up Limit Down Price Band Message
 nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.display = function(packet, parent, length)
@@ -3576,64 +3477,56 @@ nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.display = fun
 end
 
 -- Dissect Fields: Limit Up Limit Down Price Band Message
-nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.fields = function(buffer, offset, packet, parent, size_of_limit_up_limit_down_price_band_message)
+nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Luld Price Band Indicator: 1 Byte Ascii String Enum with 7 values
+  -- Luld Price Band Indicator: byte
   index, luld_price_band_indicator = nasdaq_uqdf_output_utp_v1_5.luld_price_band_indicator.dissect(buffer, index, packet, parent)
 
-  -- Luld Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Luld Timestamp: long
   index, luld_timestamp = nasdaq_uqdf_output_utp_v1_5.luld_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Limit Down Price: 8 Byte Unsigned Fixed Width Integer
+  -- Limit Down Price: long
   index, limit_down_price = nasdaq_uqdf_output_utp_v1_5.limit_down_price.dissect(buffer, index, packet, parent)
 
-  -- Limit Up Price: 8 Byte Unsigned Fixed Width Integer
+  -- Limit Up Price: long
   index, limit_up_price = nasdaq_uqdf_output_utp_v1_5.limit_up_price.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Limit Up Limit Down Price Band Message
-nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect = function(buffer, offset, packet, parent, size_of_limit_up_limit_down_price_band_message)
-  local size_of_limit_up_limit_down_price_band_message = nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.size(buffer, offset)
-  local index = offset + size_of_limit_up_limit_down_price_band_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.fields(buffer, offset, packet, parent, size_of_limit_up_limit_down_price_band_message)
-    parent:set_len(size_of_limit_up_limit_down_price_band_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.fields(buffer, offset, packet, parent, size_of_limit_up_limit_down_price_band_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.limit_up_limit_down_price_band_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Regulation Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message = {}
 
--- Read runtime size of: Regulation Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Regulation Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.symbol_short.size + 
+  nasdaq_uqdf_output_utp_v1_5.reg_sho_action.size
 
 -- Display: Regulation Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.display = function(packet, parent, length)
@@ -3641,55 +3534,55 @@ nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indi
 end
 
 -- Dissect Fields: Regulation Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent, size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
+nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Short: byte[]
+  index, symbol_short = nasdaq_uqdf_output_utp_v1_5.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
+  -- Reg Sho Action: byte
   index, reg_sho_action = nasdaq_uqdf_output_utp_v1_5.reg_sho_action.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Regulation Sho Short Sale Price Test Restricted Indicator Message
-nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent, size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
-  local size_of_regulation_sho_short_sale_price_test_restricted_indicator_message = nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.size(buffer, offset)
-  local index = offset + size_of_regulation_sho_short_sale_price_test_restricted_indicator_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_restricted_indicator_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent, size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
-    parent:set_len(size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent, size_of_regulation_sho_short_sale_price_test_restricted_indicator_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.regulation_sho_short_sale_price_test_restricted_indicator_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Issue Symbol Directory Message
 nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message = {}
 
--- Read runtime size of: Issue Symbol Directory Message
-nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Issue Symbol Directory Message
+nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.symbol_long.size + 
+  nasdaq_uqdf_output_utp_v1_5.old_symbol.size + 
+  nasdaq_uqdf_output_utp_v1_5.issue_name.size + 
+  nasdaq_uqdf_output_utp_v1_5.issue_type.size + 
+  nasdaq_uqdf_output_utp_v1_5.issue_subtype.size + 
+  nasdaq_uqdf_output_utp_v1_5.market_tier.size + 
+  nasdaq_uqdf_output_utp_v1_5.authenticity.size + 
+  nasdaq_uqdf_output_utp_v1_5.short_sale_threshold_indicator.size + 
+  nasdaq_uqdf_output_utp_v1_5.round_lot_size.size + 
+  nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.size
 
 -- Display: Issue Symbol Directory Message
 nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.display = function(packet, parent, length)
@@ -3697,79 +3590,73 @@ nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.display = function(pa
 end
 
 -- Dissect Fields: Issue Symbol Directory Message
-nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.fields = function(buffer, offset, packet, parent, size_of_issue_symbol_directory_message)
+nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Old Symbol: 11 Byte Ascii String
+  -- Old Symbol: byte[]
   index, old_symbol = nasdaq_uqdf_output_utp_v1_5.old_symbol.dissect(buffer, index, packet, parent)
 
-  -- Issue Name: 30 Byte Ascii String
+  -- Issue Name: byte[]
   index, issue_name = nasdaq_uqdf_output_utp_v1_5.issue_name.dissect(buffer, index, packet, parent)
 
-  -- Issue Type: 1 Byte Ascii String Enum with 16 values
+  -- Issue Type: byte
   index, issue_type = nasdaq_uqdf_output_utp_v1_5.issue_type.dissect(buffer, index, packet, parent)
 
-  -- Issue Subtype: 2 Byte Ascii String
+  -- Issue Subtype: byte[]
   index, issue_subtype = nasdaq_uqdf_output_utp_v1_5.issue_subtype.dissect(buffer, index, packet, parent)
 
-  -- Market Tier: 1 Byte Ascii String Enum with 3 values
+  -- Market Tier: byte
   index, market_tier = nasdaq_uqdf_output_utp_v1_5.market_tier.dissect(buffer, index, packet, parent)
 
-  -- Authenticity: 1 Byte Ascii String Enum with 4 values
+  -- Authenticity: byte
   index, authenticity = nasdaq_uqdf_output_utp_v1_5.authenticity.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Short Sale Threshold Indicator: byte
   index, short_sale_threshold_indicator = nasdaq_uqdf_output_utp_v1_5.short_sale_threshold_indicator.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 2 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: short
   index, round_lot_size = nasdaq_uqdf_output_utp_v1_5.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 9 values
+  -- Financial Status Indicator: byte
   index, financial_status_indicator = nasdaq_uqdf_output_utp_v1_5.financial_status_indicator.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Issue Symbol Directory Message
-nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.dissect = function(buffer, offset, packet, parent, size_of_issue_symbol_directory_message)
-  local size_of_issue_symbol_directory_message = nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.size(buffer, offset)
-  local index = offset + size_of_issue_symbol_directory_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.issue_symbol_directory_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.fields(buffer, offset, packet, parent, size_of_issue_symbol_directory_message)
-    parent:set_len(size_of_issue_symbol_directory_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.fields(buffer, offset, packet, parent, size_of_issue_symbol_directory_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.issue_symbol_directory_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Market Center Trading Action Message
 nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message = {}
 
--- Read runtime size of: Market Center Trading Action Message
-nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Market Center Trading Action Message
+nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.symbol_long.size + 
+  nasdaq_uqdf_output_utp_v1_5.trading_action_code.size + 
+  nasdaq_uqdf_output_utp_v1_5.action_timestamp.size + 
+  nasdaq_uqdf_output_utp_v1_5.market_center_identifier.size
 
 -- Display: Market Center Trading Action Message
 nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.display = function(packet, parent, length)
@@ -3777,61 +3664,56 @@ nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.display = funct
 end
 
 -- Dissect Fields: Market Center Trading Action Message
-nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.fields = function(buffer, offset, packet, parent, size_of_market_center_trading_action_message)
+nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Trading Action Code: 1 Byte Ascii String Enum with 4 values
+  -- Trading Action Code: byte
   index, trading_action_code = nasdaq_uqdf_output_utp_v1_5.trading_action_code.dissect(buffer, index, packet, parent)
 
-  -- Action Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Action Timestamp: long
   index, action_timestamp = nasdaq_uqdf_output_utp_v1_5.action_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Market Center Identifier: 1 Byte Ascii String
+  -- Market Center Identifier: byte
   index, market_center_identifier = nasdaq_uqdf_output_utp_v1_5.market_center_identifier.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Center Trading Action Message
-nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.dissect = function(buffer, offset, packet, parent, size_of_market_center_trading_action_message)
-  local size_of_market_center_trading_action_message = nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.size(buffer, offset)
-  local index = offset + size_of_market_center_trading_action_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_trading_action_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.fields(buffer, offset, packet, parent, size_of_market_center_trading_action_message)
-    parent:set_len(size_of_market_center_trading_action_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.fields(buffer, offset, packet, parent, size_of_market_center_trading_action_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.market_center_trading_action_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Cross Sro Trading Action Message
 nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message = {}
 
--- Read runtime size of: Cross Sro Trading Action Message
-nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Cross Sro Trading Action Message
+nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.symbol_long.size + 
+  nasdaq_uqdf_output_utp_v1_5.trading_action_code.size + 
+  nasdaq_uqdf_output_utp_v1_5.trading_action_sequence_number.size + 
+  nasdaq_uqdf_output_utp_v1_5.action_timestamp.size + 
+  nasdaq_uqdf_output_utp_v1_5.trading_action_reason.size
 
 -- Display: Cross Sro Trading Action Message
 nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.display = function(packet, parent, length)
@@ -3839,63 +3721,63 @@ nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.display = function(
 end
 
 -- Dissect Fields: Cross Sro Trading Action Message
-nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.fields = function(buffer, offset, packet, parent, size_of_cross_sro_trading_action_message)
+nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Trading Action Code: 1 Byte Ascii String Enum with 4 values
+  -- Trading Action Code: byte
   index, trading_action_code = nasdaq_uqdf_output_utp_v1_5.trading_action_code.dissect(buffer, index, packet, parent)
 
-  -- Trading Action Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Trading Action Sequence Number: int
   index, trading_action_sequence_number = nasdaq_uqdf_output_utp_v1_5.trading_action_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Action Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Action Timestamp: long
   index, action_timestamp = nasdaq_uqdf_output_utp_v1_5.action_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trading Action Reason: 6 Byte Ascii String
+  -- Trading Action Reason: byte[]
   index, trading_action_reason = nasdaq_uqdf_output_utp_v1_5.trading_action_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cross Sro Trading Action Message
-nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.dissect = function(buffer, offset, packet, parent, size_of_cross_sro_trading_action_message)
-  local size_of_cross_sro_trading_action_message = nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.size(buffer, offset)
-  local index = offset + size_of_cross_sro_trading_action_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.cross_sro_trading_action_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.fields(buffer, offset, packet, parent, size_of_cross_sro_trading_action_message)
-    parent:set_len(size_of_cross_sro_trading_action_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.fields(buffer, offset, packet, parent, size_of_cross_sro_trading_action_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.cross_sro_trading_action_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- General Administrative Message
 nasdaq_uqdf_output_utp_v1_5.general_administrative_message = {}
 
--- Read runtime size of: General Administrative Message
+-- Calculate size of: General Administrative Message
 nasdaq_uqdf_output_utp_v1_5.general_administrative_message.size = function(buffer, offset)
-  local index = offset
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
+  index = index + nasdaq_uqdf_output_utp_v1_5.message_info.size
 
-  return message_length - 3
+  index = index + nasdaq_uqdf_output_utp_v1_5.text_length.size
+
+  -- Parse runtime size of: Text
+  index = index + buffer(offset + index - 2, 2):uint()
+
+  return index
 end
 
 -- Display: General Administrative Message
@@ -3904,13 +3786,13 @@ nasdaq_uqdf_output_utp_v1_5.general_administrative_message.display = function(pa
 end
 
 -- Dissect Fields: General Administrative Message
-nasdaq_uqdf_output_utp_v1_5.general_administrative_message.fields = function(buffer, offset, packet, parent, size_of_general_administrative_message)
+nasdaq_uqdf_output_utp_v1_5.general_administrative_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Text Length: 2 Byte Unsigned Fixed Width Integer
+  -- Text Length: short
   index, text_length = nasdaq_uqdf_output_utp_v1_5.text_length.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Text
@@ -3920,32 +3802,28 @@ nasdaq_uqdf_output_utp_v1_5.general_administrative_message.fields = function(buf
 end
 
 -- Dissect: General Administrative Message
-nasdaq_uqdf_output_utp_v1_5.general_administrative_message.dissect = function(buffer, offset, packet, parent, size_of_general_administrative_message)
-  local size_of_general_administrative_message = nasdaq_uqdf_output_utp_v1_5.general_administrative_message.size(buffer, offset)
-  local index = offset + size_of_general_administrative_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.general_administrative_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.general_administrative_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.general_administrative_message.fields(buffer, offset, packet, parent, size_of_general_administrative_message)
-    parent:set_len(size_of_general_administrative_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.general_administrative_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.general_administrative_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.general_administrative_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.general_administrative_message.fields(buffer, offset, packet, parent, size_of_general_administrative_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.general_administrative_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Administrative Payload
-nasdaq_uqdf_output_utp_v1_5.administrative_payload = {}
+-- Administrative Message Payload
+nasdaq_uqdf_output_utp_v1_5.administrative_message_payload = {}
 
--- Dissect: Administrative Payload
-nasdaq_uqdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Message Payload
+nasdaq_uqdf_output_utp_v1_5.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
   if administrative_message_type == "A" then
     return nasdaq_uqdf_output_utp_v1_5.general_administrative_message.dissect(buffer, offset, packet, parent)
@@ -3990,71 +3868,73 @@ nasdaq_uqdf_output_utp_v1_5.administrative_payload.dissect = function(buffer, of
   return offset
 end
 
--- Administrative
-nasdaq_uqdf_output_utp_v1_5.administrative = {}
+-- Administrative Message
+nasdaq_uqdf_output_utp_v1_5.administrative_message = {}
 
--- Read runtime size of: Administrative
-nasdaq_uqdf_output_utp_v1_5.administrative.size = function(buffer, offset)
-  local index = offset
+-- Calculate size of: Administrative Message
+nasdaq_uqdf_output_utp_v1_5.administrative_message.size = function(buffer, offset)
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
+  index = index + nasdaq_uqdf_output_utp_v1_5.administrative_message_type.size
 
-  return message_length - 2
-end
-
--- Display: Administrative
-nasdaq_uqdf_output_utp_v1_5.administrative.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Administrative
-nasdaq_uqdf_output_utp_v1_5.administrative.fields = function(buffer, offset, packet, parent, size_of_administrative)
-  local index = offset
-
-  -- Administrative Message Type: 1 Byte Ascii String Enum with 10 values
-  index, administrative_message_type = nasdaq_uqdf_output_utp_v1_5.administrative_message_type.dissect(buffer, index, packet, parent)
-
-  -- Administrative Payload: Runtime Type with 10 branches
-  index = nasdaq_uqdf_output_utp_v1_5.administrative_payload.dissect(buffer, index, packet, parent, administrative_message_type)
+  -- Calculate runtime size of Administrative Message Payload field
+  local administrative_message_payload_offset = offset + index
+  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 1, 1):string()
+  index = index + nasdaq_uqdf_output_utp_v1_5.administrative_message_payload.size(buffer, administrative_message_payload_offset, administrative_message_payload_type)
 
   return index
 end
 
--- Dissect: Administrative
-nasdaq_uqdf_output_utp_v1_5.administrative.dissect = function(buffer, offset, packet, parent, size_of_administrative)
-  local size_of_administrative = nasdaq_uqdf_output_utp_v1_5.administrative.size(buffer, offset)
-  local index = offset + size_of_administrative
+-- Display: Administrative Message
+nasdaq_uqdf_output_utp_v1_5.administrative_message.display = function(packet, parent, length)
+  return ""
+end
 
-  -- Optionally add group/struct element to protocol tree
+-- Dissect Fields: Administrative Message
+nasdaq_uqdf_output_utp_v1_5.administrative_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Administrative Message Type: 1 Byte Ascii String
+  index, administrative_message_type = nasdaq_uqdf_output_utp_v1_5.administrative_message_type.dissect(buffer, index, packet, parent)
+
+  -- Administrative Message Payload: Runtime Type with 10 branches
+  index = nasdaq_uqdf_output_utp_v1_5.administrative_message_payload.dissect(buffer, index, packet, parent, administrative_message_type)
+
+  return index
+end
+
+-- Dissect: Administrative Message
+nasdaq_uqdf_output_utp_v1_5.administrative_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.administrative, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.administrative.fields(buffer, offset, packet, parent, size_of_administrative)
-    parent:set_len(size_of_administrative)
-    local display = nasdaq_uqdf_output_utp_v1_5.administrative.display(buffer, packet, parent)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.administrative_message, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5.administrative_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.administrative_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.administrative.fields(buffer, offset, packet, parent, size_of_administrative)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.administrative_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Finra Adf Market Participant Quotation Message
 nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message = {}
 
--- Read runtime size of: Finra Adf Market Participant Quotation Message
-nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.size = function(buffer, offset)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  return message_length - 3
-end
+-- Size: Finra Adf Market Participant Quotation Message
+nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.size =
+  nasdaq_uqdf_output_utp_v1_5.message_info.size + 
+  nasdaq_uqdf_output_utp_v1_5.finra_timestamp.size + 
+  nasdaq_uqdf_output_utp_v1_5.symbol_long.size + 
+  nasdaq_uqdf_output_utp_v1_5.bid_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.bid_size.size + 
+  nasdaq_uqdf_output_utp_v1_5.ask_price.size + 
+  nasdaq_uqdf_output_utp_v1_5.ask_size.size + 
+  nasdaq_uqdf_output_utp_v1_5.quote_condition.size + 
+  nasdaq_uqdf_output_utp_v1_5.finra_market_participant.size
 
 -- Display: Finra Adf Market Participant Quotation Message
 nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.display = function(packet, parent, length)
@@ -4062,58 +3942,54 @@ nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.displ
 end
 
 -- Dissect Fields: Finra Adf Market Participant Quotation Message
-nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.fields = function(buffer, offset, packet, parent, size_of_finra_adf_market_participant_quotation_message)
+nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Finra Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Finra Timestamp: long
   index, finra_timestamp = nasdaq_uqdf_output_utp_v1_5.finra_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price: long
   index, bid_price = nasdaq_uqdf_output_utp_v1_5.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: int
   index, bid_size = nasdaq_uqdf_output_utp_v1_5.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Price: long
   index, ask_price = nasdaq_uqdf_output_utp_v1_5.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: int
   index, ask_size = nasdaq_uqdf_output_utp_v1_5.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 14 values
+  -- Quote Condition: byte
   index, quote_condition = nasdaq_uqdf_output_utp_v1_5.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Finra Market Participant: 4 Byte Ascii String
+  -- Finra Market Participant: byte[]
   index, finra_market_participant = nasdaq_uqdf_output_utp_v1_5.finra_market_participant.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Finra Adf Market Participant Quotation Message
-nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.dissect = function(buffer, offset, packet, parent, size_of_finra_adf_market_participant_quotation_message)
-  local size_of_finra_adf_market_participant_quotation_message = nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.size(buffer, offset)
-  local index = offset + size_of_finra_adf_market_participant_quotation_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.finra_adf_market_participant_quotation_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.fields(buffer, offset, packet, parent, size_of_finra_adf_market_participant_quotation_message)
-    parent:set_len(size_of_finra_adf_market_participant_quotation_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.fields(buffer, offset, packet, parent, size_of_finra_adf_market_participant_quotation_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.finra_adf_market_participant_quotation_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4134,10 +4010,10 @@ end
 nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Bid Adf Mpid: 4 Byte Ascii String
+  -- Bid Adf Mpid: byte[]
   index, bid_adf_mpid = nasdaq_uqdf_output_utp_v1_5.bid_adf_mpid.dissect(buffer, index, packet, parent)
 
-  -- Ask Adf Mpid: 4 Byte Ascii String
+  -- Ask Adf Mpid: byte[]
   index, ask_adf_mpid = nasdaq_uqdf_output_utp_v1_5.ask_adf_mpid.dissect(buffer, index, packet, parent)
 
   return index
@@ -4183,25 +4059,25 @@ end
 nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nbbo Quote Condition: 1 Byte Ascii String Enum with 14 values
+  -- Nbbo Quote Condition: byte
   index, nbbo_quote_condition = nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Market Center: 1 Byte Ascii String
+  -- Best Bid Market Center: byte
   index, best_bid_market_center = nasdaq_uqdf_output_utp_v1_5.best_bid_market_center.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Best Bid Price: long
   index, best_bid_price = nasdaq_uqdf_output_utp_v1_5.best_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Best Bid Size: int
   index, best_bid_size = nasdaq_uqdf_output_utp_v1_5.best_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Market Center: 1 Byte Ascii String
+  -- Best Ask Market Center: byte
   index, best_ask_market_center = nasdaq_uqdf_output_utp_v1_5.best_ask_market_center.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- Best Ask Price: long
   index, best_ask_price = nasdaq_uqdf_output_utp_v1_5.best_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Best Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Best Ask Size: int
   index, best_ask_size = nasdaq_uqdf_output_utp_v1_5.best_ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -4247,25 +4123,25 @@ end
 nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nbbo Quote Condition: 1 Byte Ascii String Enum with 14 values
+  -- Nbbo Quote Condition: byte
   index, nbbo_quote_condition = nasdaq_uqdf_output_utp_v1_5.nbbo_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- National Best Bid Market Center: 1 Byte Ascii String
+  -- National Best Bid Market Center: byte
   index, national_best_bid_market_center = nasdaq_uqdf_output_utp_v1_5.national_best_bid_market_center.dissect(buffer, index, packet, parent)
 
-  -- National Best Bid Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- National Best Bid Price Short: short
   index, national_best_bid_price_short = nasdaq_uqdf_output_utp_v1_5.national_best_bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- National Best Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- National Best Bid Size Short: short
   index, national_best_bid_size_short = nasdaq_uqdf_output_utp_v1_5.national_best_bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- National Best Ask Market Center: 1 Byte Ascii String
+  -- National Best Ask Market Center: byte
   index, national_best_ask_market_center = nasdaq_uqdf_output_utp_v1_5.national_best_ask_market_center.dissect(buffer, index, packet, parent)
 
-  -- National Best Ask Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- National Best Ask Price Short: short
   index, national_best_ask_price_short = nasdaq_uqdf_output_utp_v1_5.national_best_ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- National Best Ask Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- National Best Ask Size Short: short
   index, national_best_ask_size_short = nasdaq_uqdf_output_utp_v1_5.national_best_ask_size_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -4292,14 +4168,60 @@ end
 -- Quote Long Form Message
 nasdaq_uqdf_output_utp_v1_5.quote_long_form_message = {}
 
--- Read runtime size of: Quote Long Form Message
+-- Calculate size of: Quote Long Form Message
 nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.size = function(buffer, offset)
-  local index = offset
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
+  index = index + nasdaq_uqdf_output_utp_v1_5.message_info.size
 
-  return message_length - 3
+  index = index + nasdaq_uqdf_output_utp_v1_5.finra_timestamp.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.symbol_long.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.bid_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.bid_size.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.ask_price.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.ask_size.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.quote_condition.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.sip_generated_update.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.luld_bbo_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.retail_interest_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage_indicator.size
+
+  local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
+
+  if nbbo_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.size
+
+  end
+
+  local nbbo_appendage_indicator = buffer(offset + 73, 1):string()
+
+  if nbbo_appendage_indicator == "3" then
+    index = index + nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.size
+
+  end
+
+  local finra_adf_mpid_appendage_indicator = buffer(offset + 75, 1):string()
+
+  if finra_adf_mpid_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage.size
+
+  end
+
+  return index
 end
 
 -- Display: Quote Long Form Message
@@ -4308,49 +4230,49 @@ nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.display = function(packet, p
 end
 
 -- Dissect Fields: Quote Long Form Message
-nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields = function(buffer, offset, packet, parent, size_of_quote_long_form_message)
+nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Finra Timestamp: 8 Byte Unsigned Fixed Width Integer
+  -- Finra Timestamp: long
   index, finra_timestamp = nasdaq_uqdf_output_utp_v1_5.finra_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
-  index, symbol = nasdaq_uqdf_output_utp_v1_5.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Long: byte[]
+  index, symbol_long = nasdaq_uqdf_output_utp_v1_5.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Price: long
   index, bid_price = nasdaq_uqdf_output_utp_v1_5.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: int
   index, bid_size = nasdaq_uqdf_output_utp_v1_5.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 8 Byte Unsigned Fixed Width Integer
+  -- Ask Price: long
   index, ask_price = nasdaq_uqdf_output_utp_v1_5.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: int
   index, ask_size = nasdaq_uqdf_output_utp_v1_5.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 14 values
+  -- Quote Condition: byte
   index, quote_condition = nasdaq_uqdf_output_utp_v1_5.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Sip Generated Update: 1 Byte Ascii String Enum with 2 values
+  -- Sip Generated Update: byte
   index, sip_generated_update = nasdaq_uqdf_output_utp_v1_5.sip_generated_update.dissect(buffer, index, packet, parent)
 
-  -- Luld Bbo Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Luld Bbo Indicator: byte
   index, luld_bbo_indicator = nasdaq_uqdf_output_utp_v1_5.luld_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Retail Interest Indicator: byte
   index, retail_interest_indicator = nasdaq_uqdf_output_utp_v1_5.retail_interest_indicator.dissect(buffer, index, packet, parent)
 
-  -- Nbbo Appendage Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Nbbo Appendage Indicator: byte
   index, nbbo_appendage_indicator = nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.dissect(buffer, index, packet, parent)
 
-  -- Luld National Bbo Indicator: 1 Byte Ascii String Enum with 10 values
+  -- Luld National Bbo Indicator: byte
   index, luld_national_bbo_indicator = nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Finra Adf Mpid Appendage Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Finra Adf Mpid Appendage Indicator: byte
   index, finra_adf_mpid_appendage_indicator = nasdaq_uqdf_output_utp_v1_5.finra_adf_mpid_appendage_indicator.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Short Form National Bbo Appendage
@@ -4384,38 +4306,69 @@ nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields = function(buffer, of
 end
 
 -- Dissect: Quote Long Form Message
-nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.dissect = function(buffer, offset, packet, parent, size_of_quote_long_form_message)
-  local size_of_quote_long_form_message = nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.size(buffer, offset)
-  local index = offset + size_of_quote_long_form_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_long_form_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields(buffer, offset, packet, parent, size_of_quote_long_form_message)
-    parent:set_len(size_of_quote_long_form_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields(buffer, offset, packet, parent, size_of_quote_long_form_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.quote_long_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Quote Short Form Message
 nasdaq_uqdf_output_utp_v1_5.quote_short_form_message = {}
 
--- Read runtime size of: Quote Short Form Message
+-- Calculate size of: Quote Short Form Message
 nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.size = function(buffer, offset)
-  local index = offset
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
+  index = index + nasdaq_uqdf_output_utp_v1_5.message_info.size
 
-  return message_length - 3
+  index = index + nasdaq_uqdf_output_utp_v1_5.symbol_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.bid_price_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.bid_size_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.ask_price_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.ask_size_short.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.quote_condition.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.sip_generated_update.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.luld_bbo_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.retail_interest_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.size
+
+  index = index + nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator.size
+
+  local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
+
+  if nbbo_appendage_indicator == "2" then
+    index = index + nasdaq_uqdf_output_utp_v1_5.short_form_national_bbo_appendage.size
+
+  end
+
+  local nbbo_appendage_indicator = buffer(offset + 43, 1):string()
+
+  if nbbo_appendage_indicator == "3" then
+    index = index + nasdaq_uqdf_output_utp_v1_5.long_form_national_bbo_appendage.size
+
+  end
+
+  return index
 end
 
 -- Display: Quote Short Form Message
@@ -4424,43 +4377,43 @@ nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.display = function(packet, 
 end
 
 -- Dissect Fields: Quote Short Form Message
-nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields = function(buffer, offset, packet, parent, size_of_quote_short_form_message)
+nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Info: Struct of 5 fields
   index, message_info = nasdaq_uqdf_output_utp_v1_5.message_info.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: 5 Byte Ascii String
+  -- Symbol Short: byte[]
   index, symbol_short = nasdaq_uqdf_output_utp_v1_5.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Price Short: short
   index, bid_price_short = nasdaq_uqdf_output_utp_v1_5.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size Short: short
   index, bid_size_short = nasdaq_uqdf_output_utp_v1_5.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Price Short: short
   index, ask_price_short = nasdaq_uqdf_output_utp_v1_5.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Short: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Size Short: short
   index, ask_size_short = nasdaq_uqdf_output_utp_v1_5.ask_size_short.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 14 values
+  -- Quote Condition: byte
   index, quote_condition = nasdaq_uqdf_output_utp_v1_5.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Sip Generated Update: 1 Byte Ascii String Enum with 2 values
+  -- Sip Generated Update: byte
   index, sip_generated_update = nasdaq_uqdf_output_utp_v1_5.sip_generated_update.dissect(buffer, index, packet, parent)
 
-  -- Luld Bbo Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Luld Bbo Indicator: byte
   index, luld_bbo_indicator = nasdaq_uqdf_output_utp_v1_5.luld_bbo_indicator.dissect(buffer, index, packet, parent)
 
-  -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Retail Interest Indicator: byte
   index, retail_interest_indicator = nasdaq_uqdf_output_utp_v1_5.retail_interest_indicator.dissect(buffer, index, packet, parent)
 
-  -- Nbbo Appendage Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Nbbo Appendage Indicator: byte
   index, nbbo_appendage_indicator = nasdaq_uqdf_output_utp_v1_5.nbbo_appendage_indicator.dissect(buffer, index, packet, parent)
 
-  -- Luld National Bbo Indicator: 1 Byte Ascii String Enum with 10 values
+  -- Luld National Bbo Indicator: byte
   index, luld_national_bbo_indicator = nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Short Form National Bbo Appendage
@@ -4485,32 +4438,28 @@ nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields = function(buffer, o
 end
 
 -- Dissect: Quote Short Form Message
-nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.dissect = function(buffer, offset, packet, parent, size_of_quote_short_form_message)
-  local size_of_quote_short_form_message = nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.size(buffer, offset)
-  local index = offset + size_of_quote_short_form_message
-
-  -- Optionally add group/struct element to protocol tree
+nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
+    -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_short_form_message, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields(buffer, offset, packet, parent, size_of_quote_short_form_message)
-    parent:set_len(size_of_quote_short_form_message)
-    local display = nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.display(buffer, packet, parent)
+    local index = nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields(buffer, offset, packet, parent, size_of_quote_short_form_message)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.fields(buffer, offset, packet, parent)
   end
 end
 
--- Quote Payload
-nasdaq_uqdf_output_utp_v1_5.quote_payload = {}
+-- Quote Message Payload
+nasdaq_uqdf_output_utp_v1_5.quote_message_payload = {}
 
--- Dissect: Quote Payload
-nasdaq_uqdf_output_utp_v1_5.quote_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
+-- Dissect: Quote Message Payload
+nasdaq_uqdf_output_utp_v1_5.quote_message_payload.dissect = function(buffer, offset, packet, parent, quote_message_type)
   -- Dissect Quote Short Form Message
   if quote_message_type == "E" then
     return nasdaq_uqdf_output_utp_v1_5.quote_short_form_message.dissect(buffer, offset, packet, parent)
@@ -4527,56 +4476,56 @@ nasdaq_uqdf_output_utp_v1_5.quote_payload.dissect = function(buffer, offset, pac
   return offset
 end
 
--- Quote
-nasdaq_uqdf_output_utp_v1_5.quote = {}
+-- Quote Message
+nasdaq_uqdf_output_utp_v1_5.quote_message = {}
 
--- Read runtime size of: Quote
-nasdaq_uqdf_output_utp_v1_5.quote.size = function(buffer, offset)
-  local index = offset
+-- Calculate size of: Quote Message
+nasdaq_uqdf_output_utp_v1_5.quote_message.size = function(buffer, offset)
+  local index = 0
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
+  index = index + nasdaq_uqdf_output_utp_v1_5.quote_message_type.size
 
-  return message_length - 2
-end
-
--- Display: Quote
-nasdaq_uqdf_output_utp_v1_5.quote.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Quote
-nasdaq_uqdf_output_utp_v1_5.quote.fields = function(buffer, offset, packet, parent, size_of_quote)
-  local index = offset
-
-  -- Quote Message Type: 1 Byte Ascii String Enum with 3 values
-  index, quote_message_type = nasdaq_uqdf_output_utp_v1_5.quote_message_type.dissect(buffer, index, packet, parent)
-
-  -- Quote Payload: Runtime Type with 3 branches
-  index = nasdaq_uqdf_output_utp_v1_5.quote_payload.dissect(buffer, index, packet, parent, quote_message_type)
+  -- Calculate runtime size of Quote Message Payload field
+  local quote_message_payload_offset = offset + index
+  local quote_message_payload_type = buffer(quote_message_payload_offset - 1, 1):string()
+  index = index + nasdaq_uqdf_output_utp_v1_5.quote_message_payload.size(buffer, quote_message_payload_offset, quote_message_payload_type)
 
   return index
 end
 
--- Dissect: Quote
-nasdaq_uqdf_output_utp_v1_5.quote.dissect = function(buffer, offset, packet, parent, size_of_quote)
-  local size_of_quote = nasdaq_uqdf_output_utp_v1_5.quote.size(buffer, offset)
-  local index = offset + size_of_quote
+-- Display: Quote Message
+nasdaq_uqdf_output_utp_v1_5.quote_message.display = function(packet, parent, length)
+  return ""
+end
 
-  -- Optionally add group/struct element to protocol tree
+-- Dissect Fields: Quote Message
+nasdaq_uqdf_output_utp_v1_5.quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Quote Message Type: 1 Byte Ascii String
+  index, quote_message_type = nasdaq_uqdf_output_utp_v1_5.quote_message_type.dissect(buffer, index, packet, parent)
+
+  -- Quote Message Payload: Runtime Type with 3 branches
+  index = nasdaq_uqdf_output_utp_v1_5.quote_message_payload.dissect(buffer, index, packet, parent, quote_message_type)
+
+  return index
+end
+
+-- Dissect: Quote Message
+nasdaq_uqdf_output_utp_v1_5.quote_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.quote, buffer(offset, 0))
-    local current = nasdaq_uqdf_output_utp_v1_5.quote.fields(buffer, offset, packet, parent, size_of_quote)
-    parent:set_len(size_of_quote)
-    local display = nasdaq_uqdf_output_utp_v1_5.quote.display(buffer, packet, parent)
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.quote_message, buffer(offset, 0))
+    local index = nasdaq_uqdf_output_utp_v1_5.quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_uqdf_output_utp_v1_5.quote_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_uqdf_output_utp_v1_5.quote.fields(buffer, offset, packet, parent, size_of_quote)
-
-    return index
+    return nasdaq_uqdf_output_utp_v1_5.quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4585,17 +4534,17 @@ nasdaq_uqdf_output_utp_v1_5.payload = {}
 
 -- Dissect: Payload
 nasdaq_uqdf_output_utp_v1_5.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Quote
+  -- Dissect Quote Message
   if message_category == "Q" then
-    return nasdaq_uqdf_output_utp_v1_5.quote.dissect(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5.quote_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Administrative
+  -- Dissect Administrative Message
   if message_category == "A" then
-    return nasdaq_uqdf_output_utp_v1_5.administrative.dissect(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5.administrative_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Control
+  -- Dissect Control Message
   if message_category == "C" then
-    return nasdaq_uqdf_output_utp_v1_5.control.dissect(buffer, offset, packet, parent)
+    return nasdaq_uqdf_output_utp_v1_5.control_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

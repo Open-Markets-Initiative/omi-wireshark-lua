@@ -15,7 +15,7 @@ grep "nasdaq.uqdf.output.utp.v1.5.submarketcenterid" Nasdaq.Uqdf.Output.Utp.v1.5
 grep "nasdaq.uqdf.output.utp.v1.5.siptimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.participanttimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.participanttoken" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
-grep "nasdaq.uqdf.output.utp.v1.5.symbol" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.symbollong" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.luldpricebandindicator" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.luldtimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.limitdownprice" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
@@ -33,7 +33,7 @@ grep "nasdaq.uqdf.output.utp.v1.5.siptimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.Quot
 grep "nasdaq.uqdf.output.utp.v1.5.participanttimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.participanttoken" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.finratimestamp" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
-grep "nasdaq.uqdf.output.utp.v1.5.symbol" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
+grep "nasdaq.uqdf.output.utp.v1.5.symbollong" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.bidprice" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.bidsize" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 grep "nasdaq.uqdf.output.utp.v1.5.askprice" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
