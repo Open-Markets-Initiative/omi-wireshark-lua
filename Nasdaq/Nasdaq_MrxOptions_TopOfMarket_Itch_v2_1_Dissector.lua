@@ -17,31 +17,31 @@ local nasdaq_mrxoptions_topofmarket_itch_v2_1 = {}
 -- Nasdaq MrxOptions TopOfMarket Itch 2.1 Fields
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.mrxoptions.topofmarket.itch.v2.1.acceptedsequencenumber", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.mrxoptions.topofmarket.itch.v2.1.acceptedsession", ftypes.STRING)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_integer_2 = ProtoField.new("Ask Cust Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askcustsizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_integer_4 = ProtoField.new("Ask Cust Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askcustsizeinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_integer_2 = ProtoField.new("Ask Market Order Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askmarketordersizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_integer_4 = ProtoField.new("Ask Market Order Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askmarketordersizeinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_integer_2 = ProtoField.new("Ask Price Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askpriceinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_integer_4 = ProtoField.new("Ask Price Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askpriceinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_pro_cust_size_integer_2 = ProtoField.new("Ask Pro Cust Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askprocustsizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_pro_cust_size_integer_4 = ProtoField.new("Ask Pro Cust Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askprocustsizeinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_integer_2 = ProtoField.new("Ask Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.asksizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_integer_4 = ProtoField.new("Ask Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.asksizeinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_integer_2 = ProtoField.new("Bid Cust Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidcustsizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_integer_4 = ProtoField.new("Bid Cust Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidcustsizeinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_integer_2 = ProtoField.new("Bid Market Order Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidmarketordersizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_integer_4 = ProtoField.new("Bid Market Order Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidmarketordersizeinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_integer_2 = ProtoField.new("Bid Price Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidpriceinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_integer_4 = ProtoField.new("Bid Price Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidpriceinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_pro_cust_size_integer_2 = ProtoField.new("Bid Pro Cust Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidprocustsizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_pro_cust_size_integer_4 = ProtoField.new("Bid Pro Cust Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidprocustsizeinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_integer_2 = ProtoField.new("Bid Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidsizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_integer_4 = ProtoField.new("Bid Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidsizeinteger4", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_long = ProtoField.new("Ask Cust Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askcustsizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_short = ProtoField.new("Ask Cust Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askcustsizeshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_long = ProtoField.new("Ask Market Order Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askmarketordersizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_short = ProtoField.new("Ask Market Order Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askmarketordersizeshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askpricelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askpriceshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_procust_size_long = ProtoField.new("Ask ProCust Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askprocustsizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_procust_size_short = ProtoField.new("Ask ProCust Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.askprocustsizeshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.asksizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.asksizeshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_long = ProtoField.new("Bid Cust Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidcustsizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_short = ProtoField.new("Bid Cust Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidcustsizeshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_long = ProtoField.new("Bid Market Order Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidmarketordersizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_short = ProtoField.new("Bid Market Order Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidmarketordersizeshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidpricelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidpriceshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_procust_size_long = ProtoField.new("Bid ProCust Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidprocustsizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_procust_size_short = ProtoField.new("Bid ProCust Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidprocustsizeshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidsizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.bidsizeshort", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.topofmarket.itch.v2.1.clientpackettype", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.closing_type = ProtoField.new("Closing Type", "nasdaq.mrxoptions.topofmarket.itch.v2.1.closingtype", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.mrxoptions.topofmarket.itch.v2.1.currenttradingstate", ftypes.STRING)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_integer_2 = ProtoField.new("Cust Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.custsizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_integer_4 = ProtoField.new("Cust Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.custsizeinteger4", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_long = ProtoField.new("Cust Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.custsizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_short = ProtoField.new("Cust Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.custsizeshort", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.mrxoptions.topofmarket.itch.v2.1.endofreplaysequencenumber", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.mrxoptions.topofmarket.itch.v2.1.eventcode", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.mrxoptions.topofmarket.itch.v2.1.expirationday", ftypes.UINT8)
@@ -49,8 +49,8 @@ omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.expiration_month = ProtoField
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.mrxoptions.topofmarket.itch.v2.1.expirationyear", ftypes.UINT8)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.mrxoptions.topofmarket.itch.v2.1.explicitstrikeprice", ftypes.UINT32)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.mrxoptions.topofmarket.itch.v2.1.instrumentid", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_integer_2 = ProtoField.new("Market Order Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.marketordersizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_integer_4 = ProtoField.new("Market Order Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.marketordersizeinteger4", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_long = ProtoField.new("Market Order Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.marketordersizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_short = ProtoField.new("Market Order Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.marketordersizeshort", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.mrxoptions.topofmarket.itch.v2.1.message", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.mrxoptions.topofmarket.itch.v2.1.messagecount", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.mrxoptions.topofmarket.itch.v2.1.messageheader", ftypes.STRING)
@@ -60,10 +60,10 @@ omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.mpv = ProtoField.new("Mpv", "
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.mrxoptions.topofmarket.itch.v2.1.optiontype", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.mrxoptions.topofmarket.itch.v2.1.packetlength", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.password = ProtoField.new("Password", "nasdaq.mrxoptions.topofmarket.itch.v2.1.password", ftypes.STRING)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_integer_2 = ProtoField.new("Price Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.priceinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_integer_4 = ProtoField.new("Price Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.priceinteger4", ftypes.UINT32)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.pro_cust_size_integer_2 = ProtoField.new("Pro Cust Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.procustsizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.pro_cust_size_integer_4 = ProtoField.new("Pro Cust Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.procustsizeinteger4", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_long = ProtoField.new("Price Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.pricelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_short = ProtoField.new("Price Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.priceshort", ftypes.UINT16)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.procust_size_long = ProtoField.new("ProCust Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.procustsizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.procust_size_short = ProtoField.new("ProCust Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.procustsizeshort", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.mrxoptions.topofmarket.itch.v2.1.quotecondition", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.mrxoptions.topofmarket.itch.v2.1.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.mrxoptions.topofmarket.itch.v2.1.requestedsequencenumber", ftypes.STRING)
@@ -72,8 +72,8 @@ omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.reserved_16 = ProtoField.new(
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.topofmarket.itch.v2.1.securitysymbol", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.topofmarket.itch.v2.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.topofmarket.itch.v2.1.serverpackettype", ftypes.STRING)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_integer_2 = ProtoField.new("Size Integer 2", "nasdaq.mrxoptions.topofmarket.itch.v2.1.sizeinteger2", ftypes.UINT16)
-omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_integer_4 = ProtoField.new("Size Integer 4", "nasdaq.mrxoptions.topofmarket.itch.v2.1.sizeinteger4", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_long = ProtoField.new("Size Long", "nasdaq.mrxoptions.topofmarket.itch.v2.1.sizelong", ftypes.UINT32)
+omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_short = ProtoField.new("Size Short", "nasdaq.mrxoptions.topofmarket.itch.v2.1.sizeshort", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.text = ProtoField.new("Text", "nasdaq.mrxoptions.topofmarket.itch.v2.1.text", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.mrxoptions.topofmarket.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.mrxoptions.topofmarket.itch.v2.1.trackingnumber", ftypes.UINT16)
@@ -263,462 +263,462 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.accepted_session.dissect = function(buff
   return offset + length, value
 end
 
--- Ask Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2 = {}
+-- Ask Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long = {}
 
--- Size: Ask Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2.size = 2
+-- Size: Ask Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long.size = 4
 
--- Display: Ask Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2.display = function(value)
-  return "Ask Cust Size Integer 2: "..value
+-- Display: Ask Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long.display = function(value)
+  return "Ask Cust Size Long: "..value
 end
 
--- Dissect: Ask Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2.size
+-- Dissect: Ask Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4 = {}
+-- Ask Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short = {}
 
--- Size: Ask Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4.size = 4
+-- Size: Ask Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short.size = 2
 
--- Display: Ask Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4.display = function(value)
-  return "Ask Cust Size Integer 4: "..value
+-- Display: Ask Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short.display = function(value)
+  return "Ask Cust Size Short: "..value
 end
 
--- Dissect: Ask Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4.size
+-- Dissect: Ask Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_cust_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2 = {}
+-- Ask Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long = {}
 
--- Size: Ask Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2.size = 2
+-- Size: Ask Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long.size = 4
 
--- Display: Ask Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2.display = function(value)
-  return "Ask Market Order Size Integer 2: "..value
+-- Display: Ask Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long.display = function(value)
+  return "Ask Market Order Size Long: "..value
 end
 
--- Dissect: Ask Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2.size
+-- Dissect: Ask Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4 = {}
+-- Ask Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short = {}
 
--- Size: Ask Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4.size = 4
+-- Size: Ask Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short.size = 2
 
--- Display: Ask Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4.display = function(value)
-  return "Ask Market Order Size Integer 4: "..value
+-- Display: Ask Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short.display = function(value)
+  return "Ask Market Order Size Short: "..value
 end
 
--- Dissect: Ask Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4.size
+-- Dissect: Ask Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_market_order_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2 = {}
+-- Ask Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long = {}
 
--- Size: Ask Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2.size = 2
+-- Size: Ask Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long.size = 4
 
--- Display: Ask Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2.display = function(value)
-  return "Ask Price Integer 2: "..value
+-- Display: Ask Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long.display = function(value)
+  return "Ask Price Long: "..value
 end
 
--- Dissect: Ask Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2.size
+-- Dissect: Ask Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4 = {}
+-- Ask Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short = {}
 
--- Size: Ask Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4.size = 4
+-- Size: Ask Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short.size = 2
 
--- Display: Ask Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4.display = function(value)
-  return "Ask Price Integer 4: "..value
+-- Display: Ask Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short.display = function(value)
+  return "Ask Price Short: "..value
 end
 
--- Dissect: Ask Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4.size
+-- Dissect: Ask Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2 = {}
+-- Ask ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long = {}
 
--- Size: Ask Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2.size = 2
+-- Size: Ask ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long.size = 4
 
--- Display: Ask Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2.display = function(value)
-  return "Ask Pro Cust Size Integer 2: "..value
+-- Display: Ask ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long.display = function(value)
+  return "Ask ProCust Size Long: "..value
 end
 
--- Dissect: Ask Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2.size
+-- Dissect: Ask ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_pro_cust_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_procust_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4 = {}
+-- Ask ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short = {}
 
--- Size: Ask Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4.size = 4
+-- Size: Ask ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short.size = 2
 
--- Display: Ask Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4.display = function(value)
-  return "Ask Pro Cust Size Integer 4: "..value
+-- Display: Ask ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short.display = function(value)
+  return "Ask ProCust Size Short: "..value
 end
 
--- Dissect: Ask Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4.size
+-- Dissect: Ask ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_pro_cust_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_procust_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2 = {}
+-- Ask Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long = {}
 
--- Size: Ask Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2.size = 2
+-- Size: Ask Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long.size = 4
 
--- Display: Ask Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2.display = function(value)
-  return "Ask Size Integer 2: "..value
+-- Display: Ask Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long.display = function(value)
+  return "Ask Size Long: "..value
 end
 
--- Dissect: Ask Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2.size
+-- Dissect: Ask Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4 = {}
+-- Ask Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short = {}
 
--- Size: Ask Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4.size = 4
+-- Size: Ask Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short.size = 2
 
--- Display: Ask Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4.display = function(value)
-  return "Ask Size Integer 4: "..value
+-- Display: Ask Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short.display = function(value)
+  return "Ask Size Short: "..value
 end
 
--- Dissect: Ask Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4.size
+-- Dissect: Ask Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.ask_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2 = {}
+-- Bid Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long = {}
 
--- Size: Bid Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2.size = 2
+-- Size: Bid Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long.size = 4
 
--- Display: Bid Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2.display = function(value)
-  return "Bid Cust Size Integer 2: "..value
+-- Display: Bid Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long.display = function(value)
+  return "Bid Cust Size Long: "..value
 end
 
--- Dissect: Bid Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2.size
+-- Dissect: Bid Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4 = {}
+-- Bid Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short = {}
 
--- Size: Bid Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4.size = 4
+-- Size: Bid Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short.size = 2
 
--- Display: Bid Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4.display = function(value)
-  return "Bid Cust Size Integer 4: "..value
+-- Display: Bid Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short.display = function(value)
+  return "Bid Cust Size Short: "..value
 end
 
--- Dissect: Bid Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4.size
+-- Dissect: Bid Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_cust_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2 = {}
+-- Bid Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long = {}
 
--- Size: Bid Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2.size = 2
+-- Size: Bid Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long.size = 4
 
--- Display: Bid Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2.display = function(value)
-  return "Bid Market Order Size Integer 2: "..value
+-- Display: Bid Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long.display = function(value)
+  return "Bid Market Order Size Long: "..value
 end
 
--- Dissect: Bid Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2.size
+-- Dissect: Bid Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4 = {}
+-- Bid Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short = {}
 
--- Size: Bid Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4.size = 4
+-- Size: Bid Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short.size = 2
 
--- Display: Bid Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4.display = function(value)
-  return "Bid Market Order Size Integer 4: "..value
+-- Display: Bid Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short.display = function(value)
+  return "Bid Market Order Size Short: "..value
 end
 
--- Dissect: Bid Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4.size
+-- Dissect: Bid Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_market_order_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2 = {}
+-- Bid Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long = {}
 
--- Size: Bid Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2.size = 2
+-- Size: Bid Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long.size = 4
 
--- Display: Bid Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2.display = function(value)
-  return "Bid Price Integer 2: "..value
+-- Display: Bid Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
 end
 
--- Dissect: Bid Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2.size
+-- Dissect: Bid Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4 = {}
+-- Bid Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short = {}
 
--- Size: Bid Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4.size = 4
+-- Size: Bid Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short.size = 2
 
--- Display: Bid Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4.display = function(value)
-  return "Bid Price Integer 4: "..value
+-- Display: Bid Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
 end
 
--- Dissect: Bid Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4.size
+-- Dissect: Bid Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2 = {}
+-- Bid ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long = {}
 
--- Size: Bid Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2.size = 2
+-- Size: Bid ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long.size = 4
 
--- Display: Bid Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2.display = function(value)
-  return "Bid Pro Cust Size Integer 2: "..value
+-- Display: Bid ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long.display = function(value)
+  return "Bid ProCust Size Long: "..value
 end
 
--- Dissect: Bid Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2.size
+-- Dissect: Bid ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_pro_cust_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_procust_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4 = {}
+-- Bid ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short = {}
 
--- Size: Bid Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4.size = 4
+-- Size: Bid ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short.size = 2
 
--- Display: Bid Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4.display = function(value)
-  return "Bid Pro Cust Size Integer 4: "..value
+-- Display: Bid ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short.display = function(value)
+  return "Bid ProCust Size Short: "..value
 end
 
--- Dissect: Bid Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4.size
+-- Dissect: Bid ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_pro_cust_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_procust_size_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2 = {}
+-- Bid Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long = {}
 
--- Size: Bid Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2.size = 2
+-- Size: Bid Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long.size = 4
 
--- Display: Bid Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2.display = function(value)
-  return "Bid Size Integer 2: "..value
+-- Display: Bid Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
 end
 
--- Dissect: Bid Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2.size
+-- Dissect: Bid Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4 = {}
+-- Bid Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short = {}
 
--- Size: Bid Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4.size = 4
+-- Size: Bid Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short.size = 2
 
--- Display: Bid Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4.display = function(value)
-  return "Bid Size Integer 4: "..value
+-- Display: Bid Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short.display = function(value)
+  return "Bid Size Short: "..value
 end
 
--- Dissect: Bid Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4.size
+-- Dissect: Bid Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -843,48 +843,48 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.current_trading_state.dissect = function
   return offset + length, value
 end
 
--- Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2 = {}
+-- Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long = {}
 
--- Size: Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.size = 2
+-- Size: Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.size = 4
 
--- Display: Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.display = function(value)
-  return "Cust Size Integer 2: "..value
+-- Display: Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.display = function(value)
+  return "Cust Size Long: "..value
 end
 
--- Dissect: Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.size
+-- Dissect: Cust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4 = {}
+-- Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short = {}
 
--- Size: Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.size = 4
+-- Size: Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.size = 2
 
--- Display: Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.display = function(value)
-  return "Cust Size Integer 4: "..value
+-- Display: Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.display = function(value)
+  return "Cust Size Short: "..value
 end
 
--- Dissect: Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.size
+-- Dissect: Cust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.cust_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1075,48 +1075,48 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.instrument_id.dissect = function(buffer,
   return offset + length, value
 end
 
--- Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2 = {}
+-- Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long = {}
 
--- Size: Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.size = 2
+-- Size: Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.size = 4
 
--- Display: Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.display = function(value)
-  return "Market Order Size Integer 2: "..value
+-- Display: Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.display = function(value)
+  return "Market Order Size Long: "..value
 end
 
--- Dissect: Market Order Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.size
+-- Dissect: Market Order Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4 = {}
+-- Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short = {}
 
--- Size: Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.size = 4
+-- Size: Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.size = 2
 
--- Display: Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.display = function(value)
-  return "Market Order Size Integer 4: "..value
+-- Display: Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.display = function(value)
+  return "Market Order Size Short: "..value
 end
 
--- Dissect: Market Order Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.size
+-- Dissect: Market Order Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.market_order_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1330,94 +1330,94 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.password.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2 = {}
+-- Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long = {}
 
--- Size: Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.size = 2
+-- Size: Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.size = 4
 
--- Display: Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.display = function(value)
-  return "Price Integer 2: "..value
+-- Display: Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Dissect: Price Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.size
+-- Dissect: Price Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4 = {}
+-- Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short = {}
 
--- Size: Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.size = 4
+-- Size: Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.size = 2
 
--- Display: Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.display = function(value)
-  return "Price Integer 4: "..value
+-- Display: Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Price Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.size
+-- Dissect: Price Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2 = {}
+-- ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long = {}
 
--- Size: Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.size = 2
+-- Size: ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.size = 4
 
--- Display: Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.display = function(value)
-  return "Pro Cust Size Integer 2: "..value
+-- Display: ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.display = function(value)
+  return "ProCust Size Long: "..value
 end
 
--- Dissect: Pro Cust Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.size
+-- Dissect: ProCust Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.pro_cust_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.procust_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4 = {}
+-- ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short = {}
 
--- Size: Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.size = 4
+-- Size: ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.size = 2
 
--- Display: Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.display = function(value)
-  return "Pro Cust Size Integer 4: "..value
+-- Display: ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.display = function(value)
+  return "ProCust Size Short: "..value
 end
 
--- Dissect: Pro Cust Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.size
+-- Dissect: ProCust Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.pro_cust_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.procust_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1666,48 +1666,48 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.server_packet_type.dissect = function(bu
   return offset + length, value
 end
 
--- Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2 = {}
+-- Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long = {}
 
--- Size: Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.size = 2
+-- Size: Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.size = 4
 
--- Display: Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.display = function(value)
-  return "Size Integer 2: "..value
+-- Display: Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.display = function(value)
+  return "Size Long: "..value
 end
 
--- Dissect: Size Integer 2
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.size
+-- Dissect: Size Long
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4 = {}
+-- Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short = {}
 
--- Size: Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.size = 4
+-- Size: Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.size = 2
 
--- Display: Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.display = function(value)
-  return "Size Integer 4: "..value
+-- Display: Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.display = function(value)
+  return "Size Short: "..value
 end
 
--- Dissect: Size Integer 4
-nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.size
+-- Dissect: Size Short
+nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_itch_v2_1.fields.size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1995,11 +1995,11 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_ask_update_long_form_message.size =
   nasdaq_mrxoptions_topofmarket_itch_v2_1.timestamp.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.instrument_id.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.size
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.size
 
 -- Display: Best Ask Update Long Form Message
 nasdaq_mrxoptions_topofmarket_itch_v2_1.best_ask_update_long_form_message.display = function(packet, parent, length)
@@ -2022,20 +2022,20 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_ask_update_long_form_message.fields
   -- Quote Condition: Alpha
   index, quote_condition = nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Order Size Integer 4: Integer
-  index, market_order_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Market Order Size Long: Integer
+  index, market_order_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
-  -- Size Integer 4: Integer
-  index, size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.dissect(buffer, index, packet, parent)
+  -- Size Long: Integer
+  index, size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.dissect(buffer, index, packet, parent)
 
-  -- Cust Size Integer 4: Integer
-  index, cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Cust Size Long: Integer
+  index, cust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.dissect(buffer, index, packet, parent)
 
-  -- Pro Cust Size Integer 4: Integer
-  index, pro_cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- ProCust Size Long: Integer
+  index, procust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2067,11 +2067,11 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_update_long_form_message.size =
   nasdaq_mrxoptions_topofmarket_itch_v2_1.timestamp.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.instrument_id.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.size
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.size
 
 -- Display: Best Bid Update Long Form Message
 nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_update_long_form_message.display = function(packet, parent, length)
@@ -2094,20 +2094,20 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_update_long_form_message.fields
   -- Quote Condition: Alpha
   index, quote_condition = nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Order Size Integer 4: Integer
-  index, market_order_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Market Order Size Long: Integer
+  index, market_order_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_long.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 4: Integer
-  index, price_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Long: Integer
+  index, price_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_long.dissect(buffer, index, packet, parent)
 
-  -- Size Integer 4: Integer
-  index, size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_4.dissect(buffer, index, packet, parent)
+  -- Size Long: Integer
+  index, size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_long.dissect(buffer, index, packet, parent)
 
-  -- Cust Size Integer 4: Integer
-  index, cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Cust Size Long: Integer
+  index, cust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_long.dissect(buffer, index, packet, parent)
 
-  -- Pro Cust Size Integer 4: Integer
-  index, pro_cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- ProCust Size Long: Integer
+  index, procust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2139,11 +2139,11 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_ask_update_short_form_message.size 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.timestamp.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.instrument_id.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.size
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.size
 
 -- Display: Best Ask Update Short Form Message
 nasdaq_mrxoptions_topofmarket_itch_v2_1.best_ask_update_short_form_message.display = function(packet, parent, length)
@@ -2166,20 +2166,20 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_ask_update_short_form_message.field
   -- Quote Condition: Alpha
   index, quote_condition = nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Order Size Integer 2: Integer
-  index, market_order_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Market Order Size Short: Integer
+  index, market_order_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 2: Integer
-  index, price_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.dissect(buffer, index, packet, parent)
+  -- Price Short: Integer
+  index, price_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.dissect(buffer, index, packet, parent)
 
-  -- Size Integer 2: Integer
-  index, size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.dissect(buffer, index, packet, parent)
+  -- Size Short: Integer
+  index, size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.dissect(buffer, index, packet, parent)
 
-  -- Cust Size Integer 2: Integer
-  index, cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Cust Size Short: Integer
+  index, cust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.dissect(buffer, index, packet, parent)
 
-  -- Pro Cust Size Integer 2: Integer
-  index, pro_cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- ProCust Size Short: Integer
+  index, procust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2211,11 +2211,11 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_update_short_form_message.size 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.timestamp.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.instrument_id.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.size
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.size
 
 -- Display: Best Bid Update Short Form Message
 nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_update_short_form_message.display = function(packet, parent, length)
@@ -2238,20 +2238,20 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_update_short_form_message.field
   -- Quote Condition: Alpha
   index, quote_condition = nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Market Order Size Integer 2: Integer
-  index, market_order_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Market Order Size Short: Integer
+  index, market_order_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.market_order_size_short.dissect(buffer, index, packet, parent)
 
-  -- Price Integer 2: Integer
-  index, price_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_integer_2.dissect(buffer, index, packet, parent)
+  -- Price Short: Integer
+  index, price_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.price_short.dissect(buffer, index, packet, parent)
 
-  -- Size Integer 2: Integer
-  index, size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_integer_2.dissect(buffer, index, packet, parent)
+  -- Size Short: Integer
+  index, size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.size_short.dissect(buffer, index, packet, parent)
 
-  -- Cust Size Integer 2: Integer
-  index, cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Cust Size Short: Integer
+  index, cust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.cust_size_short.dissect(buffer, index, packet, parent)
 
-  -- Pro Cust Size Integer 2: Integer
-  index, pro_cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.pro_cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- ProCust Size Short: Integer
+  index, procust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.procust_size_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2283,16 +2283,16 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_and_ask_update_long_form_messag
   nasdaq_mrxoptions_topofmarket_itch_v2_1.timestamp.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.instrument_id.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4.size
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long.size
 
 -- Display: Best Bid And Ask Update Long Form Message
 nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_and_ask_update_long_form_message.display = function(packet, parent, length)
@@ -2315,35 +2315,35 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_and_ask_update_long_form_messag
   -- Quote Condition: Alpha
   index, quote_condition = nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Bid Market Order Size Integer 4: Integer
-  index, bid_market_order_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Bid Market Order Size Long: Integer
+  index, bid_market_order_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Integer 4: Integer
-  index, bid_price_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_4.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Integer
+  index, bid_price_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Integer 4: Integer
-  index, bid_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: Integer
+  index, bid_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Cust Size Integer 4: Integer
-  index, bid_cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Bid Cust Size Long: Integer
+  index, bid_cust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Pro Cust Size Integer 4: Integer
-  index, bid_pro_cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Bid ProCust Size Long: Integer
+  index, bid_procust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Market Order Size Integer 4: Integer
-  index, ask_market_order_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Ask Market Order Size Long: Integer
+  index, ask_market_order_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Integer 4: Integer
-  index, ask_price_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_4.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Integer
+  index, ask_price_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Integer 4: Integer
-  index, ask_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: Integer
+  index, ask_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Cust Size Integer 4: Integer
-  index, ask_cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Ask Cust Size Long: Integer
+  index, ask_cust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Pro Cust Size Integer 4: Integer
-  index, ask_pro_cust_size_integer_4 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Ask ProCust Size Long: Integer
+  index, ask_procust_size_long = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2375,16 +2375,16 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_and_ask_update_short_form_messa
   nasdaq_mrxoptions_topofmarket_itch_v2_1.timestamp.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.instrument_id.size + 
   nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2.size + 
-  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2.size
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short.size + 
+  nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short.size
 
 -- Display: Best Bid And Ask Update Short Form Message
 nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_and_ask_update_short_form_message.display = function(packet, parent, length)
@@ -2407,35 +2407,35 @@ nasdaq_mrxoptions_topofmarket_itch_v2_1.best_bid_and_ask_update_short_form_messa
   -- Quote Condition: Alpha
   index, quote_condition = nasdaq_mrxoptions_topofmarket_itch_v2_1.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Bid Market Order Size Integer 2: Integer
-  index, bid_market_order_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Bid Market Order Size Short: Integer
+  index, bid_market_order_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_market_order_size_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Integer 2: Integer
-  index, bid_price_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_integer_2.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: Integer
+  index, bid_price_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Integer 2: Integer
-  index, bid_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Bid Size Short: Integer
+  index, bid_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Cust Size Integer 2: Integer
-  index, bid_cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Bid Cust Size Short: Integer
+  index, bid_cust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_cust_size_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Pro Cust Size Integer 2: Integer
-  index, bid_pro_cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_pro_cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Bid ProCust Size Short: Integer
+  index, bid_procust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.bid_procust_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Market Order Size Integer 2: Integer
-  index, ask_market_order_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Ask Market Order Size Short: Integer
+  index, ask_market_order_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_market_order_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Integer 2: Integer
-  index, ask_price_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_integer_2.dissect(buffer, index, packet, parent)
+  -- Ask Price Short: Integer
+  index, ask_price_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Integer 2: Integer
-  index, ask_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Ask Size Short: Integer
+  index, ask_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Cust Size Integer 2: Integer
-  index, ask_cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Ask Cust Size Short: Integer
+  index, ask_cust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_cust_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Pro Cust Size Integer 2: Integer
-  index, ask_pro_cust_size_integer_2 = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_pro_cust_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Ask ProCust Size Short: Integer
+  index, ask_procust_size_short = nasdaq_mrxoptions_topofmarket_itch_v2_1.ask_procust_size_short.dissect(buffer, index, packet, parent)
 
   return index
 end

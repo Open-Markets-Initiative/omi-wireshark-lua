@@ -21,16 +21,16 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask = ProtoField.new("Ask", "nasdaq.
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nomoptions.itto.itch.v4.0.askpricelong", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.nomoptions.itto.itch.v4.0.askpriceshort", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_reference_number = ProtoField.new("Ask Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.askreferencenumber", ftypes.UINT64)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_integer_2 = ProtoField.new("Ask Size Integer 2", "nasdaq.nomoptions.itto.itch.v4.0.asksizeinteger2", ftypes.UINT16)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_integer_4 = ProtoField.new("Ask Size Integer 4", "nasdaq.nomoptions.itto.itch.v4.0.asksizeinteger4", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.nomoptions.itto.itch.v4.0.asksizelong", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.nomoptions.itto.itch.v4.0.asksizeshort", ftypes.UINT16)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.nomoptions.itto.itch.v4.0.auctionid", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.nomoptions.itto.itch.v4.0.auctiontype", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid = ProtoField.new("Bid", "nasdaq.nomoptions.itto.itch.v4.0.bid", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.nomoptions.itto.itch.v4.0.bidpricelong", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.nomoptions.itto.itch.v4.0.bidpriceshort", ftypes.DOUBLE)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_reference_number = ProtoField.new("Bid Reference Number", "nasdaq.nomoptions.itto.itch.v4.0.bidreferencenumber", ftypes.UINT64)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_integer_2 = ProtoField.new("Bid Size Integer 2", "nasdaq.nomoptions.itto.itch.v4.0.bidsizeinteger2", ftypes.UINT16)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_integer_4 = ProtoField.new("Bid Size Integer 4", "nasdaq.nomoptions.itto.itch.v4.0.bidsizeinteger4", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.nomoptions.itto.itch.v4.0.bidsizelong", ftypes.UINT32)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.nomoptions.itto.itch.v4.0.bidsizeshort", ftypes.UINT16)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nomoptions.itto.itch.v4.0.buysellindicator", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.nomoptions.itto.itch.v4.0.cancelledcontracts", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.change_reason = ProtoField.new("Change Reason", "nasdaq.nomoptions.itto.itch.v4.0.changereason", ftypes.STRING)
@@ -387,48 +387,48 @@ nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.dissect = function(buffer,
   return offset + length, value
 end
 
--- Ask Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2 = {}
+-- Ask Size Long
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_long = {}
 
--- Size: Ask Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.size = 2
+-- Size: Ask Size Long
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size = 4
 
--- Display: Ask Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.display = function(value)
-  return "Ask Size Integer 2: "..value
+-- Display: Ask Size Long
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.display = function(value)
+  return "Ask Size Long: "..value
 end
 
--- Dissect: Ask Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.size
+-- Dissect: Ask Size Long
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4 = {}
+-- Ask Size Short
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_short = {}
 
--- Size: Ask Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.size = 4
+-- Size: Ask Size Short
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.size = 2
 
--- Display: Ask Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.display = function(value)
-  return "Ask Size Integer 4: "..value
+-- Display: Ask Size Short
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.display = function(value)
+  return "Ask Size Short: "..value
 end
 
--- Dissect: Ask Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.size
+-- Dissect: Ask Size Short
+nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.ask_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -596,48 +596,48 @@ nasdaq_nomoptions_itto_itch_v4_0.bid_reference_number.dissect = function(buffer,
   return offset + length, value
 end
 
--- Bid Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2 = {}
+-- Bid Size Long
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_long = {}
 
--- Size: Bid Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.size = 2
+-- Size: Bid Size Long
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size = 4
 
--- Display: Bid Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.display = function(value)
-  return "Bid Size Integer 2: "..value
+-- Display: Bid Size Long
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
 end
 
--- Dissect: Bid Size Integer 2
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.size
+-- Dissect: Bid Size Long
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_integer_2, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4 = {}
+-- Bid Size Short
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_short = {}
 
--- Size: Bid Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.size = 4
+-- Size: Bid Size Short
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.size = 2
 
--- Display: Bid Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.display = function(value)
-  return "Bid Size Integer 4: "..value
+-- Display: Bid Size Short
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.display = function(value)
+  return "Bid Size Short: "..value
 end
 
--- Dissect: Bid Size Integer 4
-nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.size
+-- Dissect: Bid Size Short
+nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_integer_4, range, value, display)
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -2695,9 +2695,9 @@ nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.size =
   nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number.size + 
   nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
   nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.size + 
+  nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size + 
   nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.size
+  nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size
 
 -- Display: Quote Replace Message Long Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.display = function(packet, parent, length)
@@ -2729,14 +2729,14 @@ nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_long_form.fields = functi
   -- Bid Price Long: Integer
   index, bid_price_long = nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Integer 4: Integer
-  index, bid_size_integer_4 = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: Integer
+  index, bid_size_long = nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.dissect(buffer, index, packet, parent)
 
   -- Ask Price Long: Integer
   index, ask_price_long = nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Integer 4: Integer
-  index, ask_size_integer_4 = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: Integer
+  index, ask_size_long = nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2771,9 +2771,9 @@ nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.size =
   nasdaq_nomoptions_itto_itch_v4_0.original_ask_reference_number.size + 
   nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
   nasdaq_nomoptions_itto_itch_v4_0.bid_price_short.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.size + 
+  nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.size + 
   nasdaq_nomoptions_itto_itch_v4_0.ask_price_short.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.size
+  nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.size
 
 -- Display: Quote Replace Message Short Form
 nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.display = function(packet, parent, length)
@@ -2805,14 +2805,14 @@ nasdaq_nomoptions_itto_itch_v4_0.quote_replace_message_short_form.fields = funct
   -- Bid Price Short: Integer
   index, bid_price_short = nasdaq_nomoptions_itto_itch_v4_0.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Integer 2: Integer
-  index, bid_size_integer_2 = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Bid Size Short: Integer
+  index, bid_size_short = nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.dissect(buffer, index, packet, parent)
 
   -- Ask Price Short: Integer
   index, ask_price_short = nasdaq_nomoptions_itto_itch_v4_0.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Integer 2: Integer
-  index, ask_size_integer_2 = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Ask Size Short: Integer
+  index, ask_size_short = nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3254,9 +3254,9 @@ nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.size =
   nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
   nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
   nasdaq_nomoptions_itto_itch_v4_0.bid.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.size + 
+  nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.size + 
   nasdaq_nomoptions_itto_itch_v4_0.ask.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.size
+  nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.size
 
 -- Display: Add Quote Message Long Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.display = function(packet, parent, length)
@@ -3285,14 +3285,14 @@ nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_long_form_message.fields = fu
   -- Bid: Integer
   index, bid = nasdaq_nomoptions_itto_itch_v4_0.bid.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Integer 4: Integer
-  index, bid_size_integer_4 = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: Integer
+  index, bid_size_long = nasdaq_nomoptions_itto_itch_v4_0.bid_size_long.dissect(buffer, index, packet, parent)
 
   -- Ask: Integer
   index, ask = nasdaq_nomoptions_itto_itch_v4_0.ask.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Integer 4: Integer
-  index, ask_size_integer_4 = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Ask Size Long: Integer
+  index, ask_size_long = nasdaq_nomoptions_itto_itch_v4_0.ask_size_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3326,9 +3326,9 @@ nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.size =
   nasdaq_nomoptions_itto_itch_v4_0.ask_reference_number.size + 
   nasdaq_nomoptions_itto_itch_v4_0.option_id.size + 
   nasdaq_nomoptions_itto_itch_v4_0.bid_price_short.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.size + 
+  nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.size + 
   nasdaq_nomoptions_itto_itch_v4_0.ask_price_short.size + 
-  nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.size
+  nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.size
 
 -- Display: Add Quote Message Short Form Message
 nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.display = function(packet, parent, length)
@@ -3357,14 +3357,14 @@ nasdaq_nomoptions_itto_itch_v4_0.add_quote_message_short_form_message.fields = f
   -- Bid Price Short: Integer
   index, bid_price_short = nasdaq_nomoptions_itto_itch_v4_0.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Integer 2: Integer
-  index, bid_size_integer_2 = nasdaq_nomoptions_itto_itch_v4_0.bid_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Bid Size Short: Integer
+  index, bid_size_short = nasdaq_nomoptions_itto_itch_v4_0.bid_size_short.dissect(buffer, index, packet, parent)
 
   -- Ask Price Short: Integer
   index, ask_price_short = nasdaq_nomoptions_itto_itch_v4_0.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Integer 2: Integer
-  index, ask_size_integer_2 = nasdaq_nomoptions_itto_itch_v4_0.ask_size_integer_2.dissect(buffer, index, packet, parent)
+  -- Ask Size Short: Integer
+  index, ask_size_short = nasdaq_nomoptions_itto_itch_v4_0.ask_size_short.dissect(buffer, index, packet, parent)
 
   return index
 end
