@@ -663,7 +663,7 @@ end
 nasdaq_ntxequities_orders_ouch_v4_2.existing_order_token.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_orders_ouch_v4_2.existing_order_token.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxequities_orders_ouch_v4_2.existing_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.existing_order_token, range, value, display)
@@ -904,7 +904,7 @@ end
 nasdaq_ntxequities_orders_ouch_v4_2.order_token.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_orders_ouch_v4_2.order_token.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxequities_orders_ouch_v4_2.order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.order_token, range, value, display)
@@ -973,7 +973,7 @@ end
 nasdaq_ntxequities_orders_ouch_v4_2.previous_order_token.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_orders_ouch_v4_2.previous_order_token.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxequities_orders_ouch_v4_2.previous_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.previous_order_token, range, value, display)
@@ -1176,7 +1176,7 @@ end
 nasdaq_ntxequities_orders_ouch_v4_2.replacement_order_token.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_ntxequities_orders_ouch_v4_2.replacement_order_token.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ntxequities_orders_ouch_v4_2.replacement_order_token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.replacement_order_token, range, value, display)
