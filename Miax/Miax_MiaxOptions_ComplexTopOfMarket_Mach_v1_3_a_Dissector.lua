@@ -37,9 +37,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.expected_event_time_s
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.expirationdate", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.goodbyepacket", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.highestsequencenumber", ftypes.UINT64)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_definition = ProtoField.new("Leg Definition", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.legdefinition", ftypes.STRING)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.legratioqty", ftypes.UINT16)
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_side = ProtoField.new("Leg Side", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.legside", ftypes.STRING)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_definition_0 = ProtoField.new("Leg Definition 0", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.legdefinition0", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.liquidityacceptanceincrementindicator", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.login_request = ProtoField.new("Login Request", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.loginrequest", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.login_response = ProtoField.new("Login Response", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.loginresponse", ftypes.STRING)
@@ -134,7 +132,6 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.system_time_message =
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a generated fields
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.legdefinitionindex", ftypes.UINT16)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -154,14 +151,10 @@ local show = {}
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Element Dissection Options
 show.structs = true
 show.application_messages = true
-show.repeating_groups = true
-show.indexes = true
 
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Show Options
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -171,14 +164,8 @@ function omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs_changed()
   if show.application_messages ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_application_messages then
     show.application_messages = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_application_messages
   end
-  if show.repeating_groups ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_repeating_groups then
-    show.repeating_groups = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_repeating_groups
-  end
   if show.structs ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_structs then
     show.structs = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_structs
-  end
-  if show.indexes ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_indexes then
-    show.indexes = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_indexes
   end
   if miax_miaxoptions_complextopofmarket_mach_v1_3_a.format_timestamp ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.format_timestamp then
     miax_miaxoptions_complextopofmarket_mach_v1_3_a.format_timestamp = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.format_timestamp
@@ -775,55 +762,25 @@ miax_miaxoptions_complextopofmarket_mach_v1_3_a.highest_sequence_number.dissect 
   return offset + length, value
 end
 
--- Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty = {}
+-- Leg Definition 0
+miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0 = {}
 
--- Size: Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty.size = 2
+-- Size: Leg Definition 0
+miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0.size = 0
 
--- Display: Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty.display = function(value)
-  return "Leg Ratio Qty: "..value
+-- Display: Leg Definition 0
+miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0.display = function(value)
+  return "Leg Definition 0: "..value
 end
 
--- Dissect: Leg Ratio Qty
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_ratio_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side = {}
-
--- Size: Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side.size = 1
-
--- Display: Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Bid (B)"
-  end
-  if value == "A" then
-    return "Leg Side: Ask (A)"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side.size
+-- Dissect: Leg Definition 0
+miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side.display(value, buffer, offset, packet, parent)
+  local display = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_side, range, value, display)
+  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_definition_0, range, value, display)
 
   return offset + length, value
 end
@@ -3572,93 +3529,20 @@ miax_miaxoptions_complextopofmarket_mach_v1_3_a.system_state_message.dissect = f
   end
 end
 
--- Leg Definition
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition = {}
-
--- Size: Leg Definition
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.size =
-  miax_miaxoptions_complextopofmarket_mach_v1_3_a.product_id.size + 
-  miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty.size + 
-  miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side.size + 
-  miax_miaxoptions_complextopofmarket_mach_v1_3_a.reserved_8.size
-
--- Display: Leg Definition
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.display = function(buffer, offset, value, packet, parent)
-  return ""..value
-end
-
--- Dissect Fields: Leg Definition
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.fields = function(buffer, offset, packet, parent, leg_definition_index)
-  local index = offset
-
-  -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_definition_index, leg_definition_index)
-    iteration:set_generated()
-  end
-
-  -- Product Id: BinaryU
-  index, product_id = miax_miaxoptions_complextopofmarket_mach_v1_3_a.product_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: BinaryU
-  index, leg_ratio_qty = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: Alphanumeric
-  index, leg_side = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_side.dissect(buffer, index, packet, parent)
-
-  -- Reserved 8: BinaryU
-  index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_3_a.reserved_8.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Leg Definition
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.leg_definition, buffer(offset, 0))
-    local index = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, value
-  else
-    -- Skip element, add fields directly
-    return miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
-  end
-end
-
 -- Complex Strategy Definition Message
 miax_miaxoptions_complextopofmarket_mach_v1_3_a.complex_strategy_definition_message = {}
 
--- Calculate size of: Complex Strategy Definition Message
-miax_miaxoptions_complextopofmarket_mach_v1_3_a.complex_strategy_definition_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.nanoseconds.size
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.strategy_id.size
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.underlying_symbol.size
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.active_on_miax.size
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.reserved_1.size
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.update_reason.size
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.reserved_10.size
-
-  index = index + miax_miaxoptions_complextopofmarket_mach_v1_3_a.number_of_legs.size
-
-  -- Calculate field size from count
-  local leg_definition_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + leg_definition_count * 15
-
-  return index
-end
+-- Size: Complex Strategy Definition Message
+miax_miaxoptions_complextopofmarket_mach_v1_3_a.complex_strategy_definition_message.size =
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.nanoseconds.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.strategy_id.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.underlying_symbol.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.active_on_miax.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.reserved_1.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.update_reason.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.reserved_10.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.number_of_legs.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0.size
 
 -- Display: Complex Strategy Definition Message
 miax_miaxoptions_complextopofmarket_mach_v1_3_a.complex_strategy_definition_message.display = function(packet, parent, length)
@@ -3693,10 +3577,8 @@ miax_miaxoptions_complextopofmarket_mach_v1_3_a.complex_strategy_definition_mess
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_miaxoptions_complextopofmarket_mach_v1_3_a.number_of_legs.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Leg Definition
-  for leg_definition_index = 1, number_of_legs do
-    index, leg_definition = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition.dissect(buffer, index, packet, parent, leg_definition_index)
-  end
+  -- Leg Definition 0: 0 Byte Ascii String
+  index, leg_definition_0 = miax_miaxoptions_complextopofmarket_mach_v1_3_a.leg_definition_0.dissect(buffer, index, packet, parent)
 
   return index
 end

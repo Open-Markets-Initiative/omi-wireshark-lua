@@ -19,12 +19,12 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.active_on_sapphire = Proto
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.application_message = ProtoField.new("Application Message", "miax.sapphireoptions.topofmarket.mach.v2.0.applicationmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.application_protocol = ProtoField.new("Application Protocol", "miax.sapphireoptions.topofmarket.mach.v2.0.applicationprotocol", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_condition = ProtoField.new("Bid Condition", "miax.sapphireoptions.topofmarket.mach.v2.0.bidcondition", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_binary_prc_2u_2 = ProtoField.new("Bid Price Binary Prc 2u 2", "miax.sapphireoptions.topofmarket.mach.v2.0.bidpricebinaryprc2u2", ftypes.DOUBLE)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_binary_prc_4u_4 = ProtoField.new("Bid Price Binary Prc 4u 4", "miax.sapphireoptions.topofmarket.mach.v2.0.bidpricebinaryprc4u4", ftypes.DOUBLE)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_binary_u_2 = ProtoField.new("Bid Priority Customer Size Binary U 2", "miax.sapphireoptions.topofmarket.mach.v2.0.bidprioritycustomersizebinaryu2", ftypes.UINT16)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_binary_u_4 = ProtoField.new("Bid Priority Customer Size Binary U 4", "miax.sapphireoptions.topofmarket.mach.v2.0.bidprioritycustomersizebinaryu4", ftypes.UINT32)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_binary_u_2 = ProtoField.new("Bid Size Binary U 2", "miax.sapphireoptions.topofmarket.mach.v2.0.bidsizebinaryu2", ftypes.UINT16)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_binary_u_4 = ProtoField.new("Bid Size Binary U 4", "miax.sapphireoptions.topofmarket.mach.v2.0.bidsizebinaryu4", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_long = ProtoField.new("Bid Price Long", "miax.sapphireoptions.topofmarket.mach.v2.0.bidpricelong", ftypes.DOUBLE)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_short = ProtoField.new("Bid Price Short", "miax.sapphireoptions.topofmarket.mach.v2.0.bidpriceshort", ftypes.DOUBLE)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_long = ProtoField.new("Bid Priority Customer Size Long", "miax.sapphireoptions.topofmarket.mach.v2.0.bidprioritycustomersizelong", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_short = ProtoField.new("Bid Priority Customer Size Short", "miax.sapphireoptions.topofmarket.mach.v2.0.bidprioritycustomersizeshort", ftypes.UINT16)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "miax.sapphireoptions.topofmarket.mach.v2.0.bidsizelong", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "miax.sapphireoptions.topofmarket.mach.v2.0.bidsizeshort", ftypes.UINT16)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.call_or_put = ProtoField.new("Call Or Put", "miax.sapphireoptions.topofmarket.mach.v2.0.callorput", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.closing_time = ProtoField.new("Closing Time", "miax.sapphireoptions.topofmarket.mach.v2.0.closingtime", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.computer_id = ProtoField.new("Computer Id", "miax.sapphireoptions.topofmarket.mach.v2.0.computerid", ftypes.STRING)
@@ -49,12 +49,12 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.message_type = ProtoField.
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.sapphireoptions.topofmarket.mach.v2.0.nanoseconds", ftypes.UINT32)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.sapphireoptions.topofmarket.mach.v2.0.numberofmatchingengines", ftypes.UINT8)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_condition = ProtoField.new("Offer Condition", "miax.sapphireoptions.topofmarket.mach.v2.0.offercondition", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_binary_prc_2u_2 = ProtoField.new("Offer Price Binary Prc 2u 2", "miax.sapphireoptions.topofmarket.mach.v2.0.offerpricebinaryprc2u2", ftypes.DOUBLE)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_binary_prc_4u_4 = ProtoField.new("Offer Price Binary Prc 4u 4", "miax.sapphireoptions.topofmarket.mach.v2.0.offerpricebinaryprc4u4", ftypes.DOUBLE)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_binary_u_2 = ProtoField.new("Offer Priority Customer Size Binary U 2", "miax.sapphireoptions.topofmarket.mach.v2.0.offerprioritycustomersizebinaryu2", ftypes.UINT16)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_binary_u_4 = ProtoField.new("Offer Priority Customer Size Binary U 4", "miax.sapphireoptions.topofmarket.mach.v2.0.offerprioritycustomersizebinaryu4", ftypes.UINT32)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_binary_u_2 = ProtoField.new("Offer Size Binary U 2", "miax.sapphireoptions.topofmarket.mach.v2.0.offersizebinaryu2", ftypes.UINT16)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_binary_u_4 = ProtoField.new("Offer Size Binary U 4", "miax.sapphireoptions.topofmarket.mach.v2.0.offersizebinaryu4", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_long = ProtoField.new("Offer Price Long", "miax.sapphireoptions.topofmarket.mach.v2.0.offerpricelong", ftypes.DOUBLE)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_short = ProtoField.new("Offer Price Short", "miax.sapphireoptions.topofmarket.mach.v2.0.offerpriceshort", ftypes.DOUBLE)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_long = ProtoField.new("Offer Priority Customer Size Long", "miax.sapphireoptions.topofmarket.mach.v2.0.offerprioritycustomersizelong", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_short = ProtoField.new("Offer Priority Customer Size Short", "miax.sapphireoptions.topofmarket.mach.v2.0.offerprioritycustomersizeshort", ftypes.UINT16)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_long = ProtoField.new("Offer Size Long", "miax.sapphireoptions.topofmarket.mach.v2.0.offersizelong", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_short = ProtoField.new("Offer Size Short", "miax.sapphireoptions.topofmarket.mach.v2.0.offersizeshort", ftypes.UINT16)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.opening_time = ProtoField.new("Opening Time", "miax.sapphireoptions.topofmarket.mach.v2.0.openingtime", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.sapphireoptions.topofmarket.mach.v2.0.openingunderlyingmarketcode", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.packet_length = ProtoField.new("Packet Length", "miax.sapphireoptions.topofmarket.mach.v2.0.packetlength", ftypes.UINT16)
@@ -70,12 +70,12 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.restricted_option = ProtoF
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.sapphireoptions.topofmarket.mach.v2.0.retransmissionrequest", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sapphire_bbo_posting_increment_indicator = ProtoField.new("Sapphire Bbo Posting Increment Indicator", "miax.sapphireoptions.topofmarket.mach.v2.0.sapphirebbopostingincrementindicator", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_condition = ProtoField.new("Sbbo Condition", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbocondition", ftypes.STRING)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_binary_prc_2u_2 = ProtoField.new("Sbbo Price Binary Prc 2u 2", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbopricebinaryprc2u2", ftypes.DOUBLE)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_binary_prc_4u_4 = ProtoField.new("Sbbo Price Binary Prc 4u 4", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbopricebinaryprc4u4", ftypes.DOUBLE)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_binary_u_2 = ProtoField.new("Sbbo Priority Customer Size Binary U 2", "miax.sapphireoptions.topofmarket.mach.v2.0.sbboprioritycustomersizebinaryu2", ftypes.UINT16)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_binary_u_4 = ProtoField.new("Sbbo Priority Customer Size Binary U 4", "miax.sapphireoptions.topofmarket.mach.v2.0.sbboprioritycustomersizebinaryu4", ftypes.UINT32)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_binary_u_2 = ProtoField.new("Sbbo Size Binary U 2", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbosizebinaryu2", ftypes.UINT16)
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_binary_u_4 = ProtoField.new("Sbbo Size Binary U 4", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbosizebinaryu4", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_long = ProtoField.new("SBBO Price Long", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbopricelong", ftypes.DOUBLE)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_short = ProtoField.new("SBBO Price Short", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbopriceshort", ftypes.DOUBLE)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_long = ProtoField.new("SBBO Priority Customer Size Long", "miax.sapphireoptions.topofmarket.mach.v2.0.sbboprioritycustomersizelong", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_short = ProtoField.new("SBBO Priority Customer Size Short", "miax.sapphireoptions.topofmarket.mach.v2.0.sbboprioritycustomersizeshort", ftypes.UINT16)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_long = ProtoField.new("SBBO Size Long", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbosizelong", ftypes.UINT32)
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_short = ProtoField.new("SBBO Size Short", "miax.sapphireoptions.topofmarket.mach.v2.0.sbbosizeshort", ftypes.UINT16)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.seconds = ProtoField.new("Seconds", "miax.sapphireoptions.topofmarket.mach.v2.0.seconds", ftypes.UINT32)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.security_symbol = ProtoField.new("Security Symbol", "miax.sapphireoptions.topofmarket.mach.v2.0.securitysymbol", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.sapphireoptions.topofmarket.mach.v2.0.sequencenumber", ftypes.UINT64)
@@ -318,152 +318,152 @@ miax_sapphireoptions_topofmarket_mach_v2_0.bid_condition.dissect = function(buff
   return offset + length, value
 end
 
--- Bid Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2 = {}
+-- Bid Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long = {}
 
--- Size: Bid Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.size = 2
+-- Size: Bid Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.size = 4
 
--- Display: Bid Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.display = function(value)
-  return "Bid Price Binary Prc 2u 2: "..value
+-- Display: Bid Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
 end
 
--- Translate: Bid Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.translate(raw)
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_binary_prc_2u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4 = {}
-
--- Size: Bid Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.size = 4
-
--- Display: Bid Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.display = function(value)
-  return "Bid Price Binary Prc 4u 4: "..value
-end
-
--- Translate: Bid Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.translate = function(raw)
+-- Translate: Bid Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Bid Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.size
+-- Dissect: Bid Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.translate(raw)
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.display(value, buffer, offset, packet, parent)
+  local value = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.translate(raw)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_binary_prc_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2 = {}
-
--- Size: Bid Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2.size = 2
-
--- Display: Bid Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2.display = function(value)
-  return "Bid Priority Customer Size Binary U 2: "..value
-end
-
--- Dissect: Bid Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4 = {}
+-- Bid Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short = {}
 
--- Size: Bid Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4.size = 4
+-- Size: Bid Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.size = 2
 
--- Display: Bid Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4.display = function(value)
-  return "Bid Priority Customer Size Binary U 4: "..value
+-- Display: Bid Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
 end
 
--- Dissect: Bid Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+-- Translate: Bid Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_binary_u_4, range, value, display)
+-- Dissect: Bid Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.translate(raw)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2 = {}
+-- Bid Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long = {}
 
--- Size: Bid Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2.size = 2
+-- Size: Bid Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long.size = 4
 
--- Display: Bid Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2.display = function(value)
-  return "Bid Size Binary U 2: "..value
+-- Display: Bid Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long.display = function(value)
+  return "Bid Priority Customer Size Long: "..value
 end
 
--- Dissect: Bid Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2.size
+-- Dissect: Bid Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4 = {}
+-- Bid Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short = {}
 
--- Size: Bid Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4.size = 4
+-- Size: Bid Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short.size = 2
 
--- Display: Bid Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4.display = function(value)
-  return "Bid Size Binary U 4: "..value
+-- Display: Bid Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short.display = function(value)
+  return "Bid Priority Customer Size Short: "..value
 end
 
--- Dissect: Bid Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4.size
+-- Dissect: Bid Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_binary_u_4, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_priority_customer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long = {}
+
+-- Size: Bid Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long.size = 4
+
+-- Display: Bid Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
+end
+
+-- Dissect: Bid Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short = {}
+
+-- Size: Bid Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short.size = 2
+
+-- Display: Bid Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short.display = function(value)
+  return "Bid Size Short: "..value
+end
+
+-- Dissect: Bid Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1058,152 +1058,152 @@ miax_sapphireoptions_topofmarket_mach_v2_0.offer_condition.dissect = function(bu
   return offset + length, value
 end
 
--- Offer Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2 = {}
+-- Offer Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long = {}
 
--- Size: Offer Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.size = 2
+-- Size: Offer Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.size = 4
 
--- Display: Offer Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.display = function(value)
-  return "Offer Price Binary Prc 2u 2: "..value
+-- Display: Offer Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.display = function(value)
+  return "Offer Price Long: "..value
 end
 
--- Translate: Offer Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.translate(raw)
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_binary_prc_2u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4 = {}
-
--- Size: Offer Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.size = 4
-
--- Display: Offer Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.display = function(value)
-  return "Offer Price Binary Prc 4u 4: "..value
-end
-
--- Translate: Offer Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.translate = function(raw)
+-- Translate: Offer Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Offer Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.size
+-- Dissect: Offer Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.translate(raw)
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.display(value, buffer, offset, packet, parent)
+  local value = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.translate(raw)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_binary_prc_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2 = {}
-
--- Size: Offer Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2.size = 2
-
--- Display: Offer Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2.display = function(value)
-  return "Offer Priority Customer Size Binary U 2: "..value
-end
-
--- Dissect: Offer Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Offer Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4 = {}
+-- Offer Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short = {}
 
--- Size: Offer Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4.size = 4
+-- Size: Offer Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.size = 2
 
--- Display: Offer Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4.display = function(value)
-  return "Offer Priority Customer Size Binary U 4: "..value
+-- Display: Offer Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.display = function(value)
+  return "Offer Price Short: "..value
 end
 
--- Dissect: Offer Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+-- Translate: Offer Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_binary_u_4, range, value, display)
+-- Dissect: Offer Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.translate(raw)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Offer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2 = {}
+-- Offer Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long = {}
 
--- Size: Offer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2.size = 2
+-- Size: Offer Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long.size = 4
 
--- Display: Offer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2.display = function(value)
-  return "Offer Size Binary U 2: "..value
+-- Display: Offer Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long.display = function(value)
+  return "Offer Priority Customer Size Long: "..value
 end
 
--- Dissect: Offer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2.size
+-- Dissect: Offer Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Offer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4 = {}
+-- Offer Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short = {}
 
--- Size: Offer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4.size = 4
+-- Size: Offer Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short.size = 2
 
--- Display: Offer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4.display = function(value)
-  return "Offer Size Binary U 4: "..value
+-- Display: Offer Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short.display = function(value)
+  return "Offer Priority Customer Size Short: "..value
 end
 
--- Dissect: Offer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4.size
+-- Dissect: Offer Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_binary_u_4, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_priority_customer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long = {}
+
+-- Size: Offer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long.size = 4
+
+-- Display: Offer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long.display = function(value)
+  return "Offer Size Long: "..value
+end
+
+-- Dissect: Offer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short = {}
+
+-- Size: Offer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short.size = 2
+
+-- Display: Offer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short.display = function(value)
+  return "Offer Size Short: "..value
+end
+
+-- Dissect: Offer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.offer_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1653,152 +1653,152 @@ miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect = function(buf
   return offset + length, value
 end
 
--- Sbbo Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2 = {}
+-- SBBO Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long = {}
 
--- Size: Sbbo Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.size = 2
+-- Size: SBBO Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.size = 4
 
--- Display: Sbbo Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.display = function(value)
-  return "Sbbo Price Binary Prc 2u 2: "..value
+-- Display: SBBO Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.display = function(value)
+  return "SBBO Price Long: "..value
 end
 
--- Translate: Sbbo Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Sbbo Price Binary Prc 2u 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.translate(raw)
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_binary_prc_2u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Sbbo Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4 = {}
-
--- Size: Sbbo Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.size = 4
-
--- Display: Sbbo Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.display = function(value)
-  return "Sbbo Price Binary Prc 4u 4: "..value
-end
-
--- Translate: Sbbo Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.translate = function(raw)
+-- Translate: SBBO Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Sbbo Price Binary Prc 4u 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.size
+-- Dissect: SBBO Price Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.translate(raw)
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.display(value, buffer, offset, packet, parent)
+  local value = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.translate(raw)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_binary_prc_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Sbbo Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2 = {}
-
--- Size: Sbbo Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.size = 2
-
--- Display: Sbbo Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.display = function(value)
-  return "Sbbo Priority Customer Size Binary U 2: "..value
-end
-
--- Dissect: Sbbo Priority Customer Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Sbbo Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4 = {}
+-- SBBO Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short = {}
 
--- Size: Sbbo Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.size = 4
+-- Size: SBBO Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.size = 2
 
--- Display: Sbbo Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.display = function(value)
-  return "Sbbo Priority Customer Size Binary U 4: "..value
+-- Display: SBBO Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.display = function(value)
+  return "SBBO Price Short: "..value
 end
 
--- Dissect: Sbbo Priority Customer Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+-- Translate: SBBO Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_binary_u_4, range, value, display)
+-- Dissect: SBBO Price Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.translate(raw)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Sbbo Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2 = {}
+-- SBBO Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long = {}
 
--- Size: Sbbo Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.size = 2
+-- Size: SBBO Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.size = 4
 
--- Display: Sbbo Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.display = function(value)
-  return "Sbbo Size Binary U 2: "..value
+-- Display: SBBO Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.display = function(value)
+  return "SBBO Priority Customer Size Long: "..value
 end
 
--- Dissect: Sbbo Size Binary U 2
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.size
+-- Dissect: SBBO Priority Customer Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Sbbo Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4 = {}
+-- SBBO Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short = {}
 
--- Size: Sbbo Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.size = 4
+-- Size: SBBO Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.size = 2
 
--- Display: Sbbo Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.display = function(value)
-  return "Sbbo Size Binary U 4: "..value
+-- Display: SBBO Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.display = function(value)
+  return "SBBO Priority Customer Size Short: "..value
 end
 
--- Dissect: Sbbo Size Binary U 4
-miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.size
+-- Dissect: SBBO Priority Customer Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_binary_u_4, range, value, display)
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_priority_customer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- SBBO Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long = {}
+
+-- Size: SBBO Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.size = 4
+
+-- Display: SBBO Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.display = function(value)
+  return "SBBO Size Long: "..value
+end
+
+-- Dissect: SBBO Size Long
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- SBBO Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short = {}
+
+-- Size: SBBO Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.size = 2
+
+-- Display: SBBO Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.display = function(value)
+  return "SBBO Size Short: "..value
+end
+
+-- Dissect: SBBO Size Short
+miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sbbo_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -3201,13 +3201,13 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_double_sided_top_of_market_bes
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_double_sided_top_of_market_best_bid_or_offer_wide_format_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.bid_condition.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.offer_condition.size
 
 -- Display: Simple Double Sided Top Of Market Best Bid Or Offer Wide Format Message
@@ -3225,26 +3225,26 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_double_sided_top_of_market_bes
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Prc 4u 4: BinaryPrc4U
-  index, bid_price_binary_prc_4u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: BinaryPrc4U
+  index, bid_price_long = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Binary U 4: BinaryU
-  index, bid_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: BinaryU
+  index, bid_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Priority Customer Size Binary U 4: BinaryU
-  index, bid_priority_customer_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Bid Priority Customer Size Long: BinaryU
+  index, bid_priority_customer_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Bid Condition: Alphanumeric
   index, bid_condition = miax_sapphireoptions_topofmarket_mach_v2_0.bid_condition.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Binary Prc 4u 4: BinaryPrc4U
-  index, offer_price_binary_prc_4u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- Offer Price Long: BinaryPrc4U
+  index, offer_price_long = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_long.dissect(buffer, index, packet, parent)
 
-  -- Offer Size Binary U 4: BinaryU
-  index, offer_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Offer Size Long: BinaryU
+  index, offer_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_long.dissect(buffer, index, packet, parent)
 
-  -- Offer Priority Customer Size Binary U 4: BinaryU
-  index, offer_priority_customer_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Offer Priority Customer Size Long: BinaryU
+  index, offer_priority_customer_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Offer Condition: Alphanumeric
   index, offer_condition = miax_sapphireoptions_topofmarket_mach_v2_0.offer_condition.dissect(buffer, index, packet, parent)
@@ -3277,13 +3277,13 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_double_sided_top_of_market_bes
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_double_sided_top_of_market_best_bid_or_offer_compact_format_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.bid_condition.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.offer_condition.size
 
 -- Display: Simple Double Sided Top Of Market Best Bid Or Offer Compact Format Message
@@ -3301,26 +3301,26 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_double_sided_top_of_market_bes
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Prc 2u 2: BinaryPrc2U
-  index, bid_price_binary_prc_2u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: BinaryPrc2U
+  index, bid_price_short = miax_sapphireoptions_topofmarket_mach_v2_0.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Binary U 2: BinaryU
-  index, bid_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Bid Size Short: BinaryU
+  index, bid_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Priority Customer Size Binary U 2: BinaryU
-  index, bid_priority_customer_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Bid Priority Customer Size Short: BinaryU
+  index, bid_priority_customer_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.bid_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Bid Condition: Alphanumeric
   index, bid_condition = miax_sapphireoptions_topofmarket_mach_v2_0.bid_condition.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Binary Prc 2u 2: BinaryPrc2U
-  index, offer_price_binary_prc_2u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- Offer Price Short: BinaryPrc2U
+  index, offer_price_short = miax_sapphireoptions_topofmarket_mach_v2_0.offer_price_short.dissect(buffer, index, packet, parent)
 
-  -- Offer Size Binary U 2: BinaryU
-  index, offer_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Offer Size Short: BinaryU
+  index, offer_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.offer_size_short.dissect(buffer, index, packet, parent)
 
-  -- Offer Priority Customer Size Binary U 2: BinaryU
-  index, offer_priority_customer_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Offer Priority Customer Size Short: BinaryU
+  index, offer_priority_customer_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.offer_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Offer Condition: Alphanumeric
   index, offer_condition = miax_sapphireoptions_topofmarket_mach_v2_0.offer_condition.dissect(buffer, index, packet, parent)
@@ -3353,9 +3353,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_wide_format_offer_priority_customer_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Format Offer Priority Customer Message
@@ -3373,14 +3373,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, sbbo_price_binary_prc_4u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Price Long: BinaryPrc4U
+  index, sbbo_price_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 4: BinaryU
-  index, sbbo_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Size Long: BinaryU
+  index, sbbo_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 4: BinaryU
-  index, sbbo_priority_customer_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Long: BinaryU
+  index, sbbo_priority_customer_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)
@@ -3413,9 +3413,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_wide_format_offer_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Format Offer Message
@@ -3433,14 +3433,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, sbbo_price_binary_prc_4u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Price Long: BinaryPrc4U
+  index, sbbo_price_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 4: BinaryU
-  index, sbbo_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Size Long: BinaryU
+  index, sbbo_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 4: BinaryU
-  index, sbbo_priority_customer_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Long: BinaryU
+  index, sbbo_priority_customer_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)
@@ -3473,9 +3473,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_wide_format_bid_priority_customer_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Format Bid Priority Customer Message
@@ -3493,14 +3493,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, sbbo_price_binary_prc_4u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Price Long: BinaryPrc4U
+  index, sbbo_price_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 4: BinaryU
-  index, sbbo_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Size Long: BinaryU
+  index, sbbo_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 4: BinaryU
-  index, sbbo_priority_customer_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Long: BinaryU
+  index, sbbo_priority_customer_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)
@@ -3533,9 +3533,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_wide_format_bid_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Format Bid Message
@@ -3553,14 +3553,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, sbbo_price_binary_prc_4u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Price Long: BinaryPrc4U
+  index, sbbo_price_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 4: BinaryU
-  index, sbbo_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Size Long: BinaryU
+  index, sbbo_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 4: BinaryU
-  index, sbbo_priority_customer_size_binary_u_4 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Long: BinaryU
+  index, sbbo_priority_customer_size_long = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)
@@ -3593,9 +3593,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_compact_format_offer_priority_customer_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Format Offer Priority Customer Message
@@ -3613,14 +3613,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, sbbo_price_binary_prc_2u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Price Short: BinaryPrc2U
+  index, sbbo_price_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 2: BinaryU
-  index, sbbo_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Size Short: BinaryU
+  index, sbbo_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 2: BinaryU
-  index, sbbo_priority_customer_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Short: BinaryU
+  index, sbbo_priority_customer_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)
@@ -3653,9 +3653,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_compact_format_offer_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Format Offer Message
@@ -3673,14 +3673,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, sbbo_price_binary_prc_2u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Price Short: BinaryPrc2U
+  index, sbbo_price_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 2: BinaryU
-  index, sbbo_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Size Short: BinaryU
+  index, sbbo_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 2: BinaryU
-  index, sbbo_priority_customer_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Short: BinaryU
+  index, sbbo_priority_customer_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)
@@ -3713,9 +3713,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_compact_format_bid_priority_customer_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Format Bid Priority Customer Message
@@ -3733,14 +3733,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, sbbo_price_binary_prc_2u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Price Short: BinaryPrc2U
+  index, sbbo_price_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 2: BinaryU
-  index, sbbo_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Size Short: BinaryU
+  index, sbbo_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 2: BinaryU
-  index, sbbo_priority_customer_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Short: BinaryU
+  index, sbbo_priority_customer_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)
@@ -3773,9 +3773,9 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
 miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offer_compact_format_bid_message.size =
   miax_sapphireoptions_topofmarket_mach_v2_0.nanoseconds.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.product_id.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.size + 
-  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.size + 
+  miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.size + 
   miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Format Bid Message
@@ -3793,14 +3793,14 @@ miax_sapphireoptions_topofmarket_mach_v2_0.simple_top_of_market_best_bid_or_offe
   -- Product Id: BinaryU
   index, product_id = miax_sapphireoptions_topofmarket_mach_v2_0.product_id.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, sbbo_price_binary_prc_2u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Price Short: BinaryPrc2U
+  index, sbbo_price_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Size Binary U 2: BinaryU
-  index, sbbo_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Size Short: BinaryU
+  index, sbbo_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Sbbo Priority Customer Size Binary U 2: BinaryU
-  index, sbbo_priority_customer_size_binary_u_2 = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- SBBO Priority Customer Size Short: BinaryU
+  index, sbbo_priority_customer_size_short = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Sbbo Condition: Alphanumeric
   index, sbbo_condition = miax_sapphireoptions_topofmarket_mach_v2_0.sbbo_condition.dissect(buffer, index, packet, parent)

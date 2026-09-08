@@ -19,23 +19,23 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.active_on_miax = ProtoField
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.application_message = ProtoField.new("Application Message", "miax.emeraldoptions.topofmarket.mach.v1.3.applicationmessage", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.application_protocol = ProtoField.new("Application Protocol", "miax.emeraldoptions.topofmarket.mach.v1.3.applicationprotocol", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_condition = ProtoField.new("Bid Condition", "miax.emeraldoptions.topofmarket.mach.v1.3.bidcondition", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_binary_prc_2u_2 = ProtoField.new("Bid Price Binary Prc 2u 2", "miax.emeraldoptions.topofmarket.mach.v1.3.bidpricebinaryprc2u2", ftypes.DOUBLE)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_binary_prc_4u_4 = ProtoField.new("Bid Price Binary Prc 4u 4", "miax.emeraldoptions.topofmarket.mach.v1.3.bidpricebinaryprc4u4", ftypes.DOUBLE)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_binary_u_2 = ProtoField.new("Bid Priority Customer Size Binary U 2", "miax.emeraldoptions.topofmarket.mach.v1.3.bidprioritycustomersizebinaryu2", ftypes.UINT16)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_binary_u_4 = ProtoField.new("Bid Priority Customer Size Binary U 4", "miax.emeraldoptions.topofmarket.mach.v1.3.bidprioritycustomersizebinaryu4", ftypes.UINT32)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_binary_u_2 = ProtoField.new("Bid Size Binary U 2", "miax.emeraldoptions.topofmarket.mach.v1.3.bidsizebinaryu2", ftypes.UINT16)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_binary_u_4 = ProtoField.new("Bid Size Binary U 4", "miax.emeraldoptions.topofmarket.mach.v1.3.bidsizebinaryu4", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_long = ProtoField.new("Bid Price Long", "miax.emeraldoptions.topofmarket.mach.v1.3.bidpricelong", ftypes.DOUBLE)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_short = ProtoField.new("Bid Price Short", "miax.emeraldoptions.topofmarket.mach.v1.3.bidpriceshort", ftypes.DOUBLE)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_long = ProtoField.new("Bid Priority Customer Size Long", "miax.emeraldoptions.topofmarket.mach.v1.3.bidprioritycustomersizelong", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_short = ProtoField.new("Bid Priority Customer Size Short", "miax.emeraldoptions.topofmarket.mach.v1.3.bidprioritycustomersizeshort", ftypes.UINT16)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_long = ProtoField.new("Bid Size Long", "miax.emeraldoptions.topofmarket.mach.v1.3.bidsizelong", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_short = ProtoField.new("Bid Size Short", "miax.emeraldoptions.topofmarket.mach.v1.3.bidsizeshort", ftypes.UINT16)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.call_or_put = ProtoField.new("Call Or Put", "miax.emeraldoptions.topofmarket.mach.v1.3.callorput", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.closing_time = ProtoField.new("Closing Time", "miax.emeraldoptions.topofmarket.mach.v1.3.closingtime", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.computer_id = ProtoField.new("Computer Id", "miax.emeraldoptions.topofmarket.mach.v1.3.computerid", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.correction_number = ProtoField.new("Correction Number", "miax.emeraldoptions.topofmarket.mach.v1.3.correctionnumber", ftypes.UINT8)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_condition = ProtoField.new("Ebbo Condition", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbocondition", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_binary_prc_2u_2 = ProtoField.new("Ebbo Price Binary Prc 2u 2", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbopricebinaryprc2u2", ftypes.DOUBLE)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_binary_prc_4u_4 = ProtoField.new("Ebbo Price Binary Prc 4u 4", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbopricebinaryprc4u4", ftypes.DOUBLE)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_binary_u_2 = ProtoField.new("Ebbo Priority Customer Size Binary U 2", "miax.emeraldoptions.topofmarket.mach.v1.3.ebboprioritycustomersizebinaryu2", ftypes.UINT16)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_binary_u_4 = ProtoField.new("Ebbo Priority Customer Size Binary U 4", "miax.emeraldoptions.topofmarket.mach.v1.3.ebboprioritycustomersizebinaryu4", ftypes.UINT32)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_binary_u_2 = ProtoField.new("Ebbo Size Binary U 2", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbosizebinaryu2", ftypes.UINT16)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_binary_u_4 = ProtoField.new("Ebbo Size Binary U 4", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbosizebinaryu4", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_long = ProtoField.new("EBBO Price Long", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbopricelong", ftypes.DOUBLE)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_short = ProtoField.new("EBBO Price Short", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbopriceshort", ftypes.DOUBLE)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_long = ProtoField.new("EBBO Priority Customer Size Long", "miax.emeraldoptions.topofmarket.mach.v1.3.ebboprioritycustomersizelong", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_short = ProtoField.new("EBBO Priority Customer Size Short", "miax.emeraldoptions.topofmarket.mach.v1.3.ebboprioritycustomersizeshort", ftypes.UINT16)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_long = ProtoField.new("EBBO Size Long", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbosizelong", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_short = ProtoField.new("EBBO Size Short", "miax.emeraldoptions.topofmarket.mach.v1.3.ebbosizeshort", ftypes.UINT16)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.emerald_bbo_posting_increment_indicator = ProtoField.new("Emerald Bbo Posting Increment Indicator", "miax.emeraldoptions.topofmarket.mach.v1.3.emeraldbbopostingincrementindicator", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.emeraldoptions.topofmarket.mach.v1.3.endsequencenumber", ftypes.UINT64)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.event_reason = ProtoField.new("Event Reason", "miax.emeraldoptions.topofmarket.mach.v1.3.eventreason", ftypes.STRING)
@@ -57,12 +57,12 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.message_type = ProtoField.n
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.emeraldoptions.topofmarket.mach.v1.3.nanoseconds", ftypes.UINT32)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.emeraldoptions.topofmarket.mach.v1.3.numberofmatchingengines", ftypes.UINT8)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_condition = ProtoField.new("Offer Condition", "miax.emeraldoptions.topofmarket.mach.v1.3.offercondition", ftypes.STRING)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_binary_prc_2u_2 = ProtoField.new("Offer Price Binary Prc 2u 2", "miax.emeraldoptions.topofmarket.mach.v1.3.offerpricebinaryprc2u2", ftypes.DOUBLE)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_binary_prc_4u_4 = ProtoField.new("Offer Price Binary Prc 4u 4", "miax.emeraldoptions.topofmarket.mach.v1.3.offerpricebinaryprc4u4", ftypes.DOUBLE)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_binary_u_2 = ProtoField.new("Offer Priority Customer Size Binary U 2", "miax.emeraldoptions.topofmarket.mach.v1.3.offerprioritycustomersizebinaryu2", ftypes.UINT16)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_binary_u_4 = ProtoField.new("Offer Priority Customer Size Binary U 4", "miax.emeraldoptions.topofmarket.mach.v1.3.offerprioritycustomersizebinaryu4", ftypes.UINT32)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_binary_u_2 = ProtoField.new("Offer Size Binary U 2", "miax.emeraldoptions.topofmarket.mach.v1.3.offersizebinaryu2", ftypes.UINT16)
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_binary_u_4 = ProtoField.new("Offer Size Binary U 4", "miax.emeraldoptions.topofmarket.mach.v1.3.offersizebinaryu4", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_long = ProtoField.new("Offer Price Long", "miax.emeraldoptions.topofmarket.mach.v1.3.offerpricelong", ftypes.DOUBLE)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_short = ProtoField.new("Offer Price Short", "miax.emeraldoptions.topofmarket.mach.v1.3.offerpriceshort", ftypes.DOUBLE)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_long = ProtoField.new("Offer Priority Customer Size Long", "miax.emeraldoptions.topofmarket.mach.v1.3.offerprioritycustomersizelong", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_short = ProtoField.new("Offer Priority Customer Size Short", "miax.emeraldoptions.topofmarket.mach.v1.3.offerprioritycustomersizeshort", ftypes.UINT16)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_long = ProtoField.new("Offer Size Long", "miax.emeraldoptions.topofmarket.mach.v1.3.offersizelong", ftypes.UINT32)
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_short = ProtoField.new("Offer Size Short", "miax.emeraldoptions.topofmarket.mach.v1.3.offersizeshort", ftypes.UINT16)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.opening_time = ProtoField.new("Opening Time", "miax.emeraldoptions.topofmarket.mach.v1.3.openingtime", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.emeraldoptions.topofmarket.mach.v1.3.openingunderlyingmarketcode", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.packet_length = ProtoField.new("Packet Length", "miax.emeraldoptions.topofmarket.mach.v1.3.packetlength", ftypes.UINT16)
@@ -319,152 +319,152 @@ miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.dissect = function(buffe
   return offset + length, value
 end
 
--- Bid Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2 = {}
+-- Bid Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long = {}
 
--- Size: Bid Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.size = 2
+-- Size: Bid Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.size = 4
 
--- Display: Bid Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.display = function(value)
-  return "Bid Price Binary Prc 2u 2: "..value
+-- Display: Bid Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
 end
 
--- Translate: Bid Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Bid Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.translate(raw)
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_binary_prc_2u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4 = {}
-
--- Size: Bid Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.size = 4
-
--- Display: Bid Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.display = function(value)
-  return "Bid Price Binary Prc 4u 4: "..value
-end
-
--- Translate: Bid Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.translate = function(raw)
+-- Translate: Bid Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Bid Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.size
+-- Dissect: Bid Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.translate(raw)
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.display(value, buffer, offset, packet, parent)
+  local value = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.translate(raw)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_binary_prc_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2 = {}
-
--- Size: Bid Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2.size = 2
-
--- Display: Bid Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2.display = function(value)
-  return "Bid Priority Customer Size Binary U 2: "..value
-end
-
--- Dissect: Bid Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4 = {}
+-- Bid Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short = {}
 
--- Size: Bid Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4.size = 4
+-- Size: Bid Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.size = 2
 
--- Display: Bid Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4.display = function(value)
-  return "Bid Priority Customer Size Binary U 4: "..value
+-- Display: Bid Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
 end
 
--- Dissect: Bid Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+-- Translate: Bid Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_binary_u_4, range, value, display)
+-- Dissect: Bid Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.translate(raw)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2 = {}
+-- Bid Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long = {}
 
--- Size: Bid Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2.size = 2
+-- Size: Bid Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long.size = 4
 
--- Display: Bid Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2.display = function(value)
-  return "Bid Size Binary U 2: "..value
+-- Display: Bid Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long.display = function(value)
+  return "Bid Priority Customer Size Long: "..value
 end
 
--- Dissect: Bid Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2.size
+-- Dissect: Bid Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2.display(value, buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4 = {}
+-- Bid Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short = {}
 
--- Size: Bid Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4.size = 4
+-- Size: Bid Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short.size = 2
 
--- Display: Bid Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4.display = function(value)
-  return "Bid Size Binary U 4: "..value
+-- Display: Bid Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short.display = function(value)
+  return "Bid Priority Customer Size Short: "..value
 end
 
--- Dissect: Bid Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4.size
+-- Dissect: Bid Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_binary_u_4, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_priority_customer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long = {}
+
+-- Size: Bid Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long.size = 4
+
+-- Display: Bid Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long.display = function(value)
+  return "Bid Size Long: "..value
+end
+
+-- Dissect: Bid Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short = {}
+
+-- Size: Bid Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short.size = 2
+
+-- Display: Bid Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short.display = function(value)
+  return "Bid Size Short: "..value
+end
+
+-- Dissect: Bid Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -607,152 +607,152 @@ miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect = function(buff
   return offset + length, value
 end
 
--- Ebbo Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2 = {}
+-- EBBO Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long = {}
 
--- Size: Ebbo Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.size = 2
+-- Size: EBBO Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.size = 4
 
--- Display: Ebbo Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.display = function(value)
-  return "Ebbo Price Binary Prc 2u 2: "..value
+-- Display: EBBO Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.display = function(value)
+  return "EBBO Price Long: "..value
 end
 
--- Translate: Ebbo Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Ebbo Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.translate(raw)
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_binary_prc_2u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Ebbo Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4 = {}
-
--- Size: Ebbo Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.size = 4
-
--- Display: Ebbo Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.display = function(value)
-  return "Ebbo Price Binary Prc 4u 4: "..value
-end
-
--- Translate: Ebbo Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.translate = function(raw)
+-- Translate: EBBO Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Ebbo Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.size
+-- Dissect: EBBO Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.translate(raw)
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.display(value, buffer, offset, packet, parent)
+  local value = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.translate(raw)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_binary_prc_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Ebbo Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2 = {}
-
--- Size: Ebbo Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.size = 2
-
--- Display: Ebbo Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.display = function(value)
-  return "Ebbo Priority Customer Size Binary U 2: "..value
-end
-
--- Dissect: Ebbo Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ebbo Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4 = {}
+-- EBBO Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short = {}
 
--- Size: Ebbo Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.size = 4
+-- Size: EBBO Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.size = 2
 
--- Display: Ebbo Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.display = function(value)
-  return "Ebbo Priority Customer Size Binary U 4: "..value
+-- Display: EBBO Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.display = function(value)
+  return "EBBO Price Short: "..value
 end
 
--- Dissect: Ebbo Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+-- Translate: EBBO Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_binary_u_4, range, value, display)
+-- Dissect: EBBO Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.translate(raw)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ebbo Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2 = {}
+-- EBBO Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long = {}
 
--- Size: Ebbo Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.size = 2
+-- Size: EBBO Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.size = 4
 
--- Display: Ebbo Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.display = function(value)
-  return "Ebbo Size Binary U 2: "..value
+-- Display: EBBO Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.display = function(value)
+  return "EBBO Priority Customer Size Long: "..value
 end
 
--- Dissect: Ebbo Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.size
+-- Dissect: EBBO Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.display(value, buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ebbo Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4 = {}
+-- EBBO Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short = {}
 
--- Size: Ebbo Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.size = 4
+-- Size: EBBO Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.size = 2
 
--- Display: Ebbo Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.display = function(value)
-  return "Ebbo Size Binary U 4: "..value
+-- Display: EBBO Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.display = function(value)
+  return "EBBO Priority Customer Size Short: "..value
 end
 
--- Dissect: Ebbo Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.size
+-- Dissect: EBBO Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_binary_u_4, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_priority_customer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- EBBO Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long = {}
+
+-- Size: EBBO Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.size = 4
+
+-- Display: EBBO Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.display = function(value)
+  return "EBBO Size Long: "..value
+end
+
+-- Dissect: EBBO Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- EBBO Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short = {}
+
+-- Size: EBBO Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.size = 2
+
+-- Display: EBBO Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.display = function(value)
+  return "EBBO Size Short: "..value
+end
+
+-- Dissect: EBBO Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.ebbo_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1281,152 +1281,152 @@ miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.dissect = function(buf
   return offset + length, value
 end
 
--- Offer Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2 = {}
+-- Offer Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long = {}
 
--- Size: Offer Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.size = 2
+-- Size: Offer Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.size = 4
 
--- Display: Offer Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.display = function(value)
-  return "Offer Price Binary Prc 2u 2: "..value
+-- Display: Offer Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.display = function(value)
+  return "Offer Price Long: "..value
 end
 
--- Translate: Offer Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Offer Price Binary Prc 2u 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.translate(raw)
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_binary_prc_2u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4 = {}
-
--- Size: Offer Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.size = 4
-
--- Display: Offer Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.display = function(value)
-  return "Offer Price Binary Prc 4u 4: "..value
-end
-
--- Translate: Offer Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.translate = function(raw)
+-- Translate: Offer Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Offer Price Binary Prc 4u 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.size
+-- Dissect: Offer Price Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.translate(raw)
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.display(value, buffer, offset, packet, parent)
+  local value = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.translate(raw)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_binary_prc_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Offer Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2 = {}
-
--- Size: Offer Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2.size = 2
-
--- Display: Offer Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2.display = function(value)
-  return "Offer Priority Customer Size Binary U 2: "..value
-end
-
--- Dissect: Offer Priority Customer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Offer Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4 = {}
+-- Offer Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short = {}
 
--- Size: Offer Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4.size = 4
+-- Size: Offer Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.size = 2
 
--- Display: Offer Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4.display = function(value)
-  return "Offer Priority Customer Size Binary U 4: "..value
+-- Display: Offer Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.display = function(value)
+  return "Offer Price Short: "..value
 end
 
--- Dissect: Offer Priority Customer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+-- Translate: Offer Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.translate = function(raw)
+  return raw/100
+end
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_binary_u_4, range, value, display)
+-- Dissect: Offer Price Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.translate(raw)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Offer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2 = {}
+-- Offer Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long = {}
 
--- Size: Offer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2.size = 2
+-- Size: Offer Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long.size = 4
 
--- Display: Offer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2.display = function(value)
-  return "Offer Size Binary U 2: "..value
+-- Display: Offer Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long.display = function(value)
+  return "Offer Priority Customer Size Long: "..value
 end
 
--- Dissect: Offer Size Binary U 2
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2.size
+-- Dissect: Offer Priority Customer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2.display(value, buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_binary_u_2, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_long, range, value, display)
 
   return offset + length, value
 end
 
--- Offer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4 = {}
+-- Offer Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short = {}
 
--- Size: Offer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4.size = 4
+-- Size: Offer Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short.size = 2
 
--- Display: Offer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4.display = function(value)
-  return "Offer Size Binary U 4: "..value
+-- Display: Offer Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short.display = function(value)
+  return "Offer Priority Customer Size Short: "..value
 end
 
--- Dissect: Offer Size Binary U 4
-miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4.size
+-- Dissect: Offer Priority Customer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_binary_u_4, range, value, display)
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_priority_customer_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long = {}
+
+-- Size: Offer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long.size = 4
+
+-- Display: Offer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long.display = function(value)
+  return "Offer Size Long: "..value
+end
+
+-- Dissect: Offer Size Long
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short = {}
+
+-- Size: Offer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short.size = 2
+
+-- Display: Offer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short.display = function(value)
+  return "Offer Size Short: "..value
+end
+
+-- Dissect: Offer Size Short
+miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.offer_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -3228,13 +3228,13 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best_bid_or_offer_wide_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.size
 
 -- Display: Simple Double Sided Top Of Market Best Bid Or Offer Wide Message
@@ -3252,26 +3252,26 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Prc 4u 4: BinaryPrc4U
-  index, bid_price_binary_prc_4u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: BinaryPrc4U
+  index, bid_price_long = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Binary U 4: BinaryU
-  index, bid_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Bid Size Long: BinaryU
+  index, bid_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Priority Customer Size Binary U 4: BinaryU
-  index, bid_priority_customer_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Bid Priority Customer Size Long: BinaryU
+  index, bid_priority_customer_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Bid Condition: Alphanumeric
   index, bid_condition = miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Binary Prc 4u 4: BinaryPrc4U
-  index, offer_price_binary_prc_4u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- Offer Price Long: BinaryPrc4U
+  index, offer_price_long = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_long.dissect(buffer, index, packet, parent)
 
-  -- Offer Size Binary U 4: BinaryU
-  index, offer_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Offer Size Long: BinaryU
+  index, offer_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_long.dissect(buffer, index, packet, parent)
 
-  -- Offer Priority Customer Size Binary U 4: BinaryU
-  index, offer_priority_customer_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Offer Priority Customer Size Long: BinaryU
+  index, offer_priority_customer_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Offer Condition: Alphanumeric
   index, offer_condition = miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.dissect(buffer, index, packet, parent)
@@ -3304,13 +3304,13 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best_bid_or_offer_compact_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.size
 
 -- Display: Simple Double Sided Top Of Market Best Bid Or Offer Compact Message
@@ -3328,26 +3328,26 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_double_sided_top_of_market_best
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Prc 2u 2: BinaryPrc2U
-  index, bid_price_binary_prc_2u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: BinaryPrc2U
+  index, bid_price_short = miax_emeraldoptions_topofmarket_mach_v1_3.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Binary U 2: BinaryU
-  index, bid_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Bid Size Short: BinaryU
+  index, bid_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Priority Customer Size Binary U 2: BinaryU
-  index, bid_priority_customer_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Bid Priority Customer Size Short: BinaryU
+  index, bid_priority_customer_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.bid_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Bid Condition: Alphanumeric
   index, bid_condition = miax_emeraldoptions_topofmarket_mach_v1_3.bid_condition.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Binary Prc 2u 2: BinaryPrc2U
-  index, offer_price_binary_prc_2u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- Offer Price Short: BinaryPrc2U
+  index, offer_price_short = miax_emeraldoptions_topofmarket_mach_v1_3.offer_price_short.dissect(buffer, index, packet, parent)
 
-  -- Offer Size Binary U 2: BinaryU
-  index, offer_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Offer Size Short: BinaryU
+  index, offer_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.offer_size_short.dissect(buffer, index, packet, parent)
 
-  -- Offer Priority Customer Size Binary U 2: BinaryU
-  index, offer_priority_customer_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Offer Priority Customer Size Short: BinaryU
+  index, offer_priority_customer_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.offer_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Offer Condition: Alphanumeric
   index, offer_condition = miax_emeraldoptions_topofmarket_mach_v1_3.offer_condition.dissect(buffer, index, packet, parent)
@@ -3380,9 +3380,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_offer_with_priority_customer_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Offer With Priority Customer Message
@@ -3400,14 +3400,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, ebbo_price_binary_prc_4u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Price Long: BinaryPrc4U
+  index, ebbo_price_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 4: BinaryU
-  index, ebbo_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Size Long: BinaryU
+  index, ebbo_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 4: BinaryU
-  index, ebbo_priority_customer_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Long: BinaryU
+  index, ebbo_priority_customer_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)
@@ -3440,9 +3440,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_offer_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Offer Message
@@ -3460,14 +3460,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, ebbo_price_binary_prc_4u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Price Long: BinaryPrc4U
+  index, ebbo_price_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 4: BinaryU
-  index, ebbo_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Size Long: BinaryU
+  index, ebbo_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 4: BinaryU
-  index, ebbo_priority_customer_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Long: BinaryU
+  index, ebbo_priority_customer_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)
@@ -3500,9 +3500,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_bid_with_priority_customer_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Bid With Priority Customer Message
@@ -3520,14 +3520,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, ebbo_price_binary_prc_4u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Price Long: BinaryPrc4U
+  index, ebbo_price_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 4: BinaryU
-  index, ebbo_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Size Long: BinaryU
+  index, ebbo_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 4: BinaryU
-  index, ebbo_priority_customer_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Long: BinaryU
+  index, ebbo_priority_customer_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)
@@ -3560,9 +3560,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_wide_bid_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Wide Bid Message
@@ -3580,14 +3580,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 4u 4: BinaryPrc4U
-  index, ebbo_price_binary_prc_4u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Price Long: BinaryPrc4U
+  index, ebbo_price_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 4: BinaryU
-  index, ebbo_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Size Long: BinaryU
+  index, ebbo_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 4: BinaryU
-  index, ebbo_priority_customer_size_binary_u_4 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_4.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Long: BinaryU
+  index, ebbo_priority_customer_size_long = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_long.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)
@@ -3620,9 +3620,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_offer_with_priority_customer_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Offer With Priority Customer Message
@@ -3640,14 +3640,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, ebbo_price_binary_prc_2u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Price Short: BinaryPrc2U
+  index, ebbo_price_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 2: BinaryU
-  index, ebbo_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Size Short: BinaryU
+  index, ebbo_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 2: BinaryU
-  index, ebbo_priority_customer_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Short: BinaryU
+  index, ebbo_priority_customer_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)
@@ -3680,9 +3680,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_offer_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Offer Message
@@ -3700,14 +3700,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, ebbo_price_binary_prc_2u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Price Short: BinaryPrc2U
+  index, ebbo_price_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 2: BinaryU
-  index, ebbo_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Size Short: BinaryU
+  index, ebbo_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 2: BinaryU
-  index, ebbo_priority_customer_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Short: BinaryU
+  index, ebbo_priority_customer_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)
@@ -3740,9 +3740,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_bid_with_priority_customer_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Bid With Priority Customer Message
@@ -3760,14 +3760,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, ebbo_price_binary_prc_2u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Price Short: BinaryPrc2U
+  index, ebbo_price_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 2: BinaryU
-  index, ebbo_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Size Short: BinaryU
+  index, ebbo_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 2: BinaryU
-  index, ebbo_priority_customer_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Short: BinaryU
+  index, ebbo_priority_customer_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)
@@ -3800,9 +3800,9 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
 miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer_compact_bid_message.size =
   miax_emeraldoptions_topofmarket_mach_v1_3.nanoseconds.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.product_id.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.size + 
-  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.size + 
+  miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.size + 
   miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.size
 
 -- Display: Simple Top Of Market Best Bid Or Offer Compact Bid Message
@@ -3820,14 +3820,14 @@ miax_emeraldoptions_topofmarket_mach_v1_3.simple_top_of_market_best_bid_or_offer
   -- Product Id: BinaryU
   index, product_id = miax_emeraldoptions_topofmarket_mach_v1_3.product_id.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Price Binary Prc 2u 2: BinaryPrc2U
-  index, ebbo_price_binary_prc_2u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_binary_prc_2u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Price Short: BinaryPrc2U
+  index, ebbo_price_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Size Binary U 2: BinaryU
-  index, ebbo_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Size Short: BinaryU
+  index, ebbo_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_size_short.dissect(buffer, index, packet, parent)
 
-  -- Ebbo Priority Customer Size Binary U 2: BinaryU
-  index, ebbo_priority_customer_size_binary_u_2 = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_binary_u_2.dissect(buffer, index, packet, parent)
+  -- EBBO Priority Customer Size Short: BinaryU
+  index, ebbo_priority_customer_size_short = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_priority_customer_size_short.dissect(buffer, index, packet, parent)
 
   -- Ebbo Condition: Alphanumeric
   index, ebbo_condition = miax_emeraldoptions_topofmarket_mach_v1_3.ebbo_condition.dissect(buffer, index, packet, parent)

@@ -35,9 +35,7 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.highest_sequence_number = ProtoField.n
 omi_miax_miaxoptions_ais_mach_v2_5.fields.imbalance_quantity_signed = ProtoField.new("Imbalance Quantity Signed", "miax.miaxoptions.ais.mach.v2.5.imbalancequantitysigned", ftypes.INT32)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.imbalance_quantity_unsigned = ProtoField.new("Imbalance Quantity Unsigned", "miax.miaxoptions.ais.mach.v2.5.imbalancequantityunsigned", ftypes.UINT32)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.imbalance_side = ProtoField.new("Imbalance Side", "miax.miaxoptions.ais.mach.v2.5.imbalanceside", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition = ProtoField.new("Leg Definition", "miax.miaxoptions.ais.mach.v2.5.legdefinition", ftypes.STRING)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.miaxoptions.ais.mach.v2.5.legratioqty", ftypes.UINT16)
-omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_side = ProtoField.new("Leg Side", "miax.miaxoptions.ais.mach.v2.5.legside", ftypes.STRING)
+omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition_0 = ProtoField.new("Leg Definition 0", "miax.miaxoptions.ais.mach.v2.5.legdefinition0", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.miaxoptions.ais.mach.v2.5.liquidityacceptanceincrementindicator", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.login_request = ProtoField.new("Login Request", "miax.miaxoptions.ais.mach.v2.5.loginrequest", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.login_response = ProtoField.new("Login Response", "miax.miaxoptions.ais.mach.v2.5.loginresponse", ftypes.STRING)
@@ -140,7 +138,6 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.theoretical_settlement_reference_price
 omi_miax_miaxoptions_ais_mach_v2_5.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.ais.mach.v2.5.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
 -- Miax MiaxOptions Ais Mach 2.5 generated fields
-omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.miaxoptions.ais.mach.v2.5.legdefinitionindex", ftypes.UINT16)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.ais.mach.v2.5.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -160,14 +157,10 @@ local show = {}
 -- Miax MiaxOptions Ais Mach 2.5 Element Dissection Options
 show.structs = true
 show.application_messages = true
-show.repeating_groups = true
-show.indexes = true
 
 -- Register Miax MiaxOptions Ais Mach 2.5 Show Options
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
-omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_5.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -177,14 +170,8 @@ function omi_miax_miaxoptions_ais_mach_v2_5.prefs_changed()
   if show.application_messages ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_messages then
     show.application_messages = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_application_messages
   end
-  if show.repeating_groups ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_repeating_groups then
-    show.repeating_groups = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_repeating_groups
-  end
   if show.structs ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_structs then
     show.structs = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_structs
-  end
-  if show.indexes ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes then
-    show.indexes = omi_miax_miaxoptions_ais_mach_v2_5.prefs.show_indexes
   end
   if miax_miaxoptions_ais_mach_v2_5.format_timestamp ~= omi_miax_miaxoptions_ais_mach_v2_5.prefs.format_timestamp then
     miax_miaxoptions_ais_mach_v2_5.format_timestamp = omi_miax_miaxoptions_ais_mach_v2_5.prefs.format_timestamp
@@ -711,55 +698,25 @@ miax_miaxoptions_ais_mach_v2_5.imbalance_side.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Leg Ratio Qty
-miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty = {}
+-- Leg Definition 0
+miax_miaxoptions_ais_mach_v2_5.leg_definition_0 = {}
 
--- Size: Leg Ratio Qty
-miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty.size = 2
+-- Size: Leg Definition 0
+miax_miaxoptions_ais_mach_v2_5.leg_definition_0.size = 0
 
--- Display: Leg Ratio Qty
-miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty.display = function(value)
-  return "Leg Ratio Qty: "..value
+-- Display: Leg Definition 0
+miax_miaxoptions_ais_mach_v2_5.leg_definition_0.display = function(value)
+  return "Leg Definition 0: "..value
 end
 
--- Dissect: Leg Ratio Qty
-miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_ratio_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Side
-miax_miaxoptions_ais_mach_v2_5.leg_side = {}
-
--- Size: Leg Side
-miax_miaxoptions_ais_mach_v2_5.leg_side.size = 1
-
--- Display: Leg Side
-miax_miaxoptions_ais_mach_v2_5.leg_side.display = function(value)
-  if value == "B" then
-    return "Leg Side: Bid (B)"
-  end
-  if value == "A" then
-    return "Leg Side: Ask (A)"
-  end
-
-  return "Leg Side: Unknown("..value..")"
-end
-
--- Dissect: Leg Side
-miax_miaxoptions_ais_mach_v2_5.leg_side.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_ais_mach_v2_5.leg_side.size
+-- Dissect: Leg Definition 0
+miax_miaxoptions_ais_mach_v2_5.leg_definition_0.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_ais_mach_v2_5.leg_definition_0.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_miaxoptions_ais_mach_v2_5.leg_side.display(value, buffer, offset, packet, parent)
+  local display = miax_miaxoptions_ais_mach_v2_5.leg_definition_0.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_side, range, value, display)
+  parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition_0, range, value, display)
 
   return offset + length, value
 end
@@ -3694,93 +3651,20 @@ miax_miaxoptions_ais_mach_v2_5.system_state_message.dissect = function(buffer, o
   end
 end
 
--- Leg Definition
-miax_miaxoptions_ais_mach_v2_5.leg_definition = {}
-
--- Size: Leg Definition
-miax_miaxoptions_ais_mach_v2_5.leg_definition.size =
-  miax_miaxoptions_ais_mach_v2_5.product_id.size + 
-  miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty.size + 
-  miax_miaxoptions_ais_mach_v2_5.leg_side.size + 
-  miax_miaxoptions_ais_mach_v2_5.reserved_8.size
-
--- Display: Leg Definition
-miax_miaxoptions_ais_mach_v2_5.leg_definition.display = function(buffer, offset, value, packet, parent)
-  return ""..value
-end
-
--- Dissect Fields: Leg Definition
-miax_miaxoptions_ais_mach_v2_5.leg_definition.fields = function(buffer, offset, packet, parent, leg_definition_index)
-  local index = offset
-
-  -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition_index, leg_definition_index)
-    iteration:set_generated()
-  end
-
-  -- Product Id: BinaryU
-  index, product_id = miax_miaxoptions_ais_mach_v2_5.product_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Ratio Qty: BinaryU
-  index, leg_ratio_qty = miax_miaxoptions_ais_mach_v2_5.leg_ratio_qty.dissect(buffer, index, packet, parent)
-
-  -- Leg Side: Alphanumeric
-  index, leg_side = miax_miaxoptions_ais_mach_v2_5.leg_side.dissect(buffer, index, packet, parent)
-
-  -- Reserved 8: BinaryU
-  index, reserved_8 = miax_miaxoptions_ais_mach_v2_5.reserved_8.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Leg Definition
-miax_miaxoptions_ais_mach_v2_5.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.repeating_groups then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_miax_miaxoptions_ais_mach_v2_5.fields.leg_definition, buffer(offset, 0))
-    local index = miax_miaxoptions_ais_mach_v2_5.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = miax_miaxoptions_ais_mach_v2_5.leg_definition.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, value
-  else
-    -- Skip element, add fields directly
-    return miax_miaxoptions_ais_mach_v2_5.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
-  end
-end
-
 -- Complex Strategy Definition Update Message
 miax_miaxoptions_ais_mach_v2_5.complex_strategy_definition_update_message = {}
 
--- Calculate size of: Complex Strategy Definition Update Message
-miax_miaxoptions_ais_mach_v2_5.complex_strategy_definition_update_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.nanoseconds.size
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.strategy_id.size
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.underlying_symbol.size
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.active_on_miax.size
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.reserved_1.size
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.update_reason.size
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.reserved_10.size
-
-  index = index + miax_miaxoptions_ais_mach_v2_5.number_of_legs.size
-
-  -- Calculate field size from count
-  local leg_definition_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + leg_definition_count * 15
-
-  return index
-end
+-- Size: Complex Strategy Definition Update Message
+miax_miaxoptions_ais_mach_v2_5.complex_strategy_definition_update_message.size =
+  miax_miaxoptions_ais_mach_v2_5.nanoseconds.size + 
+  miax_miaxoptions_ais_mach_v2_5.strategy_id.size + 
+  miax_miaxoptions_ais_mach_v2_5.underlying_symbol.size + 
+  miax_miaxoptions_ais_mach_v2_5.active_on_miax.size + 
+  miax_miaxoptions_ais_mach_v2_5.reserved_1.size + 
+  miax_miaxoptions_ais_mach_v2_5.update_reason.size + 
+  miax_miaxoptions_ais_mach_v2_5.reserved_10.size + 
+  miax_miaxoptions_ais_mach_v2_5.number_of_legs.size + 
+  miax_miaxoptions_ais_mach_v2_5.leg_definition_0.size
 
 -- Display: Complex Strategy Definition Update Message
 miax_miaxoptions_ais_mach_v2_5.complex_strategy_definition_update_message.display = function(packet, parent, length)
@@ -3815,10 +3699,8 @@ miax_miaxoptions_ais_mach_v2_5.complex_strategy_definition_update_message.fields
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_miaxoptions_ais_mach_v2_5.number_of_legs.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Leg Definition
-  for leg_definition_index = 1, number_of_legs do
-    index, leg_definition = miax_miaxoptions_ais_mach_v2_5.leg_definition.dissect(buffer, index, packet, parent, leg_definition_index)
-  end
+  -- Leg Definition 0: 0 Byte Ascii String
+  index, leg_definition_0 = miax_miaxoptions_ais_mach_v2_5.leg_definition_0.dissect(buffer, index, packet, parent)
 
   return index
 end
