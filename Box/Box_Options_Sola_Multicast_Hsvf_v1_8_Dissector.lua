@@ -38,9 +38,9 @@ omi_box_options_sola_multicast_hsvf_v1_8.fields.exchange_id = ProtoField.new("Ex
 omi_box_options_sola_multicast_hsvf_v1_8.fields.expiry_day = ProtoField.new("Expiry Day", "box.options.sola.multicast.hsvf.v1.8.expiryday", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.expiry_month_code = ProtoField.new("Expiry Month Code", "box.options.sola.multicast.hsvf.v1.8.expirymonthcode", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.expiry_year = ProtoField.new("Expiry Year", "box.options.sola.multicast.hsvf.v1.8.expiryyear", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_1 = ProtoField.new("Filler 1", "box.options.sola.multicast.hsvf.v1.8.filler1", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_2 = ProtoField.new("Filler 2", "box.options.sola.multicast.hsvf.v1.8.filler2", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_6 = ProtoField.new("Filler 6", "box.options.sola.multicast.hsvf.v1.8.filler6", ftypes.STRING)
+omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_1 = ProtoField.new("Filler 1", "box.options.sola.multicast.hsvf.v1.8.filler1", ftypes.BYTES)
+omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_2 = ProtoField.new("Filler 2", "box.options.sola.multicast.hsvf.v1.8.filler2", ftypes.BYTES)
+omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_6 = ProtoField.new("Filler 6", "box.options.sola.multicast.hsvf.v1.8.filler6", ftypes.BYTES)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.firm_id = ProtoField.new("Firm Id", "box.options.sola.multicast.hsvf.v1.8.firmid", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.group = ProtoField.new("Group", "box.options.sola.multicast.hsvf.v1.8.group", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.group_instrument = ProtoField.new("Group Instrument", "box.options.sola.multicast.hsvf.v1.8.groupinstrument", ftypes.STRING)
@@ -118,10 +118,10 @@ omi_box_options_sola_multicast_hsvf_v1_8.fields.public_customer_bid_size = Proto
 omi_box_options_sola_multicast_hsvf_v1_8.fields.reference_price = ProtoField.new("Reference Price", "box.options.sola.multicast.hsvf.v1.8.referenceprice", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.reference_price_fraction_indicator = ProtoField.new("Reference Price Fraction Indicator", "box.options.sola.multicast.hsvf.v1.8.referencepricefractionindicator", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.requested_size = ProtoField.new("Requested Size", "box.options.sola.multicast.hsvf.v1.8.requestedsize", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_8.fields.reserved = ProtoField.new("Reserved", "box.options.sola.multicast.hsvf.v1.8.reserved", ftypes.STRING)
+omi_box_options_sola_multicast_hsvf_v1_8.fields.reserved = ProtoField.new("Reserved", "box.options.sola.multicast.hsvf.v1.8.reserved", ftypes.BYTES)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.root_symbol = ProtoField.new("Root Symbol", "box.options.sola.multicast.hsvf.v1.8.rootsymbol", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.options.sola.multicast.hsvf.v1.8.scheduledtime", ftypes.STRING)
-omi_box_options_sola_multicast_hsvf_v1_8.fields.second_filler_1 = ProtoField.new("Second Filler 1", "box.options.sola.multicast.hsvf.v1.8.secondfiller1", ftypes.STRING)
+omi_box_options_sola_multicast_hsvf_v1_8.fields.second_filler_1 = ProtoField.new("Second Filler 1", "box.options.sola.multicast.hsvf.v1.8.secondfiller1", ftypes.BYTES)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.sequence_number = ProtoField.new("Sequence Number", "box.options.sola.multicast.hsvf.v1.8.sequencenumber", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.strike_price = ProtoField.new("Strike Price", "box.options.sola.multicast.hsvf.v1.8.strikeprice", ftypes.STRING)
 omi_box_options_sola_multicast_hsvf_v1_8.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.options.sola.multicast.hsvf.v1.8.strikepricecurrency", ftypes.STRING)
@@ -937,7 +937,7 @@ end
 box_options_sola_multicast_hsvf_v1_8.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = box_options_sola_multicast_hsvf_v1_8.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = box_options_sola_multicast_hsvf_v1_8.filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_1, range, value, display)
@@ -960,7 +960,7 @@ end
 box_options_sola_multicast_hsvf_v1_8.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = box_options_sola_multicast_hsvf_v1_8.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = box_options_sola_multicast_hsvf_v1_8.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_2, range, value, display)
@@ -983,7 +983,7 @@ end
 box_options_sola_multicast_hsvf_v1_8.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = box_options_sola_multicast_hsvf_v1_8.filler_6.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = box_options_sola_multicast_hsvf_v1_8.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.filler_6, range, value, display)
@@ -3101,7 +3101,7 @@ end
 box_options_sola_multicast_hsvf_v1_8.reserved.dissect = function(buffer, offset, packet, parent)
   local length = box_options_sola_multicast_hsvf_v1_8.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = box_options_sola_multicast_hsvf_v1_8.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.reserved, range, value, display)
@@ -3175,7 +3175,7 @@ end
 box_options_sola_multicast_hsvf_v1_8.second_filler_1.dissect = function(buffer, offset, packet, parent)
   local length = box_options_sola_multicast_hsvf_v1_8.second_filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = box_options_sola_multicast_hsvf_v1_8.second_filler_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_options_sola_multicast_hsvf_v1_8.fields.second_filler_1, range, value, display)
@@ -3817,7 +3817,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_initial_and_improvement_order
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Deletion Type: N
@@ -3878,13 +3878,13 @@ end
 box_options_sola_multicast_hsvf_v1_8.instrument_description.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Root Symbol: x
+  -- Root Symbol: X
   index, root_symbol = box_options_sola_multicast_hsvf_v1_8.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month Code: A
   index, expiry_month_code = box_options_sola_multicast_hsvf_v1_8.expiry_month_code.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   -- Strike Price: N
@@ -4018,7 +4018,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_market_sheet_initial_and_impr
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Order Side: X
@@ -4030,13 +4030,13 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_market_sheet_initial_and_impr
   -- Limit Entered For An Order Sign: X
   index, limit_entered_for_an_order_sign = box_options_sola_multicast_hsvf_v1_8.limit_entered_for_an_order_sign.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   -- Limit Fraction Indicator: X
   index, limit_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Order Quantity: n
+  -- Order Quantity: X
   index, order_quantity = box_options_sola_multicast_hsvf_v1_8.order_quantity.dissect(buffer, index, packet, parent)
 
   -- Order Sequence Number: N
@@ -4048,7 +4048,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_market_sheet_initial_and_impr
   -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_options_sola_multicast_hsvf_v1_8.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Second Filler 1: 1 Byte Ascii String
+  -- Second Filler 1: 1 Byte
   index, second_filler_1 = box_options_sola_multicast_hsvf_v1_8.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- End Of The Exposition: N
@@ -4126,13 +4126,13 @@ box_options_sola_multicast_hsvf_v1_8.market_sheet_initial_and_improvement_order_
   -- Type Of Order: X
   index, type_of_order = box_options_sola_multicast_hsvf_v1_8.type_of_order.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   -- Limit Fraction Indicator: X
   index, limit_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.limit_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Order Quantity: n
+  -- Order Quantity: X
   index, order_quantity = box_options_sola_multicast_hsvf_v1_8.order_quantity.dissect(buffer, index, packet, parent)
 
   -- Order Sequence Number: N
@@ -4144,7 +4144,7 @@ box_options_sola_multicast_hsvf_v1_8.market_sheet_initial_and_improvement_order_
   -- Type Of Clearing Account: X
   index, type_of_clearing_account = box_options_sola_multicast_hsvf_v1_8.type_of_clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Second Filler 1: 1 Byte Ascii String
+  -- Second Filler 1: 1 Byte
   index, second_filler_1 = box_options_sola_multicast_hsvf_v1_8.second_filler_1.dissect(buffer, index, packet, parent)
 
   -- End Of The Exposition: N
@@ -4211,7 +4211,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_improvement_process_beginning
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Improvement Phase Sequential Number: N
@@ -4238,7 +4238,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_improvement_process_beginning
   -- Improvement Process Expiry Duration: N
   index, improvement_process_expiry_duration = box_options_sola_multicast_hsvf_v1_8.improvement_process_expiry_duration.dissect(buffer, index, packet, parent)
 
-  -- Minimum Quantity For Improvement Order: n
+  -- Minimum Quantity For Improvement Order: X
   index, minimum_quantity_for_improvement_order = box_options_sola_multicast_hsvf_v1_8.minimum_quantity_for_improvement_order.dissect(buffer, index, packet, parent)
 
   -- Percentage Assured To Initial Order: X
@@ -4323,7 +4323,7 @@ box_options_sola_multicast_hsvf_v1_8.option_improvement_process_beginning_messag
   -- Improvement Process Expiry Duration: N
   index, improvement_process_expiry_duration = box_options_sola_multicast_hsvf_v1_8.improvement_process_expiry_duration.dissect(buffer, index, packet, parent)
 
-  -- Minimum Quantity For Improvement Order: n
+  -- Minimum Quantity For Improvement Order: X
   index, minimum_quantity_for_improvement_order = box_options_sola_multicast_hsvf_v1_8.minimum_quantity_for_improvement_order.dissect(buffer, index, packet, parent)
 
   -- Percentage Assured To Initial Order: X
@@ -4332,7 +4332,7 @@ box_options_sola_multicast_hsvf_v1_8.option_improvement_process_beginning_messag
   -- Auction Type: X
   index, auction_type = box_options_sola_multicast_hsvf_v1_8.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   return index
@@ -4524,7 +4524,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_summary_message.fields = func
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Sign: X
@@ -4536,7 +4536,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_summary_message.fields = func
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: n
+  -- Bid Size: X
   index, bid_size = box_options_sola_multicast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Sign: X
@@ -4548,7 +4548,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_summary_message.fields = func
   -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: n
+  -- Ask Size: X
   index, ask_size = box_options_sola_multicast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
 
   -- Last Price Sign: X
@@ -4717,7 +4717,7 @@ box_options_sola_multicast_hsvf_v1_8.option_summary_message.fields = function(bu
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: n
+  -- Bid Size: X
   index, bid_size = box_options_sola_multicast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
@@ -4726,7 +4726,7 @@ box_options_sola_multicast_hsvf_v1_8.option_summary_message.fields = function(bu
   -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: n
+  -- Ask Size: X
   index, ask_size = box_options_sola_multicast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
 
   -- Last Price: N
@@ -4735,7 +4735,7 @@ box_options_sola_multicast_hsvf_v1_8.option_summary_message.fields = function(bu
   -- Last Price Fraction Indicator: X
   index, last_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.last_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: n
+  -- Open Interest: X
   index, open_interest = box_options_sola_multicast_hsvf_v1_8.open_interest.dissect(buffer, index, packet, parent)
 
   -- Tick: X
@@ -4774,7 +4774,7 @@ box_options_sola_multicast_hsvf_v1_8.option_summary_message.fields = function(bu
   -- Option Marker: Struct of 2 fields
   index, option_marker = box_options_sola_multicast_hsvf_v1_8.option_marker.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: x
+  -- Underlying Symbol: X
   index, underlying_symbol = box_options_sola_multicast_hsvf_v1_8.underlying_symbol.dissect(buffer, index, packet, parent)
 
   -- Reference Price: N
@@ -4823,13 +4823,13 @@ end
 box_options_sola_multicast_hsvf_v1_8.bulletins_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   -- Bulletin Type: X
   index, bulletin_type = box_options_sola_multicast_hsvf_v1_8.bulletin_type.dissect(buffer, index, packet, parent)
 
-  -- Bulletin Contents: x
+  -- Bulletin Contents: X
   index, bulletin_contents = box_options_sola_multicast_hsvf_v1_8.bulletin_contents.dissect(buffer, index, packet, parent)
 
   -- Continue Marker: N
@@ -4886,7 +4886,7 @@ box_options_sola_multicast_hsvf_v1_8.instrument_leg.fields = function(buffer, of
   -- Leg Ratio: N
   index, leg_ratio = box_options_sola_multicast_hsvf_v1_8.leg_ratio.dissect(buffer, index, packet, parent)
 
-  -- Leg Symbol: x
+  -- Leg Symbol: X
   index, leg_symbol = box_options_sola_multicast_hsvf_v1_8.leg_symbol.dissect(buffer, index, packet, parent)
 
   return index
@@ -4978,7 +4978,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.field
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Year: N
@@ -4990,16 +4990,16 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.field
   -- Expiry Day: N
   index, expiry_day = box_options_sola_multicast_hsvf_v1_8.expiry_day.dissect(buffer, index, packet, parent)
 
-  -- Max Number Of Contracts Per Order: n
+  -- Max Number Of Contracts Per Order: X
   index, max_number_of_contracts_per_order = box_options_sola_multicast_hsvf_v1_8.max_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Min Number Of Contracts Per Order: n
+  -- Min Number Of Contracts Per Order: X
   index, min_number_of_contracts_per_order = box_options_sola_multicast_hsvf_v1_8.min_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
   -- Max Threshold Price Sign: X
   index, max_threshold_price_sign = box_options_sola_multicast_hsvf_v1_8.max_threshold_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Max Threshold Price: n
+  -- Max Threshold Price: X
   index, max_threshold_price = box_options_sola_multicast_hsvf_v1_8.max_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Max Threshold Price Fraction Indicator: X
@@ -5008,7 +5008,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.field
   -- Min Threshold Price Sign: X
   index, min_threshold_price_sign = box_options_sola_multicast_hsvf_v1_8.min_threshold_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Min Threshold Price: n
+  -- Min Threshold Price: X
   index, min_threshold_price = box_options_sola_multicast_hsvf_v1_8.min_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Min Threshold Price Fraction Indicator: X
@@ -5029,7 +5029,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_keys_message.field
   -- Instrument: X
   index, instrument = box_options_sola_multicast_hsvf_v1_8.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: x
+  -- Instrument External Code: X
   index, instrument_external_code = box_options_sola_multicast_hsvf_v1_8.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Complex Order Instrument Allow Implied: A
@@ -5150,19 +5150,19 @@ box_options_sola_multicast_hsvf_v1_8.option_instrument_keys_message.fields = fun
   -- Strike Price Currency: X
   index, strike_price_currency = box_options_sola_multicast_hsvf_v1_8.strike_price_currency.dissect(buffer, index, packet, parent)
 
-  -- Maximum Number Of Contracts Per Order: n
+  -- Maximum Number Of Contracts Per Order: X
   index, maximum_number_of_contracts_per_order = box_options_sola_multicast_hsvf_v1_8.maximum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Minimum Number Of Contracts Per Order: n
+  -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = box_options_sola_multicast_hsvf_v1_8.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price: n
+  -- Maximum Threshold Price: X
   index, maximum_threshold_price = box_options_sola_multicast_hsvf_v1_8.maximum_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price: n
+  -- Minimum Threshold Price: X
   index, minimum_threshold_price = box_options_sola_multicast_hsvf_v1_8.minimum_threshold_price.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
@@ -5186,13 +5186,13 @@ box_options_sola_multicast_hsvf_v1_8.option_instrument_keys_message.fields = fun
   -- Instrument: X
   index, instrument = box_options_sola_multicast_hsvf_v1_8.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: x
+  -- Instrument External Code: X
   index, instrument_external_code = box_options_sola_multicast_hsvf_v1_8.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Option Marker: Struct of 2 fields
   index, option_marker = box_options_sola_multicast_hsvf_v1_8.option_marker.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol Root: x
+  -- Underlying Symbol Root: X
   index, underlying_symbol_root = box_options_sola_multicast_hsvf_v1_8.underlying_symbol_root.dissect(buffer, index, packet, parent)
 
   return index
@@ -5243,7 +5243,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_trade_cancellation_message.fi
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -5258,7 +5258,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_trade_cancellation_message.fi
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Filler 6: 6 Byte Ascii String
+  -- Filler 6: 6 Byte
   index, filler_6 = box_options_sola_multicast_hsvf_v1_8.filler_6.dissect(buffer, index, packet, parent)
 
   -- Timestamp: N
@@ -5328,16 +5328,16 @@ box_options_sola_multicast_hsvf_v1_8.option_trade_cancellation_message.fields = 
   -- Trade Price Fraction Indicator: X
   index, trade_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.trade_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Filler 6: 6 Byte Ascii String
+  -- Filler 6: 6 Byte
   index, filler_6 = box_options_sola_multicast_hsvf_v1_8.filler_6.dissect(buffer, index, packet, parent)
 
   -- Timestamp: N
   index, timestamp = box_options_sola_multicast_hsvf_v1_8.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: n
+  -- Open Interest: X
   index, open_interest = box_options_sola_multicast_hsvf_v1_8.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
@@ -5408,7 +5408,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_market_depth_level.fields = functio
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: n
+  -- Bid Size: X
   index, bid_size = box_options_sola_multicast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
   -- Number Of Bid Orders: X
@@ -5423,7 +5423,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_market_depth_level.fields = functio
   -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: n
+  -- Ask Size: X
   index, ask_size = box_options_sola_multicast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
 
   -- Number Of Ask Orders: X
@@ -5484,7 +5484,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_market_depth_message.fields =
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker: A
@@ -5558,7 +5558,7 @@ box_options_sola_multicast_hsvf_v1_8.market_depth_level.fields = function(buffer
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: n
+  -- Bid Size: X
   index, bid_size = box_options_sola_multicast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
   -- Number Of Bid Orders: X
@@ -5570,7 +5570,7 @@ box_options_sola_multicast_hsvf_v1_8.market_depth_level.fields = function(buffer
   -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: n
+  -- Ask Size: X
   index, ask_size = box_options_sola_multicast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
 
   -- Number Of Ask Orders: X
@@ -5735,7 +5735,7 @@ box_options_sola_multicast_hsvf_v1_8.group_status_message.fields = function(buff
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol: x
+  -- Root Symbol: X
   index, root_symbol = box_options_sola_multicast_hsvf_v1_8.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Group Status: A
@@ -5784,7 +5784,7 @@ box_options_sola_multicast_hsvf_v1_8.group_opening_time_message.fields = functio
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol: x
+  -- Root Symbol: X
   index, root_symbol = box_options_sola_multicast_hsvf_v1_8.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Group Status: A
@@ -5845,7 +5845,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_quote_message.fields = functi
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Sign: X
@@ -5857,7 +5857,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_quote_message.fields = functi
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: n
+  -- Bid Size: X
   index, bid_size = box_options_sola_multicast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Sign: X
@@ -5869,16 +5869,16 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_quote_message.fields = functi
   -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: n
+  -- Ask Size: X
   index, ask_size = box_options_sola_multicast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker: A
   index, instrument_status_marker = box_options_sola_multicast_hsvf_v1_8.instrument_status_marker.dissect(buffer, index, packet, parent)
 
-  -- Public Customer Bid Size: n
+  -- Public Customer Bid Size: X
   index, public_customer_bid_size = box_options_sola_multicast_hsvf_v1_8.public_customer_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Public Customer Ask Size: n
+  -- Public Customer Ask Size: X
   index, public_customer_ask_size = box_options_sola_multicast_hsvf_v1_8.public_customer_ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -5941,7 +5941,7 @@ box_options_sola_multicast_hsvf_v1_8.option_quote_message.fields = function(buff
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: n
+  -- Bid Size: X
   index, bid_size = box_options_sola_multicast_hsvf_v1_8.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price: N
@@ -5950,19 +5950,19 @@ box_options_sola_multicast_hsvf_v1_8.option_quote_message.fields = function(buff
   -- Ask Price Fraction Indicator: N
   index, ask_price_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: n
+  -- Ask Size: X
   index, ask_size = box_options_sola_multicast_hsvf_v1_8.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker: A
   index, instrument_status_marker = box_options_sola_multicast_hsvf_v1_8.instrument_status_marker.dissect(buffer, index, packet, parent)
 
-  -- Public Customer Bid Size: n
+  -- Public Customer Bid Size: X
   index, public_customer_bid_size = box_options_sola_multicast_hsvf_v1_8.public_customer_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Public Customer Ask Size: n
+  -- Public Customer Ask Size: X
   index, public_customer_ask_size = box_options_sola_multicast_hsvf_v1_8.public_customer_ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -6010,7 +6010,7 @@ box_options_sola_multicast_hsvf_v1_8.option_request_for_quote_message.fields = f
   -- Instrument Description: Struct of 7 fields
   index, instrument_description = box_options_sola_multicast_hsvf_v1_8.instrument_description.dissect(buffer, index, packet, parent)
 
-  -- Requested Size: n
+  -- Requested Size: X
   index, requested_size = box_options_sola_multicast_hsvf_v1_8.requested_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -6064,7 +6064,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_trade_message.fiel
   -- Exchange Id: A
   index, exchange_id = box_options_sola_multicast_hsvf_v1_8.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Order Instrument Symbol: x
+  -- Complex Order Instrument Symbol: X
   index, complex_order_instrument_symbol = box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -6088,7 +6088,7 @@ box_options_sola_multicast_hsvf_v1_8.complex_order_instrument_trade_message.fiel
   -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Filler 6: 6 Byte Ascii String
+  -- Filler 6: 6 Byte
   index, filler_6 = box_options_sola_multicast_hsvf_v1_8.filler_6.dissect(buffer, index, packet, parent)
 
   -- Timestamp: N
@@ -6170,16 +6170,16 @@ box_options_sola_multicast_hsvf_v1_8.option_trade_message.fields = function(buff
   -- Net Change Fraction Indicator: X
   index, net_change_fraction_indicator = box_options_sola_multicast_hsvf_v1_8.net_change_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Filler 6: 6 Byte Ascii String
+  -- Filler 6: 6 Byte
   index, filler_6 = box_options_sola_multicast_hsvf_v1_8.filler_6.dissect(buffer, index, packet, parent)
 
   -- Timestamp: N
   index, timestamp = box_options_sola_multicast_hsvf_v1_8.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: n
+  -- Open Interest: X
   index, open_interest = box_options_sola_multicast_hsvf_v1_8.open_interest.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 1 Byte Ascii String
+  -- Filler 1: 1 Byte
   index, filler_1 = box_options_sola_multicast_hsvf_v1_8.filler_1.dissect(buffer, index, packet, parent)
 
   -- Price Indicator Marker: A
