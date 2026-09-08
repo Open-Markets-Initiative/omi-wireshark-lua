@@ -16,18 +16,18 @@ local tmx_mx_sola_multicast_hsvf_v1_11 = {}
 
 -- Tmx Mx Sola Multicast Hsvf 1.11 Fields
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.askpricefractionindicator", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_n_6 = ProtoField.new("Ask Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.askpricen6", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_quote = ProtoField.new("Ask Price Quote", "tmx.mx.sola.multicast.hsvf.v1.11.askpricequote", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "tmx.mx.sola.multicast.hsvf.v1.11.askpricesign", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_x_6 = ProtoField.new("Ask Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.askpricex6", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_summary = ProtoField.new("Ask Price Summary", "tmx.mx.sola.multicast.hsvf.v1.11.askpricesummary", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_size = ProtoField.new("Ask Size", "tmx.mx.sola.multicast.hsvf.v1.11.asksize", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_delivery_month = ProtoField.new("Associated Product Delivery Month", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductdeliverymonth", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_delivery_year = ProtoField.new("Associated Product Delivery Year", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductdeliveryyear", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_expiry_day = ProtoField.new("Associated Product Expiry Day", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductexpiryday", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.associated_product_root_symbol = ProtoField.new("Associated Product Root Symbol", "tmx.mx.sola.multicast.hsvf.v1.11.associatedproductrootsymbol", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricefractionindicator", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_n_6 = ProtoField.new("Bid Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricen6", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_quote = ProtoField.new("Bid Price Quote", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricequote", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricesign", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_x_6 = ProtoField.new("Bid Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricex6", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_summary = ProtoField.new("Bid Price Summary", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricesummary", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_size = ProtoField.new("Bid Size", "tmx.mx.sola.multicast.hsvf.v1.11.bidsize", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_contents_x_49 = ProtoField.new("Bulletin Contents X 49", "tmx.mx.sola.multicast.hsvf.v1.11.bulletincontentsx49", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_type = ProtoField.new("Bulletin Type", "tmx.mx.sola.multicast.hsvf.v1.11.bulletintype", ftypes.STRING)
@@ -41,8 +41,8 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.day_count_convention = ProtoField.ne
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_day = ProtoField.new("Delivery Day", "tmx.mx.sola.multicast.hsvf.v1.11.deliveryday", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_month = ProtoField.new("Delivery Month", "tmx.mx.sola.multicast.hsvf.v1.11.deliverymonth", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_type = ProtoField.new("Delivery Type", "tmx.mx.sola.multicast.hsvf.v1.11.deliverytype", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_n_1 = ProtoField.new("Delivery Year N 1", "tmx.mx.sola.multicast.hsvf.v1.11.deliveryyearn1", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_n_2 = ProtoField.new("Delivery Year N 2", "tmx.mx.sola.multicast.hsvf.v1.11.deliveryyearn2", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_futures = ProtoField.new("Delivery Year Futures", "tmx.mx.sola.multicast.hsvf.v1.11.deliveryyearfutures", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_underlying = ProtoField.new("Delivery Year Underlying", "tmx.mx.sola.multicast.hsvf.v1.11.deliveryyearunderlying", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.effective_date = ProtoField.new("Effective Date", "tmx.mx.sola.multicast.hsvf.v1.11.effectivedate", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.exchange_id = ProtoField.new("Exchange Id", "tmx.mx.sola.multicast.hsvf.v1.11.exchangeid", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.expiry_day = ProtoField.new("Expiry Day", "tmx.mx.sola.multicast.hsvf.v1.11.expiryday", ftypes.STRING)
@@ -90,15 +90,15 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.market_flow_indicator = ProtoField.n
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.market_price_indicator = ProtoField.new("Market Price Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.marketpriceindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "tmx.mx.sola.multicast.hsvf.v1.11.maximumnumberofcontractsperorder", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricefractionindicator", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_n_6 = ProtoField.new("Maximum Threshold Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricen6", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_x_6 = ProtoField.new("Maximum Threshold Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricex6", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_futures = ProtoField.new("Maximum Threshold Price Futures", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpricefutures", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_options = ProtoField.new("Maximum Threshold Price Options", "tmx.mx.sola.multicast.hsvf.v1.11.maximumthresholdpriceoptions", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.message_type = ProtoField.new("Message Type", "tmx.mx.sola.multicast.hsvf.v1.11.messagetype", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.min_price = ProtoField.new("Min Price", "tmx.mx.sola.multicast.hsvf.v1.11.minprice", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.min_price_fraction_indicator = ProtoField.new("Min Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.minpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "tmx.mx.sola.multicast.hsvf.v1.11.minimumnumberofcontractsperorder", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.minimumthresholdpricefractionindicator", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_n_6 = ProtoField.new("Minimum Threshold Price N 6", "tmx.mx.sola.multicast.hsvf.v1.11.minimumthresholdpricen6", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_x_6 = ProtoField.new("Minimum Threshold Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.minimumthresholdpricex6", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_futures = ProtoField.new("Minimum Threshold Price Futures", "tmx.mx.sola.multicast.hsvf.v1.11.minimumthresholdpricefutures", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_options = ProtoField.new("Minimum Threshold Price Options", "tmx.mx.sola.multicast.hsvf.v1.11.minimumthresholdpriceoptions", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.net_change = ProtoField.new("Net Change", "tmx.mx.sola.multicast.hsvf.v1.11.netchange", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.netchangefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.net_change_sign = ProtoField.new("Net Change Sign", "tmx.mx.sola.multicast.hsvf.v1.11.netchangesign", ftypes.STRING)
@@ -142,15 +142,14 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.requested_market_side = ProtoField.n
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.requested_size = ProtoField.new("Requested Size", "tmx.mx.sola.multicast.hsvf.v1.11.requestedsize", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.reserved = ProtoField.new("Reserved", "tmx.mx.sola.multicast.hsvf.v1.11.reserved", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.reset_frequency = ProtoField.new("Reset Frequency", "tmx.mx.sola.multicast.hsvf.v1.11.resetfrequency", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol_a_6 = ProtoField.new("Root Symbol A 6", "tmx.mx.sola.multicast.hsvf.v1.11.rootsymbola6", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol_x_6 = ProtoField.new("Root Symbol X 6", "tmx.mx.sola.multicast.hsvf.v1.11.rootsymbolx6", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol = ProtoField.new("Root Symbol", "tmx.mx.sola.multicast.hsvf.v1.11.rootsymbol", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.scheduled_status_change_time = ProtoField.new("Scheduled Status Change Time", "tmx.mx.sola.multicast.hsvf.v1.11.scheduledstatuschangetime", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.second_filler_1 = ProtoField.new("Second Filler 1", "tmx.mx.sola.multicast.hsvf.v1.11.secondfiller1", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.sequence_number = ProtoField.new("Sequence Number", "tmx.mx.sola.multicast.hsvf.v1.11.sequencenumber", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.series_status = ProtoField.new("Series Status", "tmx.mx.sola.multicast.hsvf.v1.11.seriesstatus", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.sola.multicast.hsvf.v1.11.settlementprice", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_n_1 = ProtoField.new("Settlement Price Fraction Indicator N 1", "tmx.mx.sola.multicast.hsvf.v1.11.settlementpricefractionindicatorn1", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_x_1 = ProtoField.new("Settlement Price Fraction Indicator X 1", "tmx.mx.sola.multicast.hsvf.v1.11.settlementpricefractionindicatorx1", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_futures = ProtoField.new("Settlement Price Fraction Indicator Futures", "tmx.mx.sola.multicast.hsvf.v1.11.settlementpricefractionindicatorfutures", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_options = ProtoField.new("Settlement Price Fraction Indicator Options", "tmx.mx.sola.multicast.hsvf.v1.11.settlementpricefractionindicatoroptions", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.sola.multicast.hsvf.v1.11.specialtextbulletin", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_allow_implied = ProtoField.new("Strategy Allow Implied", "tmx.mx.sola.multicast.hsvf.v1.11.strategyallowimplied", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_market_depth_trading_instrument = ProtoField.new("Strategy Market Depth Trading Instrument", "tmx.mx.sola.multicast.hsvf.v1.11.strategymarketdepthtradinginstrument", ftypes.STRING)
@@ -158,8 +157,8 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_summary_strategy_leg = Prot
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "tmx.mx.sola.multicast.hsvf.v1.11.strategysymbol", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "tmx.mx.sola.multicast.hsvf.v1.11.strikepricecurrency", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.11.strikepricefractionindicator", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_n_7 = ProtoField.new("Strike Price N 7", "tmx.mx.sola.multicast.hsvf.v1.11.strikepricen7", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_x_7 = ProtoField.new("Strike Price X 7", "tmx.mx.sola.multicast.hsvf.v1.11.strikepricex7", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_instrument = ProtoField.new("Strike Price Instrument", "tmx.mx.sola.multicast.hsvf.v1.11.strikepriceinstrument", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_schedule_notice = ProtoField.new("Strike Price Schedule Notice", "tmx.mx.sola.multicast.hsvf.v1.11.strikepriceschedulenotice", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.swap_future_market_depth_trading_instrument = ProtoField.new("Swap Future Market Depth Trading Instrument", "tmx.mx.sola.multicast.hsvf.v1.11.swapfuturemarketdepthtradinginstrument", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.symbol = ProtoField.new("Symbol", "tmx.mx.sola.multicast.hsvf.v1.11.symbol", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.tenor = ProtoField.new("Tenor", "tmx.mx.sola.multicast.hsvf.v1.11.tenor", ftypes.STRING)
@@ -181,8 +180,8 @@ omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.trade_price_fraction_indicator = Pro
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "tmx.mx.sola.multicast.hsvf.v1.11.tradepricesign", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.trade_volume = ProtoField.new("Trade Volume", "tmx.mx.sola.multicast.hsvf.v1.11.tradevolume", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "tmx.mx.sola.multicast.hsvf.v1.11.underlyingsymbol", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_a_3 = ProtoField.new("Underlying Symbol Root A 3", "tmx.mx.sola.multicast.hsvf.v1.11.underlyingsymbolroota3", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_x_10 = ProtoField.new("Underlying Symbol Root X 10", "tmx.mx.sola.multicast.hsvf.v1.11.underlyingsymbolrootx10", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_future_options = ProtoField.new("Underlying Symbol Root Future Options", "tmx.mx.sola.multicast.hsvf.v1.11.underlyingsymbolrootfutureoptions", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_options = ProtoField.new("Underlying Symbol Root Options", "tmx.mx.sola.multicast.hsvf.v1.11.underlyingsymbolrootoptions", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.volume = ProtoField.new("Volume", "tmx.mx.sola.multicast.hsvf.v1.11.volume", ftypes.STRING)
 
 -- Tmx Mx Sola Multicast Hsvf 1.11 Headers
@@ -340,30 +339,25 @@ tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect = function
   return offset + length, value
 end
 
--- Ask Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6 = {}
+-- Ask Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote = {}
 
--- Size: Ask Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size = 6
+-- Size: Ask Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size = 6
 
--- Display: Ask Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.display = function(value)
-  return "Ask Price N 6: "..value
+-- Display: Ask Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.display = function(value)
+  return "Ask Price Quote: "..value
 end
 
--- Dissect: Ask Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size
+-- Dissect: Ask Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.display(value, buffer, offset, packet, parent)
 
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_n_6, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_quote, range, value, display)
 
   return offset + length, value
 end
@@ -391,25 +385,30 @@ tmx_mx_sola_multicast_hsvf_v1_11.ask_price_sign.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Ask Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6 = {}
+-- Ask Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary = {}
 
--- Size: Ask Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size = 6
+-- Size: Ask Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size = 6
 
--- Display: Ask Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.display = function(value)
-  return "Ask Price X 6: "..value
+-- Display: Ask Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.display = function(value)
+  return "Ask Price Summary: "..value
 end
 
--- Dissect: Ask Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size
+-- Dissect: Ask Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.display(value, buffer, offset, packet, parent)
+  local value = tonumber(range:string())
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_x_6, range, value, display)
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.ask_price_summary, range, value, display)
 
   return offset + length, value
 end
@@ -562,30 +561,25 @@ tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect = function
   return offset + length, value
 end
 
--- Bid Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6 = {}
+-- Bid Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote = {}
 
--- Size: Bid Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.size = 6
+-- Size: Bid Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size = 6
 
--- Display: Bid Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.display = function(value)
-  return "Bid Price N 6: "..value
+-- Display: Bid Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.display = function(value)
+  return "Bid Price Quote: "..value
 end
 
--- Dissect: Bid Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.size
+-- Dissect: Bid Price Quote
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.display(value, buffer, offset, packet, parent)
 
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_n_6, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_quote, range, value, display)
 
   return offset + length, value
 end
@@ -613,25 +607,30 @@ tmx_mx_sola_multicast_hsvf_v1_11.bid_price_sign.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Bid Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6 = {}
+-- Bid Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary = {}
 
--- Size: Bid Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size = 6
+-- Size: Bid Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.size = 6
 
--- Display: Bid Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.display = function(value)
-  return "Bid Price X 6: "..value
+-- Display: Bid Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.display = function(value)
+  return "Bid Price Summary: "..value
 end
 
--- Dissect: Bid Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size
+-- Dissect: Bid Price Summary
+tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.display(value, buffer, offset, packet, parent)
+  local value = tonumber(range:string())
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_x_6, range, value, display)
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_summary, range, value, display)
 
   return offset + length, value
 end
@@ -981,20 +980,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.delivery_type.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Delivery Year N 1
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1 = {}
+-- Delivery Year Futures
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures = {}
 
--- Size: Delivery Year N 1
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.size = 1
+-- Size: Delivery Year Futures
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size = 2
 
--- Display: Delivery Year N 1
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.display = function(value)
-  return "Delivery Year N 1: "..value
+-- Display: Delivery Year Futures
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.display = function(value)
+  return "Delivery Year Futures: "..value
 end
 
--- Dissect: Delivery Year N 1
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.size
+-- Dissect: Delivery Year Futures
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1002,27 +1001,27 @@ tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.dissect = function(buffer, of
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_n_1, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_futures, range, value, display)
 
   return offset + length, value
 end
 
--- Delivery Year N 2
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2 = {}
+-- Delivery Year Underlying
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying = {}
 
--- Size: Delivery Year N 2
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size = 2
+-- Size: Delivery Year Underlying
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying.size = 1
 
--- Display: Delivery Year N 2
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.display = function(value)
-  return "Delivery Year N 2: "..value
+-- Display: Delivery Year Underlying
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying.display = function(value)
+  return "Delivery Year Underlying: "..value
 end
 
--- Dissect: Delivery Year N 2
-tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size
+-- Dissect: Delivery Year Underlying
+tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1030,9 +1029,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect = function(buffer, of
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_n_2, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.delivery_year_underlying, range, value, display)
 
   return offset + length, value
 end
@@ -1684,7 +1683,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.instrument_external_code, range, value, display)
@@ -2128,20 +2127,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.diss
   return offset + length, value
 end
 
--- Maximum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6 = {}
+-- Maximum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures = {}
 
--- Size: Maximum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.size = 6
+-- Size: Maximum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures.size = 6
 
--- Display: Maximum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.display = function(value)
-  return "Maximum Threshold Price N 6: "..value
+-- Display: Maximum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures.display = function(value)
+  return "Maximum Threshold Price Futures: "..value
 end
 
--- Dissect: Maximum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.size
+-- Dissect: Maximum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2149,32 +2148,32 @@ tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.dissect = function(
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_n_6, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_futures, range, value, display)
 
   return offset + length, value
 end
 
--- Maximum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6 = {}
+-- Maximum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options = {}
 
--- Size: Maximum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.size = 6
+-- Size: Maximum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.size = 6
 
--- Display: Maximum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.display = function(value)
-  return "Maximum Threshold Price X 6: "..value
+-- Display: Maximum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.display = function(value)
+  return "Maximum Threshold Price Options: "..value
 end
 
--- Dissect: Maximum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.size
+-- Dissect: Maximum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_x_6, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.maximum_threshold_price_options, range, value, display)
 
   return offset + length, value
 end
@@ -2474,20 +2473,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.diss
   return offset + length, value
 end
 
--- Minimum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6 = {}
+-- Minimum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures = {}
 
--- Size: Minimum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.size = 6
+-- Size: Minimum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures.size = 6
 
--- Display: Minimum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.display = function(value)
-  return "Minimum Threshold Price N 6: "..value
+-- Display: Minimum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures.display = function(value)
+  return "Minimum Threshold Price Futures: "..value
 end
 
--- Dissect: Minimum Threshold Price N 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.size
+-- Dissect: Minimum Threshold Price Futures
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2495,32 +2494,32 @@ tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.dissect = function(
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_n_6, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_futures, range, value, display)
 
   return offset + length, value
 end
 
--- Minimum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6 = {}
+-- Minimum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options = {}
 
--- Size: Minimum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.size = 6
+-- Size: Minimum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.size = 6
 
--- Display: Minimum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.display = function(value)
-  return "Minimum Threshold Price X 6: "..value
+-- Display: Minimum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.display = function(value)
+  return "Minimum Threshold Price Options: "..value
 end
 
--- Dissect: Minimum Threshold Price X 6
-tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.size
+-- Dissect: Minimum Threshold Price Options
+tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_x_6, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.minimum_threshold_price_options, range, value, display)
 
   return offset + length, value
 end
@@ -3568,48 +3567,25 @@ tmx_mx_sola_multicast_hsvf_v1_11.reset_frequency.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Root Symbol A 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6 = {}
+-- Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.root_symbol = {}
 
--- Size: Root Symbol A 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size = 6
+-- Size: Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size = 6
 
--- Display: Root Symbol A 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.display = function(value)
-  return "Root Symbol A 6: "..value
+-- Display: Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.display = function(value)
+  return "Root Symbol: "..value
 end
 
--- Dissect: Root Symbol A 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size
+-- Dissect: Root Symbol
+tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol_a_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Root Symbol X 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6 = {}
-
--- Size: Root Symbol X 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size = 6
-
--- Display: Root Symbol X 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.display = function(value)
-  return "Root Symbol X 6: "..value
-end
-
--- Dissect: Root Symbol X 6
-tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol_x_6, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.root_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3744,20 +3720,43 @@ tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Settlement Price Fraction Indicator N 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1 = {}
+-- Settlement Price Fraction Indicator Futures
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures = {}
 
--- Size: Settlement Price Fraction Indicator N 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.size = 1
+-- Size: Settlement Price Fraction Indicator Futures
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.size = 1
 
--- Display: Settlement Price Fraction Indicator N 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.display = function(value)
-  return "Settlement Price Fraction Indicator N 1: "..value
+-- Display: Settlement Price Fraction Indicator Futures
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.display = function(value)
+  return "Settlement Price Fraction Indicator Futures: "..value
 end
 
--- Dissect: Settlement Price Fraction Indicator N 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.size
+-- Dissect: Settlement Price Fraction Indicator Futures
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_futures, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price Fraction Indicator Options
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options = {}
+
+-- Size: Settlement Price Fraction Indicator Options
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options.size = 1
+
+-- Display: Settlement Price Fraction Indicator Options
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options.display = function(value)
+  return "Settlement Price Fraction Indicator Options: "..value
+end
+
+-- Dissect: Settlement Price Fraction Indicator Options
+tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -3765,32 +3764,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.dissect
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_n_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Price Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1 = {}
-
--- Size: Settlement Price Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.size = 1
-
--- Display: Settlement Price Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.display = function(value)
-  return "Settlement Price Fraction Indicator X 1: "..value
-end
-
--- Dissect: Settlement Price Fraction Indicator X 1
-tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_x_1, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_options, range, value, display)
 
   return offset + length, value
 end
@@ -3840,7 +3816,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11.strategy_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_11.strategy_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_sola_multicast_hsvf_v1_11.strategy_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_symbol, range, value, display)
@@ -3894,20 +3870,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect = funct
   return offset + length, value
 end
 
--- Strike Price N 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7 = {}
+-- Strike Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument = {}
 
--- Size: Strike Price N 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size = 7
+-- Size: Strike Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size = 7
 
--- Display: Strike Price N 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.display = function(value)
-  return "Strike Price N 7: "..value
+-- Display: Strike Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.display = function(value)
+  return "Strike Price Instrument: "..value
 end
 
--- Dissect: Strike Price N 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size
+-- Dissect: Strike Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -3915,32 +3891,32 @@ tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect = function(buffer, off
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_n_7, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_instrument, range, value, display)
 
   return offset + length, value
 end
 
--- Strike Price X 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7 = {}
+-- Strike Price Schedule Notice
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice = {}
 
--- Size: Strike Price X 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7.size = 7
+-- Size: Strike Price Schedule Notice
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice.size = 7
 
--- Display: Strike Price X 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7.display = function(value)
-  return "Strike Price X 7: "..value
+-- Display: Strike Price Schedule Notice
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice.display = function(value)
+  return "Strike Price Schedule Notice: "..value
 end
 
--- Dissect: Strike Price X 7
-tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7.size
+-- Dissect: Strike Price Schedule Notice
+tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_x_7, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.strike_price_schedule_notice, range, value, display)
 
   return offset + length, value
 end
@@ -3960,7 +3936,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_11.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_sola_multicast_hsvf_v1_11.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.symbol, range, value, display)
@@ -4424,48 +4400,48 @@ tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Underlying Symbol Root A 3
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3 = {}
+-- Underlying Symbol Root Future Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options = {}
 
--- Size: Underlying Symbol Root A 3
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3.size = 3
+-- Size: Underlying Symbol Root Future Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options.size = 3
 
--- Display: Underlying Symbol Root A 3
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3.display = function(value)
-  return "Underlying Symbol Root A 3: "..value
+-- Display: Underlying Symbol Root Future Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options.display = function(value)
+  return "Underlying Symbol Root Future Options: "..value
 end
 
--- Dissect: Underlying Symbol Root A 3
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3.size
+-- Dissect: Underlying Symbol Root Future Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_a_3, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_future_options, range, value, display)
 
   return offset + length, value
 end
 
--- Underlying Symbol Root X 10
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10 = {}
+-- Underlying Symbol Root Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options = {}
 
--- Size: Underlying Symbol Root X 10
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.size = 10
+-- Size: Underlying Symbol Root Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.size = 10
 
--- Display: Underlying Symbol Root X 10
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.display = function(value)
-  return "Underlying Symbol Root X 10: "..value
+-- Display: Underlying Symbol Root Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.display = function(value)
+  return "Underlying Symbol Root Options: "..value
 end
 
--- Dissect: Underlying Symbol Root X 10
-tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.size
+-- Dissect: Underlying Symbol Root Options
+tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_x_10, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_11.fields.underlying_symbol_root_options, range, value, display)
 
   return offset + length, value
 end
@@ -4776,7 +4752,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_11.special_text_bulletin.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Bulletin Contents X 49: X
@@ -4979,7 +4955,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.group_status_message = {}
 -- Size: Group Status Message
 tmx_mx_sola_multicast_hsvf_v1_11.group_status_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.group_status.size
 
 -- Display: Group Status Message
@@ -4994,8 +4970,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.group_status_message.fields = function(buffer, 
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Group Status: A
   index, group_status = tmx_mx_sola_multicast_hsvf_v1_11.group_status.dissect(buffer, index, packet, parent)
@@ -5027,7 +5003,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_correction_message = {}
 -- Size: Swap Future Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_correction_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -5056,8 +5032,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_correction_message.fields = f
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -5156,7 +5132,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_trade_correction_message.fields = func
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -5219,9 +5195,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_correction_message = {}
 -- Size: Futures Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_correction_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_price.size + 
@@ -5246,14 +5222,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_correction_message.fields = funct
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
@@ -5315,12 +5291,12 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_correction_message = {}
 -- Size: Future Options Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_correction_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_price.size + 
@@ -5347,8 +5323,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_correction_message.fields 
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -5362,8 +5338,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_correction_message.fields 
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5431,10 +5407,10 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_correction_message = {}
 -- Size: Option Trade Correction Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_trade_correction_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -5463,8 +5439,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_correction_message.fields = functi
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -5472,8 +5448,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_correction_message.fields = functi
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5747,17 +5723,17 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_summary_message = {}
 -- Size: Swap Future Summary Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tenor.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.fixed_rate.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.fixed_rate_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.last_price.size + 
@@ -5769,7 +5745,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.low_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.low_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.net_present_value_a.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.net_present_value_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.historical_coupon_b.size + 
@@ -5799,8 +5775,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_summary_message.fields = function(b
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -5820,8 +5796,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_summary_message.fields = function(b
   -- Fixed Rate Fraction Indicator: X
   index, fixed_rate_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.fixed_rate_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price N 6: N
-  index, bid_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Summary: N
+  index, bid_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5829,8 +5805,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_summary_message.fields = function(b
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price N 6: N
-  index, ask_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Summary: N
+  index, ask_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -5865,8 +5841,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_summary_message.fields = function(b
   -- Settlement Price: N
   index, settlement_price = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator X 1: X
-  index, settlement_price_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator Futures: X
+  index, settlement_price_fraction_indicator_futures = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.dissect(buffer, index, packet, parent)
 
   -- Net Present Value A: N
   index, net_present_value_a = tmx_mx_sola_multicast_hsvf_v1_11.net_present_value_a.dissect(buffer, index, packet, parent)
@@ -6004,7 +5980,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.size = function(buffer
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.bid_price_sign.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size
 
@@ -6012,7 +5988,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.size = function(buffer
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.ask_price_sign.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size
 
@@ -6073,14 +6049,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.fields = function(buff
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_11.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price N 6: N
-  index, bid_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Summary: N
+  index, bid_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6091,8 +6067,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_summary_message.fields = function(buff
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price N 6: N
-  index, ask_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Summary: N
+  index, ask_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6186,14 +6162,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_summary_message = {}
 -- Size: Futures Summary Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.last_price.size + 
@@ -6205,7 +6181,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.low_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.low_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.net_change_sign.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.net_change.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.net_change_fraction_indicator.size + 
@@ -6229,20 +6205,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_summary_message.fields = function(buffe
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
 
-  -- Bid Price N 6: N
-  index, bid_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Summary: N
+  index, bid_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6250,8 +6226,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_summary_message.fields = function(buffe
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price N 6: N
-  index, ask_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Summary: N
+  index, ask_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6286,8 +6262,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_summary_message.fields = function(buffe
   -- Settlement Price: N
   index, settlement_price = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator X 1: X
-  index, settlement_price_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator Futures: X
+  index, settlement_price_fraction_indicator_futures = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.dissect(buffer, index, packet, parent)
 
   -- Net Change Sign: A
   index, net_change_sign = tmx_mx_sola_multicast_hsvf_v1_11.net_change_sign.dissect(buffer, index, packet, parent)
@@ -6346,17 +6322,17 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message = {}
 -- Size: Future Options Summary Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.last_price.size + 
@@ -6374,11 +6350,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.low_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.low_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_2.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.previous_settlement_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.previous_settlement_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.reason.size
@@ -6395,8 +6371,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.fields = functio
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -6410,14 +6386,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.fields = functio
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price N 6: N
-  index, bid_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Summary: N
+  index, bid_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6425,8 +6401,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.fields = functio
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price N 6: N
-  index, ask_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Summary: N
+  index, ask_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6479,20 +6455,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_summary_message.fields = functio
   -- Filler 2: X
   index, filler_2 = tmx_mx_sola_multicast_hsvf_v1_11.filler_2.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol Root A 3: A
-  index, underlying_symbol_root_a_3 = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_a_3.dissect(buffer, index, packet, parent)
+  -- Underlying Symbol Root Future Options: A
+  index, underlying_symbol_root_future_options = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_future_options.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 1: N
-  index, delivery_year_n_1 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_1.dissect(buffer, index, packet, parent)
+  -- Delivery Year Underlying: N
+  index, delivery_year_underlying = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_underlying.dissect(buffer, index, packet, parent)
 
   -- Settlement Price: N
   index, settlement_price = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator X 1: X
-  index, settlement_price_fraction_indicator_x_1 = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_x_1.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator Futures: X
+  index, settlement_price_fraction_indicator_futures = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_futures.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price: N
   index, previous_settlement_price = tmx_mx_sola_multicast_hsvf_v1_11.previous_settlement_price.dissect(buffer, index, packet, parent)
@@ -6530,17 +6506,17 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message = {}
 -- Size: Option Summary Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.last_price.size + 
@@ -6558,9 +6534,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.low_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.low_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.option_marker.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.previous_settlement_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.previous_settlement_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.reason.size
@@ -6577,8 +6553,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message.fields = function(buffer
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -6586,8 +6562,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message.fields = function(buffer
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6598,8 +6574,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message.fields = function(buffer
   -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.dissect(buffer, index, packet, parent)
 
-  -- Bid Price N 6: N
-  index, bid_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_n_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Summary: N
+  index, bid_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_summary.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6607,8 +6583,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message.fields = function(buffer
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price N 6: N
-  index, ask_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Summary: N
+  index, ask_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6661,14 +6637,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_summary_message.fields = function(buffer
   -- Option Marker: A
   index, option_marker = tmx_mx_sola_multicast_hsvf_v1_11.option_marker.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol Root X 10: X
-  index, underlying_symbol_root_x_10 = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.dissect(buffer, index, packet, parent)
+  -- Underlying Symbol Root Options: X
+  index, underlying_symbol_root_options = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.dissect(buffer, index, packet, parent)
 
   -- Settlement Price: N
   index, settlement_price = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Price Fraction Indicator N 1: N
-  index, settlement_price_fraction_indicator_n_1 = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_n_1.dissect(buffer, index, packet, parent)
+  -- Settlement Price Fraction Indicator Options: N
+  index, settlement_price_fraction_indicator_options = tmx_mx_sola_multicast_hsvf_v1_11.settlement_price_fraction_indicator_options.dissect(buffer, index, packet, parent)
 
   -- Previous Settlement Price: N
   index, previous_settlement_price = tmx_mx_sola_multicast_hsvf_v1_11.previous_settlement_price.dissect(buffer, index, packet, parent)
@@ -6706,7 +6682,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_instrument_keys_message = {}
 -- Size: Swap Future Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -6715,9 +6691,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.fixed_rate_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment_fraction_indicator.size + 
@@ -6756,8 +6732,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_instrument_keys_message.fields = fu
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -6783,14 +6759,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_instrument_keys_message.fields = fu
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price X 6: X
-  index, maximum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price Options: X
+  index, maximum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price X 6: X
-  index, minimum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Options: X
+  index, minimum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6900,9 +6876,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment_fraction_indicator.size + 
@@ -6924,7 +6900,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_instrument_keys_message.fields = funct
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_11.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Year: N
@@ -6942,14 +6918,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_instrument_keys_message.fields = funct
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price X 6: X
-  index, maximum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price Options: X
+  index, maximum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price X 6: X
-  index, minimum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Options: X
+  index, minimum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6969,7 +6945,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_instrument_keys_message.fields = funct
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_11.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Strategy Allow Implied: A
@@ -7002,15 +6978,15 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message = {}
 -- Size: Futures Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment_fraction_indicator.size + 
@@ -7041,14 +7017,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message.fields = functi
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.dissect(buffer, index, packet, parent)
@@ -7059,14 +7035,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message.fields = functi
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price N 6: N
-  index, maximum_threshold_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_n_6.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price Futures: N
+  index, maximum_threshold_price_futures = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_futures.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price N 6: N
-  index, minimum_threshold_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_n_6.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Futures: N
+  index, minimum_threshold_price_futures = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_futures.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7086,7 +7062,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_instrument_keys_message.fields = functi
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_11.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Contract Size: N
@@ -7168,7 +7144,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.underlying_instrument_keys_message.fields = fun
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_11.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -7198,19 +7174,19 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_instrument_keys_message = {}
 -- Size: Future Options Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_currency.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment_fraction_indicator.size + 
@@ -7236,8 +7212,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_instrument_keys_message.fields =
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -7251,8 +7227,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_instrument_keys_message.fields =
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7266,14 +7242,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_instrument_keys_message.fields =
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price X 6: X
-  index, maximum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price Options: X
+  index, maximum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price X 6: X
-  index, minimum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Options: X
+  index, minimum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7293,7 +7269,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_instrument_keys_message.fields =
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_11.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Contract Size: N
@@ -7338,19 +7314,19 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_instrument_keys_message = {}
 -- Size: Option Instrument Keys Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_currency.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_increment_fraction_indicator.size + 
@@ -7360,7 +7336,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.option_marker.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_value.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tick_value_fraction_indicator.size + 
@@ -7379,8 +7355,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_instrument_keys_message.fields = functio
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -7388,8 +7364,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_instrument_keys_message.fields = functio
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7409,14 +7385,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_instrument_keys_message.fields = functio
   -- Minimum Number Of Contracts Per Order: X
   index, minimum_number_of_contracts_per_order = tmx_mx_sola_multicast_hsvf_v1_11.minimum_number_of_contracts_per_order.dissect(buffer, index, packet, parent)
 
-  -- Maximum Threshold Price X 6: X
-  index, maximum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Maximum Threshold Price Options: X
+  index, maximum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price X 6: X
-  index, minimum_threshold_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_x_6.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Options: X
+  index, minimum_threshold_price_options = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_options.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7439,14 +7415,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_instrument_keys_message.fields = functio
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_11.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_11.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Option Marker: A
   index, option_marker = tmx_mx_sola_multicast_hsvf_v1_11.option_marker.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol Root X 10: X
-  index, underlying_symbol_root_x_10 = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_x_10.dissect(buffer, index, packet, parent)
+  -- Underlying Symbol Root Options: X
+  index, underlying_symbol_root_options = tmx_mx_sola_multicast_hsvf_v1_11.underlying_symbol_root_options.dissect(buffer, index, packet, parent)
 
   -- Contract Size: N
   index, contract_size = tmx_mx_sola_multicast_hsvf_v1_11.contract_size.dissect(buffer, index, packet, parent)
@@ -7490,7 +7466,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_cancellation_message = {}
 -- Size: Swap Future Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_cancellation_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -7516,8 +7492,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_cancellation_message.fields =
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -7604,7 +7580,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_trade_cancellation_message.fields = fu
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -7658,9 +7634,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_cancellation_message = {}
 -- Size: Futures Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_cancellation_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_price.size + 
@@ -7682,14 +7658,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_cancellation_message.fields = fun
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
@@ -7742,12 +7718,12 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_cancellation_message = {}
 -- Size: Future Options Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_cancellation_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.price.size + 
@@ -7771,8 +7747,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_cancellation_message.field
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -7786,8 +7762,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_cancellation_message.field
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7846,10 +7822,10 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_cancellation_message = {}
 -- Size: Option Trade Cancellation Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_trade_cancellation_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -7875,8 +7851,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_cancellation_message.fields = func
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -7884,8 +7860,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_cancellation_message.fields = func
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7950,11 +7926,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_trading_instrument = {
 -- Size: Swap Future Market Depth Trading Instrument
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_trading_instrument.size =
   tmx_mx_sola_multicast_hsvf_v1_11.level.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_ask_orders.size
@@ -7977,8 +7953,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_trading_instrument.fie
   -- Level: X
   index, level = tmx_mx_sola_multicast_hsvf_v1_11.level.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7989,8 +7965,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_trading_instrument.fie
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8031,7 +8007,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.size = functio
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size
 
@@ -8068,8 +8044,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_market_depth_message.fields = funct
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -8128,12 +8104,12 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_trading_instrument = {}
 tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_trading_instrument.size =
   tmx_mx_sola_multicast_hsvf_v1_11.level_of_market_depth.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_sign.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_sign.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_ask_orders.size
@@ -8159,8 +8135,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_trading_instrument.fields
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8174,8 +8150,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_trading_instrument.fields
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8241,7 +8217,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_market_depth_message.fields = function
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker: A
@@ -8282,11 +8258,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_trading_instrument = {}
 -- Size: Futures Market Depth Trading Instrument
 tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_trading_instrument.size =
   tmx_mx_sola_multicast_hsvf_v1_11.level_of_market_depth.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_ask_orders.size
@@ -8309,8 +8285,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_trading_instrument.fields 
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_11.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8321,8 +8297,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_trading_instrument.fields 
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price N 6: N
-  index, ask_price_n_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_n_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Summary: N
+  index, ask_price_summary = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_summary.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8363,11 +8339,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.size = function(bu
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size
 
@@ -8394,14 +8370,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_market_depth_message.fields = function(
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
@@ -8444,11 +8420,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_trading_instrument 
 -- Size: Future Options Market Depth Trading Instrument
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_trading_instrument.size =
   tmx_mx_sola_multicast_hsvf_v1_11.level_of_market_depth.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_ask_orders.size
@@ -8471,8 +8447,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_trading_instrument.
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_11.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8483,8 +8459,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_trading_instrument.
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8525,7 +8501,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.size = func
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size
 
@@ -8535,7 +8511,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.size = func
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size
 
@@ -8562,8 +8538,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.fields = fu
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -8577,8 +8553,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_market_depth_message.fields = fu
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8621,11 +8597,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_trading_instrument = {}
 -- Size: Option Market Depth Trading Instrument
 tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_trading_instrument.size =
   tmx_mx_sola_multicast_hsvf_v1_11.level_of_market_depth.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.number_of_ask_orders.size
@@ -8648,8 +8624,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_trading_instrument.fields =
   -- Level Of Market Depth: X
   index, level_of_market_depth = tmx_mx_sola_multicast_hsvf_v1_11.level_of_market_depth.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8660,8 +8636,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_trading_instrument.fields =
   -- Number Of Bid Orders: X
   index, number_of_bid_orders = tmx_mx_sola_multicast_hsvf_v1_11.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8702,13 +8678,13 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.size = function(buf
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size
 
@@ -8739,8 +8715,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.fields = function(b
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -8748,8 +8724,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_market_depth_message.fields = function(b
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8798,17 +8774,17 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_quote_message = {}
 -- Size: Swap Future Quote Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_quote_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.tenor.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.fixed_rate.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.fixed_rate_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.instrument_status_marker.size
@@ -8825,8 +8801,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_quote_message.fields = function(buf
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -8846,8 +8822,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_quote_message.fields = function(buf
   -- Fixed Rate Fraction Indicator: X
   index, fixed_rate_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.fixed_rate_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8855,8 +8831,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_quote_message.fields = function(buf
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8896,11 +8872,11 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_quote_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_sign.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_sign.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.instrument_status_marker.size
@@ -8917,14 +8893,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_quote_message.fields = function(buffer
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Sign: X
   index, bid_price_sign = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8935,8 +8911,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_quote_message.fields = function(buffer
   -- Ask Price Sign: X
   index, ask_price_sign = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_sign.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -8974,14 +8950,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_quote_message = {}
 -- Size: Futures Quote Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_quote_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.instrument_status_marker.size
@@ -8998,20 +8974,20 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_quote_message.fields = function(buffer,
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9019,8 +8995,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_quote_message.fields = function(buffer,
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9058,17 +9034,17 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_quote_message = {}
 -- Size: Future Options Quote Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_quote_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.instrument_status_marker.size + 
@@ -9086,8 +9062,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_quote_message.fields = function(
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -9101,14 +9077,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_quote_message.fields = function(
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9116,8 +9092,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_quote_message.fields = function(
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9158,17 +9134,17 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message = {}
 -- Size: Option Quote Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.bid_size.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.ask_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.second_filler_1.size + 
@@ -9186,8 +9162,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message.fields = function(buffer, 
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -9195,8 +9171,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message.fields = function(buffer, 
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9207,8 +9183,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message.fields = function(buffer, 
   -- Expiry Day: N
   index, expiry_day = tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.dissect(buffer, index, packet, parent)
 
-  -- Bid Price X 6: X
-  index, bid_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_x_6.dissect(buffer, index, packet, parent)
+  -- Bid Price Quote: X
+  index, bid_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_quote.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X
   index, bid_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.bid_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9216,8 +9192,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_quote_message.fields = function(buffer, 
   -- Bid Size: X
   index, bid_size = tmx_mx_sola_multicast_hsvf_v1_11.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price X 6: X
-  index, ask_price_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_x_6.dissect(buffer, index, packet, parent)
+  -- Ask Price Quote: X
+  index, ask_price_quote = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_quote.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X
   index, ask_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.ask_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9258,7 +9234,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_swap_future_message 
 -- Size: Instrument Schedule Notice Swap Future Message
 tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_swap_future_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -9280,8 +9256,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_swap_future_message.
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -9350,7 +9326,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_strategy_message.fie
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_11.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Series Status: A
@@ -9386,9 +9362,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_future_message = {}
 -- Size: Instrument Schedule Notice Future Message
 tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_future_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.series_status.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.scheduled_status_change_time.size
@@ -9405,14 +9381,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_future_message.field
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
@@ -9450,12 +9426,12 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_futures_option_messa
 -- Size: Instrument Schedule Notice Futures Option Message
 tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_futures_option_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.series_status.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.scheduled_status_change_time.size
@@ -9472,8 +9448,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_futures_option_messa
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -9487,8 +9463,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_futures_option_messa
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9526,10 +9502,10 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_option_message = {}
 -- Size: Instrument Schedule Notice Option Message
 tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_option_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -9548,8 +9524,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_option_message.field
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -9557,8 +9533,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.instrument_schedule_notice_option_message.field
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price X 7: X
-  index, strike_price_x_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_x_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Schedule Notice: X
+  index, strike_price_schedule_notice = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_schedule_notice.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9602,7 +9578,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_rfq_message = {}
 -- Size: Swap Future Rfq Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_rfq_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -9624,8 +9600,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_rfq_message.fields = function(buffe
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -9694,7 +9670,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_rfq_message.fields = function(buffer, 
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Requested Size: X
@@ -9730,9 +9706,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_rfq_message = {}
 -- Size: Futures Rfq Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_rfq_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.requested_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.requested_market_side.size
@@ -9749,14 +9725,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_rfq_message.fields = function(buffer, o
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
@@ -9794,12 +9770,12 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_rfq_message = {}
 -- Size: Future Options Rfq Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_rfq_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.requested_size.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.requested_market_side.size
@@ -9816,8 +9792,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_rfq_message.fields = function(bu
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -9831,8 +9807,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_rfq_message.fields = function(bu
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9870,10 +9846,10 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_rfq_message = {}
 -- Size: Option Rfq Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_rfq_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -9892,8 +9868,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_rfq_message.fields = function(buffer, of
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -9901,8 +9877,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_rfq_message.fields = function(buffer, of
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -9946,7 +9922,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_message = {}
 -- Size: Swap Future Trade Message
 tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -9975,8 +9951,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.swap_future_trade_message.fields = function(buf
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -10075,7 +10051,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.strategy_trade_message.fields = function(buffer
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_11.symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -10138,9 +10114,9 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_message = {}
 -- Size: Futures Trade Message
 tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_price.size + 
@@ -10165,14 +10141,14 @@ tmx_mx_sola_multicast_hsvf_v1_11.futures_trade_message.fields = function(buffer,
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Delivery Month: A
   index, delivery_month = tmx_mx_sola_multicast_hsvf_v1_11.delivery_month.dissect(buffer, index, packet, parent)
 
-  -- Delivery Year N 2: N
-  index, delivery_year_n_2 = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_n_2.dissect(buffer, index, packet, parent)
+  -- Delivery Year Futures: N
+  index, delivery_year_futures = tmx_mx_sola_multicast_hsvf_v1_11.delivery_year_futures.dissect(buffer, index, packet, parent)
 
   -- Delivery Day: N
   index, delivery_day = tmx_mx_sola_multicast_hsvf_v1_11.delivery_day.dissect(buffer, index, packet, parent)
@@ -10234,12 +10210,12 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_message = {}
 -- Size: Future Options Trade Message
 tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.volume.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.trade_price.size + 
@@ -10266,8 +10242,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_message.fields = function(
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol A 6: A
-  index, root_symbol_a_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_a_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Contract Month Code: A
   index, contract_month_code = tmx_mx_sola_multicast_hsvf_v1_11.contract_month_code.dissect(buffer, index, packet, parent)
@@ -10281,8 +10257,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.future_options_trade_message.fields = function(
   -- Call Put Code: A
   index, call_put_code = tmx_mx_sola_multicast_hsvf_v1_11.call_put_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -10350,10 +10326,10 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_message = {}
 -- Size: Option Trade Message
 tmx_mx_sola_multicast_hsvf_v1_11.option_trade_message.size =
   tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.filler_1.size + 
-  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_year.size + 
   tmx_mx_sola_multicast_hsvf_v1_11.expiry_day.size + 
@@ -10382,8 +10358,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_message.fields = function(buffer, 
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_11.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Root Symbol X 6: X
-  index, root_symbol_x_6 = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol_x_6.dissect(buffer, index, packet, parent)
+  -- Root Symbol: A
+  index, root_symbol = tmx_mx_sola_multicast_hsvf_v1_11.root_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Month: A
   index, expiry_month = tmx_mx_sola_multicast_hsvf_v1_11.expiry_month.dissect(buffer, index, packet, parent)
@@ -10391,8 +10367,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.option_trade_message.fields = function(buffer, 
   -- Filler 1: A
   index, filler_1 = tmx_mx_sola_multicast_hsvf_v1_11.filler_1.dissect(buffer, index, packet, parent)
 
-  -- Strike Price N 7: N
-  index, strike_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_n_7.dissect(buffer, index, packet, parent)
+  -- Strike Price Instrument: N
+  index, strike_price_instrument = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Strike Price Fraction Indicator: X
   index, strike_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_11.strike_price_fraction_indicator.dissect(buffer, index, packet, parent)

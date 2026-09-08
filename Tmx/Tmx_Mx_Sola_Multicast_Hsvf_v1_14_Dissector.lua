@@ -92,8 +92,8 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.min_price = ProtoField.new("Min Pric
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.min_price_fraction_indicator = ProtoField.new("Min Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.minpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "tmx.mx.sola.multicast.hsvf.v1.14.minimumnumberofcontractsperorder", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.minimumthresholdpricefractionindicator", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_n_7 = ProtoField.new("Minimum Threshold Price N 7", "tmx.mx.sola.multicast.hsvf.v1.14.minimumthresholdpricen7", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_x_7 = ProtoField.new("Minimum Threshold Price X 7", "tmx.mx.sola.multicast.hsvf.v1.14.minimumthresholdpricex7", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_instrument = ProtoField.new("Minimum Threshold Price Instrument", "tmx.mx.sola.multicast.hsvf.v1.14.minimumthresholdpriceinstrument", ftypes.STRING)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_strategy = ProtoField.new("Minimum Threshold Price Strategy", "tmx.mx.sola.multicast.hsvf.v1.14.minimumthresholdpricestrategy", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change = ProtoField.new("Net Change", "tmx.mx.sola.multicast.hsvf.v1.14.netchange", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.netchangefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.net_change_sign = ProtoField.new("Net Change Sign", "tmx.mx.sola.multicast.hsvf.v1.14.netchangesign", ftypes.STRING)
@@ -1516,7 +1516,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.instrument_external_code, range, value, display)
@@ -2351,20 +2351,20 @@ tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.diss
   return offset + length, value
 end
 
--- Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7 = {}
+-- Minimum Threshold Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument = {}
 
--- Size: Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size = 7
+-- Size: Minimum Threshold Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.size = 7
 
--- Display: Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.display = function(value)
-  return "Minimum Threshold Price N 7: "..value
+-- Display: Minimum Threshold Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.display = function(value)
+  return "Minimum Threshold Price Instrument: "..value
 end
 
--- Dissect: Minimum Threshold Price N 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size
+-- Dissect: Minimum Threshold Price Instrument
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2372,32 +2372,32 @@ tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.dissect = function(
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_n_7, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_instrument, range, value, display)
 
   return offset + length, value
 end
 
--- Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7 = {}
+-- Minimum Threshold Price Strategy
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy = {}
 
--- Size: Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.size = 7
+-- Size: Minimum Threshold Price Strategy
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy.size = 7
 
--- Display: Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.display = function(value)
-  return "Minimum Threshold Price X 7: "..value
+-- Display: Minimum Threshold Price Strategy
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy.display = function(value)
+  return "Minimum Threshold Price Strategy: "..value
 end
 
--- Dissect: Minimum Threshold Price X 7
-tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.size
+-- Dissect: Minimum Threshold Price Strategy
+tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_x_7, range, value, display)
+  parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.minimum_threshold_price_strategy, range, value, display)
 
   return offset + length, value
 end
@@ -3751,7 +3751,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.strategy_symbol, range, value, display)
@@ -3884,7 +3884,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_14.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_mx_sola_multicast_hsvf_v1_14.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.symbol, range, value, display)
@@ -4785,7 +4785,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14.special_text_bulletin.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Bulletin Contents X 49: X
@@ -5309,7 +5309,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_ending_message.fields = functi
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Auction Id: X
@@ -5632,7 +5632,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_initial_and_improvement_order_message.
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Auction Id: X
@@ -5801,7 +5801,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_summary_message.fields = function(buff
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Sign: X
@@ -6444,7 +6444,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_auction_beginning_message.fields = fun
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Auction Id: X
@@ -6659,7 +6659,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_keys_message.size = functio
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size
 
-  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.size
+  index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy.size
 
   index = index + tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size
 
@@ -6706,7 +6706,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_keys_message.fields = funct
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiry Year: N
@@ -6730,8 +6730,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_keys_message.fields = funct
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price X 7: X
-  index, minimum_threshold_price_x_7 = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_x_7.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Strategy: X
+  index, minimum_threshold_price_strategy = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_strategy.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6751,7 +6751,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_instrument_keys_message.fields = funct
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Strategy Allow Implied: A
@@ -6862,7 +6862,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator.size + 
@@ -6909,8 +6909,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.fields = functi
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price N 7: N
-  index, minimum_threshold_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Instrument: N
+  index, minimum_threshold_price_instrument = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -6930,7 +6930,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.futures_instrument_keys_message.fields = functi
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Contract Size: N
@@ -7007,7 +7007,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.underlying_instrument_keys_message.fields = fun
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Market Flow Indicator: X
@@ -7047,7 +7047,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator.size + 
@@ -7098,8 +7098,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.fields =
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price N 7: N
-  index, minimum_threshold_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Instrument: N
+  index, minimum_threshold_price_instrument = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7119,7 +7119,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.future_options_instrument_keys_message.fields =
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Contract Size: N
@@ -7182,7 +7182,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.size =
   tmx_mx_sola_multicast_hsvf_v1_14.minimum_number_of_contracts_per_order.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.size + 
-  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.size + 
+  tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick_increment.size + 
   tmx_mx_sola_multicast_hsvf_v1_14.tick_increment_fraction_indicator.size + 
@@ -7230,8 +7230,8 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.fields = functio
   -- Maximum Threshold Price Fraction Indicator: X
   index, maximum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.maximum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
 
-  -- Minimum Threshold Price N 7: N
-  index, minimum_threshold_price_n_7 = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_n_7.dissect(buffer, index, packet, parent)
+  -- Minimum Threshold Price Instrument: N
+  index, minimum_threshold_price_instrument = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_instrument.dissect(buffer, index, packet, parent)
 
   -- Minimum Threshold Price Fraction Indicator: X
   index, minimum_threshold_price_fraction_indicator = tmx_mx_sola_multicast_hsvf_v1_14.minimum_threshold_price_fraction_indicator.dissect(buffer, index, packet, parent)
@@ -7254,7 +7254,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.option_instrument_keys_message.fields = functio
   -- Instrument: X
   index, instrument = tmx_mx_sola_multicast_hsvf_v1_14.instrument.dissect(buffer, index, packet, parent)
 
-  -- Instrument External Code: X
+  -- Instrument External Code: x
   index, instrument_external_code = tmx_mx_sola_multicast_hsvf_v1_14.instrument_external_code.dissect(buffer, index, packet, parent)
 
   -- Option Marker: A
@@ -7328,7 +7328,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_cancellation_message.fields = fu
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
@@ -7694,7 +7694,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_market_depth_message.fields = function
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Instrument Status Marker: A
@@ -8043,7 +8043,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_quote_message.fields = function(buffer
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Bid Price Sign: X
@@ -8332,7 +8332,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.instrument_schedule_notice_strategy_message.fie
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Symbol: X
+  -- Strategy Symbol: x
   index, strategy_symbol = tmx_mx_sola_multicast_hsvf_v1_14.strategy_symbol.dissect(buffer, index, packet, parent)
 
   -- Series Status: A
@@ -8540,7 +8540,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_request_for_quote_message.fields = fun
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Requested Size: X
@@ -8756,7 +8756,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.strategy_trade_message.fields = function(buffer
   -- Exchange Id: A
   index, exchange_id = tmx_mx_sola_multicast_hsvf_v1_14.exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol: X
+  -- Symbol: x
   index, symbol = tmx_mx_sola_multicast_hsvf_v1_14.symbol.dissect(buffer, index, packet, parent)
 
   -- Volume: N
