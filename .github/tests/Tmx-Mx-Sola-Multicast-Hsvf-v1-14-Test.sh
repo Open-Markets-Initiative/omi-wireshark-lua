@@ -34,7 +34,7 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.strikepricefractionindicator" Tmx.Mx.Sola
 grep "tmx.mx.sola.multicast.hsvf.v1.14.expiryyear" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.expiryday" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.volume" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricen7" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.tradeprice" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricefractionindicator" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangesign" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.netchange" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.OptionTradeMessage.json
@@ -81,7 +81,7 @@ grep "tmx.mx.sola.multicast.hsvf.v1.14.exchangeid" Tmx.Mx.Sola.Multicast.Hsvf.v1
 grep "tmx.mx.sola.multicast.hsvf.v1.14.symbol" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.volume" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricesign" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
-grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricen7" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
+grep "tmx.mx.sola.multicast.hsvf.v1.14.tradeprice" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.tradepricefractionindicator" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.netchangesign" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
 grep "tmx.mx.sola.multicast.hsvf.v1.14.netchange" Tmx.Mx.Sola.Multicast.Hsvf.v1.14.StrategyTradeMessage.json
