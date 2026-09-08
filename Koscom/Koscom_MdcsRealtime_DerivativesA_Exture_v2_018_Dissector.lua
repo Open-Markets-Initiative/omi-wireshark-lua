@@ -117,8 +117,8 @@ omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.board_event_processing
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.board_id = ProtoField.new("Board Id", "koscom.mdcsrealtime.derivativesa.exture.v2.018.boardid", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.business_date = ProtoField.new("Business Date", "koscom.mdcsrealtime.derivativesa.exture.v2.018.businessdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.derivativesa.exture.v2.018.calculatingdate", ftypes.STRING)
-omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_string_6 = ProtoField.new("Calculation Time String 6", "koscom.mdcsrealtime.derivativesa.exture.v2.018.calculationtimestring6", ftypes.STRING)
-omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_string_9 = ProtoField.new("Calculation Time String 9", "koscom.mdcsrealtime.derivativesa.exture.v2.018.calculationtimestring9", ftypes.STRING)
+omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_activities = ProtoField.new("Calculation Time Activities", "koscom.mdcsrealtime.derivativesa.exture.v2.018.calculationtimeactivities", ftypes.STRING)
+omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_sensitivity = ProtoField.new("Calculation Time Sensitivity", "koscom.mdcsrealtime.derivativesa.exture.v2.018.calculationtimesensitivity", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.call_averaged_implied_volatility = ProtoField.new("Call Averaged Implied Volatility", "koscom.mdcsrealtime.derivativesa.exture.v2.018.callaveragedimpliedvolatility", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.derivativesa.exture.v2.018.closingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.closing_price_of_underlying_asset = ProtoField.new("Closing Price Of Underlying Asset", "koscom.mdcsrealtime.derivativesa.exture.v2.018.closingpriceofunderlyingasset", ftypes.STRING)
@@ -3261,52 +3261,52 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.calculating_date.dissect = functi
   return offset + length, value
 end
 
--- Calculation Time String 6
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6 = {}
+-- Calculation Time Activities
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities = {}
 
--- Size: Calculation Time String 6
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6.size = 6
+-- Size: Calculation Time Activities
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities.size = 6
 
--- Display: Calculation Time String 6
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6.display = function(value)
+-- Display: Calculation Time Activities
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities.display = function(value)
   if #value < 6 then
-    return "Calculation Time String 6: "..value
+    return "Calculation Time Activities: "..value
   end
 
-  return "Calculation Time String 6: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Calculation Time Activities: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
--- Dissect: Calculation Time String 6
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6.size
+-- Dissect: Calculation Time Activities
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_string_6, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_activities, range, value, display)
 
   return offset + length, value
 end
 
--- Calculation Time String 9
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9 = {}
+-- Calculation Time Sensitivity
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity = {}
 
--- Size: Calculation Time String 9
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9.size = 9
+-- Size: Calculation Time Sensitivity
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity.size = 9
 
--- Display: Calculation Time String 9
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9.display = function(value)
-  return "Calculation Time String 9: "..value
+-- Display: Calculation Time Sensitivity
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity.display = function(value)
+  return "Calculation Time Sensitivity: "..value
 end
 
--- Dissect: Calculation Time String 9
-koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9.size
+-- Dissect: Calculation Time Sensitivity
+koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_derivativesa_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_string_9, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_derivativesa_exture_v2_018.fields.calculation_time_sensitivity, range, value, display)
 
   return offset + length, value
 end
@@ -9953,7 +9953,7 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.options_sensitivity_message.size 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.a_designated_number_for_an_issue.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.calculating_date.size + 
-  koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9.size + 
+  koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.implied_volatility_type_code.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.underlying_asset_id.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.sensitivity_delta.size + 
@@ -9981,8 +9981,8 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.options_sensitivity_message.field
   -- Calculating Date: String
   index, calculating_date = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculating_date.dissect(buffer, index, packet, parent)
 
-  -- Calculation Time String 9: String
-  index, calculation_time_string_9 = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_9.dissect(buffer, index, packet, parent)
+  -- Calculation Time Sensitivity: String
+  index, calculation_time_sensitivity = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_sensitivity.dissect(buffer, index, packet, parent)
 
   -- Implied Volatility Type Code: String
   index, implied_volatility_type_code = koscom_mdcsrealtime_derivativesa_exture_v2_018.implied_volatility_type_code.dissect(buffer, index, packet, parent)
@@ -10279,7 +10279,7 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.derivatives_investor_activities_m
 -- Size: Derivatives Investor Activities Message
 koscom_mdcsrealtime_derivativesa_exture_v2_018.derivatives_investor_activities_message.size =
   koscom_mdcsrealtime_derivativesa_exture_v2_018.date.size + 
-  koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6.size + 
+  koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.transaction_status_type_code.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.product_id.size + 
   koscom_mdcsrealtime_derivativesa_exture_v2_018.futures_options_type_code.size + 
@@ -10306,8 +10306,8 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.derivatives_investor_activities_m
   -- Date: String
   index, date = koscom_mdcsrealtime_derivativesa_exture_v2_018.date.dissect(buffer, index, packet, parent)
 
-  -- Calculation Time String 6: String
-  index, calculation_time_string_6 = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_string_6.dissect(buffer, index, packet, parent)
+  -- Calculation Time Activities: String
+  index, calculation_time_activities = koscom_mdcsrealtime_derivativesa_exture_v2_018.calculation_time_activities.dissect(buffer, index, packet, parent)
 
   -- Transaction Status Type Code: String
   index, transaction_status_type_code = koscom_mdcsrealtime_derivativesa_exture_v2_018.transaction_status_type_code.dissect(buffer, index, packet, parent)

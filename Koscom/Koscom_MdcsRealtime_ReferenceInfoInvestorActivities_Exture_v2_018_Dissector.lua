@@ -45,13 +45,13 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.buy
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.calculatingdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.calculating_time = ProtoField.new("Calculating Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.calculatingtime", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.calculation_time = ProtoField.new("Calculation Time", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.calculationtime", ftypes.STRING)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_re_investment_index_double_11 = ProtoField.new("Call Re Investment Index Double 11", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.callreinvestmentindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_re_investment_index_float_12816 = ProtoField.new("Call Re Investment Index Float 12816", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.callreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_re_investment_index_weight = ProtoField.new("Call Re Investment Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.callreinvestmentindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_reinvestment_index_krx = ProtoField.new("Call Re-Investment Index Krx", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.callreinvestmentindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_reinvestment_index_ktb = ProtoField.new("Call Re-Investment Index Ktb", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.callreinvestmentindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.cash_inflow = ProtoField.new("Cash Inflow", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.cashinflow", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price = ProtoField.new("Clean Price", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.cleanprice", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_double_11 = ProtoField.new("Clean Price Index Double 11", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.cleanpriceindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_float_12816 = ProtoField.new("Clean Price Index Float 12816", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.cleanpriceindexfloat12816", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_krx = ProtoField.new("Clean Price Index Krx", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.cleanpriceindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_ktb = ProtoField.new("Clean Price Index Ktb", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.cleanpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.cleanpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.convexity = ProtoField.new("Convexity", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.convexity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.covered_short_selling_trading_value = ProtoField.new("Covered Short Selling Trading Value", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.coveredshortsellingtradingvalue", ftypes.DOUBLE)
@@ -76,8 +76,8 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.isi
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.issuedamount", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.issuedamountweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.marketcapitalizationweight", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_double_11 = ProtoField.new("Market Price Index Double 11", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.marketpriceindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_float_12816 = ProtoField.new("Market Price Index Float 12816", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.marketpriceindexfloat12816", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_krx = ProtoField.new("Market Price Index Krx", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.marketpriceindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.marketpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.maturitycode", ftypes.STRING)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.message_code = ProtoField.new("Message Code", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.messagecode", ftypes.STRING)
@@ -100,9 +100,9 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.wei
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.weight_of_clean_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Clean Index Value For Integrity Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.weightofcleanindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.weight_of_sum_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Sum Index Value For Integrity Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.weightofsumindexvalueforintegrityindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.weight_of_zero_re_investment_index_value_for_integrity_index_weight = ProtoField.new("Weight Of Zero Re Investment Index Value For Integrity Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.weightofzeroreinvestmentindexvalueforintegrityindexweight", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_re_investment_index_double_11 = ProtoField.new("Zero Re Investment Index Double 11", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.zeroreinvestmentindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.zeroreinvestmentindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_reinvestment_index_krx = ProtoField.new("Zero Re-Investment Index Krx", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.zeroreinvestmentindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_reinvestment_index_ktb = ProtoField.new("Zero Re-Investment Index Ktb", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.zeroreinvestmentindexktb", ftypes.DOUBLE)
 
 -- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.018 Headers
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.packet", ftypes.STRING)
@@ -1233,98 +1233,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.calculation_ti
   return offset + length, value
 end
 
--- Call Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11 = {}
-
--- Size: Call Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.size = 11
-
--- Display: Call Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Call Re Investment Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Call Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Call Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_re_investment_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Call Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816 = {}
-
--- Size: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.size = 16
-
--- Display: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Call Re Investment Index Float 12816: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
-  end
-
-  return "Call Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
-end
-
--- Dissect: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_re_investment_index_float_12816, range, value, display)
-
-  return offset + length, value
-end
-
 -- Call Re Investment Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_weight = {}
 
@@ -1367,6 +1275,98 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_invest
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_weight.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_re_investment_index_weight, range, value, display)
+
+  return offset + length, value
+end
+
+-- Call Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx = {}
+
+-- Size: Call Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.size = 16
+
+-- Display: Call Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re-Investment Index Krx: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Call Re-Investment Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+end
+
+-- Dissect: Call Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_reinvestment_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Call Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb = {}
+
+-- Size: Call Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.size = 11
+
+-- Display: Call Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re-Investment Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Call Re-Investment Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Call Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.call_reinvestment_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -1463,15 +1463,15 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price.di
   return offset + length, value
 end
 
--- Clean Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11 = {}
+-- Clean Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx = {}
 
--- Size: Clean Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.size = 11
+-- Size: Clean Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.size = 16
 
--- Display: Clean Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+-- Display: Clean Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -1480,53 +1480,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_in
   end
 
   if not digits:match("^%d+$") then
-    return "Clean Price Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Clean Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Clean Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Clean Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816 = {}
-
--- Size: Clean Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.size = 16
-
--- Display: Clean Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Clean Price Index Float 12816: "..tostring(value)
+    return "Clean Price Index Krx: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -1535,12 +1489,12 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_in
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Clean Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Clean Price Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Clean Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.size
+-- Dissect: Clean Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1548,9 +1502,55 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_in
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_float_12816, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clean Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb = {}
+
+-- Size: Clean Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.size = 11
+
+-- Display: Clean Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Clean Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.clean_price_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -2387,15 +2387,15 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_capital
   return offset + length, value
 end
 
--- Market Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11 = {}
+-- Market Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx = {}
 
--- Size: Market Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.size = 11
+-- Size: Market Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.size = 16
 
--- Display: Market Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+-- Display: Market Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -2404,53 +2404,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_i
   end
 
   if not digits:match("^%d+$") then
-    return "Market Price Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Market Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Market Price Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816 = {}
-
--- Size: Market Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.size = 16
-
--- Display: Market Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Market Price Index Float 12816: "..tostring(value)
+    return "Market Price Index Krx: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -2459,12 +2413,12 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_i
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Market Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Market Price Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Market Price Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.size
+-- Dissect: Market Price Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2472,9 +2426,55 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_i
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_float_12816, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb = {}
+
+-- Size: Market Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.size = 11
+
+-- Display: Market Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Market Price Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.market_price_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -3382,98 +3382,6 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.weight_of_zero
   return offset + length, value
 end
 
--- Zero Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11 = {}
-
--- Size: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.size = 11
-
--- Display: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Zero Re Investment Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Zero Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_re_investment_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816 = {}
-
--- Size: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.size = 16
-
--- Display: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Zero Re Investment Index Float 12816: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
-  end
-
-  return "Zero Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
-end
-
--- Dissect: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_re_investment_index_float_12816, range, value, display)
-
-  return offset + length, value
-end
-
 -- Zero Re Investment Index Weight
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_weight = {}
 
@@ -3516,6 +3424,98 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_invest
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_weight.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_re_investment_index_weight, range, value, display)
+
+  return offset + length, value
+end
+
+-- Zero Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx = {}
+
+-- Size: Zero Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.size = 16
+
+-- Display: Zero Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re-Investment Index Krx: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Zero Re-Investment Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+end
+
+-- Dissect: Zero Re-Investment Index Krx
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_reinvestment_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb = {}
+
+-- Size: Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.size = 11
+
+-- Display: Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re-Investment Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Zero Re-Investment Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_reinvestment_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -3941,11 +3941,11 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_index_krx
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.message_sequence_number.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.calculating_date.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_id.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_weight.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index_weight.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_weight.size + 
@@ -3991,20 +3991,20 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_index_krx
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_id.dissect(buffer, index, packet, parent)
 
-  -- Clean Price Index Float 12816: FLOAT128
-  index, clean_price_index_float_12816 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Clean Price Index Krx: FLOAT128
+  index, clean_price_index_krx = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.dissect(buffer, index, packet, parent)
 
   -- Total Earnings Index: FLOAT128
   index, total_earnings_index = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index.dissect(buffer, index, packet, parent)
 
-  -- Market Price Index Float 12816: FLOAT128
-  index, market_price_index_float_12816 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Market Price Index Krx: FLOAT128
+  index, market_price_index_krx = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_krx.dissect(buffer, index, packet, parent)
 
-  -- Zero Re Investment Index Float 12816: FLOAT128
-  index, zero_re_investment_index_float_12816 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Zero Re-Investment Index Krx: FLOAT128
+  index, zero_reinvestment_index_krx = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_krx.dissect(buffer, index, packet, parent)
 
-  -- Call Re Investment Index Float 12816: FLOAT128
-  index, call_re_investment_index_float_12816 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Call Re-Investment Index Krx: FLOAT128
+  index, call_reinvestment_index_krx = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_krx.dissect(buffer, index, packet, parent)
 
   -- Clean Price Index Weight: FLOAT128
   index, clean_price_index_weight = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_weight.dissect(buffer, index, packet, parent)
@@ -4186,10 +4186,10 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_ktb_index
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.base_date.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.base_time.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_profit_index.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.futures_basis_price.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.duration.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.convexity.size + 
@@ -4218,17 +4218,17 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_ktb_index
   -- Total Profit Index: Double
   index, total_profit_index = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_profit_index.dissect(buffer, index, packet, parent)
 
-  -- Clean Price Index Double 11: Double
-  index, clean_price_index_double_11 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_double_11.dissect(buffer, index, packet, parent)
+  -- Clean Price Index Ktb: Double
+  index, clean_price_index_ktb = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_ktb.dissect(buffer, index, packet, parent)
 
-  -- Market Price Index Double 11: Double
-  index, market_price_index_double_11 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_double_11.dissect(buffer, index, packet, parent)
+  -- Market Price Index Ktb: Double
+  index, market_price_index_ktb = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.market_price_index_ktb.dissect(buffer, index, packet, parent)
 
-  -- Call Re Investment Index Double 11: Double
-  index, call_re_investment_index_double_11 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_re_investment_index_double_11.dissect(buffer, index, packet, parent)
+  -- Call Re-Investment Index Ktb: Double
+  index, call_reinvestment_index_ktb = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.call_reinvestment_index_ktb.dissect(buffer, index, packet, parent)
 
-  -- Zero Re Investment Index Double 11: Double
-  index, zero_re_investment_index_double_11 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_re_investment_index_double_11.dissect(buffer, index, packet, parent)
+  -- Zero Re-Investment Index Ktb: Double
+  index, zero_reinvestment_index_ktb = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.zero_reinvestment_index_ktb.dissect(buffer, index, packet, parent)
 
   -- Futures Basis Price: Double
   index, futures_basis_price = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.futures_basis_price.dissect(buffer, index, packet, parent)
@@ -4278,7 +4278,7 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_prime_ind
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.calculating_time.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.group_code.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.maturity_code.size + 
-  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.size + 
+  koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_weight.size + 
   koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index_weight.size + 
@@ -4311,8 +4311,8 @@ koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_prime_ind
   -- Maturity Code: String
   index, maturity_code = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.maturity_code.dissect(buffer, index, packet, parent)
 
-  -- Clean Price Index Float 12816: FLOAT128
-  index, clean_price_index_float_12816 = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Clean Price Index Krx: FLOAT128
+  index, clean_price_index_krx = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.clean_price_index_krx.dissect(buffer, index, packet, parent)
 
   -- Total Earnings Index: FLOAT128
   index, total_earnings_index = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.total_earnings_index.dissect(buffer, index, packet, parent)

@@ -152,9 +152,9 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.business_date = ProtoField.ne
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.bonda.exture.v2.018.calculatingdate", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculating_time = ProtoField.new("Calculating Time", "koscom.mdcsrealtime.bonda.exture.v2.018.calculatingtime", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time = ProtoField.new("Calculation Time", "koscom.mdcsrealtime.bonda.exture.v2.018.calculationtime", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_double_11 = ProtoField.new("Call Re Investment Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_float_12816 = ProtoField.new("Call Re Investment Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_weight = ProtoField.new("Call Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_reinvestment_index_krx = ProtoField.new("Call Re-Investment Index Krx", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_reinvestment_index_ktb = ProtoField.new("Call Re-Investment Index Ktb", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.cancellation = ProtoField.new("Cancellation", "koscom.mdcsrealtime.bonda.exture.v2.018.cancellation", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.cash_inflow = ProtoField.new("Cash Inflow", "koscom.mdcsrealtime.bonda.exture.v2.018.cashinflow", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.category_accumulated_trading_value = ProtoField.new("Category Accumulated Trading Value", "koscom.mdcsrealtime.bonda.exture.v2.018.categoryaccumulatedtradingvalue", ftypes.DOUBLE)
@@ -163,8 +163,8 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.category_opening_price = Prot
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.category_todays_high = ProtoField.new("Category Todays High", "koscom.mdcsrealtime.bonda.exture.v2.018.categorytodayshigh", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.category_todays_low = ProtoField.new("Category Todays Low", "koscom.mdcsrealtime.bonda.exture.v2.018.categorytodayslow", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price = ProtoField.new("Clean Price", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanprice", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_double_11 = ProtoField.new("Clean Price Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_float_12816 = ProtoField.new("Clean Price Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexfloat12816", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_krx = ProtoField.new("Clean Price Index Krx", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_ktb = ProtoField.new("Clean Price Index Ktb", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.cleanpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.bonda.exture.v2.018.closingprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.closingpricetypecode", ftypes.STRING)
@@ -178,8 +178,8 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.convexity = ProtoField.new("C
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.corporate_bonds_related_to_securities_exercise_price = ProtoField.new("Corporate Bonds Related To Securities Exercise Price", "koscom.mdcsrealtime.bonda.exture.v2.018.corporatebondsrelatedtosecuritiesexerciseprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_date_type_code = ProtoField.new("Coupon Payment Date Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.couponpaymentdatetypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_decision_code_for_bank_holidays = ProtoField.new("Coupon Payment Decision Code For Bank Holidays", "koscom.mdcsrealtime.bonda.exture.v2.018.couponpaymentdecisioncodeforbankholidays", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_type_code_string_1 = ProtoField.new("Coupon Payment Type Code String 1", "koscom.mdcsrealtime.bonda.exture.v2.018.couponpaymenttypecodestring1", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_type_code_string_2 = ProtoField.new("Coupon Payment Type Code String 2", "koscom.mdcsrealtime.bonda.exture.v2.018.couponpaymenttypecodestring2", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_timing_code = ProtoField.new("Coupon Payment Timing Code", "koscom.mdcsrealtime.bonda.exture.v2.018.couponpaymenttimingcode", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_type_code = ProtoField.new("Coupon Payment Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.couponpaymenttypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_rate = ProtoField.new("Coupon Rate", "koscom.mdcsrealtime.bonda.exture.v2.018.couponrate", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_rate_confirmation = ProtoField.new("Coupon Rate Confirmation", "koscom.mdcsrealtime.bonda.exture.v2.018.couponrateconfirmation", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_rate_decision_base_rate_type_code = ProtoField.new("Coupon Rate Decision Base Rate Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.couponratedecisionbaseratetypecode", ftypes.STRING)
@@ -291,8 +291,8 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.lower_limit_coupon_rate = Pro
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maintenance_fund = ProtoField.new("Maintenance Fund", "koscom.mdcsrealtime.bonda.exture.v2.018.maintenancefund", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_capitalization_weight = ProtoField.new("Market Capitalization Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.marketcapitalizationweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_operation_product_id = ProtoField.new("Market Operation Product Id", "koscom.mdcsrealtime.bonda.exture.v2.018.marketoperationproductid", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_double_11 = ProtoField.new("Market Price Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_float_12816 = ProtoField.new("Market Price Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexfloat12816", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_krx = ProtoField.new("Market Price Index Krx", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_ktb = ProtoField.new("Market Price Index Ktb", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexktb", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_weight = ProtoField.new("Market Price Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.marketpriceindexweight", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_value = ProtoField.new("Market Value", "koscom.mdcsrealtime.bonda.exture.v2.018.marketvalue", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maturity_code = ProtoField.new("Maturity Code", "koscom.mdcsrealtime.bonda.exture.v2.018.maturitycode", ftypes.STRING)
@@ -422,9 +422,9 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_opening_price = ProtoFi
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_to_maturity = ProtoField.new("Yield To Maturity", "koscom.mdcsrealtime.bonda.exture.v2.018.yieldtomaturity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_todays_high = ProtoField.new("Yield Todays High", "koscom.mdcsrealtime.bonda.exture.v2.018.yieldtodayshigh", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.yield_todays_low = ProtoField.new("Yield Todays Low", "koscom.mdcsrealtime.bonda.exture.v2.018.yieldtodayslow", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_double_11 = ProtoField.new("Zero Re Investment Index Double 11", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexdouble11", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_float_12816 = ProtoField.new("Zero Re Investment Index Float 12816", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexfloat12816", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_weight = ProtoField.new("Zero Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexweight", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_reinvestment_index_krx = ProtoField.new("Zero Re-Investment Index Krx", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexkrx", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_reinvestment_index_ktb = ProtoField.new("Zero Re-Investment Index Ktb", "koscom.mdcsrealtime.bonda.exture.v2.018.zeroreinvestmentindexktb", ftypes.DOUBLE)
 
 -- Koscom MdcsRealtime BondA Exture 2.018 Headers
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.bonda.exture.v2.018.packet", ftypes.STRING)
@@ -5114,98 +5114,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect = function(buff
   return offset + length, value
 end
 
--- Call Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11 = {}
-
--- Size: Call Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.size = 11
-
--- Display: Call Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Call Re Investment Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Call Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Call Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Call Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816 = {}
-
--- Size: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.size = 16
-
--- Display: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Call Re Investment Index Float 12816: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
-  end
-
-  return "Call Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
-end
-
--- Dissect: Call Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_float_12816, range, value, display)
-
-  return offset + length, value
-end
-
 -- Call Re Investment Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight = {}
 
@@ -5248,6 +5156,98 @@ koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.dissect 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_weight.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_weight, range, value, display)
+
+  return offset + length, value
+end
+
+-- Call Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx = {}
+
+-- Size: Call Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size = 16
+
+-- Display: Call Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re-Investment Index Krx: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Call Re-Investment Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+end
+
+-- Dissect: Call Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_reinvestment_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Call Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb = {}
+
+-- Size: Call Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size = 11
+
+-- Display: Call Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Call Re-Investment Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Call Re-Investment Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Call Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_reinvestment_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -5525,15 +5525,15 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Clean Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11 = {}
+-- Clean Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx = {}
 
--- Size: Clean Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.size = 11
+-- Size: Clean Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size = 16
 
--- Display: Clean Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+-- Display: Clean Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -5542,53 +5542,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.display = fu
   end
 
   if not digits:match("^%d+$") then
-    return "Clean Price Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Clean Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Clean Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Clean Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816 = {}
-
--- Size: Clean Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.size = 16
-
--- Display: Clean Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Clean Price Index Float 12816: "..tostring(value)
+    return "Clean Price Index Krx: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -5597,12 +5551,12 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.display = 
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Clean Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Clean Price Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Clean Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.size
+-- Dissect: Clean Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -5610,9 +5564,55 @@ koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.dissect = 
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_float_12816, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clean Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb = {}
+
+-- Size: Clean Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size = 11
+
+-- Display: Clean Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Clean Price Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Clean Price Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Clean Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.clean_price_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -6041,48 +6041,48 @@ koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_decision_code_for_bank_ho
   return offset + length, value
 end
 
--- Coupon Payment Type Code String 1
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1 = {}
+-- Coupon Payment Timing Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code = {}
 
--- Size: Coupon Payment Type Code String 1
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.size = 1
+-- Size: Coupon Payment Timing Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.size = 1
 
--- Display: Coupon Payment Type Code String 1
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.display = function(value)
-  return "Coupon Payment Type Code String 1: "..value
+-- Display: Coupon Payment Timing Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.display = function(value)
+  return "Coupon Payment Timing Code: "..value
 end
 
--- Dissect: Coupon Payment Type Code String 1
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.size
+-- Dissect: Coupon Payment Timing Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_type_code_string_1, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_timing_code, range, value, display)
 
   return offset + length, value
 end
 
--- Coupon Payment Type Code String 2
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2 = {}
+-- Coupon Payment Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code = {}
 
--- Size: Coupon Payment Type Code String 2
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.size = 2
+-- Size: Coupon Payment Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size = 2
 
--- Display: Coupon Payment Type Code String 2
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.display = function(value)
-  return "Coupon Payment Type Code String 2: "..value
+-- Display: Coupon Payment Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.display = function(value)
+  return "Coupon Payment Type Code: "..value
 end
 
--- Dissect: Coupon Payment Type Code String 2
-koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.size
+-- Dissect: Coupon Payment Type Code
+koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_type_code_string_2, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_type_code, range, value, display)
 
   return offset + length, value
 end
@@ -9209,15 +9209,15 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_operation_product_id.dissect = fu
   return offset + length, value
 end
 
--- Market Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11 = {}
+-- Market Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx = {}
 
--- Size: Market Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.size = 11
+-- Size: Market Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size = 16
 
--- Display: Market Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.size):string():match("^%s*(.-)%s*$")
+-- Display: Market Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -9226,53 +9226,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.display = f
   end
 
   if not digits:match("^%d+$") then
-    return "Market Price Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Market Price Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Market Price Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Market Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816 = {}
-
--- Size: Market Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.size = 16
-
--- Display: Market Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Market Price Index Float 12816: "..tostring(value)
+    return "Market Price Index Krx: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -9281,12 +9235,12 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.display =
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Market Price Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Market Price Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Market Price Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.size
+-- Dissect: Market Price Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -9294,9 +9248,55 @@ koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.dissect =
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_float_12816, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb = {}
+
+-- Size: Market Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size = 11
+
+-- Display: Market Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Market Price Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Market Price Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Market Price Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_price_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -13517,98 +13517,6 @@ koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.dissect = function(buff
   return offset + length, value
 end
 
--- Zero Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11 = {}
-
--- Size: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.size = 11
-
--- Display: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Zero Re Investment Index Double 11: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 4 then
-    digits = string.rep("0", 4 - #digits + 1)..digits
-  end
-
-  return "Zero Re Investment Index Double 11: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
-end
-
--- Dissect: Zero Re Investment Index Double 11
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_double_11, range, value, display)
-
-  return offset + length, value
-end
-
--- Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816 = {}
-
--- Size: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.size = 16
-
--- Display: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Zero Re Investment Index Float 12816: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 6 then
-    digits = string.rep("0", 6 - #digits + 1)..digits
-  end
-
-  return "Zero Re Investment Index Float 12816: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
-end
-
--- Dissect: Zero Re Investment Index Float 12816
-koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_float_12816, range, value, display)
-
-  return offset + length, value
-end
-
 -- Zero Re Investment Index Weight
 koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight = {}
 
@@ -13651,6 +13559,98 @@ koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.dissect 
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_weight.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_re_investment_index_weight, range, value, display)
+
+  return offset + length, value
+end
+
+-- Zero Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx = {}
+
+-- Size: Zero Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size = 16
+
+-- Display: Zero Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re-Investment Index Krx: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 6 then
+    digits = string.rep("0", 6 - #digits + 1)..digits
+  end
+
+  return "Zero Re-Investment Index Krx: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+end
+
+-- Dissect: Zero Re-Investment Index Krx
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_reinvestment_index_krx, range, value, display)
+
+  return offset + length, value
+end
+
+-- Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb = {}
+
+-- Size: Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size = 11
+
+-- Display: Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Zero Re-Investment Index Ktb: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 4 then
+    digits = string.rep("0", 4 - #digits + 1)..digits
+  end
+
+  return "Zero Re-Investment Index Ktb: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+end
+
+-- Dissect: Zero Re-Investment Index Ktb
+koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.zero_reinvestment_index_ktb, range, value, display)
 
   return offset + length, value
 end
@@ -15534,7 +15534,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_rate_for_payment.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.other_types_of_bond.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.risk_bond_redemption_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.securitization_type_code.size + 
@@ -15547,7 +15547,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.monthly_cycle_of_coupon_payment.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_date_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.decimal_point_of_coupon_type_code.size + 
@@ -15690,8 +15690,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Optionembedded Type Code: String
   index, optionembedded_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.optionembedded_type_code.dissect(buffer, index, packet, parent)
 
-  -- Coupon Payment Type Code String 2: String
-  index, coupon_payment_type_code_string_2 = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.dissect(buffer, index, packet, parent)
+  -- Coupon Payment Type Code: String
+  index, coupon_payment_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.dissect(buffer, index, packet, parent)
 
   -- Risk Bond Redemption Type Code: String
   index, risk_bond_redemption_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.risk_bond_redemption_type_code.dissect(buffer, index, packet, parent)
@@ -15729,8 +15729,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Monthly Cycle Of Coupon Payment: Int
   index, monthly_cycle_of_coupon_payment = koscom_mdcsrealtime_bonda_exture_v2_018.monthly_cycle_of_coupon_payment.dissect(buffer, index, packet, parent)
 
-  -- Coupon Payment Type Code String 1: String
-  index, coupon_payment_type_code_string_1 = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.dissect(buffer, index, packet, parent)
+  -- Coupon Payment Timing Code: String
+  index, coupon_payment_timing_code = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.dissect(buffer, index, packet, parent)
 
   -- Interest Payment: String
   index, interest_payment = koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.dissect(buffer, index, packet, parent)
@@ -16731,10 +16731,10 @@ koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_reference_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.issue_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.redemption_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.listing_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.number_of_months_for_grace.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.number_of_amortization.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.size + 
@@ -16779,8 +16779,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_reference_message.fields
   -- Listing Date: String
   index, listing_date = koscom_mdcsrealtime_bonda_exture_v2_018.listing_date.dissect(buffer, index, packet, parent)
 
-  -- Coupon Payment Type Code String 2: String
-  index, coupon_payment_type_code_string_2 = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.dissect(buffer, index, packet, parent)
+  -- Coupon Payment Type Code: String
+  index, coupon_payment_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.dissect(buffer, index, packet, parent)
 
   -- Issuing Amount: FLOAT128
   index, issuing_amount = koscom_mdcsrealtime_bonda_exture_v2_018.issuing_amount.dissect(buffer, index, packet, parent)
@@ -16788,8 +16788,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.corporate_bonds_reference_message.fields
   -- Listed Amount: FLOAT128
   index, listed_amount = koscom_mdcsrealtime_bonda_exture_v2_018.listed_amount.dissect(buffer, index, packet, parent)
 
-  -- Coupon Payment Type Code String 1: String
-  index, coupon_payment_type_code_string_1 = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.dissect(buffer, index, packet, parent)
+  -- Coupon Payment Timing Code: String
+  index, coupon_payment_timing_code = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.dissect(buffer, index, packet, parent)
 
   -- Number Of Months For Grace: Int
   index, number_of_months_for_grace = koscom_mdcsrealtime_bonda_exture_v2_018.number_of_months_for_grace.dissect(buffer, index, packet, parent)
@@ -17013,7 +17013,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_batch_data_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_listing_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_category_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.listing_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.issue_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.redemption_date.size + 
@@ -17021,7 +17021,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_batch_data_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_rate.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.monthly_cycle_of_coupon_payment.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_date_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.decimal_point_of_coupon_type_code.size + 
@@ -17087,8 +17087,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_batch_data_message.fields = functi
   -- Bond Guaranteed Type Code: String
   index, bond_guaranteed_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.bond_guaranteed_type_code.dissect(buffer, index, packet, parent)
 
-  -- Coupon Payment Type Code String 2: String
-  index, coupon_payment_type_code_string_2 = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_2.dissect(buffer, index, packet, parent)
+  -- Coupon Payment Type Code: String
+  index, coupon_payment_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.dissect(buffer, index, packet, parent)
 
   -- Listing Date: String
   index, listing_date = koscom_mdcsrealtime_bonda_exture_v2_018.listing_date.dissect(buffer, index, packet, parent)
@@ -17111,8 +17111,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_batch_data_message.fields = functi
   -- Monthly Cycle Of Coupon Payment: Int
   index, monthly_cycle_of_coupon_payment = koscom_mdcsrealtime_bonda_exture_v2_018.monthly_cycle_of_coupon_payment.dissect(buffer, index, packet, parent)
 
-  -- Coupon Payment Type Code String 1: String
-  index, coupon_payment_type_code_string_1 = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code_string_1.dissect(buffer, index, packet, parent)
+  -- Coupon Payment Timing Code: String
+  index, coupon_payment_timing_code = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_timing_code.dissect(buffer, index, packet, parent)
 
   -- Interest Payment: String
   index, interest_payment = koscom_mdcsrealtime_bonda_exture_v2_018.interest_payment.dissect(buffer, index, packet, parent)
@@ -18168,11 +18168,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_index_krx_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.message_sequence_number.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.calculating_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_id.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_weight.size + 
@@ -18218,20 +18218,20 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_index_krx_message.fields = function
   -- Index Id: String
   index, index_id = koscom_mdcsrealtime_bonda_exture_v2_018.index_id.dissect(buffer, index, packet, parent)
 
-  -- Clean Price Index Float 12816: FLOAT128
-  index, clean_price_index_float_12816 = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Clean Price Index Krx: FLOAT128
+  index, clean_price_index_krx = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.dissect(buffer, index, packet, parent)
 
   -- Total Earnings Index: FLOAT128
   index, total_earnings_index = koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.dissect(buffer, index, packet, parent)
 
-  -- Market Price Index Float 12816: FLOAT128
-  index, market_price_index_float_12816 = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Market Price Index Krx: FLOAT128
+  index, market_price_index_krx = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_krx.dissect(buffer, index, packet, parent)
 
-  -- Zero Re Investment Index Float 12816: FLOAT128
-  index, zero_re_investment_index_float_12816 = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Zero Re-Investment Index Krx: FLOAT128
+  index, zero_reinvestment_index_krx = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_krx.dissect(buffer, index, packet, parent)
 
-  -- Call Re Investment Index Float 12816: FLOAT128
-  index, call_re_investment_index_float_12816 = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Call Re-Investment Index Krx: FLOAT128
+  index, call_reinvestment_index_krx = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_krx.dissect(buffer, index, packet, parent)
 
   -- Clean Price Index Weight: FLOAT128
   index, clean_price_index_weight = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.dissect(buffer, index, packet, parent)
@@ -18413,10 +18413,10 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_ktb_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.base_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.base_time.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.duration.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.convexity.size + 
@@ -18445,17 +18445,17 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_ktb_index_message.fields = function
   -- Total Profit Index: Double
   index, total_profit_index = koscom_mdcsrealtime_bonda_exture_v2_018.total_profit_index.dissect(buffer, index, packet, parent)
 
-  -- Clean Price Index Double 11: Double
-  index, clean_price_index_double_11 = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_double_11.dissect(buffer, index, packet, parent)
+  -- Clean Price Index Ktb: Double
+  index, clean_price_index_ktb = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_ktb.dissect(buffer, index, packet, parent)
 
-  -- Market Price Index Double 11: Double
-  index, market_price_index_double_11 = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_double_11.dissect(buffer, index, packet, parent)
+  -- Market Price Index Ktb: Double
+  index, market_price_index_ktb = koscom_mdcsrealtime_bonda_exture_v2_018.market_price_index_ktb.dissect(buffer, index, packet, parent)
 
-  -- Call Re Investment Index Double 11: Double
-  index, call_re_investment_index_double_11 = koscom_mdcsrealtime_bonda_exture_v2_018.call_re_investment_index_double_11.dissect(buffer, index, packet, parent)
+  -- Call Re-Investment Index Ktb: Double
+  index, call_reinvestment_index_ktb = koscom_mdcsrealtime_bonda_exture_v2_018.call_reinvestment_index_ktb.dissect(buffer, index, packet, parent)
 
-  -- Zero Re Investment Index Double 11: Double
-  index, zero_re_investment_index_double_11 = koscom_mdcsrealtime_bonda_exture_v2_018.zero_re_investment_index_double_11.dissect(buffer, index, packet, parent)
+  -- Zero Re-Investment Index Ktb: Double
+  index, zero_reinvestment_index_ktb = koscom_mdcsrealtime_bonda_exture_v2_018.zero_reinvestment_index_ktb.dissect(buffer, index, packet, parent)
 
   -- Futures Basis Price: Double
   index, futures_basis_price = koscom_mdcsrealtime_bonda_exture_v2_018.futures_basis_price.dissect(buffer, index, packet, parent)
@@ -18505,7 +18505,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_prime_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.calculating_time.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.group_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.maturity_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_weight.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index_weight.size + 
@@ -18538,8 +18538,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_prime_index_message.fields = functi
   -- Maturity Code: String
   index, maturity_code = koscom_mdcsrealtime_bonda_exture_v2_018.maturity_code.dissect(buffer, index, packet, parent)
 
-  -- Clean Price Index Float 12816: FLOAT128
-  index, clean_price_index_float_12816 = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_float_12816.dissect(buffer, index, packet, parent)
+  -- Clean Price Index Krx: FLOAT128
+  index, clean_price_index_krx = koscom_mdcsrealtime_bonda_exture_v2_018.clean_price_index_krx.dissect(buffer, index, packet, parent)
 
   -- Total Earnings Index: FLOAT128
   index, total_earnings_index = koscom_mdcsrealtime_bonda_exture_v2_018.total_earnings_index.dissect(buffer, index, packet, parent)

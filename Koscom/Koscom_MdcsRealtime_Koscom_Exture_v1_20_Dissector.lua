@@ -18,12 +18,12 @@ local koscom_mdcsrealtime_koscom_exture_v1_20 = {}
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.appraised_value = ProtoField.new("Appraised Value", "koscom.mdcsrealtime.koscom.exture.v1.20.appraisedvalue", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_best_order = ProtoField.new("Ask Best Order", "koscom.mdcsrealtime.koscom.exture.v1.20.askbestorder", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_quote_number = ProtoField.new("Ask Quote Number", "koscom.mdcsrealtime.koscom.exture.v1.20.askquotenumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_long_15 = ProtoField.new("Ask Trading Value Long 15", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvaluelong15", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_long_20 = ProtoField.new("Ask Trading Value Long 20", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvaluelong20", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_long_15 = ProtoField.new("Ask Trading Volume Long 15", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvolumelong15", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_long_20 = ProtoField.new("Ask Trading Volume Long 20", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvolumelong20", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_double_10 = ProtoField.new("Ask Yield Double 10", "koscom.mdcsrealtime.koscom.exture.v1.20.askyielddouble10", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_double_8 = ProtoField.new("Ask Yield Double 8", "koscom.mdcsrealtime.koscom.exture.v1.20.askyielddouble8", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_institution = ProtoField.new("Ask Trading Value Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvalueinstitution", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_investor = ProtoField.new("Ask Trading Value Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvalueinvestor", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_institution = ProtoField.new("Ask Trading Volume Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvolumeinstitution", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_investor = ProtoField.new("Ask Trading Volume Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.asktradingvolumeinvestor", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_institution = ProtoField.new("Ask Yield Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.askyieldinstitution", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_investor = ProtoField.new("Ask Yield Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.askyieldinvestor", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.available_lending_quantity = ProtoField.new("Available Lending Quantity", "koscom.mdcsrealtime.koscom.exture.v1.20.availablelendingquantity", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_convexity = ProtoField.new("Average Convexity", "koscom.mdcsrealtime.koscom.exture.v1.20.averageconvexity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_duration = ProtoField.new("Average Duration", "koscom.mdcsrealtime.koscom.exture.v1.20.averageduration", ftypes.DOUBLE)
@@ -36,12 +36,12 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.best_ask_order = ProtoField.n
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.best_bid_order = ProtoField.new("Best Bid Order", "koscom.mdcsrealtime.koscom.exture.v1.20.bestbidorder", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_best_order = ProtoField.new("Bid Best Order", "koscom.mdcsrealtime.koscom.exture.v1.20.bidbestorder", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_quote_number = ProtoField.new("Bid Quote Number", "koscom.mdcsrealtime.koscom.exture.v1.20.bidquotenumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_long_15 = ProtoField.new("Bid Trading Value Long 15", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvaluelong15", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_long_20 = ProtoField.new("Bid Trading Value Long 20", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvaluelong20", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_long_15 = ProtoField.new("Bid Trading Volume Long 15", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvolumelong15", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_long_20 = ProtoField.new("Bid Trading Volume Long 20", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvolumelong20", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_double_10 = ProtoField.new("Bid Yield Double 10", "koscom.mdcsrealtime.koscom.exture.v1.20.bidyielddouble10", ftypes.DOUBLE)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_double_8 = ProtoField.new("Bid Yield Double 8", "koscom.mdcsrealtime.koscom.exture.v1.20.bidyielddouble8", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_institution = ProtoField.new("Bid Trading Value Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvalueinstitution", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_investor = ProtoField.new("Bid Trading Value Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvalueinvestor", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_institution = ProtoField.new("Bid Trading Volume Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvolumeinstitution", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_investor = ProtoField.new("Bid Trading Volume Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.bidtradingvolumeinvestor", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_institution = ProtoField.new("Bid Yield Institution", "koscom.mdcsrealtime.koscom.exture.v1.20.bidyieldinstitution", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_investor = ProtoField.new("Bid Yield Investor", "koscom.mdcsrealtime.koscom.exture.v1.20.bidyieldinvestor", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bidask_type = ProtoField.new("Bidask Type", "koscom.mdcsrealtime.koscom.exture.v1.20.bidasktype", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bond_type_code = ProtoField.new("Bond Type Code", "koscom.mdcsrealtime.koscom.exture.v1.20.bondtypecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bond_type_name = ProtoField.new("Bond Type Name", "koscom.mdcsrealtime.koscom.exture.v1.20.bondtypename", ftypes.STRING)
@@ -185,8 +185,8 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.sensitivity_vega = ProtoField
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.sensitivity_vega_sign = ProtoField.new("Sensitivity Vega Sign", "koscom.mdcsrealtime.koscom.exture.v1.20.sensitivityvegasign", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.seq_number = ProtoField.new("Seq Number", "koscom.mdcsrealtime.koscom.exture.v1.20.seqnumber", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.sequence_number = ProtoField.new("Sequence Number", "koscom.mdcsrealtime.koscom.exture.v1.20.sequencenumber", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_string_2 = ProtoField.new("Settlement Date String 2", "koscom.mdcsrealtime.koscom.exture.v1.20.settlementdatestring2", ftypes.STRING)
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_string_8 = ProtoField.new("Settlement Date String 8", "koscom.mdcsrealtime.koscom.exture.v1.20.settlementdatestring8", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_k_bond = ProtoField.new("Settlement Date K Bond", "koscom.mdcsrealtime.koscom.exture.v1.20.settlementdatekbond", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_otc = ProtoField.new("Settlement Date Otc", "koscom.mdcsrealtime.koscom.exture.v1.20.settlementdateotc", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.sign = ProtoField.new("Sign", "koscom.mdcsrealtime.koscom.exture.v1.20.sign", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.standard_date = ProtoField.new("Standard Date", "koscom.mdcsrealtime.koscom.exture.v1.20.standarddate", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.standard_time = ProtoField.new("Standard Time", "koscom.mdcsrealtime.koscom.exture.v1.20.standardtime", ftypes.STRING)
@@ -379,20 +379,20 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_quote_number.dissect = function(buff
   return offset + length, value
 end
 
--- Ask Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15 = {}
+-- Ask Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution = {}
 
--- Size: Ask Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.size = 15
+-- Size: Ask Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.size = 15
 
--- Display: Ask Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.display = function(value)
-  return "Ask Trading Value Long 15: "..value
+-- Display: Ask Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.display = function(value)
+  return "Ask Trading Value Institution: "..value
 end
 
--- Dissect: Ask Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.size
+-- Dissect: Ask Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -400,27 +400,27 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.dissect = func
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_long_15, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_institution, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20 = {}
+-- Ask Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor = {}
 
--- Size: Ask Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.size = 20
+-- Size: Ask Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.size = 20
 
--- Display: Ask Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.display = function(value)
-  return "Ask Trading Value Long 20: "..value
+-- Display: Ask Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.display = function(value)
+  return "Ask Trading Value Investor: "..value
 end
 
--- Dissect: Ask Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.size
+-- Dissect: Ask Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -428,27 +428,27 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.dissect = func
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_long_20, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_value_investor, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15 = {}
+-- Ask Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution = {}
 
--- Size: Ask Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.size = 15
+-- Size: Ask Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.size = 15
 
--- Display: Ask Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.display = function(value)
-  return "Ask Trading Volume Long 15: "..value
+-- Display: Ask Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.display = function(value)
+  return "Ask Trading Volume Institution: "..value
 end
 
--- Dissect: Ask Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.size
+-- Dissect: Ask Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -456,27 +456,27 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_long_15, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_institution, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20 = {}
+-- Ask Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor = {}
 
--- Size: Ask Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.size = 20
+-- Size: Ask Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.size = 20
 
--- Display: Ask Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.display = function(value)
-  return "Ask Trading Volume Long 20: "..value
+-- Display: Ask Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.display = function(value)
+  return "Ask Trading Volume Investor: "..value
 end
 
--- Dissect: Ask Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.size
+-- Dissect: Ask Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -484,22 +484,22 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_long_20, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_trading_volume_investor, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10 = {}
+-- Ask Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution = {}
 
--- Size: Ask Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.size = 10
+-- Size: Ask Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.size = 8
 
--- Display: Ask Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.size):string():match("^%s*(.-)%s*$")
+-- Display: Ask Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -508,53 +508,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.display = function(v
   end
 
   if not digits:match("^%d+$") then
-    return "Ask Yield Double 10: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
-  end
-
-  return "Ask Yield Double 10: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
-end
-
--- Dissect: Ask Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_double_10, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8 = {}
-
--- Size: Ask Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.size = 8
-
--- Display: Ask Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Ask Yield Double 8: "..tostring(value)
+    return "Ask Yield Institution: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -563,12 +517,12 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.display = function(va
     digits = string.rep("0", 4 - #digits + 1)..digits
   end
 
-  return "Ask Yield Double 8: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Ask Yield Institution: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
--- Dissect: Ask Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.size
+-- Dissect: Ask Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -576,9 +530,55 @@ koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.dissect = function(bu
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_double_8, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_institution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor = {}
+
+-- Size: Ask Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.size = 10
+
+-- Display: Ask Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Yield Investor: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Ask Yield Investor: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+end
+
+-- Dissect: Ask Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_investor, range, value, display)
 
   return offset + length, value
 end
@@ -1024,20 +1024,20 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_quote_number.dissect = function(buff
   return offset + length, value
 end
 
--- Bid Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15 = {}
+-- Bid Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution = {}
 
--- Size: Bid Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.size = 15
+-- Size: Bid Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.size = 15
 
--- Display: Bid Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.display = function(value)
-  return "Bid Trading Value Long 15: "..value
+-- Display: Bid Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.display = function(value)
+  return "Bid Trading Value Institution: "..value
 end
 
--- Dissect: Bid Trading Value Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.size
+-- Dissect: Bid Trading Value Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1045,27 +1045,27 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.dissect = func
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_long_15, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_institution, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20 = {}
+-- Bid Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor = {}
 
--- Size: Bid Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.size = 20
+-- Size: Bid Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.size = 20
 
--- Display: Bid Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.display = function(value)
-  return "Bid Trading Value Long 20: "..value
+-- Display: Bid Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.display = function(value)
+  return "Bid Trading Value Investor: "..value
 end
 
--- Dissect: Bid Trading Value Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.size
+-- Dissect: Bid Trading Value Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1073,27 +1073,27 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.dissect = func
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_long_20, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_value_investor, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15 = {}
+-- Bid Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution = {}
 
--- Size: Bid Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.size = 15
+-- Size: Bid Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.size = 15
 
--- Display: Bid Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.display = function(value)
-  return "Bid Trading Volume Long 15: "..value
+-- Display: Bid Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.display = function(value)
+  return "Bid Trading Volume Institution: "..value
 end
 
--- Dissect: Bid Trading Volume Long 15
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.size
+-- Dissect: Bid Trading Volume Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1101,27 +1101,27 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_long_15, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_institution, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20 = {}
+-- Bid Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor = {}
 
--- Size: Bid Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.size = 20
+-- Size: Bid Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.size = 20
 
--- Display: Bid Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.display = function(value)
-  return "Bid Trading Volume Long 20: "..value
+-- Display: Bid Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.display = function(value)
+  return "Bid Trading Volume Investor: "..value
 end
 
--- Dissect: Bid Trading Volume Long 20
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.size
+-- Dissect: Bid Trading Volume Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1129,22 +1129,22 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_long_20, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_trading_volume_investor, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10 = {}
+-- Bid Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution = {}
 
--- Size: Bid Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.size = 10
+-- Size: Bid Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.size = 8
 
--- Display: Bid Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.size):string():match("^%s*(.-)%s*$")
+-- Display: Bid Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -1153,53 +1153,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.display = function(v
   end
 
   if not digits:match("^%d+$") then
-    return "Bid Yield Double 10: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 5 then
-    digits = string.rep("0", 5 - #digits + 1)..digits
-  end
-
-  return "Bid Yield Double 10: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
-end
-
--- Dissect: Bid Yield Double 10
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_double_10, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8 = {}
-
--- Size: Bid Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.size = 8
-
--- Display: Bid Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Bid Yield Double 8: "..tostring(value)
+    return "Bid Yield Institution: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -1208,12 +1162,12 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.display = function(va
     digits = string.rep("0", 4 - #digits + 1)..digits
   end
 
-  return "Bid Yield Double 8: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Bid Yield Institution: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
--- Dissect: Bid Yield Double 8
-koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.size
+-- Dissect: Bid Yield Institution
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1221,9 +1175,55 @@ koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.dissect = function(bu
     value =  "Not Applicable"
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_double_8, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_institution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor = {}
+
+-- Size: Bid Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.size = 10
+
+-- Display: Bid Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Bid Yield Investor: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 5 then
+    digits = string.rep("0", 5 - #digits + 1)..digits
+  end
+
+  return "Bid Yield Investor: "..sign..digits:sub(1, #digits - 5)..".".. digits:sub(-5)
+end
+
+-- Dissect: Bid Yield Investor
+koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bid_yield_investor, range, value, display)
 
   return offset + length, value
 end
@@ -5654,52 +5654,52 @@ koscom_mdcsrealtime_koscom_exture_v1_20.sequence_number.dissect = function(buffe
   return offset + length, value
 end
 
--- Settlement Date String 2
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2 = {}
+-- Settlement Date K Bond
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond = {}
 
--- Size: Settlement Date String 2
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2.size = 2
+-- Size: Settlement Date K Bond
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.size = 2
 
--- Display: Settlement Date String 2
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2.display = function(value)
-  return "Settlement Date String 2: "..value
+-- Display: Settlement Date K Bond
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.display = function(value)
+  return "Settlement Date K Bond: "..value
 end
 
--- Dissect: Settlement Date String 2
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2.size
+-- Dissect: Settlement Date K Bond
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.size
   local range = buffer(offset, length)
   local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_string_2, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_k_bond, range, value, display)
 
   return offset + length, value
 end
 
--- Settlement Date String 8
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8 = {}
+-- Settlement Date Otc
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc = {}
 
--- Size: Settlement Date String 8
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.size = 8
+-- Size: Settlement Date Otc
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc.size = 8
 
--- Display: Settlement Date String 8
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.display = function(value)
+-- Display: Settlement Date Otc
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc.display = function(value)
   if #value < 8 then
-    return "Settlement Date String 8: "..value
+    return "Settlement Date Otc: "..value
   end
 
-  return "Settlement Date String 8: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
+  return "Settlement Date Otc: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
--- Dissect: Settlement Date String 8
-koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.size
+-- Dissect: Settlement Date Otc
+koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_string_8, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_otc, range, value, display)
 
   return offset + length, value
 end
@@ -8525,7 +8525,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_bond_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.contract_category.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.quotes_amount.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.contract_date.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
 
@@ -8589,8 +8589,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_bond_message.fields = function(buffer,
   -- Contract Date: String
   index, contract_date = koscom_mdcsrealtime_koscom_exture_v1_20.contract_date.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date String 2: String
-  index, settlement_date_string_2 = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_2.dissect(buffer, index, packet, parent)
+  -- Settlement Date K Bond: String
+  index, settlement_date_k_bond = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.dissect(buffer, index, packet, parent)
 
   -- Filler 11: String
   index, filler_11 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect(buffer, index, packet, parent)
@@ -8628,12 +8628,12 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_types_per_investor_message.size
   koscom_mdcsrealtime_koscom_exture_v1_20.sequence_number.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_date.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.investor_category.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
 
@@ -8658,23 +8658,23 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_types_per_investor_message.fiel
   -- Investor Category: String
   index, investor_category = koscom_mdcsrealtime_koscom_exture_v1_20.investor_category.dissect(buffer, index, packet, parent)
 
-  -- Ask Yield Double 10: Double
-  index, ask_yield_double_10 = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_10.dissect(buffer, index, packet, parent)
+  -- Ask Yield Investor: Double
+  index, ask_yield_investor = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_investor.dissect(buffer, index, packet, parent)
 
-  -- Bid Yield Double 10: Double
-  index, bid_yield_double_10 = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_10.dissect(buffer, index, packet, parent)
+  -- Bid Yield Investor: Double
+  index, bid_yield_investor = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_investor.dissect(buffer, index, packet, parent)
 
-  -- Ask Trading Volume Long 20: Long
-  index, ask_trading_volume_long_20 = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_20.dissect(buffer, index, packet, parent)
+  -- Ask Trading Volume Investor: Long
+  index, ask_trading_volume_investor = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_investor.dissect(buffer, index, packet, parent)
 
-  -- Bid Trading Volume Long 20: Long
-  index, bid_trading_volume_long_20 = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_20.dissect(buffer, index, packet, parent)
+  -- Bid Trading Volume Investor: Long
+  index, bid_trading_volume_investor = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_investor.dissect(buffer, index, packet, parent)
 
-  -- Ask Trading Value Long 20: Long
-  index, ask_trading_value_long_20 = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_20.dissect(buffer, index, packet, parent)
+  -- Ask Trading Value Investor: Long
+  index, ask_trading_value_investor = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_investor.dissect(buffer, index, packet, parent)
 
-  -- Bid Trading Value Long 20: Long
-  index, bid_trading_value_long_20 = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_20.dissect(buffer, index, packet, parent)
+  -- Bid Trading Value Investor: Long
+  index, bid_trading_value_investor = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_investor.dissect(buffer, index, packet, parent)
 
   -- Filler 2: String
   index, filler_2 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.dissect(buffer, index, packet, parent)
@@ -8712,12 +8712,12 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_trades_per_institution_message.
   koscom_mdcsrealtime_koscom_exture_v1_20.date.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.institution_code.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_code.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
 
@@ -8742,23 +8742,23 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_trades_per_institution_message.
   -- Bond Type Code: String
   index, bond_type_code = koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_code.dissect(buffer, index, packet, parent)
 
-  -- Ask Yield Double 8: Double
-  index, ask_yield_double_8 = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_double_8.dissect(buffer, index, packet, parent)
+  -- Ask Yield Institution: Double
+  index, ask_yield_institution = koscom_mdcsrealtime_koscom_exture_v1_20.ask_yield_institution.dissect(buffer, index, packet, parent)
 
-  -- Ask Trading Volume Long 15: Long
-  index, ask_trading_volume_long_15 = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_long_15.dissect(buffer, index, packet, parent)
+  -- Ask Trading Volume Institution: Long
+  index, ask_trading_volume_institution = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_volume_institution.dissect(buffer, index, packet, parent)
 
-  -- Ask Trading Value Long 15: Long
-  index, ask_trading_value_long_15 = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_long_15.dissect(buffer, index, packet, parent)
+  -- Ask Trading Value Institution: Long
+  index, ask_trading_value_institution = koscom_mdcsrealtime_koscom_exture_v1_20.ask_trading_value_institution.dissect(buffer, index, packet, parent)
 
-  -- Bid Yield Double 8: Double
-  index, bid_yield_double_8 = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_double_8.dissect(buffer, index, packet, parent)
+  -- Bid Yield Institution: Double
+  index, bid_yield_institution = koscom_mdcsrealtime_koscom_exture_v1_20.bid_yield_institution.dissect(buffer, index, packet, parent)
 
-  -- Bid Trading Volume Long 15: Long
-  index, bid_trading_volume_long_15 = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_long_15.dissect(buffer, index, packet, parent)
+  -- Bid Trading Volume Institution: Long
+  index, bid_trading_volume_institution = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_volume_institution.dissect(buffer, index, packet, parent)
 
-  -- Bid Trading Value Long 15: Long
-  index, bid_trading_value_long_15 = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_long_15.dissect(buffer, index, packet, parent)
+  -- Bid Trading Value Institution: Long
+  index, bid_trading_value_institution = koscom_mdcsrealtime_koscom_exture_v1_20.bid_trading_value_institution.dissect(buffer, index, packet, parent)
 
   -- Filler 11: String
   index, filler_11 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect(buffer, index, packet, parent)
@@ -8803,7 +8803,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_traded_info_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.volume.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.pretax_unit_price.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.pretax_yield.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.market_base_rate.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.fx_category.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.based_fx.size + 
@@ -8852,8 +8852,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.otc_bond_traded_info_message.fields = fu
   -- Pretax Yield: Double
   index, pretax_yield = koscom_mdcsrealtime_koscom_exture_v1_20.pretax_yield.dissect(buffer, index, packet, parent)
 
-  -- Settlement Date String 8: String
-  index, settlement_date_string_8 = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_string_8.dissect(buffer, index, packet, parent)
+  -- Settlement Date Otc: String
+  index, settlement_date_otc = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_otc.dissect(buffer, index, packet, parent)
 
   -- Market Base Rate: Double
   index, market_base_rate = koscom_mdcsrealtime_koscom_exture_v1_20.market_base_rate.dissect(buffer, index, packet, parent)
