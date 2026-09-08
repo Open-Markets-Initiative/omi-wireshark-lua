@@ -15,26 +15,26 @@ local cboe_bzxequities_top_asciipitch_v1_3_9 = {}
 -----------------------------------------------------------------------
 
 -- Cboe BzxEquities Top AsciiPitch 1.3.9 Fields
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_price_10 = ProtoField.new("Ask Price Price 10", "cboe.bzxequities.top.asciipitch.v1.3.9.askpriceprice10", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_price_14 = ProtoField.new("Ask Price Price 14", "cboe.bzxequities.top.asciipitch.v1.3.9.askpriceprice14", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_price_5 = ProtoField.new("Ask Price Price 5", "cboe.bzxequities.top.asciipitch.v1.3.9.askpriceprice5", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_numeric_5 = ProtoField.new("Ask Quantity Numeric 5", "cboe.bzxequities.top.asciipitch.v1.3.9.askquantitynumeric5", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_numeric_6 = ProtoField.new("Ask Quantity Numeric 6", "cboe.bzxequities.top.asciipitch.v1.3.9.askquantitynumeric6", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_price_10 = ProtoField.new("Bid Price Price 10", "cboe.bzxequities.top.asciipitch.v1.3.9.bidpriceprice10", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_price_14 = ProtoField.new("Bid Price Price 14", "cboe.bzxequities.top.asciipitch.v1.3.9.bidpriceprice14", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_price_5 = ProtoField.new("Bid Price Price 5", "cboe.bzxequities.top.asciipitch.v1.3.9.bidpriceprice5", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_numeric_5 = ProtoField.new("Bid Quantity Numeric 5", "cboe.bzxequities.top.asciipitch.v1.3.9.bidquantitynumeric5", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_numeric_6 = ProtoField.new("Bid Quantity Numeric 6", "cboe.bzxequities.top.asciipitch.v1.3.9.bidquantitynumeric6", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_numeric_7 = ProtoField.new("Cumulative Volume Numeric 7", "cboe.bzxequities.top.asciipitch.v1.3.9.cumulativevolumenumeric7", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_numeric_9 = ProtoField.new("Cumulative Volume Numeric 9", "cboe.bzxequities.top.asciipitch.v1.3.9.cumulativevolumenumeric9", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_extended = ProtoField.new("Ask Price Extended", "cboe.bzxequities.top.asciipitch.v1.3.9.askpriceextended", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.bzxequities.top.asciipitch.v1.3.9.askpricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.bzxequities.top.asciipitch.v1.3.9.askpriceshort", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.9.askquantitylong", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.9.askquantityshort", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_extended = ProtoField.new("Bid Price Extended", "cboe.bzxequities.top.asciipitch.v1.3.9.bidpriceextended", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.bzxequities.top.asciipitch.v1.3.9.bidpricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_short = ProtoField.new("Bid Price Short", "cboe.bzxequities.top.asciipitch.v1.3.9.bidpriceshort", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.9.bidquantitylong", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.9.bidquantityshort", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_long = ProtoField.new("Cumulative Volume Long", "cboe.bzxequities.top.asciipitch.v1.3.9.cumulativevolumelong", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_short = ProtoField.new("Cumulative Volume Short", "cboe.bzxequities.top.asciipitch.v1.3.9.cumulativevolumeshort", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.halt_status = ProtoField.new("Halt Status", "cboe.bzxequities.top.asciipitch.v1.3.9.haltstatus", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_price_10 = ProtoField.new("Last Price Price 10", "cboe.bzxequities.top.asciipitch.v1.3.9.lastpriceprice10", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_price_14 = ProtoField.new("Last Price Price 14", "cboe.bzxequities.top.asciipitch.v1.3.9.lastpriceprice14", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_price_5 = ProtoField.new("Last Price Price 5", "cboe.bzxequities.top.asciipitch.v1.3.9.lastpriceprice5", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_numeric_5 = ProtoField.new("Last Quantity Numeric 5", "cboe.bzxequities.top.asciipitch.v1.3.9.lastquantitynumeric5", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_numeric_6 = ProtoField.new("Last Quantity Numeric 6", "cboe.bzxequities.top.asciipitch.v1.3.9.lastquantitynumeric6", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_price_10 = ProtoField.new("Last Trade Price Price 10", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradepriceprice10", ftypes.DOUBLE)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_price_14 = ProtoField.new("Last Trade Price Price 14", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradepriceprice14", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_extended = ProtoField.new("Last Price Extended", "cboe.bzxequities.top.asciipitch.v1.3.9.lastpriceextended", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_long = ProtoField.new("Last Price Long", "cboe.bzxequities.top.asciipitch.v1.3.9.lastpricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_short = ProtoField.new("Last Price Short", "cboe.bzxequities.top.asciipitch.v1.3.9.lastpriceshort", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_long = ProtoField.new("Last Quantity Long", "cboe.bzxequities.top.asciipitch.v1.3.9.lastquantitylong", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_short = ProtoField.new("Last Quantity Short", "cboe.bzxequities.top.asciipitch.v1.3.9.lastquantityshort", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_long = ProtoField.new("Last Trade Price Long", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradepricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_short = ProtoField.new("Last Trade Price Short", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradepriceshort", ftypes.DOUBLE)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_size = ProtoField.new("Last Trade Size", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradesize", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.bzxequities.top.asciipitch.v1.3.9.lasttradetime", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.top.asciipitch.v1.3.9.messagetype", ftypes.STRING)
@@ -46,9 +46,9 @@ omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reserved_1 = ProtoField.new("R
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.bzxequities.top.asciipitch.v1.3.9.reserved2", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.seconds = ProtoField.new("Seconds", "cboe.bzxequities.top.asciipitch.v1.3.9.seconds", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.spin_flag = ProtoField.new("Spin Flag", "cboe.bzxequities.top.asciipitch.v1.3.9.spinflag", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_4 = ProtoField.new("Symbol Alpha 4", "cboe.bzxequities.top.asciipitch.v1.3.9.symbolalpha4", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_6 = ProtoField.new("Symbol Alpha 6", "cboe.bzxequities.top.asciipitch.v1.3.9.symbolalpha6", ftypes.STRING)
-omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_8 = ProtoField.new("Symbol Alpha 8", "cboe.bzxequities.top.asciipitch.v1.3.9.symbolalpha8", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.bzxequities.top.asciipitch.v1.3.9.symbolextended", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bzxequities.top.asciipitch.v1.3.9.symbollong", ftypes.STRING)
+omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.bzxequities.top.asciipitch.v1.3.9.symbolshort", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxequities.top.asciipitch.v1.3.9.timestamp", ftypes.STRING)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.top_lf = ProtoField.new("Top Lf", "cboe.bzxequities.top.asciipitch.v1.3.9.toplf", ftypes.INT8)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.username = ProtoField.new("Username", "cboe.bzxequities.top.asciipitch.v1.3.9.username", ftypes.STRING)
@@ -134,15 +134,15 @@ end
 -- Cboe BzxEquities Top AsciiPitch 1.3.9 Fields
 -----------------------------------------------------------------------
 
--- Ask Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10 = {}
+-- Ask Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended = {}
 
--- Size: Ask Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size = 10
+-- Size: Ask Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.size = 14
 
--- Display: Ask Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size):string():match("^%s*(.-)%s*$")
+-- Display: Ask Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -151,7 +151,53 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.display = function(val
   end
 
   if not digits:match("^%d+$") then
-    return "Ask Price Price 10: "..tostring(value)
+    return "Ask Price Extended: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Ask Price Extended: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+end
+
+-- Dissect: Ask Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_extended, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long = {}
+
+-- Size: Ask Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size = 10
+
+-- Display: Ask Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Ask Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -160,12 +206,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.display = function(val
     digits = string.rep("0", 4 - #digits + 1)..digits
   end
 
-  return "Ask Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Ask Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
--- Dissect: Ask Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size
+-- Dissect: Ask Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -173,22 +219,22 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.dissect = function(buf
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_price_10, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14 = {}
+-- Ask Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short = {}
 
--- Size: Ask Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.size = 14
+-- Size: Ask Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.size = 5
 
--- Display: Ask Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Ask Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -197,7 +243,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.display = function(val
   end
 
   if not digits:match("^%d+$") then
-    return "Ask Price Price 14: "..tostring(value)
+    return "Ask Price Short: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -206,12 +252,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.display = function(val
     digits = string.rep("0", 2 - #digits + 1)..digits
   end
 
-  return "Ask Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Ask Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
--- Dissect: Ask Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.size
+-- Dissect: Ask Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -219,22 +265,78 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.dissect = function(buf
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5 = {}
+-- Ask Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long = {}
 
--- Size: Ask Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.size = 5
+-- Size: Ask Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size = 6
 
--- Display: Ask Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.size):string():match("^%s*(.-)%s*$")
+-- Display: Ask Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.display = function(value)
+  return "Ask Quantity Long: "..value
+end
+
+-- Dissect: Ask Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short = {}
+
+-- Size: Ask Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.size = 5
+
+-- Display: Ask Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.display = function(value)
+  return "Ask Quantity Short: "..value
+end
+
+-- Dissect: Ask Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended = {}
+
+-- Size: Bid Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.size = 14
+
+-- Display: Bid Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -243,7 +345,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.display = function(valu
   end
 
   if not digits:match("^%d+$") then
-    return "Ask Price Price 5: "..tostring(value)
+    return "Bid Price Extended: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -252,12 +354,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.display = function(valu
     digits = string.rep("0", 2 - #digits + 1)..digits
   end
 
-  return "Ask Price Price 5: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Bid Price Extended: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
--- Dissect: Ask Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.size
+-- Dissect: Bid Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -265,78 +367,22 @@ cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.dissect = function(buff
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_price_price_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5 = {}
-
--- Size: Ask Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.size = 5
-
--- Display: Ask Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.display = function(value)
-  return "Ask Quantity Numeric 5: "..value
-end
-
--- Dissect: Ask Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_numeric_5, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_extended, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6 = {}
+-- Bid Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long = {}
 
--- Size: Ask Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size = 6
+-- Size: Bid Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size = 10
 
--- Display: Ask Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.display = function(value)
-  return "Ask Quantity Numeric 6: "..value
-end
-
--- Dissect: Ask Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.ask_quantity_numeric_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10 = {}
-
--- Size: Bid Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size = 10
-
--- Display: Bid Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size):string():match("^%s*(.-)%s*$")
+-- Display: Bid Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -345,7 +391,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.display = function(val
   end
 
   if not digits:match("^%d+$") then
-    return "Bid Price Price 10: "..tostring(value)
+    return "Bid Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -354,12 +400,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.display = function(val
     digits = string.rep("0", 4 - #digits + 1)..digits
   end
 
-  return "Bid Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Bid Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
--- Dissect: Bid Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size
+-- Dissect: Bid Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -367,22 +413,22 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.dissect = function(buf
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_price_10, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14 = {}
+-- Bid Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short = {}
 
--- Size: Bid Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.size = 14
+-- Size: Bid Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.size = 5
 
--- Display: Bid Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Bid Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -391,7 +437,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.display = function(val
   end
 
   if not digits:match("^%d+$") then
-    return "Bid Price Price 14: "..tostring(value)
+    return "Bid Price Short: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -400,12 +446,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.display = function(val
     digits = string.rep("0", 2 - #digits + 1)..digits
   end
 
-  return "Bid Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Bid Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
--- Dissect: Bid Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.size
+-- Dissect: Bid Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -413,45 +459,27 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.dissect = function(buf
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5 = {}
+-- Bid Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long = {}
 
--- Size: Bid Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.size = 5
+-- Size: Bid Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size = 6
 
--- Display: Bid Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Bid Price Price 5: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
-  end
-
-  return "Bid Price Price 5: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+-- Display: Bid Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.display = function(value)
+  return "Bid Quantity Long: "..value
 end
 
--- Dissect: Bid Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.size
+-- Dissect: Bid Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -459,27 +487,27 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.dissect = function(buff
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_price_price_5, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5 = {}
+-- Bid Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short = {}
 
--- Size: Bid Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.size = 5
+-- Size: Bid Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.size = 5
 
--- Display: Bid Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.display = function(value)
-  return "Bid Quantity Numeric 5: "..value
+-- Display: Bid Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.display = function(value)
+  return "Bid Quantity Short: "..value
 end
 
--- Dissect: Bid Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.size
+-- Dissect: Bid Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -487,27 +515,27 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.dissect = function
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_numeric_5, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6 = {}
+-- Cumulative Volume Long
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long = {}
 
--- Size: Bid Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size = 6
+-- Size: Cumulative Volume Long
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.size = 9
 
--- Display: Bid Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.display = function(value)
-  return "Bid Quantity Numeric 6: "..value
+-- Display: Cumulative Volume Long
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.display = function(value)
+  return "Cumulative Volume Long: "..value
 end
 
--- Dissect: Bid Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size
+-- Dissect: Cumulative Volume Long
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -515,27 +543,27 @@ cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect = function
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.bid_quantity_numeric_6, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_long, range, value, display)
 
   return offset + length, value
 end
 
--- Cumulative Volume Numeric 7
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7 = {}
+-- Cumulative Volume Short
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short = {}
 
--- Size: Cumulative Volume Numeric 7
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.size = 7
+-- Size: Cumulative Volume Short
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short.size = 7
 
--- Display: Cumulative Volume Numeric 7
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.display = function(value)
-  return "Cumulative Volume Numeric 7: "..value
+-- Display: Cumulative Volume Short
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short.display = function(value)
+  return "Cumulative Volume Short: "..value
 end
 
--- Dissect: Cumulative Volume Numeric 7
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.size
+-- Dissect: Cumulative Volume Short
+cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -543,37 +571,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_numeric_7, range, value, display)
-
-  return offset + length, value
-end
-
--- Cumulative Volume Numeric 9
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9 = {}
-
--- Size: Cumulative Volume Numeric 9
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size = 9
-
--- Display: Cumulative Volume Numeric 9
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.display = function(value)
-  return "Cumulative Volume Numeric 9: "..value
-end
-
--- Dissect: Cumulative Volume Numeric 9
-cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_numeric_9, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.cumulative_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -601,15 +601,15 @@ cboe_bzxequities_top_asciipitch_v1_3_9.halt_status.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Last Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10 = {}
+-- Last Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended = {}
 
--- Size: Last Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.size = 10
+-- Size: Last Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.size = 14
 
--- Display: Last Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.size):string():match("^%s*(.-)%s*$")
+-- Display: Last Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -618,7 +618,53 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.display = function(va
   end
 
   if not digits:match("^%d+$") then
-    return "Last Price Price 10: "..tostring(value)
+    return "Last Price Extended: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Last Price Extended: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+end
+
+-- Dissect: Last Price Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_extended, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long = {}
+
+-- Size: Last Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.size = 10
+
+-- Display: Last Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Last Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -627,12 +673,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.display = function(va
     digits = string.rep("0", 4 - #digits + 1)..digits
   end
 
-  return "Last Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Last Price Long: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
--- Dissect: Last Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.size
+-- Dissect: Last Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -640,22 +686,22 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.dissect = function(bu
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_price_10, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Last Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14 = {}
+-- Last Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short = {}
 
--- Size: Last Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.size = 14
+-- Size: Last Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.size = 5
 
--- Display: Last Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Last Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -664,7 +710,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.display = function(va
   end
 
   if not digits:match("^%d+$") then
-    return "Last Price Price 14: "..tostring(value)
+    return "Last Price Short: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -673,12 +719,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.display = function(va
     digits = string.rep("0", 2 - #digits + 1)..digits
   end
 
-  return "Last Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Last Price Short: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
--- Dissect: Last Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.size
+-- Dissect: Last Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -686,22 +732,78 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.dissect = function(bu
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Last Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5 = {}
+-- Last Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long = {}
 
--- Size: Last Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.size = 5
+-- Size: Last Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.size = 6
 
--- Display: Last Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.size):string():match("^%s*(.-)%s*$")
+-- Display: Last Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.display = function(value)
+  return "Last Quantity Long: "..value
+end
+
+-- Dissect: Last Quantity Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short = {}
+
+-- Size: Last Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short.size = 5
+
+-- Display: Last Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short.display = function(value)
+  return "Last Quantity Short: "..value
+end
+
+-- Dissect: Last Quantity Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long = {}
+
+-- Size: Last Trade Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.size = 14
+
+-- Display: Last Trade Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -710,7 +812,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.display = function(val
   end
 
   if not digits:match("^%d+$") then
-    return "Last Price Price 5: "..tostring(value)
+    return "Last Trade Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -719,12 +821,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.display = function(val
     digits = string.rep("0", 2 - #digits + 1)..digits
   end
 
-  return "Last Price Price 5: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+  return "Last Trade Price Long: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
 end
 
--- Dissect: Last Price Price 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.size
+-- Dissect: Last Trade Price Long
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -732,78 +834,22 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.dissect = function(buf
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_price_price_5, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5 = {}
-
--- Size: Last Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5.size = 5
-
--- Display: Last Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5.display = function(value)
-  return "Last Quantity Numeric 5: "..value
-end
-
--- Dissect: Last Quantity Numeric 5
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_numeric_5, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Last Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6 = {}
+-- Last Trade Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short = {}
 
--- Size: Last Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.size = 6
+-- Size: Last Trade Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.size = 10
 
--- Display: Last Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.display = function(value)
-  return "Last Quantity Numeric 6: "..value
-end
-
--- Dissect: Last Quantity Numeric 6
-cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_quantity_numeric_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10 = {}
-
--- Size: Last Trade Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.size = 10
-
--- Display: Last Trade Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.size):string():match("^%s*(.-)%s*$")
+-- Display: Last Trade Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -812,7 +858,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.display = funct
   end
 
   if not digits:match("^%d+$") then
-    return "Last Trade Price Price 10: "..tostring(value)
+    return "Last Trade Price Short: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -821,12 +867,12 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.display = funct
     digits = string.rep("0", 4 - #digits + 1)..digits
   end
 
-  return "Last Trade Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Last Trade Price Short: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
--- Dissect: Last Trade Price Price 10
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.size
+-- Dissect: Last Trade Price Short
+cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -834,55 +880,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.dissect = funct
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_price_10, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14 = {}
-
--- Size: Last Trade Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.size = 14
-
--- Display: Last Trade Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.size):string():match("^%s*(.-)%s*$")
-  local sign = ""
-
-  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
-    sign = digits:sub(1, 1)
-    digits = digits:sub(2)
-  end
-
-  if not digits:match("^%d+$") then
-    return "Last Trade Price Price 14: "..tostring(value)
-  end
-
-  digits = digits:gsub("^0+", "")
-
-  if #digits <= 2 then
-    digits = string.rep("0", 2 - #digits + 1)..digits
-  end
-
-  return "Last Trade Price Price 14: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
-end
-
--- Dissect: Last Trade Price Price 14
-cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.last_trade_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1249,71 +1249,71 @@ cboe_bzxequities_top_asciipitch_v1_3_9.spin_flag.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Symbol Alpha 4
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4 = {}
+-- Symbol Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended = {}
 
--- Size: Symbol Alpha 4
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.size = 4
+-- Size: Symbol Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size = 8
 
--- Display: Symbol Alpha 4
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.display = function(value)
-  return "Symbol Alpha 4: "..value
+-- Display: Symbol Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.display = function(value)
+  return "Symbol Extended: "..value
 end
 
--- Dissect: Symbol Alpha 4
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.size
+-- Dissect: Symbol Extended
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_4, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_extended, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Alpha 6
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6 = {}
+-- Symbol Long
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long = {}
 
--- Size: Symbol Alpha 6
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.size = 6
+-- Size: Symbol Long
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.size = 6
 
--- Display: Symbol Alpha 6
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.display = function(value)
-  return "Symbol Alpha 6: "..value
+-- Display: Symbol Long
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.display = function(value)
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol Alpha 6
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.size
+-- Dissect: Symbol Long
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_6, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Alpha 8
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8 = {}
+-- Symbol Short
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short = {}
 
--- Size: Symbol Alpha 8
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size = 8
+-- Size: Symbol Short
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.size = 4
 
--- Display: Symbol Alpha 8
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.display = function(value)
-  return "Symbol Alpha 8: "..value
+-- Display: Symbol Short
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.display = function(value)
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol Alpha 8
-cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size
+-- Dissect: Symbol Short
+cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_alpha_8, range, value, display)
+  parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -1406,7 +1406,7 @@ cboe_bzxequities_top_asciipitch_v1_3_9.trading_status_message = {}
 
 -- Size: Trading Status Message
 cboe_bzxequities_top_asciipitch_v1_3_9.trading_status_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.halt_status.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.reg_sho_action.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.reserved_1.size + 
@@ -1421,8 +1421,8 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
   -- Halt Status: Alpha
   index, halt_status = cboe_bzxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
@@ -1462,10 +1462,10 @@ cboe_bzxequities_top_asciipitch_v1_3_9.extended_trade_message = {}
 
 -- Size: Extended Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_trade_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.size
 
 -- Display: Extended Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_trade_message.display = function(packet, parent, length)
@@ -1476,17 +1476,17 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Last Price Price 14: Price
-  index, last_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_14.dissect(buffer, index, packet, parent)
+  -- Last Price Extended: Price
+  index, last_price_extended = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_extended.dissect(buffer, index, packet, parent)
 
-  -- Last Quantity Numeric 6: Numeric
-  index, last_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Last Quantity Long: Numeric
+  index, last_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume Numeric 9: Numeric
-  index, cumulative_volume_numeric_9 = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.dissect(buffer, index, packet, parent)
+  -- Cumulative Volume Long: Numeric
+  index, cumulative_volume_long = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1514,10 +1514,10 @@ cboe_bzxequities_top_asciipitch_v1_3_9.short_trade_message = {}
 
 -- Size: Short Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_trade_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short.size
 
 -- Display: Short Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_trade_message.display = function(packet, parent, length)
@@ -1528,17 +1528,17 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.short_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 4: Alpha
-  index, symbol_alpha_4 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alpha
+  index, symbol_short = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Last Price Price 5: Price
-  index, last_price_price_5 = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_5.dissect(buffer, index, packet, parent)
+  -- Last Price Short: Price
+  index, last_price_short = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_short.dissect(buffer, index, packet, parent)
 
-  -- Last Quantity Numeric 5: Numeric
-  index, last_quantity_numeric_5 = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_5.dissect(buffer, index, packet, parent)
+  -- Last Quantity Short: Numeric
+  index, last_quantity_short = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume Numeric 7: Numeric
-  index, cumulative_volume_numeric_7 = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_7.dissect(buffer, index, packet, parent)
+  -- Cumulative Volume Short: Numeric
+  index, cumulative_volume_short = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1566,10 +1566,10 @@ cboe_bzxequities_top_asciipitch_v1_3_9.long_trade_message = {}
 
 -- Size: Long Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_trade_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.size
 
 -- Display: Long Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_trade_message.display = function(packet, parent, length)
@@ -1580,17 +1580,17 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.long_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 6: Alpha
-  index, symbol_alpha_6 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Last Price Price 10: Price
-  index, last_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.dissect(buffer, index, packet, parent)
+  -- Last Price Long: Price
+  index, last_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.dissect(buffer, index, packet, parent)
 
-  -- Last Quantity Numeric 6: Numeric
-  index, last_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Last Quantity Long: Numeric
+  index, last_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume Numeric 9: Numeric
-  index, cumulative_volume_numeric_9 = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.dissect(buffer, index, packet, parent)
+  -- Cumulative Volume Long: Numeric
+  index, cumulative_volume_long = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1618,10 +1618,10 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_trade_message = {}
 
 -- Size: Expanded Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_trade_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.size
 
 -- Display: Expanded Trade Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_trade_message.display = function(packet, parent, length)
@@ -1632,17 +1632,17 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Last Price Price 10: Price
-  index, last_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_price_10.dissect(buffer, index, packet, parent)
+  -- Last Price Long: Price
+  index, last_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.last_price_long.dissect(buffer, index, packet, parent)
 
-  -- Last Quantity Numeric 6: Numeric
-  index, last_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Last Quantity Long: Numeric
+  index, last_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.last_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume Numeric 9: Numeric
-  index, cumulative_volume_numeric_9 = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.dissect(buffer, index, packet, parent)
+  -- Cumulative Volume Long: Numeric
+  index, cumulative_volume_long = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1670,11 +1670,11 @@ cboe_bzxequities_top_asciipitch_v1_3_9.extended_two_sided_update_message = {}
 
 -- Size: Extended Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_two_sided_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size
 
 -- Display: Extended Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_two_sided_update_message.display = function(packet, parent, length)
@@ -1685,20 +1685,20 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_two_sided_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 14: Price
-  index, bid_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.dissect(buffer, index, packet, parent)
+  -- Bid Price Extended: Price
+  index, bid_price_extended = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 14: Price
-  index, ask_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.dissect(buffer, index, packet, parent)
+  -- Ask Price Extended: Price
+  index, ask_price_extended = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1726,11 +1726,11 @@ cboe_bzxequities_top_asciipitch_v1_3_9.short_two_sided_update_message = {}
 
 -- Size: Short Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_two_sided_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.size
 
 -- Display: Short Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_two_sided_update_message.display = function(packet, parent, length)
@@ -1741,20 +1741,20 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.short_two_sided_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 4: Alpha
-  index, symbol_alpha_4 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alpha
+  index, symbol_short = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 5: Price
-  index, bid_price_price_5 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: Price
+  index, bid_price_short = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 5: Numeric
-  index, bid_quantity_numeric_5 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Short: Numeric
+  index, bid_quantity_short = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 5: Price
-  index, ask_price_price_5 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.dissect(buffer, index, packet, parent)
+  -- Ask Price Short: Price
+  index, ask_price_short = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 5: Numeric
-  index, ask_quantity_numeric_5 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Short: Numeric
+  index, ask_quantity_short = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1782,11 +1782,11 @@ cboe_bzxequities_top_asciipitch_v1_3_9.long_two_sided_update_message = {}
 
 -- Size: Long Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_two_sided_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size
 
 -- Display: Long Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_two_sided_update_message.display = function(packet, parent, length)
@@ -1797,20 +1797,20 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.long_two_sided_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 6: Alpha
-  index, symbol_alpha_6 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 10: Price
-  index, bid_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Price
+  index, bid_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 10: Price
-  index, ask_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Price
+  index, ask_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1838,11 +1838,11 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_two_sided_update_message = {}
 
 -- Size: Expanded Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_two_sided_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size
 
 -- Display: Expanded Two Sided Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_two_sided_update_message.display = function(packet, parent, length)
@@ -1853,20 +1853,20 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_two_sided_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 10: Price
-  index, bid_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Price
+  index, bid_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 10: Price
-  index, ask_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Price
+  index, ask_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1894,9 +1894,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.extended_ask_update_message = {}
 
 -- Size: Extended Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_ask_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size
 
 -- Display: Extended Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_ask_update_message.display = function(packet, parent, length)
@@ -1907,14 +1907,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_ask_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 14: Price
-  index, ask_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.dissect(buffer, index, packet, parent)
+  -- Ask Price Extended: Price
+  index, ask_price_extended = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1942,9 +1942,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.short_ask_update_message = {}
 
 -- Size: Short Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_ask_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.size
 
 -- Display: Short Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_ask_update_message.display = function(packet, parent, length)
@@ -1955,14 +1955,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.short_ask_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 4: Alpha
-  index, symbol_alpha_4 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alpha
+  index, symbol_short = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 5: Price
-  index, ask_price_price_5 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_5.dissect(buffer, index, packet, parent)
+  -- Ask Price Short: Price
+  index, ask_price_short = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 5: Numeric
-  index, ask_quantity_numeric_5 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_5.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Short: Numeric
+  index, ask_quantity_short = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1990,9 +1990,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.long_ask_update_message = {}
 
 -- Size: Long Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_ask_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size
 
 -- Display: Long Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_ask_update_message.display = function(packet, parent, length)
@@ -2003,14 +2003,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.long_ask_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 6: Alpha
-  index, symbol_alpha_6 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 10: Price
-  index, ask_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Price
+  index, ask_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2038,9 +2038,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_ask_update_message = {}
 
 -- Size: Expanded Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_ask_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size
 
 -- Display: Expanded Ask Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_ask_update_message.display = function(packet, parent, length)
@@ -2051,14 +2051,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_ask_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 10: Price
-  index, ask_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Price
+  index, ask_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2086,9 +2086,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.extended_bid_update_message = {}
 
 -- Size: Extended Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_bid_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size
 
 -- Display: Extended Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_bid_update_message.display = function(packet, parent, length)
@@ -2099,14 +2099,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_bid_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 14: Price
-  index, bid_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.dissect(buffer, index, packet, parent)
+  -- Bid Price Extended: Price
+  index, bid_price_extended = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2134,9 +2134,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.short_bid_update_message = {}
 
 -- Size: Short Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_bid_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.size
 
 -- Display: Short Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.short_bid_update_message.display = function(packet, parent, length)
@@ -2147,14 +2147,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.short_bid_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 4: Alpha
-  index, symbol_alpha_4 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_4.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alpha
+  index, symbol_short = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 5: Price
-  index, bid_price_price_5 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_5.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: Price
+  index, bid_price_short = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 5: Numeric
-  index, bid_quantity_numeric_5 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_5.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Short: Numeric
+  index, bid_quantity_short = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2182,9 +2182,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.long_bid_update_message = {}
 
 -- Size: Long Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_bid_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size
 
 -- Display: Long Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.long_bid_update_message.display = function(packet, parent, length)
@@ -2195,14 +2195,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.long_bid_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 6: Alpha
-  index, symbol_alpha_6 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_6.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 10: Price
-  index, bid_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Price
+  index, bid_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2230,9 +2230,9 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_bid_update_message = {}
 
 -- Size: Expanded Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_bid_update_message.size =
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size
 
 -- Display: Expanded Bid Update Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_bid_update_message.display = function(packet, parent, length)
@@ -2243,14 +2243,14 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_bid_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 10: Price
-  index, bid_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Price
+  index, bid_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2279,15 +2279,15 @@ cboe_bzxequities_top_asciipitch_v1_3_9.extended_spin_message = {}
 -- Size: Extended Spin Message
 cboe_bzxequities_top_asciipitch_v1_3_9.extended_spin_message.size =
   cboe_bzxequities_top_asciipitch_v1_3_9.timestamp.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_time.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_size.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.halt_status.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.reg_sho_action.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.reserved_1.size + 
@@ -2305,32 +2305,32 @@ cboe_bzxequities_top_asciipitch_v1_3_9.extended_spin_message.fields = function(b
   -- Timestamp: Timestamp
   index, timestamp = cboe_bzxequities_top_asciipitch_v1_3_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 14: Price
-  index, bid_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_14.dissect(buffer, index, packet, parent)
+  -- Bid Price Extended: Price
+  index, bid_price_extended = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 14: Price
-  index, ask_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_14.dissect(buffer, index, packet, parent)
+  -- Ask Price Extended: Price
+  index, ask_price_extended = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_extended.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   -- Last Trade Time: Timestamp
   index, last_trade_time = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_time.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price Price 14: Price
-  index, last_trade_price_price_14 = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_14.dissect(buffer, index, packet, parent)
+  -- Last Trade Price Long: Price
+  index, last_trade_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_long.dissect(buffer, index, packet, parent)
 
   -- Last Trade Size: Numeric
   index, last_trade_size = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume Numeric 9: Numeric
-  index, cumulative_volume_numeric_9 = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.dissect(buffer, index, packet, parent)
+  -- Cumulative Volume Long: Numeric
+  index, cumulative_volume_long = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.dissect(buffer, index, packet, parent)
 
   -- Halt Status: Alpha
   index, halt_status = cboe_bzxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)
@@ -2371,15 +2371,15 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_spin_message = {}
 -- Size: Expanded Spin Message
 cboe_bzxequities_top_asciipitch_v1_3_9.expanded_spin_message.size =
   cboe_bzxequities_top_asciipitch_v1_3_9.timestamp.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_time.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_size.size + 
-  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.size + 
+  cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.halt_status.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.reg_sho_action.size + 
   cboe_bzxequities_top_asciipitch_v1_3_9.reserved_1.size + 
@@ -2397,32 +2397,32 @@ cboe_bzxequities_top_asciipitch_v1_3_9.expanded_spin_message.fields = function(b
   -- Timestamp: Timestamp
   index, timestamp = cboe_bzxequities_top_asciipitch_v1_3_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alpha
+  index, symbol_extended = cboe_bzxequities_top_asciipitch_v1_3_9.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Price 10: Price
-  index, bid_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_price_10.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Price
+  index, bid_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Numeric 6: Numeric
-  index, bid_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Numeric
+  index, bid_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.bid_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Price 10: Price
-  index, ask_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_price_10.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Price
+  index, ask_price_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Numeric 6: Numeric
-  index, ask_quantity_numeric_6 = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_numeric_6.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Numeric
+  index, ask_quantity_long = cboe_bzxequities_top_asciipitch_v1_3_9.ask_quantity_long.dissect(buffer, index, packet, parent)
 
   -- Last Trade Time: Timestamp
   index, last_trade_time = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_time.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price Price 10: Price
-  index, last_trade_price_price_10 = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_price_10.dissect(buffer, index, packet, parent)
+  -- Last Trade Price Short: Price
+  index, last_trade_price_short = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_price_short.dissect(buffer, index, packet, parent)
 
   -- Last Trade Size: Numeric
   index, last_trade_size = cboe_bzxequities_top_asciipitch_v1_3_9.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Cumulative Volume Numeric 9: Numeric
-  index, cumulative_volume_numeric_9 = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_numeric_9.dissect(buffer, index, packet, parent)
+  -- Cumulative Volume Long: Numeric
+  index, cumulative_volume_long = cboe_bzxequities_top_asciipitch_v1_3_9.cumulative_volume_long.dissect(buffer, index, packet, parent)
 
   -- Halt Status: Alpha
   index, halt_status = cboe_bzxequities_top_asciipitch_v1_3_9.halt_status.dissect(buffer, index, packet, parent)

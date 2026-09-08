@@ -15,22 +15,22 @@ local cboe_bzxequities_auctionfeed_asciipitch_v1_3_8 = {}
 -----------------------------------------------------------------------
 
 -- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Fields
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long_price_14 = ProtoField.new("Auction Only Price Long Price 14", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricelongprice14", ftypes.DOUBLE)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_numeric_10 = ProtoField.new("Auction Only Price Numeric 10", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricenumeric10", ftypes.STRING)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long = ProtoField.new("Auction Only Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_short = ProtoField.new("Auction Only Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiononlypriceshort", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_type = ProtoField.new("Auction Type", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.auctiontype", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.buyshares", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.debugpacket", ftypes.STRING)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_long_price_14 = ProtoField.new("Indicative Price Long Price 14", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.indicativepricelongprice14", ftypes.DOUBLE)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_numeric_10 = ProtoField.new("Indicative Price Numeric 10", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.indicativepricenumeric10", ftypes.STRING)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_long = ProtoField.new("Indicative Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.indicativepricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_short = ProtoField.new("Indicative Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.indicativepriceshort", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginacceptedpacket", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginrejectedpacket", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.loginrequestpacket", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet_type = ProtoField.new("Packet Type", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packettype", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.password = ProtoField.new("Password", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.password", ftypes.STRING)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_long_price_14 = ProtoField.new("Price Long Price 14", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.pricelongprice14", ftypes.DOUBLE)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_numeric_10 = ProtoField.new("Price Numeric 10", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.pricenumeric10", ftypes.STRING)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_long_price_14 = ProtoField.new("Reference Price Long Price 14", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.referencepricelongprice14", ftypes.DOUBLE)
-omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_numeric_10 = ProtoField.new("Reference Price Numeric 10", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.referencepricenumeric10", ftypes.STRING)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_long = ProtoField.new("Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.pricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_short = ProtoField.new("Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.priceshort", ftypes.STRING)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_long = ProtoField.new("Reference Price Long", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.referencepricelong", ftypes.DOUBLE)
+omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_short = ProtoField.new("Reference Price Short", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.referencepriceshort", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.rejectreasoncode", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.requestedsequencenumber", ftypes.STRING)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.requested_session = ProtoField.new("Requested Session", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.requestedsession", ftypes.STRING)
@@ -107,15 +107,15 @@ end
 -- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Fields
 -----------------------------------------------------------------------
 
--- Auction Only Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14 = {}
+-- Auction Only Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long = {}
 
--- Size: Auction Only Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.size = 14
+-- Size: Auction Only Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.size = 14
 
--- Display: Auction Only Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Auction Only Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -124,7 +124,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.
   end
 
   if not digits:match("^%d+$") then
-    return "Auction Only Price Long Price 14: "..tostring(value)
+    return "Auction Only Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -133,12 +133,12 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Auction Only Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Auction Only Price Long: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Auction Only Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.size
+-- Dissect: Auction Only Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -146,27 +146,27 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Auction Only Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10 = {}
+-- Auction Only Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short = {}
 
--- Size: Auction Only Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.size = 10
+-- Size: Auction Only Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.size = 10
 
--- Display: Auction Only Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.display = function(value)
-  return "Auction Only Price Numeric 10: "..value
+-- Display: Auction Only Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.display = function(value)
+  return "Auction Only Price Short: "..value
 end
 
--- Dissect: Auction Only Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.size
+-- Dissect: Auction Only Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -174,9 +174,9 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.dis
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_numeric_10, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.auction_only_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -248,15 +248,15 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.dissect = function(buf
   return offset + length, value
 end
 
--- Indicative Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14 = {}
+-- Indicative Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long = {}
 
--- Size: Indicative Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.size = 14
+-- Size: Indicative Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.size = 14
 
--- Display: Indicative Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Indicative Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -265,7 +265,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.di
   end
 
   if not digits:match("^%d+$") then
-    return "Indicative Price Long Price 14: "..tostring(value)
+    return "Indicative Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -274,12 +274,12 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.di
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Indicative Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Indicative Price Long: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Indicative Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.size
+-- Dissect: Indicative Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -287,27 +287,27 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.di
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_long_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Indicative Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10 = {}
+-- Indicative Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short = {}
 
--- Size: Indicative Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.size = 10
+-- Size: Indicative Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.size = 10
 
--- Display: Indicative Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.display = function(value)
-  return "Indicative Price Numeric 10: "..value
+-- Display: Indicative Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.display = function(value)
+  return "Indicative Price Short: "..value
 end
 
--- Dissect: Indicative Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.size
+-- Dissect: Indicative Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -315,9 +315,9 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.disse
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_numeric_10, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.indicative_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -396,15 +396,15 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.password.dissect = function(buffe
   return offset + length, value
 end
 
--- Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14 = {}
+-- Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long = {}
 
--- Size: Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.size = 14
+-- Size: Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.size = 14
 
--- Display: Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -413,7 +413,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.display = fun
   end
 
   if not digits:match("^%d+$") then
-    return "Price Long Price 14: "..tostring(value)
+    return "Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -422,12 +422,12 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.display = fun
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Price Long: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.size
+-- Dissect: Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -435,27 +435,27 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_long_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10 = {}
+-- Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short = {}
 
--- Size: Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.size = 10
+-- Size: Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.size = 10
 
--- Display: Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.display = function(value)
-  return "Price Numeric 10: "..value
+-- Display: Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.size
+-- Dissect: Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -463,22 +463,22 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.dissect = functi
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_numeric_10, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Reference Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14 = {}
+-- Reference Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long = {}
 
--- Size: Reference Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.size = 14
+-- Size: Reference Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.size = 14
 
--- Display: Reference Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Reference Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -487,7 +487,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.dis
   end
 
   if not digits:match("^%d+$") then
-    return "Reference Price Long Price 14: "..tostring(value)
+    return "Reference Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -496,12 +496,12 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.dis
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Reference Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Reference Price Long: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Reference Price Long Price 14
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.size
+-- Dissect: Reference Price Long
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -509,27 +509,27 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.dis
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_long_price_14, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Reference Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10 = {}
+-- Reference Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short = {}
 
--- Size: Reference Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.size = 10
+-- Size: Reference Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.size = 10
 
--- Display: Reference Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.display = function(value)
-  return "Reference Price Numeric 10: "..value
+-- Display: Reference Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.display = function(value)
+  return "Reference Price Short: "..value
 end
 
--- Dissect: Reference Price Numeric 10
-cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.size
+-- Dissect: Reference Price Short
+cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -537,9 +537,9 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.dissec
     value =  "Not Applicable"
   end
 
-  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_numeric_10, range, value, display)
+  parent:add(omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.reference_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1002,7 +1002,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_summary_message 
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_summary_message.size =
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.stock_symbol.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.size + 
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.size
 
 -- Display: Extended Auction Summary Message
@@ -1020,8 +1020,8 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_summary_message.
   -- Auction Type: Alpha
   index, auction_type = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 14: Long Price
-  index, price_long_price_14 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long_price_14.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_long.dissect(buffer, index, packet, parent)
 
   -- Shares: Numeric
   index, shares = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.dissect(buffer, index, packet, parent)
@@ -1054,7 +1054,7 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_summary_message = {}
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_summary_message.size =
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.stock_symbol.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.size + 
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.size
 
 -- Display: Auction Summary Message
@@ -1072,8 +1072,8 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_summary_message.fields = 
   -- Auction Type: Alpha
   index, auction_type = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Price Numeric 10: Numeric
-  index, price_numeric_10 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_numeric_10.dissect(buffer, index, packet, parent)
+  -- Price Short: Numeric
+  index, price_short = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.price_short.dissect(buffer, index, packet, parent)
 
   -- Shares: Numeric
   index, shares = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.shares.dissect(buffer, index, packet, parent)
@@ -1106,11 +1106,11 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message =
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message.size =
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.stock_symbol.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.size + 
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.size
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.size + 
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.size
 
 -- Display: Extended Auction Update Message
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message.display = function(packet, parent, length)
@@ -1127,8 +1127,8 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message.f
   -- Auction Type: Alpha
   index, auction_type = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Long Price 14: Long Price
-  index, reference_price_long_price_14 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long_price_14.dissect(buffer, index, packet, parent)
+  -- Reference Price Long: Long Price
+  index, reference_price_long = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_long.dissect(buffer, index, packet, parent)
 
   -- Buy Shares: Numeric
   index, buy_shares = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.dissect(buffer, index, packet, parent)
@@ -1136,11 +1136,11 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.extended_auction_update_message.f
   -- Sell Shares: Numeric
   index, sell_shares = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.dissect(buffer, index, packet, parent)
 
-  -- Indicative Price Long Price 14: Long Price
-  index, indicative_price_long_price_14 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long_price_14.dissect(buffer, index, packet, parent)
+  -- Indicative Price Long: Long Price
+  index, indicative_price_long = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_long.dissect(buffer, index, packet, parent)
 
-  -- Auction Only Price Long Price 14: Long Price
-  index, auction_only_price_long_price_14 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long_price_14.dissect(buffer, index, packet, parent)
+  -- Auction Only Price Long: Long Price
+  index, auction_only_price_long = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1170,11 +1170,11 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message = {}
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message.size =
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.stock_symbol.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.size + 
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.size + 
   cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.size + 
-  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.size
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.size + 
+  cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.size
 
 -- Display: Auction Update Message
 cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message.display = function(packet, parent, length)
@@ -1191,8 +1191,8 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message.fields = f
   -- Auction Type: Alpha
   index, auction_type = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Reference Price Numeric 10: Numeric
-  index, reference_price_numeric_10 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_numeric_10.dissect(buffer, index, packet, parent)
+  -- Reference Price Short: Numeric
+  index, reference_price_short = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.reference_price_short.dissect(buffer, index, packet, parent)
 
   -- Buy Shares: Numeric
   index, buy_shares = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.buy_shares.dissect(buffer, index, packet, parent)
@@ -1200,11 +1200,11 @@ cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_update_message.fields = f
   -- Sell Shares: Numeric
   index, sell_shares = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.sell_shares.dissect(buffer, index, packet, parent)
 
-  -- Indicative Price Numeric 10: Numeric
-  index, indicative_price_numeric_10 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_numeric_10.dissect(buffer, index, packet, parent)
+  -- Indicative Price Short: Numeric
+  index, indicative_price_short = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.indicative_price_short.dissect(buffer, index, packet, parent)
 
-  -- Auction Only Price Numeric 10: Numeric
-  index, auction_only_price_numeric_10 = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_numeric_10.dissect(buffer, index, packet, parent)
+  -- Auction Only Price Short: Numeric
+  index, auction_only_price_short = cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.auction_only_price_short.dissect(buffer, index, packet, parent)
 
   return index
 end

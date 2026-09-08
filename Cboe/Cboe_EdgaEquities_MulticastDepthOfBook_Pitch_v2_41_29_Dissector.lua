@@ -42,8 +42,8 @@ omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.reg_sho_action 
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.remainingquantity", ftypes.UINT32)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.sequence = ProtoField.new("Sequence", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.sequence", ftypes.UINT32)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.sideindicator", ftypes.STRING)
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol = ProtoField.new("Symbol", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.symbol", ftypes.STRING)
-omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.symbolextended", ftypes.STRING)
+omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.symbollong", ftypes.STRING)
+omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.symbolshort", ftypes.STRING)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.time = ProtoField.new("Time", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.time", ftypes.UINT32)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.time_offset = ProtoField.new("Time Offset", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.timeoffset", ftypes.UINT32)
 omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.trading_status = ProtoField.new("Trading Status", "cboe.edgaequities.multicastdepthofbook.pitch.v2.41.29.tradingstatus", ftypes.STRING)
@@ -761,48 +761,48 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.side_indicator.dissect = f
   return offset + length, value
 end
 
--- Symbol
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol = {}
+-- Symbol Long
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long = {}
 
--- Size: Symbol
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.size = 6
+-- Size: Symbol Long
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.size = 8
 
--- Display: Symbol
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.display = function(value)
-  return "Symbol: "..value
+-- Display: Symbol Long
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.display = function(value)
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.size
+-- Dissect: Symbol Long
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol, range, value, display)
+  parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Extended
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended = {}
+-- Symbol Short
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short = {}
 
--- Size: Symbol Extended
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.size = 8
+-- Size: Symbol Short
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.size = 6
 
--- Display: Symbol Extended
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.display = function(value)
-  return "Symbol Extended: "..value
+-- Display: Symbol Short
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.display = function(value)
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol Extended
-cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.size
+-- Dissect: Symbol Short
+cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol_extended, range, value, display)
+  parent:add(omi_cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -995,7 +995,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trading_status_message = {
 -- Size: Trading Status Message
 cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trading_status_message.size =
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.time_offset.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trading_status.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.reg_sho_action.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.padding.size
@@ -1012,8 +1012,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trading_status_message.fie
   -- Time Offset: Binary
   index, time_offset = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Printable ASCII
+  index, symbol_long = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trading Status: Alpha
   index, trading_status = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trading_status.dissect(buffer, index, packet, parent)
@@ -1138,7 +1138,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trade_expanded_message.siz
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.order_id.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.side_indicator.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.execution_id.size
 
@@ -1163,8 +1163,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trade_expanded_message.fie
   -- Quantity: Binary
   index, quantity = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Printable ASCII
+  index, symbol_long = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price: Binary Long Price
   index, price = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
@@ -1202,7 +1202,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trade_short_message.size =
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.order_id.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.side_indicator.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity_short.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price_short.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.execution_id.size
 
@@ -1227,8 +1227,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trade_short_message.fields
   -- Quantity Short: Binary
   index, quantity_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol: Printable ASCII
-  index, symbol = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Printable ASCII
+  index, symbol_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: Binary Short Price
   index, price_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price_short.dissect(buffer, index, packet, parent)
@@ -1266,7 +1266,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trade_long_message.size =
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.order_id.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.side_indicator.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.execution_id.size
 
@@ -1291,8 +1291,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.trade_long_message.fields 
   -- Quantity: Binary
   index, quantity = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol: Printable ASCII
-  index, symbol = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Printable ASCII
+  index, symbol_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price: Binary Long Price
   index, price = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
@@ -1787,7 +1787,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_expanded_message
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.order_id.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.side_indicator.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_flags.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.participant_id.size + 
@@ -1814,8 +1814,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_expanded_message
   -- Quantity: Binary
   index, quantity = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: Printable ASCII
-  index, symbol_extended = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Printable ASCII
+  index, symbol_long = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price: Binary Long Price
   index, price = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
@@ -1859,7 +1859,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_short_message.si
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.order_id.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.side_indicator.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity_short.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price_short.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_flags.size
 
@@ -1884,8 +1884,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_short_message.fi
   -- Quantity Short: Binary
   index, quantity_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol: Printable ASCII
-  index, symbol = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Printable ASCII
+  index, symbol_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: Binary Short Price
   index, price_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price_short.dissect(buffer, index, packet, parent)
@@ -1923,7 +1923,7 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_long_message.siz
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.order_id.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.side_indicator.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.size + 
-  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.size + 
+  cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.size + 
   cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_flags.size
 
@@ -1948,8 +1948,8 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.add_order_long_message.fie
   -- Quantity: Binary
   index, quantity = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol: Printable ASCII
-  index, symbol = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Printable ASCII
+  index, symbol_short = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price: Binary Long Price
   index, price = cboe_edgaequities_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)

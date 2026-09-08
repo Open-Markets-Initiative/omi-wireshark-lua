@@ -16,14 +16,14 @@ local cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34 = {}
 
 -- Cboe BxeEquities TcpDepthOfBook AsciiPitch 4.34 Fields
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.auction_type = ProtoField.new("Auction Type", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.auctiontype", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_numeric_10 = ProtoField.new("Cancelled Shares Numeric 10", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledsharesnumeric10", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_numeric_6 = ProtoField.new("Cancelled Shares Numeric 6", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledsharesnumeric6", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_long = ProtoField.new("Cancelled Shares Long", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledshareslong", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_short = ProtoField.new("Cancelled Shares Short", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.cancelledsharesshort", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cboe_trade_flags = ProtoField.new("Cboe Trade Flags", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.cboetradeflags", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.currency = ProtoField.new("Currency", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.currency", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.debug_packet = ProtoField.new("Debug Packet", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.debugpacket", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.display = ProtoField.new("Display", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.display", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_numeric_10 = ProtoField.new("Executed Shares Numeric 10", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.executedsharesnumeric10", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_numeric_6 = ProtoField.new("Executed Shares Numeric 6", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.executedsharesnumeric6", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_long = ProtoField.new("Executed Shares Long", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.executedshareslong", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_short = ProtoField.new("Executed Shares Short", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.executedsharesshort", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.execution_flag = ProtoField.new("Execution Flag", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.executionflag", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.execution_flags = ProtoField.new("Execution Flags", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.executionflags", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.execution_id = ProtoField.new("Execution Id", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.executionid", ftypes.STRING)
@@ -40,8 +40,8 @@ omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.outside_tolerance = 
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.packet_type = ProtoField.new("Packet Type", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.packettype", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.password = ProtoField.new("Password", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.password", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_determination = ProtoField.new("Price Determination", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.pricedetermination", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_long_price_19 = ProtoField.new("Price Long Price 19", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.pricelongprice19", ftypes.DOUBLE)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_price_10 = ProtoField.new("Price Price 10", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.priceprice10", ftypes.DOUBLE)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_long = ProtoField.new("Price Long", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.pricelong", ftypes.DOUBLE)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_short = ProtoField.new("Price Short", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.priceshort", ftypes.DOUBLE)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.reference_price = ProtoField.new("Reference Price", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.referenceprice", ftypes.DOUBLE)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.rejectreasoncode", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.requestedsequencenumber", ftypes.STRING)
@@ -52,9 +52,9 @@ omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_data_packe
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sequencedmessageheader", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sequencedmessagetype", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.session = ProtoField.new("Session", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.session", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_numeric_10 = ProtoField.new("Shares Numeric 10", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sharesnumeric10", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_numeric_12 = ProtoField.new("Shares Numeric 12", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sharesnumeric12", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_numeric_6 = ProtoField.new("Shares Numeric 6", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sharesnumeric6", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_extended = ProtoField.new("Shares Extended", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sharesextended", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_long = ProtoField.new("Shares Long", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.shareslong", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_short = ProtoField.new("Shares Short", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sharesshort", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.sideindicator", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.souplf", ftypes.INT8)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.statistictype", ftypes.STRING)
@@ -193,20 +193,20 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_type.dissect = function
   return offset + length, value
 end
 
--- Cancelled Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10 = {}
+-- Cancelled Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long = {}
 
--- Size: Cancelled Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.size = 10
+-- Size: Cancelled Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.size = 10
 
--- Display: Cancelled Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.display = function(value)
-  return "Cancelled Shares Numeric 10: "..value
+-- Display: Cancelled Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.display = function(value)
+  return "Cancelled Shares Long: "..value
 end
 
--- Dissect: Cancelled Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.size
+-- Dissect: Cancelled Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -214,27 +214,27 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.dis
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_numeric_10, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_long, range, value, display)
 
   return offset + length, value
 end
 
--- Cancelled Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6 = {}
+-- Cancelled Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short = {}
 
--- Size: Cancelled Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.size = 6
+-- Size: Cancelled Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.size = 6
 
--- Display: Cancelled Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.display = function(value)
-  return "Cancelled Shares Numeric 6: "..value
+-- Display: Cancelled Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.display = function(value)
+  return "Cancelled Shares Short: "..value
 end
 
--- Dissect: Cancelled Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.size
+-- Dissect: Cancelled Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -242,9 +242,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.diss
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_numeric_6, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.cancelled_shares_short, range, value, display)
 
   return offset + length, value
 end
@@ -318,20 +318,20 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.display.dissect = function(buff
   return offset + length, value
 end
 
--- Executed Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10 = {}
+-- Executed Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long = {}
 
--- Size: Executed Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.size = 10
+-- Size: Executed Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.size = 10
 
--- Display: Executed Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.display = function(value)
-  return "Executed Shares Numeric 10: "..value
+-- Display: Executed Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.display = function(value)
+  return "Executed Shares Long: "..value
 end
 
--- Dissect: Executed Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.size
+-- Dissect: Executed Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -339,27 +339,27 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.diss
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_numeric_10, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_long, range, value, display)
 
   return offset + length, value
 end
 
--- Executed Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6 = {}
+-- Executed Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short = {}
 
--- Size: Executed Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.size = 6
+-- Size: Executed Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.size = 6
 
--- Display: Executed Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.display = function(value)
-  return "Executed Shares Numeric 6: "..value
+-- Display: Executed Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.display = function(value)
+  return "Executed Shares Short: "..value
 end
 
--- Dissect: Executed Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.size
+-- Dissect: Executed Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -367,9 +367,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.disse
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_numeric_6, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.executed_shares_short, range, value, display)
 
   return offset + length, value
 end
@@ -729,15 +729,15 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_determination.dissect = f
   return offset + length, value
 end
 
--- Price Long Price 19
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19 = {}
+-- Price Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long = {}
 
--- Size: Price Long Price 19
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size = 19
+-- Size: Price Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size = 19
 
--- Display: Price Long Price 19
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size):string():match("^%s*(.-)%s*$")
+-- Display: Price Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -746,7 +746,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.display = f
   end
 
   if not digits:match("^%d+$") then
-    return "Price Long Price 19: "..tostring(value)
+    return "Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -755,12 +755,12 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.display = f
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Price Long Price 19: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Price Long: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Price Long Price 19
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size
+-- Dissect: Price Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -768,22 +768,22 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect = f
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_long_price_19, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Price Price 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10 = {}
+-- Price Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short = {}
 
--- Size: Price Price 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.size = 10
+-- Size: Price Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size = 10
 
--- Display: Price Price 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.size):string():match("^%s*(.-)%s*$")
+-- Display: Price Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -792,7 +792,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.display = functi
   end
 
   if not digits:match("^%d+$") then
-    return "Price Price 10: "..tostring(value)
+    return "Price Short: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -801,12 +801,12 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.display = functi
     digits = string.rep("0", 4 - #digits + 1)..digits
   end
 
-  return "Price Price 10: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
+  return "Price Short: "..sign..digits:sub(1, #digits - 4)..".".. digits:sub(-4)
 end
 
--- Dissect: Price Price 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.size
+-- Dissect: Price Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -814,9 +814,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.dissect = functi
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_price_10, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1074,20 +1074,20 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.session.dissect = function(buff
   return offset + length, value
 end
 
--- Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10 = {}
+-- Shares Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended = {}
 
--- Size: Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.size = 10
+-- Size: Shares Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.size = 12
 
--- Display: Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.display = function(value)
-  return "Shares Numeric 10: "..value
+-- Display: Shares Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.display = function(value)
+  return "Shares Extended: "..value
 end
 
--- Dissect: Shares Numeric 10
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.size
+-- Dissect: Shares Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1095,27 +1095,27 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_numeric_10, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_extended, range, value, display)
 
   return offset + length, value
 end
 
--- Shares Numeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12 = {}
+-- Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long = {}
 
--- Size: Shares Numeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.size = 12
+-- Size: Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size = 10
 
--- Display: Shares Numeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.display = function(value)
-  return "Shares Numeric 12: "..value
+-- Display: Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.display = function(value)
+  return "Shares Long: "..value
 end
 
--- Dissect: Shares Numeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.size
+-- Dissect: Shares Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1123,27 +1123,27 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.dissect = fun
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_numeric_12, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_long, range, value, display)
 
   return offset + length, value
 end
 
--- Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6 = {}
+-- Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short = {}
 
--- Size: Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.size = 6
+-- Size: Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.size = 6
 
--- Display: Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.display = function(value)
-  return "Shares Numeric 6: "..value
+-- Display: Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.display = function(value)
+  return "Shares Short: "..value
 end
 
--- Dissect: Shares Numeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.size
+-- Dissect: Shares Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1151,9 +1151,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.dissect = func
     value =  "Not Applicable"
   end
 
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_numeric_6, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_short, range, value, display)
 
   return offset + length, value
 end
@@ -1691,8 +1691,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_summary_message = {}
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_summary_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_type.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.size
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size
 
 -- Display: Auction Summary Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_summary_message.display = function(packet, parent, length)
@@ -1709,11 +1709,11 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_summary_message.fields 
   -- Auction Type: Alpha
   index, auction_type = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 19: Long Price
-  index, price_long_price_19 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 10: Numeric
-  index, shares_numeric_10 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.dissect(buffer, index, packet, parent)
+  -- Shares Long: Numeric
+  index, shares_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1806,7 +1806,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistics_message = {}
 -- Size: Statistics Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistics_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistic_type.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_determination.size
 
@@ -1822,8 +1822,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistics_message.fields = fun
   -- Symbol Alphanumeric 8: Alphanumeric
   index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 19: Long Price
-  index, price_long_price_19 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
 
   -- Statistic Type: Alpha
   index, statistic_type = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistic_type.dissect(buffer, index, packet, parent)
@@ -1905,9 +1905,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_unknown_symbol = 
 
 -- Size: Trade Message Unknown Symbol
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_unknown_symbol.size =
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_date.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_time.size + 
@@ -1925,14 +1925,14 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_unknown_symbol.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Shares Numeric 12: Numeric
-  index, shares_numeric_12 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.dissect(buffer, index, packet, parent)
+  -- Shares Extended: Numeric
+  index, shares_extended = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 12: Alphanumeric
   index, symbol_alphanumeric_12 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 19: Long Price
-  index, price_long_price_19 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: Base 36 Numeric
   index, trade_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.dissect(buffer, index, packet, parent)
@@ -1981,9 +1981,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_extended_form = {
 
 -- Size: Trade Message Extended Form
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_extended_form.size =
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_date.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_time.size + 
@@ -2001,14 +2001,14 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_extended_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Shares Numeric 12: Numeric
-  index, shares_numeric_12 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_12.dissect(buffer, index, packet, parent)
+  -- Shares Extended: Numeric
+  index, shares_extended = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: Alphanumeric
   index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 19: Long Price
-  index, price_long_price_19 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
 
   -- Trade Id: Base 36 Numeric
   index, trade_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.dissect(buffer, index, packet, parent)
@@ -2059,9 +2059,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_long_form = {}
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_long_form.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_flags.size
 
@@ -2080,14 +2080,14 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_long_form.fields 
   -- Side Indicator: Alpha
   index, side_indicator = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 10: Numeric
-  index, shares_numeric_10 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.dissect(buffer, index, packet, parent)
+  -- Shares Long: Numeric
+  index, shares_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect(buffer, index, packet, parent)
 
   -- Symbol Alpha 8: Alpha
   index, symbol_alpha_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 19: Long Price
-  index, price_long_price_19 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Base 36 Numeric
   index, execution_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.dissect(buffer, index, packet, parent)
@@ -2123,9 +2123,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message = {}
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_flags.size
 
@@ -2144,14 +2144,14 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message.fields = function
   -- Side Indicator: Alpha
   index, side_indicator = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 6: Numeric
-  index, shares_numeric_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.dissect(buffer, index, packet, parent)
+  -- Shares Short: Numeric
+  index, shares_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.dissect(buffer, index, packet, parent)
 
   -- Symbol Alpha 6: Alpha
   index, symbol_alpha_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.dissect(buffer, index, packet, parent)
 
-  -- Price Price 10: Price
-  index, price_price_10 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.dissect(buffer, index, packet, parent)
+  -- Price Short: Price
+  index, price_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Base 36 Numeric
   index, execution_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.dissect(buffer, index, packet, parent)
@@ -2186,7 +2186,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message_long_form 
 -- Size: Order Cancel Message Long Form
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message_long_form.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.size
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.size
 
 -- Display: Order Cancel Message Long Form
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message_long_form.display = function(packet, parent, length)
@@ -2200,8 +2200,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message_long_form.
   -- Order Id: Base 36 Numeric
   index, order_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.dissect(buffer, index, packet, parent)
 
-  -- Cancelled Shares Numeric 10: Numeric
-  index, cancelled_shares_numeric_10 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_10.dissect(buffer, index, packet, parent)
+  -- Cancelled Shares Long: Numeric
+  index, cancelled_shares_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2230,7 +2230,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message = {}
 -- Size: Order Cancel Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.size
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.size
 
 -- Display: Order Cancel Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message.display = function(packet, parent, length)
@@ -2244,8 +2244,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_cancel_message.fields = f
   -- Order Id: Base 36 Numeric
   index, order_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.dissect(buffer, index, packet, parent)
 
-  -- Cancelled Shares Numeric 6: Numeric
-  index, cancelled_shares_numeric_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_numeric_6.dissect(buffer, index, packet, parent)
+  -- Cancelled Shares Short: Numeric
+  index, cancelled_shares_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.cancelled_shares_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2274,7 +2274,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_executed_message_long_for
 -- Size: Order Executed Message Long Form
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_executed_message_long_form.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_flags.size
 
@@ -2290,8 +2290,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_executed_message_long_for
   -- Order Id: Base 36 Numeric
   index, order_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Shares Numeric 10: Numeric
-  index, executed_shares_numeric_10 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_10.dissect(buffer, index, packet, parent)
+  -- Executed Shares Long: Numeric
+  index, executed_shares_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_long.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Base 36 Numeric
   index, execution_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.dissect(buffer, index, packet, parent)
@@ -2326,7 +2326,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_executed_message = {}
 -- Size: Order Executed Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_executed_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_flag.size
 
@@ -2342,8 +2342,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_executed_message.fields =
   -- Order Id: Base 36 Numeric
   index, order_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Shares Numeric 6: Numeric
-  index, executed_shares_numeric_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_numeric_6.dissect(buffer, index, packet, parent)
+  -- Executed Shares Short: Numeric
+  index, executed_shares_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.executed_shares_short.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Base 36 Numeric
   index, execution_id = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.dissect(buffer, index, packet, parent)
@@ -2379,9 +2379,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message_long_form = {
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message_long_form.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.display.size
 
 -- Display: Add Order Message Long Form
@@ -2399,14 +2399,14 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message_long_form.fie
   -- Side Indicator: Alpha
   index, side_indicator = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 10: Numeric
-  index, shares_numeric_10 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_10.dissect(buffer, index, packet, parent)
+  -- Shares Long: Numeric
+  index, shares_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 8: Alphanumeric
   index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 19: Long Price
-  index, price_long_price_19 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long_price_19.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
 
   -- Display: Alpha
   index, display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.display.dissect(buffer, index, packet, parent)
@@ -2439,9 +2439,9 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message = {}
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.display.size
 
 -- Display: Add Order Message
@@ -2459,14 +2459,14 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message.fields = func
   -- Side Indicator: Alpha
   index, side_indicator = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 6: Numeric
-  index, shares_numeric_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_numeric_6.dissect(buffer, index, packet, parent)
+  -- Shares Short: Numeric
+  index, shares_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.dissect(buffer, index, packet, parent)
 
   -- Symbol Alphanumeric 6: Alphanumeric
   index, symbol_alphanumeric_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
 
-  -- Price Price 10: Price
-  index, price_price_10 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_price_10.dissect(buffer, index, packet, parent)
+  -- Price Short: Price
+  index, price_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.dissect(buffer, index, packet, parent)
 
   -- Display: Alpha
   index, display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.display.dissect(buffer, index, packet, parent)

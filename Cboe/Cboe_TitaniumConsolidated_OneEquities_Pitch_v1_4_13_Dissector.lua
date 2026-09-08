@@ -65,8 +65,8 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.short_update_adap
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.side = ProtoField.new("Side", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.side", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.sideindicator", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.sip_volume_status = ProtoField.new("Sip Volume Status", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.sipvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_alphanumeric_14 = ProtoField.new("Symbol Alphanumeric 14", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.symbolalphanumeric14", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_alphanumeric_8 = ProtoField.new("Symbol Alphanumeric 8", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.symbolalphanumeric8", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.symbollong", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.symbolshort", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.timestamp", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.tradingstatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.transactiontime", ftypes.UINT64)
@@ -1232,48 +1232,48 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side_indicator.dissect = fun
   return offset + length, value
 end
 
--- Symbol Alphanumeric 14
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14 = {}
+-- Symbol Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long = {}
 
--- Size: Symbol Alphanumeric 14
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size = 14
+-- Size: Symbol Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size = 14
 
--- Display: Symbol Alphanumeric 14
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.display = function(value)
-  return "Symbol Alphanumeric 14: "..value
+-- Display: Symbol Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.display = function(value)
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol Alphanumeric 14
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size
+-- Dissect: Symbol Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_alphanumeric_14, range, value, display)
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Alphanumeric 8
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8 = {}
+-- Symbol Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short = {}
 
--- Size: Symbol Alphanumeric 8
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size = 8
+-- Size: Symbol Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size = 8
 
--- Display: Symbol Alphanumeric 8
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.display = function(value)
-  return "Symbol Alphanumeric 8: "..value
+-- Display: Symbol Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.display = function(value)
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol Alphanumeric 8
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size
+-- Dissect: Symbol Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_alphanumeric_8, range, value, display)
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -1412,7 +1412,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_end_of_d
 -- Size: Expanded Fractional End Of Day Summary Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_end_of_day_summary_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.data_source.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_price.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.closing_price.size + 
@@ -1432,8 +1432,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_end_of_d
   -- Timestamp: Binary
   index, timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Data Source: Alphanumeric
   index, data_source = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.data_source.dissect(buffer, index, packet, parent)
@@ -1480,7 +1480,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_end_of_day_summar
 -- Size: Fractional End Of Day Summary Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_end_of_day_summary_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.data_source.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_price.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.closing_price.size + 
@@ -1500,8 +1500,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_end_of_day_summar
   -- Timestamp: Binary
   index, timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Data Source: Alphanumeric
   index, data_source = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.data_source.dissect(buffer, index, packet, parent)
@@ -1548,7 +1548,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_opening_closing_pri
 -- Size: Expanded Opening Closing Price Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_opening_closing_price_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.open_close_indicator.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size
@@ -1565,8 +1565,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_opening_closing_pri
   -- Timestamp: Binary
   index, timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -1604,7 +1604,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_closing_price_messag
 -- Size: Opening Closing Price Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_closing_price_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.open_close_indicator.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size
@@ -1621,8 +1621,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_closing_price_messag
   -- Timestamp: Binary
   index, timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -1660,7 +1660,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_trading_status_mess
 -- Size: Expanded Trading Status Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_trading_status_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.trading_status.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reg_sho_action.size
@@ -1677,8 +1677,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_trading_status_mess
   -- Timestamp: Binary
   index, timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -1716,7 +1716,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.trading_status_message = {}
 -- Size: Trading Status Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.trading_status_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.trading_status.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.reg_sho_action.size
@@ -1733,8 +1733,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.trading_status_message.field
   -- Timestamp: Binary
   index, timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -1772,7 +1772,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_br
 -- Size: Expanded Fractional Trade Break Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_break_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center_execution_id.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.size + 
@@ -1791,8 +1791,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_br
   -- Transaction Time: Binary
   index, transaction_time = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -1879,7 +1879,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_break_messa
 -- Size: Fractional Trade Break Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_break_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center_execution_id.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.size + 
@@ -1898,8 +1898,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_break_messa
   -- Transaction Time: Binary
   index, transaction_time = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -1943,7 +1943,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_me
 -- Size: Expanded Fractional Trade Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center_execution_id.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_price.size + 
@@ -1964,8 +1964,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_trade_me
   -- Transaction Time: Binary
   index, transaction_time = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -2065,7 +2065,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_message = {
 -- Size: Fractional Trade Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center_execution_id.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_price.size + 
@@ -2086,8 +2086,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_trade_message.fie
   -- Transaction Time: Binary
   index, transaction_time = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.transaction_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -2137,7 +2137,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.rpi_message = {}
 -- Size: Rpi Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.rpi_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.retail_price_improvement.size
 
@@ -2153,8 +2153,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.rpi_message.fields = functio
   -- Timestamp: Binary
   index, timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -2427,7 +2427,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_adap_message.size =
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size
 
-  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size
+  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.size
 
@@ -2457,8 +2457,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_adap_message.fields
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Adap Flags: Struct of 4 fields
   index, adap_flags = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.dissect(buffer, index, packet, parent)
@@ -2507,7 +2507,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_message.size = function
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size
 
-  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size
+  index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size
 
   index = index + cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.size
 
@@ -2537,8 +2537,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_message.fields = functi
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Adap Flags: Struct of 4 fields
   index, adap_flags = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.adap_flags.dissect(buffer, index, packet, parent)
@@ -2636,7 +2636,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_best_quote_update_m
 -- Size: Expanded Best Quote Update Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_best_quote_update_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side_indicator.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_quote_price.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_quote_quantity.size
@@ -2653,8 +2653,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_best_quote_update_m
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side_indicator.dissect(buffer, index, packet, parent)
@@ -2692,7 +2692,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.best_quote_update_message = 
 -- Size: Best Quote Update Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.best_quote_update_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side_indicator.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_quote_price.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_quote_quantity.size
@@ -2709,8 +2709,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.best_quote_update_message.fi
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side_indicator.dissect(buffer, index, packet, parent)
@@ -2748,7 +2748,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_symbol_s
 -- Size: Expanded Fractional Symbol Summary Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_symbol_summary_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_bid_price.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_bid_quantity.size + 
@@ -2769,8 +2769,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_fractional_symbol_s
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Cboe Cumulative Executed Volume: Binary
   index, cboe_cumulative_executed_volume = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
@@ -2863,7 +2863,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_symbol_summary_me
 -- Size: Fractional Symbol Summary Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_symbol_summary_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_bid_price.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.consolidated_best_bid_quantity.size + 
@@ -2884,8 +2884,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fractional_symbol_summary_me
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Cboe Cumulative Executed Volume: Binary
   index, cboe_cumulative_executed_volume = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.cboe_cumulative_executed_volume.dissect(buffer, index, packet, parent)
@@ -2935,7 +2935,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_clear_quote_message
 -- Size: Expanded Clear Quote Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_clear_quote_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size
 
 -- Display: Expanded Clear Quote Message
@@ -2950,8 +2950,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_clear_quote_message
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 14: Alphanumeric
-  index, symbol_alphanumeric_14 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_14.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)
@@ -2983,7 +2983,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.clear_quote_message = {}
 -- Size: Clear Quote Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.clear_quote_message.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size
 
 -- Display: Clear Quote Message
@@ -2998,8 +2998,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.clear_quote_message.fields =
   -- Last Update Timestamp: Binary
   index, last_update_timestamp = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.last_update_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Market Center: Alphanumeric
   index, market_center = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.dissect(buffer, index, packet, parent)

@@ -23,8 +23,8 @@ omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.login_rejected_packet = 
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.loginrequestpacket", ftypes.STRING)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.packet_type = ProtoField.new("Packet Type", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.packettype", ftypes.STRING)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.password = ProtoField.new("Password", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.password", ftypes.STRING)
-omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_long_price_14 = ProtoField.new("Price Long Price 14", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.pricelongprice14", ftypes.DOUBLE)
-omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_numeric_10 = ProtoField.new("Price Numeric 10", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.pricenumeric10", ftypes.STRING)
+omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_long = ProtoField.new("Price Long", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.pricelong", ftypes.DOUBLE)
+omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_short = ProtoField.new("Price Short", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.priceshort", ftypes.STRING)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.rejectreasoncode", ftypes.STRING)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.requestedsequencenumber", ftypes.STRING)
 omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.requested_session = ProtoField.new("Requested Session", "cboe.edgaequities.lastsale.asciipitch.v1.2.4.requestedsession", ftypes.STRING)
@@ -223,15 +223,15 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.password.dissect = function(buffer,
   return offset + length, value
 end
 
--- Price Long Price 14
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14 = {}
+-- Price Long
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long = {}
 
--- Size: Price Long Price 14
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.size = 14
+-- Size: Price Long
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.size = 14
 
--- Display: Price Long Price 14
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.display = function(value, buffer, offset, packet, parent)
-  local digits = buffer(offset, cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.size):string():match("^%s*(.-)%s*$")
+-- Display: Price Long
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.display = function(value, buffer, offset, packet, parent)
+  local digits = buffer(offset, cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
   if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
@@ -240,7 +240,7 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.display = funct
   end
 
   if not digits:match("^%d+$") then
-    return "Price Long Price 14: "..tostring(value)
+    return "Price Long: "..tostring(value)
   end
 
   digits = digits:gsub("^0+", "")
@@ -249,12 +249,12 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.display = funct
     digits = string.rep("0", 6 - #digits + 1)..digits
   end
 
-  return "Price Long Price 14: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
+  return "Price Long: "..sign..digits:sub(1, #digits - 6)..".".. digits:sub(-6)
 end
 
--- Dissect: Price Long Price 14
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.size
+-- Dissect: Price Long
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -262,27 +262,27 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.dissect = funct
     value =  "Not Applicable"
   end
 
-  local display = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_long_price_14, range, value, display)
+  parent:add(omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Price Numeric 10
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10 = {}
+-- Price Short
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short = {}
 
--- Size: Price Numeric 10
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.size = 10
+-- Size: Price Short
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short.size = 10
 
--- Display: Price Numeric 10
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.display = function(value)
-  return "Price Numeric 10: "..value
+-- Display: Price Short
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Price Numeric 10
-cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.size
+-- Dissect: Price Short
+cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -290,9 +290,9 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.dissect = function
     value =  "Not Applicable"
   end
 
-  local display = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_numeric_10, range, value, display)
+  parent:add(omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.fields.price_short, range, value, display)
 
   return offset + length, value
 end
@@ -736,7 +736,7 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.last_sale_extended_message = {}
 cboe_edgaequities_lastsale_asciipitch_v1_2_4.last_sale_extended_message.size =
   cboe_edgaequities_lastsale_asciipitch_v1_2_4.executed_shares.size + 
   cboe_edgaequities_lastsale_asciipitch_v1_2_4.stock_symbol.size + 
-  cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.size + 
+  cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.size + 
   cboe_edgaequities_lastsale_asciipitch_v1_2_4.execution_id.size
 
 -- Display: Last Sale Extended Message
@@ -754,8 +754,8 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.last_sale_extended_message.fields =
   -- Stock Symbol: Alpha
   index, stock_symbol = cboe_edgaequities_lastsale_asciipitch_v1_2_4.stock_symbol.dissect(buffer, index, packet, parent)
 
-  -- Price Long Price 14: Long Price
-  index, price_long_price_14 = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long_price_14.dissect(buffer, index, packet, parent)
+  -- Price Long: Long Price
+  index, price_long = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_long.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Base 36 Numeric
   index, execution_id = cboe_edgaequities_lastsale_asciipitch_v1_2_4.execution_id.dissect(buffer, index, packet, parent)
@@ -788,7 +788,7 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.last_sale_message = {}
 cboe_edgaequities_lastsale_asciipitch_v1_2_4.last_sale_message.size =
   cboe_edgaequities_lastsale_asciipitch_v1_2_4.executed_shares.size + 
   cboe_edgaequities_lastsale_asciipitch_v1_2_4.stock_symbol.size + 
-  cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.size + 
+  cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short.size + 
   cboe_edgaequities_lastsale_asciipitch_v1_2_4.execution_id.size
 
 -- Display: Last Sale Message
@@ -806,8 +806,8 @@ cboe_edgaequities_lastsale_asciipitch_v1_2_4.last_sale_message.fields = function
   -- Stock Symbol: Alpha
   index, stock_symbol = cboe_edgaequities_lastsale_asciipitch_v1_2_4.stock_symbol.dissect(buffer, index, packet, parent)
 
-  -- Price Numeric 10: Numeric
-  index, price_numeric_10 = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_numeric_10.dissect(buffer, index, packet, parent)
+  -- Price Short: Numeric
+  index, price_short = cboe_edgaequities_lastsale_asciipitch_v1_2_4.price_short.dissect(buffer, index, packet, parent)
 
   -- Execution Id: Base 36 Numeric
   index, execution_id = cboe_edgaequities_lastsale_asciipitch_v1_2_4.execution_id.dissect(buffer, index, packet, parent)
