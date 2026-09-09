@@ -317,14 +317,18 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.effective_business_date_chars.siz
 
 -- Display: Effective Business Date Chars
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.effective_business_date_chars.display = function(value)
-  return "Effective Business Date Chars: "..value
+  if #value < 8 then
+    return "Effective Business Date Chars: "..value
+  end
+
+  return "Effective Business Date Chars: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Effective Business Date Chars
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.effective_business_date_chars.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_indices_cgif_v1_4_13.effective_business_date_chars.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.effective_business_date_chars.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.effective_business_date_chars, range, value, display)

@@ -1699,7 +1699,7 @@ cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_md_entry.size = funct
   index = index + cboe_c1options_marketlevel2_csm_v1_0_4.no_legs.size
 
   -- Calculate field size from count
-  local md_volume_entry_count = buffer(offset + index - 10, 1):uint()
+  local md_volume_entry_count = buffer(offset + index - 1, 1):uint()
   index = index + md_volume_entry_count * 5
 
   return index
@@ -1735,11 +1735,8 @@ cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_md_entry.fields = fun
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
   index, no_legs = cboe_c1options_marketlevel2_csm_v1_0_4.no_legs.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: No Entries
-  local no_entries = buffer(offset - 1, 1):uint()
-
   -- Repeating: Md Volume Entry
-  for md_volume_entry_index = 1, no_entries do
+  for md_volume_entry_index = 1, no_legs do
     index, md_volume_entry = cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_entry.dissect(buffer, index, packet, parent, md_volume_entry_index)
   end
 
@@ -1860,7 +1857,7 @@ cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_md_entry.size = fun
   index = index + cboe_c1options_marketlevel2_csm_v1_0_4.no_legs.size
 
   -- Calculate field size from count
-  local md_volume_entry_count = buffer(offset + index - 9, 1):uint()
+  local md_volume_entry_count = buffer(offset + index - 1, 1):uint()
   index = index + md_volume_entry_count * 5
 
   return index
@@ -1893,11 +1890,8 @@ cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_md_entry.fields = f
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
   index, no_legs = cboe_c1options_marketlevel2_csm_v1_0_4.no_legs.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: No Entries
-  local no_entries = buffer(offset - 1, 1):uint()
-
   -- Repeating: Md Volume Entry
-  for md_volume_entry_index = 1, no_entries do
+  for md_volume_entry_index = 1, no_legs do
     index, md_volume_entry = cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_entry.dissect(buffer, index, packet, parent, md_volume_entry_index)
   end
 

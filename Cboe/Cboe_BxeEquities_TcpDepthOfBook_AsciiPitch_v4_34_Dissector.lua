@@ -59,11 +59,9 @@ omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.side_indicator = Pro
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.soup_lf = ProtoField.new("Soup Lf", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.souplf", ftypes.INT8)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.statistictype", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.status = ProtoField.new("Status", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.status", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alpha_6 = ProtoField.new("Symbol Alpha 6", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbolalpha6", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alpha_8 = ProtoField.new("Symbol Alpha 8", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbolalpha8", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alphanumeric_12 = ProtoField.new("Symbol Alphanumeric 12", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbolalphanumeric12", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alphanumeric_6 = ProtoField.new("Symbol Alphanumeric 6", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbolalphanumeric6", ftypes.STRING)
-omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alphanumeric_8 = ProtoField.new("Symbol Alphanumeric 8", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbolalphanumeric8", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbolextended", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbollong", ftypes.STRING)
+omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.symbolshort", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.text = ProtoField.new("Text", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.text", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.timestamp = ProtoField.new("Timestamp", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.timestamp", ftypes.STRING)
 omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.trade_date = ProtoField.new("Trade Date", "cboe.bxeequities.tcpdepthofbook.asciipitch.v4.34.tradedate", ftypes.STRING)
@@ -1254,117 +1252,71 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.status.dissect = function(buffe
   return offset + length, value
 end
 
--- Symbol Alpha 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6 = {}
+-- Symbol Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended = {}
 
--- Size: Symbol Alpha 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.size = 6
+-- Size: Symbol Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended.size = 12
 
--- Display: Symbol Alpha 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.display = function(value)
-  return "Symbol Alpha 6: "..value
+-- Display: Symbol Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended.display = function(value)
+  return "Symbol Extended: "..value
 end
 
--- Dissect: Symbol Alpha 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.size
+-- Dissect: Symbol Extended
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alpha_6, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_extended, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Alpha 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8 = {}
+-- Symbol Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long = {}
 
--- Size: Symbol Alpha 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.size = 8
+-- Size: Symbol Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size = 8
 
--- Display: Symbol Alpha 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.display = function(value)
-  return "Symbol Alpha 8: "..value
+-- Display: Symbol Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.display = function(value)
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol Alpha 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.size
+-- Dissect: Symbol Long
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alpha_8, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Alphanumeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12 = {}
+-- Symbol Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short = {}
 
--- Size: Symbol Alphanumeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.size = 12
+-- Size: Symbol Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.size = 6
 
--- Display: Symbol Alphanumeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.display = function(value)
-  return "Symbol Alphanumeric 12: "..value
+-- Display: Symbol Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.display = function(value)
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol Alphanumeric 12
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.size
+-- Dissect: Symbol Short
+cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alphanumeric_12, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Alphanumeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6 = {}
-
--- Size: Symbol Alphanumeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.size = 6
-
--- Display: Symbol Alphanumeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.display = function(value)
-  return "Symbol Alphanumeric 6: "..value
-end
-
--- Dissect: Symbol Alphanumeric 6
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alphanumeric_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Alphanumeric 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8 = {}
-
--- Size: Symbol Alphanumeric 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size = 8
-
--- Display: Symbol Alphanumeric 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.display = function(value)
-  return "Symbol Alphanumeric 8: "..value
-end
-
--- Dissect: Symbol Alphanumeric 8
-cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_alphanumeric_8, range, value, display)
+  parent:add(omi_cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -1689,7 +1641,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_summary_message = {}
 
 -- Size: Auction Summary Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_summary_message.size =
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_type.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size
@@ -1703,8 +1655,8 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alpha
   index, auction_type = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_type.dissect(buffer, index, packet, parent)
@@ -1741,7 +1693,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_update_message = {}
 
 -- Size: Auction Update Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_update_message.size =
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_type.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.reference_price.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.indicative_price.size + 
@@ -1758,8 +1710,8 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alpha
   index, auction_type = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.auction_type.dissect(buffer, index, packet, parent)
@@ -1805,7 +1757,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistics_message = {}
 
 -- Size: Statistics Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistics_message.size =
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistic_type.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_determination.size
@@ -1819,8 +1771,8 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.statistics_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Long Price
   index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
@@ -1857,7 +1809,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trading_status_message = {}
 
 -- Size: Trading Status Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trading_status_message.size =
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.status.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.reserved.size
 
@@ -1870,8 +1822,8 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Status: Alpha
   index, status = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.status.dissect(buffer, index, packet, parent)
@@ -1906,7 +1858,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_unknown_symbol = 
 -- Size: Trade Message Unknown Symbol
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_unknown_symbol.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_date.size + 
@@ -1928,8 +1880,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_unknown_symbol.fi
   -- Shares Extended: Numeric
   index, shares_extended = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 12: Alphanumeric
-  index, symbol_alphanumeric_12 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_12.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alphanumeric
+  index, symbol_extended = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_extended.dissect(buffer, index, packet, parent)
 
   -- Price Long: Long Price
   index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
@@ -1982,7 +1934,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_extended_form = {
 -- Size: Trade Message Extended Form
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_extended_form.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_date.size + 
@@ -2004,8 +1956,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_extended_form.fie
   -- Shares Extended: Numeric
   index, shares_extended = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_extended.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Long Price
   index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
@@ -2060,7 +2012,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_long_form.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_flags.size
@@ -2083,8 +2035,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message_long_form.fields 
   -- Shares Long: Numeric
   index, shares_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alpha 8: Alpha
-  index, symbol_alpha_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Long Price
   index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
@@ -2124,7 +2076,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.execution_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_flags.size
@@ -2147,8 +2099,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.trade_message.fields = function
   -- Shares Short: Numeric
   index, shares_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alpha 6: Alpha
-  index, symbol_alpha_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alpha_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alpha
+  index, symbol_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: Price
   index, price_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.dissect(buffer, index, packet, parent)
@@ -2380,7 +2332,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message_long_form.siz
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.display.size
 
@@ -2402,8 +2354,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message_long_form.fie
   -- Shares Long: Numeric
   index, shares_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Long Price
   index, price_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_long.dissect(buffer, index, packet, parent)
@@ -2440,7 +2392,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message.size =
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.order_id.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.side_indicator.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.size + 
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.size + 
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.size + 
   cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.display.size
 
@@ -2462,8 +2414,8 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.add_order_message.fields = func
   -- Shares Short: Numeric
   index, shares_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.shares_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alpha
+  index, symbol_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: Price
   index, price_short = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.price_short.dissect(buffer, index, packet, parent)
@@ -2497,7 +2449,7 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_clear_message = {}
 
 -- Size: Symbol Clear Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_clear_message.size =
-  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.size
+  cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.size
 
 -- Display: Symbol Clear Message
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_clear_message.display = function(packet, parent, length)
@@ -2508,8 +2460,8 @@ end
 cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alpha
+  index, symbol_long = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_34.symbol_long.dissect(buffer, index, packet, parent)
 
   return index
 end
