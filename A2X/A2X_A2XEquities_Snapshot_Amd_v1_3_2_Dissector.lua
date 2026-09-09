@@ -45,7 +45,6 @@ omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.packet = ProtoField.new("Packet",
 -- A2X A2XEquities Snapshot 1.3.2 Application Messages
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_entry_message = ProtoField.new("Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookentrymessage", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.book_status_message = ProtoField.new("Book Status Message", "a2x.a2xequities.snapshot.amd.v1.3.2.bookstatusmessage", ftypes.STRING)
-omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.snapshot.amd.v1.3.2.heartbeatmessage", ftypes.BYTES)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message = ProtoField.new("Market At Close Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.marketatclosebookentrymessage", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "a2x.a2xequities.snapshot.amd.v1.3.2.snapshotstartmessage", ftypes.STRING)
 
@@ -750,6 +749,23 @@ a2x_a2xequities_snapshot_amd_v1_3_2.snapshot_start_message.dissect = function(bu
   end
 end
 
+-- Heartbeat Message
+a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Payload
 a2x_a2xequities_snapshot_amd_v1_3_2.payload = {}
 
@@ -757,7 +773,7 @@ a2x_a2xequities_snapshot_amd_v1_3_2.payload = {}
 a2x_a2xequities_snapshot_amd_v1_3_2.payload.dissect = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Heartbeat Message
   if msg_type == 1 then
-    return offset
+    return a2x_a2xequities_snapshot_amd_v1_3_2.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Snapshot Start Message
   if msg_type == 10 then

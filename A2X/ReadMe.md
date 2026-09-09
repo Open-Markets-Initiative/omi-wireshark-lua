@@ -5,8 +5,8 @@
 
 | Division | [Protocol][Omi.A2X.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.A2X.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [A2XEquities][A2XEquities] | [Rtmdf][A2X.A2XEquities.Rtmdf] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1787 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Pdf] |
-| [A2XEquities][A2XEquities] | [Snapshot][A2X.A2XEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 983 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Pdf] |
+| [A2XEquities][A2XEquities] | [Rtmdf][A2X.A2XEquities.Rtmdf] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Dissector] | 9/15/2022 | 1803 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Url] - [pdf][A2X.A2XEquities.Rtmdf.Amd.v1.3.2.Pdf] |
+| [A2XEquities][A2XEquities] | [Snapshot][A2X.A2XEquities.Snapshot] | [Amd][Omi.Encoding.Amd] | [1.3.2][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Dissector] | 9/15/2022 | 999 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Url] - [pdf][A2X.A2XEquities.Snapshot.Amd.v1.3.2.Pdf] |
 | [A2XEquities][A2XEquities] | [UdpHeader][A2X.A2XEquities.UdpHeader] | [Amd][Omi.Encoding.Amd] | [1.][A2X.A2XEquities.UdpHeader.Amd.v1.Dissector] | 9/1/2017 | 380 | [Header][Omi.Glossary.Status.Header] | [Beta][Omi.Glossary.Testing.Beta] | [url][A2X.A2XEquities.UdpHeader.Amd.v1.Url] |
 
 
