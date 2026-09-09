@@ -228,6 +228,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Jse Itac MarketData Mitch 4.07 Fields
 -----------------------------------------------------------------------
 
@@ -306,7 +324,7 @@ end
 jse_itac_marketdata_mitch_v4_07.attribution.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.attribution.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.attribution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.attribution, range, value, display)
@@ -466,7 +484,7 @@ end
 jse_itac_marketdata_mitch_v4_07.corporate_action.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.corporate_action.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.corporate_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.corporate_action, range, value, display)
@@ -736,7 +754,7 @@ end
 jse_itac_marketdata_mitch_v4_07.headline.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.headline.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.headline.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.headline, range, value, display)
@@ -878,7 +896,7 @@ end
 jse_itac_marketdata_mitch_v4_07.instrument_sub_category.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.instrument_sub_category.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.instrument_sub_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.instrument_sub_category, range, value, display)
@@ -901,7 +919,7 @@ end
 jse_itac_marketdata_mitch_v4_07.instruments.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.instruments.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.instruments.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.instruments, range, value, display)
@@ -924,7 +942,7 @@ end
 jse_itac_marketdata_mitch_v4_07.isin.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.isin.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.isin, range, value, display)
@@ -970,7 +988,7 @@ end
 jse_itac_marketdata_mitch_v4_07.issuer.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.issuer.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.issuer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.issuer, range, value, display)
@@ -1016,7 +1034,7 @@ end
 jse_itac_marketdata_mitch_v4_07.leg_1_symbol.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.leg_1_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.leg_1_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.leg_1_symbol, range, value, display)
@@ -1039,7 +1057,7 @@ end
 jse_itac_marketdata_mitch_v4_07.leg_2_symbol.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.leg_2_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.leg_2_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.leg_2_symbol, range, value, display)
@@ -1484,7 +1502,7 @@ end
 jse_itac_marketdata_mitch_v4_07.off_book_rfq_trade_type.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.off_book_rfq_trade_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.off_book_rfq_trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.off_book_rfq_trade_type, range, value, display)
@@ -1571,7 +1589,7 @@ end
 jse_itac_marketdata_mitch_v4_07.off_book_trade_type.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.off_book_trade_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.off_book_trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.off_book_trade_type, range, value, display)
@@ -1782,7 +1800,7 @@ end
 jse_itac_marketdata_mitch_v4_07.password.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.password, range, value, display)
@@ -1881,7 +1899,7 @@ end
 jse_itac_marketdata_mitch_v4_07.pt_amendment_flag.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.pt_amendment_flag.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.pt_amendment_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.pt_amendment_flag, range, value, display)
@@ -1904,7 +1922,7 @@ end
 jse_itac_marketdata_mitch_v4_07.pt_cancellation_flag.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.pt_cancellation_flag.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.pt_cancellation_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.pt_cancellation_flag, range, value, display)
@@ -1950,7 +1968,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reason.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reason, range, value, display)
@@ -2088,7 +2106,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8, range, value, display)
@@ -2157,7 +2175,7 @@ end
 jse_itac_marketdata_mitch_v4_07.rfq_id.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.rfq_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.rfq_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.rfq_id, range, value, display)
@@ -2226,7 +2244,7 @@ end
 jse_itac_marketdata_mitch_v4_07.segment.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.segment.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.segment, range, value, display)
@@ -2563,7 +2581,7 @@ end
 jse_itac_marketdata_mitch_v4_07.symbol.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.symbol, range, value, display)
@@ -2622,7 +2640,7 @@ end
 jse_itac_marketdata_mitch_v4_07.text.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.text.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.text, range, value, display)
@@ -2691,7 +2709,7 @@ end
 jse_itac_marketdata_mitch_v4_07.tidm.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.tidm.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.tidm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.tidm, range, value, display)
@@ -2796,7 +2814,7 @@ end
 jse_itac_marketdata_mitch_v4_07.trade_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.trade_sub_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.trade_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.trade_sub_type, range, value, display)
@@ -2952,7 +2970,7 @@ end
 jse_itac_marketdata_mitch_v4_07.underlying.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.underlying.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.underlying.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.underlying, range, value, display)
@@ -2998,7 +3016,7 @@ end
 jse_itac_marketdata_mitch_v4_07.underlyings.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.underlyings.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.underlyings.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.underlyings, range, value, display)
@@ -3054,7 +3072,7 @@ end
 jse_itac_marketdata_mitch_v4_07.username.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.username, range, value, display)
@@ -3100,7 +3118,7 @@ end
 jse_itac_marketdata_mitch_v4_07.venue_of_execution.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.venue_of_execution.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jse_itac_marketdata_mitch_v4_07.venue_of_execution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.venue_of_execution, range, value, display)
