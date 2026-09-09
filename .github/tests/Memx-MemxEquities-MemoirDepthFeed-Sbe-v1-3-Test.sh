@@ -4,6 +4,13 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/Heartbeat.pcap" \
+  -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
+  -T json \
+  > Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Heartbeat.json 2> Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Heartbeat.json.stderr \
+  || { echo "--- tshark FAILED (Heartbeat) ---"; cat Memx.MemxEquities.MemoirDepthFeed.Sbe.v1.3.Heartbeat.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Memx/MemxEquities.MemoirDepthFeed.Sbe.v1.3/OrderAddedMessage.pcap" \
   -X "lua_script:Memx/Memx_MemxEquities_MemoirDepthFeed_Sbe_v1_3_Dissector.lua" \
   -T json \

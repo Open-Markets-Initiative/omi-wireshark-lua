@@ -2367,11 +2367,53 @@ memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_message.dissect = function(buf
   end
 end
 
+-- Session Shutdown
+memx_memxoptions_memoirdepth_sbe_v1_6_a.session_shutdown = {}
+
+-- Display: Session Shutdown
+memx_memxoptions_memoirdepth_sbe_v1_6_a.session_shutdown.display = function(packet, parent, length)
+  return "Session Shutdown"
+end
+
+
+-- Dissect: Session Shutdown
+memx_memxoptions_memoirdepth_sbe_v1_6_a.session_shutdown.dissect = function(buffer, offset, packet, parent)
+  local display = memx_memxoptions_memoirdepth_sbe_v1_6_a.session_shutdown.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+memx_memxoptions_memoirdepth_sbe_v1_6_a.heartbeat = {}
+
+-- Display: Heartbeat
+memx_memxoptions_memoirdepth_sbe_v1_6_a.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+memx_memxoptions_memoirdepth_sbe_v1_6_a.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = memx_memxoptions_memoirdepth_sbe_v1_6_a.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequenced Messages
 memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_messages = {}
 
 -- Dissect: Sequenced Messages
 memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_messages.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Heartbeat
+  if message_type == 0 then
+    return memx_memxoptions_memoirdepth_sbe_v1_6_a.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Session Shutdown
+  if message_type == 1 then
+    return memx_memxoptions_memoirdepth_sbe_v1_6_a.session_shutdown.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Sequenced Message
   if message_type == 2 then
     return memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_message.dissect(buffer, offset, packet, parent)
@@ -2450,7 +2492,7 @@ memx_memxoptions_memoirdepth_sbe_v1_6_a.packet.dissect = function(buffer, packet
   -- Dependency element: Message Type
   local message_type = buffer(index - 18, 1):uint()
 
-  -- Sequenced Messages: Runtime Type with 1 branches
+  -- Sequenced Messages: Runtime Type with 3 branches
   index = memx_memxoptions_memoirdepth_sbe_v1_6_a.sequenced_messages.dissect(buffer, index, packet, parent, message_type)
 
   return index
