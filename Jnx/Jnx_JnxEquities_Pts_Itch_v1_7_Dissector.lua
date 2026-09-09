@@ -95,6 +95,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.trading_state_message = ProtoField.new(
 
 -- Jnx JnxEquities Pts Itch 1.7 generated fields
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_index = ProtoField.new("Message Index", "jnx.jnxequities.pts.itch.v1.7.messageindex", ftypes.UINT16)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jnx.jnxequities.pts.itch.v1.7.messagesequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.itch.v1.7.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -130,6 +131,7 @@ show.session_messages = true
 show.headers = true
 show.application_messages = true
 show.indexes = true
+show.sequences = true
 
 -- Register Jnx JnxEquities Pts Itch 1.7 Show Options
 local role_enum = {
@@ -145,6 +147,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_session_messages = Pref.bool("Show 
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_jnx_jnxequities_pts_itch_v1_7.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
@@ -168,6 +171,9 @@ function omi_jnx_jnxequities_pts_itch_v1_7.prefs_changed()
   end
   if show.indexes ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes then
     show.indexes = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_indexes
+  end
+  if show.sequences ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_sequences then
+    show.sequences = omi_jnx_jnxequities_pts_itch_v1_7.prefs.show_sequences
   end
   if jnx_jnxequities_pts_itch_v1_7.format_timestamp ~= omi_jnx_jnxequities_pts_itch_v1_7.prefs.format_timestamp then
     jnx_jnxequities_pts_itch_v1_7.format_timestamp = omi_jnx_jnxequities_pts_itch_v1_7.prefs.format_timestamp
@@ -2250,6 +2256,12 @@ jnx_jnxequities_pts_itch_v1_7.message.fields = function(buffer, offset, packet, 
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and jnx_jnxequities_pts_itch_v1_7.sequence ~= nil then
+    local sequence = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.message_sequence_number, UInt64.new(jnx_jnxequities_pts_itch_v1_7.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = jnx_jnxequities_pts_itch_v1_7.message_header.dissect(buffer, index, packet, parent)
 
@@ -2373,6 +2385,9 @@ jnx_jnxequities_pts_itch_v1_7.udp_packet_header.fields = function(buffer, offset
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = jnx_jnxequities_pts_itch_v1_7.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  jnx_jnxequities_pts_itch_v1_7.sequence = udp_sequence_number
 
   return index
 end
