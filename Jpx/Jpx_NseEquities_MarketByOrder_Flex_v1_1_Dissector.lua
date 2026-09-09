@@ -166,6 +166,24 @@ jpx_nseequities_marketbyorder_flex_v1_1.conversation.current = nil
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Jpx NseEquities MarketByOrder Flex 1.1 Fields
 -----------------------------------------------------------------------
 
@@ -386,7 +404,7 @@ end
 jpx_nseequities_marketbyorder_flex_v1_1.issue_code.dissect = function(buffer, offset, packet, parent)
   local length = jpx_nseequities_marketbyorder_flex_v1_1.issue_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jpx_nseequities_marketbyorder_flex_v1_1.issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.issue_code, range, value, display)
