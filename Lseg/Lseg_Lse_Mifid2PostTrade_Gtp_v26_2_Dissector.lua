@@ -749,7 +749,7 @@ end
 lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_price, range, value, display)
@@ -772,7 +772,7 @@ end
 lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_lse_mifid2posttrade_gtp_v26_2.mifid_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.mifid_quantity, range, value, display)
@@ -896,14 +896,18 @@ lseg_lse_mifid2posttrade_gtp_v26_2.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_lse_mifid2posttrade_gtp_v26_2.new_end_time.display = function(value)
-  return "New End Time: "..value
+  if #value < 6 then
+    return "New End Time: "..value
+  end
+
+  return "New End Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: New End Time
 lseg_lse_mifid2posttrade_gtp_v26_2.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.new_end_time.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = lseg_lse_mifid2posttrade_gtp_v26_2.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.new_end_time, range, value, display)
@@ -926,7 +930,7 @@ end
 lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_lse_mifid2posttrade_gtp_v26_2.notional_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.notional_amount, range, value, display)

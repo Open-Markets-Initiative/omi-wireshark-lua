@@ -152,6 +152,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Lseg Millennium Level2 Mitch 11.9 Fields
 -----------------------------------------------------------------------
 
@@ -170,7 +188,7 @@ end
 lseg_millennium_level2_mitch_v11_9.attribution.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.attribution.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.attribution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.attribution, range, value, display)
@@ -356,7 +374,7 @@ end
 lseg_millennium_level2_mitch_v11_9.currency.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.currency, range, value, display)
@@ -478,7 +496,7 @@ end
 lseg_millennium_level2_mitch_v11_9.isin.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.isin.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.isin, range, value, display)
@@ -950,7 +968,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reason, range, value, display)
@@ -996,7 +1014,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_10, range, value, display)
@@ -1019,7 +1037,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_4, range, value, display)
@@ -1134,7 +1152,7 @@ end
 lseg_millennium_level2_mitch_v11_9.sedol.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.sedol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.sedol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.sedol, range, value, display)
@@ -1157,7 +1175,7 @@ end
 lseg_millennium_level2_mitch_v11_9.segment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.segment.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.segment, range, value, display)
@@ -1527,7 +1545,7 @@ end
 lseg_millennium_level2_mitch_v11_9.underlying.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.underlying.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_millennium_level2_mitch_v11_9.underlying.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.underlying, range, value, display)

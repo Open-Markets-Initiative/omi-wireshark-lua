@@ -1657,14 +1657,18 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.new_end_time.display = function(value)
-  return "New End Time: "..value
+  if #value < 6 then
+    return "New End Time: "..value
+  end
+
+  return "New End Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: New End Time
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.new_end_time.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.new_end_time, range, value, display)
@@ -1756,7 +1760,7 @@ end
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.notional_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.notional_amount, range, value, display)
@@ -2093,7 +2097,7 @@ end
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.price, range, value, display)
@@ -2342,7 +2346,7 @@ end
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity, range, value, display)
@@ -2365,7 +2369,7 @@ end
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.quantity_in_measurement_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.quantity_in_measurement_unit, range, value, display)
@@ -2827,7 +2831,7 @@ end
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.spread.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.spread, range, value, display)
@@ -3289,7 +3293,7 @@ end
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.upfront_payment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.upfront_payment, range, value, display)

@@ -185,7 +185,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes, range, value, display)
@@ -918,14 +918,18 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_turquoise_mifid2pretrade_gtp_v26_3.new_end_time.display = function(value)
-  return "New End Time: "..value
+  if #value < 6 then
+    return "New End Time: "..value
+  end
+
+  return "New End Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: New End Time
 lseg_turquoise_mifid2pretrade_gtp_v26_3.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.new_end_time.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.new_end_time, range, value, display)
@@ -1034,7 +1038,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.price.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.price.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price, range, value, display)
@@ -1159,7 +1163,7 @@ end
 lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.quantity, range, value, display)

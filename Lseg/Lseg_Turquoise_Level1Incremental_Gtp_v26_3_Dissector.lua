@@ -727,14 +727,18 @@ lseg_turquoise_level1incremental_gtp_v26_3.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_turquoise_level1incremental_gtp_v26_3.new_end_time.display = function(value)
-  return "New End Time: "..value
+  if #value < 6 then
+    return "New End Time: "..value
+  end
+
+  return "New End Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: New End Time
 lseg_turquoise_level1incremental_gtp_v26_3.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level1incremental_gtp_v26_3.new_end_time.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = lseg_turquoise_level1incremental_gtp_v26_3.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level1incremental_gtp_v26_3.fields.new_end_time, range, value, display)

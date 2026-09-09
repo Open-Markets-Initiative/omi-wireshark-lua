@@ -406,6 +406,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.bid_id.size = 12
 
 -- Display: Bid Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.bid_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Bid Id: No Value"
+  end
+
   return "Bid Id: "..value
 end
 
@@ -413,7 +418,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.bid_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.bid_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.bid_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.bid_id, range, value, display)
@@ -577,6 +593,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_order_id.size = 2
 
 -- Display: Client Order Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Client Order Id: No Value"
+  end
+
   return "Client Order Id: "..value
 end
 
@@ -584,7 +605,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_order_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_order_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.client_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.client_order_id, range, value, display)
@@ -600,6 +632,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_firm.size = 11
 
 -- Display: Contra Firm
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Firm: No Value"
+  end
+
   return "Contra Firm: "..value
 end
 
@@ -607,7 +644,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_firm.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_firm.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.contra_firm, range, value, display)
@@ -650,6 +698,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_trader.size = 11
 
 -- Display: Contra Trader
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Trader: No Value"
+  end
+
   return "Contra Trader: "..value
 end
 
@@ -657,7 +710,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_trader.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_trader.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_trader.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.contra_trader, range, value, display)
@@ -673,6 +737,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.counterparty.size = 11
 
 -- Display: Counterparty
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.counterparty.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Counterparty: No Value"
+  end
+
   return "Counterparty: "..value
 end
 
@@ -680,7 +749,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.counterparty.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.counterparty.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.counterparty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.counterparty, range, value, display)
@@ -872,6 +952,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_id.size = 12
 
 -- Display: Execution Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Execution Id: No Value"
+  end
+
   return "Execution Id: "..value
 end
 
@@ -879,7 +964,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_id, range, value, display)
@@ -970,6 +1066,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_ref_id.
 
 -- Display: Execution Report Ref Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_ref_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Execution Report Ref Id: No Value"
+  end
+
   return "Execution Report Ref Id: "..value
 end
 
@@ -977,7 +1078,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_ref_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_ref_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_ref_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_report_ref_id, range, value, display)
@@ -1283,6 +1395,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker.size = 11
 
 -- Display: Market Maker
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Maker: No Value"
+  end
+
   return "Market Maker: "..value
 end
 
@@ -1290,7 +1407,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.market_maker, range, value, display)
@@ -1306,6 +1434,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_firm.size =
 
 -- Display: Market Maker Firm
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Maker Firm: No Value"
+  end
+
   return "Market Maker Firm: "..value
 end
 
@@ -1313,7 +1446,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_firm.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_firm.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.market_maker_firm, range, value, display)
@@ -1352,6 +1496,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_makers.size = 60
 
 -- Display: Market Makers
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_makers.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Makers: No Value"
+  end
+
   return "Market Makers: "..value
 end
 
@@ -1359,7 +1508,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_makers.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_makers.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_makers.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.market_makers, range, value, display)
@@ -1667,6 +1827,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.new_password.size = 25
 
 -- Display: New Password
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.new_password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New Password: No Value"
+  end
+
   return "New Password: "..value
 end
 
@@ -1674,7 +1839,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.new_password.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.new_password.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.new_password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.new_password, range, value, display)
@@ -1713,6 +1889,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.offer_id.size = 12
 
 -- Display: Offer Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.offer_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Offer Id: No Value"
+  end
+
   return "Offer Id: "..value
 end
 
@@ -1720,7 +1901,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.offer_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.offer_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.offer_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.offer_id, range, value, display)
@@ -1848,6 +2040,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_id.size = 12
 
 -- Display: Order Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Order Id: No Value"
+  end
+
   return "Order Id: "..value
 end
 
@@ -1855,7 +2052,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.order_id, range, value, display)
@@ -1973,6 +2181,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password.size = 25
 
 -- Display: Password
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -1980,7 +2193,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.password, range, value, display)
@@ -1996,6 +2220,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password_expiry_day_coun
 
 -- Display: Password Expiry Day Count
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password_expiry_day_count.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password Expiry Day Count: No Value"
+  end
+
   return "Password Expiry Day Count: "..value
 end
 
@@ -2003,7 +2232,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password_expiry_day_count.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password_expiry_day_count.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.password_expiry_day_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.password_expiry_day_count, range, value, display)
@@ -2075,6 +2315,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.public_order_id.size = 1
 
 -- Display: Public Order Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.public_order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Public Order Id: No Value"
+  end
+
   return "Public Order Id: "..value
 end
 
@@ -2082,7 +2327,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.public_order_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.public_order_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.public_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.public_order_id, range, value, display)
@@ -2128,6 +2384,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_msg_id.size = 20
 
 -- Display: Quote Msg Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_msg_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Msg Id: No Value"
+  end
+
   return "Quote Msg Id: "..value
 end
 
@@ -2135,7 +2396,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_msg_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_msg_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_msg_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.quote_msg_id, range, value, display)
@@ -2151,6 +2423,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_req_id.size = 10
 
 -- Display: Quote Req Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_req_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Req Id: No Value"
+  end
+
   return "Quote Req Id: "..value
 end
 
@@ -2158,7 +2435,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_req_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_req_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_req_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.quote_req_id, range, value, display)
@@ -2294,6 +2582,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reason.size = 20
 
 -- Display: Reason
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reason: No Value"
+  end
+
   return "Reason: "..value
 end
 
@@ -2301,7 +2594,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.reason, range, value, display)
@@ -2340,6 +2644,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reject_reason.size = 30
 
 -- Display: Reject Reason
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reject Reason: No Value"
+  end
+
   return "Reject Reason: "..value
 end
 
@@ -2347,7 +2656,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reject_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.reject_reason, range, value, display)
@@ -2409,6 +2729,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.size = 10
 
 -- Display: Reserved 10
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reserved 10: No Value"
+  end
+
   return "Reserved 10: "..value
 end
 
@@ -2416,7 +2741,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.reserved_10, range, value, display)
@@ -2455,6 +2791,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.size = 7
 
 -- Display: Reserved 7
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reserved 7: No Value"
+  end
+
   return "Reserved 7: "..value
 end
 
@@ -2462,7 +2803,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.reserved_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.reserved_7, range, value, display)
@@ -2613,6 +2965,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_id.size = 10
 
 -- Display: Rfq Id
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rfq Id: No Value"
+  end
+
   return "Rfq Id: "..value
 end
 
@@ -2620,7 +2977,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_id, range, value, display)
@@ -2919,6 +3287,11 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.user_name.size = 25
 
 -- Display: User Name
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.user_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "User Name: No Value"
+  end
+
   return "User Name: "..value
 end
 
@@ -2926,7 +3299,18 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.user_name.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.user_name.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.user_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.user_name, range, value, display)
