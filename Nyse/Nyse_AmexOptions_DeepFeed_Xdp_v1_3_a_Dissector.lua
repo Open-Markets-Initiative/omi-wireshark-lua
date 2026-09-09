@@ -458,6 +458,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.maturity_date.size = 6
 
 -- Display: Maturity Date
 nyse_amexoptions_deepfeed_xdp_v1_3_a.maturity_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Maturity Date: No Value"
+  end
+
   return "Maturity Date: "..value
 end
 
@@ -465,7 +470,18 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.maturity_date.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.maturity_date.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.maturity_date, range, value, display)
@@ -604,6 +620,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.option_symbol_root.size = 5
 
 -- Display: Option Symbol Root
 nyse_amexoptions_deepfeed_xdp_v1_3_a.option_symbol_root.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Option Symbol Root: No Value"
+  end
+
   return "Option Symbol Root: "..value
 end
 
@@ -611,7 +632,18 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.option_symbol_root.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.option_symbol_root.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.option_symbol_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
@@ -1240,6 +1272,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.strike_price.size = 10
 
 -- Display: Strike Price
 nyse_amexoptions_deepfeed_xdp_v1_3_a.strike_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strike Price: No Value"
+  end
+
   return "Strike Price: "..value
 end
 
@@ -1247,7 +1284,18 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.strike_price.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.strike_price, range, value, display)
@@ -1470,6 +1518,11 @@ nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_symbol.size = 11
 
 -- Display: Underlying Symbol
 nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Symbol: No Value"
+  end
+
   return "Underlying Symbol: "..value
 end
 
@@ -1477,7 +1530,18 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_symbol, range, value, display)

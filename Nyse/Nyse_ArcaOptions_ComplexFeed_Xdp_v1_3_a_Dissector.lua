@@ -301,6 +301,11 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_symbol.size = 21
 
 -- Display: Complex Symbol
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Complex Symbol: No Value"
+  end
+
   return "Complex Symbol: "..value
 end
 
@@ -308,7 +313,18 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.complex_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.complex_symbol, range, value, display)

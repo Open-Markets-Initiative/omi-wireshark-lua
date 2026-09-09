@@ -1728,6 +1728,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.size = 10
 
 -- Display: Source Id
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Source Id: No Value"
+  end
+
   return "Source Id: "..value
 end
 
@@ -1735,7 +1740,18 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.source_id, range, value, display)
@@ -2005,6 +2021,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol.size = 11
 
 -- Display: Symbol
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -2012,7 +2033,18 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.symbol, range, value, display)

@@ -1211,6 +1211,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.maturity_date.size = 6
 
 -- Display: Maturity Date
 nyse_arcaoptions_topfeed_pillar_v1_2_c.maturity_date.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Maturity Date: No Value"
+  end
+
   return "Maturity Date: "..value
 end
 
@@ -1218,7 +1223,18 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.maturity_date.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.maturity_date.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.maturity_date, range, value, display)
@@ -1492,6 +1508,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.option_symbol_root.size = 6
 
 -- Display: Option Symbol Root
 nyse_arcaoptions_topfeed_pillar_v1_2_c.option_symbol_root.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Option Symbol Root: No Value"
+  end
+
   return "Option Symbol Root: "..value
 end
 
@@ -1499,7 +1520,18 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.option_symbol_root.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.option_symbol_root.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.option_symbol_root.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.option_symbol_root, range, value, display)
@@ -2545,6 +2577,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.source_id.size = 10
 
 -- Display: Source Id
 nyse_arcaoptions_topfeed_pillar_v1_2_c.source_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Source Id: No Value"
+  end
+
   return "Source Id: "..value
 end
 
@@ -2552,7 +2589,18 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.source_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.source_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.source_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.source_id, range, value, display)
@@ -2808,6 +2856,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.strike_price.size = 10
 
 -- Display: Strike Price
 nyse_arcaoptions_topfeed_pillar_v1_2_c.strike_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Strike Price: No Value"
+  end
+
   return "Strike Price: "..value
 end
 
@@ -2815,7 +2868,18 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.strike_price.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.strike_price, range, value, display)
@@ -2831,6 +2895,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol.size = 11
 
 -- Display: Symbol
 nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -2838,7 +2907,18 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.symbol, range, value, display)
@@ -3169,6 +3249,11 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.underlying_symbol.size = 11
 
 -- Display: Underlying Symbol
 nyse_arcaoptions_topfeed_pillar_v1_2_c.underlying_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Underlying Symbol: No Value"
+  end
+
   return "Underlying Symbol: "..value
 end
 
@@ -3176,7 +3261,18 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_c.underlying_symbol.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_c.underlying_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_c.underlying_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.underlying_symbol, range, value, display)

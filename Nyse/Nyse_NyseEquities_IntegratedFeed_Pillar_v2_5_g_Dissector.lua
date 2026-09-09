@@ -244,6 +244,24 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_g.conversation.current = nil
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Nyse NyseEquities IntegratedFeed Pillar 2.5.g Fields
 -----------------------------------------------------------------------
 
@@ -622,11 +640,6 @@ nyse_nyseequities_integratedfeed_pillar_v2_5_g.firm_id.size = 5
 
 -- Display: Firm Id
 nyse_nyseequities_integratedfeed_pillar_v2_5_g.firm_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Firm Id: No Value"
-  end
-
   return "Firm Id: "..value
 end
 
@@ -634,18 +647,7 @@ end
 nyse_nyseequities_integratedfeed_pillar_v2_5_g.firm_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_integratedfeed_pillar_v2_5_g.firm_id.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = trim_right_spaces(range:string())
   local display = nyse_nyseequities_integratedfeed_pillar_v2_5_g.firm_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_integratedfeed_pillar_v2_5_g.fields.firm_id, range, value, display)

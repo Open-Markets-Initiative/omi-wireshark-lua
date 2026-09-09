@@ -2064,6 +2064,11 @@ nyse_nyseequities_bqt_xdp_v2_1_a.source_id.size = 10
 
 -- Display: Source Id
 nyse_nyseequities_bqt_xdp_v2_1_a.source_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Source Id: No Value"
+  end
+
   return "Source Id: "..value
 end
 
@@ -2071,7 +2076,18 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.source_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_1_a.source_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.source_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.source_id, range, value, display)
@@ -2318,6 +2334,11 @@ nyse_nyseequities_bqt_xdp_v2_1_a.symbol.size = 11
 
 -- Display: Symbol
 nyse_nyseequities_bqt_xdp_v2_1_a.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -2325,7 +2346,18 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.symbol.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_1_a.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.symbol, range, value, display)

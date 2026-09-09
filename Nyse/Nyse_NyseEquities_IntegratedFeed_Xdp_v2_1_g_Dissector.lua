@@ -167,6 +167,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Nyse NyseEquities IntegratedFeed Xdp 2.1.g Fields
 -----------------------------------------------------------------------
 
@@ -634,7 +652,7 @@ end
 nyse_nyseequities_integratedfeed_xdp_v2_1_g.firm_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_integratedfeed_xdp_v2_1_g.firm_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nyse_nyseequities_integratedfeed_xdp_v2_1_g.firm_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.fields.firm_id, range, value, display)
@@ -2182,6 +2200,11 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.source_id.size = 10
 
 -- Display: Source Id
 nyse_nyseequities_integratedfeed_xdp_v2_1_g.source_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Source Id: No Value"
+  end
+
   return "Source Id: "..value
 end
 
@@ -2189,7 +2212,18 @@ end
 nyse_nyseequities_integratedfeed_xdp_v2_1_g.source_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_integratedfeed_xdp_v2_1_g.source_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_integratedfeed_xdp_v2_1_g.source_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.fields.source_id, range, value, display)
@@ -2459,6 +2493,11 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol.size = 11
 
 -- Display: Symbol
 nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -2466,7 +2505,18 @@ end
 nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_integratedfeed_xdp_v2_1_g.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_integratedfeed_xdp_v2_1_g.fields.symbol, range, value, display)

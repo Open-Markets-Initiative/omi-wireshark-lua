@@ -285,6 +285,24 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.conversation.current = nil
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Nyse ArcaOptions DeepFeed Pillar 1.2.l Fields
 -----------------------------------------------------------------------
 
@@ -835,11 +853,6 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.firm_id.size = 5
 
 -- Display: Firm Id
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.firm_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Firm Id: No Value"
-  end
-
   return "Firm Id: "..value
 end
 
@@ -847,18 +860,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.firm_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_l.firm_id.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = trim_right_spaces(range:string())
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_l.firm_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_l.fields.firm_id, range, value, display)

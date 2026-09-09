@@ -67,6 +67,7 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.modify_order_message = ProtoFi
 
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 generated fields
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.arcabook.pillar.v2.1.messageindex", ftypes.UINT16)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaequities.arcabook.pillar.v2.1.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 Formatting
@@ -93,12 +94,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nyse ArcaEquities ArcaBook Pillar 2.1 Show Options
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
 
@@ -117,6 +120,9 @@ function omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs_changed()
   end
   if show.indexes ~= omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes then
     show.indexes = omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_sequences then
+    show.sequences = omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_sequences
   end
   if nyse_arcaequities_arcabook_pillar_v2_1.absolute_time_base ~= omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.absolute_time_base then
     nyse_arcaequities_arcabook_pillar_v2_1.absolute_time_base = omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.absolute_time_base
@@ -1658,6 +1664,12 @@ nyse_arcaequities_arcabook_pillar_v2_1.message.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nyse_arcaequities_arcabook_pillar_v2_1.sequence ~= nil then
+    local sequence = parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_sequence_number, UInt64.new(nyse_arcaequities_arcabook_pillar_v2_1.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nyse_arcaequities_arcabook_pillar_v2_1.message_header.dissect(buffer, index, packet, parent)
 
@@ -1786,6 +1798,9 @@ nyse_arcaequities_arcabook_pillar_v2_1.packet_header.fields = function(buffer, o
 
   -- Send Time: Struct of 2 fields
   index, send_time = nyse_arcaequities_arcabook_pillar_v2_1.send_time.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nyse_arcaequities_arcabook_pillar_v2_1.sequence = seq_num
 
   return index
 end
