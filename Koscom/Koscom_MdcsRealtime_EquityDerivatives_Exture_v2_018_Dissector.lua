@@ -471,7 +471,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.abbreviated_issue_code, range, value, display)
@@ -494,7 +494,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.abbreviated_issue_name, range, value, display)
@@ -517,7 +517,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_name_in_en.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_name_in_en.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.abbreviated_issue_name_in_en.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.abbreviated_issue_name_in_en, range, value, display)
@@ -757,7 +757,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.an_abbreviated_name_of_a_market_participant_in_kr.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.an_abbreviated_name_of_a_market_participant_in_kr.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.an_abbreviated_name_of_a_market_participant_in_kr.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.an_abbreviated_name_of_a_market_participant_in_kr, range, value, display)
@@ -1375,7 +1375,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.baby_bonds_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.baby_bonds_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.baby_bonds_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.baby_bonds_type_code, range, value, display)
@@ -1669,7 +1669,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.board_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.board_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.board_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.board_id, range, value, display)
@@ -1692,7 +1692,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.bond_category_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.bond_category_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.bond_category_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bond_category_code, range, value, display)
@@ -1738,7 +1738,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.bond_index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.bond_index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.bond_index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.bond_index_id, range, value, display)
@@ -1899,7 +1899,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.business_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.business_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.business_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.business_date, range, value, display)
@@ -2060,7 +2060,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.calculation_of_redemption_price_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.calculation_of_redemption_price_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.calculation_of_redemption_price_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.calculation_of_redemption_price_end_date, range, value, display)
@@ -2083,7 +2083,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.calculation_of_redemption_price_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.calculation_of_redemption_price_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.calculation_of_redemption_price_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.calculation_of_redemption_price_start_date, range, value, display)
@@ -2317,7 +2317,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.capital_increase_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.capital_increase_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.capital_increase_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.capital_increase_type_code, range, value, display)
@@ -2570,7 +2570,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.closing_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.closing_date, range, value, display)
@@ -2764,7 +2764,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.country_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.country_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.country_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.country_code, range, value, display)
@@ -2833,7 +2833,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.coupon_payment_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.coupon_payment_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.coupon_payment_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.coupon_payment_type_code, range, value, display)
@@ -2950,7 +2950,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.currency_code, range, value, display)
@@ -2973,7 +2973,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.currency_iso_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.currency_iso_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.currency_iso_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.currency_iso_code, range, value, display)
@@ -3030,7 +3030,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.date_to_end_exercising.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.date_to_end_exercising.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.date_to_end_exercising.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.date_to_end_exercising, range, value, display)
@@ -3053,7 +3053,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.date_to_start_exercising.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.date_to_start_exercising.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.date_to_start_exercising.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.date_to_start_exercising, range, value, display)
@@ -3099,7 +3099,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.delisting_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.delisting_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.delisting_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.delisting_date, range, value, display)
@@ -3145,7 +3145,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.distribution_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.distribution_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.distribution_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.distribution_type_code, range, value, display)
@@ -3513,7 +3513,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.event_end_date, range, value, display)
@@ -3536,7 +3536,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_reason_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.event_reason_code, range, value, display)
@@ -3559,7 +3559,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.event_start_date, range, value, display)
@@ -3582,7 +3582,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.event_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.event_type_code, range, value, display)
@@ -3697,7 +3697,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.exercising_period.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.exercising_period.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.exercising_period.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.exercising_period, range, value, display)
@@ -3720,7 +3720,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.expiration_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.expiration_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.expiration_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.expiration_date, range, value, display)
@@ -3743,7 +3743,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.expiration_date_for_right.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.expiration_date_for_right.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.expiration_date_for_right.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.expiration_date_for_right, range, value, display)
@@ -3789,7 +3789,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.filler_3, range, value, display)
@@ -3812,7 +3812,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.filler_4, range, value, display)
@@ -3835,7 +3835,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_8.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_8.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.filler_8, range, value, display)
@@ -3932,7 +3932,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.group_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.group_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.group_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.group_code, range, value, display)
@@ -3955,7 +3955,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.group_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.group_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.group_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.group_number, range, value, display)
@@ -4052,7 +4052,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_asset_classification_id_1.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_asset_classification_id_1.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_asset_classification_id_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_asset_classification_id_1, range, value, display)
@@ -4075,7 +4075,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_asset_classification_id_2.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_asset_classification_id_2.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_asset_classification_id_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_asset_classification_id_2, range, value, display)
@@ -4098,7 +4098,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_calculation_institution_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_calculation_institution_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_calculation_institution_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_calculation_institution_type_code, range, value, display)
@@ -4200,7 +4200,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_1.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_1.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_classification_level_1, range, value, display)
@@ -4223,7 +4223,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_2.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_2.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_classification_level_2, range, value, display)
@@ -4246,7 +4246,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_3.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_3.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_classification_level_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_classification_level_3, range, value, display)
@@ -4299,7 +4299,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_id, range, value, display)
@@ -4350,7 +4350,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_market_classification_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_market_classification_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_market_classification_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_market_classification_id, range, value, display)
@@ -4401,7 +4401,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.index_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.index_sequence_number, range, value, display)
@@ -4424,7 +4424,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.industry_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.industry_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.industry_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.industry_id, range, value, display)
@@ -4447,7 +4447,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.installment_repayment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.installment_repayment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.installment_repayment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.installment_repayment_date, range, value, display)
@@ -4585,7 +4585,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.ipo_underwriter_member_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.ipo_underwriter_member_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.ipo_underwriter_member_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.ipo_underwriter_member_number, range, value, display)
@@ -4608,7 +4608,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.isin, range, value, display)
@@ -4631,7 +4631,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.isin_code, range, value, display)
@@ -4654,7 +4654,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.issue_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.issue_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.issue_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.issue_date, range, value, display)
@@ -5290,7 +5290,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.listing_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.listing_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.listing_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.listing_date, range, value, display)
@@ -5443,7 +5443,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.lp_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lp_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lp_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lp_end_date, range, value, display)
@@ -5489,7 +5489,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.lp_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lp_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.lp_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.lp_start_date, range, value, display)
@@ -5535,7 +5535,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_alert_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_alert_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_alert_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.market_alert_type_code, range, value, display)
@@ -5650,7 +5650,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_operation_product_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_operation_product_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_operation_product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.market_operation_product_id, range, value, display)
@@ -5673,7 +5673,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_participant_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_participant_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.market_participant_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.market_participant_number, range, value, display)
@@ -5890,7 +5890,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.maturity_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.maturity_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.maturity_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.maturity_code, range, value, display)
@@ -5913,7 +5913,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.maturity_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.maturity_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.maturity_date, range, value, display)
@@ -6246,7 +6246,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.message_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.message_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.message_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.message_code, range, value, display)
@@ -6473,7 +6473,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.name_of_a_market_participant_in_en.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.name_of_a_market_participant_in_en.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.name_of_a_market_participant_in_en.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.name_of_a_market_participant_in_en, range, value, display)
@@ -6496,7 +6496,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.name_of_a_market_participant_in_kr.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.name_of_a_market_participant_in_kr.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.name_of_a_market_participant_in_kr.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.name_of_a_market_participant_in_kr, range, value, display)
@@ -6542,7 +6542,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.next_coupon_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.next_coupon_payment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.next_coupon_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.next_coupon_payment_date, range, value, display)
@@ -6774,7 +6774,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.par_value_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.par_value_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.par_value_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.par_value_type_code, range, value, display)
@@ -7004,7 +7004,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.prior_coupon_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.prior_coupon_payment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.prior_coupon_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.prior_coupon_payment_date, range, value, display)
@@ -7073,7 +7073,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.redemption_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.redemption_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.redemption_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.redemption_date, range, value, display)
@@ -7142,7 +7142,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.reevaluation_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.reevaluation_reason_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.reevaluation_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.reevaluation_reason_code, range, value, display)
@@ -7165,7 +7165,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.reference_index_leverage_inverse_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.reference_index_leverage_inverse_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.reference_index_leverage_inverse_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.reference_index_leverage_inverse_type_code, range, value, display)
@@ -7280,7 +7280,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.repo_classification_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.repo_classification_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.repo_classification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.repo_classification_code, range, value, display)
@@ -7303,7 +7303,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.repo_classification_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.repo_classification_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.repo_classification_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.repo_classification_name, range, value, display)
@@ -7606,7 +7606,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_category_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_category_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_category_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.retail_bond_category_name, range, value, display)
@@ -7629,7 +7629,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_category_name_in_en.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_category_name_in_en.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_category_name_in_en.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.retail_bond_category_name_in_en, range, value, display)
@@ -7675,7 +7675,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.retail_bond_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.retail_bond_type_code, range, value, display)
@@ -7698,7 +7698,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.rights_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.rights_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.rights_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.rights_type_code, range, value, display)
@@ -7721,7 +7721,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.sale_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.sale_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.sale_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.sale_date, range, value, display)
@@ -7767,7 +7767,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.security_group_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.security_group_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.security_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.security_group_id, range, value, display)
@@ -7813,7 +7813,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.session_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.session_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.session_id, range, value, display)
@@ -8058,7 +8058,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.target_stock_isin_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.target_stock_isin_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.target_stock_isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.target_stock_isin_code, range, value, display)
@@ -8160,7 +8160,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.the_establishment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.the_establishment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.the_establishment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.the_establishment_date, range, value, display)
@@ -8441,7 +8441,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.tracking_index_leverage_inverse_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.tracking_index_leverage_inverse_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.tracking_index_leverage_inverse_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.tracking_index_leverage_inverse_type_code, range, value, display)
@@ -8565,7 +8565,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_application_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_application_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_application_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.treasury_stock_application_date, range, value, display)
@@ -8611,7 +8611,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_report_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_report_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_report_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.treasury_stock_report_id, range, value, display)
@@ -8634,7 +8634,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_trading_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_trading_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_trading_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.treasury_stock_trading_end_date, range, value, display)
@@ -8657,7 +8657,7 @@ end
 koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_trading_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_trading_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_equityderivatives_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_018.treasury_stock_trading_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_018.fields.treasury_stock_trading_start_date, range, value, display)

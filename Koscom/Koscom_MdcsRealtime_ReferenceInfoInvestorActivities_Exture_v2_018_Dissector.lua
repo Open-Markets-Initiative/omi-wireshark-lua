@@ -473,7 +473,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.ask_treasury_stock_declaration_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.ask_treasury_stock_declaration_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.ask_treasury_stock_declaration_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.ask_treasury_stock_declaration_id, range, value, display)
@@ -1043,7 +1043,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bid_treasury_stock_declaration_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bid_treasury_stock_declaration_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bid_treasury_stock_declaration_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.bid_treasury_stock_declaration_id, range, value, display)
@@ -1066,7 +1066,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.bond_index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.bond_index_id, range, value, display)
@@ -1761,7 +1761,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.currency_code, range, value, display)
@@ -1887,7 +1887,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler_3, range, value, display)
@@ -1910,7 +1910,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.filler_4, range, value, display)
@@ -1979,7 +1979,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.group_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.group_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.group_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.group_code, range, value, display)
@@ -2157,7 +2157,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.index_id, range, value, display)
@@ -2236,7 +2236,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.investor_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.investor_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.investor_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.investor_code, range, value, display)
@@ -2259,7 +2259,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.isin_code, range, value, display)
@@ -2540,7 +2540,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.maturity_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.maturity_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.maturity_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.maturity_code, range, value, display)
@@ -2678,7 +2678,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.message_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.message_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.message_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.message_code, range, value, display)
@@ -2775,7 +2775,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.security_group_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.security_group_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.security_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.security_group_id, range, value, display)
@@ -2798,7 +2798,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.session_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.session_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.session_id, range, value, display)
@@ -3015,7 +3015,7 @@ end
 koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.transmission_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.transmission_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.transmission_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.transmission_date, range, value, display)

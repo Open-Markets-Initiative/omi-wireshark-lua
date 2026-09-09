@@ -292,6 +292,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Koscom MdcsRealtime Koscom Exture 1.20 Fields
 -----------------------------------------------------------------------
 
@@ -1273,7 +1291,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bond_type_code, range, value, display)
@@ -1296,7 +1314,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.bond_type_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.bond_type_name, range, value, display)
@@ -1319,7 +1337,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.branch_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.branch_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.branch_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.branch_name, range, value, display)
@@ -1342,7 +1360,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.business_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.business_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.business_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.business_code, range, value, display)
@@ -1572,7 +1590,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.compared_to_previous_day.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.compared_to_previous_day.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.compared_to_previous_day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.compared_to_previous_day, range, value, display)
@@ -1674,7 +1692,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.composition_constituents_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.composition_constituents_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.composition_constituents_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.composition_constituents_code, range, value, display)
@@ -1697,7 +1715,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.composition_constituents_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.composition_constituents_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.composition_constituents_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.composition_constituents_name, range, value, display)
@@ -1748,7 +1766,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.composition_issue_code, range, value, display)
@@ -1794,7 +1812,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.composition_issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.composition_issue_name, range, value, display)
@@ -1914,7 +1932,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.contract_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.contract_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.contract_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.contract_date, range, value, display)
@@ -2016,7 +2034,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.data_small_category.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.data_small_category.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.data_small_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_small_category, range, value, display)
@@ -2062,7 +2080,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.data_type.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.data_type.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.data_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.data_type, range, value, display)
@@ -2500,7 +2518,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_net_asset_total.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_net_asset_total.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.etf_foreign_net_asset_total.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.etf_foreign_net_asset_total, range, value, display)
@@ -2648,7 +2666,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_11, range, value, display)
@@ -2671,7 +2689,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_19, range, value, display)
@@ -2694,7 +2712,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2, range, value, display)
@@ -2717,7 +2735,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_28, range, value, display)
@@ -2740,7 +2758,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_33, range, value, display)
@@ -2763,7 +2781,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_38, range, value, display)
@@ -2786,7 +2804,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_4, range, value, display)
@@ -2809,7 +2827,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_40, range, value, display)
@@ -2832,7 +2850,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_46, range, value, display)
@@ -2855,7 +2873,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_5, range, value, display)
@@ -2878,7 +2896,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_56, range, value, display)
@@ -2901,7 +2919,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_6, range, value, display)
@@ -2924,7 +2942,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_60, range, value, display)
@@ -2947,7 +2965,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_7, range, value, display)
@@ -2970,7 +2988,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_8, range, value, display)
@@ -3163,7 +3181,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.index_id, range, value, display)
@@ -3213,7 +3231,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.institution_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.institution_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.institution_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.institution_code, range, value, display)
@@ -3282,7 +3300,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.investor_category.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.investor_category.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.investor_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.investor_category, range, value, display)
@@ -3305,7 +3323,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.isin, range, value, display)
@@ -3328,7 +3346,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.issue_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.issue_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.issue_code, range, value, display)
@@ -3669,7 +3687,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.message_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.message_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.message_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.message_code, range, value, display)
@@ -3692,7 +3710,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.name_of_counterparty.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.name_of_counterparty.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.name_of_counterparty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.name_of_counterparty, range, value, display)
@@ -3771,7 +3789,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.office_consignment_companys_registration_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.office_consignment_companys_registration_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.office_consignment_companys_registration_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.office_consignment_companys_registration_number, range, value, display)
@@ -3794,7 +3812,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.operator_abbreviated_name_english.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.operator_abbreviated_name_english.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.operator_abbreviated_name_english.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.operator_abbreviated_name_english, range, value, display)
@@ -3817,7 +3835,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.operator_abbreviated_name_korean.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.operator_abbreviated_name_korean.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.operator_abbreviated_name_korean.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.operator_abbreviated_name_korean, range, value, display)
@@ -3840,7 +3858,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.operator_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.operator_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.operator_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.operator_code, range, value, display)
@@ -3891,7 +3909,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.original_quote_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.original_quote_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.original_quote_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.original_quote_number, range, value, display)
@@ -3914,7 +3932,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.original_quote_price.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.original_quote_price.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.original_quote_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.original_quote_price, range, value, display)
@@ -4806,7 +4824,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.quote_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.quote_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.quote_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.quote_number, range, value, display)
@@ -4829,7 +4847,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.quotes_amount.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.quotes_amount.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.quotes_amount.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.quotes_amount, range, value, display)
@@ -4879,7 +4897,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.reason.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.reason.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.reason, range, value, display)
@@ -5669,7 +5687,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.settlement_date_k_bond.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.settlement_date_k_bond, range, value, display)
@@ -5806,7 +5824,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.subcategory.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.subcategory.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.subcategory.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.subcategory, range, value, display)
@@ -5829,7 +5847,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.subscription_time.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.subscription_time.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.subscription_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.subscription_time, range, value, display)
@@ -6365,7 +6383,7 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_time.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_time.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.trading_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_time, range, value, display)

@@ -366,7 +366,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.a_representative_issue_to_calculate_base_price.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.a_representative_issue_to_calculate_base_price.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.a_representative_issue_to_calculate_base_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.a_representative_issue_to_calculate_base_price, range, value, display)
@@ -389,7 +389,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_code, range, value, display)
@@ -412,7 +412,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_name, range, value, display)
@@ -435,7 +435,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_name_in_en.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_name_in_en.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.abbreviated_issue_name_in_en.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_name_in_en, range, value, display)
@@ -1207,7 +1207,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.ask_quote.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.ask_quote.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.ask_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.ask_quote, range, value, display)
@@ -2449,7 +2449,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.bid_quote.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.bid_quote.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bid_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bid_quote, range, value, display)
@@ -2602,7 +2602,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.board_event_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.board_event_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.board_event_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.board_event_id, range, value, display)
@@ -2625,7 +2625,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.board_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.board_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.board_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.board_id, range, value, display)
@@ -2648,7 +2648,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.bond_index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.bond_index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.bond_index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.bond_index_id, range, value, display)
@@ -2671,7 +2671,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.business_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.business_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.business_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.business_date, range, value, display)
@@ -2959,7 +2959,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.change_from_previous_day.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.change_from_previous_day.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.change_from_previous_day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.change_from_previous_day, range, value, display)
@@ -3352,7 +3352,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.conversion_basic_exchange_rate.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.conversion_basic_exchange_rate.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.conversion_basic_exchange_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.conversion_basic_exchange_rate, range, value, display)
@@ -3446,7 +3446,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.currency_code, range, value, display)
@@ -3554,7 +3554,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.delisting_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.delisting_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.delisting_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.delisting_date, range, value, display)
@@ -3646,7 +3646,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.english_issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.english_issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.english_issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.english_issue_name, range, value, display)
@@ -3725,7 +3725,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.expected_time_of_expanding_price_limit_range.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.expected_time_of_expanding_price_limit_range.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.expected_time_of_expanding_price_limit_range.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.expected_time_of_expanding_price_limit_range, range, value, display)
@@ -3776,7 +3776,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.filler_4, range, value, display)
@@ -3822,7 +3822,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.fluctuating_rate.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.fluctuating_rate.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.fluctuating_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.fluctuating_rate, range, value, display)
@@ -3891,7 +3891,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.group_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.group_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.group_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.group_code, range, value, display)
@@ -3914,7 +3914,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.high_price.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.high_price.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.high_price, range, value, display)
@@ -4092,7 +4092,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.index_id, range, value, display)
@@ -4171,7 +4171,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.isin_code, range, value, display)
@@ -4194,7 +4194,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.isin_code_of_a_common_stock.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.isin_code_of_a_common_stock.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.isin_code_of_a_common_stock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.isin_code_of_a_common_stock, range, value, display)
@@ -4217,7 +4217,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.issue_name, range, value, display)
@@ -4314,7 +4314,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.job_code_symbol.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.job_code_symbol.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.job_code_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.job_code_symbol, range, value, display)
@@ -4337,7 +4337,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.listing_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.listing_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.listing_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.listing_date, range, value, display)
@@ -4360,7 +4360,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.low_price.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.low_price.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.low_price, range, value, display)
@@ -5073,7 +5073,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.market_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.market_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.market_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_id, range, value, display)
@@ -5096,7 +5096,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.market_operation_product_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.market_operation_product_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.market_operation_product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.market_operation_product_id, range, value, display)
@@ -5257,7 +5257,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.maturity_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.maturity_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.maturity_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.maturity_code, range, value, display)
@@ -5380,7 +5380,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.message_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.message_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.message_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.message_code, range, value, display)
@@ -5607,7 +5607,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price, range, value, display)
@@ -5708,7 +5708,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.product_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.product_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.product_id, range, value, display)
@@ -5828,7 +5828,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.security_group_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.security_group_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.security_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.security_group_id, range, value, display)
@@ -5851,7 +5851,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.session_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.session_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.session_id, range, value, display)
@@ -5874,7 +5874,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.session_start_end_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.session_start_end_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.session_start_end_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.session_start_end_code, range, value, display)
@@ -5897,7 +5897,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.start_time_of_a_board_event.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.start_time_of_a_board_event.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.start_time_of_a_board_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.start_time_of_a_board_event, range, value, display)
@@ -6414,7 +6414,7 @@ end
 koscom_mdcsrealtime_commodities_exture_v2_018.trading_halt_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_commodities_exture_v2_018.trading_halt_reason_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.trading_halt_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.trading_halt_reason_code, range, value, display)

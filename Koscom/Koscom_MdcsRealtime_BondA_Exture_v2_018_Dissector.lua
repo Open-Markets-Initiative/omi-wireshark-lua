@@ -570,7 +570,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_code, range, value, display)
@@ -593,7 +593,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_name, range, value, display)
@@ -616,7 +616,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name_in_en.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name_in_en.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name_in_en.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.abbreviated_issue_name_in_en, range, value, display)
@@ -999,7 +999,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield_effective_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield_effective_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.additional_yield_effective_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.additional_yield_effective_date, range, value, display)
@@ -2627,7 +2627,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.ask_repo_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.ask_repo_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.ask_repo_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.ask_repo_type_code, range, value, display)
@@ -3171,7 +3171,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.baby_bonds_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.baby_bonds_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.baby_bonds_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.baby_bonds_type_code, range, value, display)
@@ -3345,7 +3345,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_closing_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_closing_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_closing_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_closing_date, range, value, display)
@@ -4559,7 +4559,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bid_repo_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bid_repo_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bid_repo_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bid_repo_type_code, range, value, display)
@@ -4638,7 +4638,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.board_event_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.board_event_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.board_event_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.board_event_id, range, value, display)
@@ -4661,7 +4661,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.board_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.board_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.board_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.board_id, range, value, display)
@@ -4684,7 +4684,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_category_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_category_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_category_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_category_code, range, value, display)
@@ -4707,7 +4707,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisted_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisted_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisted_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_delisted_date, range, value, display)
@@ -4730,7 +4730,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisting_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisting_reason_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisting_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_delisting_reason_code, range, value, display)
@@ -4776,7 +4776,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_index_id, range, value, display)
@@ -4845,7 +4845,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_issuance_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_issuance_type_code, range, value, display)
@@ -4868,7 +4868,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_lead_manager_company_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_lead_manager_company_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_lead_manager_company_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_lead_manager_company_code, range, value, display)
@@ -4960,7 +4960,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.bond_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.bond_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.bond_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_type_code, range, value, display)
@@ -5029,7 +5029,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.business_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.business_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.business_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.business_date, range, value, display)
@@ -5106,7 +5106,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time, range, value, display)
@@ -5913,7 +5913,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.contents_of_underlying_asset.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.contents_of_underlying_asset.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.contents_of_underlying_asset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.contents_of_underlying_asset, range, value, display)
@@ -6079,7 +6079,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_payment_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_payment_type_code, range, value, display)
@@ -6171,7 +6171,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate_decision_base_rate_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate_decision_base_rate_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.coupon_rate_decision_base_rate_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.coupon_rate_decision_base_rate_type_code, range, value, display)
@@ -6194,7 +6194,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_1.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_1.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_agency_code_no_1, range, value, display)
@@ -6217,7 +6217,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_2.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_2.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_agency_code_no_2, range, value, display)
@@ -6240,7 +6240,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_3.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_3.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_agency_code_no_3, range, value, display)
@@ -6263,7 +6263,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_agency_code_no_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_agency_code_no_4, range, value, display)
@@ -6286,7 +6286,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_1.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_1.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_per_agency_code_no_1, range, value, display)
@@ -6309,7 +6309,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_2.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_2.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_per_agency_code_no_2, range, value, display)
@@ -6332,7 +6332,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_3.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_3.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_per_agency_code_no_3, range, value, display)
@@ -6355,7 +6355,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.credit_rating_per_agency_code_no_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.credit_rating_per_agency_code_no_4, range, value, display)
@@ -6426,7 +6426,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.currency_code, range, value, display)
@@ -6506,7 +6506,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.date_to_end_exercising.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.date_to_end_exercising.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.date_to_end_exercising.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.date_to_end_exercising, range, value, display)
@@ -6529,7 +6529,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.date_to_start_exercising.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.date_to_start_exercising.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.date_to_start_exercising.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.date_to_start_exercising, range, value, display)
@@ -6603,7 +6603,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_1_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_1_isin, range, value, display)
@@ -6682,7 +6682,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_10_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_10_isin, range, value, display)
@@ -6761,7 +6761,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_2_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_2_isin, range, value, display)
@@ -6840,7 +6840,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_3_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_3_isin, range, value, display)
@@ -6919,7 +6919,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_4_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_4_isin, range, value, display)
@@ -6998,7 +6998,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_5_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_5_isin, range, value, display)
@@ -7077,7 +7077,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_6_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_6_isin, range, value, display)
@@ -7156,7 +7156,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_7_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_7_isin, range, value, display)
@@ -7235,7 +7235,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_8_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_8_isin, range, value, display)
@@ -7314,7 +7314,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.designated_bid_level_9_isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.designated_bid_level_9_isin, range, value, display)
@@ -7393,7 +7393,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.disclosing_data_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.disclosing_data_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.disclosing_data_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.disclosing_data_type_code, range, value, display)
@@ -7416,7 +7416,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.disclosure_time.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.disclosure_time.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.disclosure_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.disclosure_time, range, value, display)
@@ -7513,7 +7513,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.els_condition_1.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.els_condition_1.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.els_condition_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.els_condition_1, range, value, display)
@@ -7536,7 +7536,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.els_condition_2.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.els_condition_2.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.els_condition_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.els_condition_2, range, value, display)
@@ -7582,7 +7582,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.english_issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.english_issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.english_issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.english_issue_name, range, value, display)
@@ -7651,7 +7651,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.equitylinked_bond_rights_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.equitylinked_bond_rights_type_code, range, value, display)
@@ -7674,7 +7674,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.event_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.event_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.event_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_end_date, range, value, display)
@@ -7697,7 +7697,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.event_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.event_reason_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.event_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_reason_code, range, value, display)
@@ -7720,7 +7720,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.event_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.event_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.event_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_start_date, range, value, display)
@@ -7743,7 +7743,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.event_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.event_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.event_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.event_type_code, range, value, display)
@@ -7812,7 +7812,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.expected_time_of_expanding_price_limit_range.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.expected_time_of_expanding_price_limit_range.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.expected_time_of_expanding_price_limit_range.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.expected_time_of_expanding_price_limit_range, range, value, display)
@@ -7881,7 +7881,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.filler_4, range, value, display)
@@ -7904,7 +7904,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_end_date, range, value, display)
@@ -7927,7 +7927,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_call_exercise_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_call_exercise_start_date, range, value, display)
@@ -7950,7 +7950,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_end_date, range, value, display)
@@ -7973,7 +7973,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.first_put_exercise_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.first_put_exercise_start_date, range, value, display)
@@ -8042,7 +8042,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.group_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.group_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.group_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.group_code, range, value, display)
@@ -8111,7 +8111,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_yield_effective_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_yield_effective_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.guaranteed_yield_effective_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.guaranteed_yield_effective_date, range, value, display)
@@ -8312,7 +8312,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.index_id, range, value, display)
@@ -8437,7 +8437,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.installment_repayment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.installment_repayment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.installment_repayment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.installment_repayment_date, range, value, display)
@@ -8460,7 +8460,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.institution_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.institution_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.institution_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.institution_code, range, value, display)
@@ -8506,7 +8506,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.interest_rate_decision_other_base_rate_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.interest_rate_decision_other_base_rate_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.interest_rate_decision_other_base_rate_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.interest_rate_decision_other_base_rate_name, range, value, display)
@@ -8575,7 +8575,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.investor_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.investor_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.investor_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.investor_code, range, value, display)
@@ -8598,7 +8598,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.isin.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.isin.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin, range, value, display)
@@ -8621,7 +8621,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin_code, range, value, display)
@@ -8644,7 +8644,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.isin_code_of_a_common_stock.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.isin_code_of_a_common_stock.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.isin_code_of_a_common_stock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin_code_of_a_common_stock, range, value, display)
@@ -8667,7 +8667,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_code_of_postexercise.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_code_of_postexercise, range, value, display)
@@ -8690,7 +8690,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.issue_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_date, range, value, display)
@@ -8713,7 +8713,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name, range, value, display)
@@ -8810,7 +8810,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.issuer_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.issuer_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.issuer_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issuer_code, range, value, display)
@@ -8994,7 +8994,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.listing_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.listing_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.listing_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.listing_date, range, value, display)
@@ -9201,7 +9201,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.market_operation_product_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.market_operation_product_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.market_operation_product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.market_operation_product_id, range, value, display)
@@ -9390,7 +9390,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.maturity_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.maturity_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.maturity_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.maturity_code, range, value, display)
@@ -9510,7 +9510,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.member_number.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.member_number.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.member_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.member_number, range, value, display)
@@ -9921,7 +9921,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.message_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.message_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.message_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.message_code, range, value, display)
@@ -10028,7 +10028,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.next_coupon_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.next_coupon_payment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.next_coupon_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.next_coupon_payment_date, range, value, display)
@@ -10214,7 +10214,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.original_bond_type_code_subjec_to_strip.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.original_bond_type_code_subjec_to_strip.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.original_bond_type_code_subjec_to_strip.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.original_bond_type_code_subjec_to_strip, range, value, display)
@@ -10352,7 +10352,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.payment_agent_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.payment_agent_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.payment_agent_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.payment_agent_code, range, value, display)
@@ -10375,7 +10375,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.payment_guarantor_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.payment_guarantor_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.payment_guarantor_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.payment_guarantor_code, range, value, display)
@@ -10605,7 +10605,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.prior_coupon_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.prior_coupon_payment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.prior_coupon_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.prior_coupon_payment_date, range, value, display)
@@ -10655,7 +10655,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.product_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.product_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.product_id, range, value, display)
@@ -10701,7 +10701,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.reason_for_exercising_a_call.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.reason_for_exercising_a_call.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.reason_for_exercising_a_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.reason_for_exercising_a_call, range, value, display)
@@ -10724,7 +10724,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.reason_for_exercising_a_put.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.reason_for_exercising_a_put.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.reason_for_exercising_a_put.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.reason_for_exercising_a_put, range, value, display)
@@ -10793,7 +10793,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.redemption_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.redemption_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.redemption_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.redemption_date, range, value, display)
@@ -10931,7 +10931,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.register_institute_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.register_institute_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.register_institute_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.register_institute_code, range, value, display)
@@ -11000,7 +11000,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.repo_classification_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.repo_classification_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_classification_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.repo_classification_code, range, value, display)
@@ -11023,7 +11023,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.repo_classification_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.repo_classification_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.repo_classification_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.repo_classification_name, range, value, display)
@@ -11446,7 +11446,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_category_name.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_category_name.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_category_name.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.retail_bond_category_name, range, value, display)
@@ -11469,7 +11469,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_category_name_in_en.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_category_name_in_en.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_category_name_in_en.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.retail_bond_category_name_in_en, range, value, display)
@@ -11515,7 +11515,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.retail_bond_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.retail_bond_type_code, range, value, display)
@@ -11607,7 +11607,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.sale_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.sale_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.sale_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.sale_date, range, value, display)
@@ -11630,7 +11630,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_call_exercise_end_date, range, value, display)
@@ -11653,7 +11653,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_call_exercise_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_call_exercise_start_date, range, value, display)
@@ -11676,7 +11676,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_end_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_put_exercise_end_date, range, value, display)
@@ -11699,7 +11699,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.second_put_exercise_start_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.second_put_exercise_start_date, range, value, display)
@@ -11722,7 +11722,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.securitization_type_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.securitization_type_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.securitization_type_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.securitization_type_code, range, value, display)
@@ -11745,7 +11745,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.session_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.session_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.session_id, range, value, display)
@@ -11768,7 +11768,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.session_start_end_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.session_start_end_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.session_start_end_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.session_start_end_code, range, value, display)
@@ -11791,7 +11791,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.settlement_date, range, value, display)
@@ -11975,7 +11975,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.special_bond_issue_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.special_bond_issue_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.special_bond_issue_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.special_bond_issue_code, range, value, display)
@@ -12044,7 +12044,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.start_time_of_a_board_event.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.start_time_of_a_board_event.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.start_time_of_a_board_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.start_time_of_a_board_event, range, value, display)
@@ -12215,7 +12215,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.the_1_st_coupon_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.the_1_st_coupon_payment_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.the_1_st_coupon_payment_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.the_1_st_coupon_payment_date, range, value, display)
@@ -12238,7 +12238,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.the_date_to_decide_interest_rate.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.the_date_to_decide_interest_rate.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.the_date_to_decide_interest_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.the_date_to_decide_interest_rate, range, value, display)
@@ -12786,7 +12786,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.trading_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.trading_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.trading_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_date, range, value, display)
@@ -12832,7 +12832,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.trading_halt_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.trading_halt_reason_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.trading_halt_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_halt_reason_code, range, value, display)
@@ -12980,7 +12980,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_date, range, value, display)
@@ -13003,7 +13003,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_time, range, value, display)
@@ -13026,7 +13026,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.trustee_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.trustee_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.trustee_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trustee_code, range, value, display)
@@ -13095,7 +13095,7 @@ end
 koscom_mdcsrealtime_bonda_exture_v2_018.unusual_issuance_condition.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_bonda_exture_v2_018.unusual_issuance_condition.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
   local display = koscom_mdcsrealtime_bonda_exture_v2_018.unusual_issuance_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.unusual_issuance_condition, range, value, display)

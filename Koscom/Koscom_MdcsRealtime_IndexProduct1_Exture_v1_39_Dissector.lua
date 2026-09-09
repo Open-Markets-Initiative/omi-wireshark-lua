@@ -816,7 +816,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.bond_index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.bond_index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.bond_index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.bond_index_id, range, value, display)
@@ -1386,7 +1386,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.currency_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.currency_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.currency_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.currency_code, range, value, display)
@@ -1512,7 +1512,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.filler_4.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.filler_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.filler_4, range, value, display)
@@ -1581,7 +1581,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.group_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.group_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.group_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.group_code, range, value, display)
@@ -1759,7 +1759,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.index_id.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.index_id.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.index_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.index_id, range, value, display)
@@ -1838,7 +1838,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.isin_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.isin_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.isin_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.isin_code, range, value, display)
@@ -2119,7 +2119,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.maturity_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.maturity_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.maturity_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.maturity_code, range, value, display)
@@ -2167,7 +2167,7 @@ end
 koscom_mdcsrealtime_indexproduct1_exture_v1_39.message_code.dissect = function(buffer, offset, packet, parent)
   local length = koscom_mdcsrealtime_indexproduct1_exture_v1_39.message_code.size
   local range = buffer(offset, length)
-  local value = range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_indexproduct1_exture_v1_39.text_encoding))
   local display = koscom_mdcsrealtime_indexproduct1_exture_v1_39.message_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.fields.message_code, range, value, display)
