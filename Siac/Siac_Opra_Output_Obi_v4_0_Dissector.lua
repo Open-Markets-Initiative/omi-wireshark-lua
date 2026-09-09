@@ -4146,7 +4146,7 @@ siac_opra_output_obi_v4_0.message.fields = function(buffer, offset, packet, pare
   index, message_header = siac_opra_output_obi_v4_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Category
-  local message_category = trim_right_spaces(buffer(index - 1, 1):string())
+  local message_category = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 8 branches
   index = siac_opra_output_obi_v4_0.payload.dissect(buffer, index, packet, parent, message_category)
