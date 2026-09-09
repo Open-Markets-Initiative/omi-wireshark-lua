@@ -137,6 +137,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.unsequenced_data_packet = ProtoField
 
 -- Nasdaq NomOptions Itto Itch 4.0 generated fields
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nomoptions.itto.itch.v4.0.messageindex", ftypes.UINT16)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq NomOptions Itto Itch 4.0 Formatting
@@ -168,6 +169,7 @@ show.structs = true
 show.session_messages = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register Nasdaq NomOptions Itto Itch 4.0 Show Options
 local role_enum = {
@@ -183,6 +185,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_structs = Pref.bool("Show Struct
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
@@ -205,6 +208,9 @@ function omi_nasdaq_nomoptions_itto_itch_v4_0.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_indexes then
     show.indexes = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_indexes
+  end
+  if show.sequences ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_sequences then
+    show.sequences = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_sequences
   end
   if nasdaq_nomoptions_itto_itch_v4_0.timestamp_format ~= omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.timestamp_format then
     nasdaq_nomoptions_itto_itch_v4_0.timestamp_format = omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.timestamp_format
@@ -3928,6 +3934,12 @@ nasdaq_nomoptions_itto_itch_v4_0.message.fields = function(buffer, offset, packe
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and nasdaq_nomoptions_itto_itch_v4_0.sequence ~= nil then
+    local sequence = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_sequence_number, UInt64.new(nasdaq_nomoptions_itto_itch_v4_0.sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = nasdaq_nomoptions_itto_itch_v4_0.message_header.dissect(buffer, index, packet, parent)
 
@@ -4051,6 +4063,9 @@ nasdaq_nomoptions_itto_itch_v4_0.udp_packet_header.fields = function(buffer, off
 
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_nomoptions_itto_itch_v4_0.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  nasdaq_nomoptions_itto_itch_v4_0.sequence = udp_sequence_number
 
   return index
 end
