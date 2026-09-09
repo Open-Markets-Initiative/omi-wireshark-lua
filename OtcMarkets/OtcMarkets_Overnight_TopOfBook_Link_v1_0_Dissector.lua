@@ -134,7 +134,7 @@ end
 
 -- Translate: Ask Price
 otcmarkets_overnight_topofbook_link_v1_0.ask_price.translate = function(raw)
-  return raw:tonumber()*1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Ask Price
@@ -216,7 +216,7 @@ end
 
 -- Translate: Bid Price
 otcmarkets_overnight_topofbook_link_v1_0.bid_price.translate = function(raw)
-  return raw:tonumber()*1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Bid Price
@@ -268,7 +268,7 @@ end
 
 -- Translate: Current Inside Closing Price
 otcmarkets_overnight_topofbook_link_v1_0.current_inside_closing_price.translate = function(raw)
-  return raw:tonumber()*1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Current Inside Closing Price
@@ -402,7 +402,7 @@ end
 
 -- Translate: Full Closing Price
 otcmarkets_overnight_topofbook_link_v1_0.full_closing_price.translate = function(raw)
-  return raw:tonumber()*1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Full Closing Price
@@ -605,7 +605,7 @@ end
 
 -- Translate: Ocio Only Closing Price
 otcmarkets_overnight_topofbook_link_v1_0.ocio_only_closing_price.translate = function(raw)
-  return raw:tonumber()*1000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Ocio Only Closing Price
