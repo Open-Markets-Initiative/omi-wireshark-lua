@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 930 | 6,601,651 |
+| 930 | 6,602,071 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -484,10 +484,9 @@ Enjoy.
 [Nasdaq.Common.SoupBin]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Common/SoupBin.md "SoupBin"
 [Nasdaq.Common.Mold64]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/Common/Mold64.md "MoldUdp64"
 [Nasdaq.NordicEquities.TotalView]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/TotalView.md "Nordic Equity TotalView"
-[Nasdaq.NordicEquities.TotalViewPureStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/TotalViewPureStream.md "Nordic Equity TotalView PureStream"
+[Nasdaq.NordicEquities.PureStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/PureStream.md "Nordic Ouch 5 PureStream"
 [Nasdaq.NordicEquities.LastSale]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/LastSale.md "Nordic Equity Last Sale"
 [Nasdaq.NordicEquities.OrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/OrderEntry.md "Nordic Ouch 5 Order Entry"
-[Nasdaq.NordicEquities.PureStream]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nasdaq/Protocols/NordicEquities/PureStream.md "Nordic Ouch 5 PureStream"
 [Nse.NseCd.Mtbt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nse/Protocols/NseCd/Mtbt.md "Multicast Tick By Tick"
 [Nse.NseCd.MtbtNdal]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nse/Protocols/NseCd/MtbtNdal.md "Multicast Tick By Tick Data Feed"
 [Nse.NseCm.Mtbt]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Nse/Protocols/NseCm/Mtbt.md "Multicast Tick By Tick"
