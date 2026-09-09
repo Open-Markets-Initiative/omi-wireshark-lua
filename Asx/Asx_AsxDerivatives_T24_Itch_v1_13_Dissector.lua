@@ -1853,7 +1853,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.protocol_version.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxderivatives_t24_itch_v1_13.protocol_version.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:string()
   local display = asx_asxderivatives_t24_itch_v1_13.protocol_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.protocol_version, range, value, display)
@@ -5463,7 +5463,7 @@ end
 asx_asxderivatives_t24_itch_v1_13.session.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protocol Version: 3 Byte Ascii String
+  -- Protocol Version: 3 Byte Ascii String Static
   index, protocol_version = asx_asxderivatives_t24_itch_v1_13.protocol_version.dissect(buffer, index, packet, parent)
 
   -- Session Year: 2 Byte Ascii String
@@ -5607,10 +5607,25 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Protocol Version Field
+asx_asxderivatives_t24_itch_v1_13.protocol_version.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(0, 3):string()
+
+  if value == T24 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Asx AsxDerivatives T24 Itch 1.13 (Udp)
 local function omi_asx_asxderivatives_t24_itch_v1_13_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not asx_asxderivatives_t24_itch_v1_13.packet.requiredsize(buffer) then return false end
+
+  -- Verify Protocol Version
+  if not asx_asxderivatives_t24_itch_v1_13.protocol_version.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_asx_asxderivatives_t24_itch_v1_13
