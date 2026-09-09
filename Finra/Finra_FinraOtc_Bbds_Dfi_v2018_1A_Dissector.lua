@@ -113,6 +113,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Finra FinraOtc Bbds Dfi 2018.1A Fields
 -----------------------------------------------------------------------
 
@@ -426,7 +444,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.currency.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.currency, range, value, display)
@@ -734,7 +752,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.market_center_originator_id, range, value, display)
@@ -1011,7 +1029,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.otcbb_symbol.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.otcbb_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.otcbb_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_symbol, range, value, display)
@@ -1084,7 +1102,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.reason_code.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.reason_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reason_code, range, value, display)
@@ -1130,7 +1148,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.retransmission_requester.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.retransmission_requester.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.retransmission_requester.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.retransmission_requester, range, value, display)
@@ -1206,7 +1224,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.stock_symbol.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.stock_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.stock_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.stock_symbol, range, value, display)
@@ -1229,7 +1247,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.text.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.text.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.text, range, value, display)
@@ -1324,7 +1342,7 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.year.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraotc_bbds_dfi_v2018_1a.year.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraotc_bbds_dfi_v2018_1a.year.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year, range, value, display)

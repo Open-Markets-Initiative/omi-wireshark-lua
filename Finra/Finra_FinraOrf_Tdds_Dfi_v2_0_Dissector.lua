@@ -135,6 +135,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Finra FinraOrf Tdds Dfi 2.0 Fields
 -----------------------------------------------------------------------
 
@@ -416,7 +434,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.currency.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.currency.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.currency, range, value, display)
@@ -796,7 +814,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.market_center_originator_id, range, value, display)
@@ -1147,7 +1165,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.reason_code.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.reason_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.reason_code, range, value, display)
@@ -1282,7 +1300,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.retransmission_requester.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.retransmission_requester.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.retransmission_requester.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.retransmission_requester, range, value, display)
@@ -1464,7 +1482,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.security_symbol.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.security_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.security_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.security_symbol, range, value, display)
@@ -1487,7 +1505,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.security_symbol_short.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.security_symbol_short.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.security_symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.security_symbol_short, range, value, display)
@@ -1568,7 +1586,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.text.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.text.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.text.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.text, range, value, display)
@@ -1655,7 +1673,7 @@ end
 finra_finraorf_tdds_dfi_v2_0.trade_price.dissect = function(buffer, offset, packet, parent)
   local length = finra_finraorf_tdds_dfi_v2_0.trade_price.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_finraorf_tdds_dfi_v2_0.trade_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price, range, value, display)
