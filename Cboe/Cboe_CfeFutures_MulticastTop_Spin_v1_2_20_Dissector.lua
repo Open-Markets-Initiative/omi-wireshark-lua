@@ -16,14 +16,14 @@ local cboe_cfefutures_multicasttop_spin_v1_2_20 = {}
 
 -- Cboe CfeFutures MulticastTop Spin 1.2.20 Fields
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicasttop.spin.v1.2.20.accrueddayvariance", ftypes.INT64)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_binary_price_8 = ProtoField.new("Ask Price Binary Price 8", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpricebinaryprice8", ftypes.UINT64)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_binary_short_price_2 = ProtoField.new("Ask Price Binary Short Price 2", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpricebinaryshortprice2", ftypes.DOUBLE)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_binary_2 = ProtoField.new("Ask Quantity Binary 2", "cboe.cfefutures.multicasttop.spin.v1.2.20.askquantitybinary2", ftypes.UINT16)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_binary_4 = ProtoField.new("Ask Quantity Binary 4", "cboe.cfefutures.multicasttop.spin.v1.2.20.askquantitybinary4", ftypes.UINT32)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_binary_price_8 = ProtoField.new("Bid Price Binary Price 8", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidpricebinaryprice8", ftypes.UINT64)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_binary_short_price_2 = ProtoField.new("Bid Price Binary Short Price 2", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidpricebinaryshortprice2", ftypes.DOUBLE)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_binary_2 = ProtoField.new("Bid Quantity Binary 2", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidquantitybinary2", ftypes.UINT16)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_binary_4 = ProtoField.new("Bid Quantity Binary 4", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidquantitybinary4", ftypes.UINT32)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpricelong", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpriceshort", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.askquantitylong", ftypes.UINT32)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.askquantityshort", ftypes.UINT16)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidpricelong", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_short = ProtoField.new("Bid Price Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidpriceshort", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidquantitylong", ftypes.UINT32)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidquantityshort", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.block_volume = ProtoField.new("Block Volume", "cboe.cfefutures.multicasttop.spin.v1.2.20.blockvolume", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.close_price = ProtoField.new("Close Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.closeprice", ftypes.UINT64)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.contract_date = ProtoField.new("Contract Date", "cboe.cfefutures.multicasttop.spin.v1.2.20.contractdate", ftypes.UINT32)
@@ -42,10 +42,10 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.high_price_is_bid = ProtoFi
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.high_price_valid = ProtoField.new("High Price Valid", "cboe.cfefutures.multicasttop.spin.v1.2.20.highpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.issue = ProtoField.new("Issue", "cboe.cfefutures.multicasttop.spin.v1.2.20.issue", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_condition = ProtoField.new("Last Trade Condition", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradecondition", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_binary_price_8 = ProtoField.new("Last Trade Price Binary Price 8", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradepricebinaryprice8", ftypes.UINT64)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_binary_short_price_2 = ProtoField.new("Last Trade Price Binary Short Price 2", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradepricebinaryshortprice2", ftypes.DOUBLE)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_binary_2 = ProtoField.new("Last Trade Size Binary 2", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradesizebinary2", ftypes.UINT16)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_binary_4 = ProtoField.new("Last Trade Size Binary 4", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradesizebinary4", ftypes.UINT32)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_long = ProtoField.new("Last Trade Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradepricelong", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_short = ProtoField.new("Last Trade Price Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradepriceshort", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_long = ProtoField.new("Last Trade Size Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradesizelong", ftypes.UINT32)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_short = ProtoField.new("Last Trade Size Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradesizeshort", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.leg_count = ProtoField.new("Leg Count", "cboe.cfefutures.multicasttop.spin.v1.2.20.legcount", ftypes.UINT8)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.leg_offset = ProtoField.new("Leg Offset", "cboe.cfefutures.multicasttop.spin.v1.2.20.legoffset", ftypes.UINT8)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.cfefutures.multicasttop.spin.v1.2.20.legratio", ftypes.INT32)
@@ -242,198 +242,198 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.accrued_day_variance.dissect = functio
   return offset + length, value
 end
 
--- Ask Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8 = {}
+-- Ask Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long = {}
 
--- Size: Ask Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8.size = 8
+-- Size: Ask Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.size = 8
 
--- Display: Ask Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8.display = function(value)
-  return "Ask Price Binary Price 8: "..value
+-- Display: Ask Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.display = function(value)
+  return "Ask Price Long: "..value
 end
 
--- Dissect: Ask Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8.size
+-- Dissect: Ask Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2 = {}
+-- Ask Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short = {}
 
--- Size: Ask Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.size = 2
+-- Size: Ask Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.size = 2
 
--- Display: Ask Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.display = function(value)
-  return "Ask Price Binary Short Price 2: "..value
+-- Display: Ask Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.display = function(value)
+  return "Ask Price Short: "..value
 end
 
--- Translate: Ask Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.translate = function(raw)
+-- Translate: Ask Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.translate = function(raw)
   return raw/100
 end
 
--- Dissect: Ask Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.size
+-- Dissect: Ask Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.translate(raw)
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.display(value, buffer, offset, packet, parent)
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.translate(raw)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_binary_short_price_2, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2 = {}
+-- Ask Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long = {}
 
--- Size: Ask Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2.size = 2
+-- Size: Ask Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long.size = 4
 
--- Display: Ask Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2.display = function(value)
-  return "Ask Quantity Binary 2: "..value
+-- Display: Ask Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long.display = function(value)
+  return "Ask Quantity Long: "..value
 end
 
--- Dissect: Ask Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2.size
+-- Dissect: Ask Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_long, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4 = {}
+-- Ask Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short = {}
 
--- Size: Ask Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4.size = 4
+-- Size: Ask Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short.size = 2
 
--- Display: Ask Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4.display = function(value)
-  return "Ask Quantity Binary 4: "..value
+-- Display: Ask Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short.display = function(value)
+  return "Ask Quantity Short: "..value
 end
 
--- Dissect: Ask Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4.size
+-- Dissect: Ask Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8 = {}
+-- Bid Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long = {}
 
--- Size: Bid Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8.size = 8
+-- Size: Bid Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.size = 8
 
--- Display: Bid Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8.display = function(value)
-  return "Bid Price Binary Price 8: "..value
+-- Display: Bid Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
 end
 
--- Dissect: Bid Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8.size
+-- Dissect: Bid Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2 = {}
+-- Bid Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short = {}
 
--- Size: Bid Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.size = 2
+-- Size: Bid Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.size = 2
 
--- Display: Bid Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.display = function(value)
-  return "Bid Price Binary Short Price 2: "..value
+-- Display: Bid Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
 end
 
--- Translate: Bid Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.translate = function(raw)
+-- Translate: Bid Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.translate = function(raw)
   return raw/100
 end
 
--- Dissect: Bid Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.size
+-- Dissect: Bid Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.translate(raw)
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.display(value, buffer, offset, packet, parent)
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.translate(raw)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_binary_short_price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2 = {}
-
--- Size: Bid Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2.size = 2
-
--- Display: Bid Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2.display = function(value)
-  return "Bid Quantity Binary 2: "..value
-end
-
--- Dissect: Bid Quantity Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4 = {}
+-- Bid Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long = {}
 
--- Size: Bid Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4.size = 4
+-- Size: Bid Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long.size = 4
 
--- Display: Bid Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4.display = function(value)
-  return "Bid Quantity Binary 4: "..value
+-- Display: Bid Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long.display = function(value)
+  return "Bid Quantity Long: "..value
 end
 
--- Dissect: Bid Quantity Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4.size
+-- Dissect: Bid Quantity Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short = {}
+
+-- Size: Bid Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short.size = 2
+
+-- Display: Bid Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short.display = function(value)
+  return "Bid Quantity Short: "..value
+end
+
+-- Dissect: Bid Quantity Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -760,100 +760,100 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_condition.dissect = functio
   return offset + length, value
 end
 
--- Last Trade Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8 = {}
+-- Last Trade Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long = {}
 
--- Size: Last Trade Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8.size = 8
+-- Size: Last Trade Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.size = 8
 
--- Display: Last Trade Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8.display = function(value)
-  return "Last Trade Price Binary Price 8: "..value
+-- Display: Last Trade Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.display = function(value)
+  return "Last Trade Price Long: "..value
 end
 
--- Dissect: Last Trade Price Binary Price 8
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8.size
+-- Dissect: Last Trade Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Last Trade Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2 = {}
+-- Last Trade Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short = {}
 
--- Size: Last Trade Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.size = 2
+-- Size: Last Trade Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.size = 2
 
--- Display: Last Trade Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.display = function(value)
-  return "Last Trade Price Binary Short Price 2: "..value
+-- Display: Last Trade Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.display = function(value)
+  return "Last Trade Price Short: "..value
 end
 
--- Translate: Last Trade Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.translate = function(raw)
+-- Translate: Last Trade Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.translate = function(raw)
   return raw/100
 end
 
--- Dissect: Last Trade Price Binary Short Price 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.size
+-- Dissect: Last Trade Price Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.translate(raw)
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.display(value, buffer, offset, packet, parent)
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.translate(raw)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_binary_short_price_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Trade Size Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2 = {}
-
--- Size: Last Trade Size Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2.size = 2
-
--- Display: Last Trade Size Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2.display = function(value)
-  return "Last Trade Size Binary 2: "..value
-end
-
--- Dissect: Last Trade Size Binary 2
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_binary_2, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Last Trade Size Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4 = {}
+-- Last Trade Size Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long = {}
 
--- Size: Last Trade Size Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4.size = 4
+-- Size: Last Trade Size Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long.size = 4
 
--- Display: Last Trade Size Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4.display = function(value)
-  return "Last Trade Size Binary 4: "..value
+-- Display: Last Trade Size Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long.display = function(value)
+  return "Last Trade Size Long: "..value
 end
 
--- Dissect: Last Trade Size Binary 4
-cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4.size
+-- Dissect: Last Trade Size Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_binary_4, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Size Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short = {}
+
+-- Size: Last Trade Size Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short.size = 2
+
+-- Display: Last Trade Size Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short.display = function(value)
+  return "Last Trade Size Short: "..value
+end
+
+-- Dissect: Last Trade Size Short
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -2055,12 +2055,12 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.market_snapshot_long_message.size =
   cboe_cfefutures_multicasttop_spin_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.unit_timestamp.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_condition.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.total_volume.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.trading_status.size + 
@@ -2084,23 +2084,23 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.market_snapshot_long_message.fields = 
   -- Unit Timestamp: Binary
   index, unit_timestamp = cboe_cfefutures_multicasttop_spin_v1_2_20.unit_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Price 8: Binary Price
-  index, bid_price_binary_price_8 = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Bid Price Long: Binary Price
+  index, bid_price_long = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Binary 4: Binary
-  index, bid_quantity_binary_4 = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Long: Binary
+  index, bid_quantity_long = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Binary Price 8: Binary Price
-  index, ask_price_binary_price_8 = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Ask Price Long: Binary Price
+  index, ask_price_long = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Binary 4: Binary
-  index, ask_quantity_binary_4 = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Long: Binary
+  index, ask_quantity_long = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price Binary Price 8: Binary Price
-  index, last_trade_price_binary_price_8 = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Last Trade Price Long: Binary Price
+  index, last_trade_price_long = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Size Binary 4: Binary
-  index, last_trade_size_binary_4 = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_4.dissect(buffer, index, packet, parent)
+  -- Last Trade Size Long: Binary
+  index, last_trade_size_long = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_long.dissect(buffer, index, packet, parent)
 
   -- Last Trade Condition: Alphanumeric
   index, last_trade_condition = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_condition.dissect(buffer, index, packet, parent)
@@ -2143,12 +2143,12 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.market_snapshot_short_message.size =
   cboe_cfefutures_multicasttop_spin_v1_2_20.time_offset.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.symbol.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.unit_timestamp.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.size + 
-  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.size + 
+  cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_condition.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.total_volume.size + 
   cboe_cfefutures_multicasttop_spin_v1_2_20.trading_status.size + 
@@ -2172,23 +2172,23 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.market_snapshot_short_message.fields =
   -- Unit Timestamp: Binary
   index, unit_timestamp = cboe_cfefutures_multicasttop_spin_v1_2_20.unit_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Binary Short Price 2: Binary Short Price
-  index, bid_price_binary_short_price_2 = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_binary_short_price_2.dissect(buffer, index, packet, parent)
+  -- Bid Price Short: Binary Short Price
+  index, bid_price_short = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Quantity Binary 2: Binary
-  index, bid_quantity_binary_2 = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Bid Quantity Short: Binary
+  index, bid_quantity_short = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Binary Short Price 2: Binary Short Price
-  index, ask_price_binary_short_price_2 = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_binary_short_price_2.dissect(buffer, index, packet, parent)
+  -- Ask Price Short: Binary Short Price
+  index, ask_price_short = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_short.dissect(buffer, index, packet, parent)
 
-  -- Ask Quantity Binary 2: Binary
-  index, ask_quantity_binary_2 = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Ask Quantity Short: Binary
+  index, ask_quantity_short = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Price Binary Short Price 2: Binary Short Price
-  index, last_trade_price_binary_short_price_2 = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_binary_short_price_2.dissect(buffer, index, packet, parent)
+  -- Last Trade Price Short: Binary Short Price
+  index, last_trade_price_short = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_short.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Size Binary 2: Binary
-  index, last_trade_size_binary_2 = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_binary_2.dissect(buffer, index, packet, parent)
+  -- Last Trade Size Short: Binary
+  index, last_trade_size_short = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_size_short.dissect(buffer, index, packet, parent)
 
   -- Last Trade Condition: Alphanumeric
   index, last_trade_condition = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_condition.dissect(buffer, index, packet, parent)

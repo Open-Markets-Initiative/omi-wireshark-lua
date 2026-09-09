@@ -57,11 +57,11 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.open_price = ProtoF
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.order_count = ProtoField.new("Order Count", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.ordercount", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.order_id = ProtoField.new("Order Id", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.orderid", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.password = ProtoField.new("Password", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.password", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_binary_price_8 = ProtoField.new("Price Binary Price 8", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.pricebinaryprice8", ftypes.UINT64)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_binary_short_price_2 = ProtoField.new("Price Binary Short Price 2", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.pricebinaryshortprice2", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.priceincrement", ftypes.UINT64)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_binary_2 = ProtoField.new("Quantity Binary 2", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.quantitybinary2", ftypes.UINT16)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_binary_4 = ProtoField.new("Quantity Binary 4", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.quantitybinary4", ftypes.UINT32)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_long = ProtoField.new("Price Long", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.pricelong", ftypes.UINT64)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_short = ProtoField.new("Price Short", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.priceshort", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.quantitylong", ftypes.UINT32)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.quantityshort", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reportsymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved1", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.reserved2", ftypes.STRING)
@@ -1046,58 +1046,6 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.password.dissect = function(bu
   return offset + length, value
 end
 
--- Price Binary Price 8
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8 = {}
-
--- Size: Price Binary Price 8
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8.size = 8
-
--- Display: Price Binary Price 8
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8.display = function(value)
-  return "Price Binary Price 8: "..value
-end
-
--- Dissect: Price Binary Price 8
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_binary_price_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Binary Short Price 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2 = {}
-
--- Size: Price Binary Short Price 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.size = 2
-
--- Display: Price Binary Short Price 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.display = function(value)
-  return "Price Binary Short Price 2: "..value
-end
-
--- Translate: Price Binary Short Price 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.translate = function(raw)
-  return raw/100
-end
-
--- Dissect: Price Binary Short Price 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.translate(raw)
-  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_binary_short_price_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Price Increment
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_increment = {}
 
@@ -1121,48 +1069,100 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_increment.dissect = func
   return offset + length, value
 end
 
--- Quantity Binary 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2 = {}
+-- Price Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long = {}
 
--- Size: Quantity Binary 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2.size = 2
+-- Size: Price Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long.size = 8
 
--- Display: Quantity Binary 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2.display = function(value)
-  return "Quantity Binary 2: "..value
+-- Display: Price Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Dissect: Quantity Binary 2
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2.size
+-- Dissect: Price Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_binary_2, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Quantity Binary 4
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4 = {}
+-- Price Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short = {}
 
--- Size: Quantity Binary 4
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4.size = 4
+-- Size: Price Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.size = 2
 
--- Display: Quantity Binary 4
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4.display = function(value)
-  return "Quantity Binary 4: "..value
+-- Display: Price Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Quantity Binary 4
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4.size
+-- Translate: Price Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.translate(raw)
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long = {}
+
+-- Size: Quantity Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long.size = 4
+
+-- Display: Quantity Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long.display = function(value)
+  return "Quantity Long: "..value
+end
+
+-- Dissect: Quantity Long
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_binary_4, range, value, display)
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short.size = 2
+
+-- Display: Quantity Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -2011,9 +2011,9 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.add_order_short_message.size =
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.time_offset.size + 
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.order_id.size + 
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.side_indicator.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2.size + 
+  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short.size + 
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.symbol.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.size
+  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.size
 
 -- Display: Add Order Short Message
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.add_order_short_message.display = function(packet, parent, length)
@@ -2033,14 +2033,14 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.add_order_short_message.fields
   -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Binary 2: Binary
-  index, quantity_binary_2 = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_2.dissect(buffer, index, packet, parent)
+  -- Quantity Short: Binary
+  index, quantity_short = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_short.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Short Price 2: Binary Short Price
-  index, price_binary_short_price_2 = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_short_price_2.dissect(buffer, index, packet, parent)
+  -- Price Short: Binary Short Price
+  index, price_short = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2071,9 +2071,9 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.add_order_long_message.size =
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.time_offset.size + 
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.order_id.size + 
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.side_indicator.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4.size + 
+  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long.size + 
   cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.symbol.size + 
-  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8.size
+  cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long.size
 
 -- Display: Add Order Long Message
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.add_order_long_message.display = function(packet, parent, length)
@@ -2093,14 +2093,14 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.add_order_long_message.fields 
   -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Binary 4: Binary
-  index, quantity_binary_4 = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_binary_4.dissect(buffer, index, packet, parent)
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.quantity_long.dissect(buffer, index, packet, parent)
 
   -- Symbol: Printable ASCII
   index, symbol = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: Binary Price
-  index, price_binary_price_8 = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: Binary Price
+  index, price_long = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.price_long.dissect(buffer, index, packet, parent)
 
   return index
 end
