@@ -78,8 +78,8 @@ omi_siac_opra_output_obi_v6_1.fields.participant_reference_number = ProtoField.n
 omi_siac_opra_output_obi_v6_1.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.output.obi.v6.1.premiumprice", ftypes.INT32)
 omi_siac_opra_output_obi_v6_1.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.output.obi.v6.1.premiumpricedenominatorcode", ftypes.STRING)
 omi_siac_opra_output_obi_v6_1.fields.price = ProtoField.new("Price", "siac.opra.output.obi.v6.1.price", ftypes.INT32)
-omi_siac_opra_output_obi_v6_1.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.output.obi.v6.1.reserved1", ftypes.UINT8)
-omi_siac_opra_output_obi_v6_1.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.output.obi.v6.1.reserved4", ftypes.UINT32)
+omi_siac_opra_output_obi_v6_1.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.output.obi.v6.1.reserved1", ftypes.BYTES)
+omi_siac_opra_output_obi_v6_1.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.output.obi.v6.1.reserved4", ftypes.BYTES)
 omi_siac_opra_output_obi_v6_1.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.output.obi.v6.1.retransmissionindicator", ftypes.STRING)
 omi_siac_opra_output_obi_v6_1.fields.seconds = ProtoField.new("Seconds", "siac.opra.output.obi.v6.1.seconds", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_1.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.output.obi.v6.1.securitysymbol", ftypes.STRING)
@@ -149,6 +149,24 @@ function omi_siac_opra_output_obi_v6_1.prefs_changed()
   if show.indexes ~= omi_siac_opra_output_obi_v6_1.prefs.show_indexes then
     show.indexes = omi_siac_opra_output_obi_v6_1.prefs.show_indexes
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -1961,7 +1979,7 @@ end
 siac_opra_output_obi_v6_1.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_1.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_1.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_1.fields.reserved_1, range, value, display)
@@ -1984,7 +2002,7 @@ end
 siac_opra_output_obi_v6_1.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_1.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_1.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_1.fields.reserved_4, range, value, display)
@@ -2060,7 +2078,7 @@ end
 siac_opra_output_obi_v6_1.security_symbol.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_1.security_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_opra_output_obi_v6_1.security_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_1.fields.security_symbol, range, value, display)
@@ -2083,7 +2101,7 @@ end
 siac_opra_output_obi_v6_1.security_symbol_short.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_1.security_symbol_short.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_opra_output_obi_v6_1.security_symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_1.fields.security_symbol_short, range, value, display)

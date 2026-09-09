@@ -77,9 +77,9 @@ omi_siac_opra_output_obi_v6_3_a.fields.participant_id = ProtoField.new("Particip
 omi_siac_opra_output_obi_v6_3_a.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.opra.output.obi.v6.3.a.participantreferencenumber", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_3_a.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.output.obi.v6.3.a.premiumprice", ftypes.INT32)
 omi_siac_opra_output_obi_v6_3_a.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.output.obi.v6.3.a.premiumpricedenominatorcode", ftypes.STRING)
-omi_siac_opra_output_obi_v6_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.output.obi.v6.3.a.reserved1", ftypes.UINT8)
-omi_siac_opra_output_obi_v6_3_a.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.opra.output.obi.v6.3.a.reserved128", ftypes.STRING)
-omi_siac_opra_output_obi_v6_3_a.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.output.obi.v6.3.a.reserved4", ftypes.UINT32)
+omi_siac_opra_output_obi_v6_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.output.obi.v6.3.a.reserved1", ftypes.BYTES)
+omi_siac_opra_output_obi_v6_3_a.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.opra.output.obi.v6.3.a.reserved128", ftypes.BYTES)
+omi_siac_opra_output_obi_v6_3_a.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.output.obi.v6.3.a.reserved4", ftypes.BYTES)
 omi_siac_opra_output_obi_v6_3_a.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.output.obi.v6.3.a.retransmissionindicator", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.seconds = ProtoField.new("Seconds", "siac.opra.output.obi.v6.3.a.seconds", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_3_a.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.output.obi.v6.3.a.securitysymbol", ftypes.STRING)
@@ -177,6 +177,24 @@ function omi_siac_opra_output_obi_v6_3_a.prefs_changed()
   if siac_opra_output_obi_v6_3_a.absolute_time_base ~= omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base then
     siac_opra_output_obi_v6_3_a.absolute_time_base = omi_siac_opra_output_obi_v6_3_a.prefs.absolute_time_base
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -2038,7 +2056,7 @@ end
 siac_opra_output_obi_v6_3_a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_3_a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_1, range, value, display)
@@ -2061,7 +2079,7 @@ end
 siac_opra_output_obi_v6_3_a.reserved_128.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.reserved_128.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_3_a.reserved_128.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_128, range, value, display)
@@ -2084,7 +2102,7 @@ end
 siac_opra_output_obi_v6_3_a.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_3_a.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_4, range, value, display)
@@ -2160,7 +2178,7 @@ end
 siac_opra_output_obi_v6_3_a.security_symbol.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.security_symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_opra_output_obi_v6_3_a.security_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.security_symbol, range, value, display)
@@ -2183,7 +2201,7 @@ end
 siac_opra_output_obi_v6_3_a.security_symbol_short.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.security_symbol_short.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = siac_opra_output_obi_v6_3_a.security_symbol_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.security_symbol_short, range, value, display)
@@ -4438,7 +4456,7 @@ siac_opra_output_obi_v6_3_a.message.fields = function(buffer, offset, packet, pa
   index, message_header = siac_opra_output_obi_v6_3_a.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Category
-  local message_category = buffer(index - 1, 1):string()
+  local message_category = trim_right_spaces(buffer(index - 1, 1):string())
 
   -- Payload: Runtime Type with 9 branches
   index = siac_opra_output_obi_v6_3_a.payload.dissect(buffer, index, packet, parent, message_category)
