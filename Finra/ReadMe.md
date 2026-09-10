@@ -8,6 +8,7 @@
 | [FinraOrf][FinraOrf.Exchange] | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.FinraOrf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3703 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.1.Pdf] |
 | [FinraOrf][FinraOrf.Exchange] | [Tdds][Finra.FinraOrf.Tdds] | [Dfi][Omi.Encoding.Dfi] | [2.0][Finra.FinraOrf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3671 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.FinraOrf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.FinraOrf.Tdds.Dfi.v2.0.Pdf] |
 | [FinraOtc][FinraOtc.Exchange] | [Bbds][Finra.FinraOtc.Bbds] | [Dfi][Omi.Encoding.Dfi] | [2018.1A][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2618 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.FinraOtc.Bbds.Dfi.v2018.1A.Pdf] |
+| [Trace][Trace.Exchange] | [Btds][Finra.Trace.Btds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.Trace.Btds.Dfi.v2.1.Dissector] | 3/21/2024 | 5706 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Trace.Btds.Dfi.v2.1.Url] - [pdf][Finra.Trace.Btds.Dfi.v2.1.Pdf] |
 
 
 Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Authority")
@@ -31,8 +32,10 @@ Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Auth
 [Omi.Encoding.Dfi]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Protocols/Dfi.md "Dfi Encoding"
 [FinraOrf.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols/FinraOrf "Finra FinraOrf"
 [FinraOtc.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols/FinraOtc "Finra FinraOtc"
+[Trace.Exchange]: https://github.com/Open-Markets-Initiative/Directory/tree/main/Organizations/Finra/Protocols/Trace "Finra Trace"
 [Finra.FinraOrf.Tdds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOrf/Tdds.md "Trade Data Dissemination Service"
 [Finra.FinraOtc.Bbds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/FinraOtc/Bbds.md "Bulletin Board Dissemination Service"
+[Finra.Trace.Btds]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Protocols/Trace/Btds.md "Bond Trade Dissemination Service"
 
 [Finra.FinraOrf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Finra/Finra_FinraOrf_Tdds_Dfi_v2_0_Dissector.lua "Finra FinraOrf Tdds Dfi v2.0 Wireshark Dissector"
 [Finra.FinraOrf.Tdds.Dfi.v2.0.Url]: https://www.finra.org/filing-reporting/orf/orf-forms-and-documentation "Financial Industry Regulatory Authority 2.0 Url"
@@ -43,3 +46,6 @@ Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Auth
 [Finra.FinraOtc.Bbds.Dfi.v2018.1A.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Finra/Finra_FinraOtc_Bbds_Dfi_v2018_1A_Dissector.lua "Finra FinraOtc Bbds Dfi v2018.1A Wireshark Dissector"
 [Finra.FinraOtc.Bbds.Dfi.v2018.1A.Url]: https://www.finra.org/filing-reporting/otcbb/otcbb-forms-documentation "Financial Industry Regulatory Authority 2018.1A Url"
 [Finra.FinraOtc.Bbds.Dfi.v2018.1A.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Bbds/Finra.Otc.Bbds.Dfi.v2018.1A.pdf "Financial Industry Regulatory Authority 2018.1A Pdf"
+[Finra.Trace.Btds.Dfi.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Finra/Finra_Trace_Btds_Dfi_v2_1_Dissector.lua "Finra Trace Btds Dfi v2.1 Wireshark Dissector"
+[Finra.Trace.Btds.Dfi.v2.1.Url]: https://www.finra.org/filing-reporting/trace/documentation "Financial Industry Regulatory Authority 2.1 Url"
+[Finra.Trace.Btds.Dfi.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Finra/Specifications/Btds/Finra.Trace.Btds.Dfi.v2.1.pdf "Financial Industry Regulatory Authority 2.1 Pdf"
