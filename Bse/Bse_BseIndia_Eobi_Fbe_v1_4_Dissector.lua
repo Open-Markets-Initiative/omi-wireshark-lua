@@ -291,7 +291,7 @@ bse_bseindia_eobi_fbe_v1_4.bid_px.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Bid Px
@@ -353,7 +353,7 @@ bse_bseindia_eobi_fbe_v1_4.close_price.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Close Price
@@ -538,7 +538,7 @@ end
 
 -- Translate: Last Px
 bse_bseindia_eobi_fbe_v1_4.last_px.translate = function(raw)
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Px
@@ -708,7 +708,7 @@ bse_bseindia_eobi_fbe_v1_4.lower_ckt_limit.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Lower Ckt Limit
@@ -737,7 +737,7 @@ end
 
 -- Translate: Lower Exec Limit
 bse_bseindia_eobi_fbe_v1_4.lower_exec_limit.translate = function(raw)
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Lower Exec Limit
@@ -799,7 +799,7 @@ bse_bseindia_eobi_fbe_v1_4.md_entry_px.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Md Entry Px
@@ -1027,7 +1027,7 @@ bse_bseindia_eobi_fbe_v1_4.offer_px.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Offer Px
@@ -1227,7 +1227,7 @@ bse_bseindia_eobi_fbe_v1_4.prev_close_price.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Prev Close Price
@@ -1279,7 +1279,7 @@ end
 
 -- Translate: Prev Price
 bse_bseindia_eobi_fbe_v1_4.prev_price.translate = function(raw)
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Prev Price
@@ -1308,7 +1308,7 @@ end
 
 -- Translate: Price
 bse_bseindia_eobi_fbe_v1_4.price.translate = function(raw)
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Price
@@ -2026,7 +2026,7 @@ bse_bseindia_eobi_fbe_v1_4.upper_ckt_limit.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Upper Ckt Limit
@@ -2055,7 +2055,7 @@ end
 
 -- Translate: Upper Exec Limit
 bse_bseindia_eobi_fbe_v1_4.upper_exec_limit.translate = function(raw)
-  return raw:tonumber()/100000000
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Upper Exec Limit
