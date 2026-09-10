@@ -1095,7 +1095,53 @@ finra_finraotc_bbds_dfi_v2018_1a.reason_code.size = 6
 
 -- Display: Reason Code
 finra_finraotc_bbds_dfi_v2018_1a.reason_code.display = function(value)
-  return "Reason Code: "..value
+  if value == "T1" then
+    return "Reason Code: Halt News Pending (T1)"
+  end
+  if value == "T2" then
+    return "Reason Code: Halt News Dissemination (T2)"
+  end
+  if value == "T12" then
+    return "Reason Code: Halt Additional Information Requested By Finra (T12)"
+  end
+  if value == "H10" then
+    return "Reason Code: Halt Sec Trading Suspension (H10)"
+  end
+  if value == "H11" then
+    return "Reason Code: Halt Regulatory Concern (H11)"
+  end
+  if value == "H12" then
+    return "Reason Code: Halt Sec Revocation (H12)"
+  end
+  if value == "U1" then
+    return "Reason Code: Halt Foreign Market Regulatory Otcbb Only (U1)"
+  end
+  if value == "U2" then
+    return "Reason Code: Halt Component Derivative Of Exchange Listed Security Otcbb Only (U2)"
+  end
+  if value == "U3" then
+    return "Reason Code: Halt Extraordinary Events Otcbb Only (U3)"
+  end
+  if value == "D" then
+    return "Reason Code: Security Deletion From Otcbb (D)"
+  end
+  if value == "T3" then
+    return "Reason Code: News And Resumption Times (T3)"
+  end
+  if value == "R4" then
+    return "Reason Code: Qualifications Issues Reviewed Resolved Quotations Trading To Resume (R4)"
+  end
+  if value == "R9" then
+    return "Reason Code: Qualifications Halt Concluded Filings Met Quotations Trading To Resume (R9)"
+  end
+  if value == "C11" then
+    return "Reason Code: Trade Halt Concluded By Other Regulatory Auth Quotes Trades To Resume (C11)"
+  end
+  if value == " " then
+    return "Reason Code: Reason Code Not Available (<whitespace>)"
+  end
+
+  return "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -1235,24 +1281,20 @@ end
 -- Text
 finra_finraotc_bbds_dfi_v2018_1a.text = {}
 
--- Size: Text
-finra_finraotc_bbds_dfi_v2018_1a.text.size = 2
-
 -- Display: Text
 finra_finraotc_bbds_dfi_v2018_1a.text.display = function(value)
   return "Text: "..value
 end
 
--- Dissect: Text
-finra_finraotc_bbds_dfi_v2018_1a.text.dissect = function(buffer, offset, packet, parent)
-  local length = finra_finraotc_bbds_dfi_v2018_1a.text.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = finra_finraotc_bbds_dfi_v2018_1a.text.display(value, buffer, offset, packet, parent)
+-- Dissect runtime sized field: Text
+finra_finraotc_bbds_dfi_v2018_1a.text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = finra_finraotc_bbds_dfi_v2018_1a.text.display(value, packet, parent, size)
 
   parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Unsolicited Indicator
@@ -2069,8 +2111,11 @@ finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.fields = functio
   -- Message Header: Struct of 6 fields
   index, message_header = finra_finraotc_bbds_dfi_v2018_1a.message_header.dissect(buffer, index, packet, parent)
 
+  -- Runtime Size Of: Text
+  local size_of_text = buffer:len() - (offset + index)
+
   -- Text: Alphanumeric
-  index, text = finra_finraotc_bbds_dfi_v2018_1a.text.dissect(buffer, index, packet, parent)
+  index, text = finra_finraotc_bbds_dfi_v2018_1a.text.dissect(buffer, index, packet, parent, size_of_text)
 
   return index
 end

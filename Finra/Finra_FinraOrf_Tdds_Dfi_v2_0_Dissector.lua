@@ -44,6 +44,7 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.last_sale_price_market_center = ProtoFie
 omi_finra_finraorf_tdds_dfi_v2_0.fields.low_price = ProtoField.new("Low Price", "finra.finraorf.tdds.dfi.v2.0.lowprice", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.low_price_denominator = ProtoField.new("Low Price Denominator", "finra.finraorf.tdds.dfi.v2.0.lowpricedenominator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "finra.finraorf.tdds.dfi.v2.0.marketcenteroriginatorid", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_reason_code = ProtoField.new("Market Wide Circuit Breaker Reason Code", "finra.finraorf.tdds.dfi.v2.0.marketwidecircuitbreakerreasoncode", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.message_category = ProtoField.new("Message Category", "finra.finraorf.tdds.dfi.v2.0.messagecategory", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.message_header = ProtoField.new("Message Header", "finra.finraorf.tdds.dfi.v2.0.messageheader", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.message_separator = ProtoField.new("Message Separator", "finra.finraorf.tdds.dfi.v2.0.messageseparator", ftypes.UINT8)
@@ -58,7 +59,6 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.original_dissemination_date = ProtoField
 omi_finra_finraorf_tdds_dfi_v2_0.fields.original_message_sequence_number = ProtoField.new("Original Message Sequence Number", "finra.finraorf.tdds.dfi.v2.0.originalmessagesequencenumber", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.original_trade_information = ProtoField.new("Original Trade Information", "finra.finraorf.tdds.dfi.v2.0.originaltradeinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.price_change_indicator = ProtoField.new("Price Change Indicator", "finra.finraorf.tdds.dfi.v2.0.pricechangeindicator", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_0.fields.reason_code = ProtoField.new("Reason Code", "finra.finraorf.tdds.dfi.v2.0.reasoncode", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.0.reportfunction", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_volume = ProtoField.new("Report Volume", "finra.finraorf.tdds.dfi.v2.0.reportvolume", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.0.reportvolumeshort", ftypes.STRING)
@@ -82,6 +82,7 @@ omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price = ProtoField.new("Trade Pric
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price_denominator = ProtoField.new("Trade Price Denominator", "finra.finraorf.tdds.dfi.v2.0.tradepricedenominator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price_short = ProtoField.new("Trade Price Short", "finra.finraorf.tdds.dfi.v2.0.tradepriceshort", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_summary_information = ProtoField.new("Trade Summary Information", "finra.finraorf.tdds.dfi.v2.0.tradesummaryinformation", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_0.fields.trading_action_reason_code = ProtoField.new("Trading Action Reason Code", "finra.finraorf.tdds.dfi.v2.0.tradingactionreasoncode", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_0.fields.year = ProtoField.new("Year", "finra.finraorf.tdds.dfi.v2.0.year", ftypes.STRING)
 
 -- Finra FinraOrf Tdds Dfi 2.0 Headers
@@ -822,6 +823,45 @@ finra_finraorf_tdds_dfi_v2_0.market_center_originator_id.dissect = function(buff
   return offset + length, value
 end
 
+-- Market Wide Circuit Breaker Reason Code
+finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code = {}
+
+-- Size: Market Wide Circuit Breaker Reason Code
+finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.size = 6
+
+-- Display: Market Wide Circuit Breaker Reason Code
+finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.display = function(value)
+  if value == "U4" then
+    return "Market Wide Circuit Breaker Reason Code: Extraordinary Market Condition Emc Halt (U4)"
+  end
+  if value == "U5" then
+    return "Market Wide Circuit Breaker Reason Code: Market Wide Circuit Breaker Mwcb Halt (U5)"
+  end
+  if value == "C13" then
+    return "Market Wide Circuit Breaker Reason Code: Quote Resume For Emc Or Mwcb (C13)"
+  end
+  if value == "C14" then
+    return "Market Wide Circuit Breaker Reason Code: Quote And Trade Resume For Emc Or Mwcb (C14)"
+  end
+  if value == " " then
+    return "Market Wide Circuit Breaker Reason Code: Reason Code Not Available (<whitespace>)"
+  end
+
+  return "Market Wide Circuit Breaker Reason Code: Unknown("..value..")"
+end
+
+-- Dissect: Market Wide Circuit Breaker Reason Code
+finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_reason_code, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Category
 finra_finraorf_tdds_dfi_v2_0.message_category = {}
 
@@ -1146,29 +1186,6 @@ finra_finraorf_tdds_dfi_v2_0.price_change_indicator.dissect = function(buffer, o
   local display = finra_finraorf_tdds_dfi_v2_0.price_change_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.price_change_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Code
-finra_finraorf_tdds_dfi_v2_0.reason_code = {}
-
--- Size: Reason Code
-finra_finraorf_tdds_dfi_v2_0.reason_code.size = 6
-
--- Display: Reason Code
-finra_finraorf_tdds_dfi_v2_0.reason_code.display = function(value)
-  return "Reason Code: "..value
-end
-
--- Dissect: Reason Code
-finra_finraorf_tdds_dfi_v2_0.reason_code.dissect = function(buffer, offset, packet, parent)
-  local length = finra_finraorf_tdds_dfi_v2_0.reason_code.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = finra_finraorf_tdds_dfi_v2_0.reason_code.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -1574,24 +1591,20 @@ end
 -- Text
 finra_finraorf_tdds_dfi_v2_0.text = {}
 
--- Size: Text
-finra_finraorf_tdds_dfi_v2_0.text.size = 2
-
 -- Display: Text
 finra_finraorf_tdds_dfi_v2_0.text.display = function(value)
   return "Text: "..value
 end
 
--- Dissect: Text
-finra_finraorf_tdds_dfi_v2_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = finra_finraorf_tdds_dfi_v2_0.text.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = finra_finraorf_tdds_dfi_v2_0.text.display(value, buffer, offset, packet, parent)
+-- Dissect runtime sized field: Text
+finra_finraorf_tdds_dfi_v2_0.text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = finra_finraorf_tdds_dfi_v2_0.text.display(value, packet, parent, size)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Total Security Volume
@@ -1728,6 +1741,51 @@ finra_finraorf_tdds_dfi_v2_0.trade_price_short.dissect = function(buffer, offset
   local display = finra_finraorf_tdds_dfi_v2_0.trade_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.trade_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Action Reason Code
+finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code = {}
+
+-- Size: Trading Action Reason Code
+finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.size = 6
+
+-- Display: Trading Action Reason Code
+finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.display = function(value)
+  if value == "H10" then
+    return "Trading Action Reason Code: Halt Sec Trading Suspension (H10)"
+  end
+  if value == "U1" then
+    return "Trading Action Reason Code: Halt Foreign Market Regulatory (U1)"
+  end
+  if value == "U2" then
+    return "Trading Action Reason Code: Halt Component Derivative Of Exchange Listed Security (U2)"
+  end
+  if value == "U3" then
+    return "Trading Action Reason Code: Halt Extraordinary Events (U3)"
+  end
+  if value == "D1" then
+    return "Trading Action Reason Code: Security Deleted From Otce (D1)"
+  end
+  if value == "T3" then
+    return "Trading Action Reason Code: Halt News And Resumption Times (T3)"
+  end
+  if value == " " then
+    return "Trading Action Reason Code: Reason Code Not Available (<whitespace>)"
+  end
+
+  return "Trading Action Reason Code: Unknown("..value..")"
+end
+
+-- Dissect: Trading Action Reason Code
+finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_finra_finraorf_tdds_dfi_v2_0.fields.trading_action_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -2415,7 +2473,7 @@ finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_event_message.size =
   finra_finraorf_tdds_dfi_v2_0.message_header.size + 
   finra_finraorf_tdds_dfi_v2_0.action.size + 
   finra_finraorf_tdds_dfi_v2_0.action_datetime.size + 
-  finra_finraorf_tdds_dfi_v2_0.reason_code.size
+  finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.size
 
 -- Display: Market Wide Circuit Breaker Event Message
 finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_event_message.display = function(packet, parent, length)
@@ -2435,8 +2493,8 @@ finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_event_message.fields = 
   -- Action Datetime: Struct of 7 fields
   index, action_datetime = finra_finraorf_tdds_dfi_v2_0.action_datetime.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: Alphanumeric
-  index, reason_code = finra_finraorf_tdds_dfi_v2_0.reason_code.dissect(buffer, index, packet, parent)
+  -- Market Wide Circuit Breaker Reason Code: Alphanumeric
+  index, market_wide_circuit_breaker_reason_code = finra_finraorf_tdds_dfi_v2_0.market_wide_circuit_breaker_reason_code.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2468,7 +2526,7 @@ finra_finraorf_tdds_dfi_v2_0.trading_action_message.size =
   finra_finraorf_tdds_dfi_v2_0.security_symbol.size + 
   finra_finraorf_tdds_dfi_v2_0.action.size + 
   finra_finraorf_tdds_dfi_v2_0.action_datetime.size + 
-  finra_finraorf_tdds_dfi_v2_0.reason_code.size
+  finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.size
 
 -- Display: Trading Action Message
 finra_finraorf_tdds_dfi_v2_0.trading_action_message.display = function(packet, parent, length)
@@ -2491,8 +2549,8 @@ finra_finraorf_tdds_dfi_v2_0.trading_action_message.fields = function(buffer, of
   -- Action Datetime: Struct of 7 fields
   index, action_datetime = finra_finraorf_tdds_dfi_v2_0.action_datetime.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: Alphanumeric
-  index, reason_code = finra_finraorf_tdds_dfi_v2_0.reason_code.dissect(buffer, index, packet, parent)
+  -- Trading Action Reason Code: Alphanumeric
+  index, trading_action_reason_code = finra_finraorf_tdds_dfi_v2_0.trading_action_reason_code.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2631,8 +2689,11 @@ finra_finraorf_tdds_dfi_v2_0.general_administrative_message.fields = function(bu
   -- Message Header: Struct of 5 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_0.message_header.dissect(buffer, index, packet, parent)
 
+  -- Runtime Size Of: Text
+  local size_of_text = buffer:len() - (offset + index)
+
   -- Text: Alphanumeric
-  index, text = finra_finraorf_tdds_dfi_v2_0.text.dissect(buffer, index, packet, parent)
+  index, text = finra_finraorf_tdds_dfi_v2_0.text.dissect(buffer, index, packet, parent, size_of_text)
 
   return index
 end
