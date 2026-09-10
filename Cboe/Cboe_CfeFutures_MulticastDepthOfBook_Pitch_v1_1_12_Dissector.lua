@@ -22,13 +22,13 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.close_price = Prot
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.contract_date = ProtoField.new("Contract Date", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.contractdate", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.contract_size = ProtoField.new("Contract Size", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.contractsize", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.count = ProtoField.new("Count", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.count", ftypes.UINT8)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.discount_factor = ProtoField.new("Discount Factor", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.discountfactor", ftypes.INT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.discount_factor = ProtoField.new("Discount Factor", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.discountfactor", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.ecrp_volume = ProtoField.new("Ecrp Volume", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.ecrpvolume", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.epoch = ProtoField.new("Epoch", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.epoch", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.executedquantity", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.execution_id = ProtoField.new("Execution Id", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.executionid", ftypes.UINT64)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.expirationdate", ftypes.UINT32)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.fedfundsrate", ftypes.INT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.fedfundsrate", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.future_leg = ProtoField.new("Future Leg", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.futureleg", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.futures_flags = ProtoField.new("Futures Flags", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.futuresflags", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.highprice", ftypes.DOUBLE)
@@ -58,10 +58,10 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.offer_close_valid 
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.openinterest", ftypes.UINT32)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.openprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.order_id = ProtoField.new("Order Id", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.orderid", ftypes.UINT64)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_armvm = ProtoField.new("Previous Armvm", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.previousarmvm", ftypes.INT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_armvm = ProtoField.new("Previous Armvm", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.previousarmvm", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_settlement = ProtoField.new("Previous Settlement", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.previoussettlement", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.priceincrement", ftypes.DOUBLE)
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.realized_variance = ProtoField.new("Realized Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.realizedvariance", ftypes.INT64)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.realized_variance = ProtoField.new("Realized Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.realizedvariance", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reportsymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved2", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.reserved3", ftypes.STRING)
@@ -396,11 +396,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.discount_factor.display = fun
   return "Discount Factor: "..value
 end
 
+-- Translate: Discount Factor
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.discount_factor.translate = function(raw)
+  return raw:tonumber()/10000000000000000
+end
+
 -- Dissect: Discount Factor
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.discount_factor.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.discount_factor.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.discount_factor.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.discount_factor.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.discount_factor, range, value, display)
@@ -534,11 +540,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fed_funds_rate.display = func
   return "Fed Funds Rate: "..value
 end
 
+-- Translate: Fed Funds Rate
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fed_funds_rate.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Fed Funds Rate
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fed_funds_rate.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fed_funds_rate.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fed_funds_rate.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fed_funds_rate.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.fed_funds_rate, range, value, display)
@@ -1172,11 +1184,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_armvm.display = func
   return "Previous Armvm: "..value
 end
 
+-- Translate: Previous Armvm
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_armvm.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Previous Armvm
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_armvm.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_armvm.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_armvm.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.previous_armvm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.previous_armvm, range, value, display)
@@ -1253,11 +1271,17 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.realized_variance.display = f
   return "Realized Variance: "..value
 end
 
+-- Translate: Realized Variance
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.realized_variance.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Realized Variance
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.realized_variance.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.realized_variance.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.realized_variance.translate(raw)
   local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.realized_variance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.realized_variance, range, value, display)

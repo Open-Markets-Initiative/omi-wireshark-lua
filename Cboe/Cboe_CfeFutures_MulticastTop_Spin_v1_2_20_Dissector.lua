@@ -15,17 +15,17 @@ local cboe_cfefutures_multicasttop_spin_v1_2_20 = {}
 -----------------------------------------------------------------------
 
 -- Cboe CfeFutures MulticastTop Spin 1.2.20 Fields
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicasttop.spin.v1.2.20.accrueddayvariance", ftypes.INT64)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpricelong", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.accrued_day_variance = ProtoField.new("Accrued Day Variance", "cboe.cfefutures.multicasttop.spin.v1.2.20.accrueddayvariance", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpricelong", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.askpriceshort", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.askquantitylong", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.askquantityshort", ftypes.UINT16)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidpricelong", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidpricelong", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_short = ProtoField.new("Bid Price Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidpriceshort", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidquantitylong", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.bidquantityshort", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.block_volume = ProtoField.new("Block Volume", "cboe.cfefutures.multicasttop.spin.v1.2.20.blockvolume", ftypes.UINT32)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.close_price = ProtoField.new("Close Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.closeprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.close_price = ProtoField.new("Close Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.closeprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.contract_date = ProtoField.new("Contract Date", "cboe.cfefutures.multicasttop.spin.v1.2.20.contractdate", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.contract_size = ProtoField.new("Contract Size", "cboe.cfefutures.multicasttop.spin.v1.2.20.contractsize", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.count = ProtoField.new("Count", "cboe.cfefutures.multicasttop.spin.v1.2.20.count", ftypes.UINT8)
@@ -37,12 +37,12 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.filler = ProtoField.new("Fi
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.future_leg = ProtoField.new("Future Leg", "cboe.cfefutures.multicasttop.spin.v1.2.20.futureleg", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.futures_flags = ProtoField.new("Futures Flags", "cboe.cfefutures.multicasttop.spin.v1.2.20.futuresflags", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.futures_symbol = ProtoField.new("Futures Symbol", "cboe.cfefutures.multicasttop.spin.v1.2.20.futuressymbol", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.highprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.highprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.high_price_is_bid = ProtoField.new("High Price Is Bid", "cboe.cfefutures.multicasttop.spin.v1.2.20.highpriceisbid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.high_price_valid = ProtoField.new("High Price Valid", "cboe.cfefutures.multicasttop.spin.v1.2.20.highpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.issue = ProtoField.new("Issue", "cboe.cfefutures.multicasttop.spin.v1.2.20.issue", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_condition = ProtoField.new("Last Trade Condition", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradecondition", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_long = ProtoField.new("Last Trade Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradepricelong", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_long = ProtoField.new("Last Trade Price Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradepricelong", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_short = ProtoField.new("Last Trade Price Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradepriceshort", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_long = ProtoField.new("Last Trade Size Long", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradesizelong", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_size_short = ProtoField.new("Last Trade Size Short", "cboe.cfefutures.multicasttop.spin.v1.2.20.lasttradesizeshort", ftypes.UINT16)
@@ -53,10 +53,10 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.leg_symbol = ProtoField.new
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.length = ProtoField.new("Length", "cboe.cfefutures.multicasttop.spin.v1.2.20.length", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.listing_state = ProtoField.new("Listing State", "cboe.cfefutures.multicasttop.spin.v1.2.20.listingstate", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.cfefutures.multicasttop.spin.v1.2.20.loginresponsestatus", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.low_price = ProtoField.new("Low Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.lowprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.low_price = ProtoField.new("Low Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.lowprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.low_price_is_offer = ProtoField.new("Low Price Is Offer", "cboe.cfefutures.multicasttop.spin.v1.2.20.lowpriceisoffer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.low_price_valid = ProtoField.new("Low Price Valid", "cboe.cfefutures.multicasttop.spin.v1.2.20.lowpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "cboe.cfefutures.multicasttop.spin.v1.2.20.lowerpricelimit", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "cboe.cfefutures.multicasttop.spin.v1.2.20.lowerpricelimit", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.message = ProtoField.new("Message", "cboe.cfefutures.multicasttop.spin.v1.2.20.message", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.multicasttop.spin.v1.2.20.messageheader", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.multicasttop.spin.v1.2.20.messagelength", ftypes.UINT8)
@@ -66,10 +66,10 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.num_elapsed_returns = Proto
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.num_final_returns = ProtoField.new("Num Final Returns", "cboe.cfefutures.multicasttop.spin.v1.2.20.numfinalreturns", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.offer_close_valid = ProtoField.new("Offer Close Valid", "cboe.cfefutures.multicasttop.spin.v1.2.20.offerclosevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicasttop.spin.v1.2.20.openinterest", ftypes.UINT32)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.openprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.openprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.order_count = ProtoField.new("Order Count", "cboe.cfefutures.multicasttop.spin.v1.2.20.ordercount", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.password = ProtoField.new("Password", "cboe.cfefutures.multicasttop.spin.v1.2.20.password", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicasttop.spin.v1.2.20.priceincrement", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicasttop.spin.v1.2.20.priceincrement", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.cfefutures.multicasttop.spin.v1.2.20.reportsymbol", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cfefutures.multicasttop.spin.v1.2.20.reserved1", ftypes.UINT8)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicasttop.spin.v1.2.20.reserved3", ftypes.STRING)
@@ -77,7 +77,7 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.reserved_flags_3 = ProtoFie
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.reserved_flags_7 = ProtoField.new("Reserved Flags 7", "cboe.cfefutures.multicasttop.spin.v1.2.20.reservedflags7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.sequence = ProtoField.new("Sequence", "cboe.cfefutures.multicasttop.spin.v1.2.20.sequence", ftypes.UINT32)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.cfefutures.multicasttop.spin.v1.2.20.sessionsubid", ftypes.STRING)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.settlementprice", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicasttop.spin.v1.2.20.settlementprice", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.cfefutures.multicasttop.spin.v1.2.20.spinresponsestatus", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.summary_flags = ProtoField.new("Summary Flags", "cboe.cfefutures.multicasttop.spin.v1.2.20.summaryflags", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.symbol = ProtoField.new("Symbol", "cboe.cfefutures.multicasttop.spin.v1.2.20.symbol", ftypes.STRING)
@@ -88,7 +88,7 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.trade_date = ProtoField.new
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.trading_status = ProtoField.new("Trading Status", "cboe.cfefutures.multicasttop.spin.v1.2.20.tradingstatus", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.unit = ProtoField.new("Unit", "cboe.cfefutures.multicasttop.spin.v1.2.20.unit", ftypes.UINT8)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicasttop.spin.v1.2.20.unittimestamp", ftypes.UINT32)
-omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "cboe.cfefutures.multicasttop.spin.v1.2.20.upperpricelimit", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "cboe.cfefutures.multicasttop.spin.v1.2.20.upperpricelimit", ftypes.DOUBLE)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.username = ProtoField.new("Username", "cboe.cfefutures.multicasttop.spin.v1.2.20.username", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicasttop.spin.v1.2.20.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
@@ -230,11 +230,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.accrued_day_variance.display = functio
   return "Accrued Day Variance: "..value
 end
 
+-- Translate: Accrued Day Variance
+cboe_cfefutures_multicasttop_spin_v1_2_20.accrued_day_variance.translate = function(raw)
+  return raw:tonumber()/1000000000000
+end
+
 -- Dissect: Accrued Day Variance
 cboe_cfefutures_multicasttop_spin_v1_2_20.accrued_day_variance.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.accrued_day_variance.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.accrued_day_variance.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.accrued_day_variance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.accrued_day_variance, range, value, display)
@@ -253,11 +259,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.display = function(valu
   return "Ask Price Long: "..value
 end
 
+-- Translate: Ask Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Ask Price Long
 cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.ask_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.ask_price_long, range, value, display)
@@ -351,11 +363,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.display = function(valu
   return "Bid Price Long: "..value
 end
 
+-- Translate: Bid Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Bid Price Long
 cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.bid_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.bid_price_long, range, value, display)
@@ -472,11 +490,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.close_price.display = function(value)
   return "Close Price: "..value
 end
 
+-- Translate: Close Price
+cboe_cfefutures_multicasttop_spin_v1_2_20.close_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Close Price
 cboe_cfefutures_multicasttop_spin_v1_2_20.close_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.close_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.close_price.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.close_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.close_price, range, value, display)
@@ -702,11 +726,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.high_price.display = function(value)
   return "High Price: "..value
 end
 
+-- Translate: High Price
+cboe_cfefutures_multicasttop_spin_v1_2_20.high_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: High Price
 cboe_cfefutures_multicasttop_spin_v1_2_20.high_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.high_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.high_price.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.high_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.high_price, range, value, display)
@@ -771,11 +801,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.display = functi
   return "Last Trade Price Long: "..value
 end
 
+-- Translate: Last Trade Price Long
+cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Last Trade Price Long
 cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.last_trade_price_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.last_trade_price_long, range, value, display)
@@ -1043,11 +1079,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.low_price.display = function(value)
   return "Low Price: "..value
 end
 
+-- Translate: Low Price
+cboe_cfefutures_multicasttop_spin_v1_2_20.low_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Low Price
 cboe_cfefutures_multicasttop_spin_v1_2_20.low_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.low_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.low_price.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.low_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.low_price, range, value, display)
@@ -1066,11 +1108,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.lower_price_limit.display = function(v
   return "Lower Price Limit: "..value
 end
 
+-- Translate: Lower Price Limit
+cboe_cfefutures_multicasttop_spin_v1_2_20.lower_price_limit.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Lower Price Limit
 cboe_cfefutures_multicasttop_spin_v1_2_20.lower_price_limit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.lower_price_limit.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.lower_price_limit.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.lower_price_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.lower_price_limit, range, value, display)
@@ -1284,11 +1332,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.open_price.display = function(value)
   return "Open Price: "..value
 end
 
+-- Translate: Open Price
+cboe_cfefutures_multicasttop_spin_v1_2_20.open_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Open Price
 cboe_cfefutures_multicasttop_spin_v1_2_20.open_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.open_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.open_price.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.open_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.open_price, range, value, display)
@@ -1353,11 +1407,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.price_increment.display = function(val
   return "Price Increment: "..value
 end
 
+-- Translate: Price Increment
+cboe_cfefutures_multicasttop_spin_v1_2_20.price_increment.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Price Increment
 cboe_cfefutures_multicasttop_spin_v1_2_20.price_increment.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.price_increment.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.price_increment.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.price_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.price_increment, range, value, display)
@@ -1491,11 +1551,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.settlement_price.display = function(va
   return "Settlement Price: "..value
 end
 
+-- Translate: Settlement Price
+cboe_cfefutures_multicasttop_spin_v1_2_20.settlement_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Settlement Price
 cboe_cfefutures_multicasttop_spin_v1_2_20.settlement_price.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.settlement_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.settlement_price.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.settlement_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.settlement_price, range, value, display)
@@ -1754,11 +1820,17 @@ cboe_cfefutures_multicasttop_spin_v1_2_20.upper_price_limit.display = function(v
   return "Upper Price Limit: "..value
 end
 
+-- Translate: Upper Price Limit
+cboe_cfefutures_multicasttop_spin_v1_2_20.upper_price_limit.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
 -- Dissect: Upper Price Limit
 cboe_cfefutures_multicasttop_spin_v1_2_20.upper_price_limit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicasttop_spin_v1_2_20.upper_price_limit.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_spin_v1_2_20.upper_price_limit.translate(raw)
   local display = cboe_cfefutures_multicasttop_spin_v1_2_20.upper_price_limit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.upper_price_limit, range, value, display)
