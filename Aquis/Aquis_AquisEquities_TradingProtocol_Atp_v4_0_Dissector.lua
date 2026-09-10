@@ -63,13 +63,13 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_1 = ProtoField.
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_2 = ProtoField.new("Reserved 2", "aquis.aquisequities.tradingprotocol.atp.v4.0.reserved2", ftypes.UINT8, nil, base.DEC, 0xC0)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_5 = ProtoField.new("Reserved 5", "aquis.aquisequities.tradingprotocol.atp.v4.0.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_6 = ProtoField.new("Reserved 6", "aquis.aquisequities.tradingprotocol.atp.v4.0.reserved6", ftypes.UINT8, nil, base.DEC, 0x3F)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_u_162 = ProtoField.new("Reserved U 162", "aquis.aquisequities.tradingprotocol.atp.v4.0.reservedu162", ftypes.UINT16)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_u_648 = ProtoField.new("Reserved U 648", "aquis.aquisequities.tradingprotocol.atp.v4.0.reservedu648", ftypes.UINT64)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_long = ProtoField.new("Reserved Long", "aquis.aquisequities.tradingprotocol.atp.v4.0.reservedlong", ftypes.UINT64)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_short = ProtoField.new("Reserved Short", "aquis.aquisequities.tradingprotocol.atp.v4.0.reservedshort", ftypes.UINT16)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.result_code = ProtoField.new("Result Code", "aquis.aquisequities.tradingprotocol.atp.v4.0.resultcode", ftypes.UINT8)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.routetolit = ProtoField.new("Routetolit", "aquis.aquisequities.tradingprotocol.atp.v4.0.routetolit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.routing = ProtoField.new("Routing", "aquis.aquisequities.tradingprotocol.atp.v4.0.routing", ftypes.UINT8, {[0]="Limit", [1]="Post Only", [2]="Pocr", [3]="Restricted Post Only Order", [4]="Restricted Pocr Order"}, base.DEC, 0x38)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_u_162 = ProtoField.new("Security Id U 162", "aquis.aquisequities.tradingprotocol.atp.v4.0.securityidu162", ftypes.UINT16)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_u_324 = ProtoField.new("Security Id U 324", "aquis.aquisequities.tradingprotocol.atp.v4.0.securityidu324", ftypes.UINT32)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_long = ProtoField.new("Security Id Long", "aquis.aquisequities.tradingprotocol.atp.v4.0.securityidlong", ftypes.UINT32)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_short = ProtoField.new("Security Id Short", "aquis.aquisequities.tradingprotocol.atp.v4.0.securityidshort", ftypes.UINT16)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.sender_id = ProtoField.new("Sender Id", "aquis.aquisequities.tradingprotocol.atp.v4.0.senderid", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.short_code_1 = ProtoField.new("Short Code 1", "aquis.aquisequities.tradingprotocol.atp.v4.0.shortcode1", ftypes.UINT32)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.short_code_2 = ProtoField.new("Short Code 2", "aquis.aquisequities.tradingprotocol.atp.v4.0.shortcode2", ftypes.UINT32)
@@ -95,7 +95,6 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message_header = ProtoFi
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tradingprotocol.atp.v4.0.packet", ftypes.STRING)
 
 -- Aquis AquisEquities TradingProtocol 4.0 Application Messages
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.heartbeat = ProtoField.new("Heartbeat", "aquis.aquisequities.tradingprotocol.atp.v4.0.heartbeat", ftypes.BYTES)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.iceberg_order_refresh_message = ProtoField.new("Iceberg Order Refresh Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.icebergorderrefreshmessage", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.ioi_add_message = ProtoField.new("Ioi Add Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.ioiaddmessage", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.ioi_firmup_message = ProtoField.new("Ioi Firmup Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.ioifirmupmessage", ftypes.STRING)
@@ -103,7 +102,6 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.ioi_invite_message = Pro
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.login_message = ProtoField.new("Login Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.loginmessage", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.login_response_message = ProtoField.new("Login Response Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.loginresponsemessage", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.logout_message = ProtoField.new("Logout Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.logoutmessage", ftypes.STRING)
-omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.logout_request_message = ProtoField.new("Logout Request Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.logoutrequestmessage", ftypes.BYTES)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_add_extended_message = ProtoField.new("Order Add Extended Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.orderaddextendedmessage", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_add_message = ProtoField.new("Order Add Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.orderaddmessage", ftypes.STRING)
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_add_response_message = ProtoField.new("Order Add Response Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.orderaddresponsemessage", ftypes.STRING)
@@ -1046,48 +1044,48 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.request_ref.dissect = function(buff
   return offset + length, value
 end
 
--- Reserved U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162 = {}
+-- Reserved Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long = {}
 
--- Size: Reserved U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162.size = 2
+-- Size: Reserved Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.size = 8
 
--- Display: Reserved U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162.display = function(value)
-  return "Reserved U 162: "..value
+-- Display: Reserved Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.display = function(value)
+  return "Reserved Long: "..value
 end
 
--- Dissect: Reserved U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162.size
+-- Dissect: Reserved Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_u_162, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_long, range, value, display)
 
   return offset + length, value
 end
 
--- Reserved U 648
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648 = {}
+-- Reserved Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short = {}
 
--- Size: Reserved U 648
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.size = 8
+-- Size: Reserved Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short.size = 2
 
--- Display: Reserved U 648
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.display = function(value)
-  return "Reserved U 648: "..value
+-- Display: Reserved Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short.display = function(value)
+  return "Reserved Short: "..value
 end
 
--- Dissect: Reserved U 648
-aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.size
+-- Dissect: Reserved Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.display(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_u_648, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_short, range, value, display)
 
   return offset + length, value
 end
@@ -1134,48 +1132,48 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.result_code.dissect = function(buff
   return offset + length, value
 end
 
--- Security Id U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162 = {}
+-- Security Id Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long = {}
 
--- Size: Security Id U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.size = 2
+-- Size: Security Id Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long.size = 4
 
--- Display: Security Id U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.display = function(value)
-  return "Security Id U 162: "..value
+-- Display: Security Id Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long.display = function(value)
+  return "Security Id Long: "..value
 end
 
--- Dissect: Security Id U 162
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.size
+-- Dissect: Security Id Long
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.display(value, buffer, offset, packet, parent)
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_u_162, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_long, range, value, display)
 
   return offset + length, value
 end
 
--- Security Id U 324
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324 = {}
+-- Security Id Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short = {}
 
--- Size: Security Id U 324
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324.size = 4
+-- Size: Security Id Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.size = 2
 
--- Display: Security Id U 324
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324.display = function(value)
-  return "Security Id U 324: "..value
+-- Display: Security Id Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.display = function(value)
+  return "Security Id Short: "..value
 end
 
--- Dissect: Security Id U 324
-aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324.dissect = function(buffer, offset, packet, parent)
-  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324.size
+-- Dissect: Security Id Short
+aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324.display(value, buffer, offset, packet, parent)
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_u_324, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.security_id_short, range, value, display)
 
   return offset + length, value
 end
@@ -1874,7 +1872,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_add_message = {}
 
 -- Size: Ioi Add Message
 aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_add_message.size =
-  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.side.size + 
@@ -1904,8 +1902,8 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_add_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id U 162: u16
-  index, security_id_u_162 = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.dissect(buffer, index, packet, parent)
+  -- Security Id Short: u16
+  index, security_id_short = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.dissect(buffer, index, packet, parent)
 
   -- Ioi Order Type: u8
   index, ioi_order_type = aquis_aquisequities_tradingprotocol_atp_v4_0.ioi_order_type.dissect(buffer, index, packet, parent)
@@ -2107,7 +2105,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_message.size =
   aquis_aquisequities_tradingprotocol_atp_v4_0.trade_ref.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.ccp_code.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.user_tag.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.trade_flags.size
@@ -2142,8 +2140,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_message.fields = function(buf
   -- Liq Indicator: u8
   index, liq_indicator = aquis_aquisequities_tradingprotocol_atp_v4_0.liq_indicator.dissect(buffer, index, packet, parent)
 
-  -- Security Id U 162: u16
-  index, security_id_u_162 = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.dissect(buffer, index, packet, parent)
+  -- Security Id Short: u16
+  index, security_id_short = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.dissect(buffer, index, packet, parent)
 
   -- Timestamp: time
   index, timestamp = aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp.dissect(buffer, index, packet, parent)
@@ -2323,7 +2321,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_message = {}
 aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_message.size =
   aquis_aquisequities_tradingprotocol_atp_v4_0.quantity.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.price.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_flags.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.account.size + 
@@ -2344,8 +2342,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_message.fields = func
   -- Price: u64
   index, price = aquis_aquisequities_tradingprotocol_atp_v4_0.price.dissect(buffer, index, packet, parent)
 
-  -- Security Id U 324: u32
-  index, security_id_u_324 = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_324.dissect(buffer, index, packet, parent)
+  -- Security Id Long: u32
+  index, security_id_long = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_long.dissect(buffer, index, packet, parent)
 
   -- Trade Capture Type: u8
   index, trade_capture_type = aquis_aquisequities_tradingprotocol_atp_v4_0.trade_capture_type.dissect(buffer, index, packet, parent)
@@ -2681,7 +2679,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_extended_message.size 
   aquis_aquisequities_tradingprotocol_atp_v4_0.order_capacity.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.display_quantity.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.min_qty.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.size
+  aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.size
 
 -- Display: Order Modify Extended Message
 aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_extended_message.display = function(packet, parent, length)
@@ -2734,8 +2732,8 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_modify_extended_message.field
   -- Min Qty: u32
   index, min_qty = aquis_aquisequities_tradingprotocol_atp_v4_0.min_qty.dissect(buffer, index, packet, parent)
 
-  -- Reserved U 648: u64
-  index, reserved_u_648 = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.dissect(buffer, index, packet, parent)
+  -- Reserved Long: u64
+  index, reserved_long = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2979,7 +2977,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_extended_message = {}
 
 -- Size: Order Add Extended Message
 aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_extended_message.size =
-  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.side.size + 
@@ -2998,9 +2996,9 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_extended_message.size =
   aquis_aquisequities_tradingprotocol_atp_v4_0.display_quantity.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.min_qty.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.extended_order_flags.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.designated_order_id.size + 
-  aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.peg_difference.size
 
 -- Display: Order Add Extended Message
@@ -3012,8 +3010,8 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_extended_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id U 162: u16
-  index, security_id_u_162 = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.dissect(buffer, index, packet, parent)
+  -- Security Id Short: u16
+  index, security_id_short = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.dissect(buffer, index, packet, parent)
 
   -- Order Type: u8
   index, order_type = aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.dissect(buffer, index, packet, parent)
@@ -3069,14 +3067,14 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_extended_message.fields =
   -- Extended Order Flags: Struct of 5 fields
   index, extended_order_flags = aquis_aquisequities_tradingprotocol_atp_v4_0.extended_order_flags.dissect(buffer, index, packet, parent)
 
-  -- Reserved U 648: u64
-  index, reserved_u_648 = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_648.dissect(buffer, index, packet, parent)
+  -- Reserved Long: u64
+  index, reserved_long = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_long.dissect(buffer, index, packet, parent)
 
   -- Designated Order Id: u64
   index, designated_order_id = aquis_aquisequities_tradingprotocol_atp_v4_0.designated_order_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved U 162: u16
-  index, reserved_u_162 = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_u_162.dissect(buffer, index, packet, parent)
+  -- Reserved Short: u16
+  index, reserved_short = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_short.dissect(buffer, index, packet, parent)
 
   -- Peg Difference: s64
   index, peg_difference = aquis_aquisequities_tradingprotocol_atp_v4_0.peg_difference.dissect(buffer, index, packet, parent)
@@ -3107,7 +3105,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_message = {}
 
 -- Size: Order Add Message
 aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_message.size =
-  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.size + 
+  aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.time_in_force.size + 
   aquis_aquisequities_tradingprotocol_atp_v4_0.side.size + 
@@ -3133,8 +3131,8 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_0.order_add_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id U 162: u16
-  index, security_id_u_162 = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_u_162.dissect(buffer, index, packet, parent)
+  -- Security Id Short: u16
+  index, security_id_short = aquis_aquisequities_tradingprotocol_atp_v4_0.security_id_short.dissect(buffer, index, packet, parent)
 
   -- Order Type: u8
   index, order_type = aquis_aquisequities_tradingprotocol_atp_v4_0.order_type.dissect(buffer, index, packet, parent)
@@ -3244,6 +3242,40 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.logout_message.dissect = function(b
     -- Skip element, add fields directly
     return aquis_aquisequities_tradingprotocol_atp_v4_0.logout_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Logout Request Message
+aquis_aquisequities_tradingprotocol_atp_v4_0.logout_request_message = {}
+
+-- Display: Logout Request Message
+aquis_aquisequities_tradingprotocol_atp_v4_0.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+aquis_aquisequities_tradingprotocol_atp_v4_0.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+aquis_aquisequities_tradingprotocol_atp_v4_0.heartbeat = {}
+
+-- Display: Heartbeat
+aquis_aquisequities_tradingprotocol_atp_v4_0.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+aquis_aquisequities_tradingprotocol_atp_v4_0.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = aquis_aquisequities_tradingprotocol_atp_v4_0.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Login Response Message
@@ -3361,11 +3393,11 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.payload.dissect = function(buffer, 
   end
   -- Dissect Heartbeat
   if msg_type == 0 then
-    return offset
+    return aquis_aquisequities_tradingprotocol_atp_v4_0.heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Message
   if msg_type == 3 then
-    return offset
+    return aquis_aquisequities_tradingprotocol_atp_v4_0.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logout Message
   if msg_type == 4 then

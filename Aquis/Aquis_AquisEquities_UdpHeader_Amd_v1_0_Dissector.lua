@@ -337,11 +337,13 @@ aquis_aquisequities_udpheader_amd_v1_0.packet.dissect = function(buffer, packet,
   -- Packet Header: Struct of 1 fields
   index, packet_header = aquis_aquisequities_udpheader_amd_v1_0.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Count
-  local message_count = buffer(index - 1, 1):uint()
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
 
-  -- Repeating: Message
-  for message_index = 1, message_count do
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
 
     -- Dependency element: Msg Length
     local msg_length = buffer(index + 1, 1):uint()
