@@ -34,8 +34,8 @@ Bse: [website](https://www.bseindia.com "Go to BSE Limited")
 
 [Bse.BseIndia.Eobi.Fbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Bse/Bse_BseIndia_Eobi_Fbe_v1_4_Dissector.lua "Bse BseIndia Eobi Fbe v1.4 Wireshark Dissector"
 [Bse.BseIndia.Eobi.Fbe.v1.4.Url]: https://www.bseindia.com/nta "BSE Limited 1.4 Url"
-[Bse.BseIndia.Eobi.Fbe.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Bse/Specifications/Bse/Eobi/Bse.BseIndia.Eobi.Fbe.v1.4.pdf "BSE Limited 1.4 Pdf"
+[Bse.BseIndia.Eobi.Fbe.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Bse/Specifications/Eobi/Bse.BseIndia.Eobi.Fbe.v1.4.pdf "BSE Limited 1.4 Pdf"
 [Bse.BseIndia.Eti.Fbe.v1.6.14.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Bse/Bse_BseIndia_Eti_Fbe_v1_6_14_Dissector.lua "Bse BseIndia Eti Fbe v1.6.14 Wireshark Dissector"
 [Bse.BseIndia.Eti.Fbe.v1.6.14.Url]: https://www.bseindia.com/nta "BSE Limited 1.6.14 Url"
-[Bse.BseIndia.Eti.Fbe.v1.6.14.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Bse/Specifications/Bse/Eti/Bse.BseIndia.Eti.Fbe.v1.6.14.pdf "BSE Limited 1.6.14 Pdf"
-[Bse.BseIndia.Eti.Fbe.v1.6.14.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Bse/Specifications/Bse/Eti/Bse.BseIndia.Eti.Fbe.v1.6.14.xml "BSE Limited 1.6.14 Xml"
+[Bse.BseIndia.Eti.Fbe.v1.6.14.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Bse/Specifications/Eti/Bse.BseIndia.Eti.Fbe.v1.6.14.pdf "BSE Limited 1.6.14 Pdf"
+[Bse.BseIndia.Eti.Fbe.v1.6.14.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Bse/Specifications/Eti/Bse.BseIndia.Eti.Fbe.v1.6.14.xml "BSE Limited 1.6.14 Xml"
