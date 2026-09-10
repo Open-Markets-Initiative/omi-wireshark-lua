@@ -17,7 +17,7 @@ local finra_finraotc_bbds_dfi_v2018_1a = {}
 -- Finra FinraOtc Bbds Dfi 2018.1A Fields
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action = ProtoField.new("Action", "finra.finraotc.bbds.dfi.v2018.1a.action", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.action_datetime = ProtoField.new("Action Datetime", "finra.finraotc.bbds.dfi.v2018.1a.actiondatetime", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative = ProtoField.new("Administrative", "finra.finraotc.bbds.dfi.v2018.1a.administrative", ftypes.STRING)
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative_message = ProtoField.new("Administrative Message", "finra.finraotc.bbds.dfi.v2018.1a.administrativemessage", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.finraotc.bbds.dfi.v2018.1a.administrativemessagetype", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price = ProtoField.new("Ask Price", "finra.finraotc.bbds.dfi.v2018.1a.askprice", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.ask_price_denominator = ProtoField.new("Ask Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.askpricedenominator", ftypes.STRING)
@@ -26,7 +26,7 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price = ProtoField.new("Bid Pric
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_price_denominator = ProtoField.new("Bid Price Denominator", "finra.finraotc.bbds.dfi.v2018.1a.bidpricedenominator", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.bid_size = ProtoField.new("Bid Size", "finra.finraotc.bbds.dfi.v2018.1a.bidsize", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.block_soh = ProtoField.new("Block Soh", "finra.finraotc.bbds.dfi.v2018.1a.blocksoh", ftypes.UINT8)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control = ProtoField.new("Control", "finra.finraotc.bbds.dfi.v2018.1a.control", ftypes.STRING)
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message = ProtoField.new("Control Message", "finra.finraotc.bbds.dfi.v2018.1a.controlmessage", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message_type = ProtoField.new("Control Message Type", "finra.finraotc.bbds.dfi.v2018.1a.controlmessagetype", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.currency = ProtoField.new("Currency", "finra.finraotc.bbds.dfi.v2018.1a.currency", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.datetime = ProtoField.new("Datetime", "finra.finraotc.bbds.dfi.v2018.1a.datetime", ftypes.STRING)
@@ -54,10 +54,10 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.minute = ProtoField.new("Minute", "f
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.month = ProtoField.new("Month", "finra.finraotc.bbds.dfi.v2018.1a.month", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_symbol = ProtoField.new("Otcbb Symbol", "finra.finraotc.bbds.dfi.v2018.1a.otcbbsymbol", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.otcbb_type = ProtoField.new("Otcbb Type", "finra.finraotc.bbds.dfi.v2018.1a.otcbbtype", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation = ProtoField.new("Quotation", "finra.finraotc.bbds.dfi.v2018.1a.quotation", ftypes.STRING)
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation_message = ProtoField.new("Quotation Message", "finra.finraotc.bbds.dfi.v2018.1a.quotationmessage", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation_message_type = ProtoField.new("Quotation Message Type", "finra.finraotc.bbds.dfi.v2018.1a.quotationmessagetype", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reason_code = ProtoField.new("Reason Code", "finra.finraotc.bbds.dfi.v2018.1a.reasoncode", ftypes.STRING)
-omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved = ProtoField.new("Reserved", "finra.finraotc.bbds.dfi.v2018.1a.reserved", ftypes.STRING)
+omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraotc.bbds.dfi.v2018.1a.reserved1", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.retransmission_requester = ProtoField.new("Retransmission Requester", "finra.finraotc.bbds.dfi.v2018.1a.retransmissionrequester", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.second = ProtoField.new("Second", "finra.finraotc.bbds.dfi.v2018.1a.second", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.session_identifier = ProtoField.new("Session Identifier", "finra.finraotc.bbds.dfi.v2018.1a.sessionidentifier", ftypes.STRING)
@@ -1110,25 +1110,25 @@ finra_finraotc_bbds_dfi_v2018_1a.reason_code.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Reserved
-finra_finraotc_bbds_dfi_v2018_1a.reserved = {}
+-- Reserved 1
+finra_finraotc_bbds_dfi_v2018_1a.reserved_1 = {}
 
--- Size: Reserved
-finra_finraotc_bbds_dfi_v2018_1a.reserved.size = 1
+-- Size: Reserved 1
+finra_finraotc_bbds_dfi_v2018_1a.reserved_1.size = 1
 
--- Display: Reserved
-finra_finraotc_bbds_dfi_v2018_1a.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 1
+finra_finraotc_bbds_dfi_v2018_1a.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved
-finra_finraotc_bbds_dfi_v2018_1a.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = finra_finraotc_bbds_dfi_v2018_1a.reserved.size
+-- Dissect: Reserved 1
+finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = finra_finraotc_bbds_dfi_v2018_1a.reserved.display(value, buffer, offset, packet, parent)
+  local display = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved, range, value, display)
+  parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1376,22 +1376,22 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.datetime.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Ascii String
+  -- Year: alphanumeric
   index, year = finra_finraotc_bbds_dfi_v2018_1a.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Ascii String
+  -- Month: alphanumeric
   index, month = finra_finraotc_bbds_dfi_v2018_1a.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Ascii String
+  -- Day: alphanumeric
   index, day = finra_finraotc_bbds_dfi_v2018_1a.day.dissect(buffer, index, packet, parent)
 
-  -- Hour: 1 Byte Ascii String
+  -- Hour: alphanumeric
   index, hour = finra_finraotc_bbds_dfi_v2018_1a.hour.dissect(buffer, index, packet, parent)
 
-  -- Minute: 1 Byte Ascii String
+  -- Minute: alphanumeric
   index, minute = finra_finraotc_bbds_dfi_v2018_1a.minute.dissect(buffer, index, packet, parent)
 
-  -- Second: 1 Byte Ascii String
+  -- Second: alphanumeric
   index, second = finra_finraotc_bbds_dfi_v2018_1a.second.dissect(buffer, index, packet, parent)
 
   return index
@@ -1425,7 +1425,7 @@ finra_finraotc_bbds_dfi_v2018_1a.message_header.size =
   finra_finraotc_bbds_dfi_v2018_1a.message_sequence_number.size + 
   finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.size + 
   finra_finraotc_bbds_dfi_v2018_1a.datetime.size + 
-  finra_finraotc_bbds_dfi_v2018_1a.reserved.size
+  finra_finraotc_bbds_dfi_v2018_1a.reserved_1.size
 
 -- Display: Message Header
 finra_finraotc_bbds_dfi_v2018_1a.message_header.display = function(packet, parent, length)
@@ -1436,23 +1436,23 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Session Identifier: alphabetic
   index, session_identifier = finra_finraotc_bbds_dfi_v2018_1a.session_identifier.dissect(buffer, index, packet, parent)
 
-  -- Retransmission Requester: 2 Byte Ascii String
+  -- Retransmission Requester: alphanumeric
   index, retransmission_requester = finra_finraotc_bbds_dfi_v2018_1a.retransmission_requester.dissect(buffer, index, packet, parent)
 
-  -- Message Sequence Number: 8 Byte Ascii String
+  -- Message Sequence Number: numeric
   index, message_sequence_number = finra_finraotc_bbds_dfi_v2018_1a.message_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Market Center Originator Id: 2 Byte Ascii String Enum with 4 values
+  -- Market Center Originator Id: alphabetic
   index, market_center_originator_id = finra_finraotc_bbds_dfi_v2018_1a.market_center_originator_id.dissect(buffer, index, packet, parent)
 
   -- Datetime: Struct of 6 fields
   index, datetime = finra_finraotc_bbds_dfi_v2018_1a.datetime.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Ascii String
-  index, reserved = finra_finraotc_bbds_dfi_v2018_1a.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1835,11 +1835,11 @@ finra_finraotc_bbds_dfi_v2018_1a.start_of_day_message.dissect = function(buffer,
   end
 end
 
--- Control Payload
-finra_finraotc_bbds_dfi_v2018_1a.control_payload = {}
+-- Control Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.control_message_payload = {}
 
--- Dissect: Control Payload
-finra_finraotc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "I" then
     return finra_finraotc_bbds_dfi_v2018_1a.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -1880,56 +1880,56 @@ finra_finraotc_bbds_dfi_v2018_1a.control_payload.dissect = function(buffer, offs
   return offset
 end
 
--- Control
-finra_finraotc_bbds_dfi_v2018_1a.control = {}
+-- Control Message
+finra_finraotc_bbds_dfi_v2018_1a.control_message = {}
 
--- Calculate size of: Control
-finra_finraotc_bbds_dfi_v2018_1a.control.size = function(buffer, offset)
+-- Calculate size of: Control Message
+finra_finraotc_bbds_dfi_v2018_1a.control_message.size = function(buffer, offset)
   local index = 0
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.control_message_type.size
 
-  -- Calculate runtime size of Control Payload field
-  local control_payload_offset = offset + index
-  local control_payload_type = buffer(control_payload_offset - 1, 1):string()
-  index = index + finra_finraotc_bbds_dfi_v2018_1a.control_payload.size(buffer, control_payload_offset, control_payload_type)
+  -- Calculate runtime size of Control Message Payload field
+  local control_message_payload_offset = offset + index
+  local control_message_payload_type = buffer(control_message_payload_offset - 1, 1):string()
+  index = index + finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.size(buffer, control_message_payload_offset, control_message_payload_type)
 
   return index
 end
 
--- Display: Control
-finra_finraotc_bbds_dfi_v2018_1a.control.display = function(packet, parent, length)
+-- Display: Control Message
+finra_finraotc_bbds_dfi_v2018_1a.control_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Control
-finra_finraotc_bbds_dfi_v2018_1a.control.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Control Message
+finra_finraotc_bbds_dfi_v2018_1a.control_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Control Message Type: 1 Byte Ascii String Enum with 9 values
   index, control_message_type = finra_finraotc_bbds_dfi_v2018_1a.control_message_type.dissect(buffer, index, packet, parent)
 
-  -- Control Payload: Runtime Type with 9 branches
-  index = finra_finraotc_bbds_dfi_v2018_1a.control_payload.dissect(buffer, index, packet, parent, control_message_type)
+  -- Control Message Payload: Runtime Type with 9 branches
+  index = finra_finraotc_bbds_dfi_v2018_1a.control_message_payload.dissect(buffer, index, packet, parent, control_message_type)
 
   return index
 end
 
--- Dissect: Control
-finra_finraotc_bbds_dfi_v2018_1a.control.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Control Message
+finra_finraotc_bbds_dfi_v2018_1a.control_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control, buffer(offset, 0))
-    local index = finra_finraotc_bbds_dfi_v2018_1a.control.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.control_message, buffer(offset, 0))
+    local index = finra_finraotc_bbds_dfi_v2018_1a.control_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraotc_bbds_dfi_v2018_1a.control.display(packet, parent, length)
+    local display = finra_finraotc_bbds_dfi_v2018_1a.control_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return finra_finraotc_bbds_dfi_v2018_1a.control.fields(buffer, offset, packet, parent)
+    return finra_finraotc_bbds_dfi_v2018_1a.control_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1954,22 +1954,22 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.action_datetime.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 2 Byte Ascii String
+  -- Year: alphanumeric
   index, year = finra_finraotc_bbds_dfi_v2018_1a.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 1 Byte Ascii String
+  -- Month: alphanumeric
   index, month = finra_finraotc_bbds_dfi_v2018_1a.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 1 Byte Ascii String
+  -- Day: alphanumeric
   index, day = finra_finraotc_bbds_dfi_v2018_1a.day.dissect(buffer, index, packet, parent)
 
-  -- Hour: 1 Byte Ascii String
+  -- Hour: alphanumeric
   index, hour = finra_finraotc_bbds_dfi_v2018_1a.hour.dissect(buffer, index, packet, parent)
 
-  -- Minute: 1 Byte Ascii String
+  -- Minute: alphanumeric
   index, minute = finra_finraotc_bbds_dfi_v2018_1a.minute.dissect(buffer, index, packet, parent)
 
-  -- Second: 1 Byte Ascii String
+  -- Second: alphanumeric
   index, second = finra_finraotc_bbds_dfi_v2018_1a.second.dissect(buffer, index, packet, parent)
 
   return index
@@ -2016,16 +2016,16 @@ finra_finraotc_bbds_dfi_v2018_1a.trading_action_message.fields = function(buffer
   -- Message Header: Struct of 6 fields
   index, message_header = finra_finraotc_bbds_dfi_v2018_1a.message_header.dissect(buffer, index, packet, parent)
 
-  -- Stock Symbol: 11 Byte Ascii String
+  -- Stock Symbol: Alphanumeric
   index, stock_symbol = finra_finraotc_bbds_dfi_v2018_1a.stock_symbol.dissect(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String Enum with 3 values
+  -- Action: Alphanumeric
   index, action = finra_finraotc_bbds_dfi_v2018_1a.action.dissect(buffer, index, packet, parent)
 
   -- Action Datetime: Struct of 6 fields
   index, action_datetime = finra_finraotc_bbds_dfi_v2018_1a.action_datetime.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 6 Byte Ascii String
+  -- Reason Code: Alphanumeric
   index, reason_code = finra_finraotc_bbds_dfi_v2018_1a.reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2069,7 +2069,7 @@ finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.fields = functio
   -- Message Header: Struct of 6 fields
   index, message_header = finra_finraotc_bbds_dfi_v2018_1a.message_header.dissect(buffer, index, packet, parent)
 
-  -- Text: 2 Byte Ascii String
+  -- Text: Alphanumeric
   index, text = finra_finraotc_bbds_dfi_v2018_1a.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -2093,11 +2093,11 @@ finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.dissect = functi
   end
 end
 
--- Administrative Payload
-finra_finraotc_bbds_dfi_v2018_1a.administrative_payload = {}
+-- Administrative Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload = {}
 
--- Dissect: Administrative Payload
-finra_finraotc_bbds_dfi_v2018_1a.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
   if administrative_message_type == "A" then
     return finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.dissect(buffer, offset, packet, parent)
@@ -2110,56 +2110,56 @@ finra_finraotc_bbds_dfi_v2018_1a.administrative_payload.dissect = function(buffe
   return offset
 end
 
--- Administrative
-finra_finraotc_bbds_dfi_v2018_1a.administrative = {}
+-- Administrative Message
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message = {}
 
--- Calculate size of: Administrative
-finra_finraotc_bbds_dfi_v2018_1a.administrative.size = function(buffer, offset)
+-- Calculate size of: Administrative Message
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message.size = function(buffer, offset)
   local index = 0
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type.size
 
-  -- Calculate runtime size of Administrative Payload field
-  local administrative_payload_offset = offset + index
-  local administrative_payload_type = buffer(administrative_payload_offset - 1, 1):string()
-  index = index + finra_finraotc_bbds_dfi_v2018_1a.administrative_payload.size(buffer, administrative_payload_offset, administrative_payload_type)
+  -- Calculate runtime size of Administrative Message Payload field
+  local administrative_message_payload_offset = offset + index
+  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 1, 1):string()
+  index = index + finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.size(buffer, administrative_message_payload_offset, administrative_message_payload_type)
 
   return index
 end
 
--- Display: Administrative
-finra_finraotc_bbds_dfi_v2018_1a.administrative.display = function(packet, parent, length)
+-- Display: Administrative Message
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Administrative
-finra_finraotc_bbds_dfi_v2018_1a.administrative.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Administrative Message
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Administrative Message Type: 1 Byte Ascii String Enum with 2 values
   index, administrative_message_type = finra_finraotc_bbds_dfi_v2018_1a.administrative_message_type.dissect(buffer, index, packet, parent)
 
-  -- Administrative Payload: Runtime Type with 2 branches
-  index = finra_finraotc_bbds_dfi_v2018_1a.administrative_payload.dissect(buffer, index, packet, parent, administrative_message_type)
+  -- Administrative Message Payload: Runtime Type with 2 branches
+  index = finra_finraotc_bbds_dfi_v2018_1a.administrative_message_payload.dissect(buffer, index, packet, parent, administrative_message_type)
 
   return index
 end
 
--- Dissect: Administrative
-finra_finraotc_bbds_dfi_v2018_1a.administrative.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Administrative Message
+finra_finraotc_bbds_dfi_v2018_1a.administrative_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative, buffer(offset, 0))
-    local index = finra_finraotc_bbds_dfi_v2018_1a.administrative.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.administrative_message, buffer(offset, 0))
+    local index = finra_finraotc_bbds_dfi_v2018_1a.administrative_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraotc_bbds_dfi_v2018_1a.administrative.display(packet, parent, length)
+    local display = finra_finraotc_bbds_dfi_v2018_1a.administrative_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return finra_finraotc_bbds_dfi_v2018_1a.administrative.fields(buffer, offset, packet, parent)
+    return finra_finraotc_bbds_dfi_v2018_1a.administrative_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2185,25 +2185,25 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.inside_appendage.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Inside Quote Condition: 1 Byte Ascii String Enum with 2 values
+  -- Inside Quote Condition: Alphanumeric
   index, inside_quote_condition = finra_finraotc_bbds_dfi_v2018_1a.inside_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Inside Bid Price Denominator: 1 Byte Ascii String
+  -- Inside Bid Price Denominator: Alphanumeric
   index, inside_bid_price_denominator = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Inside Bid Price: 12 Byte Ascii String
+  -- Inside Bid Price: numeric
   index, inside_bid_price = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Inside Bid Size: 12 Byte Ascii String
+  -- Inside Bid Size: Numeric
   index, inside_bid_size = finra_finraotc_bbds_dfi_v2018_1a.inside_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Inside Ask Price Denominator: 1 Byte Ascii String
+  -- Inside Ask Price Denominator: Alphanumeric
   index, inside_ask_price_denominator = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Inside Ask Price: 12 Byte Ascii String
+  -- Inside Ask Price: numeric
   index, inside_ask_price = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_price.dissect(buffer, index, packet, parent)
 
-  -- Inside Ask Size: 12 Byte Ascii String
+  -- Inside Ask Size: Numeric
   index, inside_ask_size = finra_finraotc_bbds_dfi_v2018_1a.inside_ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -2246,7 +2246,7 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.size = 
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.size
 
-  index = index + finra_finraotc_bbds_dfi_v2018_1a.reserved.size
+  index = index + finra_finraotc_bbds_dfi_v2018_1a.reserved_1.size
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.size
 
@@ -2287,55 +2287,55 @@ end
 finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Otcbb Symbol: 11 Byte Ascii String
+  -- Otcbb Symbol: Alphanumeric
   index, otcbb_symbol = finra_finraotc_bbds_dfi_v2018_1a.otcbb_symbol.dissect(buffer, index, packet, parent)
 
-  -- Otcbb Type: 1 Byte Ascii String
+  -- Otcbb Type: Alphanumeric
   index, otcbb_type = finra_finraotc_bbds_dfi_v2018_1a.otcbb_type.dissect(buffer, index, packet, parent)
 
-  -- Market Participant Identifier: 1 Byte Ascii String
+  -- Market Participant Identifier: Alphanumeric
   index, market_participant_identifier = finra_finraotc_bbds_dfi_v2018_1a.market_participant_identifier.dissect(buffer, index, packet, parent)
 
-  -- Market Participant Location Id: 1 Byte Ascii String
+  -- Market Participant Location Id: Alphanumeric
   index, market_participant_location_id = finra_finraotc_bbds_dfi_v2018_1a.market_participant_location_id.dissect(buffer, index, packet, parent)
 
-  -- Market Participant Status: 1 Byte Ascii String Enum with 5 values
+  -- Market Participant Status: Alphanumeric
   index, market_participant_status = finra_finraotc_bbds_dfi_v2018_1a.market_participant_status.dissect(buffer, index, packet, parent)
 
-  -- Market Participant Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Market Participant Quote Condition: Alphanumeric
   index, market_participant_quote_condition = finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Ascii String
-  index, reserved = finra_finraotc_bbds_dfi_v2018_1a.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Wanted Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Wanted Indicator: Alphanumeric
   index, wanted_indicator = finra_finraotc_bbds_dfi_v2018_1a.wanted_indicator.dissect(buffer, index, packet, parent)
 
-  -- Unsolicited Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Unsolicited Indicator: Alphanumeric
   index, unsolicited_indicator = finra_finraotc_bbds_dfi_v2018_1a.unsolicited_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Denominator: 1 Byte Ascii String
+  -- Bid Price Denominator: Alphanumeric
   index, bid_price_denominator = finra_finraotc_bbds_dfi_v2018_1a.bid_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 12 Byte Ascii String
+  -- Bid Price: Numeric
   index, bid_price = finra_finraotc_bbds_dfi_v2018_1a.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 7 Byte Ascii String
+  -- Bid Size: Numeric
   index, bid_size = finra_finraotc_bbds_dfi_v2018_1a.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Denominator: 1 Byte Ascii String
+  -- Ask Price Denominator: Alphanumeric
   index, ask_price_denominator = finra_finraotc_bbds_dfi_v2018_1a.ask_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 12 Byte Ascii String
+  -- Ask Price: Numeric
   index, ask_price = finra_finraotc_bbds_dfi_v2018_1a.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 7 Byte Ascii String
+  -- Ask Size: Numeric
   index, ask_size = finra_finraotc_bbds_dfi_v2018_1a.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alphanumeric
   index, currency = finra_finraotc_bbds_dfi_v2018_1a.currency.dissect(buffer, index, packet, parent)
 
-  -- Inside Appendage Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Inside Appendage Indicator: Numeric
   index, inside_appendage_indicator = finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Inside Appendage
@@ -2368,11 +2368,11 @@ finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect
   end
 end
 
--- Quotation Payload
-finra_finraotc_bbds_dfi_v2018_1a.quotation_payload = {}
+-- Quotation Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload = {}
 
--- Dissect: Quotation Payload
-finra_finraotc_bbds_dfi_v2018_1a.quotation_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
+-- Dissect: Quotation Message Payload
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dissect = function(buffer, offset, packet, parent, quotation_message_type)
   -- Dissect Market Participant Quote Update Message
   if quotation_message_type == "1" then
     return finra_finraotc_bbds_dfi_v2018_1a.market_participant_quote_update_message.dissect(buffer, offset, packet, parent)
@@ -2381,56 +2381,56 @@ finra_finraotc_bbds_dfi_v2018_1a.quotation_payload.dissect = function(buffer, of
   return offset
 end
 
--- Quotation
-finra_finraotc_bbds_dfi_v2018_1a.quotation = {}
+-- Quotation Message
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message = {}
 
--- Calculate size of: Quotation
-finra_finraotc_bbds_dfi_v2018_1a.quotation.size = function(buffer, offset)
+-- Calculate size of: Quotation Message
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message.size = function(buffer, offset)
   local index = 0
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type.size
 
-  -- Calculate runtime size of Quotation Payload field
-  local quotation_payload_offset = offset + index
-  local quotation_payload_type = buffer(quotation_payload_offset - 1, 1):string()
-  index = index + finra_finraotc_bbds_dfi_v2018_1a.quotation_payload.size(buffer, quotation_payload_offset, quotation_payload_type)
+  -- Calculate runtime size of Quotation Message Payload field
+  local quotation_message_payload_offset = offset + index
+  local quotation_message_payload_type = buffer(quotation_message_payload_offset - 1, 1):string()
+  index = index + finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.size(buffer, quotation_message_payload_offset, quotation_message_payload_type)
 
   return index
 end
 
--- Display: Quotation
-finra_finraotc_bbds_dfi_v2018_1a.quotation.display = function(packet, parent, length)
+-- Display: Quotation Message
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quotation
-finra_finraotc_bbds_dfi_v2018_1a.quotation.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quotation Message
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Quotation Message Type: 1 Byte Ascii String Enum with 1 values
   index, quotation_message_type = finra_finraotc_bbds_dfi_v2018_1a.quotation_message_type.dissect(buffer, index, packet, parent)
 
-  -- Quotation Payload: Runtime Type with 1 branches
-  index = finra_finraotc_bbds_dfi_v2018_1a.quotation_payload.dissect(buffer, index, packet, parent, quotation_message_type)
+  -- Quotation Message Payload: Runtime Type with 1 branches
+  index = finra_finraotc_bbds_dfi_v2018_1a.quotation_message_payload.dissect(buffer, index, packet, parent, quotation_message_type)
 
   return index
 end
 
--- Dissect: Quotation
-finra_finraotc_bbds_dfi_v2018_1a.quotation.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quotation Message
+finra_finraotc_bbds_dfi_v2018_1a.quotation_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation, buffer(offset, 0))
-    local index = finra_finraotc_bbds_dfi_v2018_1a.quotation.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.quotation_message, buffer(offset, 0))
+    local index = finra_finraotc_bbds_dfi_v2018_1a.quotation_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraotc_bbds_dfi_v2018_1a.quotation.display(packet, parent, length)
+    local display = finra_finraotc_bbds_dfi_v2018_1a.quotation_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return finra_finraotc_bbds_dfi_v2018_1a.quotation.fields(buffer, offset, packet, parent)
+    return finra_finraotc_bbds_dfi_v2018_1a.quotation_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2439,17 +2439,17 @@ finra_finraotc_bbds_dfi_v2018_1a.payload = {}
 
 -- Dissect: Payload
 finra_finraotc_bbds_dfi_v2018_1a.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Quotation
+  -- Dissect Quotation Message
   if message_category == "Q" then
-    return finra_finraotc_bbds_dfi_v2018_1a.quotation.dissect(buffer, offset, packet, parent)
+    return finra_finraotc_bbds_dfi_v2018_1a.quotation_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Administrative
+  -- Dissect Administrative Message
   if message_category == "A" then
-    return finra_finraotc_bbds_dfi_v2018_1a.administrative.dissect(buffer, offset, packet, parent)
+    return finra_finraotc_bbds_dfi_v2018_1a.administrative_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Control
+  -- Dissect Control Message
   if message_category == "C" then
-    return finra_finraotc_bbds_dfi_v2018_1a.control.dissect(buffer, offset, packet, parent)
+    return finra_finraotc_bbds_dfi_v2018_1a.control_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

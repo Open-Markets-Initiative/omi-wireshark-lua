@@ -493,7 +493,7 @@ end
 finra_trace_btds_dfi_v2_1.bsym.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.bsym.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_trace_btds_dfi_v2_1.bsym.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_btds_dfi_v2_1.fields.bsym, range, value, display)
@@ -695,7 +695,7 @@ end
 finra_trace_btds_dfi_v2_1.cusip.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.cusip.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_trace_btds_dfi_v2_1.cusip.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_btds_dfi_v2_1.fields.cusip, range, value, display)
@@ -1250,7 +1250,7 @@ end
 finra_trace_btds_dfi_v2_1.future_use.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.future_use.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_trace_btds_dfi_v2_1.future_use.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_btds_dfi_v2_1.fields.future_use, range, value, display)
@@ -1429,7 +1429,7 @@ end
 finra_trace_btds_dfi_v2_1.issuer.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.issuer.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_trace_btds_dfi_v2_1.issuer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_btds_dfi_v2_1.fields.issuer, range, value, display)
@@ -1819,7 +1819,7 @@ end
 finra_trace_btds_dfi_v2_1.quantity.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.quantity.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_trace_btds_dfi_v2_1.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_btds_dfi_v2_1.fields.quantity, range, value, display)
@@ -2207,7 +2207,7 @@ end
 finra_trace_btds_dfi_v2_1.symbol.dissect = function(buffer, offset, packet, parent)
   local length = finra_trace_btds_dfi_v2_1.symbol.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = finra_trace_btds_dfi_v2_1.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_finra_trace_btds_dfi_v2_1.fields.symbol, range, value, display)

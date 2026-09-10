@@ -17,13 +17,13 @@ local finra_finraorf_tdds_dfi_v2_1 = {}
 -- Finra FinraOrf Tdds Dfi 2.1 Fields
 omi_finra_finraorf_tdds_dfi_v2_1.fields.action = ProtoField.new("Action", "finra.finraorf.tdds.dfi.v2.1.action", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.action_datetime = ProtoField.new("Action Datetime", "finra.finraorf.tdds.dfi.v2.1.actiondatetime", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative = ProtoField.new("Administrative", "finra.finraorf.tdds.dfi.v2.1.administrative", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative_message = ProtoField.new("Administrative Message", "finra.finraorf.tdds.dfi.v2.1.administrativemessage", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "finra.finraorf.tdds.dfi.v2.1.administrativemessagetype", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.as_of_indicator = ProtoField.new("As Of Indicator", "finra.finraorf.tdds.dfi.v2.1.asofindicator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price = ProtoField.new("Closing Price", "finra.finraorf.tdds.dfi.v2.1.closingprice", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price_denominator = ProtoField.new("Closing Price Denominator", "finra.finraorf.tdds.dfi.v2.1.closingpricedenominator", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.closing_price_market_center = ProtoField.new("Closing Price Market Center", "finra.finraorf.tdds.dfi.v2.1.closingpricemarketcenter", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.control = ProtoField.new("Control", "finra.finraorf.tdds.dfi.v2.1.control", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_1.fields.control_message = ProtoField.new("Control Message", "finra.finraorf.tdds.dfi.v2.1.controlmessage", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.control_message_type = ProtoField.new("Control Message Type", "finra.finraorf.tdds.dfi.v2.1.controlmessagetype", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.corrected_trade_information = ProtoField.new("Corrected Trade Information", "finra.finraorf.tdds.dfi.v2.1.correctedtradeinformation", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.count = ProtoField.new("Count", "finra.finraorf.tdds.dfi.v2.1.count", ftypes.UINT16)
@@ -60,7 +60,7 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.reason_code = ProtoField.new("Reason Cod
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_function = ProtoField.new("Report Function", "finra.finraorf.tdds.dfi.v2.1.reportfunction", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume = ProtoField.new("Report Volume", "finra.finraorf.tdds.dfi.v2.1.reportvolume", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.report_volume_short = ProtoField.new("Report Volume Short", "finra.finraorf.tdds.dfi.v2.1.reportvolumeshort", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved = ProtoField.new("Reserved", "finra.finraorf.tdds.dfi.v2.1.reserved", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1 = ProtoField.new("Reserved 1", "finra.finraorf.tdds.dfi.v2.1.reserved1", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_1 = ProtoField.new("Sale Condition Level 1", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel1", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_2 = ProtoField.new("Sale Condition Level 2", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel2", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.sale_condition_level_3 = ProtoField.new("Sale Condition Level 3", "finra.finraorf.tdds.dfi.v2.1.saleconditionlevel3", ftypes.STRING)
@@ -73,9 +73,9 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.sequence = ProtoField.new("Sequence", "f
 omi_finra_finraorf_tdds_dfi_v2_1.fields.session = ProtoField.new("Session", "finra.finraorf.tdds.dfi.v2.1.session", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.text = ProtoField.new("Text", "finra.finraorf.tdds.dfi.v2.1.text", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.total_security_volume = ProtoField.new("Total Security Volume", "finra.finraorf.tdds.dfi.v2.1.totalsecurityvolume", ftypes.STRING)
-omi_finra_finraorf_tdds_dfi_v2_1.fields.trade = ProtoField.new("Trade", "finra.finraorf.tdds.dfi.v2.1.trade", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "finra.finraorf.tdds.dfi.v2.1.tradeidentifier", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_information = ProtoField.new("Trade Information", "finra.finraorf.tdds.dfi.v2.1.tradeinformation", ftypes.STRING)
+omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_message = ProtoField.new("Trade Message", "finra.finraorf.tdds.dfi.v2.1.trademessage", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_message_type = ProtoField.new("Trade Message Type", "finra.finraorf.tdds.dfi.v2.1.trademessagetype", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_price = ProtoField.new("Trade Price", "finra.finraorf.tdds.dfi.v2.1.tradeprice", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_price_denominator = ProtoField.new("Trade Price Denominator", "finra.finraorf.tdds.dfi.v2.1.tradepricedenominator", ftypes.STRING)
@@ -1203,25 +1203,25 @@ finra_finraorf_tdds_dfi_v2_1.report_volume_short.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Reserved
-finra_finraorf_tdds_dfi_v2_1.reserved = {}
+-- Reserved 1
+finra_finraorf_tdds_dfi_v2_1.reserved_1 = {}
 
--- Size: Reserved
-finra_finraorf_tdds_dfi_v2_1.reserved.size = 1
+-- Size: Reserved 1
+finra_finraorf_tdds_dfi_v2_1.reserved_1.size = 1
 
--- Display: Reserved
-finra_finraorf_tdds_dfi_v2_1.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 1
+finra_finraorf_tdds_dfi_v2_1.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved
-finra_finraorf_tdds_dfi_v2_1.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = finra_finraorf_tdds_dfi_v2_1.reserved.size
+-- Dissect: Reserved 1
+finra_finraorf_tdds_dfi_v2_1.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = finra_finraorf_tdds_dfi_v2_1.reserved_1.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = finra_finraorf_tdds_dfi_v2_1.reserved.display(value, buffer, offset, packet, parent)
+  local display = finra_finraorf_tdds_dfi_v2_1.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved, range, value, display)
+  parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1744,25 +1744,25 @@ end
 finra_finraorf_tdds_dfi_v2_1.datetime.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 4 Byte Ascii String
+  -- Year: numeric
   index, year = finra_finraorf_tdds_dfi_v2_1.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 2 Byte Ascii String
+  -- Month: numeric
   index, month = finra_finraorf_tdds_dfi_v2_1.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 2 Byte Ascii String
+  -- Day: numeric
   index, day = finra_finraorf_tdds_dfi_v2_1.day.dissect(buffer, index, packet, parent)
 
-  -- Hour: 2 Byte Ascii String
+  -- Hour: numeric
   index, hour = finra_finraorf_tdds_dfi_v2_1.hour.dissect(buffer, index, packet, parent)
 
-  -- Minute: 2 Byte Ascii String
+  -- Minute: numeric
   index, minute = finra_finraorf_tdds_dfi_v2_1.minute.dissect(buffer, index, packet, parent)
 
-  -- Second: 2 Byte Ascii String
+  -- Second: numeric
   index, second = finra_finraorf_tdds_dfi_v2_1.second.dissect(buffer, index, packet, parent)
 
-  -- Fractional Second: 9 Byte Ascii String
+  -- Fractional Second: numeric
   index, fractional_second = finra_finraorf_tdds_dfi_v2_1.fractional_second.dissect(buffer, index, packet, parent)
 
   return index
@@ -1804,10 +1804,10 @@ end
 finra_finraorf_tdds_dfi_v2_1.message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trade Identifier: 8 Byte Ascii String
+  -- Trade Identifier: alphabetic
   index, trade_identifier = finra_finraorf_tdds_dfi_v2_1.trade_identifier.dissect(buffer, index, packet, parent)
 
-  -- Market Center Originator Id: 2 Byte Ascii String Enum with 2 values
+  -- Market Center Originator Id: alphabetic
   index, market_center_originator_id = finra_finraorf_tdds_dfi_v2_1.market_center_originator_id.dissect(buffer, index, packet, parent)
 
   -- Datetime: Struct of 7 fields
@@ -2194,11 +2194,11 @@ finra_finraorf_tdds_dfi_v2_1.start_of_day_message.dissect = function(buffer, off
   end
 end
 
--- Control Payload
-finra_finraorf_tdds_dfi_v2_1.control_payload = {}
+-- Control Message Payload
+finra_finraorf_tdds_dfi_v2_1.control_message_payload = {}
 
--- Dissect: Control Payload
-finra_finraorf_tdds_dfi_v2_1.control_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
+-- Dissect: Control Message Payload
+finra_finraorf_tdds_dfi_v2_1.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "I" then
     return finra_finraorf_tdds_dfi_v2_1.start_of_day_message.dissect(buffer, offset, packet, parent)
@@ -2239,56 +2239,56 @@ finra_finraorf_tdds_dfi_v2_1.control_payload.dissect = function(buffer, offset, 
   return offset
 end
 
--- Control
-finra_finraorf_tdds_dfi_v2_1.control = {}
+-- Control Message
+finra_finraorf_tdds_dfi_v2_1.control_message = {}
 
--- Calculate size of: Control
-finra_finraorf_tdds_dfi_v2_1.control.size = function(buffer, offset)
+-- Calculate size of: Control Message
+finra_finraorf_tdds_dfi_v2_1.control_message.size = function(buffer, offset)
   local index = 0
 
   index = index + finra_finraorf_tdds_dfi_v2_1.control_message_type.size
 
-  -- Calculate runtime size of Control Payload field
-  local control_payload_offset = offset + index
-  local control_payload_type = buffer(control_payload_offset - 1, 1):string()
-  index = index + finra_finraorf_tdds_dfi_v2_1.control_payload.size(buffer, control_payload_offset, control_payload_type)
+  -- Calculate runtime size of Control Message Payload field
+  local control_message_payload_offset = offset + index
+  local control_message_payload_type = buffer(control_message_payload_offset - 1, 1):string()
+  index = index + finra_finraorf_tdds_dfi_v2_1.control_message_payload.size(buffer, control_message_payload_offset, control_message_payload_type)
 
   return index
 end
 
--- Display: Control
-finra_finraorf_tdds_dfi_v2_1.control.display = function(packet, parent, length)
+-- Display: Control Message
+finra_finraorf_tdds_dfi_v2_1.control_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Control
-finra_finraorf_tdds_dfi_v2_1.control.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Control Message
+finra_finraorf_tdds_dfi_v2_1.control_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Control Message Type: 1 Byte Ascii String Enum with 9 values
   index, control_message_type = finra_finraorf_tdds_dfi_v2_1.control_message_type.dissect(buffer, index, packet, parent)
 
-  -- Control Payload: Runtime Type with 9 branches
-  index = finra_finraorf_tdds_dfi_v2_1.control_payload.dissect(buffer, index, packet, parent, control_message_type)
+  -- Control Message Payload: Runtime Type with 9 branches
+  index = finra_finraorf_tdds_dfi_v2_1.control_message_payload.dissect(buffer, index, packet, parent, control_message_type)
 
   return index
 end
 
--- Dissect: Control
-finra_finraorf_tdds_dfi_v2_1.control.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Control Message
+finra_finraorf_tdds_dfi_v2_1.control_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.control, buffer(offset, 0))
-    local index = finra_finraorf_tdds_dfi_v2_1.control.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.control_message, buffer(offset, 0))
+    local index = finra_finraorf_tdds_dfi_v2_1.control_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraorf_tdds_dfi_v2_1.control.display(packet, parent, length)
+    local display = finra_finraorf_tdds_dfi_v2_1.control_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return finra_finraorf_tdds_dfi_v2_1.control.fields(buffer, offset, packet, parent)
+    return finra_finraorf_tdds_dfi_v2_1.control_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2314,25 +2314,25 @@ end
 finra_finraorf_tdds_dfi_v2_1.action_datetime.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 4 Byte Ascii String
+  -- Year: numeric
   index, year = finra_finraorf_tdds_dfi_v2_1.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 2 Byte Ascii String
+  -- Month: numeric
   index, month = finra_finraorf_tdds_dfi_v2_1.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 2 Byte Ascii String
+  -- Day: numeric
   index, day = finra_finraorf_tdds_dfi_v2_1.day.dissect(buffer, index, packet, parent)
 
-  -- Hour: 2 Byte Ascii String
+  -- Hour: numeric
   index, hour = finra_finraorf_tdds_dfi_v2_1.hour.dissect(buffer, index, packet, parent)
 
-  -- Minute: 2 Byte Ascii String
+  -- Minute: numeric
   index, minute = finra_finraorf_tdds_dfi_v2_1.minute.dissect(buffer, index, packet, parent)
 
-  -- Second: 2 Byte Ascii String
+  -- Second: numeric
   index, second = finra_finraorf_tdds_dfi_v2_1.second.dissect(buffer, index, packet, parent)
 
-  -- Fractional Second: 9 Byte Ascii String
+  -- Fractional Second: numeric
   index, fractional_second = finra_finraorf_tdds_dfi_v2_1.fractional_second.dissect(buffer, index, packet, parent)
 
   return index
@@ -2378,13 +2378,13 @@ finra_finraorf_tdds_dfi_v2_1.market_wide_circuit_breaker_event_message.fields = 
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String Enum with 4 values
+  -- Action: Alphanumeric
   index, action = finra_finraorf_tdds_dfi_v2_1.action.dissect(buffer, index, packet, parent)
 
   -- Action Datetime: Struct of 7 fields
   index, action_datetime = finra_finraorf_tdds_dfi_v2_1.action_datetime.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 6 Byte Ascii String
+  -- Reason Code: Alphanumeric
   index, reason_code = finra_finraorf_tdds_dfi_v2_1.reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2431,16 +2431,16 @@ finra_finraorf_tdds_dfi_v2_1.trading_action_message.fields = function(buffer, of
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 14 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = finra_finraorf_tdds_dfi_v2_1.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String Enum with 4 values
+  -- Action: Alphanumeric
   index, action = finra_finraorf_tdds_dfi_v2_1.action.dissect(buffer, index, packet, parent)
 
   -- Action Datetime: Struct of 7 fields
   index, action_datetime = finra_finraorf_tdds_dfi_v2_1.action_datetime.dissect(buffer, index, packet, parent)
 
-  -- Reason Code: 6 Byte Ascii String
+  -- Reason Code: Alphanumeric
   index, reason_code = finra_finraorf_tdds_dfi_v2_1.reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2478,7 +2478,7 @@ finra_finraorf_tdds_dfi_v2_1.closing_trade_summary_report_message.size =
   finra_finraorf_tdds_dfi_v2_1.closing_price_market_center.size + 
   finra_finraorf_tdds_dfi_v2_1.closing_price_denominator.size + 
   finra_finraorf_tdds_dfi_v2_1.closing_price.size + 
-  finra_finraorf_tdds_dfi_v2_1.reserved.size + 
+  finra_finraorf_tdds_dfi_v2_1.reserved_1.size + 
   finra_finraorf_tdds_dfi_v2_1.net_change_denominator.size + 
   finra_finraorf_tdds_dfi_v2_1.net_change_amount.size + 
   finra_finraorf_tdds_dfi_v2_1.net_change_direction.size + 
@@ -2497,46 +2497,46 @@ finra_finraorf_tdds_dfi_v2_1.closing_trade_summary_report_message.fields = funct
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 14 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = finra_finraorf_tdds_dfi_v2_1.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Daily High Price Denominator: 1 Byte Ascii String
+  -- Daily High Price Denominator: Alphanumeric
   index, daily_high_price_denominator = finra_finraorf_tdds_dfi_v2_1.daily_high_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Daily High Price: 12 Byte Ascii String
+  -- Daily High Price: Numeric
   index, daily_high_price = finra_finraorf_tdds_dfi_v2_1.daily_high_price.dissect(buffer, index, packet, parent)
 
-  -- Daily Low Price Denominator: 1 Byte Ascii String
+  -- Daily Low Price Denominator: Alphanumeric
   index, daily_low_price_denominator = finra_finraorf_tdds_dfi_v2_1.daily_low_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Daily Low Price: 12 Byte Ascii String
+  -- Daily Low Price: Numeric
   index, daily_low_price = finra_finraorf_tdds_dfi_v2_1.daily_low_price.dissect(buffer, index, packet, parent)
 
-  -- Closing Price Market Center: 1 Byte Ascii String Enum with 2 values
+  -- Closing Price Market Center: Alphanumeric
   index, closing_price_market_center = finra_finraorf_tdds_dfi_v2_1.closing_price_market_center.dissect(buffer, index, packet, parent)
 
-  -- Closing Price Denominator: 1 Byte Ascii String
+  -- Closing Price Denominator: Alphanumeric
   index, closing_price_denominator = finra_finraorf_tdds_dfi_v2_1.closing_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Closing Price: 12 Byte Ascii String
+  -- Closing Price: Numeric
   index, closing_price = finra_finraorf_tdds_dfi_v2_1.closing_price.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Ascii String
-  index, reserved = finra_finraorf_tdds_dfi_v2_1.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Alphanumeric
+  index, reserved_1 = finra_finraorf_tdds_dfi_v2_1.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Net Change Denominator: 1 Byte Ascii String
+  -- Net Change Denominator: Alphanumeric
   index, net_change_denominator = finra_finraorf_tdds_dfi_v2_1.net_change_denominator.dissect(buffer, index, packet, parent)
 
-  -- Net Change Amount: 10 Byte Ascii String
+  -- Net Change Amount: Numeric
   index, net_change_amount = finra_finraorf_tdds_dfi_v2_1.net_change_amount.dissect(buffer, index, packet, parent)
 
-  -- Net Change Direction: 1 Byte Ascii String Enum with 3 values
+  -- Net Change Direction: Alphanumeric
   index, net_change_direction = finra_finraorf_tdds_dfi_v2_1.net_change_direction.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alphanumeric
   index, currency = finra_finraorf_tdds_dfi_v2_1.currency.dissect(buffer, index, packet, parent)
 
-  -- Total Security Volume: 11 Byte Ascii String
+  -- Total Security Volume: Numeric
   index, total_security_volume = finra_finraorf_tdds_dfi_v2_1.total_security_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2580,7 +2580,7 @@ finra_finraorf_tdds_dfi_v2_1.general_administrative_message.fields = function(bu
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Text: 2 Byte Ascii String
+  -- Text: Alphanumeric
   index, text = finra_finraorf_tdds_dfi_v2_1.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -2604,11 +2604,11 @@ finra_finraorf_tdds_dfi_v2_1.general_administrative_message.dissect = function(b
   end
 end
 
--- Administrative Payload
-finra_finraorf_tdds_dfi_v2_1.administrative_payload = {}
+-- Administrative Message Payload
+finra_finraorf_tdds_dfi_v2_1.administrative_message_payload = {}
 
--- Dissect: Administrative Payload
-finra_finraorf_tdds_dfi_v2_1.administrative_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
+-- Dissect: Administrative Message Payload
+finra_finraorf_tdds_dfi_v2_1.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
   if administrative_message_type == "A" then
     return finra_finraorf_tdds_dfi_v2_1.general_administrative_message.dissect(buffer, offset, packet, parent)
@@ -2629,56 +2629,56 @@ finra_finraorf_tdds_dfi_v2_1.administrative_payload.dissect = function(buffer, o
   return offset
 end
 
--- Administrative
-finra_finraorf_tdds_dfi_v2_1.administrative = {}
+-- Administrative Message
+finra_finraorf_tdds_dfi_v2_1.administrative_message = {}
 
--- Calculate size of: Administrative
-finra_finraorf_tdds_dfi_v2_1.administrative.size = function(buffer, offset)
+-- Calculate size of: Administrative Message
+finra_finraorf_tdds_dfi_v2_1.administrative_message.size = function(buffer, offset)
   local index = 0
 
   index = index + finra_finraorf_tdds_dfi_v2_1.administrative_message_type.size
 
-  -- Calculate runtime size of Administrative Payload field
-  local administrative_payload_offset = offset + index
-  local administrative_payload_type = buffer(administrative_payload_offset - 1, 1):string()
-  index = index + finra_finraorf_tdds_dfi_v2_1.administrative_payload.size(buffer, administrative_payload_offset, administrative_payload_type)
+  -- Calculate runtime size of Administrative Message Payload field
+  local administrative_message_payload_offset = offset + index
+  local administrative_message_payload_type = buffer(administrative_message_payload_offset - 1, 1):string()
+  index = index + finra_finraorf_tdds_dfi_v2_1.administrative_message_payload.size(buffer, administrative_message_payload_offset, administrative_message_payload_type)
 
   return index
 end
 
--- Display: Administrative
-finra_finraorf_tdds_dfi_v2_1.administrative.display = function(packet, parent, length)
+-- Display: Administrative Message
+finra_finraorf_tdds_dfi_v2_1.administrative_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Administrative
-finra_finraorf_tdds_dfi_v2_1.administrative.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Administrative Message
+finra_finraorf_tdds_dfi_v2_1.administrative_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Administrative Message Type: 1 Byte Ascii String Enum with 4 values
   index, administrative_message_type = finra_finraorf_tdds_dfi_v2_1.administrative_message_type.dissect(buffer, index, packet, parent)
 
-  -- Administrative Payload: Runtime Type with 4 branches
-  index = finra_finraorf_tdds_dfi_v2_1.administrative_payload.dissect(buffer, index, packet, parent, administrative_message_type)
+  -- Administrative Message Payload: Runtime Type with 4 branches
+  index = finra_finraorf_tdds_dfi_v2_1.administrative_message_payload.dissect(buffer, index, packet, parent, administrative_message_type)
 
   return index
 end
 
--- Dissect: Administrative
-finra_finraorf_tdds_dfi_v2_1.administrative.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Administrative Message
+finra_finraorf_tdds_dfi_v2_1.administrative_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative, buffer(offset, 0))
-    local index = finra_finraorf_tdds_dfi_v2_1.administrative.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.administrative_message, buffer(offset, 0))
+    local index = finra_finraorf_tdds_dfi_v2_1.administrative_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraorf_tdds_dfi_v2_1.administrative.display(packet, parent, length)
+    local display = finra_finraorf_tdds_dfi_v2_1.administrative_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return finra_finraorf_tdds_dfi_v2_1.administrative.fields(buffer, offset, packet, parent)
+    return finra_finraorf_tdds_dfi_v2_1.administrative_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2706,31 +2706,31 @@ end
 finra_finraorf_tdds_dfi_v2_1.trade_summary_information.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- High Price Denominator: 1 Byte Ascii String
+  -- High Price Denominator: Alphanumeric
   index, high_price_denominator = finra_finraorf_tdds_dfi_v2_1.high_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- High Price: 12 Byte Ascii String
+  -- High Price: Numeric
   index, high_price = finra_finraorf_tdds_dfi_v2_1.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price Denominator: 1 Byte Ascii String
+  -- Low Price Denominator: Alphanumeric
   index, low_price_denominator = finra_finraorf_tdds_dfi_v2_1.low_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 12 Byte Ascii String
+  -- Low Price: Numeric
   index, low_price = finra_finraorf_tdds_dfi_v2_1.low_price.dissect(buffer, index, packet, parent)
 
-  -- Last Sale Price Denominator: 1 Byte Ascii String
+  -- Last Sale Price Denominator: Alphanumeric
   index, last_sale_price_denominator = finra_finraorf_tdds_dfi_v2_1.last_sale_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Last Sale Price: 12 Byte Ascii String
+  -- Last Sale Price: Numeric
   index, last_sale_price = finra_finraorf_tdds_dfi_v2_1.last_sale_price.dissect(buffer, index, packet, parent)
 
-  -- Last Sale Price Market Center: 1 Byte Ascii String Enum with 2 values
+  -- Last Sale Price Market Center: Alphanumeric
   index, last_sale_price_market_center = finra_finraorf_tdds_dfi_v2_1.last_sale_price_market_center.dissect(buffer, index, packet, parent)
 
-  -- Total Security Volume: 11 Byte Ascii String
+  -- Total Security Volume: Numeric
   index, total_security_volume = finra_finraorf_tdds_dfi_v2_1.total_security_volume.dissect(buffer, index, packet, parent)
 
-  -- Price Change Indicator: 1 Byte Ascii String Enum with 8 values
+  -- Price Change Indicator: Alphanumeric
   index, price_change_indicator = finra_finraorf_tdds_dfi_v2_1.price_change_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2776,25 +2776,25 @@ end
 finra_finraorf_tdds_dfi_v2_1.execution_datetime.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 4 Byte Ascii String
+  -- Year: numeric
   index, year = finra_finraorf_tdds_dfi_v2_1.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 2 Byte Ascii String
+  -- Month: numeric
   index, month = finra_finraorf_tdds_dfi_v2_1.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 2 Byte Ascii String
+  -- Day: numeric
   index, day = finra_finraorf_tdds_dfi_v2_1.day.dissect(buffer, index, packet, parent)
 
-  -- Hour: 2 Byte Ascii String
+  -- Hour: numeric
   index, hour = finra_finraorf_tdds_dfi_v2_1.hour.dissect(buffer, index, packet, parent)
 
-  -- Minute: 2 Byte Ascii String
+  -- Minute: numeric
   index, minute = finra_finraorf_tdds_dfi_v2_1.minute.dissect(buffer, index, packet, parent)
 
-  -- Second: 2 Byte Ascii String
+  -- Second: numeric
   index, second = finra_finraorf_tdds_dfi_v2_1.second.dissect(buffer, index, packet, parent)
 
-  -- Fractional Second: 9 Byte Ascii String
+  -- Fractional Second: numeric
   index, fractional_second = finra_finraorf_tdds_dfi_v2_1.fractional_second.dissect(buffer, index, packet, parent)
 
   return index
@@ -2844,37 +2844,37 @@ end
 finra_finraorf_tdds_dfi_v2_1.corrected_trade_information.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Report Volume: 8 Byte Ascii String
+  -- Report Volume: Numeric
   index, report_volume = finra_finraorf_tdds_dfi_v2_1.report_volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Denominator: 1 Byte Ascii String
+  -- Trade Price Denominator: Alphanumeric
   index, trade_price_denominator = finra_finraorf_tdds_dfi_v2_1.trade_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 12 Byte Ascii String
+  -- Trade Price: Alphanumeric
   index, trade_price = finra_finraorf_tdds_dfi_v2_1.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alphanumeric
   index, currency = finra_finraorf_tdds_dfi_v2_1.currency.dissect(buffer, index, packet, parent)
 
-  -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
+  -- As Of Indicator: Alphabetic
   index, as_of_indicator = finra_finraorf_tdds_dfi_v2_1.as_of_indicator.dissect(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
   index, execution_datetime = finra_finraorf_tdds_dfi_v2_1.execution_datetime.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 1: Alphanumeric
   index, sale_condition_level_1 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_1.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 2: 1 Byte Ascii String
+  -- Sale Condition Level 2: Alphanumeric
   index, sale_condition_level_2 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_2.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 3: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 3: Alphanumeric
   index, sale_condition_level_3 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_3.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 4: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 4: Alphanumeric
   index, sale_condition_level_4 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_4.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 2 Byte Ascii String
+  -- Sellers Sale Days: Numeric
   index, sellers_sale_days = finra_finraorf_tdds_dfi_v2_1.sellers_sale_days.dissect(buffer, index, packet, parent)
 
   return index
@@ -2924,37 +2924,37 @@ end
 finra_finraorf_tdds_dfi_v2_1.original_trade_information.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Report Volume: 8 Byte Ascii String
+  -- Report Volume: Numeric
   index, report_volume = finra_finraorf_tdds_dfi_v2_1.report_volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Denominator: 1 Byte Ascii String
+  -- Trade Price Denominator: Alphanumeric
   index, trade_price_denominator = finra_finraorf_tdds_dfi_v2_1.trade_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 12 Byte Ascii String
+  -- Trade Price: Alphanumeric
   index, trade_price = finra_finraorf_tdds_dfi_v2_1.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alphanumeric
   index, currency = finra_finraorf_tdds_dfi_v2_1.currency.dissect(buffer, index, packet, parent)
 
-  -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
+  -- As Of Indicator: Alphabetic
   index, as_of_indicator = finra_finraorf_tdds_dfi_v2_1.as_of_indicator.dissect(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
   index, execution_datetime = finra_finraorf_tdds_dfi_v2_1.execution_datetime.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 1: Alphanumeric
   index, sale_condition_level_1 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_1.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 2: 1 Byte Ascii String
+  -- Sale Condition Level 2: Alphanumeric
   index, sale_condition_level_2 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_2.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 3: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 3: Alphanumeric
   index, sale_condition_level_3 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_3.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 4: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 4: Alphanumeric
   index, sale_condition_level_4 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_4.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 2 Byte Ascii String
+  -- Sellers Sale Days: Numeric
   index, sellers_sale_days = finra_finraorf_tdds_dfi_v2_1.sellers_sale_days.dissect(buffer, index, packet, parent)
 
   return index
@@ -2996,13 +2996,13 @@ end
 finra_finraorf_tdds_dfi_v2_1.original_dissemination_date.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Year: 4 Byte Ascii String
+  -- Year: numeric
   index, year = finra_finraorf_tdds_dfi_v2_1.year.dissect(buffer, index, packet, parent)
 
-  -- Month: 2 Byte Ascii String
+  -- Month: numeric
   index, month = finra_finraorf_tdds_dfi_v2_1.month.dissect(buffer, index, packet, parent)
 
-  -- Day: 2 Byte Ascii String
+  -- Day: numeric
   index, day = finra_finraorf_tdds_dfi_v2_1.day.dissect(buffer, index, packet, parent)
 
   return index
@@ -3051,13 +3051,13 @@ finra_finraorf_tdds_dfi_v2_1.trade_correction_message.fields = function(buffer, 
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 14 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = finra_finraorf_tdds_dfi_v2_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Original Dissemination Date: Struct of 3 fields
   index, original_dissemination_date = finra_finraorf_tdds_dfi_v2_1.original_dissemination_date.dissect(buffer, index, packet, parent)
 
-  -- Report Function: 1 Byte Ascii String Enum with 3 values
+  -- Report Function: Alphanumeric
   index, report_function = finra_finraorf_tdds_dfi_v2_1.report_function.dissect(buffer, index, packet, parent)
 
   -- Original Trade Information: Struct of 11 fields
@@ -3114,13 +3114,13 @@ finra_finraorf_tdds_dfi_v2_1.trade_cancel_error_message.fields = function(buffer
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 14 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = finra_finraorf_tdds_dfi_v2_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Original Dissemination Date: Struct of 3 fields
   index, original_dissemination_date = finra_finraorf_tdds_dfi_v2_1.original_dissemination_date.dissect(buffer, index, packet, parent)
 
-  -- Report Function: 1 Byte Ascii String Enum with 3 values
+  -- Report Function: Alphanumeric
   index, report_function = finra_finraorf_tdds_dfi_v2_1.report_function.dissect(buffer, index, packet, parent)
 
   -- Original Trade Information: Struct of 11 fields
@@ -3177,40 +3177,40 @@ end
 finra_finraorf_tdds_dfi_v2_1.trade_information.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Report Volume: 8 Byte Ascii String
+  -- Report Volume: Numeric
   index, report_volume = finra_finraorf_tdds_dfi_v2_1.report_volume.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Denominator: 1 Byte Ascii String
+  -- Trade Price Denominator: Alphanumeric
   index, trade_price_denominator = finra_finraorf_tdds_dfi_v2_1.trade_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 12 Byte Ascii String
+  -- Trade Price: Alphanumeric
   index, trade_price = finra_finraorf_tdds_dfi_v2_1.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Currency: 3 Byte Ascii String
+  -- Currency: Alphanumeric
   index, currency = finra_finraorf_tdds_dfi_v2_1.currency.dissect(buffer, index, packet, parent)
 
-  -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
+  -- As Of Indicator: Alphabetic
   index, as_of_indicator = finra_finraorf_tdds_dfi_v2_1.as_of_indicator.dissect(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
   index, execution_datetime = finra_finraorf_tdds_dfi_v2_1.execution_datetime.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 1: Alphanumeric
   index, sale_condition_level_1 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_1.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 2: 1 Byte Ascii String
+  -- Sale Condition Level 2: Alphanumeric
   index, sale_condition_level_2 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_2.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 3: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 3: Alphanumeric
   index, sale_condition_level_3 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_3.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 4: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 4: Alphanumeric
   index, sale_condition_level_4 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_4.dissect(buffer, index, packet, parent)
 
-  -- Sellers Sale Days: 2 Byte Ascii String
+  -- Sellers Sale Days: Numeric
   index, sellers_sale_days = finra_finraorf_tdds_dfi_v2_1.sellers_sale_days.dissect(buffer, index, packet, parent)
 
-  -- Price Change Indicator: 1 Byte Ascii String Enum with 8 values
+  -- Price Change Indicator: Alphanumeric
   index, price_change_indicator = finra_finraorf_tdds_dfi_v2_1.price_change_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3256,7 +3256,7 @@ finra_finraorf_tdds_dfi_v2_1.trade_report_long_form_message.fields = function(bu
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 14 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = finra_finraorf_tdds_dfi_v2_1.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Original Dissemination Date: Struct of 3 fields
@@ -3311,22 +3311,22 @@ finra_finraorf_tdds_dfi_v2_1.trade_report_short_form_message.fields = function(b
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol Short: 5 Byte Ascii String
+  -- Security Symbol Short: Alphanumeric
   index, security_symbol_short = finra_finraorf_tdds_dfi_v2_1.security_symbol_short.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
+  -- Sale Condition Level 1: Alphanumeric
   index, sale_condition_level_1 = finra_finraorf_tdds_dfi_v2_1.sale_condition_level_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Denominator: 1 Byte Ascii String
+  -- Trade Price Denominator: Alphanumeric
   index, trade_price_denominator = finra_finraorf_tdds_dfi_v2_1.trade_price_denominator.dissect(buffer, index, packet, parent)
 
-  -- Trade Price Short: 6 Byte Ascii String
+  -- Trade Price Short: Numeric
   index, trade_price_short = finra_finraorf_tdds_dfi_v2_1.trade_price_short.dissect(buffer, index, packet, parent)
 
-  -- Report Volume Short: 6 Byte Ascii String
+  -- Report Volume Short: Numeric
   index, report_volume_short = finra_finraorf_tdds_dfi_v2_1.report_volume_short.dissect(buffer, index, packet, parent)
 
-  -- Price Change Indicator: 1 Byte Ascii String Enum with 8 values
+  -- Price Change Indicator: Alphanumeric
   index, price_change_indicator = finra_finraorf_tdds_dfi_v2_1.price_change_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3350,11 +3350,11 @@ finra_finraorf_tdds_dfi_v2_1.trade_report_short_form_message.dissect = function(
   end
 end
 
--- Trade Payload
-finra_finraorf_tdds_dfi_v2_1.trade_payload = {}
+-- Trade Message Payload
+finra_finraorf_tdds_dfi_v2_1.trade_message_payload = {}
 
--- Dissect: Trade Payload
-finra_finraorf_tdds_dfi_v2_1.trade_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
+-- Dissect: Trade Message Payload
+finra_finraorf_tdds_dfi_v2_1.trade_message_payload.dissect = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Trade Report Short Form Message
   if trade_message_type == "5" then
     return finra_finraorf_tdds_dfi_v2_1.trade_report_short_form_message.dissect(buffer, offset, packet, parent)
@@ -3375,56 +3375,56 @@ finra_finraorf_tdds_dfi_v2_1.trade_payload.dissect = function(buffer, offset, pa
   return offset
 end
 
--- Trade
-finra_finraorf_tdds_dfi_v2_1.trade = {}
+-- Trade Message
+finra_finraorf_tdds_dfi_v2_1.trade_message = {}
 
--- Calculate size of: Trade
-finra_finraorf_tdds_dfi_v2_1.trade.size = function(buffer, offset)
+-- Calculate size of: Trade Message
+finra_finraorf_tdds_dfi_v2_1.trade_message.size = function(buffer, offset)
   local index = 0
 
   index = index + finra_finraorf_tdds_dfi_v2_1.trade_message_type.size
 
-  -- Calculate runtime size of Trade Payload field
-  local trade_payload_offset = offset + index
-  local trade_payload_type = buffer(trade_payload_offset - 1, 1):string()
-  index = index + finra_finraorf_tdds_dfi_v2_1.trade_payload.size(buffer, trade_payload_offset, trade_payload_type)
+  -- Calculate runtime size of Trade Message Payload field
+  local trade_message_payload_offset = offset + index
+  local trade_message_payload_type = buffer(trade_message_payload_offset - 1, 1):string()
+  index = index + finra_finraorf_tdds_dfi_v2_1.trade_message_payload.size(buffer, trade_message_payload_offset, trade_message_payload_type)
 
   return index
 end
 
--- Display: Trade
-finra_finraorf_tdds_dfi_v2_1.trade.display = function(packet, parent, length)
+-- Display: Trade Message
+finra_finraorf_tdds_dfi_v2_1.trade_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trade
-finra_finraorf_tdds_dfi_v2_1.trade.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Message
+finra_finraorf_tdds_dfi_v2_1.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trade Message Type: 1 Byte Ascii String Enum with 4 values
   index, trade_message_type = finra_finraorf_tdds_dfi_v2_1.trade_message_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Payload: Runtime Type with 4 branches
-  index = finra_finraorf_tdds_dfi_v2_1.trade_payload.dissect(buffer, index, packet, parent, trade_message_type)
+  -- Trade Message Payload: Runtime Type with 4 branches
+  index = finra_finraorf_tdds_dfi_v2_1.trade_message_payload.dissect(buffer, index, packet, parent, trade_message_type)
 
   return index
 end
 
--- Dissect: Trade
-finra_finraorf_tdds_dfi_v2_1.trade.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Message
+finra_finraorf_tdds_dfi_v2_1.trade_message.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.trade, buffer(offset, 0))
-    local index = finra_finraorf_tdds_dfi_v2_1.trade.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_message, buffer(offset, 0))
+    local index = finra_finraorf_tdds_dfi_v2_1.trade_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = finra_finraorf_tdds_dfi_v2_1.trade.display(packet, parent, length)
+    local display = finra_finraorf_tdds_dfi_v2_1.trade_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return finra_finraorf_tdds_dfi_v2_1.trade.fields(buffer, offset, packet, parent)
+    return finra_finraorf_tdds_dfi_v2_1.trade_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3433,17 +3433,17 @@ finra_finraorf_tdds_dfi_v2_1.payload = {}
 
 -- Dissect: Payload
 finra_finraorf_tdds_dfi_v2_1.payload.dissect = function(buffer, offset, packet, parent, message_category)
-  -- Dissect Trade
+  -- Dissect Trade Message
   if message_category == "T" then
-    return finra_finraorf_tdds_dfi_v2_1.trade.dissect(buffer, offset, packet, parent)
+    return finra_finraorf_tdds_dfi_v2_1.trade_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Administrative
+  -- Dissect Administrative Message
   if message_category == "A" then
-    return finra_finraorf_tdds_dfi_v2_1.administrative.dissect(buffer, offset, packet, parent)
+    return finra_finraorf_tdds_dfi_v2_1.administrative_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Control
+  -- Dissect Control Message
   if message_category == "C" then
-    return finra_finraorf_tdds_dfi_v2_1.control.dissect(buffer, offset, packet, parent)
+    return finra_finraorf_tdds_dfi_v2_1.control_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
