@@ -1,0 +1,373 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Aquis AquisEquities TcpHeader Amd 1.0 Protocol
+local omi_aquis_aquisequities_tcpheader_amd_v1_0 = Proto("Omi.Aquis.AquisEquities.TcpHeader.Amd.v1.0", "Aquis AquisEquities TcpHeader Amd 1.0")
+
+-- Protocol table
+local aquis_aquisequities_tcpheader_amd_v1_0 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Aquis AquisEquities TcpHeader Amd 1.0 Fields
+omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.msg_length = ProtoField.new("Msg Length", "aquis.aquisequities.tcpheader.amd.v1.0.msglength", ftypes.UINT8)
+omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg Type", "aquis.aquisequities.tcpheader.amd.v1.0.msgtype", ftypes.UINT8)
+omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.tcpheader.amd.v1.0.payload", ftypes.BYTES)
+omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.tcpheader.amd.v1.0.seqno", ftypes.UINT32)
+
+-- Aquis AquisEquities TcpHeader Amd 1.0 Headers
+omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tcpheader.amd.v1.0.message", ftypes.STRING)
+omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tcpheader.amd.v1.0.messageheader", ftypes.STRING)
+omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tcpheader.amd.v1.0.packet", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Aquis AquisEquities TcpHeader Amd 1.0 Element Dissection Options
+show.structs = true
+
+-- Register Aquis AquisEquities TcpHeader Amd 1.0 Show Options
+omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+
+-- Handle changed preferences
+function omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.structs ~= omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_structs then
+    show.structs = omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_structs
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Aquis AquisEquities TcpHeader Amd 1.0 Fields
+-----------------------------------------------------------------------
+
+-- Msg Length
+aquis_aquisequities_tcpheader_amd_v1_0.msg_length = {}
+
+-- Size: Msg Length
+aquis_aquisequities_tcpheader_amd_v1_0.msg_length.size = 1
+
+-- Display: Msg Length
+aquis_aquisequities_tcpheader_amd_v1_0.msg_length.display = function(value)
+  return "Msg Length: "..value
+end
+
+-- Dissect: Msg Length
+aquis_aquisequities_tcpheader_amd_v1_0.msg_length.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tcpheader_amd_v1_0.msg_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_aquisequities_tcpheader_amd_v1_0.msg_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.msg_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Type
+aquis_aquisequities_tcpheader_amd_v1_0.msg_type = {}
+
+-- Size: Msg Type
+aquis_aquisequities_tcpheader_amd_v1_0.msg_type.size = 1
+
+-- Display: Msg Type
+aquis_aquisequities_tcpheader_amd_v1_0.msg_type.display = function(value)
+  return "Msg Type: "..value
+end
+
+-- Dissect: Msg Type
+aquis_aquisequities_tcpheader_amd_v1_0.msg_type.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tcpheader_amd_v1_0.msg_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_aquisequities_tcpheader_amd_v1_0.msg_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.msg_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Payload
+aquis_aquisequities_tcpheader_amd_v1_0.payload = {}
+
+-- Size: Payload
+aquis_aquisequities_tcpheader_amd_v1_0.payload.size = 0
+
+-- Display: Payload
+aquis_aquisequities_tcpheader_amd_v1_0.payload.display = function(value)
+  return "Payload: "..value
+end
+
+-- Dissect: Payload
+aquis_aquisequities_tcpheader_amd_v1_0.payload.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tcpheader_amd_v1_0.payload.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = aquis_aquisequities_tcpheader_amd_v1_0.payload.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.payload, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seq No
+aquis_aquisequities_tcpheader_amd_v1_0.seq_no = {}
+
+-- Size: Seq No
+aquis_aquisequities_tcpheader_amd_v1_0.seq_no.size = 4
+
+-- Display: Seq No
+aquis_aquisequities_tcpheader_amd_v1_0.seq_no.display = function(value)
+  return "Seq No: "..value
+end
+
+-- Dissect: Seq No
+aquis_aquisequities_tcpheader_amd_v1_0.seq_no.dissect = function(buffer, offset, packet, parent)
+  local length = aquis_aquisequities_tcpheader_amd_v1_0.seq_no.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = aquis_aquisequities_tcpheader_amd_v1_0.seq_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.seq_no, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Aquis AquisEquities TcpHeader Amd 1.0
+-----------------------------------------------------------------------
+
+-- Message Header
+aquis_aquisequities_tcpheader_amd_v1_0.message_header = {}
+
+-- Size: Message Header
+aquis_aquisequities_tcpheader_amd_v1_0.message_header.size =
+  aquis_aquisequities_tcpheader_amd_v1_0.msg_type.size + 
+  aquis_aquisequities_tcpheader_amd_v1_0.msg_length.size + 
+  aquis_aquisequities_tcpheader_amd_v1_0.seq_no.size
+
+-- Display: Message Header
+aquis_aquisequities_tcpheader_amd_v1_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+aquis_aquisequities_tcpheader_amd_v1_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Type: 1 Byte Unsigned Fixed Width Integer
+  index, msg_type = aquis_aquisequities_tcpheader_amd_v1_0.msg_type.dissect(buffer, index, packet, parent)
+
+  -- Msg Length: 1 Byte Unsigned Fixed Width Integer
+  index, msg_length = aquis_aquisequities_tcpheader_amd_v1_0.msg_length.dissect(buffer, index, packet, parent)
+
+  -- Seq No: 4 Byte Unsigned Fixed Width Integer
+  index, seq_no = aquis_aquisequities_tcpheader_amd_v1_0.seq_no.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+aquis_aquisequities_tcpheader_amd_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message_header, buffer(offset, 0))
+    local index = aquis_aquisequities_tcpheader_amd_v1_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = aquis_aquisequities_tcpheader_amd_v1_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return aquis_aquisequities_tcpheader_amd_v1_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+aquis_aquisequities_tcpheader_amd_v1_0.message = {}
+
+-- Display: Message
+aquis_aquisequities_tcpheader_amd_v1_0.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+aquis_aquisequities_tcpheader_amd_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset
+
+  -- Message Header: Struct of 3 fields
+  index, message_header = aquis_aquisequities_tcpheader_amd_v1_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Payload: 0 Byte
+  index, payload = aquis_aquisequities_tcpheader_amd_v1_0.payload.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message
+aquis_aquisequities_tcpheader_amd_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message, buffer(offset, 0))
+    local current = aquis_aquisequities_tcpheader_amd_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = aquis_aquisequities_tcpheader_amd_v1_0.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    aquis_aquisequities_tcpheader_amd_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Message
+local message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < aquis_aquisequities_tcpheader_amd_v1_0.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 1, 1):uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Packet
+aquis_aquisequities_tcpheader_amd_v1_0.packet = {}
+
+-- Verify required size of Tcp packet
+aquis_aquisequities_tcpheader_amd_v1_0.packet.requiredsize = function(buffer)
+  return buffer:len() >= aquis_aquisequities_tcpheader_amd_v1_0.message_count.size + aquis_aquisequities_tcpheader_amd_v1_0.message_header.size + aquis_aquisequities_tcpheader_amd_v1_0.payload.size
+end
+
+-- Dissect Packet
+aquis_aquisequities_tcpheader_amd_v1_0.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Message Count
+  index, message_count = aquis_aquisequities_tcpheader_amd_v1_0.message_count.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = aquis_aquisequities_tcpheader_amd_v1_0.message.dissect(buffer, index, packet, parent, size_of_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_aquis_aquisequities_tcpheader_amd_v1_0.init()
+end
+
+-- Dissector for Aquis AquisEquities TcpHeader Amd 1.0
+function omi_aquis_aquisequities_tcpheader_amd_v1_0.dissector(buffer, packet, parent)
+
+  -- Set protocol name
+  packet.cols.protocol = omi_aquis_aquisequities_tcpheader_amd_v1_0.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0, buffer(), omi_aquis_aquisequities_tcpheader_amd_v1_0.description, "("..buffer:len().." Bytes)")
+  return aquis_aquisequities_tcpheader_amd_v1_0.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Aquis AquisEquities TcpHeader Amd 1.0 (Tcp)
+local function omi_aquis_aquisequities_tcpheader_amd_v1_0_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not aquis_aquisequities_tcpheader_amd_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_aquis_aquisequities_tcpheader_amd_v1_0
+  omi_aquis_aquisequities_tcpheader_amd_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Aquis AquisEquities TcpHeader Amd 1.0
+omi_aquis_aquisequities_tcpheader_amd_v1_0:register_heuristic("tcp", omi_aquis_aquisequities_tcpheader_amd_v1_0_tcp_heuristic)
+
+-- Register Aquis AquisEquities TcpHeader Amd 1.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_aquis_aquisequities_tcpheader_amd_v1_0)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Aquis Exchange
+--   Version: 1.0
+--   Date: Friday, August 1, 2025
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: Public/GPLv3
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------
