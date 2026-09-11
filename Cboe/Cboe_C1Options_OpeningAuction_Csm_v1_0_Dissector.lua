@@ -1284,8 +1284,8 @@ cboe_c1options_openingauction_csm_v1_0.security_trading_status.size = 1
 
 -- Display: Security Trading Status
 cboe_c1options_openingauction_csm_v1_0.security_trading_status.display = function(value)
-  if value == 2 </P> <P> then
-    return "Security Trading Status: Halted (2 </P> <P>)"
+  if value == 2 then
+    return "Security Trading Status: Halted (2)"
   end
   if value == 17 then
     return "Security Trading Status: Open (17)"
