@@ -2678,7 +2678,7 @@ finra_finraorf_tdds_dfi_v2_0.general_administrative_message.size = function(buff
 
   index = index + finra_finraorf_tdds_dfi_v2_0.message_header.size
 
-  -- Remaining size of: Text, to the end of General Administrative Message, at most 300 bytes
+  -- Remaining size of: Text, at most 300 bytes
   index = index + math.min(buffer:len() - (offset + index), 300)
 
   return index
