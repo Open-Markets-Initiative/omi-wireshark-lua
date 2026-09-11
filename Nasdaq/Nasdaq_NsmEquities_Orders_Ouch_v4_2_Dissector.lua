@@ -27,7 +27,7 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares = ProtoField.new
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.orders.ouch.v4.2.display", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.orders.ouch.v4.2.eventcode", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.orders.ouch.v4.2.executedshares", ftypes.UINT32)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.nsmequities.orders.ouch.v4.2.executionprice", ftypes.UINT32)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.nsmequities.orders.ouch.v4.2.executionprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.existing_order_token = ProtoField.new("Existing Order Token", "nasdaq.nsmequities.orders.ouch.v4.2.existingordertoken", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.firm = ProtoField.new("Firm", "nasdaq.nsmequities.orders.ouch.v4.2.firm", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.intermarket_sweep_eligibility = ProtoField.new("Intermarket Sweep Eligibility", "nasdaq.nsmequities.orders.ouch.v4.2.intermarketsweepeligibility", ftypes.STRING)
@@ -676,11 +676,17 @@ nasdaq_nsmequities_orders_ouch_v4_2.execution_price.display = function(value)
   return "Execution Price: "..value
 end
 
+-- Translate: Execution Price
+nasdaq_nsmequities_orders_ouch_v4_2.execution_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Execution Price
 nasdaq_nsmequities_orders_ouch_v4_2.execution_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_orders_ouch_v4_2.execution_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_orders_ouch_v4_2.execution_price.translate(raw)
   local display = nasdaq_nsmequities_orders_ouch_v4_2.execution_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.execution_price, range, value, display)
