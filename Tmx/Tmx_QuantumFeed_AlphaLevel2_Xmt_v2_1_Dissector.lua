@@ -42,7 +42,7 @@ omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.order_id = ProtoField.new("Order
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.order_side = ProtoField.new("Order Side", "tmx.quantumfeed.alphalevel2.xmt.v2.1.orderside", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.orig_trade_number = ProtoField.new("Orig Trade Number", "tmx.quantumfeed.alphalevel2.xmt.v2.1.origtradenumber", ftypes.UINT32)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.price = ProtoField.new("Price", "tmx.quantumfeed.alphalevel2.xmt.v2.1.price", ftypes.DOUBLE)
-omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.priority_time_stamp = ProtoField.new("Priority Time Stamp", "tmx.quantumfeed.alphalevel2.xmt.v2.1.prioritytimestamp", ftypes.UINT32)
+omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.priority_time_stamp = ProtoField.new("Priority Time Stamp", "tmx.quantumfeed.alphalevel2.xmt.v2.1.prioritytimestamp", ftypes.UINT64)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.product_type = ProtoField.new("Product Type", "tmx.quantumfeed.alphalevel2.xmt.v2.1.producttype", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.alphalevel2.xmt.v2.1.protocolname", ftypes.STRING)
 omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.protocol_version = ProtoField.new("Protocol Version", "tmx.quantumfeed.alphalevel2.xmt.v2.1.protocolversion", ftypes.STRING)
@@ -927,18 +927,22 @@ end
 tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp = {}
 
 -- Size: Priority Time Stamp
-tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.size = 4
+tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.size = 8
 
 -- Display: Priority Time Stamp
 tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.display = function(value)
-  return "Priority Time Stamp: "..value
+  -- Parse unix microsecond timestamp
+  local seconds = (value / UInt64(1000000)):tonumber()
+  local microseconds = (value % UInt64(1000000)):tonumber()
+
+  return "Priority Time Stamp: "..os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%06d", microseconds)
 end
 
 -- Dissect: Priority Time Stamp
 tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.dissect = function(buffer, offset, packet, parent)
   local length = tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:le_uint64()
   local display = tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_quantumfeed_alphalevel2_xmt_v2_1.fields.priority_time_stamp, range, value, display)
@@ -2078,7 +2082,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_1.order_price_time_assigned_message.fields = 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
   index, volume = tmx_quantumfeed_alphalevel2_xmt_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
   index, priority_time_stamp = tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
@@ -2202,7 +2206,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_1.order_booked_message.fields = function(buff
   -- Volume: 4 Byte Unsigned Fixed Width Integer
   index, volume = tmx_quantumfeed_alphalevel2_xmt_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
   index, priority_time_stamp = tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.dissect(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
@@ -2317,7 +2321,7 @@ tmx_quantumfeed_alphalevel2_xmt_v2_1.order_book_message.fields = function(buffer
   -- Volume: 4 Byte Unsigned Fixed Width Integer
   index, volume = tmx_quantumfeed_alphalevel2_xmt_v2_1.volume.dissect(buffer, index, packet, parent)
 
-  -- Priority Time Stamp: 4 Byte Unsigned Fixed Width Integer
+  -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
   index, priority_time_stamp = tmx_quantumfeed_alphalevel2_xmt_v2_1.priority_time_stamp.dissect(buffer, index, packet, parent)
 
   return index
