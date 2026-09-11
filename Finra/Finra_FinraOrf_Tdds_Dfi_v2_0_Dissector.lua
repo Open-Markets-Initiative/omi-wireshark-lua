@@ -2672,10 +2672,16 @@ end
 -- General Administrative Message
 finra_finraorf_tdds_dfi_v2_0.general_administrative_message = {}
 
--- Size: General Administrative Message
-finra_finraorf_tdds_dfi_v2_0.general_administrative_message.size =
-  finra_finraorf_tdds_dfi_v2_0.message_header.size + 
-  finra_finraorf_tdds_dfi_v2_0.text.size
+-- Calculate size of: General Administrative Message
+finra_finraorf_tdds_dfi_v2_0.general_administrative_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + finra_finraorf_tdds_dfi_v2_0.message_header.size
+
+  index = index + finra_finraorf_tdds_dfi_v2_0.text.size
+
+  return index
+end
 
 -- Display: General Administrative Message
 finra_finraorf_tdds_dfi_v2_0.general_administrative_message.display = function(packet, parent, length)
