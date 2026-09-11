@@ -43,6 +43,8 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.lot_size = ProtoField.new(
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.market_id = ProtoField.new("Market Id", "nyse.amexoptions.complexfeed.pillar.v1.0.h.marketid", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.market_state = ProtoField.new("Market State", "nyse.amexoptions.complexfeed.pillar.v1.0.h.marketstate", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.amexoptions.complexfeed.pillar.v1.0.h.maturitydate", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message = ProtoField.new("Message", "nyse.amexoptions.complexfeed.pillar.v1.0.h.message", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_size = ProtoField.new("Message Size", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messagesize", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_type = ProtoField.new("Message Type", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messagetype", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexoptions.complexfeed.pillar.v1.0.h.nanoseconds", ftypes.UINT32)
@@ -63,14 +65,14 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.product_id = ProtoField.ne
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.amexoptions.complexfeed.pillar.v1.0.h.putorcall", ftypes.UINT8)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.amexoptions.complexfeed.pillar.v1.0.h.quotecondition", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexoptions.complexfeed.pillar.v1.0.h.requestseqnum", ftypes.UINT32)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexoptions.complexfeed.pillar.v1.0.h.reserved1", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexoptions.complexfeed.pillar.v1.0.h.reserved2", ftypes.UINT16)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexoptions.complexfeed.pillar.v1.0.h.reserved4", ftypes.UINT32)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexoptions.complexfeed.pillar.v1.0.h.reserved1", ftypes.BYTES)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexoptions.complexfeed.pillar.v1.0.h.reserved2", ftypes.BYTES)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexoptions.complexfeed.pillar.v1.0.h.reserved4", ftypes.BYTES)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexoptions.complexfeed.pillar.v1.0.h.retransmitmethod", ftypes.UINT8)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.rfq_status = ProtoField.new("Rfq Status", "nyse.amexoptions.complexfeed.pillar.v1.0.h.rfqstatus", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexoptions.complexfeed.pillar.v1.0.h.roundlot", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nyse.amexoptions.complexfeed.pillar.v1.0.h.secondreserved1", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nyse.amexoptions.complexfeed.pillar.v1.0.h.secondreserved2", ftypes.UINT16)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nyse.amexoptions.complexfeed.pillar.v1.0.h.secondreserved1", ftypes.BYTES)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nyse.amexoptions.complexfeed.pillar.v1.0.h.secondreserved2", ftypes.BYTES)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.pillar.v1.0.h.seconds", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.complexfeed.pillar.v1.0.h.securitystatus", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.security_type = ProtoField.new("Security Type", "nyse.amexoptions.complexfeed.pillar.v1.0.h.securitytype", ftypes.STRING)
@@ -93,8 +95,8 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.symbol = ProtoField.new("S
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amexoptions.complexfeed.pillar.v1.0.h.symbolindex", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexoptions.complexfeed.pillar.v1.0.h.symbolseqnum", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.system_id = ProtoField.new("System Id", "nyse.amexoptions.complexfeed.pillar.v1.0.h.systemid", ftypes.UINT8)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "nyse.amexoptions.complexfeed.pillar.v1.0.h.thirdreserved1", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_2 = ProtoField.new("Third Reserved 2", "nyse.amexoptions.complexfeed.pillar.v1.0.h.thirdreserved2", ftypes.UINT16)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "nyse.amexoptions.complexfeed.pillar.v1.0.h.thirdreserved1", ftypes.BYTES)
+omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_2 = ProtoField.new("Third Reserved 2", "nyse.amexoptions.complexfeed.pillar.v1.0.h.thirdreserved2", ftypes.BYTES)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.time = ProtoField.new("Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.time", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.total_quantity = ProtoField.new("Total Quantity", "nyse.amexoptions.complexfeed.pillar.v1.0.h.totalquantity", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.amexoptions.complexfeed.pillar.v1.0.h.totalrefreshpkts", ftypes.UINT16)
@@ -108,8 +110,6 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.volume = ProtoField.new("V
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.complexfeed.pillar.v1.0.h.workingprice", ftypes.INT32)
 
 -- Nyse AmexOptions ComplexFeed Pillar 1.0.h Headers
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message = ProtoField.new("Message", "nyse.amexoptions.complexfeed.pillar.v1.0.h.message", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packet", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.complexfeed.pillar.v1.0.h.packetheader", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.pillar.v1.0.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
@@ -1675,7 +1675,7 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_1, range, value, display)
@@ -1698,7 +1698,7 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_2, range, value, display)
@@ -1721,7 +1721,7 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.reserved_4, range, value, display)
@@ -1831,7 +1831,7 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_1, range, value, display)
@@ -1854,7 +1854,7 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.second_reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_2, range, value, display)
@@ -2692,7 +2692,7 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_1, range, value, display)
@@ -2715,7 +2715,7 @@ end
 nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.third_reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_2, range, value, display)
@@ -4605,6 +4605,16 @@ end
 -- Message
 nyse_amexoptions_complexfeed_pillar_v1_0_h.message = {}
 
+-- Read runtime size of: Message
+nyse_amexoptions_complexfeed_pillar_v1_0_h.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_amexoptions_complexfeed_pillar_v1_0_h.message.display = function(packet, parent, length)
   return ""
@@ -4640,6 +4650,7 @@ end
 
 -- Dissect: Message
 nyse_amexoptions_complexfeed_pillar_v1_0_h.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_amexoptions_complexfeed_pillar_v1_0_h.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4657,6 +4668,45 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.message.dissect = function(buffer, of
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_amexoptions_complexfeed_pillar_v1_0_h.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_amexoptions_complexfeed_pillar_v1_0_h.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_amexoptions_complexfeed_pillar_v1_0_h.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_amexoptions_complexfeed_pillar_v1_0_h.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_amexoptions_complexfeed_pillar_v1_0_h.messages = {}
+
+-- Dissect: Messages
+nyse_amexoptions_complexfeed_pillar_v1_0_h.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_amexoptions_complexfeed_pillar_v1_0_h.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_amexoptions_complexfeed_pillar_v1_0_h.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -4800,20 +4850,11 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.packet.dissect = function(buffer, pac
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_amexoptions_complexfeed_pillar_v1_0_h.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_amexoptions_complexfeed_pillar_v1_0_h.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_amexoptions_complexfeed_pillar_v1_0_h.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end

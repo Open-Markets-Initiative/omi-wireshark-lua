@@ -49,9 +49,9 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_scale_code = Pr
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.productid", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.remaining_count = ProtoField.new("Remaining Count", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.remainingcount", ftypes.UINT16)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.requestseqnum", ftypes.UINT32)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.reserved1", ftypes.UINT8)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.reserved2", ftypes.UINT16)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.reserved4", ftypes.UINT32)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.reserved1", ftypes.BYTES)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.reserved2", ftypes.BYTES)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.reserved4", ftypes.BYTES)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.retransmitmethod", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.roundlot", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.security_status = ProtoField.new("Security Status", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.securitystatus", ftypes.STRING)
@@ -1119,7 +1119,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_1, range, value, display)
@@ -1142,7 +1142,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_2, range, value, display)
@@ -1165,7 +1165,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_4, range, value, display)

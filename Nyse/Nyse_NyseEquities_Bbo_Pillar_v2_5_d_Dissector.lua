@@ -32,6 +32,8 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.last_symbol_seq_num = ProtoField.
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.lot_size = ProtoField.new("Lot Size", "nyse.nyseequities.bbo.pillar.v2.5.d.lotsize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.bbo.pillar.v2.5.d.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.bbo.pillar.v2.5.d.marketstate", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.d.message", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.d.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.bbo.pillar.v2.5.d.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.bbo.pillar.v2.5.d.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.bbo.pillar.v2.5.d.mpv", ftypes.UINT16)
@@ -48,9 +50,9 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.price_scale_code = ProtoField.new
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.product_id = ProtoField.new("Product Id", "nyse.nyseequities.bbo.pillar.v2.5.d.productid", ftypes.UINT8)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.nyseequities.bbo.pillar.v2.5.d.quotecondition", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.nyseequities.bbo.pillar.v2.5.d.requestseqnum", ftypes.UINT32)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.nyseequities.bbo.pillar.v2.5.d.reserved1", ftypes.UINT8)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.nyseequities.bbo.pillar.v2.5.d.reserved2", ftypes.UINT16)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.bbo.pillar.v2.5.d.reserved4", ftypes.UINT32)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.nyseequities.bbo.pillar.v2.5.d.reserved1", ftypes.BYTES)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.nyseequities.bbo.pillar.v2.5.d.reserved2", ftypes.BYTES)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.bbo.pillar.v2.5.d.reserved4", ftypes.BYTES)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.bbo.pillar.v2.5.d.retransmitmethod", ftypes.UINT8)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.bbo.pillar.v2.5.d.roundlot", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.nyseequities.bbo.pillar.v2.5.d.rpiindicator", ftypes.STRING)
@@ -75,8 +77,6 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.total_refresh_pkts = ProtoField.n
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.bbo.pillar.v2.5.d.unitoftrade", ftypes.UINT16)
 
 -- Nyse NyseEquities Bbo Pillar 2.5.d Headers
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.d.message", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.d.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.pillar.v2.5.d.packet", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.pillar.v2.5.d.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
@@ -1183,7 +1183,7 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_d.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bbo_pillar_v2_5_d.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_bbo_pillar_v2_5_d.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_1, range, value, display)
@@ -1206,7 +1206,7 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_d.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bbo_pillar_v2_5_d.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_bbo_pillar_v2_5_d.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_2, range, value, display)
@@ -1229,7 +1229,7 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_d.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bbo_pillar_v2_5_d.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_bbo_pillar_v2_5_d.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.reserved_4, range, value, display)
@@ -3011,6 +3011,16 @@ end
 -- Message
 nyse_nyseequities_bbo_pillar_v2_5_d.message = {}
 
+-- Read runtime size of: Message
+nyse_nyseequities_bbo_pillar_v2_5_d.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_nyseequities_bbo_pillar_v2_5_d.message.display = function(packet, parent, length)
   return ""
@@ -3046,6 +3056,7 @@ end
 
 -- Dissect: Message
 nyse_nyseequities_bbo_pillar_v2_5_d.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_nyseequities_bbo_pillar_v2_5_d.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3063,6 +3074,45 @@ nyse_nyseequities_bbo_pillar_v2_5_d.message.dissect = function(buffer, offset, p
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_nyseequities_bbo_pillar_v2_5_d.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_nyseequities_bbo_pillar_v2_5_d.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_nyseequities_bbo_pillar_v2_5_d.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_nyseequities_bbo_pillar_v2_5_d.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_nyseequities_bbo_pillar_v2_5_d.messages = {}
+
+-- Dissect: Messages
+nyse_nyseequities_bbo_pillar_v2_5_d.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_nyseequities_bbo_pillar_v2_5_d.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_nyseequities_bbo_pillar_v2_5_d.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -3206,20 +3256,11 @@ nyse_nyseequities_bbo_pillar_v2_5_d.packet.dissect = function(buffer, packet, pa
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_nyseequities_bbo_pillar_v2_5_d.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_nyseequities_bbo_pillar_v2_5_d.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_nyseequities_bbo_pillar_v2_5_d.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end

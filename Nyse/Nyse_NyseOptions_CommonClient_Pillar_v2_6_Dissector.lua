@@ -16,6 +16,8 @@ local nyse_nyseoptions_commonclient_pillar_v2_6 = {}
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Fields
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.nyseoptions.commonclient.pillar.v2.6.deliveryflag", ftypes.UINT8)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.nyseoptions.commonclient.pillar.v2.6.message", ftypes.STRING)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.nyseoptions.commonclient.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_size = ProtoField.new("Message Size", "nyse.nyseoptions.commonclient.pillar.v2.6.messagesize", ftypes.UINT16)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_type = ProtoField.new("Message Type", "nyse.nyseoptions.commonclient.pillar.v2.6.messagetype", ftypes.UINT16)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.nyseoptions.commonclient.pillar.v2.6.nanoseconds", ftypes.UINT32)
@@ -26,8 +28,6 @@ omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("S
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseoptions.commonclient.pillar.v2.6.seqnum", ftypes.UINT32)
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Headers
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.nyseoptions.commonclient.pillar.v2.6.message", ftypes.STRING)
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.nyseoptions.commonclient.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nyseoptions.commonclient.pillar.v2.6.packet", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseoptions.commonclient.pillar.v2.6.packetheader", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
@@ -380,6 +380,16 @@ end
 -- Message
 nyse_nyseoptions_commonclient_pillar_v2_6.message = {}
 
+-- Read runtime size of: Message
+nyse_nyseoptions_commonclient_pillar_v2_6.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_nyseoptions_commonclient_pillar_v2_6.message.display = function(packet, parent, length)
   return ""
@@ -412,6 +422,7 @@ end
 
 -- Dissect: Message
 nyse_nyseoptions_commonclient_pillar_v2_6.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_nyseoptions_commonclient_pillar_v2_6.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -429,6 +440,45 @@ nyse_nyseoptions_commonclient_pillar_v2_6.message.dissect = function(buffer, off
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_nyseoptions_commonclient_pillar_v2_6.messages = {}
+
+-- Dissect: Messages
+nyse_nyseoptions_commonclient_pillar_v2_6.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_nyseoptions_commonclient_pillar_v2_6.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_nyseoptions_commonclient_pillar_v2_6.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -563,20 +613,11 @@ nyse_nyseoptions_commonclient_pillar_v2_6.packet.dissect = function(buffer, pack
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_nyseoptions_commonclient_pillar_v2_6.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_nyseoptions_commonclient_pillar_v2_6.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_nyseoptions_commonclient_pillar_v2_6.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end

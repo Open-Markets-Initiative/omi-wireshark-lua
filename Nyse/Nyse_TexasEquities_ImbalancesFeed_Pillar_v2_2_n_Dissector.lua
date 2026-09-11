@@ -38,6 +38,8 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.lower_collar = ProtoF
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.market_id = ProtoField.new("Market Id", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.marketid", ftypes.UINT16)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.market_state = ProtoField.new("Market State", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.marketstate", ftypes.STRING)
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_size = ProtoField.new("Message Size", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.messagesize", ftypes.UINT16)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_type = ProtoField.new("Message Type", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.messagetype", ftypes.UINT16)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.mpv = ProtoField.new("Mpv", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.mpv", ftypes.UINT16)
@@ -56,9 +58,9 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.price_scale_code = Pr
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.product_id = ProtoField.new("Product Id", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.productid", ftypes.UINT8)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reference_price = ProtoField.new("Reference Price", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.referenceprice", ftypes.INT32)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.requestseqnum", ftypes.UINT32)
-omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.reserved1", ftypes.STRING)
-omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.reserved2", ftypes.UINT16)
-omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.reserved4", ftypes.UINT32)
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.reserved1", ftypes.BYTES)
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.reserved2", ftypes.BYTES)
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.reserved4", ftypes.BYTES)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.retransmitmethod", ftypes.UINT8)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.round_lot = ProtoField.new("Round Lot", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.roundlot", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.seconds = ProtoField.new("Seconds", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.seconds", ftypes.UINT32)
@@ -87,8 +89,6 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_side = Proto
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.uppercollar", ftypes.UINT32)
 
 -- Nyse TexasEquities ImbalancesFeed Pillar 2.2.n Headers
-omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
-omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.packet = ProtoField.new("Packet", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.packet", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.packetheader", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.send_time = ProtoField.new("Send Time", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
@@ -1424,7 +1424,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_1, range, value, display)
@@ -1447,7 +1447,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_2, range, value, display)
@@ -1470,7 +1470,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.reserved_4, range, value, display)
@@ -3511,6 +3511,16 @@ end
 -- Message
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message = {}
 
+-- Read runtime size of: Message
+nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message.display = function(packet, parent, length)
   return ""
@@ -3546,6 +3556,7 @@ end
 
 -- Dissect: Message
 nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3563,6 +3574,45 @@ nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message.dissect = function(buffe
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_texasequities_imbalancesfeed_pillar_v2_2_n.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_texasequities_imbalancesfeed_pillar_v2_2_n.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_texasequities_imbalancesfeed_pillar_v2_2_n.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_texasequities_imbalancesfeed_pillar_v2_2_n.messages = {}
+
+-- Dissect: Messages
+nyse_texasequities_imbalancesfeed_pillar_v2_2_n.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_texasequities_imbalancesfeed_pillar_v2_2_n.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -3706,20 +3756,11 @@ nyse_texasequities_imbalancesfeed_pillar_v2_2_n.packet.dissect = function(buffer
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_texasequities_imbalancesfeed_pillar_v2_2_n.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end

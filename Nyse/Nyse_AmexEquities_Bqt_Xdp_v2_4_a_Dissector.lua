@@ -77,8 +77,8 @@ omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.quote_condition = ProtoField.new("Qu
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reason = ProtoField.new("Reason", "nyse.amexequities.bqt.xdp.v2.4.a.reason", ftypes.UINT8)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexequities.bqt.xdp.v2.4.a.requestseqnum", ftypes.UINT32)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reserved = ProtoField.new("Reserved", "nyse.amexequities.bqt.xdp.v2.4.a.reserved", ftypes.UINT8, nil, base.DEC, 0xFC)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.bqt.xdp.v2.4.a.reserved1", ftypes.UINT8)
-omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexequities.bqt.xdp.v2.4.a.reserved2", ftypes.UINT16)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.bqt.xdp.v2.4.a.reserved1", ftypes.BYTES)
+omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexequities.bqt.xdp.v2.4.a.reserved2", ftypes.BYTES)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.retail_interest_on_the_ask_side = ProtoField.new("Retail Interest On The Ask Side", "nyse.amexequities.bqt.xdp.v2.4.a.retailinterestontheaskside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.retail_interest_on_the_bid_side = ProtoField.new("Retail Interest On The Bid Side", "nyse.amexequities.bqt.xdp.v2.4.a.retailinterestonthebidside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.amexequities.bqt.xdp.v2.4.a.retailpricingindicator", ftypes.STRING)
@@ -1962,7 +1962,7 @@ end
 nyse_amexequities_bqt_xdp_v2_4_a.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexequities_bqt_xdp_v2_4_a.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reserved_1, range, value, display)
@@ -1985,7 +1985,7 @@ end
 nyse_amexequities_bqt_xdp_v2_4_a.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_bqt_xdp_v2_4_a.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_amexequities_bqt_xdp_v2_4_a.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_bqt_xdp_v2_4_a.fields.reserved_2, range, value, display)

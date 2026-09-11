@@ -38,6 +38,8 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.lower_collar = ProtoFi
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.marketstate", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.message", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.mpv", ftypes.UINT16)
@@ -88,8 +90,6 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.unpaired_side = ProtoF
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.uppercollar", ftypes.UINT32)
 
 -- Nyse NyseEquities ImbalancesFeed Pillar 2.2.h Headers
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.message", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.packet", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.packetheader", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
@@ -3263,6 +3263,16 @@ end
 -- Message
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message = {}
 
+-- Read runtime size of: Message
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message.display = function(packet, parent, length)
   return ""
@@ -3298,6 +3308,7 @@ end
 
 -- Dissect: Message
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3315,6 +3326,45 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message.dissect = function(buffer
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.messages = {}
+
+-- Dissect: Messages
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -3452,20 +3502,11 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.packet.dissect = function(buffer,
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end

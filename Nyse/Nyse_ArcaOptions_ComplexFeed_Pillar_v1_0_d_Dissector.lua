@@ -42,6 +42,8 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.lot_size = ProtoField.new(
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.market_id = ProtoField.new("Market Id", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.marketid", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.market_state = ProtoField.new("Market State", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.marketstate", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.maturitydate", ftypes.STRING)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message = ProtoField.new("Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.message", ftypes.STRING)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_size = ProtoField.new("Message Size", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messagesize", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_type = ProtoField.new("Message Type", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messagetype", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.nanoseconds", ftypes.UINT32)
@@ -104,8 +106,6 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.volume = ProtoField.new("V
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.workingprice", ftypes.INT32)
 
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.d Headers
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message = ProtoField.new("Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.message", ftypes.STRING)
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.packet", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.packetheader", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
@@ -4236,6 +4236,16 @@ end
 -- Message
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.message = {}
 
+-- Read runtime size of: Message
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.display = function(packet, parent, length)
   return ""
@@ -4271,6 +4281,7 @@ end
 
 -- Dissect: Message
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4288,6 +4299,45 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.dissect = function(buffer, of
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages = {}
+
+-- Dissect: Messages
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -4425,20 +4475,11 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet.dissect = function(buffer, pac
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end

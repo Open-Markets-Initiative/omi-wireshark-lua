@@ -34,6 +34,8 @@ omi_nyse_arcaequities_trades_pillar_v2_6.fields.lot_size = ProtoField.new("Lot S
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.low_price = ProtoField.new("Low Price", "nyse.arcaequities.trades.pillar.v2.6.lowprice", ftypes.INT32)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.market_id = ProtoField.new("Market Id", "nyse.arcaequities.trades.pillar.v2.6.marketid", ftypes.UINT16)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.market_state = ProtoField.new("Market State", "nyse.arcaequities.trades.pillar.v2.6.marketstate", ftypes.STRING)
+omi_nyse_arcaequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.arcaequities.trades.pillar.v2.6.message", ftypes.STRING)
+omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.trades.pillar.v2.6.messagesize", ftypes.UINT16)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.trades.pillar.v2.6.messagetype", ftypes.UINT16)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.mpv = ProtoField.new("Mpv", "nyse.arcaequities.trades.pillar.v2.6.mpv", ftypes.UINT16)
@@ -54,9 +56,9 @@ omi_nyse_arcaequities_trades_pillar_v2_6.fields.prior_day_time = ProtoField.new(
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.prior_day_time_ns = ProtoField.new("Prior Day Time Ns", "nyse.arcaequities.trades.pillar.v2.6.priordaytimens", ftypes.UINT32)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.product_id = ProtoField.new("Product Id", "nyse.arcaequities.trades.pillar.v2.6.productid", ftypes.UINT8)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arcaequities.trades.pillar.v2.6.requestseqnum", ftypes.UINT32)
-omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.trades.pillar.v2.6.reserved1", ftypes.UINT8)
-omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.trades.pillar.v2.6.reserved2", ftypes.UINT16)
-omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arcaequities.trades.pillar.v2.6.reserved4", ftypes.UINT32)
+omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.trades.pillar.v2.6.reserved1", ftypes.BYTES)
+omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.trades.pillar.v2.6.reserved2", ftypes.BYTES)
+omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arcaequities.trades.pillar.v2.6.reserved4", ftypes.BYTES)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaequities.trades.pillar.v2.6.retransmitmethod", ftypes.UINT8)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaequities.trades.pillar.v2.6.roundlot", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.trades.pillar.v2.6.seconds", ftypes.UINT32)
@@ -87,8 +89,6 @@ omi_nyse_arcaequities_trades_pillar_v2_6.fields.unit_of_trade = ProtoField.new("
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.trades.pillar.v2.6.volume", ftypes.UINT32)
 
 -- Nyse ArcaEquities Trades Pillar 2.6 Headers
-omi_nyse_arcaequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.arcaequities.trades.pillar.v2.6.message", ftypes.STRING)
-omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.trades.pillar.v2.6.packet", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.trades.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
@@ -1359,7 +1359,7 @@ end
 nyse_arcaequities_trades_pillar_v2_6.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_trades_pillar_v2_6.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaequities_trades_pillar_v2_6.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_1, range, value, display)
@@ -1382,7 +1382,7 @@ end
 nyse_arcaequities_trades_pillar_v2_6.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_trades_pillar_v2_6.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaequities_trades_pillar_v2_6.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_2, range, value, display)
@@ -1405,7 +1405,7 @@ end
 nyse_arcaequities_trades_pillar_v2_6.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_trades_pillar_v2_6.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaequities_trades_pillar_v2_6.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_trades_pillar_v2_6.fields.reserved_4, range, value, display)
@@ -4067,6 +4067,16 @@ end
 -- Message
 nyse_arcaequities_trades_pillar_v2_6.message = {}
 
+-- Read runtime size of: Message
+nyse_arcaequities_trades_pillar_v2_6.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_arcaequities_trades_pillar_v2_6.message.display = function(packet, parent, length)
   return ""
@@ -4102,6 +4112,7 @@ end
 
 -- Dissect: Message
 nyse_arcaequities_trades_pillar_v2_6.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_arcaequities_trades_pillar_v2_6.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -4119,6 +4130,45 @@ nyse_arcaequities_trades_pillar_v2_6.message.dissect = function(buffer, offset, 
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_arcaequities_trades_pillar_v2_6.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_arcaequities_trades_pillar_v2_6.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_arcaequities_trades_pillar_v2_6.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_arcaequities_trades_pillar_v2_6.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_arcaequities_trades_pillar_v2_6.messages = {}
+
+-- Dissect: Messages
+nyse_arcaequities_trades_pillar_v2_6.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_arcaequities_trades_pillar_v2_6.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_arcaequities_trades_pillar_v2_6.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -4262,20 +4312,11 @@ nyse_arcaequities_trades_pillar_v2_6.packet.dissect = function(buffer, packet, p
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_arcaequities_trades_pillar_v2_6.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_arcaequities_trades_pillar_v2_6.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_arcaequities_trades_pillar_v2_6.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end
