@@ -2627,7 +2627,8 @@ finra_finraorf_tdds_dfi_v2_1.general_administrative_message.size = function(buff
 
   index = index + finra_finraorf_tdds_dfi_v2_1.message_header.size
 
-  index = index + finra_finraorf_tdds_dfi_v2_1.text.size
+  -- Parse runtime size of: Text
+  index = index + buffer(offset + index - 37, 2):uint()
 
   return index
 end
@@ -2644,10 +2645,13 @@ finra_finraorf_tdds_dfi_v2_1.general_administrative_message.fields = function(bu
   -- Message Header: Struct of 3 fields
   index, message_header = finra_finraorf_tdds_dfi_v2_1.message_header.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Text
-  local size_of_text = buffer:len() - (offset + index)
+  -- Dependency element: Length
+  local length = buffer(offset - 4, 2):uint()
 
-  -- Text: Alphanumeric
+  -- Runtime Size Of: Text
+  local size_of_text = length - 35
+
+  -- Text: 0 Byte Ascii String
   index, text = finra_finraorf_tdds_dfi_v2_1.text.dissect(buffer, index, packet, parent, size_of_text)
 
   return index
