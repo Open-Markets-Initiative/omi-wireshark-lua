@@ -117,11 +117,7 @@ cboe_cxeequities_lastsale_apf_v1_3.agency_cross_trade.size = 4
 
 -- Display: Agency Cross Trade
 cboe_cxeequities_lastsale_apf_v1_3.agency_cross_trade.display = function(value)
-  if value == "ACTX" then
-    return "Agency Cross Trade: Agency Cross Trade (ACTX)"
-  end
-
-  return "Agency Cross Trade: Unknown("..value..")"
+  return "Agency Cross Trade: "..value
 end
 
 -- Dissect: Agency Cross Trade
@@ -144,11 +140,7 @@ cboe_cxeequities_lastsale_apf_v1_3.algorithmic_indicator.size = 4
 
 -- Display: Algorithmic Indicator
 cboe_cxeequities_lastsale_apf_v1_3.algorithmic_indicator.display = function(value)
-  if value == "ALGO" then
-    return "Algorithmic Indicator: Algorithmic Trade (ALGO)"
-  end
-
-  return "Algorithmic Indicator: Unknown("..value..")"
+  return "Algorithmic Indicator: "..value
 end
 
 -- Dissect: Algorithmic Indicator
@@ -171,14 +163,7 @@ cboe_cxeequities_lastsale_apf_v1_3.benchmark_reference_indicator.size = 4
 
 -- Display: Benchmark Reference Indicator
 cboe_cxeequities_lastsale_apf_v1_3.benchmark_reference_indicator.display = function(value)
-  if value == "BENC" then
-    return "Benchmark Reference Indicator: Benchmark Trade (BENC)"
-  end
-  if value == "RFPT" then
-    return "Benchmark Reference Indicator: Reference Price Trade (RFPT)"
-  end
-
-  return "Benchmark Reference Indicator: Unknown("..value..")"
+  return "Benchmark Reference Indicator: "..value
 end
 
 -- Dissect: Benchmark Reference Indicator
@@ -201,11 +186,7 @@ cboe_cxeequities_lastsale_apf_v1_3.duplicative_indicator.size = 4
 
 -- Display: Duplicative Indicator
 cboe_cxeequities_lastsale_apf_v1_3.duplicative_indicator.display = function(value)
-  if value == "DUPL" then
-    return "Duplicative Indicator: Duplicative Trade Report (DUPL)"
-  end
-
-  return "Duplicative Indicator: Unknown("..value..")"
+  return "Duplicative Indicator: "..value
 end
 
 -- Dissect: Duplicative Indicator
@@ -279,14 +260,7 @@ cboe_cxeequities_lastsale_apf_v1_3.modification_indicator.size = 4
 
 -- Display: Modification Indicator
 cboe_cxeequities_lastsale_apf_v1_3.modification_indicator.display = function(value)
-  if value == "CANC" then
-    return "Modification Indicator: Trade Cancellation (CANC)"
-  end
-  if value == "AMND" then
-    return "Modification Indicator: Trade Amendment (AMND)"
-  end
-
-  return "Modification Indicator: Unknown("..value..")"
+  return "Modification Indicator: "..value
 end
 
 -- Dissect: Modification Indicator
@@ -309,23 +283,7 @@ cboe_cxeequities_lastsale_apf_v1_3.negotiation_flag.size = 4
 
 -- Display: Negotiation Flag
 cboe_cxeequities_lastsale_apf_v1_3.negotiation_flag.display = function(value)
-  if value == "NLIQ" then
-    return "Negotiation Flag: Negotiated Trade In Liquid Instruments (NLIQ)"
-  end
-  if value == "OILQ" then
-    return "Negotiation Flag: Negotiated Trade In Illiquid Instruments (OILQ)"
-  end
-  if value == "PRIC" then
-    return "Negotiation Flag: Negotiated Trade Subject To Conditions Other Than The Current Market Price (PRIC)"
-  end
-  if value == "ILQD" then
-    return "Negotiation Flag: Pre Trade Transparency Waiver For Illiquid Instrument (ILQD)"
-  end
-  if value == "SIZE" then
-    return "Negotiation Flag: Pre Trade Transparency Waiver For Above Standard Size (SIZE)"
-  end
-
-  return "Negotiation Flag: Unknown("..value..")"
+  return "Negotiation Flag: "..value
 end
 
 -- Dissect: Negotiation Flag
@@ -422,17 +380,7 @@ cboe_cxeequities_lastsale_apf_v1_3.post_trade_deferral_reason.size = 4
 
 -- Display: Post Trade Deferral Reason
 cboe_cxeequities_lastsale_apf_v1_3.post_trade_deferral_reason.display = function(value)
-  if value == "LRGS" then
-    return "Post Trade Deferral Reason: Deferral For Large In Scale (LRGS)"
-  end
-  if value == "ILQD" then
-    return "Post Trade Deferral Reason: Deferral For Illiquid Instrument (ILQD)"
-  end
-  if value == "SIZE" then
-    return "Post Trade Deferral Reason: Deferral For Size Specific (SIZE)"
-  end
-
-  return "Post Trade Deferral Reason: Unknown("..value..")"
+  return "Post Trade Deferral Reason: "..value
 end
 
 -- Dissect: Post Trade Deferral Reason
@@ -506,17 +454,7 @@ cboe_cxeequities_lastsale_apf_v1_3.price_discovery_process.size = 4
 
 -- Display: Price Discovery Process
 cboe_cxeequities_lastsale_apf_v1_3.price_discovery_process.display = function(value)
-  if value == "NPFT" then
-    return "Price Discovery Process: Non Price Forming Trade (NPFT)"
-  end
-  if value == "TNCP" then
-    return "Price Discovery Process: Trade Not Contributing To The Price Discovery Process (TNCP)"
-  end
-  if value == "PNDG" then
-    return "Price Discovery Process: Price Is Pending (PNDG)"
-  end
-
-  return "Price Discovery Process: Unknown("..value..")"
+  return "Price Discovery Process: "..value
 end
 
 -- Dissect: Price Discovery Process
@@ -874,17 +812,7 @@ cboe_cxeequities_lastsale_apf_v1_3.transaction_category.size = 4
 
 -- Display: Transaction Category
 cboe_cxeequities_lastsale_apf_v1_3.transaction_category.display = function(value)
-  if value == "RPRI" then
-    return "Transaction Category: Trade That Has Received Price Improvement (RPRI)"
-  end
-  if value == "TPAC" then
-    return "Transaction Category: Package Trade (TPAC)"
-  end
-  if value == "XFPH" then
-    return "Transaction Category: Exchange For Physical Trade (XFPH)"
-  end
-
-  return "Transaction Category: Unknown("..value..")"
+  return "Transaction Category: "..value
 end
 
 -- Dissect: Transaction Category
@@ -1075,58 +1003,58 @@ end
 cboe_cxeequities_lastsale_apf_v1_3.last_sale_europe_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Trading Date Time: 27 Byte Ascii String
+  -- Trading Date Time: ISO DateTime
   index, trading_date_time = cboe_cxeequities_lastsale_apf_v1_3.trading_date_time.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 12 Byte Ascii String
+  -- Symbol: Alphanumeric
   index, symbol = cboe_cxeequities_lastsale_apf_v1_3.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 18 Byte Ascii String
+  -- Price: Numeric Price
   index, price = cboe_cxeequities_lastsale_apf_v1_3.price.dissect(buffer, index, packet, parent)
 
-  -- Price Currency: 3 Byte Ascii String
+  -- Price Currency: Alpha
   index, price_currency = cboe_cxeequities_lastsale_apf_v1_3.price_currency.dissect(buffer, index, packet, parent)
 
-  -- Executed Shares: 12 Byte Ascii String
+  -- Executed Shares: Numeric
   index, executed_shares = cboe_cxeequities_lastsale_apf_v1_3.executed_shares.dissect(buffer, index, packet, parent)
 
-  -- Execution Venue: 4 Byte Ascii String
+  -- Execution Venue: Alpha
   index, execution_venue = cboe_cxeequities_lastsale_apf_v1_3.execution_venue.dissect(buffer, index, packet, parent)
 
-  -- Publication Date Time: 27 Byte Ascii String
+  -- Publication Date Time: ISO DateTime
   index, publication_date_time = cboe_cxeequities_lastsale_apf_v1_3.publication_date_time.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 12 Byte Ascii String
+  -- Trade Id: Base 36 Numeric
   index, trade_id = cboe_cxeequities_lastsale_apf_v1_3.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Transaction Category: 4 Byte Ascii String Enum with 3 values
+  -- Transaction Category: Alpha Flag
   index, transaction_category = cboe_cxeequities_lastsale_apf_v1_3.transaction_category.dissect(buffer, index, packet, parent)
 
-  -- Negotiation Flag: 4 Byte Ascii String Enum with 5 values
+  -- Negotiation Flag: Alpha Flag
   index, negotiation_flag = cboe_cxeequities_lastsale_apf_v1_3.negotiation_flag.dissect(buffer, index, packet, parent)
 
-  -- Agency Cross Trade: 4 Byte Ascii String Enum with 1 values
+  -- Agency Cross Trade: Alpha Flag
   index, agency_cross_trade = cboe_cxeequities_lastsale_apf_v1_3.agency_cross_trade.dissect(buffer, index, packet, parent)
 
-  -- Modification Indicator: 4 Byte Ascii String Enum with 2 values
+  -- Modification Indicator: Alpha Flag
   index, modification_indicator = cboe_cxeequities_lastsale_apf_v1_3.modification_indicator.dissect(buffer, index, packet, parent)
 
-  -- Benchmark Reference Indicator: 4 Byte Ascii String Enum with 2 values
+  -- Benchmark Reference Indicator: Alpha Flag
   index, benchmark_reference_indicator = cboe_cxeequities_lastsale_apf_v1_3.benchmark_reference_indicator.dissect(buffer, index, packet, parent)
 
-  -- Special Dividend: 4 Byte Ascii String
+  -- Special Dividend: Alpha Flag
   index, special_dividend = cboe_cxeequities_lastsale_apf_v1_3.special_dividend.dissect(buffer, index, packet, parent)
 
-  -- Price Discovery Process: 4 Byte Ascii String Enum with 3 values
+  -- Price Discovery Process: Alpha Flag
   index, price_discovery_process = cboe_cxeequities_lastsale_apf_v1_3.price_discovery_process.dissect(buffer, index, packet, parent)
 
-  -- Algorithmic Indicator: 4 Byte Ascii String Enum with 1 values
+  -- Algorithmic Indicator: Alpha Flag
   index, algorithmic_indicator = cboe_cxeequities_lastsale_apf_v1_3.algorithmic_indicator.dissect(buffer, index, packet, parent)
 
-  -- Post Trade Deferral Reason: 4 Byte Ascii String Enum with 3 values
+  -- Post Trade Deferral Reason: Alpha Flag
   index, post_trade_deferral_reason = cboe_cxeequities_lastsale_apf_v1_3.post_trade_deferral_reason.dissect(buffer, index, packet, parent)
 
-  -- Duplicative Indicator: 4 Byte Ascii String Enum with 1 values
+  -- Duplicative Indicator: Alpha Flag
   index, duplicative_indicator = cboe_cxeequities_lastsale_apf_v1_3.duplicative_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -1180,10 +1108,10 @@ end
 cboe_cxeequities_lastsale_apf_v1_3.sequenced_message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 8 Byte Ascii String
+  -- Timestamp: Timestamp
   index, timestamp = cboe_cxeequities_lastsale_apf_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Sequenced Message Type: 1 Byte Ascii String Enum with 1 values
+  -- Sequenced Message Type: Alphanumeric
   index, sequenced_message_type = cboe_cxeequities_lastsale_apf_v1_3.sequenced_message_type.dissect(buffer, index, packet, parent)
 
   return index

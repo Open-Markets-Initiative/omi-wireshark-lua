@@ -96,7 +96,6 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.packet = ProtoField.new("Packe
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.marketlevel2.csm.v1.0.4.packetheader", ftypes.STRING)
 
 -- Cboe C1Options MarketLevel2 1.0.4 Application Messages
-omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "cboe.c1options.marketlevel2.csm.v1.0.4.heartbeatmessage", ftypes.BYTES)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.c1options.marketlevel2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.c1options.marketlevel2.csm.v1.0.4.securitydefinitionmessage", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_status_message = ProtoField.new("Security Status Message", "cboe.c1options.marketlevel2.csm.v1.0.4.securitystatusmessage", ftypes.STRING)
@@ -117,11 +116,13 @@ local show = {}
 
 -- Cboe C1Options MarketLevel2 Csm 1.0.4 Element Dissection Options
 show.structs = true
+show.repeating_groups = true
 show.application_messages = true
 show.indexes = true
 
 -- Register Cboe C1Options MarketLevel2 Csm 1.0.4 Show Options
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -131,6 +132,9 @@ function omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_application_messages
+  end
+  if show.repeating_groups ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_repeating_groups
   end
   if show.structs ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_structs then
     show.structs = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_structs
@@ -1146,8 +1150,8 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.size = 1
 
 -- Display: Security Trading Status
 cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Halted (2)"
+  if value == 2 </P> <P> then
+    return "Security Trading Status: Halted (2 </P> <P>)"
   end
   if value == 17 then
     return "Security Trading Status: Open (17)"
@@ -1535,6 +1539,23 @@ end
 -- Dissect Cboe C1Options MarketLevel2 Csm 1.0.4
 -----------------------------------------------------------------------
 
+-- Heartbeat Message
+cboe_c1options_marketlevel2_csm_v1_0_4.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+cboe_c1options_marketlevel2_csm_v1_0_4.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+cboe_c1options_marketlevel2_csm_v1_0_4.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_marketlevel2_csm_v1_0_4.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Security Status Message
 cboe_c1options_marketlevel2_csm_v1_0_4.security_status_message = {}
 
@@ -1554,16 +1575,16 @@ end
 cboe_c1options_marketlevel2_csm_v1_0_4.security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketlevel2_csm_v1_0_4.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketlevel2_csm_v1_0_4.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cboe_c1options_marketlevel2_csm_v1_0_4.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Security Trading Status: uInt32
   index, security_trading_status = cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.dissect(buffer, index, packet, parent)
 
   return index
@@ -1610,10 +1631,10 @@ cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_entry.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Md Volume Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Md Volume Type: uInt32
   index, md_volume_type = cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_type.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Size: uInt32
   index, md_entry_size = cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1621,7 +1642,7 @@ end
 
 -- Dissect: Md Volume Entry
 cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_entry.dissect = function(buffer, offset, packet, parent, md_volume_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.md_volume_entry, buffer(offset, 0))
     local index = cboe_c1options_marketlevel2_csm_v1_0_4.md_volume_entry.fields(buffer, offset, packet, parent, md_volume_entry_index)
@@ -1720,19 +1741,19 @@ cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_md_entry.fields = fun
     iteration:set_generated()
   end
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Md Update Action: uInt32
   index, md_update_action = cboe_c1options_marketlevel2_csm_v1_0_4.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 2 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
+  -- Md Price Level: uInt32
   index, md_price_level = cboe_c1options_marketlevel2_csm_v1_0_4.md_price_level.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
   index, md_entry_px = cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
+  -- No Legs: length
   index, no_legs = cboe_c1options_marketlevel2_csm_v1_0_4.no_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Md Volume Entry
@@ -1745,7 +1766,7 @@ end
 
 -- Dissect: Incremental Refresh Md Entry
 cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_md_entry.dissect = function(buffer, offset, packet, parent, incremental_refresh_md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_md_entry.fields(buffer, offset, packet, parent, incremental_refresh_md_entry_index)
@@ -1797,22 +1818,22 @@ end
 cboe_c1options_marketlevel2_csm_v1_0_4.incremental_refresh_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketlevel2_csm_v1_0_4.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketlevel2_csm_v1_0_4.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cboe_c1options_marketlevel2_csm_v1_0_4.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Security Trading Status: uInt32
   index, security_trading_status = cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketlevel2_csm_v1_0_4.price_type.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketlevel2_csm_v1_0_4.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Incremental Refresh Md Entry
@@ -1878,16 +1899,16 @@ cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_md_entry.fields = f
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 2 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
+  -- Md Price Level: uInt32
   index, md_price_level = cboe_c1options_marketlevel2_csm_v1_0_4.md_price_level.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
   index, md_entry_px = cboe_c1options_marketlevel2_csm_v1_0_4.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
+  -- No Legs: length
   index, no_legs = cboe_c1options_marketlevel2_csm_v1_0_4.no_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Md Volume Entry
@@ -1900,7 +1921,7 @@ end
 
 -- Dissect: Snapshot Full Refresh Md Entry
 cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_md_entry.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_md_entry.fields(buffer, offset, packet, parent, snapshot_full_refresh_md_entry_index)
@@ -1954,25 +1975,25 @@ end
 cboe_c1options_marketlevel2_csm_v1_0_4.snapshot_full_refresh_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketlevel2_csm_v1_0_4.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketlevel2_csm_v1_0_4.security_id.dissect(buffer, index, packet, parent)
 
-  -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
+  -- Rpt Seq: uInt32
   index, rpt_seq = cboe_c1options_marketlevel2_csm_v1_0_4.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Security Trading Status: uInt32
   index, security_trading_status = cboe_c1options_marketlevel2_csm_v1_0_4.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketlevel2_csm_v1_0_4.price_type.dissect(buffer, index, packet, parent)
 
-  -- Refresh Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Refresh Indicator: single byte string
   index, refresh_indicator = cboe_c1options_marketlevel2_csm_v1_0_4.refresh_indicator.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketlevel2_csm_v1_0_4.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Snapshot Full Refresh Md Entry
@@ -2025,13 +2046,13 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_leg.fields = function
     iteration:set_generated()
   end
 
-  -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio Qty: uInt32
   index, leg_ratio_qty = cboe_c1options_marketlevel2_csm_v1_0_4.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Security Id: uInt32
   index, leg_security_id = cboe_c1options_marketlevel2_csm_v1_0_4.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: string
   index, leg_side = cboe_c1options_marketlevel2_csm_v1_0_4.leg_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -2039,7 +2060,7 @@ end
 
 -- Dissect: Security Definition Leg
 cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_leg.dissect = function(buffer, offset, packet, parent, security_definition_leg_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_definition_leg, buffer(offset, 0))
     local index = cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_leg.fields(buffer, offset, packet, parent, security_definition_leg_index)
@@ -2693,7 +2714,7 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_message.fields = func
   -- Security Type: Struct of 2 fields
   index, security_type = cboe_c1options_marketlevel2_csm_v1_0_4.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 1 Byte Ascii String Enum with 5 values
+  -- Security Exchange: single byte string
   index, security_exchange = cboe_c1options_marketlevel2_csm_v1_0_4.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Symbol: Struct of 2 fields
@@ -2702,22 +2723,22 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_message.fields = func
   -- Target Location Id: Struct of 2 fields
   index, target_location_id = cboe_c1options_marketlevel2_csm_v1_0_4.target_location_id.dissect(buffer, index, packet, parent)
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketlevel2_csm_v1_0_4.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketlevel2_csm_v1_0_4.security_id.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 8 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: uInt64
   index, maturity_date = cboe_c1options_marketlevel2_csm_v1_0_4.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketlevel2_csm_v1_0_4.price_type.dissect(buffer, index, packet, parent)
 
   -- Strike Price: Struct of 2 fields
   index, strike_price = cboe_c1options_marketlevel2_csm_v1_0_4.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Put Or Call: uInt32
   index, put_or_call = cboe_c1options_marketlevel2_csm_v1_0_4.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Minimum Strike Price Fraction: Struct of 2 fields
@@ -2735,7 +2756,7 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_message.fields = func
   -- Minimum Below Premium Fraction: Struct of 2 fields
   index, minimum_below_premium_fraction = cboe_c1options_marketlevel2_csm_v1_0_4.minimum_below_premium_fraction.dissect(buffer, index, packet, parent)
 
-  -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Exercise Style: uInt32
   index, exercise_style = cboe_c1options_marketlevel2_csm_v1_0_4.exercise_style.dissect(buffer, index, packet, parent)
 
   -- Currency Code: Struct of 2 fields
@@ -2747,10 +2768,10 @@ cboe_c1options_marketlevel2_csm_v1_0_4.security_definition_message.fields = func
   -- Underlying Type: Struct of 2 fields
   index, underlying_type = cboe_c1options_marketlevel2_csm_v1_0_4.underlying_type.dissect(buffer, index, packet, parent)
 
-  -- Contract Size: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Size: uInt32
   index, contract_size = cboe_c1options_marketlevel2_csm_v1_0_4.contract_size.dissect(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
+  -- No Legs: length
   index, no_legs = cboe_c1options_marketlevel2_csm_v1_0_4.no_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Security Definition Leg
@@ -2802,7 +2823,7 @@ cboe_c1options_marketlevel2_csm_v1_0_4.payload.dissect = function(buffer, offset
   end
   -- Dissect Heartbeat Message
   if template_id == 16 then
-    return offset
+    return cboe_c1options_marketlevel2_csm_v1_0_4.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

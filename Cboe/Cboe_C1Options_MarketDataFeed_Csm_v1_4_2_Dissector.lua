@@ -120,7 +120,6 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.packet_header = ProtoField.n
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_refresh_message = ProtoField.new("Current Market Refresh Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketrefreshmessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message = ProtoField.new("Current Market Update Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.currentmarketupdatemessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message = ProtoField.new("Expected Opening Price And Size Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.expectedopeningpriceandsizemessage", ftypes.STRING)
-omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.heartbeatmessage", ftypes.BYTES)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.index_value_message = ProtoField.new("Index Value Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.indexvaluemessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.market_data_control_message = ProtoField.new("Market Data Control Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.marketdatacontrolmessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.marketdatarefreshmessage", ftypes.STRING)
@@ -149,11 +148,13 @@ local show = {}
 -- Cboe C1Options MarketDataFeed Csm 1.4.2 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.repeating_groups = true
 show.indexes = true
 
 -- Register Cboe C1Options MarketDataFeed Csm 1.4.2 Show Options
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -162,6 +163,9 @@ function omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_application_messages
+  end
+  if show.repeating_groups ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_repeating_groups
   end
   if show.structs ~= omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_structs then
     show.structs = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs.show_structs
@@ -1413,8 +1417,8 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.size = 1
 
 -- Display: Security Trading Status
 cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.display = function(value)
-  if value == 2 then
-    return "Security Trading Status: Halted (2)"
+  if value == 2 </P> <P> then
+    return "Security Trading Status: Halted (2 </P> <P>)"
   end
   if value == 17 then
     return "Security Trading Status: Open (17)"
@@ -1934,6 +1938,23 @@ end
 -- Dissect Cboe C1Options MarketDataFeed Csm 1.4.2
 -----------------------------------------------------------------------
 
+-- Heartbeat Message
+cboe_c1options_marketdatafeed_csm_v1_4_2.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+cboe_c1options_marketdatafeed_csm_v1_4_2.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+cboe_c1options_marketdatafeed_csm_v1_4_2.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_marketdatafeed_csm_v1_4_2.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Market Data Control Message
 cboe_c1options_marketdatafeed_csm_v1_4_2.market_data_control_message = {}
 
@@ -1950,7 +1971,7 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.market_data_control_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Control Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Md Control Type: uInt32
   index, md_control_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_control_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2041,7 +2062,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.summary_md_entry.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
@@ -2052,7 +2073,7 @@ end
 
 -- Dissect: Summary Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.summary_md_entry.dissect = function(buffer, offset, packet, parent, summary_md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.summary_md_entry.fields(buffer, offset, packet, parent, summary_md_entry_index)
@@ -2195,19 +2216,19 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: uInt32
   index, trade_volume = cboe_c1options_marketdatafeed_csm_v1_4_2.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- Open Interest: 4 Byte Unsigned Fixed Width Integer
+  -- Open Interest: uInt32
   index, open_interest = cboe_c1options_marketdatafeed_csm_v1_4_2.open_interest.dissect(buffer, index, packet, parent)
 
   -- Net Chg Prev Day: Struct of 2 fields
@@ -2216,7 +2237,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.summary_message.fields = function(buffe
   -- Underlying Px: Struct of 2 fields
   index, underlying_px = cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_px.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Summary Md Entry
@@ -2268,7 +2289,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.fields = func
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
@@ -2279,7 +2300,7 @@ end
 
 -- Dissect: Settlement Value Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.dissect = function(buffer, offset, packet, parent, settlement_value_md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_md_entry.fields(buffer, offset, packet, parent, settlement_value_md_entry_index)
@@ -2326,16 +2347,16 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.settlement_value_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Settlement Value Md Entry
@@ -2387,7 +2408,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_md_entry.fields = function(
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
@@ -2398,7 +2419,7 @@ end
 
 -- Dissect: Index Value Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_md_entry.dissect = function(buffer, offset, packet, parent, index_value_md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_md_entry.fields(buffer, offset, packet, parent, index_value_md_entry_index)
@@ -2495,7 +2516,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.index_value_message.fields = function(b
   -- Symbol: Struct of 2 fields
   index, symbol = cboe_c1options_marketdatafeed_csm_v1_4_2.symbol.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Index Value Md Entry
@@ -2589,22 +2610,22 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.expected_opening_price_and_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
   -- Eop: Struct of 2 fields
   index, eop = cboe_c1options_marketdatafeed_csm_v1_4_2.eop.dissect(buffer, index, packet, parent)
 
-  -- Eos: 4 Byte Unsigned Fixed Width Integer
+  -- Eos: uInt32
   index, eos = cboe_c1options_marketdatafeed_csm_v1_4_2.eos.dissect(buffer, index, packet, parent)
 
-  -- Eop Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  -- Eop Type: uInt32
   index, eop_type = cboe_c1options_marketdatafeed_csm_v1_4_2.eop_type.dissect(buffer, index, packet, parent)
 
-  -- Legal Market: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Legal Market: uInt32
   index, legal_market = cboe_c1options_marketdatafeed_csm_v1_4_2.legal_market.dissect(buffer, index, packet, parent)
 
   return index
@@ -2712,13 +2733,13 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_md_entry.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
   index, md_entry_px = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Size: uInt32
   index, md_entry_size = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Struct of 2 fields
@@ -2729,7 +2750,7 @@ end
 
 -- Dissect: Ticker Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_md_entry.dissect = function(buffer, offset, packet, parent, ticker_md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_md_entry.fields(buffer, offset, packet, parent, ticker_md_entry_index)
@@ -2777,16 +2798,16 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.ticker_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Ticker Md Entry
@@ -2839,13 +2860,13 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.fields = function
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
   index, md_entry_px = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Size: uInt32
   index, md_entry_size = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -2853,7 +2874,7 @@ end
 
 -- Dissect: Recap Update Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.dissect = function(buffer, offset, packet, parent, recap_update_md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_md_entry.fields(buffer, offset, packet, parent, recap_update_md_entry_index)
@@ -2948,22 +2969,22 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.recap_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
   -- Prev Close Px: Struct of 2 fields
   index, prev_close_px = cboe_c1options_marketdatafeed_csm_v1_4_2.prev_close_px.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: uInt32
   index, trade_volume = cboe_c1options_marketdatafeed_csm_v1_4_2.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Recap Update Md Entry
@@ -3017,16 +3038,16 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry.fields = function(buffer, offs
     iteration:set_generated()
   end
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
+  -- Md Entry Type: single byte string
   index, md_entry_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
   index, md_entry_px = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer
+  -- Md Entry Size: uInt32
   index, md_entry_size = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry_size.dissect(buffer, index, packet, parent)
 
-  -- Md Volume Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Md Volume Type: uInt32
   index, md_volume_type = cboe_c1options_marketdatafeed_csm_v1_4_2.md_volume_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3034,7 +3055,7 @@ end
 
 -- Dissect: Md Entry
 cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry.dissect = function(buffer, offset, packet, parent, md_entry_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.md_entry.fields(buffer, offset, packet, parent, md_entry_index)
@@ -3083,19 +3104,19 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.current_market_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Security Trading Status: uInt32
   index, security_trading_status = cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Md Entry
@@ -3163,28 +3184,28 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.market_data_refresh_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Security Trading Status: uInt32
   index, security_trading_status = cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
-  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Seq Num: uInt32
   index, appl_seq_num = cboe_c1options_marketdatafeed_csm_v1_4_2.appl_seq_num.dissect(buffer, index, packet, parent)
 
   -- Prev Close Px: Struct of 2 fields
   index, prev_close_px = cboe_c1options_marketdatafeed_csm_v1_4_2.prev_close_px.dissect(buffer, index, packet, parent)
 
-  -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Volume: uInt32
   index, trade_volume = cboe_c1options_marketdatafeed_csm_v1_4_2.trade_volume.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Md Entry
@@ -3248,22 +3269,22 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.current_market_refresh_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Security Trading Status: uInt32
   index, security_trading_status = cboe_c1options_marketdatafeed_csm_v1_4_2.security_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
-  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Seq Num: uInt32
   index, appl_seq_num = cboe_c1options_marketdatafeed_csm_v1_4_2.appl_seq_num.dissect(buffer, index, packet, parent)
 
-  -- No Entries: 1 Byte Unsigned Fixed Width Integer
+  -- No Entries: length
   index, no_entries = cboe_c1options_marketdatafeed_csm_v1_4_2.no_entries.dissect(buffer, index, packet, parent)
 
   -- Repeating: Md Entry
@@ -3316,13 +3337,13 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_leg.fields = functi
     iteration:set_generated()
   end
 
-  -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio Qty: uInt32
   index, leg_ratio_qty = cboe_c1options_marketdatafeed_csm_v1_4_2.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Security Id: uInt32
   index, leg_security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.leg_security_id.dissect(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Ascii String Enum with 2 values
+  -- Leg Side: string
   index, leg_side = cboe_c1options_marketdatafeed_csm_v1_4_2.leg_side.dissect(buffer, index, packet, parent)
 
   return index
@@ -3330,7 +3351,7 @@ end
 
 -- Dissect: Security Definition Leg
 cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_leg.dissect = function(buffer, offset, packet, parent, security_definition_leg_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg, buffer(offset, 0))
     local index = cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_leg.fields(buffer, offset, packet, parent, security_definition_leg_index)
@@ -3933,7 +3954,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_message.fields = fu
   -- Security Type: Struct of 2 fields
   index, security_type = cboe_c1options_marketdatafeed_csm_v1_4_2.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Exchange: 1 Byte Ascii String Enum with 5 values
+  -- Security Exchange: single byte string
   index, security_exchange = cboe_c1options_marketdatafeed_csm_v1_4_2.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Symbol: Struct of 2 fields
@@ -3942,22 +3963,22 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_message.fields = fu
   -- Target Location Id: Struct of 2 fields
   index, target_location_id = cboe_c1options_marketdatafeed_csm_v1_4_2.target_location_id.dissect(buffer, index, packet, parent)
 
-  -- Class Key: 4 Byte Unsigned Fixed Width Integer
+  -- Class Key: uInt32
   index, class_key = cboe_c1options_marketdatafeed_csm_v1_4_2.class_key.dissect(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Unsigned Fixed Width Integer
+  -- Security Id: uInt32
   index, security_id = cboe_c1options_marketdatafeed_csm_v1_4_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 8 Byte Unsigned Fixed Width Integer
+  -- Maturity Date: uInt64
   index, maturity_date = cboe_c1options_marketdatafeed_csm_v1_4_2.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Price Type: uInt32
   index, price_type = cboe_c1options_marketdatafeed_csm_v1_4_2.price_type.dissect(buffer, index, packet, parent)
 
   -- Strike Price: Struct of 2 fields
   index, strike_price = cboe_c1options_marketdatafeed_csm_v1_4_2.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Put Or Call: uInt32
   index, put_or_call = cboe_c1options_marketdatafeed_csm_v1_4_2.put_or_call.dissect(buffer, index, packet, parent)
 
   -- Minimum Strike Price Fraction: Struct of 2 fields
@@ -3975,7 +3996,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_message.fields = fu
   -- Minimum Below Premium Fraction: Struct of 2 fields
   index, minimum_below_premium_fraction = cboe_c1options_marketdatafeed_csm_v1_4_2.minimum_below_premium_fraction.dissect(buffer, index, packet, parent)
 
-  -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Exercise Style: uInt32
   index, exercise_style = cboe_c1options_marketdatafeed_csm_v1_4_2.exercise_style.dissect(buffer, index, packet, parent)
 
   -- Currency Code: Struct of 2 fields
@@ -3987,10 +4008,10 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.security_definition_message.fields = fu
   -- Underlying Type: Struct of 2 fields
   index, underlying_type = cboe_c1options_marketdatafeed_csm_v1_4_2.underlying_type.dissect(buffer, index, packet, parent)
 
-  -- Contract Size: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Size: uInt32
   index, contract_size = cboe_c1options_marketdatafeed_csm_v1_4_2.contract_size.dissect(buffer, index, packet, parent)
 
-  -- No Legs: 1 Byte Unsigned Fixed Width Integer
+  -- No Legs: length
   index, no_legs = cboe_c1options_marketdatafeed_csm_v1_4_2.no_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Security Definition Leg
@@ -4070,7 +4091,7 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.payload.dissect = function(buffer, offs
   end
   -- Dissect Heartbeat Message
   if template_id == 16 then
-    return offset
+    return cboe_c1options_marketdatafeed_csm_v1_4_2.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset
