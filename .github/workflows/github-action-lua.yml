@@ -193,8 +193,8 @@ jobs:
       - name: Run Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-IseOptions-TopComboQuoteFeed-Itch-v1-0-Test.sh
 
-      - name: Run Nasdaq NsmEquities NlsPlus Itch 4.0 Dissector Tests
-        run: bash -x .github/tests/Nasdaq-NsmEquities-NlsPlus-Itch-v4-0-Test.sh
+      - name: Run Nasdaq NsmEquities NlsPlus Itch 3.0 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NsmEquities-NlsPlus-Itch-v3-0-Test.sh
 
       - name: Run Nasdaq NsmEquities Orders Ouch 5.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-Orders-Ouch-v5-0-Test.sh
