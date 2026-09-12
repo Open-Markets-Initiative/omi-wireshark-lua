@@ -22,7 +22,6 @@ omi_siac_cts_output_cta_v2_10.fields.auction_collar_reference_price = ProtoField
 omi_siac_cts_output_cta_v2_10.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.10.auctioncollarupperthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_10.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.10.bidindexvalue", ftypes.INT64)
 omi_siac_cts_output_cta_v2_10.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.10.blockchecksum", ftypes.UINT16)
-omi_siac_cts_output_cta_v2_10.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.10.blockheader", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.10.blockpadbyte", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_10.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.10.blocksequencenumber", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_10.fields.block_size = ProtoField.new("Block Size", "siac.cts.output.cta.v2.10.blocksize", ftypes.UINT16)
@@ -136,6 +135,7 @@ omi_siac_cts_output_cta_v2_10.fields.transaction_id = ProtoField.new("Transactio
 omi_siac_cts_output_cta_v2_10.fields.version = ProtoField.new("Version", "siac.cts.output.cta.v2.10.version", ftypes.UINT8)
 
 -- Siac Cts Output Cta 2.10 Framing
+omi_siac_cts_output_cta_v2_10.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.10.blockheader", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.10.message", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.10.packet", ftypes.STRING)
 
@@ -194,15 +194,15 @@ local show = {}
 -- Siac Cts Output Cta 2.10 Element Dissection Options
 show.structs = true
 show.application_messages = true
-show.repeating_groups = true
 show.headers = true
+show.repeating_groups = true
 show.indexes = true
 
 -- Register Siac Cts Output Cta 2.10 Show Options
 omi_siac_cts_output_cta_v2_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_siac_cts_output_cta_v2_10.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_siac_cts_output_cta_v2_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -8462,7 +8462,7 @@ end
 
 -- Dissect: Block Header
 siac_cts_output_cta_v2_10.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_output_cta_v2_10.fields.block_header, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_10.block_header.fields(buffer, offset, packet, parent)

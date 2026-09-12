@@ -57,8 +57,8 @@ omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.group_status = ProtoField.new("Group
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price = ProtoField.new("High Price", "tmx.mx.sola.multicast.hsvf.v1.14.highprice", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price_fraction_indicator = ProtoField.new("High Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.highpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.high_price_sign = ProtoField.new("High Price Sign", "tmx.mx.sola.multicast.hsvf.v1.14.highpricesign", ftypes.STRING)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "tmx.mx.sola.multicast.hsvf.v1.14.hsvfetx", ftypes.INT8)
-omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "tmx.mx.sola.multicast.hsvf.v1.14.hsvfstx", ftypes.INT8)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "tmx.mx.sola.multicast.hsvf.v1.14.hsvfetx", ftypes.UINT8)
+omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "tmx.mx.sola.multicast.hsvf.v1.14.hsvfstx", ftypes.UINT8)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_price = ProtoField.new("Initial Order Price", "tmx.mx.sola.multicast.hsvf.v1.14.initialorderprice", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "tmx.mx.sola.multicast.hsvf.v1.14.initialorderpricefractionindicator", ftypes.STRING)
 omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "tmx.mx.sola.multicast.hsvf.v1.14.initialorderquantity", ftypes.STRING)
@@ -1330,14 +1330,18 @@ tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.size = 1
 
 -- Display: Hsvf Etx
 tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.display = function(value)
-  return "Hsvf Etx: "..value
+  if value == 3 then
+    return "Hsvf Etx: Etx"
+  end
+
+  return "Hsvf Etx: Unknown("..value..")"
 end
 
 -- Dissect: Hsvf Etx
 tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_etx, range, value, display)
@@ -1364,7 +1368,7 @@ end
 tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_sola_multicast_hsvf_v1_14.fields.hsvf_stx, range, value, display)
@@ -9413,7 +9417,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.packet.dissect = function(buffer, packet, paren
 
   while index < end_of_payload do
 
-    -- Hsvf Stx: 1 Byte Fixed Width Integer Static
+    -- Hsvf Stx: 1 Byte Unsigned Fixed Width Integer Static
     index, hsvf_stx = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.dissect(buffer, index, packet, parent)
 
     -- Message Header: Struct of 3 fields
@@ -9425,7 +9429,7 @@ tmx_mx_sola_multicast_hsvf_v1_14.packet.dissect = function(buffer, packet, paren
     -- Message Body: Runtime Type with 53 branches
     index = tmx_mx_sola_multicast_hsvf_v1_14.message_body.dissect(buffer, index, packet, parent, message_type)
 
-    -- Hsvf Etx: 1 Byte Fixed Width Integer
+    -- Hsvf Etx: 1 Byte Unsigned Fixed Width Integer Static
     index, hsvf_etx = tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.dissect(buffer, index, packet, parent)
   end
 
@@ -9460,9 +9464,21 @@ end
 -- Verify Hsvf Stx Field
 tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(0, 1):int()
+  local value = buffer(0, 1):uint()
 
   if value == 2 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Hsvf Etx Field
+tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(2996, 1):uint()
+
+  if value == 3 then
     return true
   end
 
@@ -9476,6 +9492,9 @@ local function omi_tmx_mx_sola_multicast_hsvf_v1_14_udp_heuristic(buffer, packet
 
   -- Verify Hsvf Stx
   if not tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.verify(buffer) then return false end
+
+  -- Verify Hsvf Etx
+  if not tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_mx_sola_multicast_hsvf_v1_14

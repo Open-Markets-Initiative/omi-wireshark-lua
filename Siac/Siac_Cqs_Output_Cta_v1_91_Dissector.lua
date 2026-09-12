@@ -39,7 +39,6 @@ omi_siac_cqs_output_cta_v1_91.fields.bid_price_short = ProtoField.new("Bid Price
 omi_siac_cqs_output_cta_v1_91.fields.bid_size_long = ProtoField.new("Bid Size Long", "siac.cqs.output.cta.v1.91.bidsizelong", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.cqs.output.cta.v1.91.bidsizeshort", ftypes.UINT16)
 omi_siac_cqs_output_cta_v1_91.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.output.cta.v1.91.blockchecksum", ftypes.UINT16)
-omi_siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v1.91.blockheader", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.output.cta.v1.91.blockpadbyte", ftypes.UINT8)
 omi_siac_cqs_output_cta_v1_91.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.output.cta.v1.91.blocksequencenumber", ftypes.UINT32)
 omi_siac_cqs_output_cta_v1_91.fields.block_size = ProtoField.new("Block Size", "siac.cqs.output.cta.v1.91.blocksize", ftypes.UINT16)
@@ -108,6 +107,7 @@ omi_siac_cqs_output_cta_v1_91.fields.transaction_id = ProtoField.new("Transactio
 omi_siac_cqs_output_cta_v1_91.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v1.91.version", ftypes.UINT8)
 
 -- Siac Cqs Output Cta 1.91 Framing
+omi_siac_cqs_output_cta_v1_91.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v1.91.blockheader", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v1.91.message", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cqs.output.cta.v1.91.packet", ftypes.STRING)
 
@@ -5013,7 +5013,7 @@ end
 
 -- Dissect: Block Header
 siac_cqs_output_cta_v1_91.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_output_cta_v1_91.fields.block_header, buffer(offset, 0))
     local index = siac_cqs_output_cta_v1_91.block_header.fields(buffer, offset, packet, parent)

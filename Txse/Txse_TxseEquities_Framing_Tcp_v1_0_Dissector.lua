@@ -69,6 +69,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Txse TxseEquities Framing Tcp 1.0 Fields
 -----------------------------------------------------------------------
 
@@ -110,7 +128,7 @@ end
 txse_txseequities_framing_tcp_v1_0.instance.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_framing_tcp_v1_0.instance.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = txse_txseequities_framing_tcp_v1_0.instance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.instance, range, value, display)
@@ -315,7 +333,7 @@ end
 txse_txseequities_framing_tcp_v1_0.sender_comp.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_framing_tcp_v1_0.sender_comp.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = txse_txseequities_framing_tcp_v1_0.sender_comp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.sender_comp, range, value, display)
@@ -422,7 +440,7 @@ end
 txse_txseequities_framing_tcp_v1_0.token.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_framing_tcp_v1_0.token.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = txse_txseequities_framing_tcp_v1_0.token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.token, range, value, display)
@@ -709,10 +727,10 @@ txse_txseequities_framing_tcp_v1_0.logon_request_packet.fields = function(buffer
   -- Session: Long
   index, session = txse_txseequities_framing_tcp_v1_0.session.dissect(buffer, index, packet, parent)
 
-  -- Sender Comp: Long
+  -- Sender Comp: Str(8)
   index, sender_comp = txse_txseequities_framing_tcp_v1_0.sender_comp.dissect(buffer, index, packet, parent)
 
-  -- Token: Long
+  -- Token: Str(8)
   index, token = txse_txseequities_framing_tcp_v1_0.token.dissect(buffer, index, packet, parent)
 
   -- Next Sequence Number: Long

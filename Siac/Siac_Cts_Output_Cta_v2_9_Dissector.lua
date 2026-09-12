@@ -22,7 +22,6 @@ omi_siac_cts_output_cta_v2_9.fields.auction_collar_reference_price = ProtoField.
 omi_siac_cts_output_cta_v2_9.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cts.output.cta.v2.9.auctioncollarupperthresholdprice", ftypes.DOUBLE)
 omi_siac_cts_output_cta_v2_9.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v2.9.bidindexvalue", ftypes.INT64)
 omi_siac_cts_output_cta_v2_9.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cts.output.cta.v2.9.blockchecksum", ftypes.UINT16)
-omi_siac_cts_output_cta_v2_9.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.9.blockheader", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cts.output.cta.v2.9.blockpadbyte", ftypes.UINT8)
 omi_siac_cts_output_cta_v2_9.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cts.output.cta.v2.9.blocksequencenumber", ftypes.UINT32)
 omi_siac_cts_output_cta_v2_9.fields.block_size = ProtoField.new("Block Size", "siac.cts.output.cta.v2.9.blocksize", ftypes.UINT16)
@@ -123,6 +122,7 @@ omi_siac_cts_output_cta_v2_9.fields.transaction_id = ProtoField.new("Transaction
 omi_siac_cts_output_cta_v2_9.fields.version = ProtoField.new("Version", "siac.cts.output.cta.v2.9.version", ftypes.UINT8)
 
 -- Siac Cts Output Cta 2.9 Framing
+omi_siac_cts_output_cta_v2_9.fields.block_header = ProtoField.new("Block Header", "siac.cts.output.cta.v2.9.blockheader", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.message = ProtoField.new("Message", "siac.cts.output.cta.v2.9.message", ftypes.STRING)
 omi_siac_cts_output_cta_v2_9.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v2.9.packet", ftypes.STRING)
 
@@ -6715,7 +6715,7 @@ end
 
 -- Dissect: Block Header
 siac_cts_output_cta_v2_9.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.block_header, buffer(offset, 0))
     local index = siac_cts_output_cta_v2_9.block_header.fields(buffer, offset, packet, parent)

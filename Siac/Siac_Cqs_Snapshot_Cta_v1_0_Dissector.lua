@@ -21,7 +21,6 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price = Pro
 omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price = ProtoField.new("Bid Price", "siac.cqs.snapshot.cta.v1.0.bidprice", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v1_0.fields.bid_size = ProtoField.new("Bid Size", "siac.cqs.snapshot.cta.v1.0.bidsize", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.snapshot.cta.v1.0.blockchecksum", ftypes.UINT16)
-omi_siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v1.0.blockheader", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v1.0.blockpadbyte", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v1.0.blocksequencenumber", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v1.0.blocksize", ftypes.UINT16)
@@ -81,6 +80,7 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band = ProtoField.new("U
 omi_siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8)
 
 -- Siac Cqs Snapshot Cta 1.0 Framing
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v1.0.blockheader", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v1.0.message", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v1.0.packet", ftypes.STRING)
 
@@ -101,15 +101,15 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.message_index = ProtoField.new("Message In
 local show = {}
 
 -- Siac Cqs Snapshot Cta 1.0 Element Dissection Options
-show.structs = true
-show.application_messages = true
 show.headers = true
+show.application_messages = true
+show.structs = true
 show.indexes = true
 
 -- Register Siac Cqs Snapshot Cta 1.0 Show Options
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_siac_cqs_snapshot_cta_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_siac_cqs_snapshot_cta_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -3011,7 +3011,7 @@ end
 
 -- Dissect: Block Header
 siac_cqs_snapshot_cta_v1_0.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.block_header, buffer(offset, 0))
     local index = siac_cqs_snapshot_cta_v1_0.block_header.fields(buffer, offset, packet, parent)

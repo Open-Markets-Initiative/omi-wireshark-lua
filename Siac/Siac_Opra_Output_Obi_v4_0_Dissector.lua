@@ -35,7 +35,6 @@ omi_siac_opra_output_obi_v4_0.fields.bid_price_short = ProtoField.new("Bid Price
 omi_siac_opra_output_obi_v4_0.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.output.obi.v4.0.bidsize", ftypes.UINT32)
 omi_siac_opra_output_obi_v4_0.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.output.obi.v4.0.bidsizeshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v4_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.output.obi.v4.0.blockchecksum", ftypes.UINT16)
-omi_siac_opra_output_obi_v4_0.fields.block_header = ProtoField.new("Block Header", "siac.opra.output.obi.v4.0.blockheader", ftypes.STRING)
 omi_siac_opra_output_obi_v4_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.output.obi.v4.0.blockpadbyte", ftypes.UINT8)
 omi_siac_opra_output_obi_v4_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.output.obi.v4.0.blocksequencenumber", ftypes.UINT32)
 omi_siac_opra_output_obi_v4_0.fields.block_size = ProtoField.new("Block Size", "siac.opra.output.obi.v4.0.blocksize", ftypes.UINT16)
@@ -102,6 +101,7 @@ omi_siac_opra_output_obi_v4_0.fields.version = ProtoField.new("Version", "siac.o
 omi_siac_opra_output_obi_v4_0.fields.volume = ProtoField.new("Volume", "siac.opra.output.obi.v4.0.volume", ftypes.UINT32)
 
 -- Siac Opra Output Obi 4.0 Framing
+omi_siac_opra_output_obi_v4_0.fields.block_header = ProtoField.new("Block Header", "siac.opra.output.obi.v4.0.blockheader", ftypes.STRING)
 omi_siac_opra_output_obi_v4_0.fields.message = ProtoField.new("Message", "siac.opra.output.obi.v4.0.message", ftypes.STRING)
 omi_siac_opra_output_obi_v4_0.fields.message_header = ProtoField.new("Message Header", "siac.opra.output.obi.v4.0.messageheader", ftypes.STRING)
 omi_siac_opra_output_obi_v4_0.fields.packet = ProtoField.new("Packet", "siac.opra.output.obi.v4.0.packet", ftypes.STRING)
@@ -4272,7 +4272,7 @@ end
 
 -- Dissect: Block Header
 siac_opra_output_obi_v4_0.block_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_opra_output_obi_v4_0.fields.block_header, buffer(offset, 0))
     local index = siac_opra_output_obi_v4_0.block_header.fields(buffer, offset, packet, parent)
