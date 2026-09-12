@@ -560,7 +560,8 @@ memx_memxequities_commonheader_tcp_v1_2.sequenced_message = {}
 memx_memxequities_commonheader_tcp_v1_2.sequenced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_memxequities_commonheader_tcp_v1_2.sbe_message.size
+  -- Remaining size of: Sbe Message
+  index = index + (buffer:len() - (offset + index))
 
   return index
 end
@@ -1093,7 +1094,8 @@ memx_memxequities_commonheader_tcp_v1_2.unsequenced_message = {}
 memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + memx_memxequities_commonheader_tcp_v1_2.sbe_message.size
+  -- Remaining size of: Sbe Message
+  index = index + (buffer:len() - (offset + index))
 
   return index
 end
