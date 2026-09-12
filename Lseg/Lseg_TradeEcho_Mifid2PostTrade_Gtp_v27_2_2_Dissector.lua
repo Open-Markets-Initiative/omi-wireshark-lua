@@ -135,7 +135,7 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.volume_onbook_only = Proto
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.vwap", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg TradeEcho Mifid2PostTrade Gtp 27.2.2 Headers
+-- Lseg TradeEcho Mifid2PostTrade Gtp 27.2.2 Framing
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.message", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.messageheader", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v27_2_2.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttrade.gtp.v27.2.2.packet", ftypes.STRING)

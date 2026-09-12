@@ -38,7 +38,7 @@ omi_aquis_aquisequities_snapshot_amd_v4_0.fields.timestamp = ProtoField.new("Tim
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.snapshot.amd.v4.0.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.trading_status = ProtoField.new("Trading Status", "aquis.aquisequities.snapshot.amd.v4.0.tradingstatus", ftypes.UINT8)
 
--- Aquis AquisEquities Snapshot Amd 4.0 Headers
+-- Aquis AquisEquities Snapshot Amd 4.0 Framing
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.snapshot.amd.v4.0.message", ftypes.STRING)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.snapshot.amd.v4.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_snapshot_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.snapshot.amd.v4.0.packet", ftypes.STRING)

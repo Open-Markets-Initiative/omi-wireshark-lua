@@ -21,7 +21,6 @@ omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.corrected_price = 
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.correctedquantity", ftypes.UINT32)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.headerlength", ftypes.UINT8)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.istestsymbol", ftypes.UINT8)
-omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.message = ProtoField.new("Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.message", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.messagecount", ftypes.UINT16)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.messagelength", ftypes.UINT16)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.messagetype", ftypes.UINT8)
@@ -33,8 +32,6 @@ omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.UINT8)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.roundlot", ftypes.UINT32)
-omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.sbeheader", ftypes.STRING)
-omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.sbemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.schemaid", ftypes.UINT8)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.securityid", ftypes.UINT16)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.securitytradingstatus", ftypes.STRING)
@@ -52,9 +49,12 @@ omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.trade_id = ProtoFi
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.version", ftypes.UINT16)
 
--- BlueOceanAts BlueEquities MemoirDepthFeed Sbe 1.3 Headers
+-- BlueOceanAts BlueEquities MemoirDepthFeed Sbe 1.3 Framing
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
+omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.message = ProtoField.new("Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.message", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
+omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.sbeheader", ftypes.STRING)
+omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.sbemessage", ftypes.STRING)
 
 -- BlueOceanAts BlueEquities MemoirDepthFeed 1.3 Application Messages
 omi_blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "blueoceanats.blueequities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)

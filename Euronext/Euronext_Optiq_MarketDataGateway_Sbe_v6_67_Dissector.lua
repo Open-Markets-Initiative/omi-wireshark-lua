@@ -304,6 +304,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.outright_rep_groups = Prot
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.pack = ProtoField.new("Pack", "euronext.optiq.marketdatagateway.sbe.v6.67.pack", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.package_components_group = ProtoField.new("Package Components Group", "euronext.optiq.marketdatagateway.sbe.v6.67.packagecomponentsgroup", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.package_components_groups = ProtoField.new("Package Components Groups", "euronext.optiq.marketdatagateway.sbe.v6.67.packagecomponentsgroups", ftypes.STRING)
+omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatagateway.sbe.v6.67.packetflags", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "euronext.optiq.marketdatagateway.sbe.v6.67.packetsequencenumber", ftypes.UINT32)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatagateway.sbe.v6.67.packettime", ftypes.UINT64)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.par_value = ProtoField.new("Par Value", "euronext.optiq.marketdatagateway.sbe.v6.67.parvalue", ftypes.UINT64)
@@ -460,12 +461,11 @@ omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.volatility_trade = ProtoFi
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.volume = ProtoField.new("Volume", "euronext.optiq.marketdatagateway.sbe.v6.67.volume", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.wholesale_allowed = ProtoField.new("Wholesale Allowed", "euronext.optiq.marketdatagateway.sbe.v6.67.wholesaleallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 
--- Euronext Optiq MarketDataGateway Sbe 6.67 Headers
+-- Euronext Optiq MarketDataGateway Sbe 6.67 Framing
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatagateway.sbe.v6.67.marketdatapacketheader", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatagateway.sbe.v6.67.messageheader", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatagateway.sbe.v6.67.optiqmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatagateway.sbe.v6.67.packet", ftypes.STRING)
-omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatagateway.sbe.v6.67.packetflags", ftypes.STRING)
 
 -- Euronext Optiq MarketDataGateway 6.67 Application Messages
 omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.apa_full_trade_information_message = ProtoField.new("Apa Full Trade Information Message", "euronext.optiq.marketdatagateway.sbe.v6.67.apafulltradeinformationmessage", ftypes.STRING)
@@ -18943,7 +18943,7 @@ end
 
 -- Dissect: Message Header
 euronext_optiq_marketdatagateway_sbe_v6_67.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v6_67.fields.message_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatagateway_sbe_v6_67.message_header.fields(buffer, offset, packet, parent)

@@ -75,7 +75,7 @@ omi_miax_pearloptions_topofmarket_mach_v2_3.fields.trade_size = ProtoField.new("
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.trading_status = ProtoField.new("Trading Status", "miax.pearloptions.topofmarket.mach.v2.3.tradingstatus", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.pearloptions.topofmarket.mach.v2.3.underlyingsymbol", ftypes.STRING)
 
--- Miax PearlOptions TopOfMarket Mach 2.3 Headers
+-- Miax PearlOptions TopOfMarket Mach 2.3 Framing
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.topofmarket.mach.v2.3.machmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v2_3.fields.packet = ProtoField.new("Packet", "miax.pearloptions.topofmarket.mach.v2.3.packet", ftypes.STRING)
 

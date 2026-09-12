@@ -62,10 +62,8 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_participant_last_price = ProtoFi
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_participant_low_price = ProtoField.new("Market Participant Low Price", "nasdaq.utdf.output.utp.v3.0.c.marketparticipantlowprice", ftypes.DOUBLE)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_participant_volume = ProtoField.new("Market Participant Volume", "nasdaq.utdf.output.utp.v3.0.c.marketparticipantvolume", ftypes.DOUBLE)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.utdf.output.utp.v3.0.c.markettier", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v3.0.c.message", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_category = ProtoField.new("Message Category", "nasdaq.utdf.output.utp.v3.0.c.messagecategory", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_count = ProtoField.new("Message Count", "nasdaq.utdf.output.utp.v3.0.c.messagecount", ftypes.UINT16)
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v3.0.c.messageheader", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_length = ProtoField.new("Message Length", "nasdaq.utdf.output.utp.v3.0.c.messagelength", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.utdf.output.utp.v3.0.c.mwcblevel1", ftypes.UINT64)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.utdf.output.utp.v3.0.c.mwcblevel2", ftypes.UINT64)
@@ -117,7 +115,9 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_sequence_number = ProtoField.new("U
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_session = ProtoField.new("Udp Session", "nasdaq.utdf.output.utp.v3.0.c.udpsession", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.version = ProtoField.new("Version", "nasdaq.utdf.output.utp.v3.0.c.version", ftypes.STRING)
 
--- Nasdaq Utdf Output Utp 3.0.c Headers
+-- Nasdaq Utdf Output Utp 3.0.c Framing
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.message = ProtoField.new("Message", "nasdaq.utdf.output.utp.v3.0.c.message", ftypes.STRING)
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_header = ProtoField.new("Message Header", "nasdaq.utdf.output.utp.v3.0.c.messageheader", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.utdf.output.utp.v3.0.c.moldudp64packet", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.utdf.output.utp.v3.0.c.udppacketheader", ftypes.STRING)
 

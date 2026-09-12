@@ -59,7 +59,7 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.venue_instrument_id = ProtoField.n
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.turquoise.analytics.gtp.v24.4.vwapbuy", ftypes.DOUBLE)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.analytics.gtp.v24.4.vwapsell", ftypes.DOUBLE)
 
--- Lseg Turquoise Analytics Gtp 24.4 Headers
+-- Lseg Turquoise Analytics Gtp 24.4 Framing
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.analytics.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.analytics.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.analytics.gtp.v24.4.packet", ftypes.STRING)

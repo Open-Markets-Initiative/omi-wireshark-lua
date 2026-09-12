@@ -258,6 +258,7 @@ omi_cme_globex_ilink3_sbe_v8_3.fields.side_time_in_force = ProtoField.new("Side 
 omi_cme_globex_ilink3_sbe_v8_3.fields.side_trade_id = ProtoField.new("Side Trade Id", "cme.globex.ilink3.sbe.v8.3.sidetradeid", ftypes.UINT32)
 omi_cme_globex_ilink3_sbe_v8_3.fields.sides_group = ProtoField.new("Sides Group", "cme.globex.ilink3.sbe.v8.3.sidesgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.sides_groups = ProtoField.new("Sides Groups", "cme.globex.ilink3.sbe.v8.3.sidesgroups", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_3.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.3.simpleopenframingheader", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.source_repo_id = ProtoField.new("Source Repo Id", "cme.globex.ilink3.sbe.v8.3.sourcerepoid", ftypes.INT32)
 omi_cme_globex_ilink3_sbe_v8_3.fields.split_msg = ProtoField.new("Split Msg", "cme.globex.ilink3.sbe.v8.3.splitmsg", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_3.fields.spread_leg_order_events_group = ProtoField.new("Spread Leg Order Events Group", "cme.globex.ilink3.sbe.v8.3.spreadlegordereventsgroup", ftypes.STRING)
@@ -306,13 +307,12 @@ omi_cme_globex_ilink3_sbe_v8_3.fields.volatility = ProtoField.new("Volatility", 
 omi_cme_globex_ilink3_sbe_v8_3.fields.week = ProtoField.new("Week", "cme.globex.ilink3.sbe.v8.3.week", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_3.fields.year = ProtoField.new("Year", "cme.globex.ilink3.sbe.v8.3.year", ftypes.UINT16)
 
--- Cme Globex iLink3 Sbe 8.3 Headers
+-- Cme Globex iLink3 Sbe 8.3 Framing
 omi_cme_globex_ilink3_sbe_v8_3.fields.client_packet = ProtoField.new("Client Packet", "cme.globex.ilink3.sbe.v8.3.clientpacket", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.client_simple_open_frame = ProtoField.new("Client Simple Open Frame", "cme.globex.ilink3.sbe.v8.3.clientsimpleopenframe", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.message_header = ProtoField.new("Message Header", "cme.globex.ilink3.sbe.v8.3.messageheader", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.server_packet = ProtoField.new("Server Packet", "cme.globex.ilink3.sbe.v8.3.serverpacket", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_3.fields.server_simple_open_frame = ProtoField.new("Server Simple Open Frame", "cme.globex.ilink3.sbe.v8.3.serversimpleopenframe", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_3.fields.simple_open_framing_header = ProtoField.new("Simple Open Framing Header", "cme.globex.ilink3.sbe.v8.3.simpleopenframingheader", ftypes.STRING)
 
 -- Cme Globex iLink3 8.3 Application Messages
 omi_cme_globex_ilink3_sbe_v8_3.fields.business_reject = ProtoField.new("Business Reject", "cme.globex.ilink3.sbe.v8.3.businessreject", ftypes.STRING)

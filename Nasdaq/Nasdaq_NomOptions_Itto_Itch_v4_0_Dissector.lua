@@ -50,9 +50,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_price = ProtoField.new("Im
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.nomoptions.itto.itch.v4.0.imbalancevolume", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.market_side = ProtoField.new("Market Side", "nasdaq.nomoptions.itto.itch.v4.0.marketside", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nomoptions.itto.itch.v4.0.matchnumber", ftypes.UINT32)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message = ProtoField.new("Message", "nasdaq.nomoptions.itto.itch.v4.0.message", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nomoptions.itto.itch.v4.0.messagecount", ftypes.UINT16)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nomoptions.itto.itch.v4.0.messageheader", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nomoptions.itto.itch.v4.0.messagelength", ftypes.UINT16)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nomoptions.itto.itch.v4.0.messagetype", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.mpv = ProtoField.new("Mpv", "nasdaq.nomoptions.itto.itch.v4.0.mpv", ftypes.STRING)
@@ -93,10 +91,12 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.username = ProtoField.new("Username"
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.nomoptions.itto.itch.v4.0.volumelong", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.nomoptions.itto.itch.v4.0.volumeshort", ftypes.UINT16)
 
--- Nasdaq NomOptions Itto Itch 4.0 Headers
+-- Nasdaq NomOptions Itto Itch 4.0 Framing
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.clientsoupbintcppacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.clienttcppacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.nomoptions.itto.itch.v4.0.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message = ProtoField.new("Message", "nasdaq.nomoptions.itto.itch.v4.0.message", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nomoptions.itto.itch.v4.0.messageheader", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.nomoptions.itto.itch.v4.0.moldudp64packet", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.serversoupbintcppacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.nomoptions.itto.itch.v4.0.servertcppacket", ftypes.STRING)
@@ -166,8 +166,8 @@ local show = {}
 -- Nasdaq NomOptions Itto Itch 4.0 Element Dissection Options
 show.application_messages = true
 show.structs = true
-show.session_messages = true
 show.headers = true
+show.session_messages = true
 show.indexes = true
 show.sequences = true
 
@@ -182,8 +182,8 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.assume_role = Pref.enum("Assume Role"
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nomoptions_itto_itch_v4_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -4481,7 +4481,7 @@ end
 
 -- Dissect: Server Tcp Packet Header
 nasdaq_nomoptions_itto_itch_v4_0.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.server_tcp_packet_header.fields(buffer, offset, packet, parent)
@@ -4800,7 +4800,7 @@ end
 
 -- Dissect: Client Tcp Packet Header
 nasdaq_nomoptions_itto_itch_v4_0.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_nomoptions_itto_itch_v4_0.client_tcp_packet_header.fields(buffer, offset, packet, parent)

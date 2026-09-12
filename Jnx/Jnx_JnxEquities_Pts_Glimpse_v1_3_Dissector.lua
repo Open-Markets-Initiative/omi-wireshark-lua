@@ -55,7 +55,7 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_message_type = ProtoFiel
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.glimpse.v1.3.upperpricelimit", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.glimpse.v1.3.username", ftypes.STRING)
 
--- Jnx JnxEquities Pts Glimpse 1.3 Headers
+-- Jnx JnxEquities Pts Glimpse 1.3 Framing
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.clientsoupbintcppacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.clienttcppacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.clienttcppacketheader", ftypes.STRING)
@@ -116,6 +116,7 @@ local show = {}
 
 -- Jnx JnxEquities Pts Glimpse 1.3 Element Dissection Options
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.application_messages = true
 
@@ -129,6 +130,7 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.acceptor_port = Pref.uint("Acceptor P
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -142,6 +144,9 @@ function omi_jnx_jnxequities_pts_glimpse_v1_3.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_application_messages then
     show.application_messages = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_headers then
+    show.headers = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_headers
   end
   if show.session_messages ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_session_messages then
     show.session_messages = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_session_messages
@@ -2265,7 +2270,7 @@ end
 
 -- Dissect: Server Tcp Packet Header
 jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet_header, buffer(offset, 0))
     local index = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields(buffer, offset, packet, parent)
@@ -2592,7 +2597,7 @@ end
 
 -- Dissect: Client Tcp Packet Header
 jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet_header, buffer(offset, 0))
     local index = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields(buffer, offset, packet, parent)

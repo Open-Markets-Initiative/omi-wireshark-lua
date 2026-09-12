@@ -52,7 +52,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_id = ProtoField.ne
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradingstatus", ftypes.UINT8)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused = ProtoField.new("Unused", "miax.pearlequities.depthofmarket.mach.v1.3.a.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Miax PearlEquities DepthOfMarket Mach 1.3.a Headers
+-- Miax PearlEquities DepthOfMarket Mach 1.3.a Framing
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.depthofmarket.mach.v1.3.a.packet", ftypes.STRING)
 

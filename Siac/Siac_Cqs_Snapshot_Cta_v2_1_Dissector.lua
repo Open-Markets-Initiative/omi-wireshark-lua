@@ -80,6 +80,8 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.seconds = ProtoField.new("Seconds", "siac.
 omi_siac_cqs_snapshot_cta_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v2.1.securitysymbol", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v2.1.settlementcondition", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v2.1.shortsalerestrictionindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp_utc = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message = ProtoField.new("Snapshot Message", "siac.cqs.snapshot.cta.v2.1.snapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v2.1.snapshotmessagetype", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.test = ProtoField.new("Test", "siac.cqs.snapshot.cta.v2.1.test", ftypes.STRING)
@@ -88,12 +90,10 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.totpubseqrollover = ProtoField.new("Totpub
 omi_siac_cqs_snapshot_cta_v2_1.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v2.1.upperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v2_1.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v2.1.version", ftypes.UINT8)
 
--- Siac Cqs Snapshot Cta 2.1 Headers
+-- Siac Cqs Snapshot Cta 2.1 Framing
 omi_siac_cqs_snapshot_cta_v2_1.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v2.1.blockheader", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v2.1.message", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v2.1.packet", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp_utc = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Siac Cqs Snapshot 2.1 Application Messages
 omi_siac_cqs_snapshot_cta_v2_1.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v2.1.consolidatedsnapshotmessage", ftypes.STRING)

@@ -28,18 +28,18 @@ omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.product_id = P
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.requestseqnum", ftypes.UINT32)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.retransmitmethod", ftypes.UINT8)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.seconds = ProtoField.new("Seconds", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.seconds", ftypes.UINT32)
+omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.send_time = ProtoField.new("Send Time", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.send_time_utc = ProtoField.new("Send Time", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.seq_num = ProtoField.new("Seq Num", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.seqnum", ftypes.UINT32)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.source_id = ProtoField.new("Source Id", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.sourceid", ftypes.STRING)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.status = ProtoField.new("Status", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.status", ftypes.STRING)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.symbolindex", ftypes.UINT32)
 
--- Nyse TexasEquities IntegratedFeedRequest Pillar 2.5.g Headers
+-- Nyse TexasEquities IntegratedFeedRequest Pillar 2.5.g Framing
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.message = ProtoField.new("Message", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.message", ftypes.STRING)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.messageheader", ftypes.STRING)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.packet = ProtoField.new("Packet", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.packet", ftypes.STRING)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.packetheader", ftypes.STRING)
-omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.send_time = ProtoField.new("Send Time", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.send_time_utc = ProtoField.new("Send Time", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse TexasEquities IntegratedFeedRequest 2.5.g Application Messages
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.heartbeatresponsemessage", ftypes.STRING)

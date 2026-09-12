@@ -78,7 +78,7 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.fields.unsolicited = ProtoFiel
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.overnight.retransmission.link.v1.0.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.user_id = ProtoField.new("User Id", "otcmarkets.overnight.retransmission.link.v1.0.userid", ftypes.STRING)
 
--- OtcMarkets Overnight Retransmission Link 1.0 Headers
+-- OtcMarkets Overnight Retransmission Link 1.0 Framing
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.message = ProtoField.new("Message", "otcmarkets.overnight.retransmission.link.v1.0.message", ftypes.STRING)
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.message_header = ProtoField.new("Message Header", "otcmarkets.overnight.retransmission.link.v1.0.messageheader", ftypes.STRING)
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.packet = ProtoField.new("Packet", "otcmarkets.overnight.retransmission.link.v1.0.packet", ftypes.STRING)
@@ -116,10 +116,12 @@ local show = {}
 -- OtcMarkets Overnight Retransmission Link 1.0 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register OtcMarkets Overnight Retransmission Link 1.0 Show Options
 omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_otcmarkets_overnight_retransmission_link_v1_0.prefs_changed()
@@ -127,6 +129,9 @@ function omi_otcmarkets_overnight_retransmission_link_v1_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_application_messages then
     show.application_messages = omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_headers then
+    show.headers = omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_headers
   end
   if show.structs ~= omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_structs then
     show.structs = omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_structs
@@ -3090,7 +3095,7 @@ end
 
 -- Dissect: Message Header
 otcmarkets_overnight_retransmission_link_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_overnight_retransmission_link_v1_0.fields.message_header, buffer(offset, 0))
     local index = otcmarkets_overnight_retransmission_link_v1_0.message_header.fields(buffer, offset, packet, parent)

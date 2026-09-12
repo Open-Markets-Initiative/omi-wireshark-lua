@@ -22,9 +22,7 @@ omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.execution_date = ProtoFiel
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.execution_time = ProtoField.new("Execution Time", "nasdaq.nordicequities.lastsale.itch.v1.2.9.executiontime", ftypes.UINT64)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "nasdaq.nordicequities.lastsale.itch.v1.2.9.instrumentidentificationcode", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "nasdaq.nordicequities.lastsale.itch.v1.2.9.instrumentidentificationcodetype", ftypes.STRING)
-omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message = ProtoField.new("Message", "nasdaq.nordicequities.lastsale.itch.v1.2.9.message", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_count = ProtoField.new("Message Count", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messagecount", ftypes.UINT16)
-omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_header = ProtoField.new("Message Header", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messageheader", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_length = ProtoField.new("Message Length", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messagelength", ftypes.UINT16)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_type = ProtoField.new("Message Type", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messagetype", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.mmt_trade_flags = ProtoField.new("Mmt Trade Flags", "nasdaq.nordicequities.lastsale.itch.v1.2.9.mmttradeflags", ftypes.STRING)
@@ -55,7 +53,9 @@ omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.transaction_to_be_cleared 
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.type = ProtoField.new("Type", "nasdaq.nordicequities.lastsale.itch.v1.2.9.type", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "nasdaq.nordicequities.lastsale.itch.v1.2.9.venueofexecution", ftypes.STRING)
 
--- Nasdaq NordicEquities LastSale Itch 1.2.9 Headers
+-- Nasdaq NordicEquities LastSale Itch 1.2.9 Framing
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message = ProtoField.new("Message", "nasdaq.nordicequities.lastsale.itch.v1.2.9.message", ftypes.STRING)
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_header = ProtoField.new("Message Header", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messageheader", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.packet = ProtoField.new("Packet", "nasdaq.nordicequities.lastsale.itch.v1.2.9.packet", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nordicequities.lastsale.itch.v1.2.9.packetheader", ftypes.STRING)
 

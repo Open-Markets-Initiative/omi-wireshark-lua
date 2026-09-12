@@ -68,7 +68,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.underlying_asset_type = Prot
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasure", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.topofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
 
--- Miax OnyxFutures TopOfMarket Mach 1.0.b Headers
+-- Miax OnyxFutures TopOfMarket Mach 1.0.b Framing
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.topofmarket.mach.v1.0.b.packet", ftypes.STRING)
 

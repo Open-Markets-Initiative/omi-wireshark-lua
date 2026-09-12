@@ -18,7 +18,7 @@ local eurex_t7_eti_fbe_v1 = {}
 omi_eurex_t7_eti_fbe_v1.fields.body_len = ProtoField.new("Body Len", "eurex.t7.eti.fbe.v1.bodylen", ftypes.UINT32)
 omi_eurex_t7_eti_fbe_v1.fields.template_id = ProtoField.new("Template Id", "eurex.t7.eti.fbe.v1.templateid", ftypes.UINT16)
 
--- Eurex T7 Eti Fbe 1. Headers
+-- Eurex T7 Eti Fbe 1. Framing
 omi_eurex_t7_eti_fbe_v1.fields.client_message = ProtoField.new("Client Message", "eurex.t7.eti.fbe.v1.clientmessage", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v1.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.eti.fbe.v1.clientpacket", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.eti.fbe.v1.messageheader", ftypes.STRING)
@@ -33,6 +33,7 @@ local show = {}
 
 -- Eurex T7 Eti Fbe 1. Element Dissection Options
 show.structs = true
+show.headers = true
 
 -- Register Eurex T7 Eti Fbe 1. Show Options
 local role_enum = {
@@ -44,11 +45,15 @@ omi_eurex_t7_eti_fbe_v1.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Por
 omi_eurex_t7_eti_fbe_v1.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_eurex_t7_eti_fbe_v1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_eurex_t7_eti_fbe_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_eurex_t7_eti_fbe_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_eurex_t7_eti_fbe_v1.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_eurex_t7_eti_fbe_v1.prefs.show_headers then
+    show.headers = omi_eurex_t7_eti_fbe_v1.prefs.show_headers
+  end
   if show.structs ~= omi_eurex_t7_eti_fbe_v1.prefs.show_structs then
     show.structs = omi_eurex_t7_eti_fbe_v1.prefs.show_structs
   end
@@ -138,7 +143,7 @@ end
 
 -- Dissect: Message Header
 eurex_t7_eti_fbe_v1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eti_fbe_v1.fields.message_header, buffer(offset, 0))
     local index = eurex_t7_eti_fbe_v1.message_header.fields(buffer, offset, packet, parent)

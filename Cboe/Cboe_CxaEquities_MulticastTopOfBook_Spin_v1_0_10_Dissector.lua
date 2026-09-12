@@ -24,8 +24,6 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.filler = ProtoField.
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.length = ProtoField.new("Length", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.length", ftypes.UINT16)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.loginresponsestatus", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.market_id_code = ProtoField.new("Market Id Code", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.marketidcode", ftypes.STRING)
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message = ProtoField.new("Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.message", ftypes.STRING)
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_header = ProtoField.new("Message Header", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.messageheader", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.messagetype", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.order_count = ProtoField.new("Order Count", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.ordercount", ftypes.UINT32)
@@ -47,7 +45,9 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value = ProtoField.n
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuecategory", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuetimestamp", ftypes.UINT64)
 
--- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Headers
+-- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Framing
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message = ProtoField.new("Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.message", ftypes.STRING)
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_header = ProtoField.new("Message Header", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.messageheader", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packet", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.packetheader", ftypes.STRING)
 
@@ -75,11 +75,13 @@ local show = {}
 -- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Show Options
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -88,6 +90,9 @@ function omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_application_messages then
     show.application_messages = omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_headers then
+    show.headers = omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_headers
   end
   if show.structs ~= omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_structs then
     show.structs = omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_structs
@@ -1511,7 +1516,7 @@ end
 
 -- Dissect: Message Header
 cboe_cxaequities_multicasttopofbook_spin_v1_0_10.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message_header, buffer(offset, 0))
     local index = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.message_header.fields(buffer, offset, packet, parent)
@@ -1664,7 +1669,7 @@ end
 
 -- Dissect: Packet Header
 cboe_cxaequities_multicasttopofbook_spin_v1_0_10.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.packet_header, buffer(offset, 0))
     local index = cboe_cxaequities_multicasttopofbook_spin_v1_0_10.packet_header.fields(buffer, offset, packet, parent)

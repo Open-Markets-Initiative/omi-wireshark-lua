@@ -18,6 +18,7 @@
 | [IexEquities][IexEquities.Exchange] | [IexTpHeader][Iex.IexEquities.IexTpHeader] | [Udp][Omi.Encoding.Udp] | [1.0][Iex.IexEquities.IexTpHeader.Udp.v1.0.Dissector] | 9/20/2015 | 706 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.IexEquities.IexTpHeader.Udp.v1.0.Url] - [pdf][Iex.IexEquities.IexTpHeader.Udp.v1.0.Pdf] |
 | [IexOptions][IexOptions.Exchange] | [BinaryOrderEntry][Iex.IexOptions.BinaryOrderEntry] | [Sbe][Omi.Encoding.Sbe] | [1.02][Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.Dissector] | 6/1/2026 | 9172 | [Pending][Omi.Glossary.Status.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.Url] - [xml][Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.Xml] - [pdf][Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.Pdf] |
 | [IexOptions][IexOptions.Exchange] | [MarketData][Iex.IexOptions.MarketData] | [Sbe][Omi.Encoding.Sbe] | [1.03][Iex.IexOptions.MarketData.Sbe.v1.03.Dissector] | 6/1/2026 | 3890 | [Pending][Omi.Glossary.Status.Pending] | [Untested][Omi.Glossary.Testing.Untested] | [url][Iex.IexOptions.MarketData.Sbe.v1.03.Url] - [xml][Iex.IexOptions.MarketData.Sbe.v1.03.Xml] - [pdf][Iex.IexOptions.MarketData.Sbe.v1.03.Pdf] |
+| [IexOptions][IexOptions.Exchange] | [Session][Iex.IexOptions.Session] | [Sbe][Omi.Encoding.Sbe] | [1.0][Iex.IexOptions.Session.Sbe.v1.0.Dissector] | 6/1/2026 | 1688 | [Header][Omi.Glossary.Status.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Iex.IexOptions.Session.Sbe.v1.0.Url] - [xml][Iex.IexOptions.Session.Sbe.v1.0.Xml] - [pdf][Iex.IexOptions.Session.Sbe.v1.0.Pdf] |
 
 
 Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
@@ -50,6 +51,7 @@ Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
 [Iex.IexEquities.IexTpHeader]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexEquities/IexTpHeader.md "IexTp Header"
 [Iex.IexOptions.MarketData]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexOptions/MarketData.md "Market Data"
 [Iex.IexOptions.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexOptions/BinaryOrderEntry.md "Binary Order Entry"
+[Iex.IexOptions.Session]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Protocols/IexOptions/Session.md "Session"
 
 [Iex.IexEquities.Deep.IexTp.v1.06.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Iex/Iex_IexEquities_Deep_IexTp_v1_06_Dissector.lua "Iex IexEquities Deep IexTp v1.06 Wireshark Dissector"
 [Iex.IexEquities.Deep.IexTp.v1.06.Url]: https://www.iexexchange.io/resources/trading/documents "Investors Exchange 1.06 Url"
@@ -92,3 +94,7 @@ Iex: [website](https://www.iexexchange.io "Go to Investors Exchange")
 [Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.Url]: https://www.iexexchange.io/options "Investors Exchange 1.02 Url"
 [Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/IexOptions/BinaryOrderEntry/Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.xml "Investors Exchange 1.02 Xml"
 [Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/IexOptions/BinaryOrderEntry/Iex.IexOptions.BinaryOrderEntry.Sbe.v1.02.pdf "Investors Exchange 1.02 Pdf"
+[Iex.IexOptions.Session.Sbe.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Iex/Iex_IexOptions_Session_Sbe_v1_0_Dissector.lua "Iex IexOptions Session Sbe v1.0 Wireshark Dissector"
+[Iex.IexOptions.Session.Sbe.v1.0.Url]: https://www.iexexchange.io/options "Investors Exchange 1.0 Url"
+[Iex.IexOptions.Session.Sbe.v1.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/IexOptions/Session/Iex.IexOptions.Session.Sbe.v1.0.xml "Investors Exchange 1.0 Xml"
+[Iex.IexOptions.Session.Sbe.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/IexOptions/Session/Iex.IexOptions.Session.Sbe.v1.0.pdf "Investors Exchange 1.0 Pdf"

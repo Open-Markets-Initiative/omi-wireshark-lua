@@ -50,6 +50,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.last_modified = ProtoField.new(
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.logtime", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.market = ProtoField.new("Market", "nse.nsefo.orderentry.nnftrimmed.v9.50.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.matched_ind = ProtoField.new("Matched Ind", "nse.nsefo.orderentry.nnftrimmed.v9.50.matchedind", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.message = ProtoField.new("Message", "nse.nsefo.orderentry.nnftrimmed.v9.50.message", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.message_length = ProtoField.new("Message Length", "nse.nsefo.orderentry.nnftrimmed.v9.50.messagelength", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.mf = ProtoField.new("Mf", "nse.nsefo.orderentry.nnftrimmed.v9.50.mf", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.mit = ProtoField.new("Mit", "nse.nsefo.orderentry.nnftrimmed.v9.50.mit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000)
@@ -98,8 +99,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.user_id = ProtoField.new("User 
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.volume = ProtoField.new("Volume", "nse.nsefo.orderentry.nnftrimmed.v9.50.volume", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.volume_filled_today = ProtoField.new("Volume Filled Today", "nse.nsefo.orderentry.nnftrimmed.v9.50.volumefilledtoday", ftypes.INT32)
 
--- Nse NseFo OrderEntry NnfTrimmed 9.50 Headers
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.message = ProtoField.new("Message", "nse.nsefo.orderentry.nnftrimmed.v9.50.message", ftypes.STRING)
+-- Nse NseFo OrderEntry NnfTrimmed 9.50 Framing
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.packet = ProtoField.new("Packet", "nse.nsefo.orderentry.nnftrimmed.v9.50.packet", ftypes.STRING)
 
 -- Nse NseFo OrderEntry 9.50 Application Messages

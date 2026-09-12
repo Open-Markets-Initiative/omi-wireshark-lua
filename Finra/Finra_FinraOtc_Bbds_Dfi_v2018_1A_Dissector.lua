@@ -67,7 +67,7 @@ omi_finra_finraotc_bbds_dfi_v2018_1a.fields.unsolicited_indicator = ProtoField.n
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.wanted_indicator = ProtoField.new("Wanted Indicator", "finra.finraotc.bbds.dfi.v2018.1a.wantedindicator", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.year = ProtoField.new("Year", "finra.finraotc.bbds.dfi.v2018.1a.year", ftypes.STRING)
 
--- Finra FinraOtc Bbds Dfi 2018.1A Headers
+-- Finra FinraOtc Bbds Dfi 2018.1A Framing
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message = ProtoField.new("Message", "finra.finraotc.bbds.dfi.v2018.1a.message", ftypes.STRING)
 omi_finra_finraotc_bbds_dfi_v2018_1a.fields.packet = ProtoField.new("Packet", "finra.finraotc.bbds.dfi.v2018.1a.packet", ftypes.STRING)
 
@@ -94,10 +94,12 @@ local show = {}
 -- Finra FinraOtc Bbds Dfi 2018.1A Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Finra FinraOtc Bbds Dfi 2018.1A Show Options
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()
@@ -105,6 +107,9 @@ function omi_finra_finraotc_bbds_dfi_v2018_1a.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages then
     show.application_messages = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_application_messages
+  end
+  if show.headers ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_headers then
+    show.headers = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_headers
   end
   if show.structs ~= omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs then
     show.structs = omi_finra_finraotc_bbds_dfi_v2018_1a.prefs.show_structs
@@ -2100,7 +2105,7 @@ finra_finraotc_bbds_dfi_v2018_1a.general_administrative_message.size = function(
 
   index = index + finra_finraotc_bbds_dfi_v2018_1a.message_header.size
 
-  -- Remaining size of: Text, at most 300 bytes
+  -- Remaining size of: Text
   index = index + math.min(buffer:len() - (offset + index), 300)
 
   return index
@@ -2549,7 +2554,7 @@ end
 
 -- Dissect: Message
 finra_finraotc_bbds_dfi_v2018_1a.message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.message, buffer(offset, 0))
     local index = finra_finraotc_bbds_dfi_v2018_1a.message.fields(buffer, offset, packet, parent)

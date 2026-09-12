@@ -418,7 +418,7 @@ omi_eurex_t7_xti_fbe_v13_1.fields.var_text = ProtoField.new("Var Text", "eurex.t
 omi_eurex_t7_xti_fbe_v13_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.t7.xti.fbe.v13.1.vartextlen", ftypes.UINT16)
 omi_eurex_t7_xti_fbe_v13_1.fields.xetra_en_light_target_parties_comp = ProtoField.new("Xetra En Light Target Parties Comp", "eurex.t7.xti.fbe.v13.1.xetraenlighttargetpartiescomp", ftypes.STRING)
 
--- Eurex T7 Xti Fbe 13.1 Headers
+-- Eurex T7 Xti Fbe 13.1 Framing
 omi_eurex_t7_xti_fbe_v13_1.fields.client_message = ProtoField.new("Client Message", "eurex.t7.xti.fbe.v13.1.clientmessage", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v13_1.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.xti.fbe.v13.1.clientpacket", ftypes.STRING)
 omi_eurex_t7_xti_fbe_v13_1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.xti.fbe.v13.1.messageheader", ftypes.STRING)
@@ -597,6 +597,7 @@ local show = {}
 show.repeating_groups = true
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Eurex T7 Xti Fbe 13.1 Show Options
@@ -611,6 +612,7 @@ omi_eurex_t7_xti_fbe_v13_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "Th
 omi_eurex_t7_xti_fbe_v13_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_eurex_t7_xti_fbe_v13_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_xti_fbe_v13_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_eurex_t7_xti_fbe_v13_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_eurex_t7_xti_fbe_v13_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -619,6 +621,9 @@ function omi_eurex_t7_xti_fbe_v13_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_eurex_t7_xti_fbe_v13_1.prefs.show_application_messages then
     show.application_messages = omi_eurex_t7_xti_fbe_v13_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_eurex_t7_xti_fbe_v13_1.prefs.show_headers then
+    show.headers = omi_eurex_t7_xti_fbe_v13_1.prefs.show_headers
   end
   if show.repeating_groups ~= omi_eurex_t7_xti_fbe_v13_1.prefs.show_repeating_groups then
     show.repeating_groups = omi_eurex_t7_xti_fbe_v13_1.prefs.show_repeating_groups
@@ -23842,7 +23847,7 @@ end
 
 -- Dissect: Message Header
 eurex_t7_xti_fbe_v13_1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_xti_fbe_v13_1.fields.message_header, buffer(offset, 0))
     local index = eurex_t7_xti_fbe_v13_1.message_header.fields(buffer, offset, packet, parent)

@@ -94,7 +94,7 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.update_date_and_time = ProtoF
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.venue = ProtoField.new("Venue", "lseg.turquoise.mifid2pretrade.gtp.v26.3.venue", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.mifid2pretrade.gtp.v26.3.venueinstrumentid", ftypes.STRING)
 
--- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Headers
+-- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Framing
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message = ProtoField.new("Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.message", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messageheader", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.packet = ProtoField.new("Packet", "lseg.turquoise.mifid2pretrade.gtp.v26.3.packet", ftypes.STRING)

@@ -59,12 +59,14 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.match_id = ProtoField.new("Ma
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.max_buy_price = ProtoField.new("Max Buy Price", "coinbase.deribit.marketdataapi.sbe.v0.1.maxbuyprice", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count = ProtoField.new("Message Count", "coinbase.deribit.marketdataapi.sbe.v0.1.messagecount", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count_uint_8 = ProtoField.new("Message Count uint 8", "coinbase.deribit.marketdataapi.sbe.v0.1.messagecountuint8", ftypes.UINT8)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_flags = ProtoField.new("Message Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.messageflags", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_length = ProtoField.new("Message Length", "coinbase.deribit.marketdataapi.sbe.v0.1.messagelength", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.min_sell_price = ProtoField.new("Min Sell Price", "coinbase.deribit.marketdataapi.sbe.v0.1.minsellprice", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.month = ProtoField.new("Month", "coinbase.deribit.marketdataapi.sbe.v0.1.month", ftypes.INT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.name = ProtoField.new("Name", "coinbase.deribit.marketdataapi.sbe.v0.1.name", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "coinbase.deribit.marketdataapi.sbe.v0.1.numberoflegs", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.order_id = ProtoField.new("Order Id", "coinbase.deribit.marketdataapi.sbe.v0.1.orderid", ftypes.INT64)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v0.1.packettype", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.price = ProtoField.new("Price", "coinbase.deribit.marketdataapi.sbe.v0.1.price", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quantity_exponent = ProtoField.new("Quantity Exponent", "coinbase.deribit.marketdataapi.sbe.v0.1.quantityexponent", ftypes.INT8)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quantity_mantissa = ProtoField.new("Quantity Mantissa", "coinbase.deribit.marketdataapi.sbe.v0.1.quantitymantissa", ftypes.INT64)
@@ -96,13 +98,11 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.type = ProtoField.new("Type",
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.week_of_month = ProtoField.new("Week Of Month", "coinbase.deribit.marketdataapi.sbe.v0.1.weekofmonth", ftypes.INT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.year = ProtoField.new("Year", "coinbase.deribit.marketdataapi.sbe.v0.1.year", ftypes.INT16)
 
--- Coinbase Deribit MarketDataApi Sbe 0.1 Headers
+-- Coinbase Deribit MarketDataApi Sbe 0.1 Framing
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message = ProtoField.new("Md Message", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message_header = ProtoField.new("Md Message Header", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessageheader", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_flags = ProtoField.new("Message Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.messageflags", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet = ProtoField.new("Packet", "coinbase.deribit.marketdataapi.sbe.v0.1.packet", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_header = ProtoField.new("Packet Header", "coinbase.deribit.marketdataapi.sbe.v0.1.packetheader", ftypes.STRING)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v0.1.packettype", ftypes.STRING)
 
 -- Coinbase Deribit MarketDataApi 0.1 Application Messages
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.ask_delete_message = ProtoField.new("Ask Delete Message", "coinbase.deribit.marketdataapi.sbe.v0.1.askdeletemessage", ftypes.STRING)
@@ -3443,6 +3443,16 @@ end
 -- Md Message
 coinbase_deribit_marketdataapi_sbe_v0_1.md_message = {}
 
+-- Read runtime size of: Md Message
+coinbase_deribit_marketdataapi_sbe_v0_1.md_message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 2):le_uint()
+
+  return message_length
+end
+
 -- Display: Md Message
 coinbase_deribit_marketdataapi_sbe_v0_1.md_message.display = function(packet, parent, length)
   return ""
@@ -3472,6 +3482,7 @@ end
 
 -- Dissect: Md Message
 coinbase_deribit_marketdataapi_sbe_v0_1.md_message.dissect = function(buffer, offset, packet, parent, size_of_md_message, md_message_index)
+  local size_of_md_message = coinbase_deribit_marketdataapi_sbe_v0_1.md_message.size(buffer, offset)
   local index = offset + size_of_md_message
 
   -- Optionally add group/struct element to protocol tree
@@ -3489,6 +3500,45 @@ coinbase_deribit_marketdataapi_sbe_v0_1.md_message.dissect = function(buffer, of
 
     return index
   end
+end
+
+-- Empty Packet
+coinbase_deribit_marketdataapi_sbe_v0_1.empty_packet = {}
+
+-- Display: Empty Packet
+coinbase_deribit_marketdataapi_sbe_v0_1.empty_packet.display = function(packet, parent, length)
+  return "Empty Packet"
+end
+
+
+-- Dissect: Empty Packet
+coinbase_deribit_marketdataapi_sbe_v0_1.empty_packet.dissect = function(buffer, offset, packet, parent)
+  local display = coinbase_deribit_marketdataapi_sbe_v0_1.empty_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Md Messages
+coinbase_deribit_marketdataapi_sbe_v0_1.md_messages = {}
+
+-- Dissect: Md Messages
+coinbase_deribit_marketdataapi_sbe_v0_1.md_messages.dissect = function(buffer, offset, packet, parent, message_count)
+  -- Dissect Empty Packet
+  if message_count == 0 then
+    return coinbase_deribit_marketdataapi_sbe_v0_1.empty_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Md Message
+  for md_message_index = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 2):le_uint()
+
+    -- Md Message: Struct of 2 fields
+    offset = coinbase_deribit_marketdataapi_sbe_v0_1.md_message.dissect(buffer, offset, packet, parent, size_of_md_message, md_message_index)
+  end
+
+  return offset
 end
 
 -- Packet Type
@@ -3622,15 +3672,8 @@ coinbase_deribit_marketdataapi_sbe_v0_1.packet.dissect = function(buffer, packet
   -- Dependency element: Message Count
   local message_count = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Md Message
-  for md_message_index = 1, message_count do
-
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Md Message
-    index, md_message = coinbase_deribit_marketdataapi_sbe_v0_1.md_message.dissect(buffer, index, packet, parent, message_length, md_message_index)
-  end
+  -- Md Messages: Runtime Type with 2 branches
+  index = coinbase_deribit_marketdataapi_sbe_v0_1.md_messages.dissect(buffer, index, packet, parent, message_count)
 
   return index
 end

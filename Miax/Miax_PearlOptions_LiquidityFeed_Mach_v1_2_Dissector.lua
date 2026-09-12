@@ -88,7 +88,7 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_data_packet = P
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearloptions.liquidityfeed.mach.v1.2.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.username = ProtoField.new("Username", "miax.pearloptions.liquidityfeed.mach.v1.2.username", ftypes.STRING)
 
--- Miax PearlOptions LiquidityFeed Mach 1.2 Headers
+-- Miax PearlOptions LiquidityFeed Mach 1.2 Framing
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.mach_message = ProtoField.new("Mach Message", "miax.pearloptions.liquidityfeed.mach.v1.2.machmessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmpacketheader", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.pearloptions.liquidityfeed.mach.v1.2.sesmtcppacket", ftypes.STRING)
@@ -126,10 +126,12 @@ local show = {}
 -- Miax PearlOptions LiquidityFeed Mach 1.2 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Miax PearlOptions LiquidityFeed Mach 1.2 Show Options
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -138,6 +140,9 @@ function omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_application_messages then
     show.application_messages = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_headers then
+    show.headers = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_headers
   end
   if show.structs ~= omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_structs then
     show.structs = omi_miax_pearloptions_liquidityfeed_mach_v1_2.prefs.show_structs
@@ -3212,7 +3217,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_pearloptions_liquidityfeed_mach_v1_2.sesm_packet_header.fields(buffer, offset, packet, parent)

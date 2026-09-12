@@ -49,7 +49,7 @@ omi_cme_globex_brokertecust_sbe_v10_1.fields.trade_volume = ProtoField.new("Trad
 omi_cme_globex_brokertecust_sbe_v10_1.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.brokertecust.sbe.v10.1.transacttime", ftypes.UINT64)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.version = ProtoField.new("Version", "cme.globex.brokertecust.sbe.v10.1.version", ftypes.UINT16)
 
--- Cme Globex BrokerTecUst Sbe 10.1 Headers
+-- Cme Globex BrokerTecUst Sbe 10.1 Framing
 omi_cme_globex_brokertecust_sbe_v10_1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.brokertecust.sbe.v10.1.binarypacketheader", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.message = ProtoField.new("Message", "cme.globex.brokertecust.sbe.v10.1.message", ftypes.STRING)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.message_header = ProtoField.new("Message Header", "cme.globex.brokertecust.sbe.v10.1.messageheader", ftypes.STRING)
@@ -1422,7 +1422,7 @@ cme_globex_brokertecust_sbe_v10_1.tcp_message.dissect = function(buffer, offset,
   local index = offset + size_of_tcp_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.tcp_message, buffer(offset, 0))
     local current = cme_globex_brokertecust_sbe_v10_1.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
     parent:set_len(size_of_tcp_message)
@@ -1470,7 +1470,7 @@ end
 
 -- Dissect: Technical Header
 cme_globex_brokertecust_sbe_v10_1.technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.technical_header, buffer(offset, 0))
     local index = cme_globex_brokertecust_sbe_v10_1.technical_header.fields(buffer, offset, packet, parent)
@@ -1551,7 +1551,7 @@ cme_globex_brokertecust_sbe_v10_1.message.dissect = function(buffer, offset, pac
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.message, buffer(offset, 0))
     local current = cme_globex_brokertecust_sbe_v10_1.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

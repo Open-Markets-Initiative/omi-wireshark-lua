@@ -288,6 +288,7 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.security_type = ProtoField.new("Security Ty
 omi_cme_globex_mdp3_sbe_v1_12.fields.security_update_action = ProtoField.new("Security Update Action", "cme.globex.mdp3.sbe.v1.12.securityupdateaction", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.sef_regulated = ProtoField.new("Sef Regulated", "cme.globex.mdp3.sbe.v1.12.sefregulated", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x01000000)
 omi_cme_globex_mdp3_sbe_v1_12.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.12.sendingtime", ftypes.UINT64)
+omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_message = ProtoField.new("Server Tcp Message", "cme.globex.mdp3.sbe.v1.12.servertcpmessage", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.session = ProtoField.new("Session", "cme.globex.mdp3.sbe.v1.12.session", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.settl_currency = ProtoField.new("Settl Currency", "cme.globex.mdp3.sbe.v1.12.settlcurrency", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.settl_date = ProtoField.new("Settl Date", "cme.globex.mdp3.sbe.v1.12.settldate", ftypes.UINT16)
@@ -363,7 +364,7 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.workup_trading_status = ProtoField.new("Wor
 omi_cme_globex_mdp3_sbe_v1_12.fields.year = ProtoField.new("Year", "cme.globex.mdp3.sbe.v1.12.year", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_12.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.globex.mdp3.sbe.v1.12.zeropriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 
--- Cme Globex Mdp3 Sbe 1.12 Headers
+-- Cme Globex Mdp3 Sbe 1.12 Framing
 omi_cme_globex_mdp3_sbe_v1_12.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.mdp3.sbe.v1.12.binarypacketheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.client_tcp_message = ProtoField.new("Client Tcp Message", "cme.globex.mdp3.sbe.v1.12.clienttcpmessage", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.client_tcp_packet = ProtoField.new("Client Tcp Packet", "cme.globex.mdp3.sbe.v1.12.clienttcppacket", ftypes.STRING)
@@ -371,7 +372,6 @@ omi_cme_globex_mdp3_sbe_v1_12.fields.client_technical_header = ProtoField.new("C
 omi_cme_globex_mdp3_sbe_v1_12.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.12.message", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.12.messageheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_frame = ProtoField.new("Server Tcp Frame", "cme.globex.mdp3.sbe.v1.12.servertcpframe", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_message = ProtoField.new("Server Tcp Message", "cme.globex.mdp3.sbe.v1.12.servertcpmessage", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.server_tcp_packet = ProtoField.new("Server Tcp Packet", "cme.globex.mdp3.sbe.v1.12.servertcppacket", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.mdp3.sbe.v1.12.servertechnicalheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_12.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.12.udppacket", ftypes.STRING)
@@ -16309,7 +16309,7 @@ end
 
 -- Dissect: Server Technical Header
 cme_globex_mdp3_sbe_v1_12.server_technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.server_technical_header, buffer(offset, 0))
     local index = cme_globex_mdp3_sbe_v1_12.server_technical_header.fields(buffer, offset, packet, parent)
@@ -17392,7 +17392,7 @@ end
 
 -- Dissect: Client Technical Header
 cme_globex_mdp3_sbe_v1_12.client_technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.client_technical_header, buffer(offset, 0))
     local index = cme_globex_mdp3_sbe_v1_12.client_technical_header.fields(buffer, offset, packet, parent)
@@ -17646,7 +17646,7 @@ cme_globex_mdp3_sbe_v1_12.message.dissect = function(buffer, offset, packet, par
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_12.fields.message, buffer(offset, 0))
     local current = cme_globex_mdp3_sbe_v1_12.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

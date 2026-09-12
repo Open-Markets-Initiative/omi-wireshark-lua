@@ -68,7 +68,7 @@ omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Tr
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.volume_2 = ProtoField.new("Volume 2", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.volume2", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.volume_4 = ProtoField.new("Volume 4", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.volume4", ftypes.UINT32)
 
--- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Headers
+-- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Framing
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.message", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
@@ -86,16 +86,21 @@ local show = {}
 
 -- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nyse ArcaOptions ComplexFeed Xdp 1.3.a Show Options
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_headers then
+    show.headers = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_headers
+  end
   if show.structs ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs then
     show.structs = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs
   end
@@ -2094,7 +2099,7 @@ end
 
 -- Dissect: Message Header
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.message_header.fields(buffer, offset, packet, parent)
@@ -2205,7 +2210,7 @@ end
 
 -- Dissect: Packet Header
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.packet_header, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.fields(buffer, offset, packet, parent)

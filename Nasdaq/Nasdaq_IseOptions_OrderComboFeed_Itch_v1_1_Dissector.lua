@@ -35,9 +35,7 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_id = ProtoField.new("L
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.leginformation", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.legratio", ftypes.UINT32)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_side = ProtoField.new("Leg Side", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.legside", ftypes.STRING)
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.message", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messagecount", ftypes.UINT16)
-omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messagelength", ftypes.UINT16)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.numberoflegs", ftypes.UINT8)
@@ -65,7 +63,9 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.timestamp = ProtoField.new
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.version", ftypes.UINT8)
 
--- Nasdaq IseOptions OrderComboFeed Itch 1.1 Headers
+-- Nasdaq IseOptions OrderComboFeed Itch 1.1 Framing
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.message", ftypes.STRING)
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packet", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.packetheader", ftypes.STRING)
 

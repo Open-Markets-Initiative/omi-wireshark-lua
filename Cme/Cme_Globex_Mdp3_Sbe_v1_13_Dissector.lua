@@ -374,7 +374,7 @@ omi_cme_globex_mdp3_sbe_v1_13.fields.workup_trading_status = ProtoField.new("Wor
 omi_cme_globex_mdp3_sbe_v1_13.fields.year = ProtoField.new("Year", "cme.globex.mdp3.sbe.v1.13.year", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_13.fields.zero_price_outright_eligible = ProtoField.new("Zero Price Outright Eligible", "cme.globex.mdp3.sbe.v1.13.zeropriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00004000)
 
--- Cme Globex Mdp3 Sbe 1.13 Headers
+-- Cme Globex Mdp3 Sbe 1.13 Framing
 omi_cme_globex_mdp3_sbe_v1_13.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.mdp3.sbe.v1.13.binarypacketheader", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_13.fields.client_tcp_message = ProtoField.new("Client Tcp Message", "cme.globex.mdp3.sbe.v1.13.clienttcpmessage", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_13.fields.client_tcp_packet = ProtoField.new("Client Tcp Packet", "cme.globex.mdp3.sbe.v1.13.clienttcppacket", ftypes.STRING)
@@ -16740,7 +16740,7 @@ end
 
 -- Dissect: Server Technical Header
 cme_globex_mdp3_sbe_v1_13.server_technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.server_technical_header, buffer(offset, 0))
     local index = cme_globex_mdp3_sbe_v1_13.server_technical_header.fields(buffer, offset, packet, parent)
@@ -17777,7 +17777,7 @@ end
 
 -- Dissect: Client Technical Header
 cme_globex_mdp3_sbe_v1_13.client_technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.client_technical_header, buffer(offset, 0))
     local index = cme_globex_mdp3_sbe_v1_13.client_technical_header.fields(buffer, offset, packet, parent)
@@ -18031,7 +18031,7 @@ cme_globex_mdp3_sbe_v1_13.message.dissect = function(buffer, offset, packet, par
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.message, buffer(offset, 0))
     local current = cme_globex_mdp3_sbe_v1_13.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

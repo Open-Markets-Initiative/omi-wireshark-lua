@@ -179,7 +179,7 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.volume_onbook_only = ProtoField.new
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.recovery.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.recovery.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Turquoise Recovery Gtp 24.4 Headers
+-- Lseg Turquoise Recovery Gtp 24.4 Framing
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.recovery.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.recovery.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.recovery.gtp.v24.4.packet", ftypes.STRING)

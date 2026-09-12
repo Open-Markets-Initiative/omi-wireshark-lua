@@ -416,7 +416,7 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.volume_freeze_percent = ProtoField.new
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.warning_percent = ProtoField.new("Warning Percent", "nse.nsefo.orderentry.nnf.v9.50.warningpercent", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.ws_class_name = ProtoField.new("Ws Class Name", "nse.nsefo.orderentry.nnf.v9.50.wsclassname", ftypes.STRING)
 
--- Nse NseFo OrderEntry Nnf 9.50 Headers
+-- Nse NseFo OrderEntry Nnf 9.50 Framing
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.message = ProtoField.new("Message", "nse.nsefo.orderentry.nnf.v9.50.message", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_header = ProtoField.new("Message Header", "nse.nsefo.orderentry.nnf.v9.50.messageheader", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.packet = ProtoField.new("Packet", "nse.nsefo.orderentry.nnf.v9.50.packet", ftypes.STRING)
@@ -496,11 +496,13 @@ local show = {}
 -- Nse NseFo OrderEntry Nnf 9.50 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Nse NseFo OrderEntry Nnf 9.50 Show Options
 omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -509,6 +511,9 @@ function omi_nse_nsefo_orderentry_nnf_v9_50.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_application_messages then
     show.application_messages = omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_headers then
+    show.headers = omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_headers
   end
   if show.structs ~= omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_structs then
     show.structs = omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_structs
@@ -16059,7 +16064,7 @@ end
 
 -- Dissect: Message Header
 nse_nsefo_orderentry_nnf_v9_50.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_header, buffer(offset, 0))
     local index = nse_nsefo_orderentry_nnf_v9_50.message_header.fields(buffer, offset, packet, parent)

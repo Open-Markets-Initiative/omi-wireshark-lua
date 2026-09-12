@@ -28,9 +28,7 @@ omi_biva_bivaequities_lastsale_itch_v1_12.fields.isin = ProtoField.new("Isin", "
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.listing_exchange = ProtoField.new("Listing Exchange", "biva.bivaequities.lastsale.itch.v1.12.listingexchange", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.listing_type = ProtoField.new("Listing Type", "biva.bivaequities.lastsale.itch.v1.12.listingtype", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.match_number = ProtoField.new("Match Number", "biva.bivaequities.lastsale.itch.v1.12.matchnumber", ftypes.UINT64)
-omi_biva_bivaequities_lastsale_itch_v1_12.fields.message = ProtoField.new("Message", "biva.bivaequities.lastsale.itch.v1.12.message", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_count = ProtoField.new("Message Count", "biva.bivaequities.lastsale.itch.v1.12.messagecount", ftypes.UINT16)
-omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_header = ProtoField.new("Message Header", "biva.bivaequities.lastsale.itch.v1.12.messageheader", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_length = ProtoField.new("Message Length", "biva.bivaequities.lastsale.itch.v1.12.messagelength", ftypes.UINT16)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_type = ProtoField.new("Message Type", "biva.bivaequities.lastsale.itch.v1.12.messagetype", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "biva.bivaequities.lastsale.itch.v1.12.minimumquantity", ftypes.UINT64)
@@ -63,7 +61,9 @@ omi_biva_bivaequities_lastsale_itch_v1_12.fields.trading_action_reason = ProtoFi
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.trading_state = ProtoField.new("Trading State", "biva.bivaequities.lastsale.itch.v1.12.tradingstate", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.turnover_ratio = ProtoField.new("Turnover Ratio", "biva.bivaequities.lastsale.itch.v1.12.turnoverratio", ftypes.STRING)
 
--- Biva BivaEquities LastSale Itch 1.12 Headers
+-- Biva BivaEquities LastSale Itch 1.12 Framing
+omi_biva_bivaequities_lastsale_itch_v1_12.fields.message = ProtoField.new("Message", "biva.bivaequities.lastsale.itch.v1.12.message", ftypes.STRING)
+omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_header = ProtoField.new("Message Header", "biva.bivaequities.lastsale.itch.v1.12.messageheader", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.packet = ProtoField.new("Packet", "biva.bivaequities.lastsale.itch.v1.12.packet", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.packet_header = ProtoField.new("Packet Header", "biva.bivaequities.lastsale.itch.v1.12.packetheader", ftypes.STRING)
 

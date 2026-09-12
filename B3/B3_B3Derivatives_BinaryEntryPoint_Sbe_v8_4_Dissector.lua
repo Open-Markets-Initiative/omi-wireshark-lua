@@ -256,7 +256,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.transact_time = ProtoField
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.version = ProtoField.new("Version", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.version", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.working_indicator = ProtoField.new("Working Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.workingindicator", ftypes.UINT8)
 
--- B3 B3Derivatives BinaryEntryPoint Sbe 8.4 Headers
+-- B3 B3Derivatives BinaryEntryPoint Sbe 8.4 Framing
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.messageheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.packet", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.simpleopenframe", ftypes.STRING)
@@ -14626,7 +14626,7 @@ end
 
 -- Dissect: Message Header
 b3_b3derivatives_binaryentrypoint_sbe_v8_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.message_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v8_4.message_header.fields(buffer, offset, packet, parent)
@@ -14670,7 +14670,7 @@ end
 
 -- Dissect: Simple Open Framing Header
 b3_b3derivatives_binaryentrypoint_sbe_v8_4.simple_open_framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.simple_open_framing_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryentrypoint_sbe_v8_4.simple_open_framing_header.fields(buffer, offset, packet, parent)

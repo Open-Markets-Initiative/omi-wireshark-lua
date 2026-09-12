@@ -84,7 +84,7 @@ omi_lseg_turquoise_level1_gtp_v24_4.fields.volume_onbook_only = ProtoField.new("
 omi_lseg_turquoise_level1_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.level1.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.level1.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Turquoise Level1 Gtp 24.4 Headers
+-- Lseg Turquoise Level1 Gtp 24.4 Framing
 omi_lseg_turquoise_level1_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.level1.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.level1.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.level1.gtp.v24.4.packet", ftypes.STRING)

@@ -30,8 +30,6 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.execution_id = P
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.indicativeprice", ftypes.UINT64)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.last_timestamp = ProtoField.new("Last Timestamp", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.lasttimestamp", ftypes.UINT32)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.length = ProtoField.new("Length", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.length", ftypes.UINT16)
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message = ProtoField.new("Message", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.message", ftypes.STRING)
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_header = ProtoField.new("Message Header", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.messageheader", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_length = ProtoField.new("Message Length", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.messagelength", ftypes.UINT8)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.messagetype", ftypes.UINT8)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.modifyorderflags", ftypes.STRING)
@@ -59,7 +57,9 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.unit = ProtoFiel
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_6 = ProtoField.new("Unused 6", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.unused_7 = ProtoField.new("Unused 7", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Cboe BzxEquities MulticastDepthOfBook Pitch 2.41.29 Headers
+-- Cboe BzxEquities MulticastDepthOfBook Pitch 2.41.29 Framing
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message = ProtoField.new("Message", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.message", ftypes.STRING)
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_header = ProtoField.new("Message Header", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.messageheader", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.packet", ftypes.STRING)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.29.packetheader", ftypes.STRING)
 
@@ -119,11 +119,13 @@ local show = {}
 -- Cboe BzxEquities MulticastDepthOfBook Pitch 2.41.29 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe BzxEquities MulticastDepthOfBook Pitch 2.41.29 Show Options
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -136,6 +138,9 @@ function omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs_changed(
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_application_messages then
     show.application_messages = omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_headers then
+    show.headers = omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_headers
   end
   if show.structs ~= omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_structs then
     show.structs = omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.prefs.show_structs
@@ -2528,7 +2533,7 @@ end
 
 -- Dissect: Message Header
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.message_header, buffer(offset, 0))
     local index = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.message_header.fields(buffer, offset, packet, parent)
@@ -2681,7 +2686,7 @@ end
 
 -- Dissect: Packet Header
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.fields.packet_header, buffer(offset, 0))
     local index = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_29.packet_header.fields(buffer, offset, packet, parent)

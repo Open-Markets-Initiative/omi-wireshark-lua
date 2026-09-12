@@ -365,7 +365,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_4.fields.wholesale_legs_groups = Pro
 omi_euronext_optiq_orderentrygateway_sbe_v4_4.fields.wholesale_side = ProtoField.new("Wholesale Side", "euronext.optiq.orderentrygateway.sbe.v4.4.wholesaleside", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v4_4.fields.wholesale_trade_type = ProtoField.new("Wholesale Trade Type", "euronext.optiq.orderentrygateway.sbe.v4.4.wholesaletradetype", ftypes.UINT8)
 
--- Euronext Optiq OrderEntryGateway Sbe 4.4 Headers
+-- Euronext Optiq OrderEntryGateway Sbe 4.4 Framing
 omi_euronext_optiq_orderentrygateway_sbe_v4_4.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v4.4.message", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_4.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v4.4.messageheader", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_4.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v4.4.packet", ftypes.STRING)
@@ -17736,7 +17736,7 @@ end
 
 -- Dissect: Message Header
 euronext_optiq_orderentrygateway_sbe_v4_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_4.fields.message_header, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v4_4.message_header.fields(buffer, offset, packet, parent)

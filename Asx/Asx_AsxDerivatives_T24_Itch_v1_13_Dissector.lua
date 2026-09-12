@@ -62,9 +62,7 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.lowest_traded_price = ProtoField.ne
 omi_asx_asxderivatives_t24_itch_v1_13.fields.market_updates = ProtoField.new("Market Updates", "asx.asxderivatives.t24.itch.v1.13.marketupdates", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.match_number = ProtoField.new("Match Number", "asx.asxderivatives.t24.itch.v1.13.matchnumber", ftypes.UINT32)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.maturity_value = ProtoField.new("Maturity Value", "asx.asxderivatives.t24.itch.v1.13.maturityvalue", ftypes.UINT8)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.message = ProtoField.new("Message", "asx.asxderivatives.t24.itch.v1.13.message", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_count = ProtoField.new("Message Count", "asx.asxderivatives.t24.itch.v1.13.messagecount", ftypes.UINT16)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.message_header = ProtoField.new("Message Header", "asx.asxderivatives.t24.itch.v1.13.messageheader", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_length = ProtoField.new("Message Length", "asx.asxderivatives.t24.itch.v1.13.messagelength", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_type = ProtoField.new("Message Type", "asx.asxderivatives.t24.itch.v1.13.messagetype", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.nanoseconds = ProtoField.new("Nanoseconds", "asx.asxderivatives.t24.itch.v1.13.nanoseconds", ftypes.UINT32)
@@ -93,6 +91,7 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.seller_contract_number = ProtoField
 omi_asx_asxderivatives_t24_itch_v1_13.fields.seller_quantity_remaining = ProtoField.new("Seller Quantity Remaining", "asx.asxderivatives.t24.itch.v1.13.sellerquantityremaining", ftypes.UINT32)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.selling_order_number = ProtoField.new("Selling Order Number", "asx.asxderivatives.t24.itch.v1.13.sellingordernumber", ftypes.UINT64)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.sequence_number = ProtoField.new("Sequence Number", "asx.asxderivatives.t24.itch.v1.13.sequencenumber", ftypes.UINT64)
+omi_asx_asxderivatives_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.asxderivatives.t24.itch.v1.13.session", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.session_week = ProtoField.new("Session Week", "asx.asxderivatives.t24.itch.v1.13.sessionweek", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.session_year = ProtoField.new("Session Year", "asx.asxderivatives.t24.itch.v1.13.sessionyear", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.settlement_price = ProtoField.new("Settlement Price", "asx.asxderivatives.t24.itch.v1.13.settlementprice", ftypes.DOUBLE)
@@ -122,10 +121,11 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.underlying_contract_number = ProtoF
 omi_asx_asxderivatives_t24_itch_v1_13.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.asxderivatives.t24.itch.v1.13.voitradedate", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.volatility = ProtoField.new("Volatility", "asx.asxderivatives.t24.itch.v1.13.volatility", ftypes.UINT32)
 
--- Asx AsxDerivatives T24 Itch 1.13 Headers
+-- Asx AsxDerivatives T24 Itch 1.13 Framing
+omi_asx_asxderivatives_t24_itch_v1_13.fields.message = ProtoField.new("Message", "asx.asxderivatives.t24.itch.v1.13.message", ftypes.STRING)
+omi_asx_asxderivatives_t24_itch_v1_13.fields.message_header = ProtoField.new("Message Header", "asx.asxderivatives.t24.itch.v1.13.messageheader", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.t24.itch.v1.13.packet", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.t24.itch.v1.13.packetheader", ftypes.STRING)
-omi_asx_asxderivatives_t24_itch_v1_13.fields.session = ProtoField.new("Session", "asx.asxderivatives.t24.itch.v1.13.session", ftypes.STRING)
 
 -- Asx AsxDerivatives T24 1.13 Application Messages
 omi_asx_asxderivatives_t24_itch_v1_13.fields.ad_hoc_text_message = ProtoField.new("Ad Hoc Text Message", "asx.asxderivatives.t24.itch.v1.13.adhoctextmessage", ftypes.STRING)

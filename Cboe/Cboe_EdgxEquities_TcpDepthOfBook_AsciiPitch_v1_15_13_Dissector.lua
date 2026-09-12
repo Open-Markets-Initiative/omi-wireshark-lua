@@ -65,7 +65,7 @@ omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.unsequenced_data
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.13.unsequencedmessage", ftypes.BYTES)
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.username = ProtoField.new("Username", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.13.username", ftypes.STRING)
 
--- Cboe EdgxEquities TcpDepthOfBook AsciiPitch 1.15.13 Headers
+-- Cboe EdgxEquities TcpDepthOfBook AsciiPitch 1.15.13 Framing
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_13.fields.packet = ProtoField.new("Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.13.packet", ftypes.STRING)
 
 -- Cboe EdgxEquities TcpDepthOfBook 1.15.13 Application Messages

@@ -64,8 +64,6 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.listing_state = 
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price = ProtoField.new("Low Price", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowprice", ftypes.DOUBLE)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.low_price_1 = ProtoField.new("Low Price 1", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.lowprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.market_mechanism = ProtoField.new("Market Mechanism", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.marketmechanism", ftypes.STRING)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message = ProtoField.new("Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.message", ftypes.STRING)
-omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_header = ProtoField.new("Message Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messageheader", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_length = ProtoField.new("Message Length", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messagelength", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_type = ProtoField.new("Message Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messagetype", ftypes.UINT8)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.modification_indicator = ProtoField.new("Modification Indicator", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.modificationindicator", ftypes.STRING)
@@ -121,7 +119,9 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unused_3 = Proto
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.volume = ProtoField.new("Volume", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.volume", ftypes.UINT32)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_type = ProtoField.new("Width Type", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.widthtype", ftypes.STRING)
 
--- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Headers
+-- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Framing
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message = ProtoField.new("Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.message", ftypes.STRING)
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_header = ProtoField.new("Message Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messageheader", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet = ProtoField.new("Packet", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packet", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet_header = ProtoField.new("Packet Header", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.packetheader", ftypes.STRING)
 
@@ -196,12 +196,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Show Options
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -214,6 +216,9 @@ function omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs_changed(
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_application_messages then
     show.application_messages = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_headers then
+    show.headers = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.prefs.show_repeating_groups
@@ -5299,7 +5304,7 @@ end
 
 -- Dissect: Message Header
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_header, buffer(offset, 0))
     local index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.message_header.fields(buffer, offset, packet, parent)
@@ -5452,7 +5457,7 @@ end
 
 -- Dissect: Packet Header
 cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.packet_header, buffer(offset, 0))
     local index = cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.packet_header.fields(buffer, offset, packet, parent)

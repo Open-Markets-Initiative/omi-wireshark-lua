@@ -44,9 +44,7 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.long_name = ProtoField.new("Long Na
 omi_asx_asxsecurities_trade_itch_v2_0.fields.lot_type = ProtoField.new("Lot Type", "asx.asxsecurities.trade.itch.v2.0.lottype", ftypes.UINT8)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.market_bid = ProtoField.new("Market Bid", "asx.asxsecurities.trade.itch.v2.0.marketbid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.match_id = ProtoField.new("Match Id", "asx.asxsecurities.trade.itch.v2.0.matchid", ftypes.BYTES)
-omi_asx_asxsecurities_trade_itch_v2_0.fields.message = ProtoField.new("Message", "asx.asxsecurities.trade.itch.v2.0.message", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.message_count = ProtoField.new("Message Count", "asx.asxsecurities.trade.itch.v2.0.messagecount", ftypes.UINT16)
-omi_asx_asxsecurities_trade_itch_v2_0.fields.message_header = ProtoField.new("Message Header", "asx.asxsecurities.trade.itch.v2.0.messageheader", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.message_length = ProtoField.new("Message Length", "asx.asxsecurities.trade.itch.v2.0.messagelength", ftypes.UINT16)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.message_type = ProtoField.new("Message Type", "asx.asxsecurities.trade.itch.v2.0.messagetype", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "asx.asxsecurities.trade.itch.v2.0.nanoseconds", ftypes.UINT32)
@@ -83,7 +81,9 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.trade_price = ProtoField.new("Trade
 omi_asx_asxsecurities_trade_itch_v2_0.fields.trading_currency = ProtoField.new("Trading Currency", "asx.asxsecurities.trade.itch.v2.0.tradingcurrency", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.undisclosed = ProtoField.new("Undisclosed", "asx.asxsecurities.trade.itch.v2.0.undisclosed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 
--- Asx AsxSecurities Trade Itch 2.0 Headers
+-- Asx AsxSecurities Trade Itch 2.0 Framing
+omi_asx_asxsecurities_trade_itch_v2_0.fields.message = ProtoField.new("Message", "asx.asxsecurities.trade.itch.v2.0.message", ftypes.STRING)
+omi_asx_asxsecurities_trade_itch_v2_0.fields.message_header = ProtoField.new("Message Header", "asx.asxsecurities.trade.itch.v2.0.messageheader", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.packet = ProtoField.new("Packet", "asx.asxsecurities.trade.itch.v2.0.packet", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.itch.v2.0.packetheader", ftypes.STRING)
 

@@ -29,9 +29,7 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.event_code = ProtoField.new(
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.phlxoptions.topofmarket.itch.v3.3.expirationday", ftypes.UINT8)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.phlxoptions.topofmarket.itch.v3.3.expirationmonth", ftypes.UINT8)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.phlxoptions.topofmarket.itch.v3.3.expirationyear", ftypes.UINT8)
-omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.topofmarket.itch.v3.3.message", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.phlxoptions.topofmarket.itch.v3.3.messagecount", ftypes.UINT16)
-omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.topofmarket.itch.v3.3.messageheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.phlxoptions.topofmarket.itch.v3.3.messagelength", ftypes.UINT16)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.topofmarket.itch.v3.3.messagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.phlxoptions.topofmarket.itch.v3.3.mpv", ftypes.STRING)
@@ -61,7 +59,9 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.underlying_symbol = ProtoFie
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.version = ProtoField.new("Version", "nasdaq.phlxoptions.topofmarket.itch.v3.3.version", ftypes.UINT8)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.topofmarket.itch.v3.3.volume", ftypes.UINT32)
 
--- Nasdaq PhlxOptions TopOfMarket Itch 3.3 Headers
+-- Nasdaq PhlxOptions TopOfMarket Itch 3.3 Framing
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.topofmarket.itch.v3.3.message", ftypes.STRING)
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.topofmarket.itch.v3.3.messageheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packet", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.topofmarket.itch.v3.3.packetheader", ftypes.STRING)
 

@@ -138,6 +138,7 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_risk_control_o
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status = ProtoField.new("Risk Control Status Risk Control Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusriskcontrolstatus", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status_optional = ProtoField.new("Risk Control Status Risk Control Status optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusriskcontrolstatusoptional", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.routingfirmid", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.schemaid", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.send_time = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.sendtime", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sequence = ProtoField.new("Sequence", "iex.iexoptions.binaryorderentry.sbe.v1.02.sequence", ftypes.UINT32)
@@ -168,10 +169,9 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_status = Proto
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_type = ProtoField.new("User Session Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.usersessiontype", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.version = ProtoField.new("Version", "iex.iexoptions.binaryorderentry.sbe.v1.02.version", ftypes.UINT16)
 
--- Iex IexOptions BinaryOrderEntry Sbe 1.02 Headers
+-- Iex IexOptions BinaryOrderEntry Sbe 1.02 Framing
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.binaryorderentry.sbe.v1.02.messageheader", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.packet = ProtoField.new("Packet", "iex.iexoptions.binaryorderentry.sbe.v1.02.packet", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
 
 -- Iex IexOptions BinaryOrderEntry 1.02 Application Messages
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.applicationlayerrejectmessage", ftypes.STRING)
@@ -8960,7 +8960,7 @@ end
 
 -- Dissect: Message Header
 iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.message_header, buffer(offset, 0))
     local index = iex_iexoptions_binaryorderentry_sbe_v1_02.message_header.fields(buffer, offset, packet, parent)

@@ -95,7 +95,7 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.total_refresh_pkts = Prot
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.unitoftrade", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.uppercollar", ftypes.UINT32)
 
--- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Headers
+-- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Framing
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.message", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.packet", ftypes.STRING)
@@ -112,16 +112,21 @@ local show = {}
 
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Show Options
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_headers then
+    show.headers = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_headers
+  end
   if show.structs ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_structs then
     show.structs = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_structs
   end
@@ -2713,7 +2718,7 @@ end
 
 -- Dissect: Message Header
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message_header, buffer(offset, 0))
     local index = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_header.fields(buffer, offset, packet, parent)
@@ -2824,7 +2829,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet_header.fields(buffer, offset, packet, parent)

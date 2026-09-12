@@ -29,9 +29,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.event_code = ProtoField.new("
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.ntxoptions.topofmarket.itch.v1.2.expirationday", ftypes.UINT8)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ntxoptions.topofmarket.itch.v1.2.expirationmonth", ftypes.UINT8)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.ntxoptions.topofmarket.itch.v1.2.expirationyear", ftypes.UINT8)
-omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message = ProtoField.new("Message", "nasdaq.ntxoptions.topofmarket.itch.v1.2.message", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.ntxoptions.topofmarket.itch.v1.2.messagecount", ftypes.UINT16)
-omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxoptions.topofmarket.itch.v1.2.messageheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxoptions.topofmarket.itch.v1.2.messagelength", ftypes.UINT16)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxoptions.topofmarket.itch.v1.2.messagetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.minimum_price_variation = ProtoField.new("Minimum Price Variation", "nasdaq.ntxoptions.topofmarket.itch.v1.2.minimumpricevariation", ftypes.STRING)
@@ -61,7 +59,9 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.underlying_symbol = ProtoFiel
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.version = ProtoField.new("Version", "nasdaq.ntxoptions.topofmarket.itch.v1.2.version", ftypes.UINT8)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.volume = ProtoField.new("Volume", "nasdaq.ntxoptions.topofmarket.itch.v1.2.volume", ftypes.UINT32)
 
--- Nasdaq NtxOptions TopOfMarket Itch 1.2 Headers
+-- Nasdaq NtxOptions TopOfMarket Itch 1.2 Framing
+omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message = ProtoField.new("Message", "nasdaq.ntxoptions.topofmarket.itch.v1.2.message", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxoptions.topofmarket.itch.v1.2.messageheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.packet = ProtoField.new("Packet", "nasdaq.ntxoptions.topofmarket.itch.v1.2.packet", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v1.2.packetheader", ftypes.STRING)
 

@@ -31,7 +31,7 @@ omi_nse_nsefo_mtbt_binary_v6_9.fields.token = ProtoField.new("Token", "nse.nsefo
 omi_nse_nsefo_mtbt_binary_v6_9.fields.trade_price = ProtoField.new("Trade Price", "nse.nsefo.mtbt.binary.v6.9.tradeprice", ftypes.DOUBLE)
 omi_nse_nsefo_mtbt_binary_v6_9.fields.trade_quantity = ProtoField.new("Trade Quantity", "nse.nsefo.mtbt.binary.v6.9.tradequantity", ftypes.INT32)
 
--- Nse NseFo Mtbt Binary 6.9 Headers
+-- Nse NseFo Mtbt Binary 6.9 Framing
 omi_nse_nsefo_mtbt_binary_v6_9.fields.message = ProtoField.new("Message", "nse.nsefo.mtbt.binary.v6.9.message", ftypes.STRING)
 omi_nse_nsefo_mtbt_binary_v6_9.fields.packet = ProtoField.new("Packet", "nse.nsefo.mtbt.binary.v6.9.packet", ftypes.STRING)
 omi_nse_nsefo_mtbt_binary_v6_9.fields.stream_header = ProtoField.new("Stream Header", "nse.nsefo.mtbt.binary.v6.9.streamheader", ftypes.STRING)
@@ -57,10 +57,12 @@ local show = {}
 -- Nse NseFo Mtbt Binary 6.9 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register Nse NseFo Mtbt Binary 6.9 Show Options
 omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_nse_nsefo_mtbt_binary_v6_9.prefs_changed()
@@ -68,6 +70,9 @@ function omi_nse_nsefo_mtbt_binary_v6_9.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_application_messages then
     show.application_messages = omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_headers then
+    show.headers = omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_headers
   end
   if show.structs ~= omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_structs then
     show.structs = omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_structs
@@ -1206,7 +1211,7 @@ end
 
 -- Dissect: Stream Header
 nse_nsefo_mtbt_binary_v6_9.stream_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.stream_header, buffer(offset, 0))
     local index = nse_nsefo_mtbt_binary_v6_9.stream_header.fields(buffer, offset, packet, parent)

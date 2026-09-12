@@ -107,7 +107,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.unsequenced_message_t
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.update_reason = ProtoField.new("Update Reason", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.updatereason", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.username = ProtoField.new("Username", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.username", ftypes.STRING)
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Headers
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Framing
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmpacketheader", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.sesmtcppacket", ftypes.STRING)
@@ -151,10 +151,12 @@ local show = {}
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Show Options
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -163,6 +165,9 @@ function omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_application_messages then
     show.application_messages = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_headers then
+    show.headers = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_headers
   end
   if show.structs ~= omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_structs then
     show.structs = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.prefs.show_structs
@@ -4166,7 +4171,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_miaxoptions_complextopofmarket_mach_v1_3_a.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_miaxoptions_complextopofmarket_mach_v1_3_a.sesm_packet_header.fields(buffer, offset, packet, parent)

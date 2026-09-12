@@ -21,6 +21,7 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price = Pro
 omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price = ProtoField.new("Bid Price", "siac.cqs.snapshot.cta.v1.0.bidprice", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v1_0.fields.bid_size = ProtoField.new("Bid Size", "siac.cqs.snapshot.cta.v1.0.bidsize", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.snapshot.cta.v1.0.blockchecksum", ftypes.UINT16)
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v1.0.blockheader", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v1.0.blockpadbyte", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v1.0.blocksequencenumber", ftypes.UINT32)
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v1.0.blocksize", ftypes.UINT16)
@@ -72,17 +73,16 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.seconds = ProtoField.new("Seconds", "siac.
 omi_siac_cqs_snapshot_cta_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v1.0.securitysymbol", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v1.0.settlementcondition", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v1.0.shortsalerestrictionindicator", ftypes.STRING)
+omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v1.0.sipblocktimestamp", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message = ProtoField.new("Snapshot Message", "siac.cqs.snapshot.cta.v1.0.snapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v1.0.snapshotmessagetype", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover = ProtoField.new("Tot Pub Seq Rollover", "siac.cqs.snapshot.cta.v1.0.totpubseqrollover", ftypes.UINT8)
 omi_siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v1.0.upperlimitpriceband", ftypes.DOUBLE)
 omi_siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8)
 
--- Siac Cqs Snapshot Cta 1.0 Headers
-omi_siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v1.0.blockheader", ftypes.STRING)
+-- Siac Cqs Snapshot Cta 1.0 Framing
 omi_siac_cqs_snapshot_cta_v1_0.fields.message = ProtoField.new("Message", "siac.cqs.snapshot.cta.v1.0.message", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.packet = ProtoField.new("Packet", "siac.cqs.snapshot.cta.v1.0.packet", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v1.0.sipblocktimestamp", ftypes.STRING)
 
 -- Siac Cqs Snapshot 1.0 Application Messages
 omi_siac_cqs_snapshot_cta_v1_0.fields.consolidated_snapshot_message = ProtoField.new("Consolidated Snapshot Message", "siac.cqs.snapshot.cta.v1.0.consolidatedsnapshotmessage", ftypes.STRING)

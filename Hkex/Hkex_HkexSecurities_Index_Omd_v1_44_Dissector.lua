@@ -44,7 +44,7 @@ omi_hkex_hkexsecurities_index_omd_v1_44.fields.previous_ses_close = ProtoField.n
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.index.omd.v1.44.sendtime", ftypes.UINT64)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.index.omd.v1.44.seqnum", ftypes.UINT32)
 
--- Hkex HkexSecurities Index Omd 1.44 Headers
+-- Hkex HkexSecurities Index Omd 1.44 Framing
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.index.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.index.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.index.omd.v1.44.packet", ftypes.STRING)

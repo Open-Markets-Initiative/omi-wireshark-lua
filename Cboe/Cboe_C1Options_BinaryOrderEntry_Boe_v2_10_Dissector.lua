@@ -376,6 +376,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.matching_unit = ProtoField.
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.c1options.binaryorderentry.boe.v2.10.maturitydate", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.max_floor = ProtoField.new("Max Floor", "cboe.c1options.binaryorderentry.boe.v2.10.maxfloor", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.max_remove_pct = ProtoField.new("Max Remove Pct", "cboe.c1options.binaryorderentry.boe.v2.10.maxremovepct", ftypes.UINT8)
+omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.binaryorderentry.boe.v2.10.messagelength", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.binaryorderentry.boe.v2.10.messagetype", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.min_qty = ProtoField.new("Min Qty", "cboe.c1options.binaryorderentry.boe.v2.10.minqty", ftypes.UINT32)
@@ -1269,8 +1270,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.user_modify_rejected_routin
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.username = ProtoField.new("Username", "cboe.c1options.binaryorderentry.boe.v2.10.username", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.working_price = ProtoField.new("Working Price", "cboe.c1options.binaryorderentry.boe.v2.10.workingprice", ftypes.UINT64)
 
--- Cboe C1Options BinaryOrderEntry Boe 2.10 Headers
-omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe.v2.10.messageheader", ftypes.STRING)
+-- Cboe C1Options BinaryOrderEntry Boe 2.10 Framing
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe.v2.10.packet", ftypes.STRING)
 
 -- Cboe C1Options BinaryOrderEntry 2.10 Application Messages

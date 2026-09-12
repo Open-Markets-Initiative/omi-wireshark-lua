@@ -81,7 +81,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_offer_size = Proto
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_price = ProtoField.new("Wide Price", "miax.miaxoptions.complextopofmarket.mach.v1.1.wideprice", ftypes.DOUBLE)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_size = ProtoField.new("Wide Size", "miax.miaxoptions.complextopofmarket.mach.v1.1.widesize", ftypes.UINT32)
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Headers
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Framing
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet = ProtoField.new("Packet", "miax.miaxoptions.complextopofmarket.mach.v1.1.packet", ftypes.STRING)
 

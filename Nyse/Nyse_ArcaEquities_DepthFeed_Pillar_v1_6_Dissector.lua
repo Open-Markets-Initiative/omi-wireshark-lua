@@ -32,8 +32,6 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.lower_collar = ProtoField.new
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.market_id = ProtoField.new("Market Id", "nyse.arcaequities.depthfeed.pillar.v1.6.marketid", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaequities.depthfeed.pillar.v1.6.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.market_state = ProtoField.new("Market State", "nyse.arcaequities.depthfeed.pillar.v1.6.marketstate", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message = ProtoField.new("Message", "nyse.arcaequities.depthfeed.pillar.v1.6.message", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.depthfeed.pillar.v1.6.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.depthfeed.pillar.v1.6.messagesize", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.depthfeed.pillar.v1.6.messagetype", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.mpv = ProtoField.new("Mpv", "nyse.arcaequities.depthfeed.pillar.v1.6.mpv", ftypes.UINT16)
@@ -62,6 +60,8 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.round_lot = ProtoField.new("R
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.depthfeed.pillar.v1.6.seconds", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.depthfeed.pillar.v1.6.securitystatus", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.security_type = ProtoField.new("Security Type", "nyse.arcaequities.depthfeed.pillar.v1.6.securitytype", ftypes.STRING)
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.depthfeed.pillar.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.depthfeed.pillar.v1.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.depthfeed.pillar.v1.6.seqnum", ftypes.UINT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.session_state = ProtoField.new("Session State", "nyse.arcaequities.depthfeed.pillar.v1.6.sessionstate", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.side = ProtoField.new("Side", "nyse.arcaequities.depthfeed.pillar.v1.6.side", ftypes.STRING)
@@ -84,11 +84,11 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.update_count = ProtoField.new
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.arcaequities.depthfeed.pillar.v1.6.uppercollar", ftypes.INT32)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.depthfeed.pillar.v1.6.volume", ftypes.UINT32)
 
--- Nyse ArcaEquities DepthFeed Pillar 1.6 Headers
+-- Nyse ArcaEquities DepthFeed Pillar 1.6 Framing
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message = ProtoField.new("Message", "nyse.arcaequities.depthfeed.pillar.v1.6.message", ftypes.STRING)
+omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.depthfeed.pillar.v1.6.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.depthfeed.pillar.v1.6.packet", ftypes.STRING)
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.depthfeed.pillar.v1.6.packetheader", ftypes.STRING)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.depthfeed.pillar.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.depthfeed.pillar.v1.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse ArcaEquities DepthFeed 1.6 Application Messages
 omi_nyse_arcaequities_depthfeed_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.arcaequities.depthfeed.pillar.v1.6.deltamessage", ftypes.STRING)

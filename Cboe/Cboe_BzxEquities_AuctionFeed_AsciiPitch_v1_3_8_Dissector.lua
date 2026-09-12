@@ -49,7 +49,7 @@ omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.unsequenced_data_packe
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.unsequencedmessage", ftypes.BYTES)
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.username = ProtoField.new("Username", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.username", ftypes.STRING)
 
--- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Headers
+-- Cboe BzxEquities AuctionFeed AsciiPitch 1.3.8 Framing
 omi_cboe_bzxequities_auctionfeed_asciipitch_v1_3_8.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.auctionfeed.asciipitch.v1.3.8.packet", ftypes.STRING)
 
 -- Cboe BzxEquities AuctionFeed 1.3.8 Application Messages

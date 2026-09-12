@@ -61,9 +61,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.luld_reference_price_tier = Prot
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.nlsplus.itch.v3.0.marketcategory", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.market_center = ProtoField.new("Market Center", "nasdaq.nsmequities.nlsplus.itch.v3.0.marketcenter", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.nsmequities.nlsplus.itch.v3.0.marketcode", ftypes.STRING)
-omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nlsplus.itch.v3.0.message", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.nlsplus.itch.v3.0.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nlsplus.itch.v3.0.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.nlsplus.itch.v3.0.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.nlsplus.itch.v3.0.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.nav_offset_amount = ProtoField.new("Nav Offset Amount", "nasdaq.nsmequities.nlsplus.itch.v3.0.navoffsetamount", ftypes.DOUBLE)
@@ -109,7 +107,9 @@ omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.trade_price_long = ProtoField.ne
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.nsmequities.nlsplus.itch.v3.0.tradesize", ftypes.UINT32)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.trade_through_exemption = ProtoField.new("Trade Through Exemption", "nasdaq.nsmequities.nlsplus.itch.v3.0.tradethroughexemption", ftypes.STRING)
 
--- Nasdaq NsmEquities NlsPlus Itch 3.0 Headers
+-- Nasdaq NsmEquities NlsPlus Itch 3.0 Framing
+omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nlsplus.itch.v3.0.message", ftypes.STRING)
+omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nlsplus.itch.v3.0.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nlsplus.itch.v3.0.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nlsplus.itch.v3.0.packetheader", ftypes.STRING)
 
@@ -5057,7 +5057,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_nsmequities_nlsplus_itch_v3_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_header, buffer(offset, 0))
     local index = nasdaq_nsmequities_nlsplus_itch_v3_0.message_header.fields(buffer, offset, packet, parent)

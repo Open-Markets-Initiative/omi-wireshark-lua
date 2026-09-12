@@ -36,7 +36,7 @@ omi_txse_txseequities_framing_tcp_v1_0.fields.text = ProtoField.new("Text", "txs
 omi_txse_txseequities_framing_tcp_v1_0.fields.token = ProtoField.new("Token", "txse.txseequities.framing.tcp.v1.0.token", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "txse.txseequities.framing.tcp.v1.0.unsequencedmessage", ftypes.BYTES)
 
--- Txse TxseEquities Framing Tcp 1.0 Headers
+-- Txse TxseEquities Framing Tcp 1.0 Framing
 omi_txse_txseequities_framing_tcp_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.framing.tcp.v1.0.packet", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.framing.tcp.v1.0.rakemessageheader", ftypes.STRING)
 omi_txse_txseequities_framing_tcp_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.framing.tcp.v1.0.raketcpmessage", ftypes.STRING)
@@ -49,14 +49,19 @@ local show = {}
 
 -- Txse TxseEquities Framing Tcp 1.0 Element Dissection Options
 show.structs = true
+show.headers = true
 
 -- Register Txse TxseEquities Framing Tcp 1.0 Show Options
 omi_txse_txseequities_framing_tcp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_txse_txseequities_framing_tcp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_txse_txseequities_framing_tcp_v1_0.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_txse_txseequities_framing_tcp_v1_0.prefs.show_headers then
+    show.headers = omi_txse_txseequities_framing_tcp_v1_0.prefs.show_headers
+  end
   if show.structs ~= omi_txse_txseequities_framing_tcp_v1_0.prefs.show_structs then
     show.structs = omi_txse_txseequities_framing_tcp_v1_0.prefs.show_structs
   end
@@ -795,7 +800,7 @@ end
 
 -- Dissect: Rake Message Header
 txse_txseequities_framing_tcp_v1_0.rake_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.rake_message_header, buffer(offset, 0))
     local index = txse_txseequities_framing_tcp_v1_0.rake_message_header.fields(buffer, offset, packet, parent)

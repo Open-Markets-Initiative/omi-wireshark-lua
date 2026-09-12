@@ -78,7 +78,7 @@ omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.unsolicited = ProtoField
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.linknqb.retransmission.link.v1.18.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.user_id = ProtoField.new("User Id", "otcmarkets.linknqb.retransmission.link.v1.18.userid", ftypes.STRING)
 
--- OtcMarkets LinkNqb Retransmission Link 1.18 Headers
+-- OtcMarkets LinkNqb Retransmission Link 1.18 Framing
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message = ProtoField.new("Message", "otcmarkets.linknqb.retransmission.link.v1.18.message", ftypes.STRING)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linknqb.retransmission.link.v1.18.messageheader", ftypes.STRING)
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.packet = ProtoField.new("Packet", "otcmarkets.linknqb.retransmission.link.v1.18.packet", ftypes.STRING)
@@ -116,10 +116,12 @@ local show = {}
 -- OtcMarkets LinkNqb Retransmission Link 1.18 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register OtcMarkets LinkNqb Retransmission Link 1.18 Show Options
 omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs_changed()
@@ -127,6 +129,9 @@ function omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_application_messages then
     show.application_messages = omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_application_messages
+  end
+  if show.headers ~= omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_headers then
+    show.headers = omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_headers
   end
   if show.structs ~= omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_structs then
     show.structs = omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs.show_structs
@@ -3096,7 +3101,7 @@ end
 
 -- Dissect: Message Header
 otcmarkets_linknqb_retransmission_link_v1_18.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message_header, buffer(offset, 0))
     local index = otcmarkets_linknqb_retransmission_link_v1_18.message_header.fields(buffer, offset, packet, parent)

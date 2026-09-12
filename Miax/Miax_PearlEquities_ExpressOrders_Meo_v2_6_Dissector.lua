@@ -138,7 +138,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.unused_5 = ProtoField.new("
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.username = ProtoField.new("Username", "miax.pearlequities.expressorders.meo.v2.6.username", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.working_price = ProtoField.new("Working Price", "miax.pearlequities.expressorders.meo.v2.6.workingprice", ftypes.DOUBLE)
 
--- Miax PearlEquities ExpressOrders Meo 2.6 Headers
+-- Miax PearlEquities ExpressOrders Meo 2.6 Framing
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.expressorders.meo.v2.6.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v2.6.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.packet = ProtoField.new("Packet", "miax.pearlequities.expressorders.meo.v2.6.packet", ftypes.STRING)
@@ -172,10 +172,12 @@ local show = {}
 -- Miax PearlEquities ExpressOrders Meo 2.6 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Miax PearlEquities ExpressOrders Meo 2.6 Show Options
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
@@ -183,6 +185,9 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_headers then
+    show.headers = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_headers
   end
   if show.structs ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs then
     show.structs = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs
@@ -5722,7 +5727,7 @@ end
 
 -- Dissect: Esesm Packet Header
 miax_pearlequities_expressorders_meo_v2_6.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_packet_header, buffer(offset, 0))
     local index = miax_pearlequities_expressorders_meo_v2_6.esesm_packet_header.fields(buffer, offset, packet, parent)

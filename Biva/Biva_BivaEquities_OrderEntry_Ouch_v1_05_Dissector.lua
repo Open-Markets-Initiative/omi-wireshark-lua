@@ -54,7 +54,7 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.fields.timestamp = ProtoField.new("T
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "biva.bivaequities.orderentry.ouch.v1.05.unsequencedmessagetype", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.username = ProtoField.new("Username", "biva.bivaequities.orderentry.ouch.v1.05.username", ftypes.STRING)
 
--- Biva BivaEquities OrderEntry Ouch 1.05 Headers
+-- Biva BivaEquities OrderEntry Ouch 1.05 Framing
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_packet = ProtoField.new("Packet", "biva.bivaequities.orderentry.ouch.v1.05.clientpacket", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_packet_header = ProtoField.new("Packet Header", "biva.bivaequities.orderentry.ouch.v1.05.clientpacketheader", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "biva.bivaequities.orderentry.ouch.v1.05.clientsoupbintcppacket", ftypes.STRING)
@@ -112,6 +112,7 @@ local show = {}
 -- Biva BivaEquities OrderEntry Ouch 1.05 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -126,6 +127,7 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.assume_role = Pref.enum("Assum
 omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -138,6 +140,9 @@ function omi_biva_bivaequities_orderentry_ouch_v1_05.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_application_messages then
     show.application_messages = omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_application_messages
+  end
+  if show.headers ~= omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_headers then
+    show.headers = omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_headers
   end
   if show.session_messages ~= omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_session_messages then
     show.session_messages = omi_biva_bivaequities_orderentry_ouch_v1_05.prefs.show_session_messages
@@ -2098,7 +2103,7 @@ end
 
 -- Dissect: Server Packet Header
 biva_bivaequities_orderentry_ouch_v1_05.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.server_packet_header, buffer(offset, 0))
     local index = biva_bivaequities_orderentry_ouch_v1_05.server_packet_header.fields(buffer, offset, packet, parent)
@@ -2608,7 +2613,7 @@ end
 
 -- Dissect: Client Packet Header
 biva_bivaequities_orderentry_ouch_v1_05.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_packet_header, buffer(offset, 0))
     local index = biva_bivaequities_orderentry_ouch_v1_05.client_packet_header.fields(buffer, offset, packet, parent)

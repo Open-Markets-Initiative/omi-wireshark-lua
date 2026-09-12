@@ -96,8 +96,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.trading_lock_applied 
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.username = ProtoField.new("Username", "coinbase.coinbasederivatives.ordersapi.sbe.v1.6.username", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.ordersapi.sbe.v1.6.version", ftypes.UINT16)
 
--- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.6 Headers
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.6.flags", ftypes.STRING)
+-- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.6 Framing
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.ordersapi.sbe.v1.6.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.ordersapi.sbe.v1.6.packet", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.6.sbemessage", ftypes.STRING)
@@ -155,11 +154,13 @@ local show = {}
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.6 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.schema_messages = true
 
 -- Register Coinbase CoinbaseDerivatives OrdersApi Sbe 1.6 Show Options
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
 
 -- Handle changed preferences
@@ -168,6 +169,9 @@ function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_application_messages
+  end
+  if show.headers ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_headers then
+    show.headers = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_headers
   end
   if show.schema_messages ~= omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_schema_messages then
     show.schema_messages = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.prefs.show_schema_messages
@@ -4976,7 +4980,7 @@ end
 
 -- Dissect: Message Header
 coinbase_coinbasederivatives_ordersapi_sbe_v1_6.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.fields.message_header, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_ordersapi_sbe_v1_6.message_header.fields(buffer, offset, packet, parent)

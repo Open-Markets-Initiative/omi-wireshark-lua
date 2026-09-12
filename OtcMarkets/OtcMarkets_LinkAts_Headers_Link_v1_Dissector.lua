@@ -19,6 +19,7 @@ omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat = ProtoField.new("Heartb
 omi_otcmarkets_linkats_headers_link_v1.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.headers.link.v1.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_headers_link_v1.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.headers.link.v1.messagetype", ftypes.UINT8)
 omi_otcmarkets_linkats_headers_link_v1.fields.messages = ProtoField.new("Messages", "otcmarkets.linkats.headers.link.v1.messages", ftypes.UINT8)
+omi_otcmarkets_linkats_headers_link_v1.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.headers.link.v1.packetflag", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.linkats.headers.link.v1.packetmilli", ftypes.UINT32)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linkats.headers.link.v1.packetsize", ftypes.UINT16)
 omi_otcmarkets_linkats_headers_link_v1.fields.payload = ProtoField.new("Payload", "otcmarkets.linkats.headers.link.v1.payload", ftypes.BYTES)
@@ -28,11 +29,10 @@ omi_otcmarkets_linkats_headers_link_v1.fields.seq_num = ProtoField.new("Seq Num"
 omi_otcmarkets_linkats_headers_link_v1.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otcmarkets.linkats.headers.link.v1.seqnumreset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_otcmarkets_linkats_headers_link_v1.fields.test = ProtoField.new("Test", "otcmarkets.linkats.headers.link.v1.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 
--- OtcMarkets LinkAts Headers Link 1. Headers
+-- OtcMarkets LinkAts Headers Link 1. Framing
 omi_otcmarkets_linkats_headers_link_v1.fields.message = ProtoField.new("Message", "otcmarkets.linkats.headers.link.v1.message", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.headers.link.v1.messageheader", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.headers.link.v1.packet", ftypes.STRING)
-omi_otcmarkets_linkats_headers_link_v1.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.linkats.headers.link.v1.packetflag", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.headers.link.v1.packetheader", ftypes.STRING)
 
 -- OtcMarkets LinkAts Headers Link 1. generated fields
@@ -46,16 +46,21 @@ local show = {}
 
 -- OtcMarkets LinkAts Headers Link 1. Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register OtcMarkets LinkAts Headers Link 1. Show Options
 omi_otcmarkets_linkats_headers_link_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_otcmarkets_linkats_headers_link_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_linkats_headers_link_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_otcmarkets_linkats_headers_link_v1.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_otcmarkets_linkats_headers_link_v1.prefs.show_headers then
+    show.headers = omi_otcmarkets_linkats_headers_link_v1.prefs.show_headers
+  end
   if show.structs ~= omi_otcmarkets_linkats_headers_link_v1.prefs.show_structs then
     show.structs = omi_otcmarkets_linkats_headers_link_v1.prefs.show_structs
   end
@@ -283,7 +288,7 @@ end
 
 -- Dissect: Message Header
 otcmarkets_linkats_headers_link_v1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_linkats_headers_link_v1.fields.message_header, buffer(offset, 0))
     local index = otcmarkets_linkats_headers_link_v1.message_header.fields(buffer, offset, packet, parent)
@@ -301,6 +306,16 @@ end
 
 -- Message
 otcmarkets_linkats_headers_link_v1.message = {}
+
+-- Read runtime size of: Message
+otcmarkets_linkats_headers_link_v1.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):uint()
+
+  return message_size
+end
 
 -- Display: Message
 otcmarkets_linkats_headers_link_v1.message.display = function(packet, parent, length)
@@ -328,6 +343,7 @@ end
 
 -- Dissect: Message
 otcmarkets_linkats_headers_link_v1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = otcmarkets_linkats_headers_link_v1.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -345,6 +361,45 @@ otcmarkets_linkats_headers_link_v1.message.dissect = function(buffer, offset, pa
 
     return index
   end
+end
+
+-- Heartbeat Packet
+otcmarkets_linkats_headers_link_v1.heartbeat_packet = {}
+
+-- Display: Heartbeat Packet
+otcmarkets_linkats_headers_link_v1.heartbeat_packet.display = function(packet, parent, length)
+  return "Heartbeat Packet"
+end
+
+
+-- Dissect: Heartbeat Packet
+otcmarkets_linkats_headers_link_v1.heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = otcmarkets_linkats_headers_link_v1.heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Message Block
+otcmarkets_linkats_headers_link_v1.message_block = {}
+
+-- Dissect: Message Block
+otcmarkets_linkats_headers_link_v1.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
+  -- Dissect Heartbeat Packet
+  if bit.band(packet_flag, 0x01) == 1 then
+    return otcmarkets_linkats_headers_link_v1.heartbeat_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, messages do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):uint()
+
+    -- Message: Struct of 2 fields
+    offset = otcmarkets_linkats_headers_link_v1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Packet Flag
@@ -400,7 +455,7 @@ end
 otcmarkets_linkats_headers_link_v1.packet_flag.dissect = function(buffer, offset, packet, parent)
   local size = otcmarkets_linkats_headers_link_v1.packet_flag.size
   local range = buffer(offset, size)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = otcmarkets_linkats_headers_link_v1.packet_flag.display(range, value, packet, parent)
   local element = parent:add(omi_otcmarkets_linkats_headers_link_v1.fields.packet_flag, range, display)
 
@@ -451,7 +506,7 @@ end
 
 -- Dissect: Packet Header
 otcmarkets_linkats_headers_link_v1.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_linkats_headers_link_v1.fields.packet_header, buffer(offset, 0))
     local index = otcmarkets_linkats_headers_link_v1.packet_header.fields(buffer, offset, packet, parent)
@@ -482,20 +537,8 @@ otcmarkets_linkats_headers_link_v1.packet.dissect = function(buffer, packet, par
   -- Packet Header: Struct of 5 fields
   index, packet_header = otcmarkets_linkats_headers_link_v1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    index, message = otcmarkets_linkats_headers_link_v1.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Message Block: Runtime Type with 2 branches
+  index = otcmarkets_linkats_headers_link_v1.message_block.dissect(buffer, index, packet, parent, heartbeat)
 
   return index
 end

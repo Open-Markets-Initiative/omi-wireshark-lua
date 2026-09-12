@@ -49,9 +49,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.imbalance_price = ProtoFiel
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.imbalancevolume", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.market_side = ProtoField.new("Market Side", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.marketside", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.match_number = ProtoField.new("Match Number", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.matchnumber", ftypes.UINT32)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message = ProtoField.new("Message", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.message", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_count = ProtoField.new("Message Count", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messagecount", ftypes.UINT16)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messageheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messagelength", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messagetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.mpv = ProtoField.new("Mpv", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.mpv", ftypes.STRING)
@@ -83,7 +81,9 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.underlying_symbol = ProtoFi
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.volume = ProtoField.new("Volume", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.volume", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.volumelong", ftypes.UINT32)
 
--- Nasdaq NtxOptions DepthOfMarket Itch 1.3 Headers
+-- Nasdaq NtxOptions DepthOfMarket Itch 1.3 Framing
+omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message = ProtoField.new("Message", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.message", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messageheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.packet = ProtoField.new("Packet", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.packet", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.packetheader", ftypes.STRING)
 

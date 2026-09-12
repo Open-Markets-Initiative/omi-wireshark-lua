@@ -219,7 +219,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.volume = ProtoField.new("Volu
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.weighted_average_stock_price = ProtoField.new("Weighted Average Stock Price", "koscom.mdcsrealtime.koscom.exture.v1.20.weightedaveragestockprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.zero_re_investment_index = ProtoField.new("Zero Re Investment Index", "koscom.mdcsrealtime.koscom.exture.v1.20.zeroreinvestmentindex", ftypes.DOUBLE)
 
--- Koscom MdcsRealtime Koscom Exture 1.20 Headers
+-- Koscom MdcsRealtime Koscom Exture 1.20 Framing
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.koscom.exture.v1.20.packet", ftypes.STRING)
 
 -- Koscom MdcsRealtime Koscom 1.20 Application Messages

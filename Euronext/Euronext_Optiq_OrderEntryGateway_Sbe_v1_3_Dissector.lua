@@ -269,7 +269,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_status = ProtoField.ne
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.version = ProtoField.new("Version", "euronext.optiq.orderentrygateway.sbe.v1.3.version", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.waiverindicator", ftypes.STRING)
 
--- Euronext Optiq OrderEntryGateway Sbe 1.3 Headers
+-- Euronext Optiq OrderEntryGateway Sbe 1.3 Framing
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.message = ProtoField.new("Message", "euronext.optiq.orderentrygateway.sbe.v1.3.message", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.orderentrygateway.sbe.v1.3.messageheader", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.packet = ProtoField.new("Packet", "euronext.optiq.orderentrygateway.sbe.v1.3.packet", ftypes.STRING)
@@ -11707,7 +11707,7 @@ end
 
 -- Dissect: Message Header
 euronext_optiq_orderentrygateway_sbe_v1_3.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.message_header, buffer(offset, 0))
     local index = euronext_optiq_orderentrygateway_sbe_v1_3.message_header.fields(buffer, offset, packet, parent)

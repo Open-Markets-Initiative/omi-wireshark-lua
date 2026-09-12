@@ -22,9 +22,7 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_count = 
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_definition_response_status = ProtoField.new("Instrument Definition Response Status", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.instrumentdefinitionresponsestatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.length = ProtoField.new("Length", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.length", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.loginresponsestatus", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message = ProtoField.new("Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.message", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_count = ProtoField.new("Message Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagecount", ftypes.UINT64)
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messageheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagetype", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.order_count = ProtoField.new("Order Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.ordercount", ftypes.UINT32)
@@ -39,7 +37,9 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.underlying = ProtoF
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.unit", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.username = ProtoField.new("Username", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.username", ftypes.STRING)
 
--- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Headers
+-- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Framing
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message = ProtoField.new("Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.message", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messageheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packet", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.packetheader", ftypes.STRING)
 
@@ -70,11 +70,13 @@ local show = {}
 -- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Show Options
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -83,6 +85,9 @@ function omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_application_messages then
     show.application_messages = omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_headers then
+    show.headers = omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_headers
   end
   if show.structs ~= omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_structs then
     show.structs = omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.prefs.show_structs
@@ -1273,7 +1278,7 @@ end
 
 -- Dissect: Message Header
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_header, buffer(offset, 0))
     local index = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_header.fields(buffer, offset, packet, parent)
@@ -1426,7 +1431,7 @@ end
 
 -- Dissect: Packet Header
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.packet_header, buffer(offset, 0))
     local index = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header.fields(buffer, offset, packet, parent)

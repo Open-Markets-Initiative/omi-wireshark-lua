@@ -121,7 +121,6 @@ omi_memx_memxoptions_memo_sbe_v1_9.fields.requested_allocations_groups = ProtoFi
 omi_memx_memxoptions_memo_sbe_v1_9.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.memxoptions.memo.sbe.v1.9.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.reserved_5 = ProtoField.new("Reserved 5", "memx.memxoptions.memo.sbe.v1.9.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxoptions.memo.sbe.v1.9.riskgroupid", ftypes.UINT16)
-omi_memx_memxoptions_memo_sbe_v1_9.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memo.sbe.v1.9.sbeheader", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memo.sbe.v1.9.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.secondary_alloc_id = ProtoField.new("Secondary Alloc Id", "memx.memxoptions.memo.sbe.v1.9.secondaryallocid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.security_id = ProtoField.new("Security Id", "memx.memxoptions.memo.sbe.v1.9.securityid", ftypes.STRING)
@@ -162,9 +161,10 @@ omi_memx_memxoptions_memo_sbe_v1_9.fields.unsequenced_message = ProtoField.new("
 omi_memx_memxoptions_memo_sbe_v1_9.fields.user_status = ProtoField.new("User Status", "memx.memxoptions.memo.sbe.v1.9.userstatus", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.version = ProtoField.new("Version", "memx.memxoptions.memo.sbe.v1.9.version", ftypes.UINT16)
 
--- Memx MemxOptions Memo Sbe 1.9 Headers
+-- Memx MemxOptions Memo Sbe 1.9 Framing
 omi_memx_memxoptions_memo_sbe_v1_9.fields.client_packet = ProtoField.new("Client Packet", "memx.memxoptions.memo.sbe.v1.9.clientpacket", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memo.sbe.v1.9.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memo_sbe_v1_9.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memo.sbe.v1.9.sbeheader", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_9.fields.server_packet = ProtoField.new("Server Packet", "memx.memxoptions.memo.sbe.v1.9.serverpacket", ftypes.STRING)
 
 -- Memx MemxOptions Memo 1.9 Application Messages
@@ -222,8 +222,8 @@ local show = {}
 -- Memx MemxOptions Memo Sbe 1.9 Element Dissection Options
 show.application_messages = true
 show.structs = true
-show.repeating_groups = true
 show.headers = true
+show.repeating_groups = true
 show.indexes = true
 
 -- Register Memx MemxOptions Memo Sbe 1.9 Show Options
@@ -237,8 +237,8 @@ omi_memx_memxoptions_memo_sbe_v1_9.prefs.assume_role = Pref.enum("Assume Role", 
 omi_memx_memxoptions_memo_sbe_v1_9.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_memx_memxoptions_memo_sbe_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-omi_memx_memxoptions_memo_sbe_v1_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_memx_memxoptions_memo_sbe_v1_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -7159,7 +7159,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxoptions_memo_sbe_v1_9.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_9.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_9.sbe_header.fields(buffer, offset, packet, parent)
@@ -7721,7 +7721,7 @@ end
 
 -- Dissect: Common Header
 memx_memxoptions_memo_sbe_v1_9.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_9.fields.common_header, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_9.common_header.fields(buffer, offset, packet, parent)

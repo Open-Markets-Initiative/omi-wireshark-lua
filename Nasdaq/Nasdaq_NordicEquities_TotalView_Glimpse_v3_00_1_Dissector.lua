@@ -101,7 +101,7 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.wi_when_issued = Prot
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.xd_excluding_dividend = ProtoField.new("Xd Excluding Dividend", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.xdexcludingdividend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.xr_excluding_participating_in_rights = ProtoField.new("Xr Excluding Participating In Rights", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.xrexcludingparticipatinginrights", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 
--- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Headers
+-- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Framing
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.client_packet = ProtoField.new("Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.clientpacket", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.clientpacketheader", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.clientsoupbintcppacket", ftypes.STRING)
@@ -155,6 +155,7 @@ local show = {}
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -169,6 +170,7 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.assume_role = Pref.enu
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -181,6 +183,9 @@ function omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_headers then
+    show.headers = omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_headers
   end
   if show.session_messages ~= omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.prefs.show_session_messages
@@ -2687,7 +2692,7 @@ end
 
 -- Dissect: Server Packet Header
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.server_packet_header, buffer(offset, 0))
     local index = nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_header.fields(buffer, offset, packet, parent)
@@ -3016,7 +3021,7 @@ end
 
 -- Dissect: Client Packet Header
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.client_packet_header, buffer(offset, 0))
     local index = nasdaq_nordicequities_totalview_glimpse_v3_00_1.client_packet_header.fields(buffer, offset, packet, parent)

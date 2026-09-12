@@ -138,7 +138,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.unused_order_type_bit_7 = Pro
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.unused_order_type_bit_8 = ProtoField.new("Unused Order Type Bit 8", "hkex.hkexderivatives.fulltick.omd.v1.49.unusedordertypebit8", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.unused_order_type_bit_9 = ProtoField.new("Unused Order Type Bit 9", "hkex.hkexderivatives.fulltick.omd.v1.49.unusedordertypebit9", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
 
--- Hkex HkexDerivatives FullTick Omd 1.49 Headers
+-- Hkex HkexDerivatives FullTick Omd 1.49 Framing
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.fulltick.omd.v1.49.message", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.fulltick.omd.v1.49.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltick_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.fulltick.omd.v1.49.packet", ftypes.STRING)

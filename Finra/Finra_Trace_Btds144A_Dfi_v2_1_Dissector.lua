@@ -135,7 +135,7 @@ omi_finra_trace_btds144a_dfi_v2_1.fields.year = ProtoField.new("Year", "finra.tr
 omi_finra_trace_btds144a_dfi_v2_1.fields.yield = ProtoField.new("Yield", "finra.trace.btds144a.dfi.v2.1.yield", ftypes.STRING)
 omi_finra_trace_btds144a_dfi_v2_1.fields.yield_direction = ProtoField.new("Yield Direction", "finra.trace.btds144a.dfi.v2.1.yielddirection", ftypes.STRING)
 
--- Finra Trace Btds144A Dfi 2.1 Headers
+-- Finra Trace Btds144A Dfi 2.1 Framing
 omi_finra_trace_btds144a_dfi_v2_1.fields.message = ProtoField.new("Message", "finra.trace.btds144a.dfi.v2.1.message", ftypes.STRING)
 omi_finra_trace_btds144a_dfi_v2_1.fields.mold_udp64 = ProtoField.new("Mold Udp64", "finra.trace.btds144a.dfi.v2.1.moldudp64", ftypes.STRING)
 omi_finra_trace_btds144a_dfi_v2_1.fields.packet = ProtoField.new("Packet", "finra.trace.btds144a.dfi.v2.1.packet", ftypes.STRING)
@@ -174,11 +174,13 @@ local show = {}
 -- Finra Trace Btds144A Dfi 2.1 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Finra Trace Btds144A Dfi 2.1 Show Options
 omi_finra_trace_btds144a_dfi_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_finra_trace_btds144a_dfi_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_finra_trace_btds144a_dfi_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_finra_trace_btds144a_dfi_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -187,6 +189,9 @@ function omi_finra_trace_btds144a_dfi_v2_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_finra_trace_btds144a_dfi_v2_1.prefs.show_application_messages then
     show.application_messages = omi_finra_trace_btds144a_dfi_v2_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_finra_trace_btds144a_dfi_v2_1.prefs.show_headers then
+    show.headers = omi_finra_trace_btds144a_dfi_v2_1.prefs.show_headers
   end
   if show.structs ~= omi_finra_trace_btds144a_dfi_v2_1.prefs.show_structs then
     show.structs = omi_finra_trace_btds144a_dfi_v2_1.prefs.show_structs
@@ -5480,7 +5485,7 @@ end
 
 -- Dissect: Mold Udp64
 finra_trace_btds144a_dfi_v2_1.mold_udp64.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.mold_udp64, buffer(offset, 0))
     local index = finra_trace_btds144a_dfi_v2_1.mold_udp64.fields(buffer, offset, packet, parent)
@@ -5579,7 +5584,7 @@ end
 
 -- Dissect: Packet Header
 finra_trace_btds144a_dfi_v2_1.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_finra_trace_btds144a_dfi_v2_1.fields.packet_header, buffer(offset, 0))
     local index = finra_trace_btds144a_dfi_v2_1.packet_header.fields(buffer, offset, packet, parent)

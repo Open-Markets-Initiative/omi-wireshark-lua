@@ -137,7 +137,7 @@ omi_hkex_hkexderivatives_premium_omd_v1_49.fields.unused_12 = ProtoField.new("Un
 omi_hkex_hkexderivatives_premium_omd_v1_49.fields.unused_5 = ProtoField.new("Unused 5", "hkex.hkexderivatives.premium.omd.v1.49.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_hkex_hkexderivatives_premium_omd_v1_49.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.premium.omd.v1.49.updateaction", ftypes.UINT8)
 
--- Hkex HkexDerivatives Premium Omd 1.49 Headers
+-- Hkex HkexDerivatives Premium Omd 1.49 Framing
 omi_hkex_hkexderivatives_premium_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.premium.omd.v1.49.message", ftypes.STRING)
 omi_hkex_hkexderivatives_premium_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.premium.omd.v1.49.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_premium_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.premium.omd.v1.49.packet", ftypes.STRING)

@@ -44,8 +44,6 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price = ProtoFi
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price_is_offer = ProtoField.new("Low Price Is Offer", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.lowpriceisoffer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.low_price_valid = ProtoField.new("Low Price Valid", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.lowpricevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.lowerpricelimit", ftypes.DOUBLE)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message = ProtoField.new("Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.message", ftypes.STRING)
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.messageheader", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.messagelength", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.messagetype", ftypes.UINT8)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.midnightreference", ftypes.UINT32)
@@ -86,7 +84,9 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.upper_price_limit =
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.username = ProtoField.new("Username", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.username", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Headers
+-- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Framing
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message = ProtoField.new("Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.message", ftypes.STRING)
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.messageheader", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.packet", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.19.packetheader", ftypes.STRING)
 
@@ -131,12 +131,14 @@ local show = {}
 show.application_messages = true
 show.repeating_groups = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe CfeFutures MulticastDepthOfBook Spin 1.2.19 Show Options
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -146,6 +148,9 @@ function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_application_messages then
     show.application_messages = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_headers then
+    show.headers = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.prefs.show_repeating_groups
@@ -2932,7 +2937,7 @@ end
 
 -- Dissect: Message Header
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.message_header, buffer(offset, 0))
     local index = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.message_header.fields(buffer, offset, packet, parent)
@@ -3085,7 +3090,7 @@ end
 
 -- Dissect: Packet Header
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.fields.packet_header, buffer(offset, 0))
     local index = cboe_cfefutures_multicastdepthofbook_spin_v1_2_19.packet_header.fields(buffer, offset, packet, parent)

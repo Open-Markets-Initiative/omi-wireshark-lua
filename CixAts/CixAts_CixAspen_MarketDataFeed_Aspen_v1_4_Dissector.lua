@@ -47,7 +47,7 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.symbol = ProtoField.new("Sy
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.symbol_id = ProtoField.new("Symbol Id", "cixats.cixaspen.marketdatafeed.aspen.v1.4.symbolid", ftypes.UINT16)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.marketdatafeed.aspen.v1.4.timestamp", ftypes.UINT64)
 
--- CixAts CixAspen MarketDataFeed Aspen 1.4 Headers
+-- CixAts CixAspen MarketDataFeed Aspen 1.4 Framing
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message = ProtoField.new("Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.message", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_header = ProtoField.new("Message Header", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messageheader", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet = ProtoField.new("Packet", "cixats.cixaspen.marketdatafeed.aspen.v1.4.packet", ftypes.STRING)
@@ -77,11 +77,13 @@ local show = {}
 -- CixAts CixAspen MarketDataFeed Aspen 1.4 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register CixAts CixAspen MarketDataFeed Aspen 1.4 Show Options
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -90,6 +92,9 @@ function omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_application_messages then
     show.application_messages = omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_headers then
+    show.headers = omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_headers
   end
   if show.structs ~= omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_structs then
     show.structs = omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_structs
@@ -1703,7 +1708,7 @@ end
 
 -- Dissect: Message Header
 cixats_cixaspen_marketdatafeed_aspen_v1_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_header, buffer(offset, 0))
     local index = cixats_cixaspen_marketdatafeed_aspen_v1_4.message_header.fields(buffer, offset, packet, parent)
@@ -1806,7 +1811,7 @@ end
 
 -- Dissect: Packet Header
 cixats_cixaspen_marketdatafeed_aspen_v1_4.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.packet_header, buffer(offset, 0))
     local index = cixats_cixaspen_marketdatafeed_aspen_v1_4.packet_header.fields(buffer, offset, packet, parent)

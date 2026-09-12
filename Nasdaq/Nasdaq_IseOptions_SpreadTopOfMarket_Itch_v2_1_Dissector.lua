@@ -45,9 +45,7 @@ omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.explicit_strike_price =
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.leginformation", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.legratio", ftypes.UINT32)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.market_size = ProtoField.new("Market Size", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.marketsize", ftypes.UINT32)
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.message", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.messagecount", ftypes.UINT16)
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.messagelength", ftypes.UINT16)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.messagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.numberoflegs", ftypes.UINT8)
@@ -79,10 +77,12 @@ omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.unsequenced_message = P
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.username", ftypes.STRING)
 
--- Nasdaq IseOptions SpreadTopOfMarket Itch 2.1 Headers
+-- Nasdaq IseOptions SpreadTopOfMarket Itch 2.1 Framing
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.clientsoupbintcppacket", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.clienttcppacket", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.message", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.moldudp64packet", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.serversoupbintcppacket", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.iseoptions.spreadtopofmarket.itch.v2.1.servertcppacket", ftypes.STRING)
@@ -137,10 +137,10 @@ local show = {}
 
 -- Nasdaq IseOptions SpreadTopOfMarket Itch 2.1 Element Dissection Options
 show.structs = true
+show.headers = true
 show.application_messages = true
 show.session_messages = true
 show.repeating_groups = true
-show.headers = true
 show.indexes = true
 show.sequences = true
 
@@ -154,10 +154,10 @@ omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.acceptor_port = Pref.uin
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
-omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -2982,7 +2982,7 @@ end
 
 -- Dissect: Server Tcp Packet Header
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.server_tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.server_tcp_packet_header.fields(buffer, offset, packet, parent)
@@ -3301,7 +3301,7 @@ end
 
 -- Dissect: Client Tcp Packet Header
 nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.fields.client_tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_iseoptions_spreadtopofmarket_itch_v2_1.client_tcp_packet_header.fields(buffer, offset, packet, parent)

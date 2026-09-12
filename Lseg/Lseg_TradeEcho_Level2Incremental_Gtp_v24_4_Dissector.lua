@@ -59,7 +59,7 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.venue_instrument_id = Prot
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.venue_of_publication = ProtoField.new("Venue Of Publication", "lseg.tradeecho.level2incremental.gtp.v24.4.venueofpublication", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.yield = ProtoField.new("Yield", "lseg.tradeecho.level2incremental.gtp.v24.4.yield", ftypes.DOUBLE)
 
--- Lseg TradeEcho Level2Incremental Gtp 24.4 Headers
+-- Lseg TradeEcho Level2Incremental Gtp 24.4 Framing
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2incremental.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2incremental.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2incremental.gtp.v24.4.packet", ftypes.STRING)

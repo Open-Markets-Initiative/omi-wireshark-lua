@@ -56,9 +56,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.market_maker_mode = Proto
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.nsmequities.totalview.itch.v5.0.2023.marketparticipantstate", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.totalview.itch.v5.0.2023.matchnumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.maximum_allowable_price = ProtoField.new("Maximum Allowable Price", "nasdaq.nsmequities.totalview.itch.v5.0.2023.maximumallowableprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.itch.v5.0.2023.message", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.totalview.itch.v5.0.2023.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.totalview.itch.v5.0.2023.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.totalview.itch.v5.0.2023.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.itch.v5.0.2023.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.minimum_allowable_price = ProtoField.new("Minimum Allowable Price", "nasdaq.nsmequities.totalview.itch.v5.0.2023.minimumallowableprice", ftypes.DOUBLE)
@@ -93,7 +91,9 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.trading_state = ProtoFiel
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.nsmequities.totalview.itch.v5.0.2023.upperauctioncollarprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.upper_price_range_collar = ProtoField.new("Upper Price Range Collar", "nasdaq.nsmequities.totalview.itch.v5.0.2023.upperpricerangecollar", ftypes.DOUBLE)
 
--- Nasdaq NsmEquities TotalView Itch 5.0.2023 Headers
+-- Nasdaq NsmEquities TotalView Itch 5.0.2023 Framing
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.itch.v5.0.2023.message", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.totalview.itch.v5.0.2023.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v5.0.2023.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v5.0.2023.packetheader", ftypes.STRING)
 

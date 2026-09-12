@@ -34,8 +34,6 @@ omi_ltse_commonheader_tcp_v1_2.fields.replay_complete_message = ProtoField.new("
 omi_ltse_commonheader_tcp_v1_2.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "ltse.commonheader.tcp.v1.2.replayrejectcode", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "ltse.commonheader.tcp.v1.2.replayrejectedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.replay_request_message = ProtoField.new("Replay Request Message", "ltse.commonheader.tcp.v1.2.replayrequestmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.tcp.v1.2.sbeheader", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.tcp.v1.2.sbemessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.schema_id = ProtoField.new("Schema Id", "ltse.commonheader.tcp.v1.2.schemaid", ftypes.UINT8)
 omi_ltse_commonheader_tcp_v1_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.commonheader.tcp.v1.2.sequencedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.session_id = ProtoField.new("Session Id", "ltse.commonheader.tcp.v1.2.sessionid", ftypes.UINT64)
@@ -53,9 +51,11 @@ omi_ltse_commonheader_tcp_v1_2.fields.total_sequence_count = ProtoField.new("Tot
 omi_ltse_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.version = ProtoField.new("Version", "ltse.commonheader.tcp.v1.2.version", ftypes.UINT16)
 
--- Ltse CommonHeader Tcp 1.2 Headers
+-- Ltse CommonHeader Tcp 1.2 Framing
 omi_ltse_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.tcp.v1.2.commonheader", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.packet = ProtoField.new("Packet", "ltse.commonheader.tcp.v1.2.packet", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.tcp.v1.2.sbeheader", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.tcp.v1.2.sbemessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -64,15 +64,20 @@ omi_ltse_commonheader_tcp_v1_2.fields.packet = ProtoField.new("Packet", "ltse.co
 local show = {}
 
 -- Ltse CommonHeader Tcp 1.2 Element Dissection Options
+show.headers = true
 show.structs = true
 
 -- Register Ltse CommonHeader Tcp 1.2 Show Options
+omi_ltse_commonheader_tcp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ltse_commonheader_tcp_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 -- Handle changed preferences
 function omi_ltse_commonheader_tcp_v1_2.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_ltse_commonheader_tcp_v1_2.prefs.show_headers then
+    show.headers = omi_ltse_commonheader_tcp_v1_2.prefs.show_headers
+  end
   if show.structs ~= omi_ltse_commonheader_tcp_v1_2.prefs.show_structs then
     show.structs = omi_ltse_commonheader_tcp_v1_2.prefs.show_structs
   end
@@ -675,7 +680,7 @@ end
 
 -- Dissect: Sbe Header
 ltse_commonheader_tcp_v1_2.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.sbe_header, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.sbe_header.fields(buffer, offset, packet, parent)
@@ -1481,7 +1486,7 @@ end
 
 -- Dissect: Common Header
 ltse_commonheader_tcp_v1_2.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.common_header, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.common_header.fields(buffer, offset, packet, parent)

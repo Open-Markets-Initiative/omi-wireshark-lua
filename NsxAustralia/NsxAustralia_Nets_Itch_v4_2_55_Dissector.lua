@@ -94,7 +94,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.fields.unsequenced_message_type = ProtoField.
 omi_nsxaustralia_nets_itch_v4_2_55.fields.username = ProtoField.new("Username", "nsxaustralia.nets.itch.v4.2.55.username", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.weight = ProtoField.new("Weight", "nsxaustralia.nets.itch.v4.2.55.weight", ftypes.UINT64)
 
--- NsxAustralia Nets Itch 4.2.55 Headers
+-- NsxAustralia Nets Itch 4.2.55 Framing
 omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet = ProtoField.new("Packet", "nsxaustralia.nets.itch.v4.2.55.clientpacket", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_header = ProtoField.new("Packet Header", "nsxaustralia.nets.itch.v4.2.55.clientpacketheader", ftypes.STRING)
 omi_nsxaustralia_nets_itch_v4_2_55.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nsxaustralia.nets.itch.v4.2.55.clientsoupbintcppacket", ftypes.STRING)
@@ -152,6 +152,7 @@ local show = {}
 -- NsxAustralia Nets Itch 4.2.55 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -166,6 +167,7 @@ omi_nsxaustralia_nets_itch_v4_2_55.prefs.assume_role = Pref.enum("Assume Role", 
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nsxaustralia_nets_itch_v4_2_55.prefs.format_composite_timestamp = Pref.bool("Format Composite Timestamp", true, "Compose Composite Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -176,6 +178,9 @@ function omi_nsxaustralia_nets_itch_v4_2_55.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_application_messages then
     show.application_messages = omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_headers then
+    show.headers = omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_headers
   end
   if show.session_messages ~= omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_session_messages then
     show.session_messages = omi_nsxaustralia_nets_itch_v4_2_55.prefs.show_session_messages
@@ -3989,7 +3994,7 @@ end
 
 -- Dissect: Server Packet Header
 nsxaustralia_nets_itch_v4_2_55.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.server_packet_header, buffer(offset, 0))
     local index = nsxaustralia_nets_itch_v4_2_55.server_packet_header.fields(buffer, offset, packet, parent)
@@ -4318,7 +4323,7 @@ end
 
 -- Dissect: Client Packet Header
 nsxaustralia_nets_itch_v4_2_55.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nsxaustralia_nets_itch_v4_2_55.fields.client_packet_header, buffer(offset, 0))
     local index = nsxaustralia_nets_itch_v4_2_55.client_packet_header.fields(buffer, offset, packet, parent)

@@ -79,6 +79,7 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.order_id = ProtoField.new("Order Id", "
 omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority = ProtoField.new("Order Priority", "smallx.orderbookfeed.sbe.v2.2.orderpriority", ftypes.INT64)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.order_priority_optional = ProtoField.new("Order Priority Optional", "smallx.orderbookfeed.sbe.v2.2.orderpriorityoptional", ftypes.INT64)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.order_update_action = ProtoField.new("Order Update Action", "smallx.orderbookfeed.sbe.v2.2.orderupdateaction", ftypes.STRING)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.orderbookfeed.sbe.v2.2.packetflags", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price = ProtoField.new("Price", "smallx.orderbookfeed.sbe.v2.2.price", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price_increment = ProtoField.new("Price Increment", "smallx.orderbookfeed.sbe.v2.2.priceincrement", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.price_multiplier = ProtoField.new("Price Multiplier", "smallx.orderbookfeed.sbe.v2.2.pricemultiplier", ftypes.DOUBLE)
@@ -135,10 +136,9 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_6 
 omi_smallx_orderbookfeed_sbe_v2_2.fields.value = ProtoField.new("Value", "smallx.orderbookfeed.sbe.v2.2.value", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.version = ProtoField.new("Version", "smallx.orderbookfeed.sbe.v2.2.version", ftypes.UINT16)
 
--- SmallX OrderBookFeed Sbe 2.2 Headers
+-- SmallX OrderBookFeed Sbe 2.2 Framing
 omi_smallx_orderbookfeed_sbe_v2_2.fields.message_header = ProtoField.new("Message Header", "smallx.orderbookfeed.sbe.v2.2.messageheader", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.packet = ProtoField.new("Packet", "smallx.orderbookfeed.sbe.v2.2.packet", ftypes.STRING)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_flags = ProtoField.new("Packet Flags", "smallx.orderbookfeed.sbe.v2.2.packetflags", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header = ProtoField.new("Packet Header", "smallx.orderbookfeed.sbe.v2.2.packetheader", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.sbe_frame = ProtoField.new("Sbe Frame", "smallx.orderbookfeed.sbe.v2.2.sbeframe", ftypes.STRING)
 
@@ -5282,7 +5282,7 @@ end
 
 -- Dissect: Message Header
 smallx_orderbookfeed_sbe_v2_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.message_header, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.message_header.fields(buffer, offset, packet, parent)
@@ -5447,7 +5447,7 @@ end
 
 -- Dissect: Packet Header
 smallx_orderbookfeed_sbe_v2_2.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.packet_header, buffer(offset, 0))
     local index = smallx_orderbookfeed_sbe_v2_2.packet_header.fields(buffer, offset, packet, parent)

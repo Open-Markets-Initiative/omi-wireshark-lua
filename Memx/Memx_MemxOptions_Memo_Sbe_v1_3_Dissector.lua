@@ -120,7 +120,6 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.reprice_frequency = ProtoField.new("Re
 omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.memxoptions.memo.sbe.v1.3.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_5 = ProtoField.new("Reserved 5", "memx.memxoptions.memo.sbe.v1.3.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxoptions.memo.sbe.v1.3.riskgroupid", ftypes.UINT16)
-omi_memx_memxoptions_memo_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memo.sbe.v1.3.sbeheader", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memo.sbe.v1.3.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.memxoptions.memo.sbe.v1.3.securityid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.memo.sbe.v1.3.sendcancels", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -156,9 +155,10 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.unsequenced_message = ProtoField.new("
 omi_memx_memxoptions_memo_sbe_v1_3.fields.user_status = ProtoField.new("User Status", "memx.memxoptions.memo.sbe.v1.3.userstatus", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxoptions.memo.sbe.v1.3.version", ftypes.UINT16)
 
--- Memx MemxOptions Memo Sbe 1.3 Headers
+-- Memx MemxOptions Memo Sbe 1.3 Framing
 omi_memx_memxoptions_memo_sbe_v1_3.fields.client_packet = ProtoField.new("Client Packet", "memx.memxoptions.memo.sbe.v1.3.clientpacket", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memo.sbe.v1.3.commonheader", ftypes.STRING)
+omi_memx_memxoptions_memo_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memo.sbe.v1.3.sbeheader", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.server_packet = ProtoField.new("Server Packet", "memx.memxoptions.memo.sbe.v1.3.serverpacket", ftypes.STRING)
 
 -- Memx MemxOptions Memo 1.3 Application Messages
@@ -6447,7 +6447,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxoptions_memo_sbe_v1_3.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.sbe_header.fields(buffer, offset, packet, parent)
@@ -7009,7 +7009,7 @@ end
 
 -- Dissect: Common Header
 memx_memxoptions_memo_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.common_header, buffer(offset, 0))
     local index = memx_memxoptions_memo_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)

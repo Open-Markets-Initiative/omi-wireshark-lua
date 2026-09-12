@@ -40,9 +40,7 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.leg_side = ProtoField.new("
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.long_name = ProtoField.new("Long Name", "bist.borsaistanbul.geniuminet.itch.v21.12.longname", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.lot_type = ProtoField.new("Lot Type", "bist.borsaistanbul.geniuminet.itch.v21.12.lottype", ftypes.UINT8)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.match_id = ProtoField.new("Match Id", "bist.borsaistanbul.geniuminet.itch.v21.12.matchid", ftypes.UINT64)
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message = ProtoField.new("Message", "bist.borsaistanbul.geniuminet.itch.v21.12.message", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_count = ProtoField.new("Message Count", "bist.borsaistanbul.geniuminet.itch.v21.12.messagecount", ftypes.UINT16)
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_header = ProtoField.new("Message Header", "bist.borsaistanbul.geniuminet.itch.v21.12.messageheader", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_length = ProtoField.new("Message Length", "bist.borsaistanbul.geniuminet.itch.v21.12.messagelength", ftypes.UINT16)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_type = ProtoField.new("Message Type", "bist.borsaistanbul.geniuminet.itch.v21.12.messagetype", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.nanoseconds = ProtoField.new("Nanoseconds", "bist.borsaistanbul.geniuminet.itch.v21.12.nanoseconds", ftypes.UINT32)
@@ -82,7 +80,9 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trade_price = ProtoField.ne
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trading_currency = ProtoField.new("Trading Currency", "bist.borsaistanbul.geniuminet.itch.v21.12.tradingcurrency", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.underlying_order_book_id = ProtoField.new("Underlying Order Book Id", "bist.borsaistanbul.geniuminet.itch.v21.12.underlyingorderbookid", ftypes.UINT32)
 
--- Bist BorsaIstanbul GeniumInet Itch 21.12 Headers
+-- Bist BorsaIstanbul GeniumInet Itch 21.12 Framing
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message = ProtoField.new("Message", "bist.borsaistanbul.geniuminet.itch.v21.12.message", ftypes.STRING)
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_header = ProtoField.new("Message Header", "bist.borsaistanbul.geniuminet.itch.v21.12.messageheader", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet = ProtoField.new("Packet", "bist.borsaistanbul.geniuminet.itch.v21.12.packet", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.packet_header = ProtoField.new("Packet Header", "bist.borsaistanbul.geniuminet.itch.v21.12.packetheader", ftypes.STRING)
 

@@ -78,7 +78,7 @@ omi_iex_iexequities_tops_snap_v1_6.fields.unused_6 = ProtoField.new("Unused 6", 
 omi_iex_iexequities_tops_snap_v1_6.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.iexequities.tops.snap.v1.6.upperauctioncollar", ftypes.DOUBLE)
 omi_iex_iexequities_tops_snap_v1_6.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.tops.snap.v1.6.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities Tops Snap 1.6 Headers
+-- Iex IexEquities Tops Snap 1.6 Framing
 omi_iex_iexequities_tops_snap_v1_6.fields.message = ProtoField.new("Message", "iex.iexequities.tops.snap.v1.6.message", ftypes.STRING)
 omi_iex_iexequities_tops_snap_v1_6.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.tops.snap.v1.6.messageheader", ftypes.STRING)
 omi_iex_iexequities_tops_snap_v1_6.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.snap.v1.6.packet", ftypes.STRING)

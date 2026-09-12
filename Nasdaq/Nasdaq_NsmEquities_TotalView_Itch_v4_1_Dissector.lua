@@ -33,9 +33,7 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.market_category = ProtoField.n
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.market_maker_mode = ProtoField.new("Market Maker Mode", "nasdaq.nsmequities.totalview.itch.v4.1.marketmakermode", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.nsmequities.totalview.itch.v4.1.marketparticipantstate", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.totalview.itch.v4.1.matchnumber", ftypes.UINT64)
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.itch.v4.1.message", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.totalview.itch.v4.1.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.totalview.itch.v4.1.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.totalview.itch.v4.1.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.itch.v4.1.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.mpid = ProtoField.new("Mpid", "nasdaq.nsmequities.totalview.itch.v4.1.mpid", ftypes.STRING)
@@ -57,7 +55,9 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.shares = ProtoField.new("Share
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.itch.v4.1.side", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v4.1.stock", ftypes.STRING)
 
--- Nasdaq NsmEquities TotalView Itch 4.1 Headers
+-- Nasdaq NsmEquities TotalView Itch 4.1 Framing
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.itch.v4.1.message", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.totalview.itch.v4.1.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v4.1.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v4.1.packetheader", ftypes.STRING)
 

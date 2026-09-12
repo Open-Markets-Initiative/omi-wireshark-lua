@@ -59,7 +59,7 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Times
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.ntxequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.username = ProtoField.new("Username", "nasdaq.ntxequities.orders.ouch.v4.2.username", ftypes.STRING)
 
--- Nasdaq NtxEquities Orders Ouch 4.2 Headers
+-- Nasdaq NtxEquities Orders Ouch 4.2 Framing
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet = ProtoField.new("Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacket", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.orders.ouch.v4.2.clientpacketheader", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxequities.orders.ouch.v4.2.clientsoupbintcppacket", ftypes.STRING)
@@ -106,6 +106,7 @@ local show = {}
 -- Nasdaq NtxEquities Orders Ouch 4.2 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -120,6 +121,7 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.assume_role = Pref.enum("Assume Ro
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -129,6 +131,9 @@ function omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_headers then
+    show.headers = omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_headers
   end
   if show.session_messages ~= omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_ntxequities_orders_ouch_v4_2.prefs.show_session_messages
@@ -2669,7 +2674,7 @@ end
 
 -- Dissect: Server Packet Header
 nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_packet_header, buffer(offset, 0))
     local index = nasdaq_ntxequities_orders_ouch_v4_2.server_packet_header.fields(buffer, offset, packet, parent)
@@ -3303,7 +3308,7 @@ end
 
 -- Dissect: Client Packet Header
 nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_packet_header, buffer(offset, 0))
     local index = nasdaq_ntxequities_orders_ouch_v4_2.client_packet_header.fields(buffer, offset, packet, parent)

@@ -304,7 +304,7 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.var_text = ProtoField.new("Var Text", "b
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.var_text_len = ProtoField.new("Var Text Len", "bse.bseindia.eti.fbe.v1.6.14.vartextlen", ftypes.UINT16)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.yield = ProtoField.new("Yield", "bse.bseindia.eti.fbe.v1.6.14.yield", ftypes.DOUBLE)
 
--- Bse BseIndia Eti Fbe 1.6.14 Headers
+-- Bse BseIndia Eti Fbe 1.6.14 Framing
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.client_message = ProtoField.new("Client Message", "bse.bseindia.eti.fbe.v1.6.14.clientmessage", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.client_packet = ProtoField.new("Client Packet", "bse.bseindia.eti.fbe.v1.6.14.clientpacket", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.message_header = ProtoField.new("Message Header", "bse.bseindia.eti.fbe.v1.6.14.messageheader", ftypes.STRING)
@@ -417,6 +417,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Bse BseIndia Eti Fbe 1.6.14 Show Options
@@ -431,6 +432,7 @@ omi_bse_bseindia_eti_fbe_v1_6_14.prefs.swap_sides = Pref.bool("Swap Sides", fals
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -439,6 +441,9 @@ function omi_bse_bseindia_eti_fbe_v1_6_14.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_application_messages then
     show.application_messages = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_application_messages
+  end
+  if show.headers ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers then
+    show.headers = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_headers
   end
   if show.repeating_groups ~= omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_repeating_groups then
     show.repeating_groups = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.show_repeating_groups
@@ -15643,7 +15648,7 @@ end
 
 -- Dissect: Message Header
 bse_bseindia_eti_fbe_v1_6_14.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.message_header, buffer(offset, 0))
     local index = bse_bseindia_eti_fbe_v1_6_14.message_header.fields(buffer, offset, packet, parent)

@@ -64,7 +64,7 @@ omi_iex_iexequities_deepplus_snap_v1_05.fields.unused_5 = ProtoField.new("Unused
 omi_iex_iexequities_deepplus_snap_v1_05.fields.unused_7 = ProtoField.new("Unused 7", "iex.iexequities.deepplus.snap.v1.05.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deepplus.snap.v1.05.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities DeepPlus Snap 1.05 Headers
+-- Iex IexEquities DeepPlus Snap 1.05 Framing
 omi_iex_iexequities_deepplus_snap_v1_05.fields.message = ProtoField.new("Message", "iex.iexequities.deepplus.snap.v1.05.message", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deepplus.snap.v1.05.messageheader", ftypes.STRING)
 omi_iex_iexequities_deepplus_snap_v1_05.fields.packet = ProtoField.new("Packet", "iex.iexequities.deepplus.snap.v1.05.packet", ftypes.STRING)

@@ -64,7 +64,7 @@ omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.trading_phase_code = ProtoField
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.turnover = ProtoField.new("Turnover", "hkex.sse.chinaconnectretrans.omd.v1.4.turnover", ftypes.DOUBLE)
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.username = ProtoField.new("Username", "hkex.sse.chinaconnectretrans.omd.v1.4.username", ftypes.STRING)
 
--- Hkex Sse ChinaConnectRetrans Omd 1.4 Headers
+-- Hkex Sse ChinaConnectRetrans Omd 1.4 Framing
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.message = ProtoField.new("Message", "hkex.sse.chinaconnectretrans.omd.v1.4.message", ftypes.STRING)
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.msg_header = ProtoField.new("Msg Header", "hkex.sse.chinaconnectretrans.omd.v1.4.msgheader", ftypes.STRING)
 omi_hkex_sse_chinaconnectretrans_omd_v1_4.fields.packet = ProtoField.new("Packet", "hkex.sse.chinaconnectretrans.omd.v1.4.packet", ftypes.STRING)

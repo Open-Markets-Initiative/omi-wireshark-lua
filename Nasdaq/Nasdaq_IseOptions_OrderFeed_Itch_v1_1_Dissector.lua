@@ -34,9 +34,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.giveup = ProtoField.new("Giveup
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalancedirection", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalanceprice", ftypes.DOUBLE)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.iseoptions.orderfeed.itch.v1.1.imbalancevolume", ftypes.UINT32)
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.message", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagecount", ftypes.UINT16)
-omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagelength", ftypes.UINT16)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.iseoptions.orderfeed.itch.v1.1.messagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.mpv = ProtoField.new("Mpv", "nasdaq.iseoptions.orderfeed.itch.v1.1.mpv", ftypes.STRING)
@@ -66,7 +64,9 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_type = ProtoField.new("
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.iseoptions.orderfeed.itch.v1.1.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.orderfeed.itch.v1.1.version", ftypes.UINT8)
 
--- Nasdaq IseOptions OrderFeed Itch 1.1 Headers
+-- Nasdaq IseOptions OrderFeed Itch 1.1 Framing
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.message", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.orderfeed.itch.v1.1.packet", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.orderfeed.itch.v1.1.packetheader", ftypes.STRING)
 

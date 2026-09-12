@@ -33,8 +33,6 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.lastsale_eligible = Proto
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.length = ProtoField.new("Length", "cboe.edgaequities.summarydepth.pitch.v1.0.4.length", ftypes.UINT16)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.edgaequities.summarydepth.pitch.v1.0.4.longupdateadapblock", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.market_status = ProtoField.new("Market Status", "cboe.edgaequities.summarydepth.pitch.v1.0.4.marketstatus", ftypes.STRING)
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message = ProtoField.new("Message", "cboe.edgaequities.summarydepth.pitch.v1.0.4.message", ftypes.STRING)
-omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_header = ProtoField.new("Message Header", "cboe.edgaequities.summarydepth.pitch.v1.0.4.messageheader", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_length = ProtoField.new("Message Length", "cboe.edgaequities.summarydepth.pitch.v1.0.4.messagelength", ftypes.UINT8)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_type = ProtoField.new("Message Type", "cboe.edgaequities.summarydepth.pitch.v1.0.4.messagetype", ftypes.UINT8)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.price = ProtoField.new("Price", "cboe.edgaequities.summarydepth.pitch.v1.0.4.price", ftypes.DOUBLE)
@@ -57,7 +55,9 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.unused_1 = ProtoField.new
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.unused_5 = ProtoField.new("Unused 5", "cboe.edgaequities.summarydepth.pitch.v1.0.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.unused_6 = ProtoField.new("Unused 6", "cboe.edgaequities.summarydepth.pitch.v1.0.4.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe EdgaEquities SummaryDepth Pitch 1.0.4 Headers
+-- Cboe EdgaEquities SummaryDepth Pitch 1.0.4 Framing
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message = ProtoField.new("Message", "cboe.edgaequities.summarydepth.pitch.v1.0.4.message", ftypes.STRING)
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_header = ProtoField.new("Message Header", "cboe.edgaequities.summarydepth.pitch.v1.0.4.messageheader", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.edgaequities.summarydepth.pitch.v1.0.4.packet", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgaequities.summarydepth.pitch.v1.0.4.packetheader", ftypes.STRING)
 
@@ -102,12 +102,14 @@ local show = {}
 show.repeating_groups = true
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe EdgaEquities SummaryDepth Pitch 1.0.4 Show Options
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.timestamp_format = Pref.enum("Last Update Timestamp Format", 2, "Last Update Timestamp display format", timestamp_format_enum, false)
@@ -119,6 +121,9 @@ function omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_headers then
+    show.headers = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.prefs.show_repeating_groups
@@ -1640,7 +1645,7 @@ end
 
 -- Dissect: Message Header
 cboe_edgaequities_summarydepth_pitch_v1_0_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_header, buffer(offset, 0))
     local index = cboe_edgaequities_summarydepth_pitch_v1_0_4.message_header.fields(buffer, offset, packet, parent)
@@ -1793,7 +1798,7 @@ end
 
 -- Dissect: Packet Header
 cboe_edgaequities_summarydepth_pitch_v1_0_4.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.packet_header, buffer(offset, 0))
     local index = cboe_edgaequities_summarydepth_pitch_v1_0_4.packet_header.fields(buffer, offset, packet, parent)

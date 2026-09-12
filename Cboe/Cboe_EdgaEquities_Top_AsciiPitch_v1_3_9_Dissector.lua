@@ -53,7 +53,7 @@ omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.timestamp = ProtoField.new("T
 omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.top_lf = ProtoField.new("Top Lf", "cboe.edgaequities.top.asciipitch.v1.3.9.toplf", ftypes.INT8)
 omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.username = ProtoField.new("Username", "cboe.edgaequities.top.asciipitch.v1.3.9.username", ftypes.STRING)
 
--- Cboe EdgaEquities Top AsciiPitch 1.3.9 Headers
+-- Cboe EdgaEquities Top AsciiPitch 1.3.9 Framing
 omi_cboe_edgaequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.edgaequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
 
 -- Cboe EdgaEquities Top 1.3.9 Application Messages

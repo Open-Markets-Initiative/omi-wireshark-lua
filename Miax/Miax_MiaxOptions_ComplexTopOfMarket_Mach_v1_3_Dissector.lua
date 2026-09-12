@@ -79,7 +79,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.underlying_symbol = Pro
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.update_reason = ProtoField.new("Update Reason", "miax.miaxoptions.complextopofmarket.mach.v1.3.updatereason", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.version = ProtoField.new("Version", "miax.miaxoptions.complextopofmarket.mach.v1.3.version", ftypes.STRING)
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Headers
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Framing
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet = ProtoField.new("Packet", "miax.miaxoptions.complextopofmarket.mach.v1.3.packet", ftypes.STRING)
 

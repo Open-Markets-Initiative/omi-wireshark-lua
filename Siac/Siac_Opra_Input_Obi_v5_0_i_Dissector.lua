@@ -27,6 +27,8 @@ omi_siac_opra_input_obi_v5_0_i.fields.block_pad_byte = ProtoField.new("Block Pad
 omi_siac_opra_input_obi_v5_0_i.fields.block_separator = ProtoField.new("Block Separator", "siac.opra.input.obi.v5.0.i.blockseparator", ftypes.UINT16)
 omi_siac_opra_input_obi_v5_0_i.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.input.obi.v5.0.i.blocksequencenumber", ftypes.UINT32)
 omi_siac_opra_input_obi_v5_0_i.fields.block_size = ProtoField.new("Block Size", "siac.opra.input.obi.v5.0.i.blocksize", ftypes.UINT16)
+omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp_utc = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_opra_input_obi_v5_0_i.fields.control_category = ProtoField.new("Control Category", "siac.opra.input.obi.v5.0.i.controlcategory", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.input.obi.v5.0.i.controlmessagetype", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.equity_and_index_end_of_day_summary_category = ProtoField.new("Equity And Index End Of Day Summary Category", "siac.opra.input.obi.v5.0.i.equityandindexendofdaysummarycategory", ftypes.STRING)
@@ -88,10 +90,8 @@ omi_siac_opra_input_obi_v5_0_i.fields.underlying_value_message_message_type = Pr
 omi_siac_opra_input_obi_v5_0_i.fields.version = ProtoField.new("Version", "siac.opra.input.obi.v5.0.i.version", ftypes.UINT8)
 omi_siac_opra_input_obi_v5_0_i.fields.volume = ProtoField.new("Volume", "siac.opra.input.obi.v5.0.i.volume", ftypes.UINT32)
 
--- Siac Opra Input Obi 5.0.i Headers
+-- Siac Opra Input Obi 5.0.i Framing
 omi_siac_opra_input_obi_v5_0_i.fields.block_header = ProtoField.new("Block Header", "siac.opra.input.obi.v5.0.i.blockheader", ftypes.STRING)
-omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp_utc = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_opra_input_obi_v5_0_i.fields.message = ProtoField.new("Message", "siac.opra.input.obi.v5.0.i.message", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.message_header = ProtoField.new("Message Header", "siac.opra.input.obi.v5.0.i.messageheader", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.packet = ProtoField.new("Packet", "siac.opra.input.obi.v5.0.i.packet", ftypes.STRING)

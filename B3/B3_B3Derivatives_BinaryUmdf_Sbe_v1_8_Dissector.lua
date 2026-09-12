@@ -45,6 +45,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.end_of_event = ProtoField.new("E
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.entering_firm = ProtoField.new("Entering Firm", "b3.b3derivatives.binaryumdf.sbe.v1.8.enteringfirm", ftypes.UINT32)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.exercise_style = ProtoField.new("Exercise Style", "b3.b3derivatives.binaryumdf.sbe.v1.8.exercisestyle", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.fill_qty = ProtoField.new("Fill Qty", "b3.b3derivatives.binaryumdf.sbe.v1.8.fillqty", ftypes.INT64)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.framing_header = ProtoField.new("Framing Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.framingheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.governance_indicator = ProtoField.new("Governance Indicator", "b3.b3derivatives.binaryumdf.sbe.v1.8.governanceindicator", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.b3derivatives.binaryumdf.sbe.v1.8.groupsizeencoding", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline = ProtoField.new("Headline", "b3.b3derivatives.binaryumdf.sbe.v1.8.headline", ftypes.STRING)
@@ -238,8 +239,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.vwap_px = ProtoField.new("Vwap P
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.week = ProtoField.new("Week", "b3.b3derivatives.binaryumdf.sbe.v1.8.week", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.year = ProtoField.new("Year", "b3.b3derivatives.binaryumdf.sbe.v1.8.year", ftypes.UINT16)
 
--- B3 B3Derivatives BinaryUmdf Sbe 1.8 Headers
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.framing_header = ProtoField.new("Framing Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.framingheader", ftypes.STRING)
+-- B3 B3Derivatives BinaryUmdf Sbe 1.8 Framing
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message = ProtoField.new("Message", "b3.b3derivatives.binaryumdf.sbe.v1.8.message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message_header = ProtoField.new("Message Header", "b3.b3derivatives.binaryumdf.sbe.v1.8.messageheader", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet = ProtoField.new("Packet", "b3.b3derivatives.binaryumdf.sbe.v1.8.packet", ftypes.STRING)
@@ -9803,7 +9803,7 @@ end
 
 -- Dissect: Message Header
 b3_b3derivatives_binaryumdf_sbe_v1_8.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message_header, buffer(offset, 0))
     local index = b3_b3derivatives_binaryumdf_sbe_v1_8.message_header.fields(buffer, offset, packet, parent)
@@ -9895,7 +9895,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.message.dissect = function(buffer, offset, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.message, buffer(offset, 0))
     local current = b3_b3derivatives_binaryumdf_sbe_v1_8.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

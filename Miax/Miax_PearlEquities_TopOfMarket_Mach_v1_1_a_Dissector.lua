@@ -48,7 +48,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.to_m_version = ProtoField.
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.topofmarket.mach.v1.1.a.tradeid", ftypes.UINT64)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trading_status = ProtoField.new("Trading Status", "miax.pearlequities.topofmarket.mach.v1.1.a.tradingstatus", ftypes.UINT8)
 
--- Miax PearlEquities TopOfMarket Mach 1.1.a Headers
+-- Miax PearlEquities TopOfMarket Mach 1.1.a Framing
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.topofmarket.mach.v1.1.a.machmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.topofmarket.mach.v1.1.a.packet", ftypes.STRING)
 

@@ -41,7 +41,7 @@ omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.unsequenced_data_packet =
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.byxequities.lastsale.asciipitch.v1.2.4.unsequencedmessage", ftypes.BYTES)
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.username = ProtoField.new("Username", "cboe.byxequities.lastsale.asciipitch.v1.2.4.username", ftypes.STRING)
 
--- Cboe ByxEquities LastSale AsciiPitch 1.2.4 Headers
+-- Cboe ByxEquities LastSale AsciiPitch 1.2.4 Framing
 omi_cboe_byxequities_lastsale_asciipitch_v1_2_4.fields.packet = ProtoField.new("Packet", "cboe.byxequities.lastsale.asciipitch.v1.2.4.packet", ftypes.STRING)
 
 -- Cboe ByxEquities LastSale 1.2.4 Application Messages

@@ -130,7 +130,7 @@ omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.user_name = P
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.waiver_flags = ProtoField.new("Waiver Flags", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.waiverflags", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.waiver_flags_post_trade_flags = ProtoField.new("Waiver Flags Post Trade Flags", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.waiverflagsposttradeflags", ftypes.UINT8)
 
--- Lseg Millennium NativeTradingGatewayRecovery Ntgi 21.2 Headers
+-- Lseg Millennium NativeTradingGatewayRecovery Ntgi 21.2 Framing
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message = ProtoField.new("Message", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.message", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.messageheader", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.packet = ProtoField.new("Packet", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.packet", ftypes.STRING)

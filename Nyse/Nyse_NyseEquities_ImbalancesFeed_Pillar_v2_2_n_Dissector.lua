@@ -38,8 +38,6 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.lower_collar = ProtoFi
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.mpv", ftypes.UINT16)
@@ -66,6 +64,8 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.round_lot = ProtoField
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.seconds", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.securitystatus", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.securitytype", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.seqnum", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sessionstate", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sourceid", ftypes.STRING)
@@ -88,11 +88,11 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_qty = ProtoFi
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.unpairedside", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.uppercollar", ftypes.UINT32)
 
--- Nyse NyseEquities ImbalancesFeed Pillar 2.2.n Headers
+-- Nyse NyseEquities ImbalancesFeed Pillar 2.2.n Framing
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message = ProtoField.new("Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.message", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.packet", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.packetheader", ftypes.STRING)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse NyseEquities ImbalancesFeed 2.2.n Application Messages
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.n.heartbeatresponsemessage", ftypes.STRING)

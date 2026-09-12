@@ -33,7 +33,6 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.requested_sequence_numbe
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.requested_session = ProtoField.new("Requested Session", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.requestedsession", ftypes.STRING)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.sequencenumber", ftypes.STRING)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.sequenceddatapacket", ftypes.STRING)
-omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.sequencedmessageheader", ftypes.STRING)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.sequencedmessagetype", ftypes.STRING)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.session = ProtoField.new("Session", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.session", ftypes.STRING)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.shares = ProtoField.new("Shares", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.shares", ftypes.STRING)
@@ -45,8 +44,9 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.unsequenced_data_packet 
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.unsequencedmessage", ftypes.BYTES)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.username = ProtoField.new("Username", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.username", ftypes.STRING)
 
--- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Headers
+-- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Framing
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.packet = ProtoField.new("Packet", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.packet", ftypes.STRING)
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.sequencedmessageheader", ftypes.STRING)
 
 -- Cboe BxeEquities AuctionFeed 1.4 Application Messages
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.bxeequities.auctionfeed.asciipitch.v1.4.auctionsummarymessage", ftypes.STRING)
@@ -79,10 +79,12 @@ local show = {}
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Show Options
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (GMT) for midnight calculation")
@@ -93,6 +95,9 @@ function omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_headers then
+    show.headers = omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_headers
   end
   if show.structs ~= omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_structs then
     show.structs = omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_structs
@@ -1039,7 +1044,7 @@ end
 
 -- Dissect: Sequenced Message Header
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.sequenced_message_header, buffer(offset, 0))
     local index = cboe_bxeequities_auctionfeed_asciipitch_v1_4.sequenced_message_header.fields(buffer, offset, packet, parent)

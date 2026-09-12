@@ -31,7 +31,7 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message = ProtoField.new("
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.common.soupbin.tcp.v3.0.unsequencedmessagetype", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbin.tcp.v3.0.username", ftypes.STRING)
 
--- Nasdaq Common SoupBin Tcp 3.0 Headers
+-- Nasdaq Common SoupBin Tcp 3.0 Framing
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.common.soupbin.tcp.v3.0.clientpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbin.tcp.v3.0.clientpacketheader", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.clientsoupbintcppacket", ftypes.STRING)
@@ -58,6 +58,7 @@ local show = {}
 
 -- Nasdaq Common SoupBin Tcp 3.0 Element Dissection Options
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -71,6 +72,7 @@ omi_nasdaq_common_soupbin_tcp_v3_0.prefs.acceptor_port = Pref.uint("Acceptor Por
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -78,6 +80,9 @@ omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_sequences = Pref.bool("Show Sequen
 function omi_nasdaq_common_soupbin_tcp_v3_0.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_headers then
+    show.headers = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_headers
+  end
   if show.session_messages ~= omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages then
     show.session_messages = omi_nasdaq_common_soupbin_tcp_v3_0.prefs.show_session_messages
   end
@@ -856,7 +861,7 @@ end
 
 -- Dissect: Server Packet Header
 nasdaq_common_soupbin_tcp_v3_0.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_packet_header, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0.server_packet_header.fields(buffer, offset, packet, parent)
@@ -1183,7 +1188,7 @@ end
 
 -- Dissect: Client Packet Header
 nasdaq_common_soupbin_tcp_v3_0.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_packet_header, buffer(offset, 0))
     local index = nasdaq_common_soupbin_tcp_v3_0.client_packet_header.fields(buffer, offset, packet, parent)

@@ -67,7 +67,7 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.traded_quantity = ProtoField.new("T
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.asxsecurities.trade.ouch.v3.6.unsequencedmessagetype", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.username = ProtoField.new("Username", "asx.asxsecurities.trade.ouch.v3.6.username", ftypes.STRING)
 
--- Asx AsxSecurities Trade Ouch 3.6 Headers
+-- Asx AsxSecurities Trade Ouch 3.6 Framing
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet = ProtoField.new("Packet", "asx.asxsecurities.trade.ouch.v3.6.clientpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet_header = ProtoField.new("Packet Header", "asx.asxsecurities.trade.ouch.v3.6.clientpacketheader", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.asxsecurities.trade.ouch.v3.6.clientsoupbintcppacket", ftypes.STRING)
@@ -106,6 +106,7 @@ local show = {}
 -- Asx AsxSecurities Trade Ouch 3.6 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -120,6 +121,7 @@ omi_asx_asxsecurities_trade_ouch_v3_6.prefs.assume_role = Pref.enum("Assume Role
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -129,6 +131,9 @@ function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages then
     show.application_messages = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_application_messages
+  end
+  if show.headers ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_headers then
+    show.headers = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_headers
   end
   if show.session_messages ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages then
     show.session_messages = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages
@@ -2343,7 +2348,7 @@ end
 
 -- Dissect: Server Packet Header
 asx_asxsecurities_trade_ouch_v3_6.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_packet_header, buffer(offset, 0))
     local index = asx_asxsecurities_trade_ouch_v3_6.server_packet_header.fields(buffer, offset, packet, parent)
@@ -2957,7 +2962,7 @@ end
 
 -- Dissect: Client Packet Header
 asx_asxsecurities_trade_ouch_v3_6.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.client_packet_header, buffer(offset, 0))
     local index = asx_asxsecurities_trade_ouch_v3_6.client_packet_header.fields(buffer, offset, packet, parent)

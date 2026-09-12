@@ -32,8 +32,6 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.last_symbol_seq_num = ProtoField.
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.lot_size = ProtoField.new("Lot Size", "nyse.nyseequities.bbo.pillar.v2.5.d.lotsize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.market_id = ProtoField.new("Market Id", "nyse.nyseequities.bbo.pillar.v2.5.d.marketid", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.market_state = ProtoField.new("Market State", "nyse.nyseequities.bbo.pillar.v2.5.d.marketstate", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.d.message", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.d.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_size = ProtoField.new("Message Size", "nyse.nyseequities.bbo.pillar.v2.5.d.messagesize", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_type = ProtoField.new("Message Type", "nyse.nyseequities.bbo.pillar.v2.5.d.messagetype", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.mpv = ProtoField.new("Mpv", "nyse.nyseequities.bbo.pillar.v2.5.d.mpv", ftypes.UINT16)
@@ -59,6 +57,8 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.rpi_indicator = ProtoField.new("R
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.bbo.pillar.v2.5.d.seconds", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.bbo.pillar.v2.5.d.securitystatus", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.bbo.pillar.v2.5.d.securitytype", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.d.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseequities.bbo.pillar.v2.5.d.seqnum", ftypes.UINT32)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.bbo.pillar.v2.5.d.sessionstate", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.bbo.pillar.v2.5.d.sourceid", ftypes.STRING)
@@ -76,11 +76,11 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.time = ProtoField.new("Time", "ny
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.nyseequities.bbo.pillar.v2.5.d.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.bbo.pillar.v2.5.d.unitoftrade", ftypes.UINT16)
 
--- Nyse NyseEquities Bbo Pillar 2.5.d Headers
+-- Nyse NyseEquities Bbo Pillar 2.5.d Framing
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.pillar.v2.5.d.message", ftypes.STRING)
+omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.pillar.v2.5.d.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.pillar.v2.5.d.packet", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.bbo.pillar.v2.5.d.packetheader", ftypes.STRING)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.bbo.pillar.v2.5.d.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse NyseEquities Bbo 2.5.d Application Messages
 omi_nyse_nyseequities_bbo_pillar_v2_5_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.bbo.pillar.v2.5.d.heartbeatresponsemessage", ftypes.STRING)

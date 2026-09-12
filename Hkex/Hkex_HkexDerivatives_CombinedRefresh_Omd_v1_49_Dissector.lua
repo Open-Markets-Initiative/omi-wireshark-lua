@@ -137,7 +137,7 @@ omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.unused_order_type_bit_
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.unused_order_type_bit_9 = ProtoField.new("Unused Order Type Bit 9", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.unusedordertypebit9", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.updateaction", ftypes.UINT8)
 
--- Hkex HkexDerivatives CombinedRefresh Omd 1.49 Headers
+-- Hkex HkexDerivatives CombinedRefresh Omd 1.49 Framing
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.message", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedrefresh_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.combinedrefresh.omd.v1.49.packet", ftypes.STRING)

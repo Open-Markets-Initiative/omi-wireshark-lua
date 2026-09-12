@@ -66,7 +66,6 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_identifier = ProtoField.ne
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_center_originator = ProtoField.new("Market Center Originator", "nasdaq.utp.snapshot.utp.v3.0.marketcenteroriginator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.market_tier = ProtoField.new("Market Tier", "nasdaq.utp.snapshot.utp.v3.0.markettier", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.message_category = ProtoField.new("Message Category", "nasdaq.utp.snapshot.utp.v3.0.messagecategory", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.utp.snapshot.utp.v3.0.messageheader", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.mpi_tick = ProtoField.new("Mpi Tick", "nasdaq.utp.snapshot.utp.v3.0.mpitick", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "nasdaq.utp.snapshot.utp.v3.0.mwcblevel1", ftypes.UINT64)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.utp.snapshot.utp.v3.0.mwcblevel2", ftypes.UINT64)
@@ -112,9 +111,10 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_state = ProtoField.new("Trading 
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.username = ProtoField.new("Username", "nasdaq.utp.snapshot.utp.v3.0.username", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.version = ProtoField.new("Version", "nasdaq.utp.snapshot.utp.v3.0.version", ftypes.UINT8)
 
--- Nasdaq Utp Snapshot Utp 3.0 Headers
+-- Nasdaq Utp Snapshot Utp 3.0 Framing
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_packet = ProtoField.new("Packet", "nasdaq.utp.snapshot.utp.v3.0.clientpacket", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.snapshot.utp.v3.0.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.utp.snapshot.utp.v3.0.messageheader", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_packet = ProtoField.new("Packet", "nasdaq.utp.snapshot.utp.v3.0.serverpacket", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.utp.snapshot.utp.v3.0.servertcppacketheader", ftypes.STRING)
 

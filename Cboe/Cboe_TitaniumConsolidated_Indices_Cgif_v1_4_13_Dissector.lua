@@ -50,7 +50,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.total_number_of_record
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.transact_time = ProtoField.new("Transact Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.transacttime", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.version = ProtoField.new("Version", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.version", ftypes.UINT8)
 
--- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Headers
+-- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Framing
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message = ProtoField.new("Message", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.message", ftypes.STRING)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messageheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.packet", ftypes.STRING)

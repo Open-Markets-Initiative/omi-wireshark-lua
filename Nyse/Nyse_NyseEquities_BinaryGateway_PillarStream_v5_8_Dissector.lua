@@ -29,7 +29,6 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.mmid = ProtoField.n
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.mode = ProtoField.new("Mode", "nyse.nyseequities.binarygateway.pillarstream.v5.8.mode", ftypes.UINT8)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.nyseequities.binarygateway.pillarstream.v5.8.mpsubid", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.mpid = ProtoField.new("Mpid", "nyse.nyseequities.binarygateway.pillarstream.v5.8.mpid", ftypes.STRING)
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_header = ProtoField.new("Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.msgheader", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_length = ProtoField.new("Msg Length", "nyse.nyseequities.binarygateway.pillarstream.v5.8.msglength", ftypes.UINT16)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_type = ProtoField.new("Msg Type", "nyse.nyseequities.binarygateway.pillarstream.v5.8.msgtype", ftypes.UINT16)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.next_seq = ProtoField.new("Next Seq", "nyse.nyseequities.binarygateway.pillarstream.v5.8.nextseq", ftypes.UINT64)
@@ -39,9 +38,8 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.order_qty = ProtoFi
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "nyse.nyseequities.binarygateway.pillarstream.v5.8.origclordid", ftypes.UINT64)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.password = ProtoField.new("Password", "nyse.nyseequities.binarygateway.pillarstream.v5.8.password", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.price = ProtoField.new("Price", "nyse.nyseequities.binarygateway.pillarstream.v5.8.price", ftypes.DOUBLE)
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.binarygateway.pillarstream.v5.8.reserved4", ftypes.BYTES)
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.binarygateway.pillarstream.v5.8.reserved4", ftypes.UINT32)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq = ProtoField.new("Seq", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seq", ftypes.UINT64)
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seqmsgheader", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seqmsgid", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seqmsglength", ftypes.UINT16)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seqmsgtype", ftypes.UINT16)
@@ -50,7 +48,6 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.start_seq = ProtoFi
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.status = ProtoField.new("Status", "nyse.nyseequities.binarygateway.pillarstream.v5.8.status", ftypes.UINT8)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.stop_px = ProtoField.new("Stop Px", "nyse.nyseequities.binarygateway.pillarstream.v5.8.stoppx", ftypes.DOUBLE)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.stream_id = ProtoField.new("Stream Id", "nyse.nyseequities.binarygateway.pillarstream.v5.8.streamid", ftypes.UINT64)
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.submsgheader", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.sub_msg_length = ProtoField.new("Sub Msg Length", "nyse.nyseequities.binarygateway.pillarstream.v5.8.submsglength", ftypes.UINT16)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.sub_msg_type = ProtoField.new("Sub Msg Type", "nyse.nyseequities.binarygateway.pillarstream.v5.8.submsgtype", ftypes.UINT16)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.symbol_id = ProtoField.new("Symbol Id", "nyse.nyseequities.binarygateway.pillarstream.v5.8.symbolid", ftypes.UINT32)
@@ -59,6 +56,11 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.user = ProtoField.n
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.user_data = ProtoField.new("User Data", "nyse.nyseequities.binarygateway.pillarstream.v5.8.userdata", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.username = ProtoField.new("Username", "nyse.nyseequities.binarygateway.pillarstream.v5.8.username", ftypes.STRING)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.version = ProtoField.new("Version", "nyse.nyseequities.binarygateway.pillarstream.v5.8.version", ftypes.STRING)
+
+-- Nyse NyseEquities BinaryGateway PillarStream 5.8 Framing
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_header = ProtoField.new("Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.msgheader", ftypes.STRING)
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.seqmsgheader", ftypes.STRING)
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.nyseequities.binarygateway.pillarstream.v5.8.submsgheader", ftypes.STRING)
 
 -- Nyse NyseEquities BinaryGateway 5.8 Session Messages
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.close = ProtoField.new("Close", "nyse.nyseequities.binarygateway.pillarstream.v5.8.close", ftypes.STRING)
@@ -82,13 +84,15 @@ local show = {}
 
 -- Nyse NyseEquities BinaryGateway PillarStream 5.8 Element Dissection Options
 show.session_messages = true
-show.structs = true
+show.headers = true
 show.application_messages = true
+show.structs = true
 
 -- Register Nyse NyseEquities BinaryGateway PillarStream 5.8 Show Options
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs_changed()
@@ -96,6 +100,9 @@ function omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_headers then
+    show.headers = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_headers
   end
   if show.session_messages ~= omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_session_messages then
     show.session_messages = omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.prefs.show_session_messages
@@ -777,7 +784,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_8.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_8.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_8.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.reserved_4, range, value, display)
@@ -1228,7 +1235,7 @@ end
 
 -- Dissect: Sub Msg Header
 nyse_nyseequities_binarygateway_pillarstream_v5_8.sub_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.sub_msg_header.fields(buffer, offset, packet, parent)
@@ -1441,7 +1448,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -1573,7 +1580,7 @@ end
 
 -- Dissect: Msg Header
 nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_8.fields.msg_header, buffer(offset, 0))
     local index = nyse_nyseequities_binarygateway_pillarstream_v5_8.msg_header.fields(buffer, offset, packet, parent)
@@ -1617,7 +1624,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg.fields = function(buff
   -- Seq Msg Id: Struct of 2 fields
   index, seq_msg_id = nyse_nyseequities_binarygateway_pillarstream_v5_8.seq_msg_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: 4 Byte Unsigned Fixed Width Integer
   index, reserved_4 = nyse_nyseequities_binarygateway_pillarstream_v5_8.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer

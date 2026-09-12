@@ -79,7 +79,7 @@ omi_cme_globex_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "
 omi_cme_globex_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.globex.settlements.sbe.v7.0.week", ftypes.UINT8)
 omi_cme_globex_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.globex.settlements.sbe.v7.0.year", ftypes.UINT16)
 
--- Cme Globex Settlements Sbe 7.0 Headers
+-- Cme Globex Settlements Sbe 7.0 Framing
 omi_cme_globex_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.globex.settlements.sbe.v7.0.message", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.settlements.sbe.v7.0.messageheader", ftypes.STRING)
@@ -2690,7 +2690,7 @@ cme_globex_settlements_sbe_v7_0.tcp_message.dissect = function(buffer, offset, p
   local index = offset + size_of_tcp_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message, buffer(offset, 0))
     local current = cme_globex_settlements_sbe_v7_0.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
     parent:set_len(size_of_tcp_message)
@@ -2738,7 +2738,7 @@ end
 
 -- Dissect: Technical Header
 cme_globex_settlements_sbe_v7_0.technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.technical_header, buffer(offset, 0))
     local index = cme_globex_settlements_sbe_v7_0.technical_header.fields(buffer, offset, packet, parent)
@@ -2819,7 +2819,7 @@ cme_globex_settlements_sbe_v7_0.message.dissect = function(buffer, offset, packe
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.message, buffer(offset, 0))
     local current = cme_globex_settlements_sbe_v7_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

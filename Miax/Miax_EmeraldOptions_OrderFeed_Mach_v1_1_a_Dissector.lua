@@ -99,7 +99,7 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.unsequenced_message_type = 
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.update_reason = ProtoField.new("Update Reason", "miax.emeraldoptions.orderfeed.mach.v1.1.a.updatereason", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.username = ProtoField.new("Username", "miax.emeraldoptions.orderfeed.mach.v1.1.a.username", ftypes.STRING)
 
--- Miax EmeraldOptions OrderFeed Mach 1.1.a Headers
+-- Miax EmeraldOptions OrderFeed Mach 1.1.a Framing
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.machmessage", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sesmpacketheader", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.sesmtcppacket", ftypes.STRING)
@@ -139,10 +139,12 @@ local show = {}
 -- Miax EmeraldOptions OrderFeed Mach 1.1.a Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Miax EmeraldOptions OrderFeed Mach 1.1.a Show Options
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -151,6 +153,9 @@ function omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_application_messages then
     show.application_messages = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_headers then
+    show.headers = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_headers
   end
   if show.structs ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_structs then
     show.structs = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_structs
@@ -3706,7 +3711,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_emeraldoptions_orderfeed_mach_v1_1_a.sesm_packet_header.fields(buffer, offset, packet, parent)

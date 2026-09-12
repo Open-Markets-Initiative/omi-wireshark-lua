@@ -35,7 +35,7 @@ omi_nse_nsecd_snapshot_binary_v6_9.fields.timestamp = ProtoField.new("Timestamp"
 omi_nse_nsecd_snapshot_binary_v6_9.fields.token = ProtoField.new("Token", "nse.nsecd.snapshot.binary.v6.9.token", ftypes.INT32)
 omi_nse_nsecd_snapshot_binary_v6_9.fields.trans_code = ProtoField.new("Trans Code", "nse.nsecd.snapshot.binary.v6.9.transcode", ftypes.INT16)
 
--- Nse NseCd Snapshot Binary 6.9 Headers
+-- Nse NseCd Snapshot Binary 6.9 Framing
 omi_nse_nsecd_snapshot_binary_v6_9.fields.client_message = ProtoField.new("Client Message", "nse.nsecd.snapshot.binary.v6.9.clientmessage", ftypes.STRING)
 omi_nse_nsecd_snapshot_binary_v6_9.fields.client_packet = ProtoField.new("Client Packet", "nse.nsecd.snapshot.binary.v6.9.clientpacket", ftypes.STRING)
 omi_nse_nsecd_snapshot_binary_v6_9.fields.message = ProtoField.new("Message", "nse.nsecd.snapshot.binary.v6.9.message", ftypes.STRING)
@@ -62,6 +62,7 @@ local show = {}
 
 -- Nse NseCd Snapshot Binary 6.9 Element Dissection Options
 show.structs = true
+show.headers = true
 show.application_messages = true
 show.indexes = true
 
@@ -75,6 +76,7 @@ omi_nse_nsecd_snapshot_binary_v6_9.prefs.acceptor_port = Pref.uint("Acceptor Por
 omi_nse_nsecd_snapshot_binary_v6_9.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_nse_nsecd_snapshot_binary_v6_9.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -84,6 +86,9 @@ function omi_nse_nsecd_snapshot_binary_v6_9.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_application_messages then
     show.application_messages = omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_headers then
+    show.headers = omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_headers
   end
   if show.structs ~= omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_structs then
     show.structs = omi_nse_nsecd_snapshot_binary_v6_9.prefs.show_structs
@@ -730,7 +735,7 @@ end
 
 -- Dissect: Stream Header
 nse_nsecd_snapshot_binary_v6_9.stream_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecd_snapshot_binary_v6_9.fields.stream_header, buffer(offset, 0))
     local index = nse_nsecd_snapshot_binary_v6_9.stream_header.fields(buffer, offset, packet, parent)
@@ -1081,7 +1086,7 @@ end
 
 -- Dissect: Message
 nse_nsecd_snapshot_binary_v6_9.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecd_snapshot_binary_v6_9.fields.message, buffer(offset, 0))
     local index = nse_nsecd_snapshot_binary_v6_9.message.fields(buffer, offset, packet, parent, message_index)
@@ -1137,7 +1142,7 @@ end
 
 -- Dissect: Snapshot Header
 nse_nsecd_snapshot_binary_v6_9.snapshot_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecd_snapshot_binary_v6_9.fields.snapshot_header, buffer(offset, 0))
     local index = nse_nsecd_snapshot_binary_v6_9.snapshot_header.fields(buffer, offset, packet, parent)

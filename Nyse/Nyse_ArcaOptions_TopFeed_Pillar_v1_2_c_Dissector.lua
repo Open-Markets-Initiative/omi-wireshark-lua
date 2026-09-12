@@ -51,8 +51,6 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.market_id = ProtoField.new("Ma
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.arcaoptions.topfeed.pillar.v1.2.c.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.market_state = ProtoField.new("Market State", "nyse.arcaoptions.topfeed.pillar.v1.2.c.marketstate", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.arcaoptions.topfeed.pillar.v1.2.c.maturitydate", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message = ProtoField.new("Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.message", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_size = ProtoField.new("Message Size", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messagesize", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_type = ProtoField.new("Message Type", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messagetype", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaoptions.topfeed.pillar.v1.2.c.nanoseconds", ftypes.UINT32)
@@ -89,6 +87,8 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.second_reserved_4 = ProtoField
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.topfeed.pillar.v1.2.c.seconds", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.topfeed.pillar.v1.2.c.securitystatus", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.security_type = ProtoField.new("Security Type", "nyse.arcaoptions.topfeed.pillar.v1.2.c.securitytype", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.c.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.c.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaoptions.topfeed.pillar.v1.2.c.seqnum", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.series = ProtoField.new("Series", "nyse.arcaoptions.topfeed.pillar.v1.2.c.series", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.series_index = ProtoField.new("Series Index", "nyse.arcaoptions.topfeed.pillar.v1.2.c.seriesindex", ftypes.UINT32)
@@ -124,11 +124,11 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.upper_collar = ProtoField.new(
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.volume = ProtoField.new("Volume", "nyse.arcaoptions.topfeed.pillar.v1.2.c.volume", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.working_price = ProtoField.new("Working Price", "nyse.arcaoptions.topfeed.pillar.v1.2.c.workingprice", ftypes.INT32)
 
--- Nyse ArcaOptions TopFeed Pillar 1.2.c Headers
+-- Nyse ArcaOptions TopFeed Pillar 1.2.c Framing
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message = ProtoField.new("Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.message", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packet", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packetheader", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.c.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.pillar.v1.2.c.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse ArcaOptions TopFeed 1.2.c Application Messages
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.heartbeatresponsemessage", ftypes.STRING)

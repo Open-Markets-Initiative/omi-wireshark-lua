@@ -366,7 +366,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_38.fields.version = ProtoField.new("Ve
 omi_euronext_optiq_dropcopygateway_sbe_v5_38.fields.wholesale_allowed = ProtoField.new("Wholesale Allowed", "euronext.optiq.dropcopygateway.sbe.v5.38.wholesaleallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_euronext_optiq_dropcopygateway_sbe_v5_38.fields.wholesale_trade_type = ProtoField.new("Wholesale Trade Type", "euronext.optiq.dropcopygateway.sbe.v5.38.wholesaletradetype", ftypes.UINT8)
 
--- Euronext Optiq DropCopyGateway Sbe 5.38 Headers
+-- Euronext Optiq DropCopyGateway Sbe 5.38 Framing
 omi_euronext_optiq_dropcopygateway_sbe_v5_38.fields.message = ProtoField.new("Message", "euronext.optiq.dropcopygateway.sbe.v5.38.message", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_38.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.dropcopygateway.sbe.v5.38.messageheader", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_38.fields.packet = ProtoField.new("Packet", "euronext.optiq.dropcopygateway.sbe.v5.38.packet", ftypes.STRING)
@@ -15832,7 +15832,7 @@ end
 
 -- Dissect: Message Header
 euronext_optiq_dropcopygateway_sbe_v5_38.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_38.fields.message_header, buffer(offset, 0))
     local index = euronext_optiq_dropcopygateway_sbe_v5_38.message_header.fields(buffer, offset, packet, parent)

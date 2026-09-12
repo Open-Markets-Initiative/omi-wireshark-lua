@@ -74,6 +74,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.old_price = Proto
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.open_interest = ProtoField.new("Open Interest", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.openinterest", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.order_count = ProtoField.new("Order Count", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.ordercount", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.order_id = ProtoField.new("Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.orderid", ftypes.INT64)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetflags", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.padding", ftypes.BYTES)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.price = ProtoField.new("Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.price", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.price_increment = ProtoField.new("Price Increment", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.priceincrement", ftypes.DOUBLE)
@@ -108,11 +110,9 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.version = ProtoFi
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.DOUBLE)
 
--- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Headers
+-- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Framing
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packet", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetflags", ftypes.STRING)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sbemessage", ftypes.STRING)
 
 -- Coinbase CoinbaseDerivatives MarketDataApi 1.2 Application Messages
@@ -146,10 +146,12 @@ local show = {}
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Show Options
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()
@@ -157,6 +159,9 @@ function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_application_messages
+  end
+  if show.headers ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_headers then
+    show.headers = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_headers
   end
   if show.structs ~= omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_structs then
     show.structs = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_structs
@@ -4280,7 +4285,7 @@ end
 
 -- Dissect: Message Header
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.message_header, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.message_header.fields(buffer, offset, packet, parent)

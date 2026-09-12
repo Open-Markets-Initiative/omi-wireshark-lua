@@ -165,7 +165,7 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.unit_number = ProtoFiel
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.unitsequence", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.working_price = ProtoField.new("Working Price", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.workingprice", ftypes.DOUBLE)
 
--- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Headers
+-- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Framing
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.exchangemessageheader", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.exchangepacket", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.firmmessageheader", ftypes.STRING)
@@ -187,6 +187,7 @@ local show = {}
 
 -- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Show Options
@@ -199,12 +200,16 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.acceptor_port = Pref.uin
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers then
+    show.headers = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers
+  end
   if show.structs ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs then
     show.structs = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs
   end
@@ -6612,7 +6617,7 @@ end
 
 -- Dissect: Exchange Message Header
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_message_header, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.exchange_message_header.fields(buffer, offset, packet, parent)
@@ -7956,7 +7961,7 @@ end
 
 -- Dissect: Firm Message Header
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_message_header, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.firm_message_header.fields(buffer, offset, packet, parent)

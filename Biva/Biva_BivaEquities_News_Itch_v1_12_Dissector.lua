@@ -24,9 +24,7 @@ omi_biva_bivaequities_news_itch_v1_12.fields.instrument = ProtoField.new("Instru
 omi_biva_bivaequities_news_itch_v1_12.fields.isin = ProtoField.new("Isin", "biva.bivaequities.news.itch.v1.12.isin", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.listing_exchange = ProtoField.new("Listing Exchange", "biva.bivaequities.news.itch.v1.12.listingexchange", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.listing_type = ProtoField.new("Listing Type", "biva.bivaequities.news.itch.v1.12.listingtype", ftypes.STRING)
-omi_biva_bivaequities_news_itch_v1_12.fields.message = ProtoField.new("Message", "biva.bivaequities.news.itch.v1.12.message", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.message_count = ProtoField.new("Message Count", "biva.bivaequities.news.itch.v1.12.messagecount", ftypes.UINT16)
-omi_biva_bivaequities_news_itch_v1_12.fields.message_header = ProtoField.new("Message Header", "biva.bivaequities.news.itch.v1.12.messageheader", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.message_length = ProtoField.new("Message Length", "biva.bivaequities.news.itch.v1.12.messagelength", ftypes.UINT16)
 omi_biva_bivaequities_news_itch_v1_12.fields.message_type = ProtoField.new("Message Type", "biva.bivaequities.news.itch.v1.12.messagetype", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "biva.bivaequities.news.itch.v1.12.minimumquantity", ftypes.UINT64)
@@ -56,7 +54,9 @@ omi_biva_bivaequities_news_itch_v1_12.fields.trading_action_reason = ProtoField.
 omi_biva_bivaequities_news_itch_v1_12.fields.trading_state = ProtoField.new("Trading State", "biva.bivaequities.news.itch.v1.12.tradingstate", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.turnover_ratio = ProtoField.new("Turnover Ratio", "biva.bivaequities.news.itch.v1.12.turnoverratio", ftypes.STRING)
 
--- Biva BivaEquities News Itch 1.12 Headers
+-- Biva BivaEquities News Itch 1.12 Framing
+omi_biva_bivaequities_news_itch_v1_12.fields.message = ProtoField.new("Message", "biva.bivaequities.news.itch.v1.12.message", ftypes.STRING)
+omi_biva_bivaequities_news_itch_v1_12.fields.message_header = ProtoField.new("Message Header", "biva.bivaequities.news.itch.v1.12.messageheader", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.packet = ProtoField.new("Packet", "biva.bivaequities.news.itch.v1.12.packet", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.packet_header = ProtoField.new("Packet Header", "biva.bivaequities.news.itch.v1.12.packetheader", ftypes.STRING)
 

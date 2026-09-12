@@ -24,6 +24,7 @@ omi_bse_bseindia_eobi_fbe_v1_4.fields.body_len = ProtoField.new("Body Len", "bse
 omi_bse_bseindia_eobi_fbe_v1_4.fields.close_price = ProtoField.new("Close Price", "bse.bseindia.eobi.fbe.v1.4.closeprice", ftypes.DOUBLE)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.completion_indicator = ProtoField.new("Completion Indicator", "bse.bseindia.eobi.fbe.v1.4.completionindicator", ftypes.UINT8)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.display_qty = ProtoField.new("Display Qty", "bse.bseindia.eobi.fbe.v1.4.displayqty", ftypes.INT64)
+omi_bse_bseindia_eobi_fbe_v1_4.fields.eobi_header = ProtoField.new("Eobi Header", "bse.bseindia.eobi.fbe.v1.4.eobiheader", ftypes.STRING)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "bse.bseindia.eobi.fbe.v1.4.execid", ftypes.UINT64)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "bse.bseindia.eobi.fbe.v1.4.fastmarketindicator", ftypes.UINT8)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "bse.bseindia.eobi.fbe.v1.4.impliedmarketindicator", ftypes.UINT8)
@@ -83,8 +84,7 @@ omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_time_priority = ProtoField.new(
 omi_bse_bseindia_eobi_fbe_v1_4.fields.upper_ckt_limit = ProtoField.new("Upper Ckt Limit", "bse.bseindia.eobi.fbe.v1.4.uppercktlimit", ftypes.DOUBLE)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.upper_exec_limit = ProtoField.new("Upper Exec Limit", "bse.bseindia.eobi.fbe.v1.4.upperexeclimit", ftypes.DOUBLE)
 
--- Bse BseIndia Eobi Fbe 1.4 Headers
-omi_bse_bseindia_eobi_fbe_v1_4.fields.eobi_header = ProtoField.new("Eobi Header", "bse.bseindia.eobi.fbe.v1.4.eobiheader", ftypes.STRING)
+-- Bse BseIndia Eobi Fbe 1.4 Framing
 omi_bse_bseindia_eobi_fbe_v1_4.fields.message = ProtoField.new("Message", "bse.bseindia.eobi.fbe.v1.4.message", ftypes.STRING)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.message_header = ProtoField.new("Message Header", "bse.bseindia.eobi.fbe.v1.4.messageheader", ftypes.STRING)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.packet = ProtoField.new("Packet", "bse.bseindia.eobi.fbe.v1.4.packet", ftypes.STRING)
@@ -128,12 +128,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Bse BseIndia Eobi Fbe 1.4 Show Options
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -142,6 +144,9 @@ function omi_bse_bseindia_eobi_fbe_v1_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_application_messages then
     show.application_messages = omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_headers then
+    show.headers = omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_headers
   end
   if show.repeating_groups ~= omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_repeating_groups then
     show.repeating_groups = omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_repeating_groups
@@ -3709,7 +3714,7 @@ end
 
 -- Dissect: Message Header
 bse_bseindia_eobi_fbe_v1_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.message_header, buffer(offset, 0))
     local index = bse_bseindia_eobi_fbe_v1_4.message_header.fields(buffer, offset, packet, parent)
@@ -3870,7 +3875,7 @@ end
 
 -- Dissect: Packet Header
 bse_bseindia_eobi_fbe_v1_4.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.packet_header, buffer(offset, 0))
     local index = bse_bseindia_eobi_fbe_v1_4.packet_header.fields(buffer, offset, packet, parent)

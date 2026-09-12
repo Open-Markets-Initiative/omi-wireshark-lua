@@ -20,9 +20,7 @@ omi_odx_odxequities_pts_itch_v2_2.fields.executed_quantity = ProtoField.new("Exe
 omi_odx_odxequities_pts_itch_v2_2.fields.group = ProtoField.new("Group", "odx.odxequities.pts.itch.v2.2.group", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "odx.odxequities.pts.itch.v2.2.lowerpricelimit", ftypes.DOUBLE)
 omi_odx_odxequities_pts_itch_v2_2.fields.match_number = ProtoField.new("Match Number", "odx.odxequities.pts.itch.v2.2.matchnumber", ftypes.UINT64)
-omi_odx_odxequities_pts_itch_v2_2.fields.message = ProtoField.new("Message", "odx.odxequities.pts.itch.v2.2.message", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.message_count = ProtoField.new("Message Count", "odx.odxequities.pts.itch.v2.2.messagecount", ftypes.UINT16)
-omi_odx_odxequities_pts_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "odx.odxequities.pts.itch.v2.2.messageheader", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.message_length = ProtoField.new("Message Length", "odx.odxequities.pts.itch.v2.2.messagelength", ftypes.UINT16)
 omi_odx_odxequities_pts_itch_v2_2.fields.message_type = ProtoField.new("Message Type", "odx.odxequities.pts.itch.v2.2.messagetype", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.nanoseconds = ProtoField.new("Nanoseconds", "odx.odxequities.pts.itch.v2.2.nanoseconds", ftypes.UINT32)
@@ -46,7 +44,9 @@ omi_odx_odxequities_pts_itch_v2_2.fields.system_event = ProtoField.new("System E
 omi_odx_odxequities_pts_itch_v2_2.fields.trading_state = ProtoField.new("Trading State", "odx.odxequities.pts.itch.v2.2.tradingstate", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxequities.pts.itch.v2.2.upperpricelimit", ftypes.DOUBLE)
 
--- Odx OdxEquities Pts Itch 2.2 Headers
+-- Odx OdxEquities Pts Itch 2.2 Framing
+omi_odx_odxequities_pts_itch_v2_2.fields.message = ProtoField.new("Message", "odx.odxequities.pts.itch.v2.2.message", ftypes.STRING)
+omi_odx_odxequities_pts_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "odx.odxequities.pts.itch.v2.2.messageheader", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.packet = ProtoField.new("Packet", "odx.odxequities.pts.itch.v2.2.packet", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.itch.v2.2.packetheader", ftypes.STRING)
 

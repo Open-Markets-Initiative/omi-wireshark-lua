@@ -44,8 +44,6 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.feed_symbol = ProtoField.n
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.gthtradingstatus", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.indicativeprice", ftypes.DOUBLE)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.length = ProtoField.new("Length", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.length", ftypes.UINT16)
-omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message = ProtoField.new("Message", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.message", ftypes.STRING)
-omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_header = ProtoField.new("Message Header", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.messageheader", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_length = ProtoField.new("Message Length", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.messagelength", ftypes.UINT8)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_type = ProtoField.new("Message Type", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.messagetype", ftypes.UINT8)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.openingcondition", ftypes.STRING)
@@ -75,7 +73,9 @@ omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.trading_status = ProtoFiel
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.underlying = ProtoField.new("Underlying", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.underlying", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.unit = ProtoField.new("Unit", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.unit", ftypes.UINT8)
 
--- Cboe BzxOptions MulticastTop Pitch 1.2.54 Headers
+-- Cboe BzxOptions MulticastTop Pitch 1.2.54 Framing
+omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message = ProtoField.new("Message", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.message", ftypes.STRING)
+omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_header = ProtoField.new("Message Header", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.messageheader", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.packet = ProtoField.new("Packet", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.packet", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.packet_header = ProtoField.new("Packet Header", "cboe.bzxoptions.multicasttop.pitch.v1.2.54.packetheader", ftypes.STRING)
 
@@ -127,11 +127,13 @@ local show = {}
 -- Cboe BzxOptions MulticastTop Pitch 1.2.54 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe BzxOptions MulticastTop Pitch 1.2.54 Show Options
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -144,6 +146,9 @@ function omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_application_messages then
     show.application_messages = omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_headers then
+    show.headers = omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_headers
   end
   if show.structs ~= omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_structs then
     show.structs = omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.prefs.show_structs
@@ -2583,7 +2588,7 @@ end
 
 -- Dissect: Message Header
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.message_header, buffer(offset, 0))
     local index = cboe_bzxoptions_multicasttop_pitch_v1_2_54.message_header.fields(buffer, offset, packet, parent)
@@ -2736,7 +2741,7 @@ end
 
 -- Dissect: Packet Header
 cboe_bzxoptions_multicasttop_pitch_v1_2_54.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_bzxoptions_multicasttop_pitch_v1_2_54.fields.packet_header, buffer(offset, 0))
     local index = cboe_bzxoptions_multicasttop_pitch_v1_2_54.packet_header.fields(buffer, offset, packet, parent)

@@ -58,9 +58,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.isin = ProtoField.new("Isin
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.market_segment_id = ProtoField.new("Market Segment Id", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.marketsegmentid", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.market_side = ProtoField.new("Market Side", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.marketside", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.match_number = ProtoField.new("Match Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.matchnumber", ftypes.UINT32)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message = ProtoField.new("Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.message", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messagecount", ftypes.UINT16)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messageheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messagelength", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messagetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mic = ProtoField.new("Mic", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.mic", ftypes.STRING)
@@ -105,10 +103,12 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_long = ProtoField.ne
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_notation = ProtoField.new("Volume Notation", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumenotation", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.volume_short = ProtoField.new("Volume Short", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.volumeshort", ftypes.UINT16)
 
--- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Headers
+-- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Framing
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clientsoupbintcppacket", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacket", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.clienttcppacketheader", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message = ProtoField.new("Message", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.message", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.messageheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.serversoupbintcppacket", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.servertcppacket", ftypes.STRING)
@@ -176,8 +176,8 @@ local show = {}
 -- Nasdaq NtxOptions DepthOfMarket Itch 2.2 Element Dissection Options
 show.application_messages = true
 show.structs = true
-show.session_messages = true
 show.headers = true
+show.session_messages = true
 show.indexes = true
 show.sequences = true
 
@@ -192,8 +192,8 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.assume_role = Pref.enum("Ass
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -4670,7 +4670,7 @@ end
 
 -- Dissect: Server Tcp Packet Header
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet_header.fields(buffer, offset, packet, parent)
@@ -4989,7 +4989,7 @@ end
 
 -- Dissect: Client Tcp Packet Header
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.client_tcp_packet_header, buffer(offset, 0))
     local index = nasdaq_ntxoptions_depthofmarket_itch_v2_2.client_tcp_packet_header.fields(buffer, offset, packet, parent)

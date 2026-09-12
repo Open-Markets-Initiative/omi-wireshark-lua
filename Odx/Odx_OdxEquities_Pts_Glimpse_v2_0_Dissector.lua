@@ -51,7 +51,7 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message_type = ProtoFiel
 omi_odx_odxequities_pts_glimpse_v2_0.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "odx.odxequities.pts.glimpse.v2.0.upperpricelimit", ftypes.DOUBLE)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.username = ProtoField.new("Username", "odx.odxequities.pts.glimpse.v2.0.username", ftypes.STRING)
 
--- Odx OdxEquities Pts Glimpse 2.0 Headers
+-- Odx OdxEquities Pts Glimpse 2.0 Framing
 omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet = ProtoField.new("Packet", "odx.odxequities.pts.glimpse.v2.0.clientpacket", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.glimpse.v2.0.clientpacketheader", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.clientsoupbintcppacket", ftypes.STRING)
@@ -111,6 +111,7 @@ local show = {}
 
 -- Odx OdxEquities Pts Glimpse 2.0 Element Dissection Options
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.application_messages = true
 show.sequences = true
@@ -125,6 +126,7 @@ omi_odx_odxequities_pts_glimpse_v2_0.prefs.acceptor_port = Pref.uint("Acceptor P
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
@@ -139,6 +141,9 @@ function omi_odx_odxequities_pts_glimpse_v2_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_application_messages then
     show.application_messages = omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_headers then
+    show.headers = omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_headers
   end
   if show.session_messages ~= omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_session_messages then
     show.session_messages = omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_session_messages
@@ -2100,7 +2105,7 @@ end
 
 -- Dissect: Server Packet Header
 odx_odxequities_pts_glimpse_v2_0.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_header, buffer(offset, 0))
     local index = odx_odxequities_pts_glimpse_v2_0.server_packet_header.fields(buffer, offset, packet, parent)
@@ -2431,7 +2436,7 @@ end
 
 -- Dissect: Client Packet Header
 odx_odxequities_pts_glimpse_v2_0.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_header, buffer(offset, 0))
     local index = odx_odxequities_pts_glimpse_v2_0.client_packet_header.fields(buffer, offset, packet, parent)

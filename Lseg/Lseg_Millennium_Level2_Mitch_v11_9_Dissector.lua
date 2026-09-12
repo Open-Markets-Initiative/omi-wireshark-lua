@@ -87,7 +87,7 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5 = ProtoField.new("Unused 
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_8 = ProtoField.new("Unused 8", "lseg.millennium.level2.mitch.v11.9.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 
--- Lseg Millennium Level2 Mitch 11.9 Headers
+-- Lseg Millennium Level2 Mitch 11.9 Framing
 omi_lseg_millennium_level2_mitch_v11_9.fields.message = ProtoField.new("Message", "lseg.millennium.level2.mitch.v11.9.message", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.message_header = ProtoField.new("Message Header", "lseg.millennium.level2.mitch.v11.9.messageheader", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.packet = ProtoField.new("Packet", "lseg.millennium.level2.mitch.v11.9.packet", ftypes.STRING)

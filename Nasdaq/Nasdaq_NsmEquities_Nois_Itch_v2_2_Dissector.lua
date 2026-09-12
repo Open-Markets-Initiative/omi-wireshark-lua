@@ -23,9 +23,7 @@ omi_nasdaq_nsmequities_nois_itch_v2_2.fields.imbalance_shares = ProtoField.new("
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.nsmequities.nois.itch.v2.2.issueclassification", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.nsmequities.nois.itch.v2.2.issuesubtype", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.nois.itch.v2.2.marketcategory", ftypes.STRING)
-omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nois.itch.v2.2.message", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.nois.itch.v2.2.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nois.itch.v2.2.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.nois.itch.v2.2.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.nois.itch.v2.2.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.nois.itch.v2.2.nearprice", ftypes.BYTES)
@@ -39,7 +37,9 @@ omi_nasdaq_nsmequities_nois_itch_v2_2.fields.symbol = ProtoField.new("Symbol", "
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.nois.itch.v2.2.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.nois.itch.v2.2.tradingstate", ftypes.STRING)
 
--- Nasdaq NsmEquities Nois Itch 2.2 Headers
+-- Nasdaq NsmEquities Nois Itch 2.2 Framing
+omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nois.itch.v2.2.message", ftypes.STRING)
+omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nois.itch.v2.2.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.packetheader", ftypes.STRING)
 

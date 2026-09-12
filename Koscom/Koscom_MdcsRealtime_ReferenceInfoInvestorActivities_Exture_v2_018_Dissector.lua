@@ -104,7 +104,7 @@ omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zer
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_reinvestment_index_krx = ProtoField.new("Zero Re-Investment Index Krx", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.zeroreinvestmentindexkrx", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.zero_reinvestment_index_ktb = ProtoField.new("Zero Re-Investment Index Ktb", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.zeroreinvestmentindexktb", ftypes.DOUBLE)
 
--- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.018 Headers
+-- Koscom MdcsRealtime ReferenceInfoInvestorActivities Exture 2.018 Framing
 omi_koscom_mdcsrealtime_referenceinfoinvestoractivities_exture_v2_018.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.referenceinfoinvestoractivities.exture.v2.018.packet", ftypes.STRING)
 
 -- Koscom MdcsRealtime ReferenceInfoInvestorActivities 2.018 Application Messages

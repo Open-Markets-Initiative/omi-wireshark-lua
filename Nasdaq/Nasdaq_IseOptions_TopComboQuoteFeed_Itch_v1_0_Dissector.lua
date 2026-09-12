@@ -47,9 +47,7 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_information = Proto
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.legratio", ftypes.UINT32)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.low = ProtoField.new("Low", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.low", ftypes.UINT64)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.market_size = ProtoField.new("Market Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.marketsize", ftypes.UINT32)
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.message", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messagecount", ftypes.UINT16)
-omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messagelength", ftypes.UINT16)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.ntt_market_size = ProtoField.new("Ntt Market Size", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.nttmarketsize", ftypes.UINT32)
@@ -76,7 +74,9 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.underlying_symbol = Pro
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.version = ProtoField.new("Version", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.version", ftypes.UINT8)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.volume = ProtoField.new("Volume", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.volume", ftypes.UINT32)
 
--- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Headers
+-- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Framing
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message = ProtoField.new("Message", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.message", ftypes.STRING)
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messageheader", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packet", ftypes.STRING)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.packetheader", ftypes.STRING)
 

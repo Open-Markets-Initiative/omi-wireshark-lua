@@ -50,9 +50,7 @@ omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.market_code = ProtoField.new("
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.market_maker_mode = ProtoField.new("Market Maker Mode", "nasdaq.ntxequities.totalview.itch.v5.0.marketmakermode", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.ntxequities.totalview.itch.v5.0.marketparticipantstate", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.ntxequities.totalview.itch.v5.0.matchnumber", ftypes.UINT64)
-omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message = ProtoField.new("Message", "nasdaq.ntxequities.totalview.itch.v5.0.message", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.ntxequities.totalview.itch.v5.0.messagecount", ftypes.UINT16)
-omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxequities.totalview.itch.v5.0.messageheader", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxequities.totalview.itch.v5.0.messagelength", ftypes.UINT16)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxequities.totalview.itch.v5.0.messagetype", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.mpid = ProtoField.new("Mpid", "nasdaq.ntxequities.totalview.itch.v5.0.mpid", ftypes.STRING)
@@ -83,7 +81,9 @@ omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.trading_action_reason = ProtoF
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.ntxequities.totalview.itch.v5.0.tradingstate", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.ntxequities.totalview.itch.v5.0.upperauctioncollarprice", ftypes.DOUBLE)
 
--- Nasdaq NtxEquities TotalView Itch 5.0 Headers
+-- Nasdaq NtxEquities TotalView Itch 5.0 Framing
+omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message = ProtoField.new("Message", "nasdaq.ntxequities.totalview.itch.v5.0.message", ftypes.STRING)
+omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxequities.totalview.itch.v5.0.messageheader", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "nasdaq.ntxequities.totalview.itch.v5.0.packet", ftypes.STRING)
 omi_nasdaq_ntxequities_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.totalview.itch.v5.0.packetheader", ftypes.STRING)
 

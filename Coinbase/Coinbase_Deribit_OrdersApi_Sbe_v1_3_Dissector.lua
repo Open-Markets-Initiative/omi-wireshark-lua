@@ -146,6 +146,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.self_match_prevention_id = ProtoF
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.self_trading_mode = ProtoField.new("Self Trading Mode", "coinbase.deribit.ordersapi.sbe.v1.3.selftradingmode", ftypes.INT8)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.send_time_ns = ProtoField.new("Send Time Ns", "coinbase.deribit.ordersapi.sbe.v1.3.sendtimens", ftypes.INT64)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.3.sequencenumber", ftypes.INT64)
+omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.session_flags = ProtoField.new("Session Flags", "coinbase.deribit.ordersapi.sbe.v1.3.sessionflags", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.show_qty = ProtoField.new("Show Qty", "coinbase.deribit.ordersapi.sbe.v1.3.showqty", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.side = ProtoField.new("Side", "coinbase.deribit.ordersapi.sbe.v1.3.side", ftypes.INT8)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.status = ProtoField.new("Status", "coinbase.deribit.ordersapi.sbe.v1.3.status", ftypes.INT8)
@@ -160,11 +161,10 @@ omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.unused_replace_order_flags_0 = Pr
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.vega_level = ProtoField.new("Vega Level", "coinbase.deribit.ordersapi.sbe.v1.3.vegalevel", ftypes.DOUBLE)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.visible_qty = ProtoField.new("Visible Qty", "coinbase.deribit.ordersapi.sbe.v1.3.visibleqty", ftypes.STRING)
 
--- Coinbase Deribit OrdersApi Sbe 1.3 Headers
+-- Coinbase Deribit OrdersApi Sbe 1.3 Framing
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.message_header = ProtoField.new("Message Header", "coinbase.deribit.ordersapi.sbe.v1.3.messageheader", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.packet = ProtoField.new("Packet", "coinbase.deribit.ordersapi.sbe.v1.3.packet", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.deribit.ordersapi.sbe.v1.3.sbemessage", ftypes.STRING)
-omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.session_flags = ProtoField.new("Session Flags", "coinbase.deribit.ordersapi.sbe.v1.3.sessionflags", ftypes.STRING)
 
 -- Coinbase Deribit OrdersApi 1.3 Application Messages
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_reject_message = ProtoField.new("Amend Order Reject Message", "coinbase.deribit.ordersapi.sbe.v1.3.amendorderrejectmessage", ftypes.STRING)

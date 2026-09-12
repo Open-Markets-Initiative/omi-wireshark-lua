@@ -43,8 +43,6 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.quantity = ProtoField.new("Qu
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.quantity_reduced = ProtoField.new("Quantity Reduced", "memx.memxoptions.memoirdepth.sbe.v1.6.a.quantityreduced", ftypes.UINT32)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.quantity_short = ProtoField.new("Quantity Short", "memx.memxoptions.memoirdepth.sbe.v1.6.a.quantityshort", ftypes.UINT16)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.memxoptions.memoirdepth.sbe.v1.6.a.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
-omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sbeheader", ftypes.STRING)
-omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sbemessage", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memoirdepth.sbe.v1.6.a.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sequence_number = ProtoField.new("Sequence Number", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sequencedmessage", ftypes.STRING)
@@ -61,9 +59,11 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.trading_session = ProtoField.
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.underlier = ProtoField.new("Underlier", "memx.memxoptions.memoirdepth.sbe.v1.6.a.underlier", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.version = ProtoField.new("Version", "memx.memxoptions.memoirdepth.sbe.v1.6.a.version", ftypes.UINT16)
 
--- Memx MemxOptions MemoirDepth Sbe 1.6.a Headers
+-- Memx MemxOptions MemoirDepth Sbe 1.6.a Framing
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirdepth.sbe.v1.6.a.commonheader", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirdepth.sbe.v1.6.a.packet", ftypes.STRING)
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sbeheader", ftypes.STRING)
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sbemessage", ftypes.STRING)
 
 -- Memx MemxOptions MemoirDepth 1.6.a Application Messages
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.brokentrademessage", ftypes.STRING)
@@ -91,11 +91,13 @@ local show = {}
 
 -- Memx MemxOptions MemoirDepth Sbe 1.6.a Element Dissection Options
 show.application_messages = true
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Memx MemxOptions MemoirDepth Sbe 1.6.a Show Options
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -105,6 +107,9 @@ function omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_application_messages then
     show.application_messages = omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_application_messages
+  end
+  if show.headers ~= omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_headers then
+    show.headers = omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_headers
   end
   if show.structs ~= omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_structs then
     show.structs = omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.prefs.show_structs
@@ -2186,7 +2191,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxoptions_memoirdepth_sbe_v1_6_a.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxoptions_memoirdepth_sbe_v1_6_a.sbe_header.fields(buffer, offset, packet, parent)
@@ -2458,7 +2463,7 @@ end
 
 -- Dissect: Common Header
 memx_memxoptions_memoirdepth_sbe_v1_6_a.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.common_header, buffer(offset, 0))
     local index = memx_memxoptions_memoirdepth_sbe_v1_6_a.common_header.fields(buffer, offset, packet, parent)

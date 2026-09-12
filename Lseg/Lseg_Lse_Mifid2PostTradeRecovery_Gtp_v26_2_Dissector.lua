@@ -156,7 +156,7 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.volume_onbook_only = Proto
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap = ProtoField.new("Vwap", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.vwap", ftypes.DOUBLE)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 Headers
+-- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 Framing
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.message", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.messageheader", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.packet", ftypes.STRING)

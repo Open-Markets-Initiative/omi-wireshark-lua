@@ -49,9 +49,7 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.market_maker_mode = ProtoFiel
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.nsmequities.aggregated.itch.v2.0.marketparticipantstate", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.market_side = ProtoField.new("Market Side", "nasdaq.nsmequities.aggregated.itch.v2.0.marketside", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.maximum_allowable_price = ProtoField.new("Maximum Allowable Price", "nasdaq.nsmequities.aggregated.itch.v2.0.maximumallowableprice", ftypes.DOUBLE)
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.aggregated.itch.v2.0.message", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.aggregated.itch.v2.0.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.aggregated.itch.v2.0.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.aggregated.itch.v2.0.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.aggregated.itch.v2.0.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.minimum_allowable_price = ProtoField.new("Minimum Allowable Price", "nasdaq.nsmequities.aggregated.itch.v2.0.minimumallowableprice", ftypes.DOUBLE)
@@ -80,7 +78,9 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.trading_state = ProtoField.ne
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.upper_auction_collar_price = ProtoField.new("Upper Auction Collar Price", "nasdaq.nsmequities.aggregated.itch.v2.0.upperauctioncollarprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.upper_price_range_collar = ProtoField.new("Upper Price Range Collar", "nasdaq.nsmequities.aggregated.itch.v2.0.upperpricerangecollar", ftypes.DOUBLE)
 
--- Nasdaq NsmEquities Aggregated Itch 2.0 Headers
+-- Nasdaq NsmEquities Aggregated Itch 2.0 Framing
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.aggregated.itch.v2.0.message", ftypes.STRING)
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.aggregated.itch.v2.0.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.aggregated.itch.v2.0.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.aggregated.itch.v2.0.packetheader", ftypes.STRING)
 

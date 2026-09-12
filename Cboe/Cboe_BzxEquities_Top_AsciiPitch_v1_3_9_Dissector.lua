@@ -53,7 +53,7 @@ omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.timestamp = ProtoField.new("Ti
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.top_lf = ProtoField.new("Top Lf", "cboe.bzxequities.top.asciipitch.v1.3.9.toplf", ftypes.INT8)
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.username = ProtoField.new("Username", "cboe.bzxequities.top.asciipitch.v1.3.9.username", ftypes.STRING)
 
--- Cboe BzxEquities Top AsciiPitch 1.3.9 Headers
+-- Cboe BzxEquities Top AsciiPitch 1.3.9 Framing
 omi_cboe_bzxequities_top_asciipitch_v1_3_9.fields.packet = ProtoField.new("Packet", "cboe.bzxequities.top.asciipitch.v1.3.9.packet", ftypes.STRING)
 
 -- Cboe BzxEquities Top 1.3.9 Application Messages

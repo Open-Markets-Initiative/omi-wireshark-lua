@@ -109,6 +109,8 @@ omi_siac_cqs_output_cta_v2_10_a.fields.security_status_indicator = ProtoField.ne
 omi_siac_cqs_output_cta_v2_10_a.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.output.cta.v2.10.a.securitysymbol", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.output.cta.v2.10.a.settlementcondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.output.cta.v2.10.a.shortsalerestrictionindicator", ftypes.STRING)
+omi_siac_cqs_output_cta_v2_10_a.fields.sip_block_timestamp = ProtoField.new("SIP Block Timestamp", "siac.cqs.output.cta.v2.10.a.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cqs_output_cta_v2_10_a.fields.sip_block_timestamp_utc = ProtoField.new("SIP Block Timestamp", "siac.cqs.output.cta.v2.10.a.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cqs_output_cta_v2_10_a.fields.sip_generated_message_identifier = ProtoField.new("Sip Generated Message Identifier", "siac.cqs.output.cta.v2.10.a.sipgeneratedmessageidentifier", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.test = ProtoField.new("Test", "siac.cqs.output.cta.v2.10.a.test", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.third_reserved = ProtoField.new("Third Reserved", "siac.cqs.output.cta.v2.10.a.thirdreserved", ftypes.STRING)
@@ -119,12 +121,10 @@ omi_siac_cqs_output_cta_v2_10_a.fields.timestamp_2_utc = ProtoField.new("Timesta
 omi_siac_cqs_output_cta_v2_10_a.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v2.10.a.transactionid", ftypes.UINT32)
 omi_siac_cqs_output_cta_v2_10_a.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v2.10.a.version", ftypes.UINT8)
 
--- Siac Cqs Output Cta 2.10.a Headers
+-- Siac Cqs Output Cta 2.10.a Framing
 omi_siac_cqs_output_cta_v2_10_a.fields.block_header = ProtoField.new("Block Header", "siac.cqs.output.cta.v2.10.a.blockheader", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.message = ProtoField.new("Message", "siac.cqs.output.cta.v2.10.a.message", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.packet = ProtoField.new("Packet", "siac.cqs.output.cta.v2.10.a.packet", ftypes.STRING)
-omi_siac_cqs_output_cta_v2_10_a.fields.sip_block_timestamp = ProtoField.new("SIP Block Timestamp", "siac.cqs.output.cta.v2.10.a.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_siac_cqs_output_cta_v2_10_a.fields.sip_block_timestamp_utc = ProtoField.new("SIP Block Timestamp", "siac.cqs.output.cta.v2.10.a.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Siac Cqs Output 2.10.a Application Messages
 omi_siac_cqs_output_cta_v2_10_a.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.output.cta.v2.10.a.auctionstatusmessage", ftypes.STRING)

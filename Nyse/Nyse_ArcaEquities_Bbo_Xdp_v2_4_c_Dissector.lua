@@ -89,7 +89,7 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session = ProtoField.new("Tr
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.arcaequities.bbo.xdp.v2.4.c.tradingsessionchangemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.arcaequities.bbo.xdp.v2.4.c.unitoftrade", ftypes.UINT16)
 
--- Nyse ArcaEquities Bbo Xdp 2.4.c Headers
+-- Nyse ArcaEquities Bbo Xdp 2.4.c Framing
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message = ProtoField.new("Message", "nyse.arcaequities.bbo.xdp.v2.4.c.message", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.bbo.xdp.v2.4.c.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.bbo.xdp.v2.4.c.packet", ftypes.STRING)
@@ -106,16 +106,21 @@ local show = {}
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nyse ArcaEquities Bbo Xdp 2.4.c Show Options
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers then
+    show.headers = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers
+  end
   if show.structs ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs then
     show.structs = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs
   end
@@ -2828,7 +2833,7 @@ end
 
 -- Dissect: Message Header
 nyse_arcaequities_bbo_xdp_v2_4_c.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_header, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.message_header.fields(buffer, offset, packet, parent)
@@ -2939,7 +2944,7 @@ end
 
 -- Dissect: Packet Header
 nyse_arcaequities_bbo_xdp_v2_4_c.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet_header, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.packet_header.fields(buffer, offset, packet, parent)

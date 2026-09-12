@@ -47,7 +47,7 @@ omi_memx_memxequities_commonheader_tcp_v1_2.fields.token_type = ProtoField.new("
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.memxequities.commonheader.tcp.v1.2.totalsequencecount", ftypes.UINT64)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING)
 
--- Memx MemxEquities CommonHeader Tcp 1.2 Headers
+-- Memx MemxEquities CommonHeader Tcp 1.2 Framing
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.client_packet = ProtoField.new("Client Packet", "memx.memxequities.commonheader.tcp.v1.2.clientpacket", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.commonheader.tcp.v1.2.commonheader", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.server_packet = ProtoField.new("Server Packet", "memx.memxequities.commonheader.tcp.v1.2.serverpacket", ftypes.STRING)
@@ -60,6 +60,7 @@ local show = {}
 
 -- Memx MemxEquities CommonHeader Tcp 1.2 Element Dissection Options
 show.structs = true
+show.headers = true
 
 -- Register Memx MemxEquities CommonHeader Tcp 1.2 Show Options
 local role_enum = {
@@ -71,11 +72,15 @@ omi_memx_memxequities_commonheader_tcp_v1_2.prefs.acceptor_port = Pref.uint("Acc
 omi_memx_memxequities_commonheader_tcp_v1_2.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_memx_memxequities_commonheader_tcp_v1_2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_memxequities_commonheader_tcp_v1_2.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_headers then
+    show.headers = omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_headers
+  end
   if show.structs ~= omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_structs then
     show.structs = omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_structs
   end
@@ -1047,7 +1052,7 @@ end
 
 -- Dissect: Common Header
 memx_memxequities_commonheader_tcp_v1_2.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.common_header, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.common_header.fields(buffer, offset, packet, parent)

@@ -36,9 +36,7 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.intermarket_sweep = ProtoField.new("
 omi_iex_iexequities_tops_iextp_v1_56.fields.lower_auction_collar = ProtoField.new("Lower Auction Collar", "iex.iexequities.tops.iextp.v1.56.lowerauctioncollar", ftypes.DOUBLE)
 omi_iex_iexequities_tops_iextp_v1_56.fields.luld_tier = ProtoField.new("Luld Tier", "iex.iexequities.tops.iextp.v1.56.luldtier", ftypes.UINT8)
 omi_iex_iexequities_tops_iextp_v1_56.fields.market_session = ProtoField.new("Market Session", "iex.iexequities.tops.iextp.v1.56.marketsession", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_iex_iexequities_tops_iextp_v1_56.fields.message = ProtoField.new("Message", "iex.iexequities.tops.iextp.v1.56.message", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.message_count = ProtoField.new("Message Count", "iex.iexequities.tops.iextp.v1.56.messagecount", ftypes.UINT16)
-omi_iex_iexequities_tops_iextp_v1_56.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.tops.iextp.v1.56.messageheader", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.message_length = ProtoField.new("Message Length", "iex.iexequities.tops.iextp.v1.56.messagelength", ftypes.UINT16)
 omi_iex_iexequities_tops_iextp_v1_56.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.iexequities.tops.iextp.v1.56.messageprotocolid", ftypes.UINT16)
 omi_iex_iexequities_tops_iextp_v1_56.fields.message_type = ProtoField.new("Message Type", "iex.iexequities.tops.iextp.v1.56.messagetype", ftypes.STRING)
@@ -78,8 +76,10 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.upper_auction_collar = ProtoField.ne
 omi_iex_iexequities_tops_iextp_v1_56.fields.version = ProtoField.new("Version", "iex.iexequities.tops.iextp.v1.56.version", ftypes.UINT8)
 omi_iex_iexequities_tops_iextp_v1_56.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.tops.iextp.v1.56.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities Tops IexTp 1.56 Headers
+-- Iex IexEquities Tops IexTp 1.56 Framing
 omi_iex_iexequities_tops_iextp_v1_56.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.tops.iextp.v1.56.iextpheader", ftypes.STRING)
+omi_iex_iexequities_tops_iextp_v1_56.fields.message = ProtoField.new("Message", "iex.iexequities.tops.iextp.v1.56.message", ftypes.STRING)
+omi_iex_iexequities_tops_iextp_v1_56.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.tops.iextp.v1.56.messageheader", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.packet = ProtoField.new("Packet", "iex.iexequities.tops.iextp.v1.56.packet", ftypes.STRING)
 
 -- Iex IexEquities Tops 1.56 Application Messages

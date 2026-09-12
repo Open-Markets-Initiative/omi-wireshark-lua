@@ -58,7 +58,7 @@ omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.trading_status = ProtoField.n
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.update_size = ProtoField.new("Update Size", "nyse.amexequities.openbook.ultra.v2.1.k.updatesize", ftypes.INT16)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.volume = ProtoField.new("Volume", "nyse.amexequities.openbook.ultra.v2.1.k.volume", ftypes.INT32)
 
--- Nyse AmexEquities OpenBook Ultra 2.1.k Headers
+-- Nyse AmexEquities OpenBook Ultra 2.1.k Framing
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet = ProtoField.new("Packet", "nyse.amexequities.openbook.ultra.v2.1.k.packet", ftypes.STRING)
 omi_nyse_amexequities_openbook_ultra_v2_1_k.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.openbook.ultra.v2.1.k.packetheader", ftypes.STRING)
 

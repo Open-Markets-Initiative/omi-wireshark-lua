@@ -23,7 +23,7 @@ omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet_type = ProtoField.new("P
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.headeronly.mach.v1.0.sequencenumber", ftypes.UINT64)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.session_number = ProtoField.new("Session Number", "miax.onyxfutures.headeronly.mach.v1.0.sessionnumber", ftypes.UINT8)
 
--- Miax OnyxFutures HeaderOnly Mach 1.0 Headers
+-- Miax OnyxFutures HeaderOnly Mach 1.0 Framing
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.headeronly.mach.v1.0.machmessage", ftypes.STRING)
 omi_miax_onyxfutures_headeronly_mach_v1_0.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.headeronly.mach.v1.0.packet", ftypes.STRING)
 

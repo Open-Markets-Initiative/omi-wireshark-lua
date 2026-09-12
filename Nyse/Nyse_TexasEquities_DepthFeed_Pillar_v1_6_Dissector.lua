@@ -32,8 +32,6 @@ omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.lower_collar = ProtoField.ne
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.market_id = ProtoField.new("Market Id", "nyse.texasequities.depthfeed.pillar.v1.6.marketid", ftypes.UINT16)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.texasequities.depthfeed.pillar.v1.6.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.market_state = ProtoField.new("Market State", "nyse.texasequities.depthfeed.pillar.v1.6.marketstate", ftypes.STRING)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message = ProtoField.new("Message", "nyse.texasequities.depthfeed.pillar.v1.6.message", ftypes.STRING)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.depthfeed.pillar.v1.6.messageheader", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message_size = ProtoField.new("Message Size", "nyse.texasequities.depthfeed.pillar.v1.6.messagesize", ftypes.UINT16)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message_type = ProtoField.new("Message Type", "nyse.texasequities.depthfeed.pillar.v1.6.messagetype", ftypes.UINT16)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.mpv = ProtoField.new("Mpv", "nyse.texasequities.depthfeed.pillar.v1.6.mpv", ftypes.UINT16)
@@ -62,6 +60,8 @@ omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.round_lot = ProtoField.new("
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.seconds = ProtoField.new("Seconds", "nyse.texasequities.depthfeed.pillar.v1.6.seconds", ftypes.UINT32)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.security_status = ProtoField.new("Security Status", "nyse.texasequities.depthfeed.pillar.v1.6.securitystatus", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.security_type = ProtoField.new("Security Type", "nyse.texasequities.depthfeed.pillar.v1.6.securitytype", ftypes.STRING)
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.texasequities.depthfeed.pillar.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.texasequities.depthfeed.pillar.v1.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.texasequities.depthfeed.pillar.v1.6.seqnum", ftypes.UINT32)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.session_state = ProtoField.new("Session State", "nyse.texasequities.depthfeed.pillar.v1.6.sessionstate", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.side = ProtoField.new("Side", "nyse.texasequities.depthfeed.pillar.v1.6.side", ftypes.STRING)
@@ -84,11 +84,11 @@ omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.update_count = ProtoField.ne
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.texasequities.depthfeed.pillar.v1.6.uppercollar", ftypes.INT32)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.volume = ProtoField.new("Volume", "nyse.texasequities.depthfeed.pillar.v1.6.volume", ftypes.UINT32)
 
--- Nyse TexasEquities DepthFeed Pillar 1.6 Headers
+-- Nyse TexasEquities DepthFeed Pillar 1.6 Framing
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message = ProtoField.new("Message", "nyse.texasequities.depthfeed.pillar.v1.6.message", ftypes.STRING)
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message_header = ProtoField.new("Message Header", "nyse.texasequities.depthfeed.pillar.v1.6.messageheader", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.packet = ProtoField.new("Packet", "nyse.texasequities.depthfeed.pillar.v1.6.packet", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.depthfeed.pillar.v1.6.packetheader", ftypes.STRING)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.send_time = ProtoField.new("Send Time", "nyse.texasequities.depthfeed.pillar.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.texasequities.depthfeed.pillar.v1.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse TexasEquities DepthFeed 1.6 Application Messages
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.delta_message = ProtoField.new("Delta Message", "nyse.texasequities.depthfeed.pillar.v1.6.deltamessage", ftypes.STRING)

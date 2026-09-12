@@ -75,7 +75,7 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure = ProtoFie
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unit_of_measure_quantity = ProtoField.new("Unit Of Measure Quantity", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unitofmeasurequantity", ftypes.UINT32)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused = ProtoField.new("Unused", "miax.onyxfutures.depthofmarket.mach.v1.0.b.unused", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Miax OnyxFutures DepthOfMarket Mach 1.0.b Headers
+-- Miax OnyxFutures DepthOfMarket Mach 1.0.b Framing
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.mach_message = ProtoField.new("Mach Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.machmessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packet", ftypes.STRING)
 

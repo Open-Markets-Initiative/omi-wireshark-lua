@@ -111,7 +111,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.trading_action_reason = ProtoField.new("T
 omi_nasdaq_uqdf_output_utp_v1_5.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.uqdf.output.utp.v1.5.tradingactionsequencenumber", ftypes.UINT32)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.version = ProtoField.new("Version", "nasdaq.uqdf.output.utp.v1.5.version", ftypes.UINT8)
 
--- Nasdaq Uqdf Output Utp 1.5 Headers
+-- Nasdaq Uqdf Output Utp 1.5 Framing
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message = ProtoField.new("Message", "nasdaq.uqdf.output.utp.v1.5.message", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.uqdf.output.utp.v1.5.messageheader", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.uqdf.output.utp.v1.5.packet", ftypes.STRING)
@@ -152,12 +152,14 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Nasdaq Uqdf Output Utp 1.5 Show Options
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -166,6 +168,9 @@ function omi_nasdaq_uqdf_output_utp_v1_5.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_headers then
+    show.headers = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_headers
   end
   if show.repeating_groups ~= omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_repeating_groups then
     show.repeating_groups = omi_nasdaq_uqdf_output_utp_v1_5.prefs.show_repeating_groups
@@ -4582,7 +4587,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_uqdf_output_utp_v1_5.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.message_header, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v1_5.message_header.fields(buffer, offset, packet, parent)
@@ -4681,7 +4686,7 @@ end
 
 -- Dissect: Packet Header
 nasdaq_uqdf_output_utp_v1_5.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_uqdf_output_utp_v1_5.fields.packet_header, buffer(offset, 0))
     local index = nasdaq_uqdf_output_utp_v1_5.packet_header.fields(buffer, offset, packet, parent)

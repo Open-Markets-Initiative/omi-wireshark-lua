@@ -32,9 +32,7 @@ omi_iex_iexequities_deep_iextp_v1_08.fields.indicative_clearing_price = ProtoFie
 omi_iex_iexequities_deep_iextp_v1_08.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.iexequities.deep.iextp.v1.08.intermarketsweep", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_iex_iexequities_deep_iextp_v1_08.fields.lower_auction_collar = ProtoField.new("Lower Auction Collar", "iex.iexequities.deep.iextp.v1.08.lowerauctioncollar", ftypes.DOUBLE)
 omi_iex_iexequities_deep_iextp_v1_08.fields.luld_tier = ProtoField.new("Luld Tier", "iex.iexequities.deep.iextp.v1.08.luldtier", ftypes.UINT8)
-omi_iex_iexequities_deep_iextp_v1_08.fields.message = ProtoField.new("Message", "iex.iexequities.deep.iextp.v1.08.message", ftypes.STRING)
 omi_iex_iexequities_deep_iextp_v1_08.fields.message_count = ProtoField.new("Message Count", "iex.iexequities.deep.iextp.v1.08.messagecount", ftypes.UINT16)
-omi_iex_iexequities_deep_iextp_v1_08.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deep.iextp.v1.08.messageheader", ftypes.STRING)
 omi_iex_iexequities_deep_iextp_v1_08.fields.message_length = ProtoField.new("Message Length", "iex.iexequities.deep.iextp.v1.08.messagelength", ftypes.UINT16)
 omi_iex_iexequities_deep_iextp_v1_08.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.iexequities.deep.iextp.v1.08.messageprotocolid", ftypes.UINT16)
 omi_iex_iexequities_deep_iextp_v1_08.fields.message_type = ProtoField.new("Message Type", "iex.iexequities.deep.iextp.v1.08.messagetype", ftypes.STRING)
@@ -73,8 +71,10 @@ omi_iex_iexequities_deep_iextp_v1_08.fields.upper_auction_collar = ProtoField.ne
 omi_iex_iexequities_deep_iextp_v1_08.fields.version = ProtoField.new("Version", "iex.iexequities.deep.iextp.v1.08.version", ftypes.UINT8)
 omi_iex_iexequities_deep_iextp_v1_08.fields.when_issued = ProtoField.new("When Issued", "iex.iexequities.deep.iextp.v1.08.whenissued", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 
--- Iex IexEquities Deep IexTp 1.08 Headers
+-- Iex IexEquities Deep IexTp 1.08 Framing
 omi_iex_iexequities_deep_iextp_v1_08.fields.iextp_header = ProtoField.new("Iextp Header", "iex.iexequities.deep.iextp.v1.08.iextpheader", ftypes.STRING)
+omi_iex_iexequities_deep_iextp_v1_08.fields.message = ProtoField.new("Message", "iex.iexequities.deep.iextp.v1.08.message", ftypes.STRING)
+omi_iex_iexequities_deep_iextp_v1_08.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.deep.iextp.v1.08.messageheader", ftypes.STRING)
 omi_iex_iexequities_deep_iextp_v1_08.fields.packet = ProtoField.new("Packet", "iex.iexequities.deep.iextp.v1.08.packet", ftypes.STRING)
 
 -- Iex IexEquities Deep 1.08 Application Messages

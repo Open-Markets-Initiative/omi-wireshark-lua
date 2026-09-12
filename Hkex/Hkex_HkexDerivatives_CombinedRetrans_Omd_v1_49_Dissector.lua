@@ -165,7 +165,7 @@ omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.unused_order_type_bit_
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.combinedretrans.omd.v1.49.updateaction", ftypes.UINT8)
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.username = ProtoField.new("Username", "hkex.hkexderivatives.combinedretrans.omd.v1.49.username", ftypes.STRING)
 
--- Hkex HkexDerivatives CombinedRetrans Omd 1.49 Headers
+-- Hkex HkexDerivatives CombinedRetrans Omd 1.49 Framing
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.combinedretrans.omd.v1.49.message", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.combinedretrans.omd.v1.49.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.combinedretrans.omd.v1.49.packet", ftypes.STRING)

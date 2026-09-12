@@ -85,7 +85,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_data_packet 
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.d.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.username = ProtoField.new("Username", "miax.pearlequities.depthofmarket.mach.v1.3.d.username", ftypes.STRING)
 
--- Miax PearlEquities DepthOfMarket Mach 1.3.d Headers
+-- Miax PearlEquities DepthOfMarket Mach 1.3.d Framing
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.depthofmarket.mach.v1.3.d.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message = ProtoField.new("Mach Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.machmessage", ftypes.STRING)
@@ -128,10 +128,12 @@ local show = {}
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d Show Options
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -140,6 +142,9 @@ function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages then
     show.application_messages = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers then
+    show.headers = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_headers
   end
   if show.structs ~= omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs then
     show.structs = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.prefs.show_structs
@@ -2395,7 +2400,7 @@ end
 
 -- Dissect: Esesm Packet Header
 miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_packet_header, buffer(offset, 0))
     local index = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_packet_header.fields(buffer, offset, packet, parent)

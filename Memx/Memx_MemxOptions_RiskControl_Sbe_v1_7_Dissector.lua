@@ -127,8 +127,6 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.restricted = ProtoField.new("Re
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxoptions.riskcontrol.sbe.v1.7.riskgroupid", ftypes.UINT16)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.risk_type = ProtoField.new("Risk Type", "memx.memxoptions.riskcontrol.sbe.v1.7.risktype", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.rule_type = ProtoField.new("Rule Type", "memx.memxoptions.riskcontrol.sbe.v1.7.ruletype", ftypes.UINT8)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.riskcontrol.sbe.v1.7.sbeheader", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.riskcontrol.sbe.v1.7.sbemessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.riskcontrol.sbe.v1.7.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.riskcontrol.sbe.v1.7.sendcancels", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.riskcontrol.sbe.v1.7.sendingtime", ftypes.UINT64)
@@ -189,9 +187,11 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.use_order_price_in_dup_check_op
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.version = ProtoField.new("Version", "memx.memxoptions.riskcontrol.sbe.v1.7.version", ftypes.UINT16)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.volume = ProtoField.new("Volume", "memx.memxoptions.riskcontrol.sbe.v1.7.volume", ftypes.UINT64)
 
--- Memx MemxOptions RiskControl Sbe 1.7 Headers
+-- Memx MemxOptions RiskControl Sbe 1.7 Framing
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.client_packet = ProtoField.new("Client Packet", "memx.memxoptions.riskcontrol.sbe.v1.7.clientpacket", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.riskcontrol.sbe.v1.7.commonheader", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.riskcontrol.sbe.v1.7.sbeheader", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.riskcontrol.sbe.v1.7.sbemessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.server_packet = ProtoField.new("Server Packet", "memx.memxoptions.riskcontrol.sbe.v1.7.serverpacket", ftypes.STRING)
 
 -- Memx MemxOptions RiskControl 1.7 Application Messages
@@ -265,6 +265,7 @@ local show = {}
 -- Memx MemxOptions RiskControl Sbe 1.7 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register Memx MemxOptions RiskControl Sbe 1.7 Show Options
 local role_enum = {
@@ -277,6 +278,7 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.assume_role = Pref.enum("Assume 
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs_changed()
@@ -284,6 +286,9 @@ function omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_application_messages then
     show.application_messages = omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_application_messages
+  end
+  if show.headers ~= omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_headers then
+    show.headers = omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_headers
   end
   if show.structs ~= omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_structs then
     show.structs = omi_memx_memxoptions_riskcontrol_sbe_v1_7.prefs.show_structs
@@ -9738,7 +9743,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_7.sbe_header.fields(buffer, offset, packet, parent)
@@ -10300,7 +10305,7 @@ end
 
 -- Dissect: Common Header
 memx_memxoptions_riskcontrol_sbe_v1_7.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.common_header, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_7.common_header.fields(buffer, offset, packet, parent)

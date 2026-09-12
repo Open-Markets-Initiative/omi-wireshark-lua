@@ -58,7 +58,7 @@ omi_jnx_jnxequities_pts_ouch_v1_11.fields.timestamp = ProtoField.new("Timestamp"
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxequities.pts.ouch.v1.11.unsequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.ouch.v1.11.username", ftypes.STRING)
 
--- Jnx JnxEquities Pts Ouch 1.11 Headers
+-- Jnx JnxEquities Pts Ouch 1.11 Framing
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_packet = ProtoField.new("Packet", "jnx.jnxequities.pts.ouch.v1.11.clientpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.ouch.v1.11.clientpacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.ouch.v1.11.clientsoupbintcppacket", ftypes.STRING)
@@ -116,6 +116,7 @@ local show = {}
 -- Jnx JnxEquities Pts Ouch 1.11 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -130,6 +131,7 @@ omi_jnx_jnxequities_pts_ouch_v1_11.prefs.assume_role = Pref.enum("Assume Role", 
 omi_jnx_jnxequities_pts_ouch_v1_11.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
@@ -142,6 +144,9 @@ function omi_jnx_jnxequities_pts_ouch_v1_11.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_application_messages then
     show.application_messages = omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_application_messages
+  end
+  if show.headers ~= omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_headers then
+    show.headers = omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_headers
   end
   if show.session_messages ~= omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_session_messages then
     show.session_messages = omi_jnx_jnxequities_pts_ouch_v1_11.prefs.show_session_messages
@@ -2306,7 +2311,7 @@ end
 
 -- Dissect: Server Packet Header
 jnx_jnxequities_pts_ouch_v1_11.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxequities_pts_ouch_v1_11.fields.server_packet_header, buffer(offset, 0))
     local index = jnx_jnxequities_pts_ouch_v1_11.server_packet_header.fields(buffer, offset, packet, parent)
@@ -2848,7 +2853,7 @@ end
 
 -- Dissect: Client Packet Header
 jnx_jnxequities_pts_ouch_v1_11.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_jnx_jnxequities_pts_ouch_v1_11.fields.client_packet_header, buffer(offset, 0))
     local index = jnx_jnxequities_pts_ouch_v1_11.client_packet_header.fields(buffer, offset, packet, parent)

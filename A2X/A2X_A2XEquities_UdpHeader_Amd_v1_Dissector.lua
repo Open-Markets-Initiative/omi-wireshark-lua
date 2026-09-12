@@ -21,7 +21,7 @@ omi_a2x_a2xequities_udpheader_amd_v1.fields.msg_type = ProtoField.new("Msg Type"
 omi_a2x_a2xequities_udpheader_amd_v1.fields.payload = ProtoField.new("Payload", "a2x.a2xequities.udpheader.amd.v1.payload", ftypes.BYTES)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.udpheader.amd.v1.seqno", ftypes.UINT32)
 
--- A2X A2XEquities UdpHeader Amd 1. Headers
+-- A2X A2XEquities UdpHeader Amd 1. Framing
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message = ProtoField.new("Message", "a2x.a2xequities.udpheader.amd.v1.message", ftypes.STRING)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.udpheader.amd.v1.messageheader", ftypes.STRING)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.udpheader.amd.v1.packet", ftypes.STRING)
@@ -37,16 +37,21 @@ local show = {}
 
 -- A2X A2XEquities UdpHeader Amd 1. Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register A2X A2XEquities UdpHeader Amd 1. Show Options
 omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_a2x_a2xequities_udpheader_amd_v1.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_headers then
+    show.headers = omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_headers
+  end
   if show.structs ~= omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_structs then
     show.structs = omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_structs
   end
@@ -212,7 +217,7 @@ end
 
 -- Dissect: Message Header
 a2x_a2xequities_udpheader_amd_v1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_a2xequities_udpheader_amd_v1.fields.message_header, buffer(offset, 0))
     local index = a2x_a2xequities_udpheader_amd_v1.message_header.fields(buffer, offset, packet, parent)

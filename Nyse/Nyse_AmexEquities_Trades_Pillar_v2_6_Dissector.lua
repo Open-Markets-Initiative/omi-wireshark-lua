@@ -34,8 +34,6 @@ omi_nyse_amexequities_trades_pillar_v2_6.fields.lot_size = ProtoField.new("Lot S
 omi_nyse_amexequities_trades_pillar_v2_6.fields.low_price = ProtoField.new("Low Price", "nyse.amexequities.trades.pillar.v2.6.lowprice", ftypes.INT32)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.market_id = ProtoField.new("Market Id", "nyse.amexequities.trades.pillar.v2.6.marketid", ftypes.UINT16)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.market_state = ProtoField.new("Market State", "nyse.amexequities.trades.pillar.v2.6.marketstate", ftypes.STRING)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.amexequities.trades.pillar.v2.6.message", ftypes.STRING)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.amexequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.message_size = ProtoField.new("Message Size", "nyse.amexequities.trades.pillar.v2.6.messagesize", ftypes.UINT16)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.message_type = ProtoField.new("Message Type", "nyse.amexequities.trades.pillar.v2.6.messagetype", ftypes.UINT16)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.mpv = ProtoField.new("Mpv", "nyse.amexequities.trades.pillar.v2.6.mpv", ftypes.UINT16)
@@ -64,6 +62,8 @@ omi_nyse_amexequities_trades_pillar_v2_6.fields.round_lot = ProtoField.new("Roun
 omi_nyse_amexequities_trades_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.trades.pillar.v2.6.seconds", ftypes.UINT32)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.security_status = ProtoField.new("Security Status", "nyse.amexequities.trades.pillar.v2.6.securitystatus", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.security_type = ProtoField.new("Security Type", "nyse.amexequities.trades.pillar.v2.6.securitytype", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.trades.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexequities.trades.pillar.v2.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.amexequities.trades.pillar.v2.6.seqnum", ftypes.UINT32)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.session_state = ProtoField.new("Session State", "nyse.amexequities.trades.pillar.v2.6.sessionstate", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.source_id = ProtoField.new("Source Id", "nyse.amexequities.trades.pillar.v2.6.sourceid", ftypes.STRING)
@@ -88,11 +88,11 @@ omi_nyse_amexequities_trades_pillar_v2_6.fields.trade_id = ProtoField.new("Trade
 omi_nyse_amexequities_trades_pillar_v2_6.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.amexequities.trades.pillar.v2.6.unitoftrade", ftypes.UINT16)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.volume = ProtoField.new("Volume", "nyse.amexequities.trades.pillar.v2.6.volume", ftypes.UINT32)
 
--- Nyse AmexEquities Trades Pillar 2.6 Headers
+-- Nyse AmexEquities Trades Pillar 2.6 Framing
+omi_nyse_amexequities_trades_pillar_v2_6.fields.message = ProtoField.new("Message", "nyse.amexequities.trades.pillar.v2.6.message", ftypes.STRING)
+omi_nyse_amexequities_trades_pillar_v2_6.fields.message_header = ProtoField.new("Message Header", "nyse.amexequities.trades.pillar.v2.6.messageheader", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.amexequities.trades.pillar.v2.6.packet", ftypes.STRING)
 omi_nyse_amexequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.trades.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_amexequities_trades_pillar_v2_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexequities.trades.pillar.v2.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse AmexEquities Trades 2.6 Application Messages
 omi_nyse_amexequities_trades_pillar_v2_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.trades.pillar.v2.6.heartbeatresponsemessage", ftypes.STRING)

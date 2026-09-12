@@ -36,6 +36,7 @@ omi_otcmarkets_moonats_topofbook_link_v1_3.fields.messages = ProtoField.new("Mes
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.moc_shares_unmatched = ProtoField.new("Moc Shares Unmatched", "otcmarkets.moonats.topofbook.link.v1.3.mocsharesunmatched", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "otcmarkets.moonats.topofbook.link.v1.3.nextsequencenumber", ftypes.UINT32)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.ocio_only_closing_price = ProtoField.new("Ocio Only Closing Price", "otcmarkets.moonats.topofbook.link.v1.3.ocioonlyclosingprice", ftypes.DOUBLE)
+omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.moonats.topofbook.link.v1.3.packetflag", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.moonats.topofbook.link.v1.3.packetmilli", ftypes.UINT32)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.moonats.topofbook.link.v1.3.packetsize", ftypes.UINT16)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.piggyback_flag = ProtoField.new("Piggyback Flag", "otcmarkets.moonats.topofbook.link.v1.3.piggybackflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
@@ -66,11 +67,10 @@ omi_otcmarkets_moonats_topofbook_link_v1_3.fields.trading_session = ProtoField.n
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.unsolicited = ProtoField.new("Unsolicited", "otcmarkets.moonats.topofbook.link.v1.3.unsolicited", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.moonats.topofbook.link.v1.3.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
--- OtcMarkets MoonAts TopOfBook Link 1.3 Headers
+-- OtcMarkets MoonAts TopOfBook Link 1.3 Framing
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message = ProtoField.new("Message", "otcmarkets.moonats.topofbook.link.v1.3.message", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.moonats.topofbook.link.v1.3.messageheader", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet = ProtoField.new("Packet", "otcmarkets.moonats.topofbook.link.v1.3.packet", ftypes.STRING)
-omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.moonats.topofbook.link.v1.3.packetflag", ftypes.STRING)
 omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.moonats.topofbook.link.v1.3.packetheader", ftypes.STRING)
 
 -- OtcMarkets MoonAts TopOfBook 1.3 Application Messages
@@ -94,11 +94,13 @@ local show = {}
 -- OtcMarkets MoonAts TopOfBook Link 1.3 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register OtcMarkets MoonAts TopOfBook Link 1.3 Show Options
 omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -107,6 +109,9 @@ function omi_otcmarkets_moonats_topofbook_link_v1_3.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_application_messages then
     show.application_messages = omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_headers then
+    show.headers = omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_headers
   end
   if show.structs ~= omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_structs then
     show.structs = omi_otcmarkets_moonats_topofbook_link_v1_3.prefs.show_structs
@@ -1783,7 +1788,7 @@ end
 
 -- Dissect: Message Header
 otcmarkets_moonats_topofbook_link_v1_3.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_moonats_topofbook_link_v1_3.fields.message_header, buffer(offset, 0))
     local index = otcmarkets_moonats_topofbook_link_v1_3.message_header.fields(buffer, offset, packet, parent)
@@ -1801,6 +1806,16 @@ end
 
 -- Message
 otcmarkets_moonats_topofbook_link_v1_3.message = {}
+
+-- Read runtime size of: Message
+otcmarkets_moonats_topofbook_link_v1_3.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):uint()
+
+  return message_size
+end
 
 -- Display: Message
 otcmarkets_moonats_topofbook_link_v1_3.message.display = function(packet, parent, length)
@@ -1831,6 +1846,7 @@ end
 
 -- Dissect: Message
 otcmarkets_moonats_topofbook_link_v1_3.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = otcmarkets_moonats_topofbook_link_v1_3.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1848,6 +1864,45 @@ otcmarkets_moonats_topofbook_link_v1_3.message.dissect = function(buffer, offset
 
     return index
   end
+end
+
+-- Heartbeat Packet
+otcmarkets_moonats_topofbook_link_v1_3.heartbeat_packet = {}
+
+-- Display: Heartbeat Packet
+otcmarkets_moonats_topofbook_link_v1_3.heartbeat_packet.display = function(packet, parent, length)
+  return "Heartbeat Packet"
+end
+
+
+-- Dissect: Heartbeat Packet
+otcmarkets_moonats_topofbook_link_v1_3.heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = otcmarkets_moonats_topofbook_link_v1_3.heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Message Block
+otcmarkets_moonats_topofbook_link_v1_3.message_block = {}
+
+-- Dissect: Message Block
+otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
+  -- Dissect Heartbeat Packet
+  if bit.band(packet_flag, 0x01) == 1 then
+    return otcmarkets_moonats_topofbook_link_v1_3.heartbeat_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, messages do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):uint()
+
+    -- Message: Struct of 2 fields
+    offset = otcmarkets_moonats_topofbook_link_v1_3.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Packet Flag
@@ -1903,7 +1958,7 @@ end
 otcmarkets_moonats_topofbook_link_v1_3.packet_flag.dissect = function(buffer, offset, packet, parent)
   local size = otcmarkets_moonats_topofbook_link_v1_3.packet_flag.size
   local range = buffer(offset, size)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = otcmarkets_moonats_topofbook_link_v1_3.packet_flag.display(range, value, packet, parent)
   local element = parent:add(omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet_flag, range, display)
 
@@ -1954,7 +2009,7 @@ end
 
 -- Dissect: Packet Header
 otcmarkets_moonats_topofbook_link_v1_3.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_moonats_topofbook_link_v1_3.fields.packet_header, buffer(offset, 0))
     local index = otcmarkets_moonats_topofbook_link_v1_3.packet_header.fields(buffer, offset, packet, parent)
@@ -1985,20 +2040,8 @@ otcmarkets_moonats_topofbook_link_v1_3.packet.dissect = function(buffer, packet,
   -- Packet Header: Struct of 5 fields
   index, packet_header = otcmarkets_moonats_topofbook_link_v1_3.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    index, message = otcmarkets_moonats_topofbook_link_v1_3.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Message Block: Runtime Type with 2 branches
+  index = otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect(buffer, index, packet, parent, heartbeat)
 
   return index
 end

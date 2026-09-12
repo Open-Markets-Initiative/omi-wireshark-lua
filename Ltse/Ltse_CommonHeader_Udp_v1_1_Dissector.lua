@@ -22,8 +22,6 @@ omi_ltse_commonheader_udp_v1_1.fields.message_count = ProtoField.new("Message Co
 omi_ltse_commonheader_udp_v1_1.fields.message_length = ProtoField.new("Message Length", "ltse.commonheader.udp.v1.1.messagelength", ftypes.UINT16)
 omi_ltse_commonheader_udp_v1_1.fields.message_type = ProtoField.new("Message Type", "ltse.commonheader.udp.v1.1.messagetype", ftypes.UINT8)
 omi_ltse_commonheader_udp_v1_1.fields.payload = ProtoField.new("Payload", "ltse.commonheader.udp.v1.1.payload", ftypes.BYTES)
-omi_ltse_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
-omi_ltse_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.udp.v1.1.sbemessage", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.schema_id = ProtoField.new("Schema Id", "ltse.commonheader.udp.v1.1.schemaid", ftypes.UINT8)
 omi_ltse_commonheader_udp_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "ltse.commonheader.udp.v1.1.sequencenumber", ftypes.UINT64)
 omi_ltse_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING)
@@ -31,9 +29,11 @@ omi_ltse_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", 
 omi_ltse_commonheader_udp_v1_1.fields.template_id = ProtoField.new("Template Id", "ltse.commonheader.udp.v1.1.templateid", ftypes.UINT8)
 omi_ltse_commonheader_udp_v1_1.fields.version = ProtoField.new("Version", "ltse.commonheader.udp.v1.1.version", ftypes.UINT16)
 
--- Ltse CommonHeader Udp 1.1 Headers
+-- Ltse CommonHeader Udp 1.1 Framing
 omi_ltse_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "ltse.commonheader.udp.v1.1.commonheader", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.commonheader.udp.v1.1.packet", ftypes.STRING)
+omi_ltse_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
+omi_ltse_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.udp.v1.1.sbemessage", ftypes.STRING)
 
 -- Ltse CommonHeader Udp 1.1 generated fields
 omi_ltse_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "ltse.commonheader.udp.v1.1.messageindex", ftypes.UINT16)
@@ -45,10 +45,12 @@ omi_ltse_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message In
 local show = {}
 
 -- Ltse CommonHeader Udp 1.1 Element Dissection Options
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Ltse CommonHeader Udp 1.1 Show Options
+omi_ltse_commonheader_udp_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ltse_commonheader_udp_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ltse_commonheader_udp_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -56,6 +58,9 @@ omi_ltse_commonheader_udp_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", sh
 function omi_ltse_commonheader_udp_v1_1.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_ltse_commonheader_udp_v1_1.prefs.show_headers then
+    show.headers = omi_ltse_commonheader_udp_v1_1.prefs.show_headers
+  end
   if show.structs ~= omi_ltse_commonheader_udp_v1_1.prefs.show_structs then
     show.structs = omi_ltse_commonheader_udp_v1_1.prefs.show_structs
   end
@@ -369,7 +374,7 @@ end
 
 -- Dissect: Sbe Header
 ltse_commonheader_udp_v1_1.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_udp_v1_1.fields.sbe_header, buffer(offset, 0))
     local index = ltse_commonheader_udp_v1_1.sbe_header.fields(buffer, offset, packet, parent)
@@ -594,7 +599,7 @@ end
 
 -- Dissect: Common Header
 ltse_commonheader_udp_v1_1.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_udp_v1_1.fields.common_header, buffer(offset, 0))
     local index = ltse_commonheader_udp_v1_1.common_header.fields(buffer, offset, packet, parent)

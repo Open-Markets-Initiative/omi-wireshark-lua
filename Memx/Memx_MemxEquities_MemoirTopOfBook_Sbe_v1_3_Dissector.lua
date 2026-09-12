@@ -33,8 +33,6 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoF
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer size", "memx.memxequities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "memx.memxequities.memoirtopofbook.sbe.v1.3.offersizeuint16", ftypes.UINT16)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "memx.memxequities.memoirtopofbook.sbe.v1.3.roundlot", ftypes.UINT32)
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxequities.memoirtopofbook.sbe.v1.3.sbeheader", ftypes.STRING)
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.sbemessage", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memoirtopofbook.sbe.v1.3.schemaid", ftypes.UINT8)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.memxequities.memoirtopofbook.sbe.v1.3.securityid", ftypes.UINT16)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "memx.memxequities.memoirtopofbook.sbe.v1.3.securitytradingstatus", ftypes.STRING)
@@ -50,9 +48,11 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "memx.memxequities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxequities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16)
 
--- Memx MemxEquities MemoirTopOfBook Sbe 1.3 Headers
+-- Memx MemxEquities MemoirTopOfBook Sbe 1.3 Framing
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memoirtopofbook.sbe.v1.3.commonheader", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxequities.memoirtopofbook.sbe.v1.3.packet", ftypes.STRING)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxequities.memoirtopofbook.sbe.v1.3.sbeheader", ftypes.STRING)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.sbemessage", ftypes.STRING)
 
 -- Memx MemxEquities MemoirTopOfBook 1.3 Application Messages
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.bestbidmessage", ftypes.STRING)
@@ -78,11 +78,13 @@ local show = {}
 
 -- Memx MemxEquities MemoirTopOfBook Sbe 1.3 Element Dissection Options
 show.application_messages = true
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Memx MemxEquities MemoirTopOfBook Sbe 1.3 Show Options
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -92,6 +94,9 @@ function omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_headers then
+    show.headers = omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_headers
   end
   if show.structs ~= omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_structs then
     show.structs = omi_memx_memxequities_memoirtopofbook_sbe_v1_3.prefs.show_structs
@@ -1661,7 +1666,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxequities_memoirtopofbook_sbe_v1_3.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxequities_memoirtopofbook_sbe_v1_3.sbe_header.fields(buffer, offset, packet, parent)
@@ -1933,7 +1938,7 @@ end
 
 -- Dissect: Common Header
 memx_memxequities_memoirtopofbook_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.common_header, buffer(offset, 0))
     local index = memx_memxequities_memoirtopofbook_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)

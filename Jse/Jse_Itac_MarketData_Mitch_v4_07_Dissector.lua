@@ -150,7 +150,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.volatility = ProtoField.new("Volatili
 omi_jse_itac_marketdata_mitch_v4_07.fields.volume = ProtoField.new("Volume", "jse.itac.marketdata.mitch.v4.07.volume", ftypes.UINT32)
 omi_jse_itac_marketdata_mitch_v4_07.fields.vwap = ProtoField.new("Vwap", "jse.itac.marketdata.mitch.v4.07.vwap", ftypes.INT64)
 
--- Jse Itac MarketData Mitch 4.07 Headers
+-- Jse Itac MarketData Mitch 4.07 Framing
 omi_jse_itac_marketdata_mitch_v4_07.fields.message = ProtoField.new("Message", "jse.itac.marketdata.mitch.v4.07.message", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.message_header = ProtoField.new("Message Header", "jse.itac.marketdata.mitch.v4.07.messageheader", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.packet = ProtoField.new("Packet", "jse.itac.marketdata.mitch.v4.07.packet", ftypes.STRING)

@@ -21,9 +21,7 @@ omi_jnx_jnxequities_pts_itch_v1_6.fields.executed_quantity = ProtoField.new("Exe
 omi_jnx_jnxequities_pts_itch_v1_6.fields.group = ProtoField.new("Group", "jnx.jnxequities.pts.itch.v1.6.group", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.jnxequities.pts.itch.v1.6.lowerpricelimit", ftypes.DOUBLE)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.match_number = ProtoField.new("Match Number", "jnx.jnxequities.pts.itch.v1.6.matchnumber", ftypes.UINT64)
-omi_jnx_jnxequities_pts_itch_v1_6.fields.message = ProtoField.new("Message", "jnx.jnxequities.pts.itch.v1.6.message", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.message_count = ProtoField.new("Message Count", "jnx.jnxequities.pts.itch.v1.6.messagecount", ftypes.UINT16)
-omi_jnx_jnxequities_pts_itch_v1_6.fields.message_header = ProtoField.new("Message Header", "jnx.jnxequities.pts.itch.v1.6.messageheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.message_length = ProtoField.new("Message Length", "jnx.jnxequities.pts.itch.v1.6.messagelength", ftypes.UINT16)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.message_type = ProtoField.new("Message Type", "jnx.jnxequities.pts.itch.v1.6.messagetype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.nanoseconds = ProtoField.new("Nanoseconds", "jnx.jnxequities.pts.itch.v1.6.nanoseconds", ftypes.UINT32)
@@ -48,7 +46,9 @@ omi_jnx_jnxequities_pts_itch_v1_6.fields.system_event = ProtoField.new("System E
 omi_jnx_jnxequities_pts_itch_v1_6.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.itch.v1.6.tradingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.jnxequities.pts.itch.v1.6.upperpricelimit", ftypes.DOUBLE)
 
--- Jnx JnxEquities Pts Itch 1.6 Headers
+-- Jnx JnxEquities Pts Itch 1.6 Framing
+omi_jnx_jnxequities_pts_itch_v1_6.fields.message = ProtoField.new("Message", "jnx.jnxequities.pts.itch.v1.6.message", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_6.fields.message_header = ProtoField.new("Message Header", "jnx.jnxequities.pts.itch.v1.6.messageheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.packet = ProtoField.new("Packet", "jnx.jnxequities.pts.itch.v1.6.packet", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.itch.v1.6.packetheader", ftypes.STRING)
 

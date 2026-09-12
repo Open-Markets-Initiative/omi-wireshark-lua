@@ -331,7 +331,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_presence_bits
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_regulatory_halt_reason = ProtoField.new("Trading Session Status Regulatory Halt Reason", "txse.txseequities.seed.rake.v1.0.tradingsessionstatusregulatoryhaltreason", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.seed.rake.v1.0.transacttime", ftypes.INT64)
 
--- Txse TxseEquities Seed Rake 1.0 Headers
+-- Txse TxseEquities Seed Rake 1.0 Framing
 omi_txse_txseequities_seed_rake_v1_0.fields.packet = ProtoField.new("Packet", "txse.txseequities.seed.rake.v1.0.packet", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header = ProtoField.new("Rake Message Header", "txse.txseequities.seed.rake.v1.0.rakemessageheader", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.rake_tcp_message = ProtoField.new("Rake Tcp Message", "txse.txseequities.seed.rake.v1.0.raketcpmessage", ftypes.STRING)
@@ -372,10 +372,12 @@ local show = {}
 -- Txse TxseEquities Seed Rake 1.0 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register Txse TxseEquities Seed Rake 1.0 Show Options
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_txse_txseequities_seed_rake_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_txse_txseequities_seed_rake_v1_0.prefs_changed()
@@ -383,6 +385,9 @@ function omi_txse_txseequities_seed_rake_v1_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages then
     show.application_messages = omi_txse_txseequities_seed_rake_v1_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_headers then
+    show.headers = omi_txse_txseequities_seed_rake_v1_0.prefs.show_headers
   end
   if show.structs ~= omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs then
     show.structs = omi_txse_txseequities_seed_rake_v1_0.prefs.show_structs
@@ -11556,7 +11561,7 @@ end
 
 -- Dissect: Rake Message Header
 txse_txseequities_seed_rake_v1_0.rake_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.rake_message_header, buffer(offset, 0))
     local index = txse_txseequities_seed_rake_v1_0.rake_message_header.fields(buffer, offset, packet, parent)

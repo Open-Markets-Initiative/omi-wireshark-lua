@@ -115,7 +115,7 @@ omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.underlying_price_unit = Pr
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.hkexderivatives.literefresh.omd.v1.47.underlyingtype", ftypes.UINT8)
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.update_action = ProtoField.new("Update Action", "hkex.hkexderivatives.literefresh.omd.v1.47.updateaction", ftypes.UINT8)
 
--- Hkex HkexDerivatives LiteRefresh Omd 1.47 Headers
+-- Hkex HkexDerivatives LiteRefresh Omd 1.47 Framing
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.literefresh.omd.v1.47.message", ftypes.STRING)
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.literefresh.omd.v1.47.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_literefresh_omd_v1_47.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.literefresh.omd.v1.47.packet", ftypes.STRING)

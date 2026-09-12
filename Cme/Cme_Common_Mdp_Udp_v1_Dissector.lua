@@ -24,7 +24,7 @@ omi_cme_common_mdp_udp_v1.fields.sending_time = ProtoField.new("Sending Time", "
 omi_cme_common_mdp_udp_v1.fields.template_id = ProtoField.new("Template Id", "cme.common.mdp.udp.v1.templateid", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.version = ProtoField.new("Version", "cme.common.mdp.udp.v1.version", ftypes.UINT16)
 
--- Cme Common Mdp Udp 1. Headers
+-- Cme Common Mdp Udp 1. Framing
 omi_cme_common_mdp_udp_v1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.common.mdp.udp.v1.binarypacketheader", ftypes.STRING)
 omi_cme_common_mdp_udp_v1.fields.message = ProtoField.new("Message", "cme.common.mdp.udp.v1.message", ftypes.STRING)
 omi_cme_common_mdp_udp_v1.fields.message_header = ProtoField.new("Message Header", "cme.common.mdp.udp.v1.messageheader", ftypes.STRING)
@@ -286,7 +286,7 @@ end
 
 -- Dissect: Message Header
 cme_common_mdp_udp_v1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_common_mdp_udp_v1.fields.message_header, buffer(offset, 0))
     local index = cme_common_mdp_udp_v1.message_header.fields(buffer, offset, packet, parent)
@@ -334,7 +334,7 @@ cme_common_mdp_udp_v1.message.dissect = function(buffer, offset, packet, parent,
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_common_mdp_udp_v1.fields.message, buffer(offset, 0))
     local current = cme_common_mdp_udp_v1.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

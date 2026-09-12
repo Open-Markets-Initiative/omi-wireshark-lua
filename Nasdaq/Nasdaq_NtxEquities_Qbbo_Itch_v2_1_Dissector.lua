@@ -40,9 +40,7 @@ omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3",
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.ntxequities.qbbo.itch.v2.1.luldreferencepricetier", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.ntxequities.qbbo.itch.v2.1.marketcategory", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.ntxequities.qbbo.itch.v2.1.marketcode", ftypes.STRING)
-omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.ntxequities.qbbo.itch.v2.1.message", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.ntxequities.qbbo.itch.v2.1.messagecount", ftypes.UINT16)
-omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxequities.qbbo.itch.v2.1.messageheader", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.ntxequities.qbbo.itch.v2.1.messagelength", ftypes.UINT16)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.ntxequities.qbbo.itch.v2.1.messagetype", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.ntxequities.qbbo.itch.v2.1.operationalhaltaction", ftypes.STRING)
@@ -59,7 +57,9 @@ omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.time_stamp = ProtoField.new("Time S
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.tracking = ProtoField.new("Tracking", "nasdaq.ntxequities.qbbo.itch.v2.1.tracking", ftypes.UINT16)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.ntxequities.qbbo.itch.v2.1.trackingnumber", ftypes.UINT16)
 
--- Nasdaq NtxEquities Qbbo Itch 2.1 Headers
+-- Nasdaq NtxEquities Qbbo Itch 2.1 Framing
+omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.ntxequities.qbbo.itch.v2.1.message", ftypes.STRING)
+omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxequities.qbbo.itch.v2.1.messageheader", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.ntxequities.qbbo.itch.v2.1.packet", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ntxequities.qbbo.itch.v2.1.packetheader", ftypes.STRING)
 

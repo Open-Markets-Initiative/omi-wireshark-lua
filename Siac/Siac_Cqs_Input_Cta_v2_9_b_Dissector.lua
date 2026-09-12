@@ -91,7 +91,7 @@ omi_siac_cqs_input_cta_v2_9_b.fields.previous_participant_reference_number = Pro
 omi_siac_cqs_input_cta_v2_9_b.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.input.cta.v2.9.b.quotecondition", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.quote_message = ProtoField.new("Quote Message", "siac.cqs.input.cta.v2.9.b.quotemessage", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.cqs.input.cta.v2.9.b.quotemessagetype", ftypes.STRING)
-omi_siac_cqs_input_cta_v2_9_b.fields.reserved = ProtoField.new("Reserved", "siac.cqs.input.cta.v2.9.b.reserved", ftypes.STRING)
+omi_siac_cqs_input_cta_v2_9_b.fields.reserved = ProtoField.new("Reserved", "siac.cqs.input.cta.v2.9.b.reserved", ftypes.BYTES)
 omi_siac_cqs_input_cta_v2_9_b.fields.reserved_2 = ProtoField.new("Reserved 2", "siac.cqs.input.cta.v2.9.b.reserved2", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cqs.input.cta.v2.9.b.reserved62", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.reserved_8 = ProtoField.new("Reserved 8", "siac.cqs.input.cta.v2.9.b.reserved8", ftypes.STRING)
@@ -120,7 +120,7 @@ omi_siac_cqs_input_cta_v2_9_b.fields.trade_message_type = ProtoField.new("Trade 
 omi_siac_cqs_input_cta_v2_9_b.fields.trading_status_id = ProtoField.new("Trading Status Id", "siac.cqs.input.cta.v2.9.b.tradingstatusid", ftypes.UINT32)
 omi_siac_cqs_input_cta_v2_9_b.fields.version = ProtoField.new("Version", "siac.cqs.input.cta.v2.9.b.version", ftypes.UINT8)
 
--- Siac Cqs Input Cta 2.9.b Headers
+-- Siac Cqs Input Cta 2.9.b Framing
 omi_siac_cqs_input_cta_v2_9_b.fields.block_header = ProtoField.new("Block Header", "siac.cqs.input.cta.v2.9.b.blockheader", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.message = ProtoField.new("Message", "siac.cqs.input.cta.v2.9.b.message", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.message_header = ProtoField.new("Message Header", "siac.cqs.input.cta.v2.9.b.messageheader", ftypes.STRING)
@@ -1894,7 +1894,7 @@ end
 siac_cqs_input_cta_v2_9_b.reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cqs_input_cta_v2_9_b.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved, range, value, display)
@@ -5131,7 +5131,7 @@ end
 
 -- Dissect: Timestamp 1
 siac_cqs_input_cta_v2_9_b.timestamp_1.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.timestamp_1, buffer(offset, 0))
     local index = siac_cqs_input_cta_v2_9_b.timestamp_1.fields(buffer, offset, packet, parent)

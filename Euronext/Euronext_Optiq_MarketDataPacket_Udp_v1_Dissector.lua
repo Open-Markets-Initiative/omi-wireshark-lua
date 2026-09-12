@@ -23,6 +23,7 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.has_end_of_day_snapshot = Prot
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.has_start_of_day_snapshot = ProtoField.new("Has Start Of Day Snapshot", "euronext.optiq.marketdatapacket.udp.v1.hasstartofdaysnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.has_status_message = ProtoField.new("Has Status Message", "euronext.optiq.marketdatapacket.udp.v1.hasstatusmessage", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatapacket.udp.v1.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E)
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatapacket.udp.v1.packetflags", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "euronext.optiq.marketdatapacket.udp.v1.packetsequencenumber", ftypes.UINT32)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatapacket.udp.v1.packettime", ftypes.UINT64)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.payload = ProtoField.new("Payload", "euronext.optiq.marketdatapacket.udp.v1.payload", ftypes.BYTES)
@@ -32,12 +33,11 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.schema_id = ProtoField.new("Sc
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.template_id = ProtoField.new("Template Id", "euronext.optiq.marketdatapacket.udp.v1.templateid", ftypes.UINT16)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatapacket.udp.v1.version", ftypes.UINT16)
 
--- Euronext Optiq MarketDataPacket Udp 1. Headers
+-- Euronext Optiq MarketDataPacket Udp 1. Framing
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatapacket.udp.v1.marketdatapacketheader", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatapacket.udp.v1.messageheader", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatapacket.udp.v1.optiqmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatapacket.udp.v1.packet", ftypes.STRING)
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatapacket.udp.v1.packetflags", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -395,7 +395,7 @@ end
 
 -- Dissect: Message Header
 euronext_optiq_marketdatapacket_udp_v1.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1.fields.message_header, buffer(offset, 0))
     local index = euronext_optiq_marketdatapacket_udp_v1.message_header.fields(buffer, offset, packet, parent)

@@ -60,7 +60,7 @@ omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.user_id = ProtoField.new("Use
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.utility_flag = ProtoField.new("Utility Flag", "jpx.tseequities.marketbyorder.flex.v1.1.utilityflag", ftypes.UINT8)
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.volume = ProtoField.new("Volume", "jpx.tseequities.marketbyorder.flex.v1.1.volume", ftypes.UINT64)
 
--- Jpx TseEquities MarketByOrder Flex 1.1 Headers
+-- Jpx TseEquities MarketByOrder Flex 1.1 Framing
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.message = ProtoField.new("Message", "jpx.tseequities.marketbyorder.flex.v1.1.message", ftypes.STRING)
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.message_header = ProtoField.new("Message Header", "jpx.tseequities.marketbyorder.flex.v1.1.messageheader", ftypes.STRING)
 omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.packet_header = ProtoField.new("Packet Header", "jpx.tseequities.marketbyorder.flex.v1.1.packetheader", ftypes.STRING)

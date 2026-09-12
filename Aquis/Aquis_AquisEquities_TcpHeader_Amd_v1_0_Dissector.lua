@@ -20,7 +20,7 @@ omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg
 omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.tcpheader.amd.v1.0.payload", ftypes.BYTES)
 omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.tcpheader.amd.v1.0.seqno", ftypes.UINT32)
 
--- Aquis AquisEquities TcpHeader Amd 1.0 Headers
+-- Aquis AquisEquities TcpHeader Amd 1.0 Framing
 omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.tcpheader.amd.v1.0.message", ftypes.STRING)
 omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tcpheader.amd.v1.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tcpheader.amd.v1.0.packet", ftypes.STRING)
@@ -33,14 +33,19 @@ local show = {}
 
 -- Aquis AquisEquities TcpHeader Amd 1.0 Element Dissection Options
 show.structs = true
+show.headers = true
 
 -- Register Aquis AquisEquities TcpHeader Amd 1.0 Show Options
 omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_headers then
+    show.headers = omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_headers
+  end
   if show.structs ~= omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_structs then
     show.structs = omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs.show_structs
   end
@@ -180,7 +185,7 @@ end
 
 -- Dissect: Message Header
 aquis_aquisequities_tcpheader_amd_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message_header, buffer(offset, 0))
     local index = aquis_aquisequities_tcpheader_amd_v1_0.message_header.fields(buffer, offset, packet, parent)

@@ -45,8 +45,6 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.low_price = Proto
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.market_center = ProtoField.new("Market Center", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.marketcenter", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.market_center_execution_id = ProtoField.new("Market Center Execution Id", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.marketcenterexecutionid", ftypes.UINT64)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.market_status = ProtoField.new("Market Status", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.marketstatus", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message = ProtoField.new("Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.message", ftypes.STRING)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.messageheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.messagelength", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.messagetype", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.national_cumulative_volume = ProtoField.new("National Cumulative Volume", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.nationalcumulativevolume", ftypes.DOUBLE)
@@ -75,7 +73,9 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_5 = ProtoF
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.unused_7 = ProtoField.new("Unused 7", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 
--- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Headers
+-- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Framing
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message = ProtoField.new("Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.message", ftypes.STRING)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message_header = ProtoField.new("Message Header", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.messageheader", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet = ProtoField.new("Packet", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packet", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet_header = ProtoField.new("Packet Header", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.packetheader", ftypes.STRING)
 
@@ -133,12 +133,14 @@ local show = {}
 show.repeating_groups = true
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Show Options
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.timestamp_format = Pref.enum("Last Update Timestamp Format", 2, "Last Update Timestamp display format", timestamp_format_enum, false)
@@ -150,6 +152,9 @@ function omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_application_messages then
     show.application_messages = omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_headers then
+    show.headers = omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.prefs.show_repeating_groups
@@ -3142,7 +3147,7 @@ end
 
 -- Dissect: Message Header
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message_header, buffer(offset, 0))
     local index = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.message_header.fields(buffer, offset, packet, parent)
@@ -3295,7 +3300,7 @@ end
 
 -- Dissect: Packet Header
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.packet_header, buffer(offset, 0))
     local index = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.packet_header.fields(buffer, offset, packet, parent)

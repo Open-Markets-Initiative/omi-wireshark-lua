@@ -57,9 +57,7 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.lot_size_or_face_value = ProtoField
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.lowest_trade = ProtoField.new("Lowest Trade", "asx.asxderivatives.ntp.itch.v1.05.lowesttrade", ftypes.DOUBLE)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.matched_quantity = ProtoField.new("Matched Quantity", "asx.asxderivatives.ntp.itch.v1.05.matchedquantity", ftypes.UINT64)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.maturity_value = ProtoField.new("Maturity Value", "asx.asxderivatives.ntp.itch.v1.05.maturityvalue", ftypes.UINT8)
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.message = ProtoField.new("Message", "asx.asxderivatives.ntp.itch.v1.05.message", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_count = ProtoField.new("Message Count", "asx.asxderivatives.ntp.itch.v1.05.messagecount", ftypes.UINT16)
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_header = ProtoField.new("Message Header", "asx.asxderivatives.ntp.itch.v1.05.messageheader", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_length = ProtoField.new("Message Length", "asx.asxderivatives.ntp.itch.v1.05.messagelength", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_type = ProtoField.new("Message Type", "asx.asxderivatives.ntp.itch.v1.05.messagetype", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.nanoseconds = ProtoField.new("Nanoseconds", "asx.asxderivatives.ntp.itch.v1.05.nanoseconds", ftypes.UINT32)
@@ -114,7 +112,9 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.underlying_tradeable_instrument_id 
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.voi_trade_date = ProtoField.new("Voi Trade Date", "asx.asxderivatives.ntp.itch.v1.05.voitradedate", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.volatility = ProtoField.new("Volatility", "asx.asxderivatives.ntp.itch.v1.05.volatility", ftypes.UINT64)
 
--- Asx AsxDerivatives Ntp Itch 1.05 Headers
+-- Asx AsxDerivatives Ntp Itch 1.05 Framing
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.message = ProtoField.new("Message", "asx.asxderivatives.ntp.itch.v1.05.message", ftypes.STRING)
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_header = ProtoField.new("Message Header", "asx.asxderivatives.ntp.itch.v1.05.messageheader", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet = ProtoField.new("Packet", "asx.asxderivatives.ntp.itch.v1.05.packet", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.packet_header = ProtoField.new("Packet Header", "asx.asxderivatives.ntp.itch.v1.05.packetheader", ftypes.STRING)
 

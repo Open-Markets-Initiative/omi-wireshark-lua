@@ -21,8 +21,6 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.count = ProtoField.new("C
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.execution_id = ProtoField.new("Execution Id", "cboe.matchnow.multicasttrades.pitch.v1.0.14.executionid", ftypes.UINT64)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.length = ProtoField.new("Length", "cboe.matchnow.multicasttrades.pitch.v1.0.14.length", ftypes.UINT16)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.listing_exchange = ProtoField.new("Listing Exchange", "cboe.matchnow.multicasttrades.pitch.v1.0.14.listingexchange", ftypes.STRING)
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message = ProtoField.new("Message", "cboe.matchnow.multicasttrades.pitch.v1.0.14.message", ftypes.STRING)
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_header = ProtoField.new("Message Header", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messageheader", ftypes.STRING)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_length = ProtoField.new("Message Length", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messagelength", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_type = ProtoField.new("Message Type", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messagetype", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.odd_lot = ProtoField.new("Odd Lot", "cboe.matchnow.multicasttrades.pitch.v1.0.14.oddlot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -42,7 +40,9 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.trading_status = ProtoFie
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.unit = ProtoField.new("Unit", "cboe.matchnow.multicasttrades.pitch.v1.0.14.unit", ftypes.UINT8)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.unused_6 = ProtoField.new("Unused 6", "cboe.matchnow.multicasttrades.pitch.v1.0.14.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 
--- Cboe MatchNow MulticastTrades Pitch 1.0.14 Headers
+-- Cboe MatchNow MulticastTrades Pitch 1.0.14 Framing
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message = ProtoField.new("Message", "cboe.matchnow.multicasttrades.pitch.v1.0.14.message", ftypes.STRING)
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_header = ProtoField.new("Message Header", "cboe.matchnow.multicasttrades.pitch.v1.0.14.messageheader", ftypes.STRING)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packet", ftypes.STRING)
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.matchnow.multicasttrades.pitch.v1.0.14.packetheader", ftypes.STRING)
 
@@ -64,11 +64,13 @@ local show = {}
 -- Cboe MatchNow MulticastTrades Pitch 1.0.14 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe MatchNow MulticastTrades Pitch 1.0.14 Show Options
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -77,6 +79,9 @@ function omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_application_messages then
     show.application_messages = omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_headers then
+    show.headers = omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_headers
   end
   if show.structs ~= omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_structs then
     show.structs = omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.prefs.show_structs
@@ -949,7 +954,7 @@ end
 
 -- Dissect: Message Header
 cboe_matchnow_multicasttrades_pitch_v1_0_14.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_header, buffer(offset, 0))
     local index = cboe_matchnow_multicasttrades_pitch_v1_0_14.message_header.fields(buffer, offset, packet, parent)
@@ -1102,7 +1107,7 @@ end
 
 -- Dissect: Packet Header
 cboe_matchnow_multicasttrades_pitch_v1_0_14.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.packet_header, buffer(offset, 0))
     local index = cboe_matchnow_multicasttrades_pitch_v1_0_14.packet_header.fields(buffer, offset, packet, parent)

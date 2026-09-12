@@ -48,8 +48,6 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.osi_root = ProtoField.new("Osi Ro
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.memxoptions.memoirtop.sbe.v1.3.price", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.memoirtop.sbe.v1.3.quantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.memxoptions.memoirtop.sbe.v1.3.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
-omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memoirtop.sbe.v1.3.sbeheader", ftypes.STRING)
-omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.memoirtop.sbe.v1.3.sbemessage", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memoirtop.sbe.v1.3.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "memx.memxoptions.memoirtop.sbe.v1.3.sequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.memoirtop.sbe.v1.3.sequencedmessage", ftypes.STRING)
@@ -70,9 +68,11 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.trading_session = ProtoField.new(
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.underlier = ProtoField.new("Underlier", "memx.memxoptions.memoirtop.sbe.v1.3.underlier", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxoptions.memoirtop.sbe.v1.3.version", ftypes.UINT16)
 
--- Memx MemxOptions MemoirTop Sbe 1.3 Headers
+-- Memx MemxOptions MemoirTop Sbe 1.3 Framing
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.memxoptions.memoirtop.sbe.v1.3.commonheader", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.memxoptions.memoirtop.sbe.v1.3.packet", ftypes.STRING)
+omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxoptions.memoirtop.sbe.v1.3.sbeheader", ftypes.STRING)
+omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxoptions.memoirtop.sbe.v1.3.sbemessage", ftypes.STRING)
 
 -- Memx MemxOptions MemoirTop 1.3 Application Messages
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.best_bid_message = ProtoField.new("Best Bid Message", "memx.memxoptions.memoirtop.sbe.v1.3.bestbidmessage", ftypes.STRING)
@@ -100,11 +100,13 @@ local show = {}
 
 -- Memx MemxOptions MemoirTop Sbe 1.3 Element Dissection Options
 show.application_messages = true
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Memx MemxOptions MemoirTop Sbe 1.3 Show Options
 omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -114,6 +116,9 @@ function omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_application_messages then
     show.application_messages = omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_headers then
+    show.headers = omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_headers
   end
   if show.structs ~= omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_structs then
     show.structs = omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_structs
@@ -2404,7 +2409,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxoptions_memoirtop_sbe_v1_3.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxoptions_memoirtop_sbe_v1_3.sbe_header.fields(buffer, offset, packet, parent)
@@ -2676,7 +2681,7 @@ end
 
 -- Dissect: Common Header
 memx_memxoptions_memoirtop_sbe_v1_3.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.common_header, buffer(offset, 0))
     local index = memx_memxoptions_memoirtop_sbe_v1_3.common_header.fields(buffer, offset, packet, parent)

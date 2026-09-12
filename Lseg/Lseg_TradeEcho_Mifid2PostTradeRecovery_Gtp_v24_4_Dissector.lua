@@ -161,7 +161,7 @@ omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.volume_onbook_only =
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.vwap = ProtoField.new("Vwap", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.vwap", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 
--- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Headers
+-- Lseg TradeEcho Mifid2PostTradeRecovery Gtp 24.4 Framing
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.mifid2posttraderecovery.gtp.v24.4.packet", ftypes.STRING)

@@ -93,8 +93,6 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.reprice_frequency = ProtoField.new("R
 omi_n24x_24xequities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "24x.24xequities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.reserved_13 = ProtoField.new("Reserved 13", "24x.24xequities.memo.sbe.v1.13.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk Group Id", "24x.24xequities.memo.sbe.v1.13.riskgroupid", ftypes.UINT16)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.sbe_header = ProtoField.new("Sbe Header", "24x.24xequities.memo.sbe.v1.13.sbeheader", ftypes.STRING)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", "24x.24xequities.memo.sbe.v1.13.sbemessage", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "24x.24xequities.memo.sbe.v1.13.schemaid", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "24x.24xequities.memo.sbe.v1.13.securitygroup", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "24x.24xequities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8)
@@ -124,9 +122,11 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd
 omi_n24x_24xequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "24x.24xequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "24x.24xequities.memo.sbe.v1.13.version", ftypes.UINT16)
 
--- 24X 24XEquities Memo Sbe 1.13 Headers
+-- 24X 24XEquities Memo Sbe 1.13 Framing
 omi_n24x_24xequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "24x.24xequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "24x.24xequities.memo.sbe.v1.13.packet", ftypes.STRING)
+omi_n24x_24xequities_memo_sbe_v1_13.fields.sbe_header = ProtoField.new("Sbe Header", "24x.24xequities.memo.sbe.v1.13.sbeheader", ftypes.STRING)
+omi_n24x_24xequities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", "24x.24xequities.memo.sbe.v1.13.sbemessage", ftypes.STRING)
 
 -- 24X 24XEquities Memo 1.13 Application Messages
 omi_n24x_24xequities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "24x.24xequities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)
@@ -159,17 +159,17 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new(
 local show = {}
 
 -- 24X 24XEquities Memo Sbe 1.13 Element Dissection Options
+show.headers = true
 show.structs = true
 show.application_messages = true
 show.repeating_groups = true
-show.headers = true
 show.indexes = true
 
 -- Register 24X 24XEquities Memo Sbe 1.13 Show Options
+omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
-omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -5949,7 +5949,7 @@ end
 
 -- Dissect: Sbe Header
 n24x_24xequities_memo_sbe_v1_13.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.sbe_header, buffer(offset, 0))
     local index = n24x_24xequities_memo_sbe_v1_13.sbe_header.fields(buffer, offset, packet, parent)
@@ -6755,7 +6755,7 @@ end
 
 -- Dissect: Common Header
 n24x_24xequities_memo_sbe_v1_13.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.common_header, buffer(offset, 0))
     local index = n24x_24xequities_memo_sbe_v1_13.common_header.fields(buffer, offset, packet, parent)

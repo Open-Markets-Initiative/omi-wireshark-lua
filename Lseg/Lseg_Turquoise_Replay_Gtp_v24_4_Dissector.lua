@@ -160,7 +160,7 @@ omi_lseg_turquoise_replay_gtp_v24_4.fields.vwap_buy = ProtoField.new("Vwap Buy",
 omi_lseg_turquoise_replay_gtp_v24_4.fields.vwap_onbook_only = ProtoField.new("Vwap Onbook Only", "lseg.turquoise.replay.gtp.v24.4.vwaponbookonly", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.turquoise.replay.gtp.v24.4.vwapsell", ftypes.DOUBLE)
 
--- Lseg Turquoise Replay Gtp 24.4 Headers
+-- Lseg Turquoise Replay Gtp 24.4 Framing
 omi_lseg_turquoise_replay_gtp_v24_4.fields.message = ProtoField.new("Message", "lseg.turquoise.replay.gtp.v24.4.message", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.message_header = ProtoField.new("Message Header", "lseg.turquoise.replay.gtp.v24.4.messageheader", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.packet = ProtoField.new("Packet", "lseg.turquoise.replay.gtp.v24.4.packet", ftypes.STRING)

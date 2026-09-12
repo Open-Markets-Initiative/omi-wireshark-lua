@@ -33,8 +33,6 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.feed_symbol = ProtoField.new
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c1options.auctionfeed.pitch.v1.1.39.indicativeprice", ftypes.DOUBLE)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.length = ProtoField.new("Length", "cboe.c1options.auctionfeed.pitch.v1.1.39.length", ftypes.UINT16)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.lower_strike_price = ProtoField.new("Lower Strike Price", "cboe.c1options.auctionfeed.pitch.v1.1.39.lowerstrikeprice", ftypes.DOUBLE)
-omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message = ProtoField.new("Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.message", ftypes.STRING)
-omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.auctionfeed.pitch.v1.1.39.messageheader", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.auctionfeed.pitch.v1.1.39.messagelength", ftypes.UINT8)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.auctionfeed.pitch.v1.1.39.messagetype", ftypes.UINT8)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.auctionfeed.pitch.v1.1.39.midnightreference", ftypes.UINT32)
@@ -59,7 +57,9 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.unit = ProtoField.new("Unit"
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.auctionfeed.pitch.v1.1.39.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.auctionfeed.pitch.v1.1.39.widthtype", ftypes.STRING)
 
--- Cboe C1Options AuctionFeed Pitch 1.1.39 Headers
+-- Cboe C1Options AuctionFeed Pitch 1.1.39 Framing
+omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message = ProtoField.new("Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.message", ftypes.STRING)
+omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.auctionfeed.pitch.v1.1.39.messageheader", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet = ProtoField.new("Packet", "cboe.c1options.auctionfeed.pitch.v1.1.39.packet", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.auctionfeed.pitch.v1.1.39.packetheader", ftypes.STRING)
 
@@ -99,11 +99,13 @@ local show = {}
 -- Cboe C1Options AuctionFeed Pitch 1.1.39 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe C1Options AuctionFeed Pitch 1.1.39 Show Options
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -113,6 +115,9 @@ function omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_headers then
+    show.headers = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_headers
   end
   if show.structs ~= omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_structs then
     show.structs = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.prefs.show_structs
@@ -2166,7 +2171,7 @@ end
 
 -- Dissect: Message Header
 cboe_c1options_auctionfeed_pitch_v1_1_39.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_header, buffer(offset, 0))
     local index = cboe_c1options_auctionfeed_pitch_v1_1_39.message_header.fields(buffer, offset, packet, parent)
@@ -2319,7 +2324,7 @@ end
 
 -- Dissect: Packet Header
 cboe_c1options_auctionfeed_pitch_v1_1_39.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.packet_header, buffer(offset, 0))
     local index = cboe_c1options_auctionfeed_pitch_v1_1_39.packet_header.fields(buffer, offset, packet, parent)

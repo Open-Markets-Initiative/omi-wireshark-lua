@@ -78,7 +78,7 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.transaction_category = ProtoFie
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.umtf = ProtoField.new("Umtf", "aquis.aquisequities.realtime.amd.v4.0.umtf", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.unrestricted_liquidity_indicator = ProtoField.new("Unrestricted Liquidity Indicator", "aquis.aquisequities.realtime.amd.v4.0.unrestrictedliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 
--- Aquis AquisEquities RealTime Amd 4.0 Headers
+-- Aquis AquisEquities RealTime Amd 4.0 Framing
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.realtime.amd.v4.0.message", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.realtime.amd.v4.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.realtime.amd.v4.0.packet", ftypes.STRING)

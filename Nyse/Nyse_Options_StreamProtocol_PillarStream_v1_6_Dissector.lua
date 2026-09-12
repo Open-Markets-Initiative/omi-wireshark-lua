@@ -20,14 +20,12 @@ omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.data = ProtoField.new("
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.end_seq = ProtoField.new("End Seq", "nyse.options.streamprotocol.pillarstream.v1.6.endseq", ftypes.UINT64)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.mic = ProtoField.new("Mic", "nyse.options.streamprotocol.pillarstream.v1.6.mic", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.mode = ProtoField.new("Mode", "nyse.options.streamprotocol.pillarstream.v1.6.mode", ftypes.UINT8)
-omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.msg_header = ProtoField.new("Msg Header", "nyse.options.streamprotocol.pillarstream.v1.6.msgheader", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.msg_length = ProtoField.new("Msg Length", "nyse.options.streamprotocol.pillarstream.v1.6.msglength", ftypes.UINT16)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.msg_type = ProtoField.new("Msg Type", "nyse.options.streamprotocol.pillarstream.v1.6.msgtype", ftypes.UINT16)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.next_seq = ProtoField.new("Next Seq", "nyse.options.streamprotocol.pillarstream.v1.6.nextseq", ftypes.UINT64)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.password = ProtoField.new("Password", "nyse.options.streamprotocol.pillarstream.v1.6.password", ftypes.STRING)
-omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.options.streamprotocol.pillarstream.v1.6.reserved4", ftypes.BYTES)
+omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.options.streamprotocol.pillarstream.v1.6.reserved4", ftypes.UINT32)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq = ProtoField.new("Seq", "nyse.options.streamprotocol.pillarstream.v1.6.seq", ftypes.UINT64)
-omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsgheader", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsgid", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsglength", ftypes.UINT16)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsgtype", ftypes.UINT16)
@@ -40,6 +38,10 @@ omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.timestamp = ProtoField.
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.user = ProtoField.new("User", "nyse.options.streamprotocol.pillarstream.v1.6.user", ftypes.UINT32)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.username = ProtoField.new("Username", "nyse.options.streamprotocol.pillarstream.v1.6.username", ftypes.STRING)
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.version = ProtoField.new("Version", "nyse.options.streamprotocol.pillarstream.v1.6.version", ftypes.STRING)
+
+-- Nyse Options StreamProtocol PillarStream 1.6 Framing
+omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.msg_header = ProtoField.new("Msg Header", "nyse.options.streamprotocol.pillarstream.v1.6.msgheader", ftypes.STRING)
+omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.options.streamprotocol.pillarstream.v1.6.seqmsgheader", ftypes.STRING)
 
 -- Nyse Options StreamProtocol 1.6 Session Messages
 omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.close = ProtoField.new("Close", "nyse.options.streamprotocol.pillarstream.v1.6.close", ftypes.STRING)
@@ -60,16 +62,21 @@ local show = {}
 
 -- Nyse Options StreamProtocol PillarStream 1.6 Element Dissection Options
 show.session_messages = true
+show.headers = true
 show.structs = true
 
 -- Register Nyse Options StreamProtocol PillarStream 1.6 Show Options
 omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_headers then
+    show.headers = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_headers
+  end
   if show.session_messages ~= omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_session_messages then
     show.session_messages = omi_nyse_options_streamprotocol_pillarstream_v1_6.prefs.show_session_messages
   end
@@ -361,7 +368,7 @@ end
 nyse_options_streamprotocol_pillarstream_v1_6.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nyse_options_streamprotocol_pillarstream_v1_6.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = nyse_options_streamprotocol_pillarstream_v1_6.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.reserved_4, range, value, display)
@@ -671,7 +678,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -851,7 +858,7 @@ end
 
 -- Dissect: Msg Header
 nyse_options_streamprotocol_pillarstream_v1_6.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_6.fields.msg_header, buffer(offset, 0))
     local index = nyse_options_streamprotocol_pillarstream_v1_6.msg_header.fields(buffer, offset, packet, parent)
@@ -895,7 +902,7 @@ nyse_options_streamprotocol_pillarstream_v1_6.seq_msg.fields = function(buffer, 
   -- Seq Msg Id: Struct of 2 fields
   index, seq_msg_id = nyse_options_streamprotocol_pillarstream_v1_6.seq_msg_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: 4 Byte Unsigned Fixed Width Integer
   index, reserved_4 = nyse_options_streamprotocol_pillarstream_v1_6.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer

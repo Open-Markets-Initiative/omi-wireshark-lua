@@ -105,7 +105,7 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_data_packet = P
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.emeraldoptions.topofmarket.mach.v1.3.unsequencedmessagetype", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.username = ProtoField.new("Username", "miax.emeraldoptions.topofmarket.mach.v1.3.username", ftypes.STRING)
 
--- Miax EmeraldOptions TopOfMarket Mach 1.3 Headers
+-- Miax EmeraldOptions TopOfMarket Mach 1.3 Framing
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.mach_message = ProtoField.new("Mach Message", "miax.emeraldoptions.topofmarket.mach.v1.3.machmessage", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpacketheader", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmtcppacket", ftypes.STRING)
@@ -153,10 +153,12 @@ local show = {}
 -- Miax EmeraldOptions TopOfMarket Mach 1.3 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Miax EmeraldOptions TopOfMarket Mach 1.3 Show Options
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -165,6 +167,9 @@ function omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_application_messages then
     show.application_messages = omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_headers then
+    show.headers = omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_headers
   end
   if show.structs ~= omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_structs then
     show.structs = omi_miax_emeraldoptions_topofmarket_mach_v1_3.prefs.show_structs
@@ -4486,7 +4491,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_emeraldoptions_topofmarket_mach_v1_3.sesm_packet_header.fields(buffer, offset, packet, parent)

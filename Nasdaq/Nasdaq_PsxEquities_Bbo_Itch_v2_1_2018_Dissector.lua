@@ -32,9 +32,7 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.level_3 = ProtoField.new("Level
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psxequities.bbo.itch.v2.1.2018.luldreferencepricetier", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.bbo.itch.v2.1.2018.marketcategory", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.market_code = ProtoField.new("Market Code", "nasdaq.psxequities.bbo.itch.v2.1.2018.marketcode", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message = ProtoField.new("Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.message", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.bbo.itch.v2.1.2018.messagecount", ftypes.UINT16)
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.messageheader", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.itch.v2.1.2018.messagelength", ftypes.UINT16)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.itch.v2.1.2018.messagetype", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestbid", ftypes.DOUBLE)
@@ -56,7 +54,9 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.stock = ProtoField.new("Stock",
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.psxequities.bbo.itch.v2.1.2018.timestamp", ftypes.UINT64)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.psxequities.bbo.itch.v2.1.2018.trackingnumber", ftypes.UINT16)
 
--- Nasdaq PsxEquities Bbo Itch 2.1.2018 Headers
+-- Nasdaq PsxEquities Bbo Itch 2.1.2018 Framing
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message = ProtoField.new("Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.message", ftypes.STRING)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.messageheader", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.2018.packet", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.packetheader", ftypes.STRING)
 

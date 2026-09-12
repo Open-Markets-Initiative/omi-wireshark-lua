@@ -48,9 +48,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.level_3 = ProtoField.new("Level 
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.nsmequities.nlsplus.itch.v4.0.luldreferencepricetier", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.nlsplus.itch.v4.0.marketcategory", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.nsmequities.nlsplus.itch.v4.0.marketcode", ftypes.STRING)
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nlsplus.itch.v4.0.message", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.nlsplus.itch.v4.0.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nlsplus.itch.v4.0.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.nlsplus.itch.v4.0.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.nlsplus.itch.v4.0.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.nsmequities.nlsplus.itch.v4.0.operationalhaltaction", ftypes.STRING)
@@ -78,7 +76,9 @@ omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_control_number = ProtoFiel
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradeprice", ftypes.DOUBLE)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.nsmequities.nlsplus.itch.v4.0.tradesize", ftypes.DOUBLE)
 
--- Nasdaq NsmEquities NlsPlus Itch 4.0 Headers
+-- Nasdaq NsmEquities NlsPlus Itch 4.0 Framing
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.nlsplus.itch.v4.0.message", ftypes.STRING)
+omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.nlsplus.itch.v4.0.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nlsplus.itch.v4.0.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nlsplus.itch.v4.0.packetheader", ftypes.STRING)
 

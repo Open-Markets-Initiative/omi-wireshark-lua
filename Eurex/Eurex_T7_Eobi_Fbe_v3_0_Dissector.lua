@@ -23,6 +23,7 @@ omi_eurex_t7_eobi_fbe_v3_0.fields.bid_px = ProtoField.new("Bid Px", "eurex.t7.eo
 omi_eurex_t7_eobi_fbe_v3_0.fields.body_len = ProtoField.new("Body Len", "eurex.t7.eobi.fbe.v3.0.bodylen", ftypes.UINT16)
 omi_eurex_t7_eobi_fbe_v3_0.fields.completion_indicator = ProtoField.new("Completion Indicator", "eurex.t7.eobi.fbe.v3.0.completionindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v3_0.fields.display_qty = ProtoField.new("Display Qty", "eurex.t7.eobi.fbe.v3.0.displayqty", ftypes.INT32)
+omi_eurex_t7_eobi_fbe_v3_0.fields.eobi_header = ProtoField.new("Eobi Header", "eurex.t7.eobi.fbe.v3.0.eobiheader", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v3_0.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.eobi.fbe.v3.0.execid", ftypes.UINT64)
 omi_eurex_t7_eobi_fbe_v3_0.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.t7.eobi.fbe.v3.0.fastmarketindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v3_0.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "eurex.t7.eobi.fbe.v3.0.impliedmarketindicator", ftypes.UINT8)
@@ -43,6 +44,7 @@ omi_eurex_t7_eobi_fbe_v3_0.fields.md_entry_size = ProtoField.new("Md Entry Size"
 omi_eurex_t7_eobi_fbe_v3_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "eurex.t7.eobi.fbe.v3.0.mdentrytype", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v3_0.fields.md_instrument_entry_grp_comp = ProtoField.new("Md Instrument Entry Grp Comp", "eurex.t7.eobi.fbe.v3.0.mdinstrumententrygrpcomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v3_0.fields.md_trade_entry_grp_comp = ProtoField.new("Md Trade Entry Grp Comp", "eurex.t7.eobi.fbe.v3.0.mdtradeentrygrpcomp", ftypes.STRING)
+omi_eurex_t7_eobi_fbe_v3_0.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.t7.eobi.fbe.v3.0.messageheadercomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v3_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "eurex.t7.eobi.fbe.v3.0.msgseqnum", ftypes.UINT32)
 omi_eurex_t7_eobi_fbe_v3_0.fields.no_legs = ProtoField.new("No Legs", "eurex.t7.eobi.fbe.v3.0.nolegs", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v3_0.fields.no_md_entries = ProtoField.new("No Md Entries", "eurex.t7.eobi.fbe.v3.0.nomdentries", ftypes.UINT8)
@@ -81,10 +83,8 @@ omi_eurex_t7_eobi_fbe_v3_0.fields.trd_reg_ts_prev_time_priority = ProtoField.new
 omi_eurex_t7_eobi_fbe_v3_0.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "eurex.t7.eobi.fbe.v3.0.trdregtstimein", ftypes.UINT64)
 omi_eurex_t7_eobi_fbe_v3_0.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.t7.eobi.fbe.v3.0.trdregtstimepriority", ftypes.UINT64)
 
--- Eurex T7 Eobi Fbe 3.0 Headers
-omi_eurex_t7_eobi_fbe_v3_0.fields.eobi_header = ProtoField.new("Eobi Header", "eurex.t7.eobi.fbe.v3.0.eobiheader", ftypes.STRING)
+-- Eurex T7 Eobi Fbe 3.0 Framing
 omi_eurex_t7_eobi_fbe_v3_0.fields.message = ProtoField.new("Message", "eurex.t7.eobi.fbe.v3.0.message", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v3_0.fields.message_header_comp = ProtoField.new("Message Header Comp", "eurex.t7.eobi.fbe.v3.0.messageheadercomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v3_0.fields.packet = ProtoField.new("Packet", "eurex.t7.eobi.fbe.v3.0.packet", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v3_0.fields.packet_header = ProtoField.new("Packet Header", "eurex.t7.eobi.fbe.v3.0.packetheader", ftypes.STRING)
 
@@ -127,12 +127,14 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Eurex T7 Eobi Fbe 3.0 Show Options
 omi_eurex_t7_eobi_fbe_v3_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_eurex_t7_eobi_fbe_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_eurex_t7_eobi_fbe_v3_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_eurex_t7_eobi_fbe_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_eurex_t7_eobi_fbe_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -141,6 +143,9 @@ function omi_eurex_t7_eobi_fbe_v3_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_eurex_t7_eobi_fbe_v3_0.prefs.show_application_messages then
     show.application_messages = omi_eurex_t7_eobi_fbe_v3_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_eurex_t7_eobi_fbe_v3_0.prefs.show_headers then
+    show.headers = omi_eurex_t7_eobi_fbe_v3_0.prefs.show_headers
   end
   if show.repeating_groups ~= omi_eurex_t7_eobi_fbe_v3_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_eurex_t7_eobi_fbe_v3_0.prefs.show_repeating_groups
@@ -4048,7 +4053,7 @@ end
 
 -- Dissect: Packet Header
 eurex_t7_eobi_fbe_v3_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_eurex_t7_eobi_fbe_v3_0.fields.packet_header, buffer(offset, 0))
     local index = eurex_t7_eobi_fbe_v3_0.packet_header.fields(buffer, offset, packet, parent)

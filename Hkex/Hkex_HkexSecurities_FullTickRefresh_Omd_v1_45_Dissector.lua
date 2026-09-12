@@ -116,7 +116,7 @@ omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.vcm_upper_price = Proto
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.warrant_maturity_date = ProtoField.new("Warrant Maturity Date", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.warrantmaturitydate", ftypes.UINT32)
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.warranttype", ftypes.STRING)
 
--- Hkex HkexSecurities FullTickRefresh Omd 1.45 Headers
+-- Hkex HkexSecurities FullTickRefresh Omd 1.45 Framing
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.message", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_45.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.fulltickrefresh.omd.v1.45.packet", ftypes.STRING)

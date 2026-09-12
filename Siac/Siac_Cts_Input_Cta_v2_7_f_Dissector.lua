@@ -85,7 +85,7 @@ omi_siac_cts_input_cta_v2_7_f.fields.previous_participant_reference_number = Pro
 omi_siac_cts_input_cta_v2_7_f.fields.prior_day_message = ProtoField.new("Prior Day Message", "siac.cts.input.cta.v2.7.f.priordaymessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.input.cta.v2.7.f.priordaymessagetype", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.priordaytradedateandtime", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.reserved = ProtoField.new("Reserved", "siac.cts.input.cta.v2.7.f.reserved", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.reserved = ProtoField.new("Reserved", "siac.cts.input.cta.v2.7.f.reserved", ftypes.BYTES)
 omi_siac_cts_input_cta_v2_7_f.fields.reserved_3 = ProtoField.new("Reserved 3", "siac.cts.input.cta.v2.7.f.reserved3", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.input.cta.v2.7.f.reserved62", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.sale_condition = ProtoField.new("Sale Condition", "siac.cts.input.cta.v2.7.f.salecondition", ftypes.STRING)
@@ -108,7 +108,7 @@ omi_siac_cts_input_cta_v2_7_f.fields.trade_volume = ProtoField.new("Trade Volume
 omi_siac_cts_input_cta_v2_7_f.fields.trading_status_id = ProtoField.new("Trading Status Id", "siac.cts.input.cta.v2.7.f.tradingstatusid", ftypes.UINT32)
 omi_siac_cts_input_cta_v2_7_f.fields.version = ProtoField.new("Version", "siac.cts.input.cta.v2.7.f.version", ftypes.UINT8)
 
--- Siac Cts Input Cta 2.7.f Headers
+-- Siac Cts Input Cta 2.7.f Framing
 omi_siac_cts_input_cta_v2_7_f.fields.block_header = ProtoField.new("Block Header", "siac.cts.input.cta.v2.7.f.blockheader", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.message = ProtoField.new("Message", "siac.cts.input.cta.v2.7.f.message", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.message_header = ProtoField.new("Message Header", "siac.cts.input.cta.v2.7.f.messageheader", ftypes.STRING)
@@ -1786,7 +1786,7 @@ end
 siac_cts_input_cta_v2_7_f.reserved.dissect = function(buffer, offset, packet, parent)
   local length = siac_cts_input_cta_v2_7_f.reserved.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = siac_cts_input_cta_v2_7_f.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_cts_input_cta_v2_7_f.fields.reserved, range, value, display)
@@ -4629,7 +4629,7 @@ end
 
 -- Dissect: Timestamp 1
 siac_cts_input_cta_v2_7_f.timestamp_1.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1, buffer(offset, 0))
     local index = siac_cts_input_cta_v2_7_f.timestamp_1.fields(buffer, offset, packet, parent)

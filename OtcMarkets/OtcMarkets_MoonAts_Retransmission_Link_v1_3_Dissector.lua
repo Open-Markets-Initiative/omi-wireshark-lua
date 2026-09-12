@@ -78,7 +78,7 @@ omi_otcmarkets_moonats_retransmission_link_v1_3.fields.unsolicited = ProtoField.
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.moonats.retransmission.link.v1.3.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.user_id = ProtoField.new("User Id", "otcmarkets.moonats.retransmission.link.v1.3.userid", ftypes.STRING)
 
--- OtcMarkets MoonAts Retransmission Link 1.3 Headers
+-- OtcMarkets MoonAts Retransmission Link 1.3 Framing
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message = ProtoField.new("Message", "otcmarkets.moonats.retransmission.link.v1.3.message", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_header = ProtoField.new("Message Header", "otcmarkets.moonats.retransmission.link.v1.3.messageheader", ftypes.STRING)
 omi_otcmarkets_moonats_retransmission_link_v1_3.fields.packet = ProtoField.new("Packet", "otcmarkets.moonats.retransmission.link.v1.3.packet", ftypes.STRING)
@@ -116,10 +116,12 @@ local show = {}
 -- OtcMarkets MoonAts Retransmission Link 1.3 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register OtcMarkets MoonAts Retransmission Link 1.3 Show Options
 omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_otcmarkets_moonats_retransmission_link_v1_3.prefs_changed()
@@ -127,6 +129,9 @@ function omi_otcmarkets_moonats_retransmission_link_v1_3.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_application_messages then
     show.application_messages = omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_headers then
+    show.headers = omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_headers
   end
   if show.structs ~= omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_structs then
     show.structs = omi_otcmarkets_moonats_retransmission_link_v1_3.prefs.show_structs
@@ -3066,7 +3071,7 @@ end
 
 -- Dissect: Message Header
 otcmarkets_moonats_retransmission_link_v1_3.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_moonats_retransmission_link_v1_3.fields.message_header, buffer(offset, 0))
     local index = otcmarkets_moonats_retransmission_link_v1_3.message_header.fields(buffer, offset, packet, parent)

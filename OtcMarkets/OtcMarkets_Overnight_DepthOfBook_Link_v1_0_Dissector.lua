@@ -37,6 +37,7 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.next_sequence_number = Pro
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.ocio_only_closing_price = ProtoField.new("Ocio Only Closing Price", "otcmarkets.overnight.depthofbook.link.v1.0.ocioonlyclosingprice", ftypes.DOUBLE)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.order_flags = ProtoField.new("Order Flags", "otcmarkets.overnight.depthofbook.link.v1.0.orderflags", ftypes.UINT16)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.order_id = ProtoField.new("Order Id", "otcmarkets.overnight.depthofbook.link.v1.0.orderid", ftypes.STRING)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.overnight.depthofbook.link.v1.0.packetflag", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_milli = ProtoField.new("Packet Milli", "otcmarkets.overnight.depthofbook.link.v1.0.packetmilli", ftypes.UINT32)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.overnight.depthofbook.link.v1.0.packetsize", ftypes.UINT16)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.piggyback_flag = ProtoField.new("Piggyback Flag", "otcmarkets.overnight.depthofbook.link.v1.0.piggybackflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
@@ -72,11 +73,10 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.trading_session = ProtoFie
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.unsolicited = ProtoField.new("Unsolicited", "otcmarkets.overnight.depthofbook.link.v1.0.unsolicited", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.unsolicited_only_flag = ProtoField.new("Unsolicited Only Flag", "otcmarkets.overnight.depthofbook.link.v1.0.unsolicitedonlyflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 
--- OtcMarkets Overnight DepthOfBook Link 1.0 Headers
+-- OtcMarkets Overnight DepthOfBook Link 1.0 Framing
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message = ProtoField.new("Message", "otcmarkets.overnight.depthofbook.link.v1.0.message", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_header = ProtoField.new("Message Header", "otcmarkets.overnight.depthofbook.link.v1.0.messageheader", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet = ProtoField.new("Packet", "otcmarkets.overnight.depthofbook.link.v1.0.packet", ftypes.STRING)
-omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_flag = ProtoField.new("Packet Flag", "otcmarkets.overnight.depthofbook.link.v1.0.packetflag", ftypes.STRING)
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.overnight.depthofbook.link.v1.0.packetheader", ftypes.STRING)
 
 -- OtcMarkets Overnight DepthOfBook 1.0 Application Messages
@@ -105,11 +105,13 @@ local show = {}
 -- OtcMarkets Overnight DepthOfBook Link 1.0 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register OtcMarkets Overnight DepthOfBook Link 1.0 Show Options
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -118,6 +120,9 @@ function omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_application_messages then
     show.application_messages = omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_headers then
+    show.headers = omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_headers
   end
   if show.structs ~= omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_structs then
     show.structs = omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_structs
@@ -2280,7 +2285,7 @@ end
 
 -- Dissect: Message Header
 otcmarkets_overnight_depthofbook_link_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_header, buffer(offset, 0))
     local index = otcmarkets_overnight_depthofbook_link_v1_0.message_header.fields(buffer, offset, packet, parent)
@@ -2298,6 +2303,16 @@ end
 
 -- Message
 otcmarkets_overnight_depthofbook_link_v1_0.message = {}
+
+-- Read runtime size of: Message
+otcmarkets_overnight_depthofbook_link_v1_0.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):uint()
+
+  return message_size
+end
 
 -- Display: Message
 otcmarkets_overnight_depthofbook_link_v1_0.message.display = function(packet, parent, length)
@@ -2328,6 +2343,7 @@ end
 
 -- Dissect: Message
 otcmarkets_overnight_depthofbook_link_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = otcmarkets_overnight_depthofbook_link_v1_0.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -2345,6 +2361,45 @@ otcmarkets_overnight_depthofbook_link_v1_0.message.dissect = function(buffer, of
 
     return index
   end
+end
+
+-- Heartbeat Packet
+otcmarkets_overnight_depthofbook_link_v1_0.heartbeat_packet = {}
+
+-- Display: Heartbeat Packet
+otcmarkets_overnight_depthofbook_link_v1_0.heartbeat_packet.display = function(packet, parent, length)
+  return "Heartbeat Packet"
+end
+
+
+-- Dissect: Heartbeat Packet
+otcmarkets_overnight_depthofbook_link_v1_0.heartbeat_packet.dissect = function(buffer, offset, packet, parent)
+  local display = otcmarkets_overnight_depthofbook_link_v1_0.heartbeat_packet.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Message Block
+otcmarkets_overnight_depthofbook_link_v1_0.message_block = {}
+
+-- Dissect: Message Block
+otcmarkets_overnight_depthofbook_link_v1_0.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
+  -- Dissect Heartbeat Packet
+  if bit.band(packet_flag, 0x01) == 1 then
+    return otcmarkets_overnight_depthofbook_link_v1_0.heartbeat_packet.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, messages do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):uint()
+
+    -- Message: Struct of 2 fields
+    offset = otcmarkets_overnight_depthofbook_link_v1_0.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Packet Flag
@@ -2400,7 +2455,7 @@ end
 otcmarkets_overnight_depthofbook_link_v1_0.packet_flag.dissect = function(buffer, offset, packet, parent)
   local size = otcmarkets_overnight_depthofbook_link_v1_0.packet_flag.size
   local range = buffer(offset, size)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = otcmarkets_overnight_depthofbook_link_v1_0.packet_flag.display(range, value, packet, parent)
   local element = parent:add(omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_flag, range, display)
 
@@ -2451,7 +2506,7 @@ end
 
 -- Dissect: Packet Header
 otcmarkets_overnight_depthofbook_link_v1_0.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.packet_header, buffer(offset, 0))
     local index = otcmarkets_overnight_depthofbook_link_v1_0.packet_header.fields(buffer, offset, packet, parent)
@@ -2482,20 +2537,8 @@ otcmarkets_overnight_depthofbook_link_v1_0.packet.dissect = function(buffer, pac
   -- Packet Header: Struct of 5 fields
   index, packet_header = otcmarkets_overnight_depthofbook_link_v1_0.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
-
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):uint()
-
-    -- Runtime Size Of: Message
-    index, message = otcmarkets_overnight_depthofbook_link_v1_0.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Message Block: Runtime Type with 2 branches
+  index = otcmarkets_overnight_depthofbook_link_v1_0.message_block.dissect(buffer, index, packet, parent, heartbeat)
 
   return index
 end

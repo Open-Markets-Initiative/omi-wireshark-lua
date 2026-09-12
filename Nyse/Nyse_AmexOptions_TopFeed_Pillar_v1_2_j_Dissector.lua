@@ -54,8 +54,6 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.market_id = ProtoField.new("Ma
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.market_imbalance_qty = ProtoField.new("Market Imbalance Qty", "nyse.amexoptions.topfeed.pillar.v1.2.j.marketimbalanceqty", ftypes.UINT32)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.market_state = ProtoField.new("Market State", "nyse.amexoptions.topfeed.pillar.v1.2.j.marketstate", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.amexoptions.topfeed.pillar.v1.2.j.maturitydate", ftypes.STRING)
-omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.message = ProtoField.new("Message", "nyse.amexoptions.topfeed.pillar.v1.2.j.message", ftypes.STRING)
-omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.topfeed.pillar.v1.2.j.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.message_size = ProtoField.new("Message Size", "nyse.amexoptions.topfeed.pillar.v1.2.j.messagesize", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.message_type = ProtoField.new("Message Type", "nyse.amexoptions.topfeed.pillar.v1.2.j.messagetype", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexoptions.topfeed.pillar.v1.2.j.nanoseconds", ftypes.UINT32)
@@ -92,6 +90,8 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.second_reserved_4 = ProtoField
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.topfeed.pillar.v1.2.j.seconds", ftypes.UINT32)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.topfeed.pillar.v1.2.j.securitystatus", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.security_type = ProtoField.new("Security Type", "nyse.amexoptions.topfeed.pillar.v1.2.j.securitytype", ftypes.STRING)
+omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.topfeed.pillar.v1.2.j.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexoptions.topfeed.pillar.v1.2.j.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.seq_num = ProtoField.new("Seq Num", "nyse.amexoptions.topfeed.pillar.v1.2.j.seqnum", ftypes.UINT32)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.series_index = ProtoField.new("Series Index", "nyse.amexoptions.topfeed.pillar.v1.2.j.seriesindex", ftypes.UINT32)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.series_seq_num = ProtoField.new("Series Seq Num", "nyse.amexoptions.topfeed.pillar.v1.2.j.seriesseqnum", ftypes.UINT32)
@@ -129,11 +129,11 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.upper_collar = ProtoField.new(
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.volume = ProtoField.new("Volume", "nyse.amexoptions.topfeed.pillar.v1.2.j.volume", ftypes.UINT32)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.topfeed.pillar.v1.2.j.workingprice", ftypes.INT32)
 
--- Nyse AmexOptions TopFeed Pillar 1.2.j Headers
+-- Nyse AmexOptions TopFeed Pillar 1.2.j Framing
+omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.message = ProtoField.new("Message", "nyse.amexoptions.topfeed.pillar.v1.2.j.message", ftypes.STRING)
+omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.topfeed.pillar.v1.2.j.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.topfeed.pillar.v1.2.j.packet", ftypes.STRING)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.topfeed.pillar.v1.2.j.packetheader", ftypes.STRING)
-omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.topfeed.pillar.v1.2.j.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexoptions.topfeed.pillar.v1.2.j.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse AmexOptions TopFeed 1.2.j Application Messages
 omi_nyse_amexoptions_topfeed_pillar_v1_2_j.fields.complex_series_index_mapping_message = ProtoField.new("Complex Series Index Mapping Message", "nyse.amexoptions.topfeed.pillar.v1.2.j.complexseriesindexmappingmessage", ftypes.STRING)

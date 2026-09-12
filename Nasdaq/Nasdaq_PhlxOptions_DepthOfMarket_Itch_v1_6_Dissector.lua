@@ -41,9 +41,7 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.imbalance_price = ProtoFie
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.imbalancevolume", ftypes.UINT32)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.market_side = ProtoField.new("Market Side", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.marketside", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.match_number = ProtoField.new("Match Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.matchnumber", ftypes.UINT32)
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.message", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message_count = ProtoField.new("Message Count", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.messagecount", ftypes.UINT16)
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.messageheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message_length = ProtoField.new("Message Length", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.messagelength", ftypes.UINT16)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.messagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.mpv = ProtoField.new("Mpv", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.mpv", ftypes.STRING)
@@ -80,7 +78,9 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.trade_indicator = ProtoFie
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.volume", ftypes.UINT32)
 
--- Nasdaq PhlxOptions DepthOfMarket Itch 1.6 Headers
+-- Nasdaq PhlxOptions DepthOfMarket Itch 1.6 Framing
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.message", ftypes.STRING)
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.messageheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.packet", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.packetheader", ftypes.STRING)
 

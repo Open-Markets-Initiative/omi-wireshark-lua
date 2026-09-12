@@ -78,7 +78,7 @@ omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.trading_system_time_stamp = Pr
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.volume = ProtoField.new("Volume", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.volume", ftypes.UINT32)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.vwap = ProtoField.new("Vwap", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.vwap", ftypes.DOUBLE)
 
--- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Headers
+-- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Framing
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body = ProtoField.new("Body", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.body", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_header = ProtoField.new("Body Header", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bodyheader", ftypes.STRING)
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_message = ProtoField.new("Body Message", "tmx.quantumfeed.tsxtsxvlevel1.xmt.v2.6.bodymessage", ftypes.STRING)
@@ -105,11 +105,13 @@ local show = {}
 
 -- Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Element Dissection Options
 show.structs = true
+show.headers = true
 show.application_messages = true
 show.indexes = true
 
 -- Register Tmx QuantumFeed TsxTsxvLevel1 Xmt 2.6 Show Options
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -119,6 +121,9 @@ function omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages then
     show.application_messages = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_application_messages
+  end
+  if show.headers ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_headers then
+    show.headers = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_headers
   end
   if show.structs ~= omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_structs then
     show.structs = omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.prefs.show_structs
@@ -2438,7 +2443,7 @@ end
 
 -- Dissect: Business Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.business_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.business_header.fields(buffer, offset, packet, parent)
@@ -2527,7 +2532,7 @@ end
 
 -- Dissect: Body Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.body_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.body_header.fields(buffer, offset, packet, parent)
@@ -2645,7 +2650,7 @@ end
 
 -- Dissect: Frame Header
 tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.fields.frame_header, buffer(offset, 0))
     local index = tmx_quantumfeed_tsxtsxvlevel1_xmt_v2_6.frame_header.fields(buffer, offset, packet, parent)

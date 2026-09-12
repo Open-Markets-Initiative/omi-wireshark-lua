@@ -57,7 +57,7 @@ omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.timestamp = ProtoField.n
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incremental.gtp.v26.1.2.tradingstatus", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2incremental.gtp.v26.1.2.venueinstrumentid", ftypes.STRING)
 
--- Lseg TradeEcho Level2Incremental Gtp 26.1.2 Headers
+-- Lseg TradeEcho Level2Incremental Gtp 26.1.2 Framing
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.message = ProtoField.new("Message", "lseg.tradeecho.level2incremental.gtp.v26.1.2.message", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.message_header = ProtoField.new("Message Header", "lseg.tradeecho.level2incremental.gtp.v26.1.2.messageheader", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.packet = ProtoField.new("Packet", "lseg.tradeecho.level2incremental.gtp.v26.1.2.packet", ftypes.STRING)

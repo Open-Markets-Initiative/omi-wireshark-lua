@@ -28,7 +28,7 @@ omi_nse_nsecd_snapshot_binary_v6_8.fields.timestamp = ProtoField.new("Timestamp"
 omi_nse_nsecd_snapshot_binary_v6_8.fields.token = ProtoField.new("Token", "nse.nsecd.snapshot.binary.v6.8.token", ftypes.INT32)
 omi_nse_nsecd_snapshot_binary_v6_8.fields.trans_code = ProtoField.new("Trans Code", "nse.nsecd.snapshot.binary.v6.8.transcode", ftypes.INT16)
 
--- Nse NseCd Snapshot Binary 6.8 Headers
+-- Nse NseCd Snapshot Binary 6.8 Framing
 omi_nse_nsecd_snapshot_binary_v6_8.fields.message = ProtoField.new("Message", "nse.nsecd.snapshot.binary.v6.8.message", ftypes.STRING)
 omi_nse_nsecd_snapshot_binary_v6_8.fields.packet = ProtoField.new("Packet", "nse.nsecd.snapshot.binary.v6.8.packet", ftypes.STRING)
 omi_nse_nsecd_snapshot_binary_v6_8.fields.snapshot_header = ProtoField.new("Snapshot Header", "nse.nsecd.snapshot.binary.v6.8.snapshotheader", ftypes.STRING)
@@ -47,13 +47,15 @@ omi_nse_nsecd_snapshot_binary_v6_8.fields.message_index = ProtoField.new("Messag
 local show = {}
 
 -- Nse NseCd Snapshot Binary 6.8 Element Dissection Options
-show.structs = true
+show.headers = true
 show.application_messages = true
+show.structs = true
 show.indexes = true
 
 -- Register Nse NseCd Snapshot Binary 6.8 Show Options
-omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -62,6 +64,9 @@ function omi_nse_nsecd_snapshot_binary_v6_8.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_application_messages then
     show.application_messages = omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_headers then
+    show.headers = omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_headers
   end
   if show.structs ~= omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_structs then
     show.structs = omi_nse_nsecd_snapshot_binary_v6_8.prefs.show_structs
@@ -572,7 +577,7 @@ end
 
 -- Dissect: Message
 nse_nsecd_snapshot_binary_v6_8.message.dissect = function(buffer, offset, packet, parent, message_index)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecd_snapshot_binary_v6_8.fields.message, buffer(offset, 0))
     local index = nse_nsecd_snapshot_binary_v6_8.message.fields(buffer, offset, packet, parent, message_index)
@@ -628,7 +633,7 @@ end
 
 -- Dissect: Snapshot Header
 nse_nsecd_snapshot_binary_v6_8.snapshot_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecd_snapshot_binary_v6_8.fields.snapshot_header, buffer(offset, 0))
     local index = nse_nsecd_snapshot_binary_v6_8.snapshot_header.fields(buffer, offset, packet, parent)

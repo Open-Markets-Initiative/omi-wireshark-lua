@@ -92,8 +92,6 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reprice_frequency = ProtoFie
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "blueoceanats.blueequities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserved_13 = ProtoField.new("Reserved 13", "blueoceanats.blueequities.memo.sbe.v1.13.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk Group Id", "blueoceanats.blueequities.memo.sbe.v1.13.riskgroupid", ftypes.UINT16)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.blueequities.memo.sbe.v1.13.sbeheader", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.blueequities.memo.sbe.v1.13.sbemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.blueequities.memo.sbe.v1.13.schemaid", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "blueoceanats.blueequities.memo.sbe.v1.13.securitygroup", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "blueoceanats.blueequities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8)
@@ -123,9 +121,11 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memo.sbe.v1.13.version", ftypes.UINT16)
 
--- BlueOceanAts BlueEquities Memo Sbe 1.13 Headers
+-- BlueOceanAts BlueEquities Memo Sbe 1.13 Framing
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.common_header = ProtoField.new("Common Header", "blueoceanats.blueequities.memo.sbe.v1.13.commonheader", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.packet = ProtoField.new("Packet", "blueoceanats.blueequities.memo.sbe.v1.13.packet", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.blueequities.memo.sbe.v1.13.sbeheader", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.blueequities.memo.sbe.v1.13.sbemessage", ftypes.STRING)
 
 -- BlueOceanAts BlueEquities Memo 1.13 Application Messages
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "blueoceanats.blueequities.memo.sbe.v1.13.executionreportcanceledmessage", ftypes.STRING)

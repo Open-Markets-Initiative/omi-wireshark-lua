@@ -119,6 +119,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.mass_cancel_id = ProtoField
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.masscancelinst", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.cfefutures.binaryorderentry.boe.v1.3.matchingunit", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.maturitydate", ftypes.UINT32)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe.v1.3.messageheader", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.binaryorderentry.boe.v1.3.messagelength", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.messagetype", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.min_qty = ProtoField.new("Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.minqty", ftypes.UINT32)
@@ -740,8 +741,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_restatement_time_i
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_restatement_trade_date_exists = ProtoField.new("Variance Restatement Trade Date Exists", "cboe.cfefutures.binaryorderentry.boe.v1.3.variancerestatementtradedateexists", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.working_price = ProtoField.new("Working Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.workingprice", ftypes.UINT64)
 
--- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Headers
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe.v1.3.messageheader", ftypes.STRING)
+-- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Framing
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe.v1.3.packet", ftypes.STRING)
 
 -- Cboe CfeFutures BinaryOrderEntry 1.3 Application Messages

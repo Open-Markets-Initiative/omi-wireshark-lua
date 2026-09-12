@@ -89,7 +89,7 @@ omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.trading_session = ProtoField.new("Tr
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.nyseequities.bbo.xdp.v2.4.g.tradingsessionchangemessage", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.bbo.xdp.v2.4.g.unitoftrade", ftypes.UINT16)
 
--- Nyse NyseEquities Bbo Xdp 2.4.g Headers
+-- Nyse NyseEquities Bbo Xdp 2.4.g Framing
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message = ProtoField.new("Message", "nyse.nyseequities.bbo.xdp.v2.4.g.message", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_header = ProtoField.new("Message Header", "nyse.nyseequities.bbo.xdp.v2.4.g.messageheader", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.bbo.xdp.v2.4.g.packet", ftypes.STRING)
@@ -106,16 +106,21 @@ local show = {}
 
 -- Nyse NyseEquities Bbo Xdp 2.4.g Element Dissection Options
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Nyse NyseEquities Bbo Xdp 2.4.g Show Options
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_headers then
+    show.headers = omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_headers
+  end
   if show.structs ~= omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_structs then
     show.structs = omi_nyse_nyseequities_bbo_xdp_v2_4_g.prefs.show_structs
   end
@@ -2824,7 +2829,7 @@ end
 
 -- Dissect: Message Header
 nyse_nyseequities_bbo_xdp_v2_4_g.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_header, buffer(offset, 0))
     local index = nyse_nyseequities_bbo_xdp_v2_4_g.message_header.fields(buffer, offset, packet, parent)
@@ -2935,7 +2940,7 @@ end
 
 -- Dissect: Packet Header
 nyse_nyseequities_bbo_xdp_v2_4_g.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.packet_header, buffer(offset, 0))
     local index = nyse_nyseequities_bbo_xdp_v2_4_g.packet_header.fields(buffer, offset, packet, parent)

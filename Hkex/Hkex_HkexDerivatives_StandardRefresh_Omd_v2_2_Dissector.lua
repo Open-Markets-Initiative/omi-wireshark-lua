@@ -119,7 +119,7 @@ omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.vcm_lower_price = Proto
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexderivatives.standardrefresh.omd.v2.2.vcmreferenceprice", ftypes.INT64)
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexderivatives.standardrefresh.omd.v2.2.vcmupperprice", ftypes.INT64)
 
--- Hkex HkexDerivatives StandardRefresh Omd 2.2 Headers
+-- Hkex HkexDerivatives StandardRefresh Omd 2.2 Framing
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.standardrefresh.omd.v2.2.message", ftypes.STRING)
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.standardrefresh.omd.v2.2.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.standardrefresh.omd.v2.2.packet", ftypes.STRING)

@@ -25,7 +25,7 @@ omi_memx_memxequities_commonheader_udp_v1_1.fields.sequence_number = ProtoField.
 omi_memx_memxequities_commonheader_udp_v1_1.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.commonheader.udp.v1.1.sequencedmessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_udp_v1_1.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.commonheader.udp.v1.1.sessionid", ftypes.UINT64)
 
--- Memx MemxEquities CommonHeader Udp 1.1 Headers
+-- Memx MemxEquities CommonHeader Udp 1.1 Framing
 omi_memx_memxequities_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.commonheader.udp.v1.1.commonheader", ftypes.STRING)
 omi_memx_memxequities_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.commonheader.udp.v1.1.packet", ftypes.STRING)
 
@@ -39,10 +39,12 @@ omi_memx_memxequities_commonheader_udp_v1_1.fields.message_index = ProtoField.ne
 local show = {}
 
 -- Memx MemxEquities CommonHeader Udp 1.1 Element Dissection Options
+show.headers = true
 show.structs = true
 show.indexes = true
 
 -- Register Memx MemxEquities CommonHeader Udp 1.1 Show Options
+omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -50,6 +52,9 @@ omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_indexes = Pref.bool("Show
 function omi_memx_memxequities_commonheader_udp_v1_1.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_headers then
+    show.headers = omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_headers
+  end
   if show.structs ~= omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_structs then
     show.structs = omi_memx_memxequities_commonheader_udp_v1_1.prefs.show_structs
   end
@@ -438,7 +443,7 @@ end
 
 -- Dissect: Common Header
 memx_memxequities_commonheader_udp_v1_1.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_udp_v1_1.fields.common_header, buffer(offset, 0))
     local index = memx_memxequities_commonheader_udp_v1_1.common_header.fields(buffer, offset, packet, parent)

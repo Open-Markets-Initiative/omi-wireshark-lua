@@ -21,7 +21,7 @@ omi_aquis_aquisequities_udpheader_amd_v1_0.fields.msg_type = ProtoField.new("Msg
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.payload = ProtoField.new("Payload", "aquis.aquisequities.udpheader.amd.v1.0.payload", ftypes.BYTES)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.udpheader.amd.v1.0.seqno", ftypes.UINT32)
 
--- Aquis AquisEquities UdpHeader Amd 1.0 Headers
+-- Aquis AquisEquities UdpHeader Amd 1.0 Framing
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.udpheader.amd.v1.0.message", ftypes.STRING)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.udpheader.amd.v1.0.messageheader", ftypes.STRING)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.udpheader.amd.v1.0.packet", ftypes.STRING)

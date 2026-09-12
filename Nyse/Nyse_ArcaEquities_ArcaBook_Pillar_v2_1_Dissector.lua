@@ -35,6 +35,8 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.pkt_size = ProtoField.new("Pkt
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.reason_code = ProtoField.new("Reason Code", "nyse.arcaequities.arcabook.pillar.v2.1.reasoncode", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.UINT32)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.arcabook.pillar.v2.1.seqnum", ftypes.UINT32)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.side = ProtoField.new("Side", "nyse.arcaequities.arcabook.pillar.v2.1.side", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetime", ftypes.UINT32)
@@ -47,13 +49,11 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.trade_id = ProtoField.new("Tra
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.trade_session = ProtoField.new("Trade Session", "nyse.arcaequities.arcabook.pillar.v2.1.tradesession", ftypes.UINT8)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.arcabook.pillar.v2.1.volume", ftypes.UINT32)
 
--- Nyse ArcaEquities ArcaBook Pillar 2.1 Headers
+-- Nyse ArcaEquities ArcaBook Pillar 2.1 Framing
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message = ProtoField.new("Message", "nyse.arcaequities.arcabook.pillar.v2.1.message", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.arcabook.pillar.v2.1.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.arcabook.pillar.v2.1.packet", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.arcabook.pillar.v2.1.packetheader", ftypes.STRING)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Nyse ArcaEquities ArcaBook 2.1 Application Messages
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.arcaequities.arcabook.pillar.v2.1.addordermessage", ftypes.STRING)
@@ -1649,6 +1649,16 @@ end
 -- Message
 nyse_arcaequities_arcabook_pillar_v2_1.message = {}
 
+-- Read runtime size of: Message
+nyse_arcaequities_arcabook_pillar_v2_1.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Size
+  local message_size = buffer(offset, 2):le_uint()
+
+  return message_size
+end
+
 -- Display: Message
 nyse_arcaequities_arcabook_pillar_v2_1.message.display = function(packet, parent, length)
   return ""
@@ -1684,6 +1694,7 @@ end
 
 -- Dissect: Message
 nyse_arcaequities_arcabook_pillar_v2_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nyse_arcaequities_arcabook_pillar_v2_1.message.size(buffer, offset)
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
@@ -1701,6 +1712,45 @@ nyse_arcaequities_arcabook_pillar_v2_1.message.dissect = function(buffer, offset
 
     return index
   end
+end
+
+-- Heartbeat
+nyse_arcaequities_arcabook_pillar_v2_1.heartbeat = {}
+
+-- Display: Heartbeat
+nyse_arcaequities_arcabook_pillar_v2_1.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nyse_arcaequities_arcabook_pillar_v2_1.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_arcaequities_arcabook_pillar_v2_1.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nyse_arcaequities_arcabook_pillar_v2_1.messages = {}
+
+-- Dissect: Messages
+nyse_arcaequities_arcabook_pillar_v2_1.messages.dissect = function(buffer, offset, packet, parent, delivery_flag)
+  -- Dissect Heartbeat
+  if delivery_flag == 1 then
+    return nyse_arcaequities_arcabook_pillar_v2_1.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Repeating: Message
+  for message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(offset, 2):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = nyse_arcaequities_arcabook_pillar_v2_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+
+  return offset
 end
 
 -- Send Time
@@ -1838,20 +1888,11 @@ nyse_arcaequities_arcabook_pillar_v2_1.packet.dissect = function(buffer, packet,
   -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_arcaequities_arcabook_pillar_v2_1.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Delivery Flag
+  local delivery_flag = buffer(index - 14, 1):le_uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Dependency element: Message Size
-    local message_size = buffer(index, 2):le_uint()
-
-    -- Runtime Size Of: Message
-    index, message = nyse_arcaequities_arcabook_pillar_v2_1.message.dissect(buffer, index, packet, parent, message_size, message_index)
-  end
+  -- Messages: Runtime Type with 2 branches
+  index = nyse_arcaequities_arcabook_pillar_v2_1.messages.dissect(buffer, index, packet, parent, delivery_flag)
 
   return index
 end

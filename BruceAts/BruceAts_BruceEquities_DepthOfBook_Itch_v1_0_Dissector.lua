@@ -22,9 +22,7 @@ omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.best_offer_price = Proto
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.best_offer_size = ProtoField.new("Best Offer Size", "bruceats.bruceequities.depthofbook.itch.v1.0.bestoffersize", ftypes.UINT32)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.event_code = ProtoField.new("Event Code", "bruceats.bruceequities.depthofbook.itch.v1.0.eventcode", ftypes.STRING)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.market_category = ProtoField.new("Market Category", "bruceats.bruceequities.depthofbook.itch.v1.0.marketcategory", ftypes.STRING)
-omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message = ProtoField.new("Message", "bruceats.bruceequities.depthofbook.itch.v1.0.message", ftypes.STRING)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_count = ProtoField.new("Message Count", "bruceats.bruceequities.depthofbook.itch.v1.0.messagecount", ftypes.UINT16)
-omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "bruceats.bruceequities.depthofbook.itch.v1.0.messageheader", ftypes.STRING)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_length = ProtoField.new("Message Length", "bruceats.bruceequities.depthofbook.itch.v1.0.messagelength", ftypes.UINT16)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_type = ProtoField.new("Message Type", "bruceats.bruceequities.depthofbook.itch.v1.0.messagetype", ftypes.STRING)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "bruceats.bruceequities.depthofbook.itch.v1.0.regshoaction", ftypes.STRING)
@@ -36,7 +34,9 @@ omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.stock_locate = ProtoFiel
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.depthofbook.itch.v1.0.timestamp", ftypes.UINT64)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.trading_state = ProtoField.new("Trading State", "bruceats.bruceequities.depthofbook.itch.v1.0.tradingstate", ftypes.STRING)
 
--- BruceAts BruceEquities DepthOfBook Itch 1.0 Headers
+-- BruceAts BruceEquities DepthOfBook Itch 1.0 Framing
+omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message = ProtoField.new("Message", "bruceats.bruceequities.depthofbook.itch.v1.0.message", ftypes.STRING)
+omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "bruceats.bruceequities.depthofbook.itch.v1.0.messageheader", ftypes.STRING)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.depthofbook.itch.v1.0.packet", ftypes.STRING)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.depthofbook.itch.v1.0.packetheader", ftypes.STRING)
 

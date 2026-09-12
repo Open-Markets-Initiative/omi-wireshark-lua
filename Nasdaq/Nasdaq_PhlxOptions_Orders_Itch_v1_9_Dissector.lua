@@ -38,8 +38,6 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.length = ProtoField.new("Length",
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.phlxoptions.orders.itch.v1.9.limitprice", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.market_qualifier = ProtoField.new("Market Qualifier", "nasdaq.phlxoptions.orders.itch.v1.9.marketqualifier", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.matched_volume = ProtoField.new("Matched Volume", "nasdaq.phlxoptions.orders.itch.v1.9.matchedvolume", ftypes.UINT32)
-omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.orders.itch.v1.9.message", ftypes.STRING)
-omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.orders.itch.v1.9.messageheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.orders.itch.v1.9.messagetype", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.month = ProtoField.new("Month", "nasdaq.phlxoptions.orders.itch.v1.9.month", ftypes.UINT16, nil, base.DEC, 0x01E0)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlxoptions.orders.itch.v1.9.nanoseconds", ftypes.UINT32)
@@ -69,7 +67,9 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.version = ProtoField.new("Version
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.orders.itch.v1.9.volume", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.year = ProtoField.new("Year", "nasdaq.phlxoptions.orders.itch.v1.9.year", ftypes.UINT16, nil, base.DEC, 0xFE00)
 
--- Nasdaq PhlxOptions Orders Itch 1.9 Headers
+-- Nasdaq PhlxOptions Orders Itch 1.9 Framing
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.orders.itch.v1.9.message", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.orders.itch.v1.9.messageheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.orders.itch.v1.9.packet", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.orders.itch.v1.9.packetheader", ftypes.STRING)
 
@@ -2584,7 +2584,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_phlxoptions_orders_itch_v1_9.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_header, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.message_header.fields(buffer, offset, packet, parent)

@@ -58,7 +58,7 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.trading_status = ProtoField.n
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.update_size = ProtoField.new("Update Size", "nyse.nyseequities.openbook.ultra.v2.1.k.updatesize", ftypes.INT16)
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.volume = ProtoField.new("Volume", "nyse.nyseequities.openbook.ultra.v2.1.k.volume", ftypes.INT32)
 
--- Nyse NyseEquities OpenBook Ultra 2.1.k Headers
+-- Nyse NyseEquities OpenBook Ultra 2.1.k Framing
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.openbook.ultra.v2.1.k.packet", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.openbook.ultra.v2.1.k.packetheader", ftypes.STRING)
 

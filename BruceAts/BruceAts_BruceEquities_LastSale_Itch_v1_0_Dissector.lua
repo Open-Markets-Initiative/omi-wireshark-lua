@@ -19,9 +19,7 @@ omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.authenticity = ProtoField.n
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.event_code = ProtoField.new("Event Code", "bruceats.bruceequities.lastsale.itch.v1.0.eventcode", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.market_category = ProtoField.new("Market Category", "bruceats.bruceequities.lastsale.itch.v1.0.marketcategory", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.match_id = ProtoField.new("Match Id", "bruceats.bruceequities.lastsale.itch.v1.0.matchid", ftypes.UINT64)
-omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message = ProtoField.new("Message", "bruceats.bruceequities.lastsale.itch.v1.0.message", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_count = ProtoField.new("Message Count", "bruceats.bruceequities.lastsale.itch.v1.0.messagecount", ftypes.UINT16)
-omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "bruceats.bruceequities.lastsale.itch.v1.0.messageheader", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_length = ProtoField.new("Message Length", "bruceats.bruceequities.lastsale.itch.v1.0.messagelength", ftypes.UINT16)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_type = ProtoField.new("Message Type", "bruceats.bruceequities.lastsale.itch.v1.0.messagetype", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.price = ProtoField.new("Price", "bruceats.bruceequities.lastsale.itch.v1.0.price", ftypes.DOUBLE)
@@ -35,7 +33,9 @@ omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.stock_locate = ProtoField.n
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.lastsale.itch.v1.0.timestamp", ftypes.UINT64)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.trading_state = ProtoField.new("Trading State", "bruceats.bruceequities.lastsale.itch.v1.0.tradingstate", ftypes.STRING)
 
--- BruceAts BruceEquities LastSale Itch 1.0 Headers
+-- BruceAts BruceEquities LastSale Itch 1.0 Framing
+omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message = ProtoField.new("Message", "bruceats.bruceequities.lastsale.itch.v1.0.message", ftypes.STRING)
+omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_header = ProtoField.new("Message Header", "bruceats.bruceequities.lastsale.itch.v1.0.messageheader", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.lastsale.itch.v1.0.packet", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.lastsale.itch.v1.0.packetheader", ftypes.STRING)
 

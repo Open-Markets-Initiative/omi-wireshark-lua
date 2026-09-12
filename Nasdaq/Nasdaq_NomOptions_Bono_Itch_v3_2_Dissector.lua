@@ -29,9 +29,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.event_code = ProtoField.new("Event C
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.nomoptions.bono.itch.v3.2.expirationday", ftypes.UINT8)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.nomoptions.bono.itch.v3.2.expirationmonth", ftypes.UINT8)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.nomoptions.bono.itch.v3.2.expirationyear", ftypes.UINT8)
-omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message = ProtoField.new("Message", "nasdaq.nomoptions.bono.itch.v3.2.message", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_count = ProtoField.new("Message Count", "nasdaq.nomoptions.bono.itch.v3.2.messagecount", ftypes.UINT16)
-omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.nomoptions.bono.itch.v3.2.messageheader", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_length = ProtoField.new("Message Length", "nasdaq.nomoptions.bono.itch.v3.2.messagelength", ftypes.UINT16)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_type = ProtoField.new("Message Type", "nasdaq.nomoptions.bono.itch.v3.2.messagetype", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.mpv = ProtoField.new("Mpv", "nasdaq.nomoptions.bono.itch.v3.2.mpv", ftypes.STRING)
@@ -61,7 +59,9 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.underlying_symbol = ProtoField.new("
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.version = ProtoField.new("Version", "nasdaq.nomoptions.bono.itch.v3.2.version", ftypes.UINT8)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.volume = ProtoField.new("Volume", "nasdaq.nomoptions.bono.itch.v3.2.volume", ftypes.UINT32)
 
--- Nasdaq NomOptions Bono Itch 3.2 Headers
+-- Nasdaq NomOptions Bono Itch 3.2 Framing
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message = ProtoField.new("Message", "nasdaq.nomoptions.bono.itch.v3.2.message", ftypes.STRING)
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.nomoptions.bono.itch.v3.2.messageheader", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet = ProtoField.new("Packet", "nasdaq.nomoptions.bono.itch.v3.2.packet", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nomoptions.bono.itch.v3.2.packetheader", ftypes.STRING)
 

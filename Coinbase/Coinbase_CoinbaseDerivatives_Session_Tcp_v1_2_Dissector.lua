@@ -18,6 +18,7 @@ local coinbase_coinbasederivatives_session_tcp_v1_2 = {}
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.block_length = ProtoField.new("Block Length", "coinbase.coinbasederivatives.session.tcp.v1.2.blocklength", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.coinbasederivatives.session.tcp.v1.2.correlationid", ftypes.INT64)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.details = ProtoField.new("Details", "coinbase.coinbasederivatives.session.tcp.v1.2.details", ftypes.STRING)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.flags", ftypes.UINT8)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.fromsequencenumber", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.coinbasederivatives.session.tcp.v1.2.heartbeatintervalseconds", ftypes.INT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.session.tcp.v1.2.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -41,8 +42,7 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.to_sequence_number = Pr
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.username = ProtoField.new("Username", "coinbase.coinbasederivatives.session.tcp.v1.2.username", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.session.tcp.v1.2.version", ftypes.UINT16)
 
--- Coinbase CoinbaseDerivatives Session Tcp 1.2 Headers
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.flags", ftypes.UINT8)
+-- Coinbase CoinbaseDerivatives Session Tcp 1.2 Framing
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_header = ProtoField.new("Message Header", "coinbase.coinbasederivatives.session.tcp.v1.2.messageheader", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.packet = ProtoField.new("Packet", "coinbase.coinbasederivatives.session.tcp.v1.2.packet", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.coinbasederivatives.session.tcp.v1.2.sbemessage", ftypes.STRING)
@@ -67,10 +67,12 @@ local show = {}
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Coinbase CoinbaseDerivatives Session Tcp 1.2 Show Options
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()
@@ -78,6 +80,9 @@ function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_messages then
     show.application_messages = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_messages
+  end
+  if show.headers ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_headers then
+    show.headers = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_headers
   end
   if show.structs ~= omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_structs then
     show.structs = omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_structs
@@ -1305,7 +1310,7 @@ end
 
 -- Dissect: Message Header
 coinbase_coinbasederivatives_session_tcp_v1_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_header, buffer(offset, 0))
     local index = coinbase_coinbasederivatives_session_tcp_v1_2.message_header.fields(buffer, offset, packet, parent)

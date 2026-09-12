@@ -49,7 +49,6 @@ omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.requested_session = 
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.reserved = ProtoField.new("Reserved", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.reserved", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sequencenumber", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sequenceddatapacket", ftypes.STRING)
-omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sequencedmessageheader", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sequencedmessagetype", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.session = ProtoField.new("Session", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.session", ftypes.STRING)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.shares_extended = ProtoField.new("Shares Extended", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sharesextended", ftypes.STRING)
@@ -72,8 +71,9 @@ omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.unsequenced_data_pac
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.unsequencedmessage", ftypes.BYTES)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.username = ProtoField.new("Username", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.username", ftypes.STRING)
 
--- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Headers
+-- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Framing
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.packet = ProtoField.new("Packet", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.packet", ftypes.STRING)
+omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.sequencedmessageheader", ftypes.STRING)
 
 -- Cboe CxeEquities TcpDepthOfBook 4.34 Application Messages
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.add_order_message = ProtoField.new("Add Order Message", "cboe.cxeequities.tcpdepthofbook.asciipitch.v4.34.addordermessage", ftypes.STRING)
@@ -119,10 +119,12 @@ local show = {}
 -- Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 
 -- Register Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34 Show Options
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
 omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 0, "Hours behind UTC (GMT) for midnight calculation")
@@ -133,6 +135,9 @@ function omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_application_messages then
     show.application_messages = omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_headers then
+    show.headers = omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_headers
   end
   if show.structs ~= omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_structs then
     show.structs = omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.prefs.show_structs
@@ -2581,7 +2586,7 @@ end
 
 -- Dissect: Sequenced Message Header
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.sequenced_message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.fields.sequenced_message_header, buffer(offset, 0))
     local index = cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.sequenced_message_header.fields(buffer, offset, packet, parent)

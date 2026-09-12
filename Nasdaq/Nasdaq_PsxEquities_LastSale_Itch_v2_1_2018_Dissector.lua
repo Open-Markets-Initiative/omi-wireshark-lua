@@ -39,9 +39,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.luld_reference_price_tier 
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.lastsale.itch.v2.1.2018.marketcategory", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.psxequities.lastsale.itch.v2.1.2018.marketcenteridentifier", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.market_code = ProtoField.new("Market Code", "nasdaq.psxequities.lastsale.itch.v2.1.2018.marketcode", ftypes.STRING)
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message = ProtoField.new("Message", "nasdaq.psxequities.lastsale.itch.v2.1.2018.message", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.lastsale.itch.v2.1.2018.messagecount", ftypes.UINT16)
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.lastsale.itch.v2.1.2018.messageheader", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.lastsale.itch.v2.1.2018.messagelength", ftypes.UINT16)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.lastsale.itch.v2.1.2018.messagetype", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.nav_premium_discount_amount = ProtoField.new("Nav Premium Discount Amount", "nasdaq.psxequities.lastsale.itch.v2.1.2018.navpremiumdiscountamount", ftypes.DOUBLE)
@@ -72,7 +70,9 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.trade_price = ProtoField.n
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.psxequities.lastsale.itch.v2.1.2018.tradesize", ftypes.UINT32)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.psxequities.lastsale.itch.v2.1.2018.tradingactionreason", ftypes.STRING)
 
--- Nasdaq PsxEquities LastSale Itch 2.1.2018 Headers
+-- Nasdaq PsxEquities LastSale Itch 2.1.2018 Framing
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message = ProtoField.new("Message", "nasdaq.psxequities.lastsale.itch.v2.1.2018.message", ftypes.STRING)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.lastsale.itch.v2.1.2018.messageheader", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.2018.packet", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.2018.packetheader", ftypes.STRING)
 
@@ -120,14 +120,14 @@ local show = {}
 
 -- Nasdaq PsxEquities LastSale Itch 2.1.2018 Element Dissection Options
 show.structs = true
-show.application_messages = true
 show.headers = true
+show.application_messages = true
 show.indexes = true
 
 -- Register Nasdaq PsxEquities LastSale Itch 2.1.2018 Show Options
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
@@ -3113,7 +3113,7 @@ end
 
 -- Dissect: Message Header
 nasdaq_psxequities_lastsale_itch_v2_1_2018.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_psxequities_lastsale_itch_v2_1_2018.fields.message_header, buffer(offset, 0))
     local index = nasdaq_psxequities_lastsale_itch_v2_1_2018.message_header.fields(buffer, offset, packet, parent)

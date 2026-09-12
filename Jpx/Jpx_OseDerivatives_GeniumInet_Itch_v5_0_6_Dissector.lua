@@ -38,9 +38,7 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.long_name = ProtoField.new(
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.lot_type = ProtoField.new("Lot Type", "jpx.osederivatives.geniuminet.itch.v5.0.6.lottype", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.market_bid = ProtoField.new("Market Bid", "jpx.osederivatives.geniuminet.itch.v5.0.6.marketbid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.match_id = ProtoField.new("Match Id", "jpx.osederivatives.geniuminet.itch.v5.0.6.matchid", ftypes.UINT64)
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message = ProtoField.new("Message", "jpx.osederivatives.geniuminet.itch.v5.0.6.message", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_count = ProtoField.new("Message Count", "jpx.osederivatives.geniuminet.itch.v5.0.6.messagecount", ftypes.UINT16)
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_header = ProtoField.new("Message Header", "jpx.osederivatives.geniuminet.itch.v5.0.6.messageheader", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_length = ProtoField.new("Message Length", "jpx.osederivatives.geniuminet.itch.v5.0.6.messagelength", ftypes.UINT16)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_type = ProtoField.new("Message Type", "jpx.osederivatives.geniuminet.itch.v5.0.6.messagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.nanoseconds = ProtoField.new("Nanoseconds", "jpx.osederivatives.geniuminet.itch.v5.0.6.nanoseconds", ftypes.UINT32)
@@ -82,7 +80,9 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.underlying_orderbook_id = P
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.undisclosed = ProtoField.new("Undisclosed", "jpx.osederivatives.geniuminet.itch.v5.0.6.undisclosed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.unused = ProtoField.new("Unused", "jpx.osederivatives.geniuminet.itch.v5.0.6.unused", ftypes.UINT16, nil, base.DEC, 0xFFC0)
 
--- Jpx OseDerivatives GeniumInet Itch 5.0.6 Headers
+-- Jpx OseDerivatives GeniumInet Itch 5.0.6 Framing
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message = ProtoField.new("Message", "jpx.osederivatives.geniuminet.itch.v5.0.6.message", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_header = ProtoField.new("Message Header", "jpx.osederivatives.geniuminet.itch.v5.0.6.messageheader", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet = ProtoField.new("Packet", "jpx.osederivatives.geniuminet.itch.v5.0.6.packet", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.packet_header = ProtoField.new("Packet Header", "jpx.osederivatives.geniuminet.itch.v5.0.6.packetheader", ftypes.STRING)
 

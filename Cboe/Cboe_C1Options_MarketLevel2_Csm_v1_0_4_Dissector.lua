@@ -89,7 +89,7 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.underlying_type_length = Proto
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.underlying_type_text = ProtoField.new("Underlying Type Text", "cboe.c1options.marketlevel2.csm.v1.0.4.underlyingtypetext", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.version = ProtoField.new("Version", "cboe.c1options.marketlevel2.csm.v1.0.4.version", ftypes.UINT8)
 
--- Cboe C1Options MarketLevel2 Csm 1.0.4 Headers
+-- Cboe C1Options MarketLevel2 Csm 1.0.4 Framing
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.message = ProtoField.new("Message", "cboe.c1options.marketlevel2.csm.v1.0.4.message", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.marketlevel2.csm.v1.0.4.messageheader", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.packet = ProtoField.new("Packet", "cboe.c1options.marketlevel2.csm.v1.0.4.packet", ftypes.STRING)
@@ -118,12 +118,14 @@ local show = {}
 show.structs = true
 show.repeating_groups = true
 show.application_messages = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe C1Options MarketLevel2 Csm 1.0.4 Show Options
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -132,6 +134,9 @@ function omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_headers then
+    show.headers = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_headers
   end
   if show.repeating_groups ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_repeating_groups then
     show.repeating_groups = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_repeating_groups
@@ -2865,7 +2870,7 @@ end
 
 -- Dissect: Message Header
 cboe_c1options_marketlevel2_csm_v1_0_4.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.message_header, buffer(offset, 0))
     local index = cboe_c1options_marketlevel2_csm_v1_0_4.message_header.fields(buffer, offset, packet, parent)
@@ -2983,7 +2988,7 @@ end
 
 -- Dissect: Packet Header
 cboe_c1options_marketlevel2_csm_v1_0_4.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.packet_header, buffer(offset, 0))
     local index = cboe_c1options_marketlevel2_csm_v1_0_4.packet_header.fields(buffer, offset, packet, parent)

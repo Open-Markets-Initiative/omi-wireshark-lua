@@ -35,7 +35,7 @@ omi_nse_nsecom_recovery_binary_v7_1.fields.token = ProtoField.new("Token", "nse.
 omi_nse_nsecom_recovery_binary_v7_1.fields.trade_price = ProtoField.new("Trade Price", "nse.nsecom.recovery.binary.v7.1.tradeprice", ftypes.DOUBLE)
 omi_nse_nsecom_recovery_binary_v7_1.fields.trade_quantity = ProtoField.new("Trade Quantity", "nse.nsecom.recovery.binary.v7.1.tradequantity", ftypes.INT32)
 
--- Nse NseCom Recovery Binary 7.1 Headers
+-- Nse NseCom Recovery Binary 7.1 Framing
 omi_nse_nsecom_recovery_binary_v7_1.fields.client_message = ProtoField.new("Client Message", "nse.nsecom.recovery.binary.v7.1.clientmessage", ftypes.STRING)
 omi_nse_nsecom_recovery_binary_v7_1.fields.client_packet = ProtoField.new("Client Packet", "nse.nsecom.recovery.binary.v7.1.clientpacket", ftypes.STRING)
 omi_nse_nsecom_recovery_binary_v7_1.fields.message = ProtoField.new("Message", "nse.nsecom.recovery.binary.v7.1.message", ftypes.STRING)
@@ -65,6 +65,7 @@ local show = {}
 -- Nse NseCom Recovery Binary 7.1 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Nse NseCom Recovery Binary 7.1 Show Options
 local role_enum = {
@@ -77,6 +78,7 @@ omi_nse_nsecom_recovery_binary_v7_1.prefs.assume_role = Pref.enum("Assume Role",
 omi_nse_nsecom_recovery_binary_v7_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nse_nsecom_recovery_binary_v7_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsecom_recovery_binary_v7_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nse_nsecom_recovery_binary_v7_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_nse_nsecom_recovery_binary_v7_1.prefs_changed()
@@ -84,6 +86,9 @@ function omi_nse_nsecom_recovery_binary_v7_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nse_nsecom_recovery_binary_v7_1.prefs.show_application_messages then
     show.application_messages = omi_nse_nsecom_recovery_binary_v7_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nse_nsecom_recovery_binary_v7_1.prefs.show_headers then
+    show.headers = omi_nse_nsecom_recovery_binary_v7_1.prefs.show_headers
   end
   if show.structs ~= omi_nse_nsecom_recovery_binary_v7_1.prefs.show_structs then
     show.structs = omi_nse_nsecom_recovery_binary_v7_1.prefs.show_structs
@@ -1506,7 +1511,7 @@ end
 
 -- Dissect: Stream Header
 nse_nsecom_recovery_binary_v7_1.stream_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsecom_recovery_binary_v7_1.fields.stream_header, buffer(offset, 0))
     local index = nse_nsecom_recovery_binary_v7_1.stream_header.fields(buffer, offset, packet, parent)

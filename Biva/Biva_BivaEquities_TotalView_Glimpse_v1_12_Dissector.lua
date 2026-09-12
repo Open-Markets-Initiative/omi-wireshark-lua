@@ -71,7 +71,7 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.unsequenced_message = Proto
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "biva.bivaequities.totalview.glimpse.v1.12.unsequencedmessagetype", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.username = ProtoField.new("Username", "biva.bivaequities.totalview.glimpse.v1.12.username", ftypes.STRING)
 
--- Biva BivaEquities TotalView Glimpse 1.12 Headers
+-- Biva BivaEquities TotalView Glimpse 1.12 Framing
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.client_packet = ProtoField.new("Packet", "biva.bivaequities.totalview.glimpse.v1.12.clientpacket", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.client_packet_header = ProtoField.new("Packet Header", "biva.bivaequities.totalview.glimpse.v1.12.clientpacketheader", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "biva.bivaequities.totalview.glimpse.v1.12.clientsoupbintcppacket", ftypes.STRING)
@@ -134,6 +134,7 @@ local show = {}
 -- Biva BivaEquities TotalView Glimpse 1.12 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.session_messages = true
 show.sequences = true
 
@@ -148,6 +149,7 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.assume_role = Pref.enum("Ass
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
@@ -161,6 +163,9 @@ function omi_biva_bivaequities_totalview_glimpse_v1_12.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_application_messages then
     show.application_messages = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_application_messages
+  end
+  if show.headers ~= omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_headers then
+    show.headers = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_headers
   end
   if show.session_messages ~= omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_session_messages then
     show.session_messages = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.show_session_messages
@@ -2783,7 +2788,7 @@ end
 
 -- Dissect: Server Packet Header
 biva_bivaequities_totalview_glimpse_v1_12.server_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.server_packet_header, buffer(offset, 0))
     local index = biva_bivaequities_totalview_glimpse_v1_12.server_packet_header.fields(buffer, offset, packet, parent)
@@ -3114,7 +3119,7 @@ end
 
 -- Dissect: Client Packet Header
 biva_bivaequities_totalview_glimpse_v1_12.client_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.client_packet_header, buffer(offset, 0))
     local index = biva_bivaequities_totalview_glimpse_v1_12.client_packet_header.fields(buffer, offset, packet, parent)

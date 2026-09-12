@@ -93,7 +93,6 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mpv_class_id = Prot
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mpv_class_name = ProtoField.new("Mpv Class Name", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mpvclassname", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mpv_level_definition = ProtoField.new("Mpv Level Definition", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mpvleveldefinition", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.mpv_level_name = ProtoField.new("Mpv Level Name", "nyse.amexoptions.binarygateway.pillarstream.v3.25.mpvlevelname", ftypes.STRING)
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.msg_header = ProtoField.new("Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.msgheader", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.msg_length = ProtoField.new("Msg Length", "nyse.amexoptions.binarygateway.pillarstream.v3.25.msglength", ftypes.UINT16)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.msg_type = ProtoField.new("Msg Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.msgtype", ftypes.UINT16)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.multilegreportingtype", ftypes.UINT8)
@@ -146,7 +145,6 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_user_type = Pr
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.amexoptions.binarygateway.pillarstream.v3.25.selftradeprevention", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.self_trade_type_u_81 = ProtoField.new("Self Trade Type U 81", "nyse.amexoptions.binarygateway.pillarstream.v3.25.selftradetypeu81", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq = ProtoField.new("Seq", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seq", ftypes.UINT64)
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seqmsgheader", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seqmsgid", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seqmsglength", ftypes.UINT16)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seqmsgtype", ftypes.UINT16)
@@ -160,7 +158,6 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.stop_px = ProtoFiel
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.stream_id = ProtoField.new("Stream Id", "nyse.amexoptions.binarygateway.pillarstream.v3.25.streamid", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.strike_price = ProtoField.new("Strike Price", "nyse.amexoptions.binarygateway.pillarstream.v3.25.strikeprice", ftypes.DOUBLE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_id = ProtoField.new("Sub Id", "nyse.amexoptions.binarygateway.pillarstream.v3.25.subid", ftypes.STRING)
-omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.submsgheader", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_msg_length = ProtoField.new("Sub Msg Length", "nyse.amexoptions.binarygateway.pillarstream.v3.25.submsglength", ftypes.UINT16)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_msg_type = ProtoField.new("Sub Msg Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.submsgtype", ftypes.UINT16)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.symbol_eligibility = ProtoField.new("Symbol Eligibility", "nyse.amexoptions.binarygateway.pillarstream.v3.25.symboleligibility", ftypes.UINT8)
@@ -193,6 +190,11 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.username = ProtoFie
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.version = ProtoField.new("Version", "nyse.amexoptions.binarygateway.pillarstream.v3.25.version", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.amexoptions.binarygateway.pillarstream.v3.25.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.working_price = ProtoField.new("Working Price", "nyse.amexoptions.binarygateway.pillarstream.v3.25.workingprice", ftypes.DOUBLE)
+
+-- Nyse AmexOptions BinaryGateway PillarStream 3.25 Framing
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.msg_header = ProtoField.new("Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.msgheader", ftypes.STRING)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seqmsgheader", ftypes.STRING)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.amexoptions.binarygateway.pillarstream.v3.25.submsgheader", ftypes.STRING)
 
 -- Nyse AmexOptions BinaryGateway 3.25 Application Messages
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "nyse.amexoptions.binarygateway.pillarstream.v3.25.applicationlayerrejectmessage", ftypes.STRING)
@@ -251,6 +253,7 @@ show.application_messages = true
 show.structs = true
 show.session_messages = true
 show.repeating_groups = true
+show.headers = true
 show.indexes = true
 
 -- Register Nyse AmexOptions BinaryGateway PillarStream 3.25 Show Options
@@ -258,6 +261,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_mes
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -266,6 +270,9 @@ function omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_messages then
     show.application_messages = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_headers then
+    show.headers = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_headers
   end
   if show.repeating_groups ~= omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_groups then
     show.repeating_groups = omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.prefs.show_repeating_groups
@@ -6902,7 +6909,7 @@ end
 
 -- Dissect: Sub Msg Header
 nyse_amexoptions_binarygateway_pillarstream_v3_25.sub_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.sub_msg_header.fields(buffer, offset, packet, parent)
@@ -9612,7 +9619,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -9700,7 +9707,7 @@ end
 
 -- Dissect: Msg Header
 nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.msg_header, buffer(offset, 0))
     local index = nyse_amexoptions_binarygateway_pillarstream_v3_25.msg_header.fields(buffer, offset, packet, parent)

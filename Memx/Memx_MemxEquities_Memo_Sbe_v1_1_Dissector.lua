@@ -82,7 +82,6 @@ omi_memx_memxequities_memo_sbe_v1_1.fields.reprice_frequency = ProtoField.new("R
 omi_memx_memxequities_memo_sbe_v1_1.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "memx.memxequities.memo.sbe.v1.1.reservereplenishtiming", ftypes.UINT8)
 omi_memx_memxequities_memo_sbe_v1_1.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.memxequities.memo.sbe.v1.1.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_memx_memxequities_memo_sbe_v1_1.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxequities.memo.sbe.v1.1.riskgroupid", ftypes.UINT16)
-omi_memx_memxequities_memo_sbe_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxequities.memo.sbe.v1.1.sbeheader", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memo.sbe.v1.1.schemaid", ftypes.UINT8)
 omi_memx_memxequities_memo_sbe_v1_1.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "memx.memxequities.memo.sbe.v1.1.selftradeprevention", ftypes.UINT8)
 omi_memx_memxequities_memo_sbe_v1_1.fields.sending_time = ProtoField.new("Sending Time", "memx.memxequities.memo.sbe.v1.1.sendingtime", ftypes.UINT64)
@@ -110,9 +109,10 @@ omi_memx_memxequities_memo_sbe_v1_1.fields.trd_matching_id = ProtoField.new("Trd
 omi_memx_memxequities_memo_sbe_v1_1.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.memo.sbe.v1.1.unsequencedmessage", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.version = ProtoField.new("Version", "memx.memxequities.memo.sbe.v1.1.version", ftypes.UINT16)
 
--- Memx MemxEquities Memo Sbe 1.1 Headers
+-- Memx MemxEquities Memo Sbe 1.1 Framing
 omi_memx_memxequities_memo_sbe_v1_1.fields.client_packet = ProtoField.new("Client Packet", "memx.memxequities.memo.sbe.v1.1.clientpacket", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.memo.sbe.v1.1.commonheader", ftypes.STRING)
+omi_memx_memxequities_memo_sbe_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "memx.memxequities.memo.sbe.v1.1.sbeheader", ftypes.STRING)
 omi_memx_memxequities_memo_sbe_v1_1.fields.server_packet = ProtoField.new("Server Packet", "memx.memxequities.memo.sbe.v1.1.serverpacket", ftypes.STRING)
 
 -- Memx MemxEquities Memo 1.1 Application Messages
@@ -144,6 +144,7 @@ local show = {}
 
 -- Memx MemxEquities Memo Sbe 1.1 Element Dissection Options
 show.structs = true
+show.headers = true
 show.application_messages = true
 
 -- Register Memx MemxEquities Memo Sbe 1.1 Show Options
@@ -156,6 +157,7 @@ omi_memx_memxequities_memo_sbe_v1_1.prefs.acceptor_port = Pref.uint("Acceptor Po
 omi_memx_memxequities_memo_sbe_v1_1.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_memx_memxequities_memo_sbe_v1_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_memx_memxequities_memo_sbe_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_memx_memxequities_memo_sbe_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxequities_memo_sbe_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
 -- Handle changed preferences
@@ -164,6 +166,9 @@ function omi_memx_memxequities_memo_sbe_v1_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_memx_memxequities_memo_sbe_v1_1.prefs.show_application_messages then
     show.application_messages = omi_memx_memxequities_memo_sbe_v1_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_memx_memxequities_memo_sbe_v1_1.prefs.show_headers then
+    show.headers = omi_memx_memxequities_memo_sbe_v1_1.prefs.show_headers
   end
   if show.structs ~= omi_memx_memxequities_memo_sbe_v1_1.prefs.show_structs then
     show.structs = omi_memx_memxequities_memo_sbe_v1_1.prefs.show_structs
@@ -4419,7 +4424,7 @@ end
 
 -- Dissect: Sbe Header
 memx_memxequities_memo_sbe_v1_1.sbe_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_1.fields.sbe_header, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_1.sbe_header.fields(buffer, offset, packet, parent)
@@ -4937,7 +4942,7 @@ end
 
 -- Dissect: Common Header
 memx_memxequities_memo_sbe_v1_1.common_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_memo_sbe_v1_1.fields.common_header, buffer(offset, 0))
     local index = memx_memxequities_memo_sbe_v1_1.common_header.fields(buffer, offset, packet, parent)

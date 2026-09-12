@@ -53,7 +53,7 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_1 = ProtoField.new("Unused 1"
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_10 = ProtoField.new("Unused 10", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused10", ftypes.UINT16, nil, base.DEC, 0x03FF)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.rtmdf.amd.v1.3.2.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
 
--- A2X A2XEquities Rtmdf Amd 1.3.2 Headers
+-- A2X A2XEquities Rtmdf Amd 1.3.2 Framing
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message = ProtoField.new("Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.message", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageheader", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.rtmdf.amd.v1.3.2.packet", ftypes.STRING)
@@ -82,11 +82,13 @@ local show = {}
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register A2X A2XEquities Rtmdf Amd 1.3.2 Show Options
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -95,6 +97,9 @@ function omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_application_messages then
     show.application_messages = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_application_messages
+  end
+  if show.headers ~= omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_headers then
+    show.headers = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_headers
   end
   if show.structs ~= omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_structs then
     show.structs = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_structs
@@ -1631,7 +1636,7 @@ end
 
 -- Dissect: Message Header
 a2x_a2xequities_rtmdf_amd_v1_3_2.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_header, buffer(offset, 0))
     local index = a2x_a2xequities_rtmdf_amd_v1_3_2.message_header.fields(buffer, offset, packet, parent)

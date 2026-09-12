@@ -60,7 +60,7 @@ omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_4 = ProtoField.ne
 omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_5 = ProtoField.new("Unused Event Indicator 5", "cme.globex.derived.sbe.v12.0.unusedeventindicator5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cme_globex_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.globex.derived.sbe.v12.0.version", ftypes.UINT16)
 
--- Cme Globex Derived Sbe 12.0 Headers
+-- Cme Globex Derived Sbe 12.0 Framing
 omi_cme_globex_derived_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.derived.sbe.v12.0.binarypacketheader", ftypes.STRING)
 omi_cme_globex_derived_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.globex.derived.sbe.v12.0.message", ftypes.STRING)
 omi_cme_globex_derived_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.derived.sbe.v12.0.messageheader", ftypes.STRING)
@@ -2017,7 +2017,7 @@ cme_globex_derived_sbe_v12_0.tcp_message.dissect = function(buffer, offset, pack
   local index = offset + size_of_tcp_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_derived_sbe_v12_0.fields.tcp_message, buffer(offset, 0))
     local current = cme_globex_derived_sbe_v12_0.tcp_message.fields(buffer, offset, packet, parent, size_of_tcp_message)
     parent:set_len(size_of_tcp_message)
@@ -2065,7 +2065,7 @@ end
 
 -- Dissect: Technical Header
 cme_globex_derived_sbe_v12_0.technical_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cme_globex_derived_sbe_v12_0.fields.technical_header, buffer(offset, 0))
     local index = cme_globex_derived_sbe_v12_0.technical_header.fields(buffer, offset, packet, parent)
@@ -2146,7 +2146,7 @@ cme_globex_derived_sbe_v12_0.message.dissect = function(buffer, offset, packet, 
   local index = offset + size_of_message
 
   -- Optionally add group/struct element to protocol tree
-  if show.structs then
+  if show.headers then
     parent = parent:add(omi_cme_globex_derived_sbe_v12_0.fields.message, buffer(offset, 0))
     local current = cme_globex_derived_sbe_v12_0.message.fields(buffer, offset, packet, parent, size_of_message)
     parent:set_len(size_of_message)

@@ -48,7 +48,7 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.unsequenced_message = Prot
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.headeronly.esesm.v1.0.a.unsequencedmessagetype", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.username = ProtoField.new("Username", "miax.pearlequities.headeronly.esesm.v1.0.a.username", ftypes.STRING)
 
--- Miax PearlEquities HeaderOnly ESesM 1.0.a Headers
+-- Miax PearlEquities HeaderOnly ESesM 1.0.a Framing
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmpacketheader", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING)
@@ -60,15 +60,20 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("P
 local show = {}
 
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Element Dissection Options
+show.headers = true
 show.structs = true
 
 -- Register Miax PearlEquities HeaderOnly ESesM 1.0.a Show Options
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs_changed()
 
   -- Check if preferences have changed
+  if show.headers ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_headers then
+    show.headers = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_headers
+  end
   if show.structs ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs then
     show.structs = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs
   end
@@ -1257,7 +1262,7 @@ end
 
 -- Dissect: Esesm Packet Header
 miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header, buffer(offset, 0))
     local index = miax_pearlequities_headeronly_esesm_v1_0_a.esesm_packet_header.fields(buffer, offset, packet, parent)

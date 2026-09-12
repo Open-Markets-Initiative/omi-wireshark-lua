@@ -127,7 +127,7 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v2_0.fields.vcm_lower_price = Proto
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_0.fields.vcm_reference_price = ProtoField.new("Vcm Reference Price", "hkex.hkexderivatives.fulltickretrans.omd.v2.0.vcmreferenceprice", ftypes.INT64)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_0.fields.vcm_upper_price = ProtoField.new("Vcm Upper Price", "hkex.hkexderivatives.fulltickretrans.omd.v2.0.vcmupperprice", ftypes.INT64)
 
--- Hkex HkexDerivatives FullTickRetrans Omd 2.0 Headers
+-- Hkex HkexDerivatives FullTickRetrans Omd 2.0 Framing
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_0.fields.message = ProtoField.new("Message", "hkex.hkexderivatives.fulltickretrans.omd.v2.0.message", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_0.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexderivatives.fulltickretrans.omd.v2.0.msgheader", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_0.fields.packet = ProtoField.new("Packet", "hkex.hkexderivatives.fulltickretrans.omd.v2.0.packet", ftypes.STRING)

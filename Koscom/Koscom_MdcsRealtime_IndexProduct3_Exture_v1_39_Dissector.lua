@@ -82,7 +82,7 @@ omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.zero_re_investment_ind
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.zero_reinvestment_index_krx = ProtoField.new("Zero Re-Investment Index Krx", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.zeroreinvestmentindexkrx", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.zero_reinvestment_index_ktb = ProtoField.new("Zero Re-Investment Index Ktb", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.zeroreinvestmentindexktb", ftypes.DOUBLE)
 
--- Koscom MdcsRealtime IndexProduct3 Exture 1.39 Headers
+-- Koscom MdcsRealtime IndexProduct3 Exture 1.39 Framing
 omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.packet = ProtoField.new("Packet", "koscom.mdcsrealtime.indexproduct3.exture.v1.39.packet", ftypes.STRING)
 
 -- Koscom MdcsRealtime IndexProduct3 1.39 Application Messages

@@ -70,7 +70,7 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Ve
 omi_lseg_lse_analytics_gtp_v26_2.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.lse.analytics.gtp.v26.2.vwapbuy", ftypes.DOUBLE)
 omi_lseg_lse_analytics_gtp_v26_2.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.lse.analytics.gtp.v26.2.vwapsell", ftypes.DOUBLE)
 
--- Lseg Lse Analytics Gtp 26.2 Headers
+-- Lseg Lse Analytics Gtp 26.2 Framing
 omi_lseg_lse_analytics_gtp_v26_2.fields.message = ProtoField.new("Message", "lseg.lse.analytics.gtp.v26.2.message", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.message_header = ProtoField.new("Message Header", "lseg.lse.analytics.gtp.v26.2.messageheader", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.packet = ProtoField.new("Packet", "lseg.lse.analytics.gtp.v26.2.packet", ftypes.STRING)

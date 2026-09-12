@@ -52,7 +52,7 @@ omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.seq_num = ProtoField.new("
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.session_status = ProtoField.new("Session Status", "hkex.hkexsecurities.indexretrans.omd.v1.44.sessionstatus", ftypes.UINT8)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.username = ProtoField.new("Username", "hkex.hkexsecurities.indexretrans.omd.v1.44.username", ftypes.STRING)
 
--- Hkex HkexSecurities IndexRetrans Omd 1.44 Headers
+-- Hkex HkexSecurities IndexRetrans Omd 1.44 Framing
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.indexretrans.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.indexretrans.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.indexretrans.omd.v1.44.packet", ftypes.STRING)

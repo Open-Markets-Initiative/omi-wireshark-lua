@@ -89,7 +89,6 @@ omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.mpv_class_id = Pr
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.mpv_class_name = ProtoField.new("Mpv Class Name", "nyse.texasequities.binarygateway.pillarstream.v5.17.mpvclassname", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.mpv_level_definition = ProtoField.new("Mpv Level Definition", "nyse.texasequities.binarygateway.pillarstream.v5.17.mpvleveldefinition", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.mpv_level_name = ProtoField.new("Mpv Level Name", "nyse.texasequities.binarygateway.pillarstream.v5.17.mpvlevelname", ftypes.STRING)
-omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.msg_header = ProtoField.new("Msg Header", "nyse.texasequities.binarygateway.pillarstream.v5.17.msgheader", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.msg_length = ProtoField.new("Msg Length", "nyse.texasequities.binarygateway.pillarstream.v5.17.msglength", ftypes.UINT16)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.msg_type = ProtoField.new("Msg Type", "nyse.texasequities.binarygateway.pillarstream.v5.17.msgtype", ftypes.UINT16)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.next_seq = ProtoField.new("Next Seq", "nyse.texasequities.binarygateway.pillarstream.v5.17.nextseq", ftypes.UINT64)
@@ -154,7 +153,6 @@ omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.self_trade_type_b
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sell_dmm_available_qty = ProtoField.new("Sell Dmm Available Qty", "nyse.texasequities.binarygateway.pillarstream.v5.17.selldmmavailableqty", ftypes.UINT32)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.texasequities.binarygateway.pillarstream.v5.17.sellindicator", ftypes.UINT8)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq = ProtoField.new("Seq", "nyse.texasequities.binarygateway.pillarstream.v5.17.seq", ftypes.UINT64)
-omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.texasequities.binarygateway.pillarstream.v5.17.seqmsgheader", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_id = ProtoField.new("Seq Msg Id", "nyse.texasequities.binarygateway.pillarstream.v5.17.seqmsgid", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.texasequities.binarygateway.pillarstream.v5.17.seqmsglength", ftypes.UINT16)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.texasequities.binarygateway.pillarstream.v5.17.seqmsgtype", ftypes.UINT16)
@@ -169,7 +167,6 @@ omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.status = ProtoFie
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.stop_px = ProtoField.new("Stop Px", "nyse.texasequities.binarygateway.pillarstream.v5.17.stoppx", ftypes.DOUBLE)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.stream_id = ProtoField.new("Stream Id", "nyse.texasequities.binarygateway.pillarstream.v5.17.streamid", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.texasequities.binarygateway.pillarstream.v5.17.subidindicator", ftypes.UINT64, {[0]="Use Mp Sub Id", [1]="Ignore On Behalf Of Sub Id"}, base.DEC, 0x0000000000001000)
-omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.texasequities.binarygateway.pillarstream.v5.17.submsgheader", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sub_msg_length = ProtoField.new("Sub Msg Length", "nyse.texasequities.binarygateway.pillarstream.v5.17.submsglength", ftypes.UINT16)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sub_msg_type = ProtoField.new("Sub Msg Type", "nyse.texasequities.binarygateway.pillarstream.v5.17.submsgtype", ftypes.UINT16)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.subscription_status = ProtoField.new("Subscription Status", "nyse.texasequities.binarygateway.pillarstream.v5.17.subscriptionstatus", ftypes.UINT8)
@@ -203,6 +200,11 @@ omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.value = ProtoFiel
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.version = ProtoField.new("Version", "nyse.texasequities.binarygateway.pillarstream.v5.17.version", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.working_away_from_display = ProtoField.new("Working Away From Display", "nyse.texasequities.binarygateway.pillarstream.v5.17.workingawayfromdisplay", ftypes.UINT8)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.working_price = ProtoField.new("Working Price", "nyse.texasequities.binarygateway.pillarstream.v5.17.workingprice", ftypes.DOUBLE)
+
+-- Nyse TexasEquities BinaryGateway PillarStream 5.17 Framing
+omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.msg_header = ProtoField.new("Msg Header", "nyse.texasequities.binarygateway.pillarstream.v5.17.msgheader", ftypes.STRING)
+omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_header = ProtoField.new("Seq Msg Header", "nyse.texasequities.binarygateway.pillarstream.v5.17.seqmsgheader", ftypes.STRING)
+omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.texasequities.binarygateway.pillarstream.v5.17.submsgheader", ftypes.STRING)
 
 -- Nyse TexasEquities BinaryGateway 5.17 Application Messages
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "nyse.texasequities.binarygateway.pillarstream.v5.17.applicationlayerrejectmessage", ftypes.STRING)
@@ -257,11 +259,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.session_messages = true
+show.headers = true
 
 -- Register Nyse TexasEquities BinaryGateway PillarStream 5.17 Show Options
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 -- Handle changed preferences
 function omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs_changed()
@@ -269,6 +273,9 @@ function omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_application_messages then
     show.application_messages = omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_headers then
+    show.headers = omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_headers
   end
   if show.session_messages ~= omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages then
     show.session_messages = omi_nyse_texasequities_binarygateway_pillarstream_v5_17.prefs.show_session_messages
@@ -6885,7 +6892,7 @@ end
 
 -- Dissect: Sub Msg Header
 nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sub_msg_header, buffer(offset, 0))
     local index = nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.fields(buffer, offset, packet, parent)
@@ -9063,7 +9070,7 @@ end
 
 -- Dissect: Seq Msg Header
 nyse_texasequities_binarygateway_pillarstream_v5_17.seq_msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_header, buffer(offset, 0))
     local index = nyse_texasequities_binarygateway_pillarstream_v5_17.seq_msg_header.fields(buffer, offset, packet, parent)
@@ -9151,7 +9158,7 @@ end
 
 -- Dissect: Msg Header
 nyse_texasequities_binarygateway_pillarstream_v5_17.msg_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.msg_header, buffer(offset, 0))
     local index = nyse_texasequities_binarygateway_pillarstream_v5_17.msg_header.fields(buffer, offset, packet, parent)

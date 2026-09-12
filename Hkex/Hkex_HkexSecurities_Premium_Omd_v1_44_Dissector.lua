@@ -146,7 +146,7 @@ omi_hkex_hkexsecurities_premium_omd_v1_44.fields.warrant_maturity_date = ProtoFi
 omi_hkex_hkexsecurities_premium_omd_v1_44.fields.warrant_type = ProtoField.new("Warrant Type", "hkex.hkexsecurities.premium.omd.v1.44.warranttype", ftypes.STRING)
 omi_hkex_hkexsecurities_premium_omd_v1_44.fields.yield = ProtoField.new("Yield", "hkex.hkexsecurities.premium.omd.v1.44.yield", ftypes.DOUBLE)
 
--- Hkex HkexSecurities Premium Omd 1.44 Headers
+-- Hkex HkexSecurities Premium Omd 1.44 Framing
 omi_hkex_hkexsecurities_premium_omd_v1_44.fields.message = ProtoField.new("Message", "hkex.hkexsecurities.premium.omd.v1.44.message", ftypes.STRING)
 omi_hkex_hkexsecurities_premium_omd_v1_44.fields.msg_header = ProtoField.new("Msg Header", "hkex.hkexsecurities.premium.omd.v1.44.msgheader", ftypes.STRING)
 omi_hkex_hkexsecurities_premium_omd_v1_44.fields.packet = ProtoField.new("Packet", "hkex.hkexsecurities.premium.omd.v1.44.packet", ftypes.STRING)

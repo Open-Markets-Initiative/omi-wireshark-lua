@@ -53,9 +53,7 @@ omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.kb_knock_out_buy_back = 
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.kn_knockout_buy_back_into_next_trading_day = ProtoField.new("Kn Knockout Buy Back Into Next Trading Day", "nasdaq.nordicequities.totalview.itch.v3.04.5.knknockoutbuybackintonexttradingday", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.market_segment_id = ProtoField.new("Market Segment Id", "nasdaq.nordicequities.totalview.itch.v3.04.5.marketsegmentid", ftypes.UINT16)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.match_number = ProtoField.new("Match Number", "nasdaq.nordicequities.totalview.itch.v3.04.5.matchnumber", ftypes.UINT32)
-omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message = ProtoField.new("Message", "nasdaq.nordicequities.totalview.itch.v3.04.5.message", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message_count = ProtoField.new("Message Count", "nasdaq.nordicequities.totalview.itch.v3.04.5.messagecount", ftypes.UINT16)
-omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.nordicequities.totalview.itch.v3.04.5.messageheader", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message_length = ProtoField.new("Message Length", "nasdaq.nordicequities.totalview.itch.v3.04.5.messagelength", ftypes.UINT16)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message_type = ProtoField.new("Message Type", "nasdaq.nordicequities.totalview.itch.v3.04.5.messagetype", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.mic = ProtoField.new("Mic", "nasdaq.nordicequities.totalview.itch.v3.04.5.mic", ftypes.STRING)
@@ -125,7 +123,9 @@ omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.wi_when_issued = ProtoFi
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.xd_excluding_dividend = ProtoField.new("Xd Excluding Dividend", "nasdaq.nordicequities.totalview.itch.v3.04.5.xdexcludingdividend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.xr_excluding_participating_in_rights = ProtoField.new("Xr Excluding Participating In Rights", "nasdaq.nordicequities.totalview.itch.v3.04.5.xrexcludingparticipatinginrights", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 
--- Nasdaq NordicEquities TotalView Itch 3.04.5 Headers
+-- Nasdaq NordicEquities TotalView Itch 3.04.5 Framing
+omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message = ProtoField.new("Message", "nasdaq.nordicequities.totalview.itch.v3.04.5.message", ftypes.STRING)
+omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message_header = ProtoField.new("Message Header", "nasdaq.nordicequities.totalview.itch.v3.04.5.messageheader", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.packet = ProtoField.new("Packet", "nasdaq.nordicequities.totalview.itch.v3.04.5.packet", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nordicequities.totalview.itch.v3.04.5.packetheader", ftypes.STRING)
 

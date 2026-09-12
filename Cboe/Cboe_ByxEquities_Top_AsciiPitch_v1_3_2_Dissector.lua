@@ -49,7 +49,7 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.timestamp = ProtoField.new("Ti
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.top_lf = ProtoField.new("Top Lf", "cboe.byxequities.top.asciipitch.v1.3.2.toplf", ftypes.INT8)
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.username = ProtoField.new("Username", "cboe.byxequities.top.asciipitch.v1.3.2.username", ftypes.STRING)
 
--- Cboe ByxEquities Top AsciiPitch 1.3.2 Headers
+-- Cboe ByxEquities Top AsciiPitch 1.3.2 Framing
 omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.packet = ProtoField.new("Packet", "cboe.byxequities.top.asciipitch.v1.3.2.packet", ftypes.STRING)
 
 -- Cboe ByxEquities Top 1.3.2 Application Messages

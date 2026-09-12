@@ -26,8 +26,6 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.feed_symbol = ProtoField.
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c1options.openingprocess.pitch.v1.0.30.indicativeprice", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.length = ProtoField.new("Length", "cboe.c1options.openingprocess.pitch.v1.0.30.length", ftypes.UINT16)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.lower_strike_price = ProtoField.new("Lower Strike Price", "cboe.c1options.openingprocess.pitch.v1.0.30.lowerstrikeprice", ftypes.DOUBLE)
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message = ProtoField.new("Message", "cboe.c1options.openingprocess.pitch.v1.0.30.message", ftypes.STRING)
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.openingprocess.pitch.v1.0.30.messageheader", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.openingprocess.pitch.v1.0.30.messagelength", ftypes.UINT8)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.openingprocess.pitch.v1.0.30.messagetype", ftypes.UINT8)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.openingprocess.pitch.v1.0.30.midnightreference", ftypes.UINT32)
@@ -51,7 +49,9 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.unit = ProtoField.new("Un
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1options.openingprocess.pitch.v1.0.30.upperstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.width_type = ProtoField.new("Width Type", "cboe.c1options.openingprocess.pitch.v1.0.30.widthtype", ftypes.STRING)
 
--- Cboe C1Options OpeningProcess Pitch 1.0.30 Headers
+-- Cboe C1Options OpeningProcess Pitch 1.0.30 Framing
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message = ProtoField.new("Message", "cboe.c1options.openingprocess.pitch.v1.0.30.message", ftypes.STRING)
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message_header = ProtoField.new("Message Header", "cboe.c1options.openingprocess.pitch.v1.0.30.messageheader", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet = ProtoField.new("Packet", "cboe.c1options.openingprocess.pitch.v1.0.30.packet", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.openingprocess.pitch.v1.0.30.packetheader", ftypes.STRING)
 
@@ -87,11 +87,13 @@ local show = {}
 -- Cboe C1Options OpeningProcess Pitch 1.0.30 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.headers = true
 show.indexes = true
 
 -- Register Cboe C1Options OpeningProcess Pitch 1.0.30 Show Options
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
@@ -101,6 +103,9 @@ function omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_application_messages then
     show.application_messages = omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_headers then
+    show.headers = omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_headers
   end
   if show.structs ~= omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_structs then
     show.structs = omi_cboe_c1options_openingprocess_pitch_v1_0_30.prefs.show_structs
@@ -1689,7 +1694,7 @@ end
 
 -- Dissect: Message Header
 cboe_c1options_openingprocess_pitch_v1_0_30.message_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message_header, buffer(offset, 0))
     local index = cboe_c1options_openingprocess_pitch_v1_0_30.message_header.fields(buffer, offset, packet, parent)
@@ -1842,7 +1847,7 @@ end
 
 -- Dissect: Packet Header
 cboe_c1options_openingprocess_pitch_v1_0_30.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.packet_header, buffer(offset, 0))
     local index = cboe_c1options_openingprocess_pitch_v1_0_30.packet_header.fields(buffer, offset, packet, parent)

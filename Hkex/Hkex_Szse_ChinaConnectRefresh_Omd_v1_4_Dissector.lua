@@ -57,7 +57,7 @@ omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.shortsell_flag = ProtoField.ne
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.trading_phase_code = ProtoField.new("Trading Phase Code", "hkex.szse.chinaconnectrefresh.omd.v1.4.tradingphasecode", ftypes.STRING)
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.turnover = ProtoField.new("Turnover", "hkex.szse.chinaconnectrefresh.omd.v1.4.turnover", ftypes.DOUBLE)
 
--- Hkex Szse ChinaConnectRefresh Omd 1.4 Headers
+-- Hkex Szse ChinaConnectRefresh Omd 1.4 Framing
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.message = ProtoField.new("Message", "hkex.szse.chinaconnectrefresh.omd.v1.4.message", ftypes.STRING)
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.msg_header = ProtoField.new("Msg Header", "hkex.szse.chinaconnectrefresh.omd.v1.4.msgheader", ftypes.STRING)
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.packet = ProtoField.new("Packet", "hkex.szse.chinaconnectrefresh.omd.v1.4.packet", ftypes.STRING)

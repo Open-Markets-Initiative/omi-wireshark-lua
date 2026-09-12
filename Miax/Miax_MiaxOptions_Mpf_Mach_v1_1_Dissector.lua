@@ -61,7 +61,7 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.unsequenced_message_type = ProtoField.
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.username = ProtoField.new("Username", "miax.miaxoptions.mpf.mach.v1.1.username", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.value = ProtoField.new("Value", "miax.miaxoptions.mpf.mach.v1.1.value", ftypes.DOUBLE)
 
--- Miax MiaxOptions Mpf Mach 1.1 Headers
+-- Miax MiaxOptions Mpf Mach 1.1 Framing
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.mach_message = ProtoField.new("Mach Message", "miax.miaxoptions.mpf.mach.v1.1.machmessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.miaxoptions.mpf.mach.v1.1.sesmpacketheader", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.miaxoptions.mpf.mach.v1.1.sesmtcppacket", ftypes.STRING)
@@ -97,10 +97,12 @@ local show = {}
 -- Miax MiaxOptions Mpf Mach 1.1 Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 
 -- Register Miax MiaxOptions Mpf Mach 1.1 Show Options
 omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_miaxoptions_mpf_mach_v1_1.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -109,6 +111,9 @@ function omi_miax_miaxoptions_mpf_mach_v1_1.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_application_messages then
     show.application_messages = omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_headers then
+    show.headers = omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_headers
   end
   if show.structs ~= omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_structs then
     show.structs = omi_miax_miaxoptions_mpf_mach_v1_1.prefs.show_structs
@@ -2145,7 +2150,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_miaxoptions_mpf_mach_v1_1.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_miaxoptions_mpf_mach_v1_1.sesm_packet_header.fields(buffer, offset, packet, parent)

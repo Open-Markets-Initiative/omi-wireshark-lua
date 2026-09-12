@@ -37,9 +37,7 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.issue_sub_type = ProtoField
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.nsmequities.noiview.itch.v3.0.2017.luldreferencepricetier", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.market_category = ProtoField.new("Market Category", "nasdaq.nsmequities.noiview.itch.v3.0.2017.marketcategory", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.noiview.itch.v3.0.2017.matchnumber", ftypes.UINT64)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.noiview.itch.v3.0.2017.message", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_count = ProtoField.new("Message Count", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messagecount", ftypes.UINT16)
-omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_length = ProtoField.new("Message Length", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messagelength", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.near_price = ProtoField.new("Near Price", "nasdaq.nsmequities.noiview.itch.v3.0.2017.nearprice", ftypes.DOUBLE)
@@ -57,7 +55,9 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.stock = ProtoField.new("Sto
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.itch.v3.0.2017.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.noiview.itch.v3.0.2017.trackingnumber", ftypes.UINT16)
 
--- Nasdaq NsmEquities NoiView Itch 3.0.2017 Headers
+-- Nasdaq NsmEquities NoiView Itch 3.0.2017 Framing
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.noiview.itch.v3.0.2017.message", ftypes.STRING)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.noiview.itch.v3.0.2017.packetheader", ftypes.STRING)
 

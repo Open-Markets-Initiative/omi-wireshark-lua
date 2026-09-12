@@ -39,9 +39,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.luld_reference_price_tier 
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.market_category = ProtoField.new("Market Category", "nasdaq.psxequities.lastsale.itch.v2.1.2026.marketcategory", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.psxequities.lastsale.itch.v2.1.2026.marketcenteridentifier", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.market_code = ProtoField.new("Market Code", "nasdaq.psxequities.lastsale.itch.v2.1.2026.marketcode", ftypes.STRING)
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message = ProtoField.new("Message", "nasdaq.psxequities.lastsale.itch.v2.1.2026.message", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messagecount", ftypes.UINT16)
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messageheader", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messagelength", ftypes.UINT16)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messagetype", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.nav_premium_discount_amount = ProtoField.new("Nav Premium Discount Amount", "nasdaq.psxequities.lastsale.itch.v2.1.2026.navpremiumdiscountamount", ftypes.DOUBLE)
@@ -72,7 +70,9 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_price = ProtoField.n
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradesize", ftypes.UINT32)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trading_action_reason = ProtoField.new("Trading Action Reason", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradingactionreason", ftypes.STRING)
 
--- Nasdaq PsxEquities LastSale Itch 2.1.2026 Headers
+-- Nasdaq PsxEquities LastSale Itch 2.1.2026 Framing
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message = ProtoField.new("Message", "nasdaq.psxequities.lastsale.itch.v2.1.2026.message", ftypes.STRING)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_header = ProtoField.new("Message Header", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messageheader", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packet", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packetheader", ftypes.STRING)
 

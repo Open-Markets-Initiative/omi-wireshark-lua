@@ -108,7 +108,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.update_status = ProtoFie
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.username = ProtoField.new("Username", "miax.onyxfutures.expressinterface.fei.v1.0.c.username", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.version = ProtoField.new("Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.version", ftypes.STRING)
 
--- Miax OnyxFutures ExpressInterface Fei 1.0.c Headers
+-- Miax OnyxFutures ExpressInterface Fei 1.0.c Framing
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.packet = ProtoField.new("Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.packet", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header = ProtoField.new("Sesm Packet Header", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpacketheader", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_tcp_packet = ProtoField.new("Sesm Tcp Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmtcppacket", ftypes.STRING)
@@ -144,12 +144,14 @@ local show = {}
 -- Miax OnyxFutures ExpressInterface Fei 1.0.c Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.headers = true
 show.repeating_groups = true
 show.indexes = true
 
 -- Register Miax OnyxFutures ExpressInterface Fei 1.0.c Show Options
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -159,6 +161,9 @@ function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs_changed()
   -- Check if preferences have changed
   if show.application_messages ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages then
     show.application_messages = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_headers then
+    show.headers = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_headers
   end
   if show.repeating_groups ~= omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups then
     show.repeating_groups = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.prefs.show_repeating_groups
@@ -4408,7 +4413,7 @@ end
 
 -- Dissect: Sesm Packet Header
 miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_header, buffer(offset, 0))
     local index = miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_packet_header.fields(buffer, offset, packet, parent)
