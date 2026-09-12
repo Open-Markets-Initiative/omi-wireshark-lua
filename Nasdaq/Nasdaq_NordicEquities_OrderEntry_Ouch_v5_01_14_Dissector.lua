@@ -150,7 +150,6 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.server_packet_header =
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.serversoupbintcppacket", ftypes.STRING)
 
 -- Nasdaq NordicEquities OrderEntry 5.01.14 Application Messages
-omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.account_query_message = ProtoField.new("Account Query Message", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.accountquerymessage", ftypes.BYTES)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.account_query_response_message = ProtoField.new("Account Query Response Message", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.accountqueryresponsemessage", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.brokentrademessage", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.cancelordermessage", ftypes.STRING)
@@ -5612,6 +5611,23 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.mmi_notification_request_message.
   end
 end
 
+-- Account Query Message
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_message = {}
+
+-- Display: Account Query Message
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_message.display = function(packet, parent, length)
+  return "Account Query Message"
+end
+
+
+-- Dissect: Account Query Message
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_message.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Cancel Order Message
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.cancel_order_message = {}
 
@@ -5852,7 +5868,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.unsequenced_message.dissect = fun
   end
   -- Dissect Account Query Message
   if unsequenced_message_type == "Q" then
-    return offset
+    return nasdaq_nordicequities_orderentry_ouch_v5_01_14.account_query_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Mmi Notification Request Message
   if unsequenced_message_type == "M" then
