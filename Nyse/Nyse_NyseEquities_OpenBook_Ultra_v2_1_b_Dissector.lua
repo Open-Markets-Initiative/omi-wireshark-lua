@@ -72,9 +72,7 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.extended_book_refresh_request
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_message = ProtoField.new("Full Update Message", "nyse.nyseequities.openbook.ultra.v2.1.b.fullupdatemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_message_body = ProtoField.new("Full Update Message Body", "nyse.nyseequities.openbook.ultra.v2.1.b.fullupdatemessagebody", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_messages = ProtoField.new("Full Update Messages", "nyse.nyseequities.openbook.ultra.v2.1.b.fullupdatemessages", ftypes.STRING)
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nyse.nyseequities.openbook.ultra.v2.1.b.heartbeatmessage", ftypes.BYTES)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.openbook.ultra.v2.1.b.heartbeatresponsemessage", ftypes.STRING)
-omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.heartbeat_subscription_message = ProtoField.new("Heartbeat Subscription Message", "nyse.nyseequities.openbook.ultra.v2.1.b.heartbeatsubscriptionmessage", ftypes.BYTES)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.nyseequities.openbook.ultra.v2.1.b.requestresponsemessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.nyseequities.openbook.ultra.v2.1.b.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.nyseequities.openbook.ultra.v2.1.b.sequencenumberresetmessage", ftypes.STRING)
@@ -1980,6 +1978,23 @@ nyse_nyseequities_openbook_ultra_v2_1_b.retransmission_request_message.dissect =
   end
 end
 
+-- Heartbeat Subscription Message
+nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_subscription_message = {}
+
+-- Display: Heartbeat Subscription Message
+nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_subscription_message.display = function(packet, parent, length)
+  return "Heartbeat Subscription Message"
+end
+
+
+-- Dissect: Heartbeat Subscription Message
+nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_subscription_message.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_subscription_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Request Response Message
 nyse_nyseequities_openbook_ultra_v2_1_b.request_response_message = {}
 
@@ -2080,6 +2095,23 @@ nyse_nyseequities_openbook_ultra_v2_1_b.unavailable_message.dissect = function(b
   end
 end
 
+-- Heartbeat Message
+nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequence Number Reset Message
 nyse_nyseequities_openbook_ultra_v2_1_b.sequence_number_reset_message = {}
 
@@ -2131,7 +2163,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offse
   end
   -- Dissect Heartbeat Message
   if message_type == 2 then
-    return offset
+    return nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unavailable Message
   if message_type == 5 then
@@ -2143,7 +2175,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.payload.dissect = function(buffer, offse
   end
   -- Dissect Heartbeat Subscription Message
   if message_type == 19 then
-    return offset
+    return nyse_nyseequities_openbook_ultra_v2_1_b.heartbeat_subscription_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request Message
   if message_type == 20 then
