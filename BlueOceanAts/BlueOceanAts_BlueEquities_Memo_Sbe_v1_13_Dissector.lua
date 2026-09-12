@@ -48,10 +48,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.leaves_qty = ProtoField.new(
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.link_id_optional = ProtoField.new("Link Id Optional", "blueoceanats.blueequities.memo.sbe.v1.13.linkidoptional", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.locate_broker_optional = ProtoField.new("Locate Broker Optional", "blueoceanats.blueequities.memo.sbe.v1.13.locatebrokeroptional", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.locate_reqd = ProtoField.new("Locate Reqd", "blueoceanats.blueequities.memo.sbe.v1.13.locatereqd", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginacceptedmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_reject_code = ProtoField.new("Login Reject Code", "blueoceanats.blueequities.memo.sbe.v1.13.loginrejectcode", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrejectedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_request_message = ProtoField.new("Login Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.lower_than_price = ProtoField.new("Lower Than Price", "blueoceanats.blueequities.memo.sbe.v1.13.lowerthanprice", ftypes.DOUBLE)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "blueoceanats.blueequities.memo.sbe.v1.13.masscancelrejectreason", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "blueoceanats.blueequities.memo.sbe.v1.13.maxsequencenumber", ftypes.UINT64)
@@ -81,12 +78,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.peg_price_type = ProtoField.
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.pending_message_count = ProtoField.new("Pending Message Count", "blueoceanats.blueequities.memo.sbe.v1.13.pendingmessagecount", ftypes.UINT32)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.price = ProtoField.new("Price", "blueoceanats.blueequities.memo.sbe.v1.13.price", ftypes.DOUBLE)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "blueoceanats.blueequities.memo.sbe.v1.13.repeatinggroupdimensions", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayallrequestmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaybeginmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaycompletemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "blueoceanats.blueequities.memo.sbe.v1.13.replayrejectcode", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrejectedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_request_message = ProtoField.new("Replay Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "blueoceanats.blueequities.memo.sbe.v1.13.repricebehavior", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "blueoceanats.blueequities.memo.sbe.v1.13.repricefrequency", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "blueoceanats.blueequities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8)
@@ -96,17 +88,11 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "blueoceanats.blueequities.memo.sbe.v1.13.securitygroup", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "blueoceanats.blueequities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.13.sendingtime", ftypes.UINT64)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "blueoceanats.blueequities.memo.sbe.v1.13.sessionid", ftypes.UINT64)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.side = ProtoField.new("Side", "blueoceanats.blueequities.memo.sbe.v1.13.side", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.side_optional = ProtoField.new("Side Optional", "blueoceanats.blueequities.memo.sbe.v1.13.sideoptional", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "blueoceanats.blueequities.memo.sbe.v1.13.startofsessionmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stp_group_id = ProtoField.new("Stp Group Id", "blueoceanats.blueequities.memo.sbe.v1.13.stpgroupid", ftypes.UINT16)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.streambeginmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamcompletemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "blueoceanats.blueequities.memo.sbe.v1.13.streamrejectcode", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrejectedmessage", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "blueoceanats.blueequities.memo.sbe.v1.13.supportedrequestmode", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.symbol = ProtoField.new("Symbol", "blueoceanats.blueequities.memo.sbe.v1.13.symbol", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "blueoceanats.blueequities.memo.sbe.v1.13.symbolsfx", ftypes.STRING)
@@ -118,7 +104,6 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.total_sequence_count = Proto
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "blueoceanats.blueequities.memo.sbe.v1.13.transacttime", ftypes.UINT64)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.trd_match_id = ProtoField.new("Trd Match Id", "blueoceanats.blueequities.memo.sbe.v1.13.trdmatchid", ftypes.UINT64)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "blueoceanats.blueequities.memo.sbe.v1.13.trdmatchingid", ftypes.UINT64)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memo.sbe.v1.13.version", ftypes.UINT16)
 
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 Framing
@@ -148,6 +133,23 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.order_cancel_replace_request
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.ordercancelrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "blueoceanats.blueequities.memo.sbe.v1.13.pendingmasscancelmessage", ftypes.STRING)
 
+-- BlueOceanAts BlueEquities Memo 1.13 Session Messages
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginacceptedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrejectedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_request_message = ProtoField.new("Login Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.loginrequestmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayallrequestmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaybeginmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.replaycompletemessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrejectedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_request_message = ProtoField.new("Replay Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.replayrequestmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "blueoceanats.blueequities.memo.sbe.v1.13.startofsessionmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "blueoceanats.blueequities.memo.sbe.v1.13.streambeginmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamcompletemessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrejectedmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
+
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 generated fields
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Parties Group Index", "blueoceanats.blueequities.memo.sbe.v1.13.partiesgroupindex", ftypes.UINT16)
 
@@ -161,6 +163,7 @@ local show = {}
 show.headers = true
 show.structs = true
 show.application_messages = true
+show.session_messages = true
 show.repeating_groups = true
 show.indexes = true
 
@@ -168,6 +171,7 @@ show.indexes = true
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -183,6 +187,9 @@ function omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs_changed()
   end
   if show.repeating_groups ~= omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups then
     show.repeating_groups = omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups
+  end
+  if show.session_messages ~= omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_session_messages then
+    show.session_messages = omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_session_messages
   end
   if show.structs ~= omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_structs then
     show.structs = omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_structs
@@ -6009,7 +6016,7 @@ end
 
 -- Dissect: Sequenced Message
 blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.sequenced_message.fields(buffer, offset, packet, parent)
@@ -6049,7 +6056,7 @@ end
 
 -- Dissect: Stream Complete Message
 blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_complete_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -6089,7 +6096,7 @@ end
 
 -- Dissect: Stream Rejected Message
 blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -6133,7 +6140,7 @@ end
 
 -- Dissect: Stream Begin Message
 blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_begin_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -6173,7 +6180,7 @@ end
 
 -- Dissect: Replay Complete Message
 blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_complete_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -6213,7 +6220,7 @@ end
 
 -- Dissect: Replay Rejected Message
 blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_rejected_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -6257,7 +6264,7 @@ end
 
 -- Dissect: Replay Begin Message
 blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_begin_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -6297,7 +6304,7 @@ end
 
 -- Dissect: Start Of Session Message
 blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.start_of_session_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -6337,7 +6344,7 @@ end
 
 -- Dissect: Login Rejected Message
 blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_rejected_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -6377,7 +6384,7 @@ end
 
 -- Dissect: Login Accepted Message
 blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_accepted_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -6429,7 +6436,7 @@ end
 
 -- Dissect: Unsequenced Message
 blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -6473,7 +6480,7 @@ end
 
 -- Dissect: Stream Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.stream_request_message.fields(buffer, offset, packet, parent)
@@ -6513,7 +6520,7 @@ end
 
 -- Dissect: Replay All Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_all_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -6561,7 +6568,7 @@ end
 
 -- Dissect: Replay Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.replay_request_message.fields(buffer, offset, packet, parent)
@@ -6605,7 +6612,7 @@ end
 
 -- Dissect: Login Request Message
 blueoceanats_blueequities_memo_sbe_v1_13.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.login_request_message, buffer(offset, 0))
     local index = blueoceanats_blueequities_memo_sbe_v1_13.login_request_message.fields(buffer, offset, packet, parent)

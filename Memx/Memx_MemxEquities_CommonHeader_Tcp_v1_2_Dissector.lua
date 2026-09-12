@@ -16,41 +16,43 @@ local memx_memxequities_commonheader_tcp_v1_2 = {}
 
 -- Memx MemxEquities CommonHeader Tcp 1.2 Fields
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.count = ProtoField.new("Count", "memx.memxequities.commonheader.tcp.v1.2.count", ftypes.UINT32)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.memxequities.commonheader.tcp.v1.2.loginacceptedmessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.memxequities.commonheader.tcp.v1.2.loginrejectcode", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.memxequities.commonheader.tcp.v1.2.loginrejectedmessage", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_request_message = ProtoField.new("Login Request Message", "memx.memxequities.commonheader.tcp.v1.2.loginrequestmessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "memx.memxequities.commonheader.tcp.v1.2.maxsequencenumber", ftypes.UINT64)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.message_count = ProtoField.new("Message Count", "memx.memxequities.commonheader.tcp.v1.2.messagecount", ftypes.UINT64)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "memx.memxequities.commonheader.tcp.v1.2.messagelength", ftypes.UINT16)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.message_type = ProtoField.new("Message Type", "memx.memxequities.commonheader.tcp.v1.2.messagetype", ftypes.UINT8)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.memxequities.commonheader.tcp.v1.2.nextsequencenumber", ftypes.UINT64)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.memxequities.commonheader.tcp.v1.2.pendingmessagecount", ftypes.UINT32)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.memxequities.commonheader.tcp.v1.2.replayallrequestmessage", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.memxequities.commonheader.tcp.v1.2.replaybeginmessage", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.memxequities.commonheader.tcp.v1.2.replaycompletemessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "memx.memxequities.commonheader.tcp.v1.2.replayrejectcode", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.memxequities.commonheader.tcp.v1.2.replayrejectedmessage", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.memxequities.commonheader.tcp.v1.2.replayrequestmessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "memx.memxequities.commonheader.tcp.v1.2.sbemessage", ftypes.BYTES)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.commonheader.tcp.v1.2.sequencedmessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.commonheader.tcp.v1.2.sessionid", ftypes.UINT64)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.memxequities.commonheader.tcp.v1.2.startofsessionmessage", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.memxequities.commonheader.tcp.v1.2.streambeginmessage", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.memxequities.commonheader.tcp.v1.2.streamcompletemessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.memxequities.commonheader.tcp.v1.2.streamrejectcode", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.memxequities.commonheader.tcp.v1.2.streamrejectedmessage", ftypes.STRING)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.memxequities.commonheader.tcp.v1.2.streamrequestmessage", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.memxequities.commonheader.tcp.v1.2.supportedrequestmode", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.token = ProtoField.new("Token", "memx.memxequities.commonheader.tcp.v1.2.token", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.token_type = ProtoField.new("Token Type", "memx.memxequities.commonheader.tcp.v1.2.tokentype", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.memxequities.commonheader.tcp.v1.2.totalsequencecount", ftypes.UINT64)
-omi_memx_memxequities_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING)
 
 -- Memx MemxEquities CommonHeader Tcp 1.2 Framing
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.client_packet = ProtoField.new("Client Packet", "memx.memxequities.commonheader.tcp.v1.2.clientpacket", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.commonheader.tcp.v1.2.commonheader", ftypes.STRING)
 omi_memx_memxequities_commonheader_tcp_v1_2.fields.server_packet = ProtoField.new("Server Packet", "memx.memxequities.commonheader.tcp.v1.2.serverpacket", ftypes.STRING)
+
+-- Memx MemxEquities CommonHeader 1.2 Session Messages
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.memxequities.commonheader.tcp.v1.2.loginacceptedmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.memxequities.commonheader.tcp.v1.2.loginrejectedmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_request_message = ProtoField.new("Login Request Message", "memx.memxequities.commonheader.tcp.v1.2.loginrequestmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.memxequities.commonheader.tcp.v1.2.replayallrequestmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.memxequities.commonheader.tcp.v1.2.replaybeginmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.memxequities.commonheader.tcp.v1.2.replaycompletemessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.memxequities.commonheader.tcp.v1.2.replayrejectedmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.memxequities.commonheader.tcp.v1.2.replayrequestmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.commonheader.tcp.v1.2.sequencedmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.memxequities.commonheader.tcp.v1.2.startofsessionmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.memxequities.commonheader.tcp.v1.2.streambeginmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.memxequities.commonheader.tcp.v1.2.streamcompletemessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.memxequities.commonheader.tcp.v1.2.streamrejectedmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.memxequities.commonheader.tcp.v1.2.streamrequestmessage", ftypes.STRING)
+omi_memx_memxequities_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -61,6 +63,7 @@ local show = {}
 -- Memx MemxEquities CommonHeader Tcp 1.2 Element Dissection Options
 show.structs = true
 show.headers = true
+show.session_messages = true
 
 -- Register Memx MemxEquities CommonHeader Tcp 1.2 Show Options
 local role_enum = {
@@ -73,6 +76,7 @@ omi_memx_memxequities_commonheader_tcp_v1_2.prefs.assume_role = Pref.enum("Assum
 omi_memx_memxequities_commonheader_tcp_v1_2.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_memxequities_commonheader_tcp_v1_2.prefs_changed()
@@ -80,6 +84,9 @@ function omi_memx_memxequities_commonheader_tcp_v1_2.prefs_changed()
   -- Check if preferences have changed
   if show.headers ~= omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_headers then
     show.headers = omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_headers
+  end
+  if show.session_messages ~= omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_session_messages then
+    show.session_messages = omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_session_messages
   end
   if show.structs ~= omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_structs then
     show.structs = omi_memx_memxequities_commonheader_tcp_v1_2.prefs.show_structs
@@ -591,7 +598,7 @@ end
 
 -- Dissect: Sequenced Message
 memx_memxequities_commonheader_tcp_v1_2.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.sequenced_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields(buffer, offset, packet, parent)
@@ -631,7 +638,7 @@ end
 
 -- Dissect: Stream Complete Message
 memx_memxequities_commonheader_tcp_v1_2.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_complete_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -671,7 +678,7 @@ end
 
 -- Dissect: Stream Rejected Message
 memx_memxequities_commonheader_tcp_v1_2.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_rejected_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -715,7 +722,7 @@ end
 
 -- Dissect: Stream Begin Message
 memx_memxequities_commonheader_tcp_v1_2.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_begin_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -755,7 +762,7 @@ end
 
 -- Dissect: Replay Complete Message
 memx_memxequities_commonheader_tcp_v1_2.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_complete_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -795,7 +802,7 @@ end
 
 -- Dissect: Replay Rejected Message
 memx_memxequities_commonheader_tcp_v1_2.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_rejected_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -839,7 +846,7 @@ end
 
 -- Dissect: Replay Begin Message
 memx_memxequities_commonheader_tcp_v1_2.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_begin_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -879,7 +886,7 @@ end
 
 -- Dissect: Start Of Session Message
 memx_memxequities_commonheader_tcp_v1_2.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.start_of_session_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -919,7 +926,7 @@ end
 
 -- Dissect: Login Rejected Message
 memx_memxequities_commonheader_tcp_v1_2.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_rejected_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -959,7 +966,7 @@ end
 
 -- Dissect: Login Accepted Message
 memx_memxequities_commonheader_tcp_v1_2.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_accepted_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -1125,7 +1132,7 @@ end
 
 -- Dissect: Unsequenced Message
 memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.unsequenced_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -1169,7 +1176,7 @@ end
 
 -- Dissect: Stream Request Message
 memx_memxequities_commonheader_tcp_v1_2.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.stream_request_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.stream_request_message.fields(buffer, offset, packet, parent)
@@ -1209,7 +1216,7 @@ end
 
 -- Dissect: Replay All Request Message
 memx_memxequities_commonheader_tcp_v1_2.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_all_request_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -1257,7 +1264,7 @@ end
 
 -- Dissect: Replay Request Message
 memx_memxequities_commonheader_tcp_v1_2.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.replay_request_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.replay_request_message.fields(buffer, offset, packet, parent)
@@ -1301,7 +1308,7 @@ end
 
 -- Dissect: Login Request Message
 memx_memxequities_commonheader_tcp_v1_2.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.login_request_message, buffer(offset, 0))
     local index = memx_memxequities_commonheader_tcp_v1_2.login_request_message.fields(buffer, offset, packet, parent)

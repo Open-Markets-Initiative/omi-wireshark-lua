@@ -33,7 +33,7 @@ omi_smallx_orderbookfeed_sbe_v2_2.fields.exercise_style = ProtoField.new("Exerci
 omi_smallx_orderbookfeed_sbe_v2_2.fields.expiration_date = ProtoField.new("Expiration Date", "smallx.orderbookfeed.sbe.v2.2.expirationdate", ftypes.UINT16)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.expiration_style = ProtoField.new("Expiration Style", "smallx.orderbookfeed.sbe.v2.2.expirationstyle", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "smallx.orderbookfeed.sbe.v2.2.firsttradingsessiondate", ftypes.UINT16)
-omi_smallx_orderbookfeed_sbe_v2_2.fields.frame_length = ProtoField.new("Frame Length", "smallx.orderbookfeed.sbe.v2.2.framelength", ftypes.UINT8)
+omi_smallx_orderbookfeed_sbe_v2_2.fields.frame_length = ProtoField.new("Frame Length", "smallx.orderbookfeed.sbe.v2.2.framelength", ftypes.UINT16)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.group_dimension = ProtoField.new("Group Dimension", "smallx.orderbookfeed.sbe.v2.2.groupdimension", ftypes.STRING)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.high_price = ProtoField.new("High Price", "smallx.orderbookfeed.sbe.v2.2.highprice", ftypes.DOUBLE)
 omi_smallx_orderbookfeed_sbe_v2_2.fields.implied = ProtoField.new("Implied", "smallx.orderbookfeed.sbe.v2.2.implied", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
@@ -660,7 +660,7 @@ end
 smallx_orderbookfeed_sbe_v2_2.frame_length = {}
 
 -- Size: Frame Length
-smallx_orderbookfeed_sbe_v2_2.frame_length.size = 1
+smallx_orderbookfeed_sbe_v2_2.frame_length.size = 2
 
 -- Display: Frame Length
 smallx_orderbookfeed_sbe_v2_2.frame_length.display = function(value)
@@ -671,7 +671,7 @@ end
 smallx_orderbookfeed_sbe_v2_2.frame_length.dissect = function(buffer, offset, packet, parent)
   local length = smallx_orderbookfeed_sbe_v2_2.frame_length.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:le_uint()
   local display = smallx_orderbookfeed_sbe_v2_2.frame_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.frame_length, range, value, display)
@@ -5310,7 +5310,7 @@ end
 smallx_orderbookfeed_sbe_v2_2.sbe_frame.fields = function(buffer, offset, packet, parent, size_of_sbe_frame)
   local index = offset
 
-  -- Frame Length: 1 Byte Unsigned Fixed Width Integer
+  -- Frame Length: 2 Byte Unsigned Fixed Width Integer
   index, frame_length = smallx_orderbookfeed_sbe_v2_2.frame_length.dissect(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
@@ -5487,7 +5487,7 @@ smallx_orderbookfeed_sbe_v2_2.packet.dissect = function(buffer, packet, parent)
     message_index = message_index + 1
 
     -- Dependency element: Frame Length
-    local frame_length = buffer(index, 1):uint()
+    local frame_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Sbe Frame
     index, sbe_frame = smallx_orderbookfeed_sbe_v2_2.sbe_frame.dissect(buffer, index, packet, parent, frame_length)
@@ -5524,7 +5524,7 @@ end
 -- Verify Schema Id Field
 smallx_orderbookfeed_sbe_v2_2.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(15, 2):le_uint()
+  local value = buffer(16, 2):le_uint()
 
   if value == 1 then
     return true
@@ -5536,7 +5536,7 @@ end
 -- Verify Version Field
 smallx_orderbookfeed_sbe_v2_2.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(17, 2):le_uint()
+  local value = buffer(18, 2):le_uint()
 
   if value == 6 then
     return true

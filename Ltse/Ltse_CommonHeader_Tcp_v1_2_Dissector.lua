@@ -17,10 +17,7 @@ local ltse_commonheader_tcp_v1_2 = {}
 -- Ltse CommonHeader Tcp 1.2 Fields
 omi_ltse_commonheader_tcp_v1_2.fields.block_length = ProtoField.new("Block Length", "ltse.commonheader.tcp.v1.2.blocklength", ftypes.UINT16)
 omi_ltse_commonheader_tcp_v1_2.fields.count = ProtoField.new("Count", "ltse.commonheader.tcp.v1.2.count", ftypes.UINT32)
-omi_ltse_commonheader_tcp_v1_2.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "ltse.commonheader.tcp.v1.2.loginacceptedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.login_reject_code = ProtoField.new("Login Reject Code", "ltse.commonheader.tcp.v1.2.loginrejectcode", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "ltse.commonheader.tcp.v1.2.loginrejectedmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.login_request_message = ProtoField.new("Login Request Message", "ltse.commonheader.tcp.v1.2.loginrequestmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "ltse.commonheader.tcp.v1.2.maxsequencenumber", ftypes.UINT64)
 omi_ltse_commonheader_tcp_v1_2.fields.message_count = ProtoField.new("Message Count", "ltse.commonheader.tcp.v1.2.messagecount", ftypes.UINT64)
 omi_ltse_commonheader_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "ltse.commonheader.tcp.v1.2.messagelength", ftypes.UINT16)
@@ -28,27 +25,15 @@ omi_ltse_commonheader_tcp_v1_2.fields.message_type = ProtoField.new("Message Typ
 omi_ltse_commonheader_tcp_v1_2.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "ltse.commonheader.tcp.v1.2.nextsequencenumber", ftypes.UINT64)
 omi_ltse_commonheader_tcp_v1_2.fields.payload = ProtoField.new("Payload", "ltse.commonheader.tcp.v1.2.payload", ftypes.BYTES)
 omi_ltse_commonheader_tcp_v1_2.fields.pending_message_count = ProtoField.new("Pending Message Count", "ltse.commonheader.tcp.v1.2.pendingmessagecount", ftypes.UINT32)
-omi_ltse_commonheader_tcp_v1_2.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "ltse.commonheader.tcp.v1.2.replayallrequestmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "ltse.commonheader.tcp.v1.2.replaybeginmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "ltse.commonheader.tcp.v1.2.replaycompletemessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "ltse.commonheader.tcp.v1.2.replayrejectcode", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "ltse.commonheader.tcp.v1.2.replayrejectedmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.replay_request_message = ProtoField.new("Replay Request Message", "ltse.commonheader.tcp.v1.2.replayrequestmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.schema_id = ProtoField.new("Schema Id", "ltse.commonheader.tcp.v1.2.schemaid", ftypes.UINT8)
-omi_ltse_commonheader_tcp_v1_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.commonheader.tcp.v1.2.sequencedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.session_id = ProtoField.new("Session Id", "ltse.commonheader.tcp.v1.2.sessionid", ftypes.UINT64)
-omi_ltse_commonheader_tcp_v1_2.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "ltse.commonheader.tcp.v1.2.startofsessionmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "ltse.commonheader.tcp.v1.2.streambeginmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "ltse.commonheader.tcp.v1.2.streamcompletemessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "ltse.commonheader.tcp.v1.2.streamrejectcode", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "ltse.commonheader.tcp.v1.2.streamrejectedmessage", ftypes.STRING)
-omi_ltse_commonheader_tcp_v1_2.fields.stream_request_message = ProtoField.new("Stream Request Message", "ltse.commonheader.tcp.v1.2.streamrequestmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "ltse.commonheader.tcp.v1.2.supportedrequestmode", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.template_id = ProtoField.new("Template Id", "ltse.commonheader.tcp.v1.2.templateid", ftypes.UINT8)
 omi_ltse_commonheader_tcp_v1_2.fields.token = ProtoField.new("Token", "ltse.commonheader.tcp.v1.2.token", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.token_type = ProtoField.new("Token Type", "ltse.commonheader.tcp.v1.2.tokentype", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "ltse.commonheader.tcp.v1.2.totalsequencecount", ftypes.UINT64)
-omi_ltse_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.version = ProtoField.new("Version", "ltse.commonheader.tcp.v1.2.version", ftypes.UINT16)
 
 -- Ltse CommonHeader Tcp 1.2 Framing
@@ -56,6 +41,23 @@ omi_ltse_commonheader_tcp_v1_2.fields.common_header = ProtoField.new("Common Hea
 omi_ltse_commonheader_tcp_v1_2.fields.packet = ProtoField.new("Packet", "ltse.commonheader.tcp.v1.2.packet", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.tcp.v1.2.sbeheader", ftypes.STRING)
 omi_ltse_commonheader_tcp_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.tcp.v1.2.sbemessage", ftypes.STRING)
+
+-- Ltse CommonHeader 1.2 Session Messages
+omi_ltse_commonheader_tcp_v1_2.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "ltse.commonheader.tcp.v1.2.loginacceptedmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "ltse.commonheader.tcp.v1.2.loginrejectedmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.login_request_message = ProtoField.new("Login Request Message", "ltse.commonheader.tcp.v1.2.loginrequestmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "ltse.commonheader.tcp.v1.2.replayallrequestmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "ltse.commonheader.tcp.v1.2.replaybeginmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "ltse.commonheader.tcp.v1.2.replaycompletemessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "ltse.commonheader.tcp.v1.2.replayrejectedmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.replay_request_message = ProtoField.new("Replay Request Message", "ltse.commonheader.tcp.v1.2.replayrequestmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.commonheader.tcp.v1.2.sequencedmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "ltse.commonheader.tcp.v1.2.startofsessionmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "ltse.commonheader.tcp.v1.2.streambeginmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "ltse.commonheader.tcp.v1.2.streamcompletemessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "ltse.commonheader.tcp.v1.2.streamrejectedmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.stream_request_message = ProtoField.new("Stream Request Message", "ltse.commonheader.tcp.v1.2.streamrequestmessage", ftypes.STRING)
+omi_ltse_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -65,10 +67,12 @@ local show = {}
 
 -- Ltse CommonHeader Tcp 1.2 Element Dissection Options
 show.headers = true
+show.session_messages = true
 show.structs = true
 
 -- Register Ltse CommonHeader Tcp 1.2 Show Options
 omi_ltse_commonheader_tcp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_ltse_commonheader_tcp_v1_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_ltse_commonheader_tcp_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
 -- Handle changed preferences
@@ -77,6 +81,9 @@ function omi_ltse_commonheader_tcp_v1_2.prefs_changed()
   -- Check if preferences have changed
   if show.headers ~= omi_ltse_commonheader_tcp_v1_2.prefs.show_headers then
     show.headers = omi_ltse_commonheader_tcp_v1_2.prefs.show_headers
+  end
+  if show.session_messages ~= omi_ltse_commonheader_tcp_v1_2.prefs.show_session_messages then
+    show.session_messages = omi_ltse_commonheader_tcp_v1_2.prefs.show_session_messages
   end
   if show.structs ~= omi_ltse_commonheader_tcp_v1_2.prefs.show_structs then
     show.structs = omi_ltse_commonheader_tcp_v1_2.prefs.show_structs
@@ -777,7 +784,7 @@ end
 
 -- Dissect: Sequenced Message
 ltse_commonheader_tcp_v1_2.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.sequenced_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.sequenced_message.fields(buffer, offset, packet, parent)
@@ -817,7 +824,7 @@ end
 
 -- Dissect: Stream Complete Message
 ltse_commonheader_tcp_v1_2.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.stream_complete_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -857,7 +864,7 @@ end
 
 -- Dissect: Stream Rejected Message
 ltse_commonheader_tcp_v1_2.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.stream_rejected_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -901,7 +908,7 @@ end
 
 -- Dissect: Stream Begin Message
 ltse_commonheader_tcp_v1_2.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.stream_begin_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -941,7 +948,7 @@ end
 
 -- Dissect: Replay Complete Message
 ltse_commonheader_tcp_v1_2.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.replay_complete_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -981,7 +988,7 @@ end
 
 -- Dissect: Replay Rejected Message
 ltse_commonheader_tcp_v1_2.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.replay_rejected_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -1025,7 +1032,7 @@ end
 
 -- Dissect: Replay Begin Message
 ltse_commonheader_tcp_v1_2.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.replay_begin_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -1065,7 +1072,7 @@ end
 
 -- Dissect: Start Of Session Message
 ltse_commonheader_tcp_v1_2.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.start_of_session_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -1105,7 +1112,7 @@ end
 
 -- Dissect: Login Rejected Message
 ltse_commonheader_tcp_v1_2.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.login_rejected_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -1145,7 +1152,7 @@ end
 
 -- Dissect: Login Accepted Message
 ltse_commonheader_tcp_v1_2.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.login_accepted_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -1197,7 +1204,7 @@ end
 
 -- Dissect: Unsequenced Message
 ltse_commonheader_tcp_v1_2.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.unsequenced_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -1241,7 +1248,7 @@ end
 
 -- Dissect: Stream Request Message
 ltse_commonheader_tcp_v1_2.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.stream_request_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.stream_request_message.fields(buffer, offset, packet, parent)
@@ -1281,7 +1288,7 @@ end
 
 -- Dissect: Replay All Request Message
 ltse_commonheader_tcp_v1_2.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.replay_all_request_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -1329,7 +1336,7 @@ end
 
 -- Dissect: Replay Request Message
 ltse_commonheader_tcp_v1_2.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.replay_request_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.replay_request_message.fields(buffer, offset, packet, parent)
@@ -1373,7 +1380,7 @@ end
 
 -- Dissect: Login Request Message
 ltse_commonheader_tcp_v1_2.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.login_request_message, buffer(offset, 0))
     local index = ltse_commonheader_tcp_v1_2.login_request_message.fields(buffer, offset, packet, parent)

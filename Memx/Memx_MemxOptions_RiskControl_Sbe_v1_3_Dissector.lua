@@ -30,10 +30,7 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid_optional = ProtoField.new(
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.last_px = ProtoField.new("Last Px", "memx.memxoptions.riskcontrol.sbe.v1.3.lastpx", ftypes.DOUBLE)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.last_qty = ProtoField.new("Last Qty", "memx.memxoptions.riskcontrol.sbe.v1.3.lastqty", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.latest_percentage = ProtoField.new("Latest Percentage", "memx.memxoptions.riskcontrol.sbe.v1.3.latestpercentage", ftypes.UINT8)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.memxoptions.riskcontrol.sbe.v1.3.loginacceptedmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.memxoptions.riskcontrol.sbe.v1.3.loginrejectcode", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.memxoptions.riskcontrol.sbe.v1.3.loginrejectedmessage", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_request_message = ProtoField.new("Login Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.loginrequestmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.max_contracts = ProtoField.new("Max Contracts", "memx.memxoptions.riskcontrol.sbe.v1.3.maxcontracts", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.max_dup_orders = ProtoField.new("Max Dup Orders", "memx.memxoptions.riskcontrol.sbe.v1.3.maxduporders", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.max_notional_in_dollars = ProtoField.new("Max Notional In Dollars", "memx.memxoptions.riskcontrol.sbe.v1.3.maxnotionalindollars", ftypes.UINT32)
@@ -52,27 +49,16 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.period_in_milli_seconds = Proto
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.price_in_dollars = ProtoField.new("Price In Dollars", "memx.memxoptions.riskcontrol.sbe.v1.3.priceindollars", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.riskcontrol.sbe.v1.3.quantity", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.reject_reason = ProtoField.new("Reject Reason", "memx.memxoptions.riskcontrol.sbe.v1.3.rejectreason", ftypes.UINT16)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replayallrequestmessage", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replaybeginmessage", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replaycompletemessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "memx.memxoptions.riskcontrol.sbe.v1.3.replayrejectcode", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replayrejectedmessage", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replayrequestmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxoptions.riskcontrol.sbe.v1.3.riskgroupid", ftypes.UINT16)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.risk_type = ProtoField.new("Risk Type", "memx.memxoptions.riskcontrol.sbe.v1.3.risktype", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.rule_type = ProtoField.new("Rule Type", "memx.memxoptions.riskcontrol.sbe.v1.3.ruletype", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.riskcontrol.sbe.v1.3.schemaid", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.riskcontrol.sbe.v1.3.sendcancels", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.riskcontrol.sbe.v1.3.sendingtime", ftypes.UINT64)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.riskcontrol.sbe.v1.3.sequencedmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "memx.memxoptions.riskcontrol.sbe.v1.3.sessionid", ftypes.UINT64)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.side = ProtoField.new("Side", "memx.memxoptions.riskcontrol.sbe.v1.3.side", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.memxoptions.riskcontrol.sbe.v1.3.startofsessionmessage", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streambeginmessage", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streamcompletemessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "memx.memxoptions.riskcontrol.sbe.v1.3.streamrejectcode", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streamrejectedmessage", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streamrequestmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.memxoptions.riskcontrol.sbe.v1.3.supportedrequestmode", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "memx.memxoptions.riskcontrol.sbe.v1.3.templateid", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.threshold_quantity = ProtoField.new("Threshold Quantity", "memx.memxoptions.riskcontrol.sbe.v1.3.thresholdquantity", ftypes.UINT32)
@@ -88,7 +74,6 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier = ProtoField.new("Und
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_rej_underlier = ProtoField.new("Underlier Active Risk Threshold Change Rej Underlier", "memx.memxoptions.riskcontrol.sbe.v1.3.underlieractiveriskthresholdchangerejunderlier", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_req_underlier = ProtoField.new("Underlier Active Risk Threshold Change Req Underlier", "memx.memxoptions.riskcontrol.sbe.v1.3.underlieractiveriskthresholdchangerequnderlier", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_optional = ProtoField.new("Underlier Optional", "memx.memxoptions.riskcontrol.sbe.v1.3.underlieroptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxoptions.riskcontrol.sbe.v1.3.unsequencedmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.use_order_price_in_dup_check = ProtoField.new("Use Order Price In Dup Check", "memx.memxoptions.riskcontrol.sbe.v1.3.useorderpriceindupcheck", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.use_order_price_in_dup_check_optional = ProtoField.new("Use Order Price In Dup Check Optional", "memx.memxoptions.riskcontrol.sbe.v1.3.useorderpriceindupcheckoptional", ftypes.UINT8)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.memxoptions.riskcontrol.sbe.v1.3.version", ftypes.UINT16)
@@ -152,6 +137,23 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.single_order_max_contracts_thre
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.single_order_max_notional_change_req_message = ProtoField.new("Single Order Max Notional Change Req Message", "memx.memxoptions.riskcontrol.sbe.v1.3.singleordermaxnotionalchangereqmessage", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.single_order_max_notional_threshold_state_message = ProtoField.new("Single Order Max Notional Threshold State Message", "memx.memxoptions.riskcontrol.sbe.v1.3.singleordermaxnotionalthresholdstatemessage", ftypes.STRING)
 
+-- Memx MemxOptions RiskControl 1.3 Session Messages
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "memx.memxoptions.riskcontrol.sbe.v1.3.loginacceptedmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.memxoptions.riskcontrol.sbe.v1.3.loginrejectedmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_request_message = ProtoField.new("Login Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.loginrequestmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replayallrequestmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replaybeginmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replaycompletemessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replayrejectedmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.replayrequestmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.riskcontrol.sbe.v1.3.sequencedmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "memx.memxoptions.riskcontrol.sbe.v1.3.startofsessionmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streambeginmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streamcompletemessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streamrejectedmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.memxoptions.riskcontrol.sbe.v1.3.streamrequestmessage", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxoptions.riskcontrol.sbe.v1.3.unsequencedmessage", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -162,6 +164,7 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.session_messages = true
 
 -- Register Memx MemxOptions RiskControl Sbe 1.3 Show Options
 local role_enum = {
@@ -175,6 +178,7 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.swap_sides = Pref.bool("Swap Sid
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs_changed()
@@ -185,6 +189,9 @@ function omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs_changed()
   end
   if show.headers ~= omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_headers then
     show.headers = omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_headers
+  end
+  if show.session_messages ~= omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_session_messages then
+    show.session_messages = omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_session_messages
   end
   if show.structs ~= omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_structs then
     show.structs = omi_memx_memxoptions_riskcontrol_sbe_v1_3.prefs.show_structs
@@ -5486,7 +5493,7 @@ end
 
 -- Dissect: Sequenced Message
 memx_memxoptions_riskcontrol_sbe_v1_3.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.sequenced_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.sequenced_message.fields(buffer, offset, packet, parent)
@@ -5526,7 +5533,7 @@ end
 
 -- Dissect: Stream Complete Message
 memx_memxoptions_riskcontrol_sbe_v1_3.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_complete_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -5566,7 +5573,7 @@ end
 
 -- Dissect: Stream Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_3.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_rejected_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -5610,7 +5617,7 @@ end
 
 -- Dissect: Stream Begin Message
 memx_memxoptions_riskcontrol_sbe_v1_3.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_begin_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -5650,7 +5657,7 @@ end
 
 -- Dissect: Replay Complete Message
 memx_memxoptions_riskcontrol_sbe_v1_3.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_complete_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -5690,7 +5697,7 @@ end
 
 -- Dissect: Replay Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_3.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_rejected_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -5734,7 +5741,7 @@ end
 
 -- Dissect: Replay Begin Message
 memx_memxoptions_riskcontrol_sbe_v1_3.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_begin_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -5774,7 +5781,7 @@ end
 
 -- Dissect: Start Of Session Message
 memx_memxoptions_riskcontrol_sbe_v1_3.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.start_of_session_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -5814,7 +5821,7 @@ end
 
 -- Dissect: Login Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_3.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_rejected_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -5854,7 +5861,7 @@ end
 
 -- Dissect: Login Accepted Message
 memx_memxoptions_riskcontrol_sbe_v1_3.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_accepted_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -6016,7 +6023,7 @@ end
 
 -- Dissect: Unsequenced Message
 memx_memxoptions_riskcontrol_sbe_v1_3.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.unsequenced_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -6060,7 +6067,7 @@ end
 
 -- Dissect: Stream Request Message
 memx_memxoptions_riskcontrol_sbe_v1_3.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.stream_request_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.stream_request_message.fields(buffer, offset, packet, parent)
@@ -6100,7 +6107,7 @@ end
 
 -- Dissect: Replay All Request Message
 memx_memxoptions_riskcontrol_sbe_v1_3.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_all_request_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -6148,7 +6155,7 @@ end
 
 -- Dissect: Replay Request Message
 memx_memxoptions_riskcontrol_sbe_v1_3.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.replay_request_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.replay_request_message.fields(buffer, offset, packet, parent)
@@ -6192,7 +6199,7 @@ end
 
 -- Dissect: Login Request Message
 memx_memxoptions_riskcontrol_sbe_v1_3.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.login_request_message, buffer(offset, 0))
     local index = memx_memxoptions_riskcontrol_sbe_v1_3.login_request_message.fields(buffer, offset, packet, parent)

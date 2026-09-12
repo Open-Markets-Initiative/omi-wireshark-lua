@@ -47,10 +47,7 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.leaves_qty = ProtoField.new("Leaves 
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.link_id_optional = ProtoField.new("Link Id Optional", "ltse.ltseequities.memo.sbe.v1.12.linkidoptional", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.locate_broker_optional = ProtoField.new("Locate Broker Optional", "ltse.ltseequities.memo.sbe.v1.12.locatebrokeroptional", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.locate_reqd = ProtoField.new("Locate Reqd", "ltse.ltseequities.memo.sbe.v1.12.locatereqd", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "ltse.ltseequities.memo.sbe.v1.12.loginacceptedmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_reject_code = ProtoField.new("Login Reject Code", "ltse.ltseequities.memo.sbe.v1.12.loginrejectcode", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "ltse.ltseequities.memo.sbe.v1.12.loginrejectedmessage", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_request_message = ProtoField.new("Login Request Message", "ltse.ltseequities.memo.sbe.v1.12.loginrequestmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.lower_than_price = ProtoField.new("Lower Than Price", "ltse.ltseequities.memo.sbe.v1.12.lowerthanprice", ftypes.DOUBLE)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "ltse.ltseequities.memo.sbe.v1.12.masscancelrejectreason", ftypes.UINT8)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.max_sequence_number = ProtoField.new("Max Sequence Number", "ltse.ltseequities.memo.sbe.v1.12.maxsequencenumber", ftypes.UINT64)
@@ -74,12 +71,7 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.peg_offset_value = ProtoField.new("P
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.peg_price_type = ProtoField.new("Peg Price Type", "ltse.ltseequities.memo.sbe.v1.12.pegpricetype", ftypes.UINT8)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.pending_message_count = ProtoField.new("Pending Message Count", "ltse.ltseequities.memo.sbe.v1.12.pendingmessagecount", ftypes.UINT32)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.price = ProtoField.new("Price", "ltse.ltseequities.memo.sbe.v1.12.price", ftypes.DOUBLE)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "ltse.ltseequities.memo.sbe.v1.12.replayallrequestmessage", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "ltse.ltseequities.memo.sbe.v1.12.replaybeginmessage", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "ltse.ltseequities.memo.sbe.v1.12.replaycompletemessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_reject_code = ProtoField.new("Replay Reject Code", "ltse.ltseequities.memo.sbe.v1.12.replayrejectcode", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "ltse.ltseequities.memo.sbe.v1.12.replayrejectedmessage", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_request_message = ProtoField.new("Replay Request Message", "ltse.ltseequities.memo.sbe.v1.12.replayrequestmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "ltse.ltseequities.memo.sbe.v1.12.repricebehavior", ftypes.UINT8)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "ltse.ltseequities.memo.sbe.v1.12.repricefrequency", ftypes.UINT8)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "ltse.ltseequities.memo.sbe.v1.12.reservereplenishtiming", ftypes.UINT8)
@@ -89,17 +81,11 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.schema_id = ProtoField.new("Schema I
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.security_group = ProtoField.new("Security Group", "ltse.ltseequities.memo.sbe.v1.12.securitygroup", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "ltse.ltseequities.memo.sbe.v1.12.selftradeprevention", ftypes.UINT8)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.sending_time = ProtoField.new("Sending Time", "ltse.ltseequities.memo.sbe.v1.12.sendingtime", ftypes.UINT64)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.ltseequities.memo.sbe.v1.12.sequencedmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.session_id = ProtoField.new("Session Id", "ltse.ltseequities.memo.sbe.v1.12.sessionid", ftypes.UINT64)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.side = ProtoField.new("Side", "ltse.ltseequities.memo.sbe.v1.12.side", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.side_optional = ProtoField.new("Side Optional", "ltse.ltseequities.memo.sbe.v1.12.sideoptional", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "ltse.ltseequities.memo.sbe.v1.12.startofsessionmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.stp_group_id = ProtoField.new("Stp Group Id", "ltse.ltseequities.memo.sbe.v1.12.stpgroupid", ftypes.UINT16)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "ltse.ltseequities.memo.sbe.v1.12.streambeginmessage", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "ltse.ltseequities.memo.sbe.v1.12.streamcompletemessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_reject_code = ProtoField.new("Stream Reject Code", "ltse.ltseequities.memo.sbe.v1.12.streamrejectcode", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "ltse.ltseequities.memo.sbe.v1.12.streamrejectedmessage", ftypes.STRING)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_request_message = ProtoField.new("Stream Request Message", "ltse.ltseequities.memo.sbe.v1.12.streamrequestmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "ltse.ltseequities.memo.sbe.v1.12.supportedrequestmode", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.symbol = ProtoField.new("Symbol", "ltse.ltseequities.memo.sbe.v1.12.symbol", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "ltse.ltseequities.memo.sbe.v1.12.symbolsfx", ftypes.STRING)
@@ -111,7 +97,6 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.total_sequence_count = ProtoField.ne
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.transact_time = ProtoField.new("Transact Time", "ltse.ltseequities.memo.sbe.v1.12.transacttime", ftypes.UINT64)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.trd_match_id = ProtoField.new("Trd Match Id", "ltse.ltseequities.memo.sbe.v1.12.trdmatchid", ftypes.UINT64)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "ltse.ltseequities.memo.sbe.v1.12.trdmatchingid", ftypes.UINT64)
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.ltseequities.memo.sbe.v1.12.unsequencedmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.version = ProtoField.new("Version", "ltse.ltseequities.memo.sbe.v1.12.version", ftypes.UINT16)
 
 -- Ltse LtseEquities Memo Sbe 1.12 Framing
@@ -141,6 +126,23 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.order_cancel_replace_request_message
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "ltse.ltseequities.memo.sbe.v1.12.ordercancelrequestmessage", ftypes.STRING)
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "ltse.ltseequities.memo.sbe.v1.12.pendingmasscancelmessage", ftypes.STRING)
 
+-- Ltse LtseEquities Memo 1.12 Session Messages
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_accepted_message = ProtoField.new("Login Accepted Message", "ltse.ltseequities.memo.sbe.v1.12.loginacceptedmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "ltse.ltseequities.memo.sbe.v1.12.loginrejectedmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_request_message = ProtoField.new("Login Request Message", "ltse.ltseequities.memo.sbe.v1.12.loginrequestmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "ltse.ltseequities.memo.sbe.v1.12.replayallrequestmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "ltse.ltseequities.memo.sbe.v1.12.replaybeginmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "ltse.ltseequities.memo.sbe.v1.12.replaycompletemessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_rejected_message = ProtoField.new("Replay Rejected Message", "ltse.ltseequities.memo.sbe.v1.12.replayrejectedmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_request_message = ProtoField.new("Replay Request Message", "ltse.ltseequities.memo.sbe.v1.12.replayrequestmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.ltseequities.memo.sbe.v1.12.sequencedmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.start_of_session_message = ProtoField.new("Start Of Session Message", "ltse.ltseequities.memo.sbe.v1.12.startofsessionmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_begin_message = ProtoField.new("Stream Begin Message", "ltse.ltseequities.memo.sbe.v1.12.streambeginmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_complete_message = ProtoField.new("Stream Complete Message", "ltse.ltseequities.memo.sbe.v1.12.streamcompletemessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "ltse.ltseequities.memo.sbe.v1.12.streamrejectedmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_request_message = ProtoField.new("Stream Request Message", "ltse.ltseequities.memo.sbe.v1.12.streamrequestmessage", ftypes.STRING)
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.ltseequities.memo.sbe.v1.12.unsequencedmessage", ftypes.STRING)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -151,11 +153,13 @@ local show = {}
 show.headers = true
 show.structs = true
 show.application_messages = true
+show.session_messages = true
 
 -- Register Ltse LtseEquities Memo Sbe 1.12 Show Options
 omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
 -- Handle changed preferences
 function omi_ltse_ltseequities_memo_sbe_v1_12.prefs_changed()
@@ -166,6 +170,9 @@ function omi_ltse_ltseequities_memo_sbe_v1_12.prefs_changed()
   end
   if show.headers ~= omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_headers then
     show.headers = omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_headers
+  end
+  if show.session_messages ~= omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_session_messages then
+    show.session_messages = omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_session_messages
   end
   if show.structs ~= omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_structs then
     show.structs = omi_ltse_ltseequities_memo_sbe_v1_12.prefs.show_structs
@@ -5457,7 +5464,7 @@ end
 
 -- Dissect: Sequenced Message
 ltse_ltseequities_memo_sbe_v1_12.sequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.sequenced_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.sequenced_message.fields(buffer, offset, packet, parent)
@@ -5497,7 +5504,7 @@ end
 
 -- Dissect: Stream Complete Message
 ltse_ltseequities_memo_sbe_v1_12.stream_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_complete_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.stream_complete_message.fields(buffer, offset, packet, parent)
@@ -5537,7 +5544,7 @@ end
 
 -- Dissect: Stream Rejected Message
 ltse_ltseequities_memo_sbe_v1_12.stream_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_rejected_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.stream_rejected_message.fields(buffer, offset, packet, parent)
@@ -5581,7 +5588,7 @@ end
 
 -- Dissect: Stream Begin Message
 ltse_ltseequities_memo_sbe_v1_12.stream_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_begin_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.stream_begin_message.fields(buffer, offset, packet, parent)
@@ -5621,7 +5628,7 @@ end
 
 -- Dissect: Replay Complete Message
 ltse_ltseequities_memo_sbe_v1_12.replay_complete_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_complete_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.replay_complete_message.fields(buffer, offset, packet, parent)
@@ -5661,7 +5668,7 @@ end
 
 -- Dissect: Replay Rejected Message
 ltse_ltseequities_memo_sbe_v1_12.replay_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_rejected_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.replay_rejected_message.fields(buffer, offset, packet, parent)
@@ -5705,7 +5712,7 @@ end
 
 -- Dissect: Replay Begin Message
 ltse_ltseequities_memo_sbe_v1_12.replay_begin_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_begin_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.replay_begin_message.fields(buffer, offset, packet, parent)
@@ -5745,7 +5752,7 @@ end
 
 -- Dissect: Start Of Session Message
 ltse_ltseequities_memo_sbe_v1_12.start_of_session_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.start_of_session_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.start_of_session_message.fields(buffer, offset, packet, parent)
@@ -5785,7 +5792,7 @@ end
 
 -- Dissect: Login Rejected Message
 ltse_ltseequities_memo_sbe_v1_12.login_rejected_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_rejected_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.login_rejected_message.fields(buffer, offset, packet, parent)
@@ -5825,7 +5832,7 @@ end
 
 -- Dissect: Login Accepted Message
 ltse_ltseequities_memo_sbe_v1_12.login_accepted_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_accepted_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.login_accepted_message.fields(buffer, offset, packet, parent)
@@ -5877,7 +5884,7 @@ end
 
 -- Dissect: Unsequenced Message
 ltse_ltseequities_memo_sbe_v1_12.unsequenced_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.unsequenced_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.unsequenced_message.fields(buffer, offset, packet, parent)
@@ -5921,7 +5928,7 @@ end
 
 -- Dissect: Stream Request Message
 ltse_ltseequities_memo_sbe_v1_12.stream_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.stream_request_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.stream_request_message.fields(buffer, offset, packet, parent)
@@ -5961,7 +5968,7 @@ end
 
 -- Dissect: Replay All Request Message
 ltse_ltseequities_memo_sbe_v1_12.replay_all_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_all_request_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.replay_all_request_message.fields(buffer, offset, packet, parent)
@@ -6009,7 +6016,7 @@ end
 
 -- Dissect: Replay Request Message
 ltse_ltseequities_memo_sbe_v1_12.replay_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_request_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.replay_request_message.fields(buffer, offset, packet, parent)
@@ -6053,7 +6060,7 @@ end
 
 -- Dissect: Login Request Message
 ltse_ltseequities_memo_sbe_v1_12.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.login_request_message, buffer(offset, 0))
     local index = ltse_ltseequities_memo_sbe_v1_12.login_request_message.fields(buffer, offset, packet, parent)
