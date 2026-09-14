@@ -9473,18 +9473,6 @@ tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.verify = function(buffer)
   return false
 end
 
--- Verify Hsvf Etx Field
-tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(2996, 1):uint()
-
-  if value == 3 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Tmx Mx Sola Multicast Hsvf 1.14 (Udp)
 local function omi_tmx_mx_sola_multicast_hsvf_v1_14_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
@@ -9492,9 +9480,6 @@ local function omi_tmx_mx_sola_multicast_hsvf_v1_14_udp_heuristic(buffer, packet
 
   -- Verify Hsvf Stx
   if not tmx_mx_sola_multicast_hsvf_v1_14.hsvf_stx.verify(buffer) then return false end
-
-  -- Verify Hsvf Etx
-  if not tmx_mx_sola_multicast_hsvf_v1_14.hsvf_etx.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_tmx_mx_sola_multicast_hsvf_v1_14
