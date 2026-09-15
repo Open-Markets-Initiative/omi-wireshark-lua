@@ -2148,7 +2148,8 @@ siac_opra_output_obi_v6_3_a.seconds.size = 4
 
 -- Display: Seconds
 siac_opra_output_obi_v6_3_a.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

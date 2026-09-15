@@ -31,7 +31,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.cancel_error_action = ProtoField.new("Cance
 omi_siac_cts_input_cta_v2_7_f.fields.control_message = ProtoField.new("Control Message", "siac.cts.input.cta.v2.7.f.controlmessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.input.cta.v2.7.f.controlmessagetype", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.corrected_fractional_trade_volume = ProtoField.new("Corrected Fractional Trade Volume", "siac.cts.input.cta.v2.7.f.correctedfractionaltradevolume", ftypes.UINT64)
-omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.correctedpriordaytradedateandtime", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.correctedpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time_utc = ProtoField.new("Corrected Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.correctedpriordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cts_input_cta_v2_7_f.fields.corrected_sale_condition = ProtoField.new("Corrected Sale Condition", "siac.cts.input.cta.v2.7.f.correctedsalecondition", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "siac.cts.input.cta.v2.7.f.correctedsellerssaledays", ftypes.UINT8)
 omi_siac_cts_input_cta_v2_7_f.fields.corrected_short_sale_restriction_indicator = ProtoField.new("Corrected Short Sale Restriction Indicator", "siac.cts.input.cta.v2.7.f.correctedshortsalerestrictionindicator", ftypes.STRING)
@@ -70,7 +71,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.number_of_extensions = ProtoField.new("Numb
 omi_siac_cts_input_cta_v2_7_f.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.input.cta.v2.7.f.offerindexvalue", ftypes.INT64)
 omi_siac_cts_input_cta_v2_7_f.fields.original_fractional_trade_volume = ProtoField.new("Original Fractional Trade Volume", "siac.cts.input.cta.v2.7.f.originalfractionaltradevolume", ftypes.UINT64)
 omi_siac_cts_input_cta_v2_7_f.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.input.cta.v2.7.f.originalparticipantreferencenumber", ftypes.INT64)
-omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.originalpriordaytradedateandtime", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.originalpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time_utc = ProtoField.new("Original Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.originalpriordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cts_input_cta_v2_7_f.fields.original_sale_condition = ProtoField.new("Original Sale Condition", "siac.cts.input.cta.v2.7.f.originalsalecondition", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.original_sellers_sale_days = ProtoField.new("Original Sellers Sale Days", "siac.cts.input.cta.v2.7.f.originalsellerssaledays", ftypes.UINT8)
 omi_siac_cts_input_cta_v2_7_f.fields.original_short_sale_restriction_indicator = ProtoField.new("Original Short Sale Restriction Indicator", "siac.cts.input.cta.v2.7.f.originalshortsalerestrictionindicator", ftypes.STRING)
@@ -84,7 +86,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.previous_block_sequence_number = ProtoField
 omi_siac_cts_input_cta_v2_7_f.fields.previous_participant_reference_number = ProtoField.new("Previous Participant Reference Number", "siac.cts.input.cta.v2.7.f.previousparticipantreferencenumber", ftypes.INT64)
 omi_siac_cts_input_cta_v2_7_f.fields.prior_day_message = ProtoField.new("Prior Day Message", "siac.cts.input.cta.v2.7.f.priordaymessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.input.cta.v2.7.f.priordaymessagetype", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.priordaytradedateandtime", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.priordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time_utc = ProtoField.new("Prior Day Trade Date And Time", "siac.cts.input.cta.v2.7.f.priordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cts_input_cta_v2_7_f.fields.reserved = ProtoField.new("Reserved", "siac.cts.input.cta.v2.7.f.reserved", ftypes.BYTES)
 omi_siac_cts_input_cta_v2_7_f.fields.reserved_3 = ProtoField.new("Reserved 3", "siac.cts.input.cta.v2.7.f.reserved3", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.reserved_62 = ProtoField.new("Reserved 62", "siac.cts.input.cta.v2.7.f.reserved62", ftypes.STRING)
@@ -97,7 +100,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.sell_volume = ProtoField.new("Sell Volume",
 omi_siac_cts_input_cta_v2_7_f.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "siac.cts.input.cta.v2.7.f.sellerssaledays", ftypes.UINT8)
 omi_siac_cts_input_cta_v2_7_f.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.input.cta.v2.7.f.shortsalerestrictionindicator", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.input.cta.v2.7.f.stopstockindicator", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.input.cta.v2.7.f.timestamp2", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.input.cta.v2.7.f.timestamp2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2_utc = ProtoField.new("Timestamp 2", "siac.cts.input.cta.v2.7.f.timestamp2.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cts_input_cta_v2_7_f.fields.total_trades = ProtoField.new("Total Trades", "siac.cts.input.cta.v2.7.f.totaltrades", ftypes.UINT32)
 omi_siac_cts_input_cta_v2_7_f.fields.trade_message = ProtoField.new("Trade Message", "siac.cts.input.cta.v2.7.f.trademessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.cts.input.cta.v2.7.f.trademessagetype", ftypes.STRING)
@@ -113,7 +117,8 @@ omi_siac_cts_input_cta_v2_7_f.fields.block_header = ProtoField.new("Block Header
 omi_siac_cts_input_cta_v2_7_f.fields.message = ProtoField.new("Message", "siac.cts.input.cta.v2.7.f.message", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.message_header = ProtoField.new("Message Header", "siac.cts.input.cta.v2.7.f.messageheader", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.packet = ProtoField.new("Packet", "siac.cts.input.cta.v2.7.f.packet", ftypes.STRING)
-omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.input.cta.v2.7.f.timestamp1", ftypes.STRING)
+omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.input.cta.v2.7.f.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1_utc = ProtoField.new("Timestamp 1", "siac.cts.input.cta.v2.7.f.timestamp1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 
 -- Siac Cts Input 2.7.f Application Messages
 omi_siac_cts_input_cta_v2_7_f.fields.approximate_trades_and_total_dollar_value_message = ProtoField.new("Approximate Trades And Total Dollar Value Message", "siac.cts.input.cta.v2.7.f.approximatetradesandtotaldollarvaluemessage", ftypes.STRING)
@@ -148,6 +153,20 @@ omi_siac_cts_input_cta_v2_7_f.fields.warning_message = ProtoField.new("Warning M
 omi_siac_cts_input_cta_v2_7_f.fields.message_index = ProtoField.new("Message Index", "siac.cts.input.cta.v2.7.f.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Siac Cts Input Cta 2.7.f Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+siac_cts_input_cta_v2_7_f.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -165,6 +184,8 @@ omi_siac_cts_input_cta_v2_7_f.prefs.show_application_messages = Pref.bool("Show 
 omi_siac_cts_input_cta_v2_7_f.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_siac_cts_input_cta_v2_7_f.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_siac_cts_input_cta_v2_7_f.prefs_changed()
 
@@ -180,6 +201,9 @@ function omi_siac_cts_input_cta_v2_7_f.prefs_changed()
   end
   if show.indexes ~= omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes then
     show.indexes = omi_siac_cts_input_cta_v2_7_f.prefs.show_indexes
+  end
+  if siac_cts_input_cta_v2_7_f.absolute_time_base ~= omi_siac_cts_input_cta_v2_7_f.prefs.absolute_time_base then
+    siac_cts_input_cta_v2_7_f.absolute_time_base = omi_siac_cts_input_cta_v2_7_f.prefs.absolute_time_base
   end
 end
 
@@ -1910,7 +1934,8 @@ siac_cts_input_cta_v2_7_f.seconds.size = 4
 
 -- Display: Seconds
 siac_cts_input_cta_v2_7_f.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds
@@ -2353,8 +2378,18 @@ siac_cts_input_cta_v2_7_f.timestamp_2.size =
   siac_cts_input_cta_v2_7_f.nanoseconds.size
 
 -- Display: Timestamp 2
-siac_cts_input_cta_v2_7_f.timestamp_2.display = function(packet, parent, length)
-  return ""
+siac_cts_input_cta_v2_7_f.timestamp_2.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Timestamp 2
@@ -2367,19 +2402,26 @@ siac_cts_input_cta_v2_7_f.timestamp_2.fields = function(buffer, offset, packet, 
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local timestamp_2 = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, timestamp_2
 end
 
 -- Dissect: Timestamp 2
 siac_cts_input_cta_v2_7_f.timestamp_2.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cts_input_cta_v2_7_f.timestamp_2.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2
+    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_2_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.timestamp_2.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_input_cta_v2_7_f.timestamp_2.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else
@@ -3143,8 +3185,18 @@ siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.size =
   siac_cts_input_cta_v2_7_f.nanoseconds.size
 
 -- Display: Prior Day Trade Date And Time
-siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.display = function(packet, parent, length)
-  return ""
+siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Prior Day Trade Date And Time
@@ -3157,19 +3209,26 @@ siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.fields = function(buffer
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local prior_day_trade_date_and_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, prior_day_trade_date_and_time
 end
 
 -- Dissect: Prior Day Trade Date And Time
 siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time
+    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.prior_day_trade_date_and_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_input_cta_v2_7_f.prior_day_trade_date_and_time.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else
@@ -3515,8 +3574,18 @@ siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.size =
   siac_cts_input_cta_v2_7_f.nanoseconds.size
 
 -- Display: Original Prior Day Trade Date And Time
-siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.display = function(packet, parent, length)
-  return ""
+siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Original Prior Day Trade Date And Time
@@ -3529,19 +3598,26 @@ siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.fields = functi
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local original_prior_day_trade_date_and_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, original_prior_day_trade_date_and_time
 end
 
 -- Dissect: Original Prior Day Trade Date And Time
 siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time
+    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.original_prior_day_trade_date_and_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_input_cta_v2_7_f.original_prior_day_trade_date_and_time.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else
@@ -3559,8 +3635,18 @@ siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.size =
   siac_cts_input_cta_v2_7_f.nanoseconds.size
 
 -- Display: Corrected Prior Day Trade Date And Time
-siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.display = function(packet, parent, length)
-  return ""
+siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Corrected Prior Day Trade Date And Time
@@ -3573,19 +3659,26 @@ siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.fields = funct
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local corrected_prior_day_trade_date_and_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, corrected_prior_day_trade_date_and_time
 end
 
 -- Dissect: Corrected Prior Day Trade Date And Time
 siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time
+    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.corrected_prior_day_trade_date_and_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_input_cta_v2_7_f.corrected_prior_day_trade_date_and_time.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else
@@ -4610,8 +4703,18 @@ siac_cts_input_cta_v2_7_f.timestamp_1.size =
   siac_cts_input_cta_v2_7_f.nanoseconds.size
 
 -- Display: Timestamp 1
-siac_cts_input_cta_v2_7_f.timestamp_1.display = function(packet, parent, length)
-  return ""
+siac_cts_input_cta_v2_7_f.timestamp_1.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Timestamp 1
@@ -4624,19 +4727,26 @@ siac_cts_input_cta_v2_7_f.timestamp_1.fields = function(buffer, offset, packet, 
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cts_input_cta_v2_7_f.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local timestamp_1 = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, timestamp_1
 end
 
 -- Dissect: Timestamp 1
 siac_cts_input_cta_v2_7_f.timestamp_1.dissect = function(buffer, offset, packet, parent)
   if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cts_input_cta_v2_7_f.timestamp_1.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1
+    if siac_cts_input_cta_v2_7_f.absolute_time_base == 1 then field = omi_siac_cts_input_cta_v2_7_f.fields.timestamp_1_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_input_cta_v2_7_f.timestamp_1.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cts_input_cta_v2_7_f.timestamp_1.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else

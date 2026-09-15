@@ -15,7 +15,8 @@ local siac_cqs_output_cta_v2_9 = {}
 -----------------------------------------------------------------------
 
 -- Siac Cqs Output Cta 2.9 Fields
-omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v2.9.adftimestamp", ftypes.STRING)
+omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v2.9.adftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp_utc = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v2.9.adftimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cqs_output_cta_v2_9.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cqs.output.cta.v2.9.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
 omi_siac_cqs_output_cta_v2_9.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cqs.output.cta.v2.9.auctioncollarreferenceprice", ftypes.DOUBLE)
 omi_siac_cqs_output_cta_v2_9.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cqs.output.cta.v2.9.auctioncollarupperthresholdprice", ftypes.DOUBLE)
@@ -84,7 +85,8 @@ omi_siac_cqs_output_cta_v2_9.fields.offer_size_long = ProtoField.new("Offer Size
 omi_siac_cqs_output_cta_v2_9.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.cqs.output.cta.v2.9.offersizeshort", ftypes.UINT16)
 omi_siac_cqs_output_cta_v2_9.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.output.cta.v2.9.participantid", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cqs.output.cta.v2.9.participantreferencenumber", ftypes.INT64)
-omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v2.9.participanttimestamp", ftypes.STRING)
+omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v2.9.participanttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp_utc = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v2.9.participanttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cqs_output_cta_v2_9.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.output.cta.v2.9.primarylistingmarketparticipantid", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.output.cta.v2.9.quotecondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.quote_message = ProtoField.new("Quote Message", "siac.cqs.output.cta.v2.9.quotemessage", ftypes.STRING)
@@ -98,7 +100,8 @@ omi_siac_cqs_output_cta_v2_9.fields.security_symbol_long = ProtoField.new("Secur
 omi_siac_cqs_output_cta_v2_9.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cqs.output.cta.v2.9.securitysymbolshort", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.output.cta.v2.9.settlementcondition", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.output.cta.v2.9.shortsalerestrictionindicator", ftypes.STRING)
-omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v2.9.sipblocktimestamp", ftypes.STRING)
+omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v2.9.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp_utc = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v2.9.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cqs_output_cta_v2_9.fields.sip_generated_message_identifier = ProtoField.new("Sip Generated Message Identifier", "siac.cqs.output.cta.v2.9.sipgeneratedmessageidentifier", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_9.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v2.9.transactionid", ftypes.UINT32)
 omi_siac_cqs_output_cta_v2_9.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v2.9.version", ftypes.UINT8)
@@ -129,6 +132,20 @@ omi_siac_cqs_output_cta_v2_9.fields.start_of_test_cycle_message = ProtoField.new
 omi_siac_cqs_output_cta_v2_9.fields.message_index = ProtoField.new("Message Index", "siac.cqs.output.cta.v2.9.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Siac Cqs Output Cta 2.9 Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+siac_cqs_output_cta_v2_9.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -146,6 +163,8 @@ omi_siac_cqs_output_cta_v2_9.prefs.show_application_messages = Pref.bool("Show A
 omi_siac_cqs_output_cta_v2_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_siac_cqs_output_cta_v2_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_siac_cqs_output_cta_v2_9.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_siac_cqs_output_cta_v2_9.prefs_changed()
 
@@ -161,6 +180,9 @@ function omi_siac_cqs_output_cta_v2_9.prefs_changed()
   end
   if show.indexes ~= omi_siac_cqs_output_cta_v2_9.prefs.show_indexes then
     show.indexes = omi_siac_cqs_output_cta_v2_9.prefs.show_indexes
+  end
+  if siac_cqs_output_cta_v2_9.absolute_time_base ~= omi_siac_cqs_output_cta_v2_9.prefs.absolute_time_base then
+    siac_cqs_output_cta_v2_9.absolute_time_base = omi_siac_cqs_output_cta_v2_9.prefs.absolute_time_base
   end
 end
 
@@ -2596,7 +2618,8 @@ siac_cqs_output_cta_v2_9.seconds.size = 4
 
 -- Display: Seconds
 siac_cqs_output_cta_v2_9.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds
@@ -3117,8 +3140,18 @@ siac_cqs_output_cta_v2_9.adf_timestamp.size =
   siac_cqs_output_cta_v2_9.nanoseconds.size
 
 -- Display: Adf Timestamp
-siac_cqs_output_cta_v2_9.adf_timestamp.display = function(packet, parent, length)
-  return ""
+siac_cqs_output_cta_v2_9.adf_timestamp.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Adf Timestamp
@@ -3131,19 +3164,26 @@ siac_cqs_output_cta_v2_9.adf_timestamp.fields = function(buffer, offset, packet,
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cqs_output_cta_v2_9.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local adf_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, adf_timestamp
 end
 
 -- Dissect: Adf Timestamp
 siac_cqs_output_cta_v2_9.adf_timestamp.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cqs_output_cta_v2_9.adf_timestamp.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp
+    if siac_cqs_output_cta_v2_9.absolute_time_base == 1 then field = omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cqs_output_cta_v2_9.adf_timestamp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v2_9.adf_timestamp.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else
@@ -3161,8 +3201,18 @@ siac_cqs_output_cta_v2_9.participant_timestamp.size =
   siac_cqs_output_cta_v2_9.nanoseconds.size
 
 -- Display: Participant Timestamp
-siac_cqs_output_cta_v2_9.participant_timestamp.display = function(packet, parent, length)
-  return ""
+siac_cqs_output_cta_v2_9.participant_timestamp.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Participant Timestamp
@@ -3175,19 +3225,26 @@ siac_cqs_output_cta_v2_9.participant_timestamp.fields = function(buffer, offset,
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cqs_output_cta_v2_9.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local participant_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, participant_timestamp
 end
 
 -- Dissect: Participant Timestamp
 siac_cqs_output_cta_v2_9.participant_timestamp.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cqs_output_cta_v2_9.participant_timestamp.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp
+    if siac_cqs_output_cta_v2_9.absolute_time_base == 1 then field = omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cqs_output_cta_v2_9.participant_timestamp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v2_9.participant_timestamp.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else
@@ -4939,8 +4996,18 @@ siac_cqs_output_cta_v2_9.sip_block_timestamp.size =
   siac_cqs_output_cta_v2_9.nanoseconds.size
 
 -- Display: Sip Block Timestamp
-siac_cqs_output_cta_v2_9.sip_block_timestamp.display = function(packet, parent, length)
-  return ""
+siac_cqs_output_cta_v2_9.sip_block_timestamp.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect Fields: Sip Block Timestamp
@@ -4953,19 +5020,26 @@ siac_cqs_output_cta_v2_9.sip_block_timestamp.fields = function(buffer, offset, p
   -- Nanoseconds: Integer
   index, nanoseconds = siac_cqs_output_cta_v2_9.nanoseconds.dissect(buffer, index, packet, parent)
 
-  return index
+  -- Composite value
+  local sip_block_timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, sip_block_timestamp
 end
 
 -- Dissect: Sip Block Timestamp
 siac_cqs_output_cta_v2_9.sip_block_timestamp.dissect = function(buffer, offset, packet, parent)
   if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp, buffer(offset, 0))
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = siac_cqs_output_cta_v2_9.sip_block_timestamp.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp
+    if siac_cqs_output_cta_v2_9.absolute_time_base == 1 then field = omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cqs_output_cta_v2_9.sip_block_timestamp.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_output_cta_v2_9.sip_block_timestamp.display(packet, parent, length)
-    parent:append_text(display)
 
     return index, parent
   else

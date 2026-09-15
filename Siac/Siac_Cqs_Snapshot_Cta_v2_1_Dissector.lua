@@ -2063,7 +2063,8 @@ siac_cqs_snapshot_cta_v2_1.seconds.size = 4
 
 -- Display: Seconds
 siac_cqs_snapshot_cta_v2_1.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds
