@@ -8,7 +8,7 @@
 | [IntelligentCross][IntelligentCross.Ats] | [DepthOfBook][Imperative.IntelligentCross.DepthOfBook] | [Aspen][Omi.Encoding.Aspen] | [1.11][Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Dissector] | 7/30/2020 | 1665 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Url] - [pdf][Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.Pdf] |
 
 
-<a href="https://www.imperativex.com" title="Imperative Execution Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/imperativex" title="Imperative Execution on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>
+<p align="center"><a href="https://www.imperativex.com" title="Imperative Execution Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/imperativex" title="Imperative Execution on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Status.md "Protocol Deployment Status"

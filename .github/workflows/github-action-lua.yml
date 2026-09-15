@@ -55,6 +55,9 @@ jobs:
       - name: Run Cboe BzxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-BzxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
 
+      - name: Run Cboe BzxOptions BinaryOrderEntry Boe 2.10 Dissector Tests
+        run: bash -x .github/tests/Cboe-BzxOptions-BinaryOrderEntry-Boe-v2-10-Test.sh
+
       - name: Run Cboe C1Options Complex Pitch 2.1.18 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-Complex-Pitch-v2-1-18-Test.sh
 

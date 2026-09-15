@@ -5551,7 +5551,7 @@ udp_table:add_for_decode_as(omi_siac_cqs_output_cta_v2_10_a)
 --   Organization: The Securities Industry Automation Corporation
 --   Version: 2.10.a
 --   Date: Friday, June 6, 2025
---   Specification: CQS_Pillar_Snapshot_Specification.pdf
+--   Specification: CQS_Pillar_Output_Specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

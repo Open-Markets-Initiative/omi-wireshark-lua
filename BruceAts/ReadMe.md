@@ -10,7 +10,7 @@
 | [BruceEquities][BruceEquities.Ats] | [LastSale][BruceAts.BruceEquities.LastSale] | [Itch][Omi.Encoding.Itch] | [1.0][BruceAts.BruceEquities.LastSale.Itch.v1.0.Dissector] | 3/1/2025 | 1317 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][BruceAts.BruceEquities.LastSale.Itch.v1.0.Pdf] |
 
 
-<a href="https://www.brucemarkets.com" title="Bruce ATS Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/bruce-markets" title="Bruce ATS on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>
+<p align="center"><a href="https://www.brucemarkets.com" title="Bruce ATS Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/bruce-markets" title="Bruce ATS on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Status.md "Protocol Deployment Status"

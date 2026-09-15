@@ -8,7 +8,7 @@
 |  | [OrderBookFeed][SmallX.OrderBookFeed] | [Sbe][Omi.Encoding.Sbe] | [2.2][SmallX.OrderBookFeed.Sbe.v2.2.Dissector] | 10/12/2021 | 5738 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][SmallX.OrderBookFeed.Sbe.v2.2.Url] - [pdf][SmallX.OrderBookFeed.Sbe.v2.2.Pdf] - [xml][SmallX.OrderBookFeed.Sbe.v2.2.Xml] |
 
 
-<a href="https://smallexchange.com" title="The Small Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/the-small-exchange" title="The Small Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>
+<p align="center"><a href="https://smallexchange.com" title="The Small Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/the-small-exchange" title="The Small Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a></p>
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Glossary/Status.md "Protocol Deployment Status"
