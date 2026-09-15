@@ -1873,7 +1873,8 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.seconds.size = 4
 
 -- Display: Seconds
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

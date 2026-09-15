@@ -1542,7 +1542,8 @@ nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.seconds.size = 4
 
 -- Display: Seconds
 nyse_arcaequities_imbalancesfeed_pillar_v2_2_n.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

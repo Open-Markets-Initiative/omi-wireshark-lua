@@ -293,7 +293,8 @@ nyse_nyseoptions_commonclient_pillar_v2_6.seconds.size = 4
 
 -- Display: Seconds
 nyse_nyseoptions_commonclient_pillar_v2_6.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

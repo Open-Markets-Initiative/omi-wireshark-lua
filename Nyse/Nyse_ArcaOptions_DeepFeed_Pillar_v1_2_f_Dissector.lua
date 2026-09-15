@@ -2173,7 +2173,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.seconds.size = 4
 
 -- Display: Seconds
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

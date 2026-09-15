@@ -1756,7 +1756,8 @@ nyse_texasequities_integratedfeedretransmission_pillar_v2_5_g.seconds.size = 4
 
 -- Display: Seconds
 nyse_texasequities_integratedfeedretransmission_pillar_v2_5_g.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds
@@ -2003,7 +2004,8 @@ end
 
 -- Display: Source Time
 nyse_texasequities_integratedfeedretransmission_pillar_v2_5_g.source_time.display = function(value)
-  return "Source Time: "..value
+  -- Parse unix seconds timestamp
+  return "Source Time: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Source Time

@@ -1500,7 +1500,8 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.seconds.size = 4
 
 -- Display: Seconds
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

@@ -86,8 +86,11 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.retransmission_request_message = Pro
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.bqt.xdp.v1.7.a.retransmitmethod", ftypes.UINT8)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.bqt.xdp.v1.7.a.roundlot", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.nyseequities.bqt.xdp.v1.7.a.rpiindicator", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.bqt.xdp.v1.7.a.seconds", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.bqt.xdp.v1.7.a.securitystatus", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.bqt.xdp.v1.7.a.securitytype", ftypes.STRING)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.nyseequities.bqt.xdp.v1.7.a.sequencenumber", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.nyseequities.bqt.xdp.v1.7.a.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.bqt.xdp.v1.7.a.sessionstate", ftypes.STRING)
@@ -107,7 +110,6 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.symbol_seq_num = ProtoField.new("Sym
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.symbol_seq_number = ProtoField.new("Symbol Seq Number", "nyse.nyseequities.bqt.xdp.v1.7.a.symbolseqnumber", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.system_id = ProtoField.new("System Id", "nyse.nyseequities.bqt.xdp.v1.7.a.systemid", ftypes.UINT8)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.time = ProtoField.new("Time", "nyse.nyseequities.bqt.xdp.v1.7.a.time", ftypes.UINT32)
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.bqt.xdp.v1.7.a.timestamp", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.nyseequities.bqt.xdp.v1.7.a.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.total_volume = ProtoField.new("Total Volume", "nyse.nyseequities.bqt.xdp.v1.7.a.totalvolume", ftypes.UINT32)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.trade_condition_1 = ProtoField.new("Trade Condition 1", "nyse.nyseequities.bqt.xdp.v1.7.a.tradecondition1", ftypes.STRING)
@@ -129,6 +131,20 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.packet_header = ProtoField.new("Pack
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bqt.xdp.v1.7.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nyse NyseEquities Bqt Xdp 1.7.a Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_nyseequities_bqt_xdp_v1_7_a.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -144,6 +160,8 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_structs = Pref.bool("Show Struct
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs_changed()
 
@@ -156,6 +174,9 @@ function omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs_changed()
   end
   if show.indexes ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes
+  end
+  if nyse_nyseequities_bqt_xdp_v1_7_a.absolute_time_base ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.absolute_time_base then
+    nyse_nyseequities_bqt_xdp_v1_7_a.absolute_time_base = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.absolute_time_base
   end
 end
 
@@ -1814,6 +1835,30 @@ nyse_nyseequities_bqt_xdp_v1_7_a.rpi_indicator.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Seconds
+nyse_nyseequities_bqt_xdp_v1_7_a.seconds = {}
+
+-- Size: Seconds
+nyse_nyseequities_bqt_xdp_v1_7_a.seconds.size = 4
+
+-- Display: Seconds
+nyse_nyseequities_bqt_xdp_v1_7_a.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
+end
+
+-- Dissect: Seconds
+nyse_nyseequities_bqt_xdp_v1_7_a.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_bqt_xdp_v1_7_a.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_bqt_xdp_v1_7_a.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Status
 nyse_nyseequities_bqt_xdp_v1_7_a.security_status = {}
 
@@ -2474,29 +2519,6 @@ nyse_nyseequities_bqt_xdp_v1_7_a.time.dissect = function(buffer, offset, packet,
   local display = nyse_nyseequities_bqt_xdp_v1_7_a.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-nyse_nyseequities_bqt_xdp_v1_7_a.timestamp = {}
-
--- Size: Timestamp
-nyse_nyseequities_bqt_xdp_v1_7_a.timestamp.size = 4
-
--- Display: Timestamp
-nyse_nyseequities_bqt_xdp_v1_7_a.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_nyseequities_bqt_xdp_v1_7_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_nyseequities_bqt_xdp_v1_7_a.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_nyseequities_bqt_xdp_v1_7_a.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -4268,6 +4290,67 @@ nyse_nyseequities_bqt_xdp_v1_7_a.message.dissect = function(buffer, offset, pack
   end
 end
 
+-- Send Time
+nyse_nyseequities_bqt_xdp_v1_7_a.send_time = {}
+
+-- Size: Send Time
+nyse_nyseequities_bqt_xdp_v1_7_a.send_time.size =
+  nyse_nyseequities_bqt_xdp_v1_7_a.seconds.size + 
+  nyse_nyseequities_bqt_xdp_v1_7_a.nanoseconds.size
+
+-- Display: Send Time
+nyse_nyseequities_bqt_xdp_v1_7_a.send_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Send Time
+nyse_nyseequities_bqt_xdp_v1_7_a.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_nyseequities_bqt_xdp_v1_7_a.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nyse_nyseequities_bqt_xdp_v1_7_a.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, send_time
+end
+
+-- Dissect: Send Time
+nyse_nyseequities_bqt_xdp_v1_7_a.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_nyseequities_bqt_xdp_v1_7_a.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time
+    if nyse_nyseequities_bqt_xdp_v1_7_a.absolute_time_base == 1 then field = omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_nyseequities_bqt_xdp_v1_7_a.send_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_bqt_xdp_v1_7_a.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 nyse_nyseequities_bqt_xdp_v1_7_a.packet_header = {}
 
@@ -4277,8 +4360,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.packet_header.size =
   nyse_nyseequities_bqt_xdp_v1_7_a.delivery_flag.size + 
   nyse_nyseequities_bqt_xdp_v1_7_a.message_count.size + 
   nyse_nyseequities_bqt_xdp_v1_7_a.sequence_number.size + 
-  nyse_nyseequities_bqt_xdp_v1_7_a.timestamp.size + 
-  nyse_nyseequities_bqt_xdp_v1_7_a.nanoseconds.size
+  nyse_nyseequities_bqt_xdp_v1_7_a.send_time.size
 
 -- Display: Packet Header
 nyse_nyseequities_bqt_xdp_v1_7_a.packet_header.display = function(packet, parent, length)
@@ -4301,11 +4383,8 @@ nyse_nyseequities_bqt_xdp_v1_7_a.packet_header.fields = function(buffer, offset,
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = nyse_nyseequities_bqt_xdp_v1_7_a.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_nyseequities_bqt_xdp_v1_7_a.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_nyseequities_bqt_xdp_v1_7_a.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_nyseequities_bqt_xdp_v1_7_a.send_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4340,7 +4419,7 @@ end
 nyse_nyseequities_bqt_xdp_v1_7_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 6 fields
+  -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_nyseequities_bqt_xdp_v1_7_a.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message

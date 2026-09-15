@@ -49,7 +49,10 @@ omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.seconds = ProtoField.new("Seconds", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.seconds", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.securitystatus", ftypes.STRING)
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.side", ftypes.STRING)
@@ -61,7 +64,6 @@ omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.stream_id_message = ProtoFiel
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.symbolindex", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
-omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.timestamp", ftypes.UINT32)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.tradecond1", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.tradecond2", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.tradeid", ftypes.UINT32)
@@ -79,6 +81,20 @@ omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index = ProtoF
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nyse ArcaOptions ComplexFeed Xdp 1.3.a Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -94,6 +110,8 @@ omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs_changed()
 
@@ -106,6 +124,9 @@ function omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs_changed()
   end
   if show.indexes ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes then
     show.indexes = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes
+  end
+  if nyse_arcaoptions_complexfeed_xdp_v1_3_a.absolute_time_base ~= omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.absolute_time_base then
+    nyse_arcaoptions_complexfeed_xdp_v1_3_a.absolute_time_base = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.prefs.absolute_time_base
   end
 end
 
@@ -821,6 +842,30 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Seconds
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds = {}
+
+-- Size: Seconds
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds.size = 4
+
+-- Display: Seconds
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
+end
+
+-- Dissect: Seconds
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Status
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status = {}
 
@@ -1079,29 +1124,6 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.system_id.dissect = function(buffer, off
   local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.system_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp = {}
-
--- Size: Timestamp
-nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp.size = 4
-
--- Display: Timestamp
-nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2166,6 +2188,67 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.message.dissect = function(buffer, offse
   end
 end
 
+-- Send Time
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time = {}
+
+-- Size: Send Time
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.size =
+  nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds.size + 
+  nyse_arcaoptions_complexfeed_xdp_v1_3_a.nanoseconds.size
+
+-- Display: Send Time
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Send Time
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_arcaoptions_complexfeed_xdp_v1_3_a.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nyse_arcaoptions_complexfeed_xdp_v1_3_a.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, send_time
+end
+
+-- Dissect: Send Time
+nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.send_time
+    if nyse_arcaoptions_complexfeed_xdp_v1_3_a.absolute_time_base == 1 then field = omi_nyse_arcaoptions_complexfeed_xdp_v1_3_a.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header = {}
 
@@ -2175,8 +2258,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.size =
   nyse_arcaoptions_complexfeed_xdp_v1_3_a.delivery_flag.size + 
   nyse_arcaoptions_complexfeed_xdp_v1_3_a.message_count.size + 
   nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number.size + 
-  nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp.size + 
-  nyse_arcaoptions_complexfeed_xdp_v1_3_a.nanoseconds.size
+  nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.size
 
 -- Display: Packet Header
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.display = function(packet, parent, length)
@@ -2199,11 +2281,8 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.fields = function(buffer, 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_arcaoptions_complexfeed_xdp_v1_3_a.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_arcaoptions_complexfeed_xdp_v1_3_a.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_arcaoptions_complexfeed_xdp_v1_3_a.send_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2238,7 +2317,7 @@ end
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 6 fields
+  -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_arcaoptions_complexfeed_xdp_v1_3_a.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message

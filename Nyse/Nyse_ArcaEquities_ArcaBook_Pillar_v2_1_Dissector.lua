@@ -661,7 +661,8 @@ nyse_arcaequities_arcabook_pillar_v2_1.seconds.size = 4
 
 -- Display: Seconds
 nyse_arcaequities_arcabook_pillar_v2_1.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

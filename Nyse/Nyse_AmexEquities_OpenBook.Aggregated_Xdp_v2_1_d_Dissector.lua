@@ -54,8 +54,11 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_2 = ProtoFie
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.reserved4", ftypes.BYTES)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.retransmitmethod", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.roundlot", ftypes.STRING)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.seconds", ftypes.UINT32)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.security_status = ProtoField.new("Security Status", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.securitystatus", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.security_type = ProtoField.new("Security Type", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.securitytype", ftypes.STRING)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.sequencenumber", ftypes.UINT32)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.session_state = ProtoField.new("Session State", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.sessionstate", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.side = ProtoField.new("Side", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.side", ftypes.STRING)
@@ -72,7 +75,6 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.symbol_index = ProtoF
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.symbolseqnum", ftypes.UINT32)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.system_id = ProtoField.new("System Id", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.systemid", ftypes.UINT8)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.time = ProtoField.new("Time", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.time", ftypes.UINT32)
-omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.timestamp", ftypes.UINT32)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.trading_status = ProtoField.new("Trading Status", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.tradingstatus", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.ultra_last_seq_num = ProtoField.new("Ultra Last Seq Num", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.ultralastseqnum", ftypes.UINT32)
@@ -106,6 +108,20 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.symbol_index_mapping_
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -125,6 +141,8 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_structs = Pref.bo
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
 
@@ -143,6 +161,9 @@ function omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
   end
   if show.indexes ~= omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes then
     show.indexes = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.show_indexes
+  end
+  if nyse_amexequities_openbookaggregated_xdp_v2_1_d.absolute_time_base ~= omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.absolute_time_base then
+    nyse_amexequities_openbookaggregated_xdp_v2_1_d.absolute_time_base = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.prefs.absolute_time_base
   end
 end
 
@@ -1231,6 +1252,30 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.round_lot.dissect = function(buf
   return offset + length, value
 end
 
+-- Seconds
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds = {}
+
+-- Size: Seconds
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds.size = 4
+
+-- Display: Seconds
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
+end
+
+-- Dissect: Seconds
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Status
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.security_status = {}
 
@@ -1861,29 +1906,6 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.time.dissect = function(buffer, 
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp = {}
-
--- Size: Timestamp
-nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp.size = 4
-
--- Display: Timestamp
-nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -3204,6 +3226,67 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.message.dissect = function(buffe
   end
 end
 
+-- Send Time
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time = {}
+
+-- Size: Send Time
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.size =
+  nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds.size + 
+  nyse_amexequities_openbookaggregated_xdp_v2_1_d.nanoseconds.size
+
+-- Display: Send Time
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Send Time
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_amexequities_openbookaggregated_xdp_v2_1_d.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nyse_amexequities_openbookaggregated_xdp_v2_1_d.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, send_time
+end
+
+-- Dissect: Send Time
+nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.send_time
+    if nyse_amexequities_openbookaggregated_xdp_v2_1_d.absolute_time_base == 1 then field = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet_header = {}
 
@@ -3213,8 +3296,7 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet_header.size =
   nyse_amexequities_openbookaggregated_xdp_v2_1_d.delivery_flag.size + 
   nyse_amexequities_openbookaggregated_xdp_v2_1_d.message_count.size + 
   nyse_amexequities_openbookaggregated_xdp_v2_1_d.sequence_number.size + 
-  nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp.size + 
-  nyse_amexequities_openbookaggregated_xdp_v2_1_d.nanoseconds.size
+  nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.size
 
 -- Display: Packet Header
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet_header.display = function(packet, parent, length)
@@ -3237,11 +3319,8 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet_header.fields = function(
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = nyse_amexequities_openbookaggregated_xdp_v2_1_d.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_amexequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_amexequities_openbookaggregated_xdp_v2_1_d.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_amexequities_openbookaggregated_xdp_v2_1_d.send_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3276,7 +3355,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 6 fields
+  -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_amexequities_openbookaggregated_xdp_v2_1_d.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message

@@ -67,9 +67,12 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.reserved_4 = ProtoField.n
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.retransmitmethod", ftypes.UINT8)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.roundlot", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.seconds", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.securitystatus", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.securitystatusmessage", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.securitytype", ftypes.STRING)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sequencenumber", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.sessionstate", ftypes.STRING)
@@ -89,7 +92,6 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_requ
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.symbolseqnum", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.system_id = ProtoField.new("System Id", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.systemid", ftypes.UINT8)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.time = ProtoField.new("Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.time", ftypes.UINT32)
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.timestamp", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.totalimbalanceqty", ftypes.UINT32)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.unitoftrade", ftypes.UINT16)
@@ -103,6 +105,20 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.packet_header = ProtoFiel
 
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f generated fields
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.absolute_time_base = 0
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -120,6 +136,8 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_structs = Pref.bool("
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs_changed()
 
@@ -132,6 +150,9 @@ function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs_changed()
   end
   if show.indexes ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.show_indexes
+  end
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.absolute_time_base ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.absolute_time_base then
+    nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.absolute_time_base = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.prefs.absolute_time_base
   end
 end
 
@@ -1292,6 +1313,30 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.round_lot.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Seconds
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds = {}
+
+-- Size: Seconds
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds.size = 4
+
+-- Display: Seconds
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
+end
+
+-- Dissect: Seconds
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
 -- Security Status
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.security_status = {}
 
@@ -1721,29 +1766,6 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.time.dissect = function(buffer, offs
   local display = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.time, range, value, display)
-
-  return offset + length, value
-end
-
--- Timestamp
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp = {}
-
--- Size: Timestamp
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp.size = 4
-
--- Display: Timestamp
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -2785,6 +2807,67 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message.dissect = function(buffer, o
   end
 end
 
+-- Send Time
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time = {}
+
+-- Size: Send Time
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.size =
+  nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds.size + 
+  nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.nanoseconds.size
+
+-- Display: Send Time
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Send Time
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, send_time
+end
+
+-- Dissect: Send Time
+nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.send_time
+    if nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.absolute_time_base == 1 then field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Packet Header
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet_header = {}
 
@@ -2794,8 +2877,7 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet_header.size =
   nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.delivery_flag.size + 
   nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.message_count.size + 
   nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.sequence_number.size + 
-  nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp.size + 
-  nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.nanoseconds.size
+  nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.size
 
 -- Display: Packet Header
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet_header.display = function(packet, parent, length)
@@ -2818,11 +2900,8 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet_header.fields = function(buff
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.send_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2857,7 +2936,7 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 6 fields
+  -- Packet Header: Struct of 5 fields
   index, packet_header = nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency for Message

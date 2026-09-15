@@ -1438,7 +1438,8 @@ nyse_texasequities_depthfeedretransmission_pillar_v1_6.seconds.size = 4
 
 -- Display: Seconds
 nyse_texasequities_depthfeedretransmission_pillar_v1_6.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds

@@ -2500,7 +2500,8 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.seconds.size = 4
 
 -- Display: Seconds
 nyse_amexoptions_deepfeed_pillar_v1_2_l.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds
