@@ -96,16 +96,14 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.origclordid_optional = ProtoField.new(
 omi_memx_memxoptions_memo_sbe_v1_3.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.memxoptions.memo.sbe.v1.3.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.parties_group = ProtoField.new("Parties Group", "memx.memxoptions.memo.sbe.v1.3.partiesgroup", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.parties_groups = ProtoField.new("Parties Groups", "memx.memxoptions.memo.sbe.v1.3.partiesgroups", ftypes.STRING)
-omi_memx_memxoptions_memo_sbe_v1_3.fields.party_i_d_execution_report_new_party_id = ProtoField.new("Party I D Execution Report New Party Id", "memx.memxoptions.memo.sbe.v1.3.partyidexecutionreportnewpartyid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.party_id = ProtoField.new("Party Id", "memx.memxoptions.memo.sbe.v1.3.partyid", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.party_id_source = ProtoField.new("Party Id Source", "memx.memxoptions.memo.sbe.v1.3.partyidsource", ftypes.STRING)
-omi_memx_memxoptions_memo_sbe_v1_3.fields.party_role_party_role_type = ProtoField.new("Party Role Party Role Type", "memx.memxoptions.memo.sbe.v1.3.partyrolepartyroletype", ftypes.UINT8)
-omi_memx_memxoptions_memo_sbe_v1_3.fields.party_role_uint_8 = ProtoField.new("Party Role uint 8", "memx.memxoptions.memo.sbe.v1.3.partyroleuint8", ftypes.UINT8)
+omi_memx_memxoptions_memo_sbe_v1_3.fields.party_role = ProtoField.new("Party Role", "memx.memxoptions.memo.sbe.v1.3.partyrole", ftypes.UINT8)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.memxoptions.memo.sbe.v1.3.pendingmessagecount", ftypes.UINT32)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.price_optional = ProtoField.new("Price Optional", "memx.memxoptions.memo.sbe.v1.3.priceoptional", ftypes.DOUBLE)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.price_short = ProtoField.new("Price Short", "memx.memxoptions.memo.sbe.v1.3.priceshort", ftypes.DOUBLE)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.memo.sbe.v1.3.quantity", ftypes.UINT16)
-omi_memx_memxoptions_memo_sbe_v1_3.fields.quantity_uint_32 = ProtoField.new("Quantity uint 32", "memx.memxoptions.memo.sbe.v1.3.quantityuint32", ftypes.UINT32)
+omi_memx_memxoptions_memo_sbe_v1_3.fields.quantity_long = ProtoField.new("Quantity Long", "memx.memxoptions.memo.sbe.v1.3.quantitylong", ftypes.UINT32)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.ref_alloc_report_id = ProtoField.new("Ref Alloc Report Id", "memx.memxoptions.memo.sbe.v1.3.refallocreportid", ftypes.UINT64)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.rej_reason = ProtoField.new("Rej Reason", "memx.memxoptions.memo.sbe.v1.3.rejreason", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "memx.memxoptions.memo.sbe.v1.3.repeatinggroupdimensions", ftypes.STRING)
@@ -2697,45 +2695,6 @@ memx_memxoptions_memo_sbe_v1_3.origclordid_optional.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Party I D Execution Report New Party Id
-memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id = {}
-
--- Size: Party I D Execution Report New Party Id
-memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size = 16
-
--- Display: Party I D Execution Report New Party Id
-memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Party I D Execution Report New Party Id: No Value"
-  end
-
-  return "Party I D Execution Report New Party Id: "..value
-end
-
--- Dissect: Party I D Execution Report New Party Id
-memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.party_i_d_execution_report_new_party_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Party Id
 memx_memxoptions_memo_sbe_v1_3.party_id = {}
 
@@ -2811,79 +2770,56 @@ memx_memxoptions_memo_sbe_v1_3.party_id_source.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Party Role Party Role Type
-memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type = {}
+-- Party Role
+memx_memxoptions_memo_sbe_v1_3.party_role = {}
 
--- Size: Party Role Party Role Type
-memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type.size = 1
+-- Size: Party Role
+memx_memxoptions_memo_sbe_v1_3.party_role.size = 1
 
--- Display: Party Role Party Role Type
-memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type.display = function(value)
+-- Display: Party Role
+memx_memxoptions_memo_sbe_v1_3.party_role.display = function(value)
   if value == 1 then
-    return "Party Role Party Role Type: Executing Firm Id (1)"
+    return "Party Role: Executing Firm Id (1)"
   end
   if value == 3 then
-    return "Party Role Party Role Type: Actionable Identifier (3)"
+    return "Party Role: Actionable Identifier (3)"
   end
   if value == 14 then
-    return "Party Role Party Role Type: Give Up Clearing Firm (14)"
+    return "Party Role: Give Up Clearing Firm (14)"
   end
   if value == 17 then
-    return "Party Role Party Role Type: Contra Efid (17)"
+    return "Party Role: Contra Efid (17)"
   end
   if value == 18 then
-    return "Party Role Party Role Type: Contra Give Up (18)"
+    return "Party Role: Contra Give Up (18)"
   end
   if value == 24 then
-    return "Party Role Party Role Type: Optional Occ Data (24)"
+    return "Party Role: Optional Occ Data (24)"
   end
   if value == 37 then
-    return "Party Role Party Role Type: Contra Mm Sub Account (37)"
+    return "Party Role: Contra Mm Sub Account (37)"
   end
   if value == 40 then
-    return "Party Role Party Role Type: Cmta (40)"
+    return "Party Role: Cmta (40)"
   end
   if value == 41 then
-    return "Party Role Party Role Type: Contra Cmta (41)"
+    return "Party Role: Contra Cmta (41)"
   end
   if value == 66 then
-    return "Party Role Party Role Type: Market Maker Sub Account (66)"
+    return "Party Role: Market Maker Sub Account (66)"
   end
 
-  return "Party Role Party Role Type: Unknown("..value..")"
+  return "Party Role: Unknown("..value..")"
 end
 
--- Dissect: Party Role Party Role Type
-memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type.size
+-- Dissect: Party Role
+memx_memxoptions_memo_sbe_v1_3.party_role.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.party_role.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_memo_sbe_v1_3.party_role.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.party_role_party_role_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Party Role uint 8
-memx_memxoptions_memo_sbe_v1_3.party_role_uint_8 = {}
-
--- Size: Party Role uint 8
-memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.size = 1
-
--- Display: Party Role uint 8
-memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.display = function(value)
-  return "Party Role uint 8: "..value
-end
-
--- Dissect: Party Role uint 8
-memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.party_role_uint_8, range, value, display)
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.party_role, range, value, display)
 
   return offset + length, value
 end
@@ -3002,25 +2938,25 @@ memx_memxoptions_memo_sbe_v1_3.quantity.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Quantity uint 32
-memx_memxoptions_memo_sbe_v1_3.quantity_uint_32 = {}
+-- Quantity Long
+memx_memxoptions_memo_sbe_v1_3.quantity_long = {}
 
--- Size: Quantity uint 32
-memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.size = 4
+-- Size: Quantity Long
+memx_memxoptions_memo_sbe_v1_3.quantity_long.size = 4
 
--- Display: Quantity uint 32
-memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.display = function(value)
-  return "Quantity uint 32: "..value
+-- Display: Quantity Long
+memx_memxoptions_memo_sbe_v1_3.quantity_long.display = function(value)
+  return "Quantity Long: "..value
 end
 
--- Dissect: Quantity uint 32
-memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.size
+-- Dissect: Quantity Long
+memx_memxoptions_memo_sbe_v1_3.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.quantity_long.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_memo_sbe_v1_3.quantity_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.quantity_uint_32, range, value, display)
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.quantity_long, range, value, display)
 
   return offset + length, value
 end
@@ -4224,9 +4160,9 @@ memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_group = {}
 
 -- Size: Allocation Report Message Parties Group
 memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_group.size =
-  memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size + 
+  memx_memxoptions_memo_sbe_v1_3.party_id.size + 
   memx_memxoptions_memo_sbe_v1_3.party_id_source.size + 
-  memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.size
+  memx_memxoptions_memo_sbe_v1_3.party_role.size
 
 -- Display: Allocation Report Message Parties Group
 memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_group.display = function(packet, parent, length)
@@ -4243,14 +4179,14 @@ memx_memxoptions_memo_sbe_v1_3.allocation_report_message_parties_group.fields = 
     iteration:set_generated()
   end
 
-  -- Party I D Execution Report New Party Id: ExecutionReport_NewPartyID
-  index, party_i_d_execution_report_new_party_id = memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.dissect(buffer, index, packet, parent)
+  -- Party Id: NewOrderSinglePartyID
+  index, party_id = memx_memxoptions_memo_sbe_v1_3.party_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Source: char
   index, party_id_source = memx_memxoptions_memo_sbe_v1_3.party_id_source.dissect(buffer, index, packet, parent)
 
-  -- Party Role uint 8: uint8
-  index, party_role_uint_8 = memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.dissect(buffer, index, packet, parent)
+  -- Party Role: PartyRoleType
+  index, party_role = memx_memxoptions_memo_sbe_v1_3.party_role.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4523,7 +4459,7 @@ memx_memxoptions_memo_sbe_v1_3.allocation_report_message.size = function(buffer,
 
   index = index + memx_memxoptions_memo_sbe_v1_3.side.size
 
-  index = index + memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.size
+  index = index + memx_memxoptions_memo_sbe_v1_3.quantity_long.size
 
   index = index + memx_memxoptions_memo_sbe_v1_3.trade_date.size
 
@@ -4570,8 +4506,8 @@ memx_memxoptions_memo_sbe_v1_3.allocation_report_message.fields = function(buffe
   -- Side: SideType
   index, side = memx_memxoptions_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 32: uint32
-  index, quantity_uint_32 = memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.dissect(buffer, index, packet, parent)
+  -- Quantity Long: uint32
+  index, quantity_long = memx_memxoptions_memo_sbe_v1_3.quantity_long.dissect(buffer, index, packet, parent)
 
   -- Trade Date: AllocationInstructionTradeDate
   index, trade_date = memx_memxoptions_memo_sbe_v1_3.trade_date.dissect(buffer, index, packet, parent)
@@ -5583,7 +5519,7 @@ memx_memxoptions_memo_sbe_v1_3.parties_group = {}
 memx_memxoptions_memo_sbe_v1_3.parties_group.size =
   memx_memxoptions_memo_sbe_v1_3.party_id.size + 
   memx_memxoptions_memo_sbe_v1_3.party_id_source.size + 
-  memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type.size
+  memx_memxoptions_memo_sbe_v1_3.party_role.size
 
 -- Display: Parties Group
 memx_memxoptions_memo_sbe_v1_3.parties_group.display = function(packet, parent, length)
@@ -5606,8 +5542,8 @@ memx_memxoptions_memo_sbe_v1_3.parties_group.fields = function(buffer, offset, p
   -- Party Id Source: char
   index, party_id_source = memx_memxoptions_memo_sbe_v1_3.party_id_source.dissect(buffer, index, packet, parent)
 
-  -- Party Role Party Role Type: PartyRoleType
-  index, party_role_party_role_type = memx_memxoptions_memo_sbe_v1_3.party_role_party_role_type.dissect(buffer, index, packet, parent)
+  -- Party Role: PartyRoleType
+  index, party_role = memx_memxoptions_memo_sbe_v1_3.party_role.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7054,9 +6990,9 @@ memx_memxoptions_memo_sbe_v1_3.nested_parties_group = {}
 
 -- Size: Nested Parties Group
 memx_memxoptions_memo_sbe_v1_3.nested_parties_group.size =
-  memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.size + 
+  memx_memxoptions_memo_sbe_v1_3.party_id.size + 
   memx_memxoptions_memo_sbe_v1_3.party_id_source.size + 
-  memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.size
+  memx_memxoptions_memo_sbe_v1_3.party_role.size
 
 -- Display: Nested Parties Group
 memx_memxoptions_memo_sbe_v1_3.nested_parties_group.display = function(packet, parent, length)
@@ -7073,14 +7009,14 @@ memx_memxoptions_memo_sbe_v1_3.nested_parties_group.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- Party I D Execution Report New Party Id: ExecutionReport_NewPartyID
-  index, party_i_d_execution_report_new_party_id = memx_memxoptions_memo_sbe_v1_3.party_i_d_execution_report_new_party_id.dissect(buffer, index, packet, parent)
+  -- Party Id: NewOrderSinglePartyID
+  index, party_id = memx_memxoptions_memo_sbe_v1_3.party_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Source: char
   index, party_id_source = memx_memxoptions_memo_sbe_v1_3.party_id_source.dissect(buffer, index, packet, parent)
 
-  -- Party Role uint 8: uint8
-  index, party_role_uint_8 = memx_memxoptions_memo_sbe_v1_3.party_role_uint_8.dissect(buffer, index, packet, parent)
+  -- Party Role: PartyRoleType
+  index, party_role = memx_memxoptions_memo_sbe_v1_3.party_role.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7309,7 +7245,7 @@ memx_memxoptions_memo_sbe_v1_3.allocation_instruction_message.size = function(bu
 
   index = index + memx_memxoptions_memo_sbe_v1_3.side.size
 
-  index = index + memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.size
+  index = index + memx_memxoptions_memo_sbe_v1_3.quantity_long.size
 
   index = index + memx_memxoptions_memo_sbe_v1_3.trade_date.size
 
@@ -7354,8 +7290,8 @@ memx_memxoptions_memo_sbe_v1_3.allocation_instruction_message.fields = function(
   -- Side: SideType
   index, side = memx_memxoptions_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 32: uint32
-  index, quantity_uint_32 = memx_memxoptions_memo_sbe_v1_3.quantity_uint_32.dissect(buffer, index, packet, parent)
+  -- Quantity Long: uint32
+  index, quantity_long = memx_memxoptions_memo_sbe_v1_3.quantity_long.dissect(buffer, index, packet, parent)
 
   -- Trade Date: AllocationInstructionTradeDate
   index, trade_date = memx_memxoptions_memo_sbe_v1_3.trade_date.dissect(buffer, index, packet, parent)

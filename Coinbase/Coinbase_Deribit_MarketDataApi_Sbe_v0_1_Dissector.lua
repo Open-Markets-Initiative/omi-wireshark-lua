@@ -58,7 +58,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.mark_price = ProtoField.new("
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.match_id = ProtoField.new("Match Id", "coinbase.deribit.marketdataapi.sbe.v0.1.matchid", ftypes.INT64)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.max_buy_price = ProtoField.new("Max Buy Price", "coinbase.deribit.marketdataapi.sbe.v0.1.maxbuyprice", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count = ProtoField.new("Message Count", "coinbase.deribit.marketdataapi.sbe.v0.1.messagecount", ftypes.UINT16)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count_uint_8 = ProtoField.new("Message Count uint 8", "coinbase.deribit.marketdataapi.sbe.v0.1.messagecountuint8", ftypes.UINT8)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count_short = ProtoField.new("Message Count Short", "coinbase.deribit.marketdataapi.sbe.v0.1.messagecountshort", ftypes.UINT8)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_flags = ProtoField.new("Message Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.messageflags", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_length = ProtoField.new("Message Length", "coinbase.deribit.marketdataapi.sbe.v0.1.messagelength", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.min_sell_price = ProtoField.new("Min Sell Price", "coinbase.deribit.marketdataapi.sbe.v0.1.minsellprice", ftypes.DOUBLE)
@@ -1119,25 +1119,25 @@ coinbase_deribit_marketdataapi_sbe_v0_1.message_count.dissect = function(buffer,
   return offset + length, value
 end
 
--- Message Count uint 8
-coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8 = {}
+-- Message Count Short
+coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short = {}
 
--- Size: Message Count uint 8
-coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8.size = 1
+-- Size: Message Count Short
+coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short.size = 1
 
--- Display: Message Count uint 8
-coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8.display = function(value)
-  return "Message Count uint 8: "..value
+-- Display: Message Count Short
+coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short.display = function(value)
+  return "Message Count Short: "..value
 end
 
--- Dissect: Message Count uint 8
-coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8.size
+-- Dissect: Message Count Short
+coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8.display(value, buffer, offset, packet, parent)
+  local display = coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count_uint_8, range, value, display)
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.message_count_short, range, value, display)
 
   return offset + length, value
 end
@@ -2105,7 +2105,7 @@ coinbase_deribit_marketdataapi_sbe_v0_1.retransmit_request_message = {}
 -- Size: Retransmit Request Message
 coinbase_deribit_marketdataapi_sbe_v0_1.retransmit_request_message.size =
   coinbase_deribit_marketdataapi_sbe_v0_1.begin_seq_num.size + 
-  coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8.size
+  coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short.size
 
 -- Display: Retransmit Request Message
 coinbase_deribit_marketdataapi_sbe_v0_1.retransmit_request_message.display = function(packet, parent, length)
@@ -2119,8 +2119,8 @@ coinbase_deribit_marketdataapi_sbe_v0_1.retransmit_request_message.fields = func
   -- Begin Seq Num: int64
   index, begin_seq_num = coinbase_deribit_marketdataapi_sbe_v0_1.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Message Count uint 8: uint8
-  index, message_count_uint_8 = coinbase_deribit_marketdataapi_sbe_v0_1.message_count_uint_8.dissect(buffer, index, packet, parent)
+  -- Message Count Short: uint8
+  index, message_count_short = coinbase_deribit_marketdataapi_sbe_v0_1.message_count_short.dissect(buffer, index, packet, parent)
 
   return index
 end

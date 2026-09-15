@@ -21,76 +21,76 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.allow_orders = ProtoField.new("
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.block_length = ProtoField.new("Block Length", "memx.memxoptions.riskcontrol.sbe.v1.7.blocklength", ftypes.UINT16)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.breach_id = ProtoField.new("Breach Id", "memx.memxoptions.riskcontrol.sbe.v1.7.breachid", ftypes.UINT64)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.breach_id_optional = ProtoField.new("Breach Id Optional", "memx.memxoptions.riskcontrol.sbe.v1.7.breachidoptional", ftypes.UINT64)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskacknowledgeallrequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskacknowledgerejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskacknowledgementrequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskthresholdchangerejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id = ProtoField.new("Cl Ord I D Breach Clear All Accepted Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallacceptedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id = ProtoField.new("Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallbyefidorunderlieracceptedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallbyefidorunderlierrejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Breach Clear All Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallrejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Breach Clear Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearrejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpbreachcountthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpclearallbreachesbyefidorunderlierrequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Clear All Breaches Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpclearallbreachesrequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_clear_breach_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Clear Breach Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpclearbreachrequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpduplicateorderthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpexecutednotionalthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpgrossnotionalthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpmarketordergrossnotionalthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpmarketordernetnotionalthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpnetnotionalthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcporderratethresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcppercentoutstandingcontractsthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcptotalexecutionsthresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpvolumethresholdchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidmanualcpbreachtriggerrejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id = ProtoField.new("Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidmanualcpbreachtriggerrequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Risk Settings Query Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidrisksettingsqueryrejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id = ProtoField.new("Cl Ord I D Risk Threshold Update Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidriskthresholdupdaterejectedclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowisoorderschangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowmarketorderschangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional = ProtoField.new("Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowmarketordersstateclordidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowordersincrossedmarketchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleordermaxcontractschangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Max Notional Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleordermaxnotionalchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderrestrictedunderlierchangerequestclordid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional = ProtoField.new("Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderrestrictedunderlierstateclordidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id = ProtoField.new("Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskacknowledgeallrequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskacknowledgerejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id = ProtoField.new("Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskacknowledgementrequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskthresholdchangerejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Active Risk Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidactiveriskthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_accepted_cl_ord_id = ProtoField.new("Cl Ord Id Breach Clear All Accepted Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallacceptedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id = ProtoField.new("Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallbyefidorunderlieracceptedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallbyefidorunderlierrejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Breach Clear All Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearallrejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Breach Clear Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidbreachclearrejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpbreachcountthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpclearallbreachesbyefidorunderlierrequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Clear All Breaches Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpclearallbreachesrequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_clear_breach_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Clear Breach Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpclearbreachrequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpduplicateorderthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpexecutednotionalthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpgrossnotionalthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpmarketordergrossnotionalthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpmarketordernetnotionalthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpnetnotionalthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcporderratethresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcppercentoutstandingcontractsthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcptotalexecutionsthresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidcpvolumethresholdchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidmanualcpbreachtriggerrejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id = ProtoField.new("Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidmanualcpbreachtriggerrequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_risk_settings_query_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Risk Settings Query Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidrisksettingsqueryrejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_risk_threshold_update_rejected_cl_ord_id = ProtoField.new("Cl Ord Id Risk Threshold Update Rejected Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidriskthresholdupdaterejectedclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowisoorderschangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowmarketorderschangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional = ProtoField.new("Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowmarketordersstateclordidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderallowordersincrossedmarketchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleordermaxcontractschangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_max_notional_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Max Notional Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleordermaxnotionalchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id = ProtoField.new("Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderrestrictedunderlierchangerequestclordid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional = ProtoField.new("Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidsingleorderrestrictedunderlierstateclordidoptional", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.clordid = ProtoField.new("ClOrdId", "memx.memxoptions.riskcontrol.sbe.v1.7.clordid", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "memx.memxoptions.riskcontrol.sbe.v1.7.clordidoptional", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.count = ProtoField.new("Count", "memx.memxoptions.riskcontrol.sbe.v1.7.count", ftypes.UINT32)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledge_all_request_efid = ProtoField.new("Efi D Active Risk Acknowledge All Request Efid", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskacknowledgeallrequestefid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledge_rejected_efid = ProtoField.new("Efi D Active Risk Acknowledge Rejected Efid", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskacknowledgerejectedefid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledgement_request_efid = ProtoField.new("Efi D Active Risk Acknowledgement Request Efid", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskacknowledgementrequestefid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_threshold_change_rejected_efi_d_optional = ProtoField.new("Efi D Active Risk Threshold Change Rejected Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskthresholdchangerejectedefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Active Risk Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional = ProtoField.new("Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidbreachclearallbyefidorunderlieracceptedefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional = ProtoField.new("Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidbreachclearallbyefidorunderlierrejectedefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_breach_count_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Breach Count Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpbreachcountthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional = ProtoField.new("Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpclearallbreachesbyefidorunderlierrequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Duplicate Order Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpduplicateorderthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Executed Notional Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpexecutednotionalthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Gross Notional Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpgrossnotionalthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpmarketordergrossnotionalthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpmarketordernetnotionalthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_net_notional_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Net Notional Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpnetnotionalthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_order_rate_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Order Rate Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcporderratethresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcppercentoutstandingcontractsthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_total_executions_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Total Executions Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcptotalexecutionsthresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_volume_threshold_change_request_efi_d_optional = ProtoField.new("Efi D Cp Volume Threshold Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpvolumethresholdchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional = ProtoField.new("Efi D Manual Cp Breach Trigger Rejected Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidmanualcpbreachtriggerrejectedefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_manual_cp_breach_trigger_request_efi_d_optional = ProtoField.new("Efi D Manual Cp Breach Trigger Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidmanualcpbreachtriggerrequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional = ProtoField.new("Efi D Single Order Allow Iso Orders Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowisoorderschangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_market_orders_change_request_efi_d_optional = ProtoField.new("Efi D Single Order Allow Market Orders Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowmarketorderschangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_market_orders_state_efi_d_optional = ProtoField.new("Efi D Single Order Allow Market Orders State Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowmarketordersstateefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional = ProtoField.new("Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowordersincrossedmarketchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_max_contracts_change_request_efi_d_optional = ProtoField.new("Efi D Single Order Max Contracts Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleordermaxcontractschangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_max_notional_change_request_efi_d_optional = ProtoField.new("Efi D Single Order Max Notional Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleordermaxnotionalchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_restricted_underlier_change_request_efi_d_optional = ProtoField.new("Efi D Single Order Restricted Underlier Change Request Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderrestrictedunderlierchangerequestefidoptional", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_restricted_underlier_state_efi_d_optional = ProtoField.new("Efi D Single Order Restricted Underlier State Efi D optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderrestrictedunderlierstateefidoptional", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid = ProtoField.new("Efid", "memx.memxoptions.riskcontrol.sbe.v1.7.efid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_acknowledge_all_request_efid = ProtoField.new("Efid Active Risk Acknowledge All Request Efid", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskacknowledgeallrequestefid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_acknowledge_rejected_efid = ProtoField.new("Efid Active Risk Acknowledge Rejected Efid", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskacknowledgerejectedefid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_acknowledgement_request_efid = ProtoField.new("Efid Active Risk Acknowledgement Request Efid", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskacknowledgementrequestefid", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_threshold_change_rejected_efid_optional = ProtoField.new("Efid Active Risk Threshold Change Rejected Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskthresholdchangerejectedefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_threshold_change_request_efid_optional = ProtoField.new("Efid Active Risk Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidactiveriskthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional = ProtoField.new("Efid Breach Clear All By Efid Or Underlier Accepted Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidbreachclearallbyefidorunderlieracceptedefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional = ProtoField.new("Efid Breach Clear All By Efid Or Underlier Rejected Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidbreachclearallbyefidorunderlierrejectedefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_breach_count_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Breach Count Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpbreachcountthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional = ProtoField.new("Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpclearallbreachesbyefidorunderlierrequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_duplicate_order_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Duplicate Order Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpduplicateorderthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_executed_notional_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Executed Notional Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpexecutednotionalthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_gross_notional_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Gross Notional Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpgrossnotionalthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Market Order Gross Notional Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpmarketordergrossnotionalthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_market_order_net_notional_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Market Order Net Notional Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpmarketordernetnotionalthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_net_notional_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Net Notional Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpnetnotionalthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_order_rate_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Order Rate Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcporderratethresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcppercentoutstandingcontractsthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_total_executions_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Total Executions Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcptotalexecutionsthresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_volume_threshold_change_request_efid_optional = ProtoField.new("Efid Cp Volume Threshold Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidcpvolumethresholdchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_manual_cp_breach_trigger_rejected_efid_optional = ProtoField.new("Efid Manual Cp Breach Trigger Rejected Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidmanualcpbreachtriggerrejectedefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_manual_cp_breach_trigger_request_efid_optional = ProtoField.new("Efid Manual Cp Breach Trigger Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidmanualcpbreachtriggerrequestefidoptional", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_optional = ProtoField.new("Efid Optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_iso_orders_change_request_efid_optional = ProtoField.new("Efid Single Order Allow Iso Orders Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowisoorderschangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_market_orders_change_request_efid_optional = ProtoField.new("Efid Single Order Allow Market Orders Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowmarketorderschangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_market_orders_state_efid_optional = ProtoField.new("Efid Single Order Allow Market Orders State Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowmarketordersstateefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional = ProtoField.new("Efid Single Order Allow Orders In Crossed Market Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderallowordersincrossedmarketchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_max_contracts_change_request_efid_optional = ProtoField.new("Efid Single Order Max Contracts Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleordermaxcontractschangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_max_notional_change_request_efid_optional = ProtoField.new("Efid Single Order Max Notional Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleordermaxnotionalchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_restricted_underlier_change_request_efid_optional = ProtoField.new("Efid Single Order Restricted Underlier Change Request Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderrestrictedunderlierchangerequestefidoptional", ftypes.STRING)
+omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_restricted_underlier_state_efid_optional = ProtoField.new("Efid Single Order Restricted Underlier State Efid optional", "memx.memxoptions.riskcontrol.sbe.v1.7.efidsingleorderrestrictedunderlierstateefidoptional", ftypes.STRING)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.last_px = ProtoField.new("Last Px", "memx.memxoptions.riskcontrol.sbe.v1.7.lastpx", ftypes.DOUBLE)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.last_qty = ProtoField.new("Last Qty", "memx.memxoptions.riskcontrol.sbe.v1.7.lastqty", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.latest_percentage = ProtoField.new("Latest Percentage", "memx.memxoptions.riskcontrol.sbe.v1.7.latestpercentage", ftypes.UINT8)
@@ -471,25 +471,25 @@ memx_memxoptions_riskcontrol_sbe_v1_7.breach_id_optional.dissect = function(buff
   return offset + length, value
 end
 
--- Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id = {}
+-- Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id: No Value"
+    return "Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id: "..value
+  return "Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -503,32 +503,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_req
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id = {}
+-- Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -542,32 +542,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejecte
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id = {}
+-- Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id: No Value"
+    return "Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id: "..value
+  return "Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -581,32 +581,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_req
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id = {}
+-- Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -620,32 +620,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_re
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Active Risk Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Active Risk Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Active Risk Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Active Risk Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Active Risk Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Active Risk Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Active Risk Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Active Risk Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Active Risk Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Active Risk Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Active Risk Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -659,32 +659,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_re
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_active_risk_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Breach Clear All Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id = {}
+-- Cl Ord Id Breach Clear All Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id = {}
 
--- Size: Cl Ord I D Breach Clear All Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id.size = 20
+-- Size: Cl Ord Id Breach Clear All Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Breach Clear All Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Breach Clear All Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Breach Clear All Accepted Cl Ord Id: No Value"
+    return "Cl Ord Id Breach Clear All Accepted Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Breach Clear All Accepted Cl Ord Id: "..value
+  return "Cl Ord Id Breach Clear All Accepted Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Breach Clear All Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id.size
+-- Dissect: Cl Ord Id Breach Clear All Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -698,32 +698,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_or
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_accepted_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id = {}
+-- Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id = {}
 
--- Size: Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.size = 20
+-- Size: Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id: No Value"
+    return "Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id: "..value
+  return "Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.size
+-- Dissect: Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -737,32 +737,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_und
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id = {}
+-- Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -776,32 +776,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_und
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Breach Clear All Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id = {}
+-- Cl Ord Id Breach Clear All Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Breach Clear All Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Breach Clear All Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Breach Clear All Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Breach Clear All Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Breach Clear All Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Breach Clear All Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Breach Clear All Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Breach Clear All Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Breach Clear All Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Breach Clear All Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -815,32 +815,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_or
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_all_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Breach Clear Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id = {}
+-- Cl Ord Id Breach Clear Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Breach Clear Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Breach Clear Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Breach Clear Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Breach Clear Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Breach Clear Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Breach Clear Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Breach Clear Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Breach Clear Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Breach Clear Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Breach Clear Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -854,32 +854,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_breach_clear_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_breach_clear_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -893,32 +893,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_chang
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id = {}
+-- Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -932,32 +932,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_o
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Clear All Breaches Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id = {}
+-- Cl Ord Id Cp Clear All Breaches Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Clear All Breaches Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Clear All Breaches Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Clear All Breaches Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Clear All Breaches Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Clear All Breaches Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Clear All Breaches Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Clear All Breaches Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Clear All Breaches Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Clear All Breaches Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Clear All Breaches Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -971,32 +971,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_c
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Clear Breach Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id = {}
+-- Cl Ord Id Cp Clear Breach Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Clear Breach Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Clear Breach Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Clear Breach Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Clear Breach Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Clear Breach Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Clear Breach Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Clear Breach Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Clear Breach Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Clear Breach Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Clear Breach Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1010,32 +1010,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_clear_breach_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_clear_breach_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1049,32 +1049,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_ch
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1088,32 +1088,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1127,32 +1127,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_cha
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1166,32 +1166,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1205,32 +1205,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_th
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1244,32 +1244,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_chang
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1283,32 +1283,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1322,32 +1322,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contract
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1361,32 +1361,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_c
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id = {}
+-- Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1400,32 +1400,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_requ
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id = {}
+-- Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1439,32 +1439,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_reject
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id = {}
+-- Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id: No Value"
+    return "Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id: "..value
+  return "Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1478,32 +1478,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_reques
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Risk Settings Query Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id = {}
+-- Cl Ord Id Risk Settings Query Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Risk Settings Query Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Risk Settings Query Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Risk Settings Query Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Risk Settings Query Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Risk Settings Query Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Risk Settings Query Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Risk Settings Query Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Risk Settings Query Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Risk Settings Query Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Risk Settings Query Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1517,32 +1517,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_risk_settings_query_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Risk Threshold Update Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id = {}
+-- Cl Ord Id Risk Threshold Update Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id = {}
 
--- Size: Cl Ord I D Risk Threshold Update Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id.size = 20
+-- Size: Cl Ord Id Risk Threshold Update Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Risk Threshold Update Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Risk Threshold Update Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Risk Threshold Update Rejected Cl Ord Id: No Value"
+    return "Cl Ord Id Risk Threshold Update Rejected Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Risk Threshold Update Rejected Cl Ord Id: "..value
+  return "Cl Ord Id Risk Threshold Update Rejected Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Risk Threshold Update Rejected Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id.size
+-- Dissect: Cl Ord Id Risk Threshold Update Rejected Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1556,32 +1556,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_risk_threshold_update_rejected_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id = {}
+-- Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1595,32 +1595,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_c
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id = {}
+-- Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1634,32 +1634,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_order
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional = {}
+-- Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional = {}
 
--- Size: Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional.size = 20
+-- Size: Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional.size = 20
 
--- Display: Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional.display = function(value)
+-- Display: Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional: No Value"
+    return "Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional: No Value"
   end
 
-  return "Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional: "..value
+  return "Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional.size
+-- Dissect: Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1673,32 +1673,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_order
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id = {}
+-- Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1712,32 +1712,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_cr
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id = {}
+-- Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1751,32 +1751,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_chan
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Max Notional Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id = {}
+-- Cl Ord Id Single Order Max Notional Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Single Order Max Notional Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Single Order Max Notional Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Single Order Max Notional Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Single Order Max Notional Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Max Notional Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Single Order Max Notional Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Single Order Max Notional Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Single Order Max Notional Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Max Notional Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Single Order Max Notional Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1790,32 +1790,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_chang
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_max_notional_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id = {}
+-- Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id = {}
 
--- Size: Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id.size = 20
+-- Size: Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id.size = 20
 
--- Display: Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id.display = function(value)
+-- Display: Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id: No Value"
+    return "Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id: No Value"
   end
 
-  return "Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id: "..value
+  return "Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id.size
+-- Dissect: Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1829,32 +1829,32 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underli
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id, range, value, display)
 
   return offset + length, value
 end
 
--- Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional = {}
+-- Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional = {}
 
--- Size: Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional.size = 20
+-- Size: Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional.size = 20
 
--- Display: Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional.display = function(value)
+-- Display: Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional: No Value"
+    return "Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional: No Value"
   end
 
-  return "Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional: "..value
+  return "Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional: "..value
 end
 
--- Dissect: Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional.size
+-- Dissect: Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional
+memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1868,9 +1868,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underli
     value = range:string()
   end
 
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional.display(value, buffer, offset, packet, parent)
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional, range, value, display)
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1976,1137 +1976,6 @@ memx_memxoptions_riskcontrol_sbe_v1_7.count.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Efi D Active Risk Acknowledge All Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid = {}
-
--- Size: Efi D Active Risk Acknowledge All Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid.size = 4
-
--- Display: Efi D Active Risk Acknowledge All Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Acknowledge All Request Efid: No Value"
-  end
-
-  return "Efi D Active Risk Acknowledge All Request Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Acknowledge All Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledge_all_request_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Active Risk Acknowledge Rejected Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid = {}
-
--- Size: Efi D Active Risk Acknowledge Rejected Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid.size = 4
-
--- Display: Efi D Active Risk Acknowledge Rejected Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Acknowledge Rejected Efid: No Value"
-  end
-
-  return "Efi D Active Risk Acknowledge Rejected Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Acknowledge Rejected Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledge_rejected_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Active Risk Acknowledgement Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid = {}
-
--- Size: Efi D Active Risk Acknowledgement Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid.size = 4
-
--- Display: Efi D Active Risk Acknowledgement Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Acknowledgement Request Efid: No Value"
-  end
-
-  return "Efi D Active Risk Acknowledgement Request Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Acknowledgement Request Efid
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_acknowledgement_request_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Active Risk Threshold Change Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional = {}
-
--- Size: Efi D Active Risk Threshold Change Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional.size = 4
-
--- Display: Efi D Active Risk Threshold Change Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Threshold Change Rejected Efi D optional: No Value"
-  end
-
-  return "Efi D Active Risk Threshold Change Rejected Efi D optional: "..value
-end
-
--- Dissect: Efi D Active Risk Threshold Change Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_threshold_change_rejected_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Active Risk Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Active Risk Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Active Risk Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Active Risk Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Active Risk Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_active_risk_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional = {}
-
--- Size: Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional.size = 4
-
--- Display: Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional: No Value"
-  end
-
-  return "Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional: "..value
-end
-
--- Dissect: Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional = {}
-
--- Size: Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional.size = 4
-
--- Display: Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional: No Value"
-  end
-
-  return "Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional: "..value
-end
-
--- Dissect: Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Breach Count Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Breach Count Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Breach Count Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Breach Count Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Breach Count Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Breach Count Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_breach_count_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional = {}
-
--- Size: Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Duplicate Order Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Duplicate Order Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Duplicate Order Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Duplicate Order Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Duplicate Order Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Duplicate Order Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Executed Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Executed Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Executed Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Executed Notional Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Executed Notional Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Executed Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Gross Notional Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Gross Notional Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Net Notional Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Net Notional Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Net Notional Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_net_notional_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Order Rate Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Order Rate Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Order Rate Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Order Rate Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Order Rate Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Order Rate Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_order_rate_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Total Executions Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Total Executions Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Total Executions Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Total Executions Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Total Executions Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Total Executions Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_total_executions_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Cp Volume Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional = {}
-
--- Size: Efi D Cp Volume Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Cp Volume Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Volume Threshold Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Cp Volume Threshold Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Cp Volume Threshold Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_cp_volume_threshold_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Manual Cp Breach Trigger Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional = {}
-
--- Size: Efi D Manual Cp Breach Trigger Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional.size = 4
-
--- Display: Efi D Manual Cp Breach Trigger Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Manual Cp Breach Trigger Rejected Efi D optional: No Value"
-  end
-
-  return "Efi D Manual Cp Breach Trigger Rejected Efi D optional: "..value
-end
-
--- Dissect: Efi D Manual Cp Breach Trigger Rejected Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Manual Cp Breach Trigger Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional = {}
-
--- Size: Efi D Manual Cp Breach Trigger Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional.size = 4
-
--- Display: Efi D Manual Cp Breach Trigger Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Manual Cp Breach Trigger Request Efi D optional: No Value"
-  end
-
-  return "Efi D Manual Cp Breach Trigger Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Manual Cp Breach Trigger Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_manual_cp_breach_trigger_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Allow Iso Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional = {}
-
--- Size: Efi D Single Order Allow Iso Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Allow Iso Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Iso Orders Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Allow Iso Orders Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Allow Iso Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Allow Market Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional = {}
-
--- Size: Efi D Single Order Allow Market Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Allow Market Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Market Orders Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Allow Market Orders Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Allow Market Orders Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_market_orders_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Allow Market Orders State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional = {}
-
--- Size: Efi D Single Order Allow Market Orders State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Allow Market Orders State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Market Orders State Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Allow Market Orders State Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Allow Market Orders State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_market_orders_state_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional = {}
-
--- Size: Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Max Contracts Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional = {}
-
--- Size: Efi D Single Order Max Contracts Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Max Contracts Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Max Contracts Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Max Contracts Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Max Contracts Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_max_contracts_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Max Notional Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional = {}
-
--- Size: Efi D Single Order Max Notional Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Max Notional Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Max Notional Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Max Notional Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Max Notional Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_max_notional_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Restricted Underlier Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional = {}
-
--- Size: Efi D Single Order Restricted Underlier Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Restricted Underlier Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Restricted Underlier Change Request Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Restricted Underlier Change Request Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Restricted Underlier Change Request Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_restricted_underlier_change_request_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Efi D Single Order Restricted Underlier State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional = {}
-
--- Size: Efi D Single Order Restricted Underlier State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional.size = 4
-
--- Display: Efi D Single Order Restricted Underlier State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Restricted Underlier State Efi D optional: No Value"
-  end
-
-  return "Efi D Single Order Restricted Underlier State Efi D optional: "..value
-end
-
--- Dissect: Efi D Single Order Restricted Underlier State Efi D optional
-memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efi_d_single_order_restricted_underlier_state_efi_d_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Efid
 memx_memxoptions_riskcontrol_sbe_v1_7.efid = {}
 
@@ -3146,6 +2015,825 @@ memx_memxoptions_riskcontrol_sbe_v1_7.efid.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Efid Active Risk Acknowledge All Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid = {}
+
+-- Size: Efid Active Risk Acknowledge All Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid.size = 4
+
+-- Display: Efid Active Risk Acknowledge All Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Active Risk Acknowledge All Request Efid: No Value"
+  end
+
+  return "Efid Active Risk Acknowledge All Request Efid: "..value
+end
+
+-- Dissect: Efid Active Risk Acknowledge All Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_acknowledge_all_request_efid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Active Risk Acknowledge Rejected Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid = {}
+
+-- Size: Efid Active Risk Acknowledge Rejected Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid.size = 4
+
+-- Display: Efid Active Risk Acknowledge Rejected Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Active Risk Acknowledge Rejected Efid: No Value"
+  end
+
+  return "Efid Active Risk Acknowledge Rejected Efid: "..value
+end
+
+-- Dissect: Efid Active Risk Acknowledge Rejected Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_acknowledge_rejected_efid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Active Risk Acknowledgement Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid = {}
+
+-- Size: Efid Active Risk Acknowledgement Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid.size = 4
+
+-- Display: Efid Active Risk Acknowledgement Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Active Risk Acknowledgement Request Efid: No Value"
+  end
+
+  return "Efid Active Risk Acknowledgement Request Efid: "..value
+end
+
+-- Dissect: Efid Active Risk Acknowledgement Request Efid
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_acknowledgement_request_efid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Active Risk Threshold Change Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional = {}
+
+-- Size: Efid Active Risk Threshold Change Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional.size = 4
+
+-- Display: Efid Active Risk Threshold Change Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Active Risk Threshold Change Rejected Efid optional: No Value"
+  end
+
+  return "Efid Active Risk Threshold Change Rejected Efid optional: "..value
+end
+
+-- Dissect: Efid Active Risk Threshold Change Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_threshold_change_rejected_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Active Risk Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Active Risk Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Active Risk Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Active Risk Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Active Risk Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Active Risk Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_active_risk_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Breach Clear All By Efid Or Underlier Accepted Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional = {}
+
+-- Size: Efid Breach Clear All By Efid Or Underlier Accepted Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional.size = 4
+
+-- Display: Efid Breach Clear All By Efid Or Underlier Accepted Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Breach Clear All By Efid Or Underlier Accepted Efid optional: No Value"
+  end
+
+  return "Efid Breach Clear All By Efid Or Underlier Accepted Efid optional: "..value
+end
+
+-- Dissect: Efid Breach Clear All By Efid Or Underlier Accepted Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Breach Clear All By Efid Or Underlier Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional = {}
+
+-- Size: Efid Breach Clear All By Efid Or Underlier Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional.size = 4
+
+-- Display: Efid Breach Clear All By Efid Or Underlier Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Breach Clear All By Efid Or Underlier Rejected Efid optional: No Value"
+  end
+
+  return "Efid Breach Clear All By Efid Or Underlier Rejected Efid optional: "..value
+end
+
+-- Dissect: Efid Breach Clear All By Efid Or Underlier Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Breach Count Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Breach Count Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Breach Count Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Breach Count Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Breach Count Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Breach Count Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_breach_count_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional = {}
+
+-- Size: Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional.size = 4
+
+-- Display: Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Duplicate Order Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Duplicate Order Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Duplicate Order Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Duplicate Order Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Duplicate Order Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Duplicate Order Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_duplicate_order_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Executed Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Executed Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Executed Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Executed Notional Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Executed Notional Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Executed Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_executed_notional_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Gross Notional Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Gross Notional Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_gross_notional_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Market Order Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Market Order Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Market Order Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Market Order Gross Notional Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Market Order Gross Notional Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Market Order Gross Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Market Order Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Market Order Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Market Order Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Market Order Net Notional Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Market Order Net Notional Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Market Order Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_market_order_net_notional_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Net Notional Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Net Notional Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Net Notional Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_net_notional_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Order Rate Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Order Rate Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Order Rate Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Order Rate Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Order Rate Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Order Rate Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_order_rate_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Total Executions Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Total Executions Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Total Executions Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Total Executions Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Total Executions Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Total Executions Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_total_executions_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Cp Volume Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional = {}
+
+-- Size: Efid Cp Volume Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional.size = 4
+
+-- Display: Efid Cp Volume Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Cp Volume Threshold Change Request Efid optional: No Value"
+  end
+
+  return "Efid Cp Volume Threshold Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Cp Volume Threshold Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_cp_volume_threshold_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Manual Cp Breach Trigger Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional = {}
+
+-- Size: Efid Manual Cp Breach Trigger Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional.size = 4
+
+-- Display: Efid Manual Cp Breach Trigger Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Manual Cp Breach Trigger Rejected Efid optional: No Value"
+  end
+
+  return "Efid Manual Cp Breach Trigger Rejected Efid optional: "..value
+end
+
+-- Dissect: Efid Manual Cp Breach Trigger Rejected Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_manual_cp_breach_trigger_rejected_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Manual Cp Breach Trigger Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional = {}
+
+-- Size: Efid Manual Cp Breach Trigger Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional.size = 4
+
+-- Display: Efid Manual Cp Breach Trigger Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Manual Cp Breach Trigger Request Efid optional: No Value"
+  end
+
+  return "Efid Manual Cp Breach Trigger Request Efid optional: "..value
+end
+
+-- Dissect: Efid Manual Cp Breach Trigger Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_manual_cp_breach_trigger_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Efid Optional
 memx_memxoptions_riskcontrol_sbe_v1_7.efid_optional = {}
 
@@ -3181,6 +2869,318 @@ memx_memxoptions_riskcontrol_sbe_v1_7.efid_optional.dissect = function(buffer, o
   local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Allow Iso Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional = {}
+
+-- Size: Efid Single Order Allow Iso Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional.size = 4
+
+-- Display: Efid Single Order Allow Iso Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Allow Iso Orders Change Request Efid optional: No Value"
+  end
+
+  return "Efid Single Order Allow Iso Orders Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Allow Iso Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_iso_orders_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Allow Market Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional = {}
+
+-- Size: Efid Single Order Allow Market Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional.size = 4
+
+-- Display: Efid Single Order Allow Market Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Allow Market Orders Change Request Efid optional: No Value"
+  end
+
+  return "Efid Single Order Allow Market Orders Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Allow Market Orders Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_market_orders_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Allow Market Orders State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional = {}
+
+-- Size: Efid Single Order Allow Market Orders State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional.size = 4
+
+-- Display: Efid Single Order Allow Market Orders State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Allow Market Orders State Efid optional: No Value"
+  end
+
+  return "Efid Single Order Allow Market Orders State Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Allow Market Orders State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_market_orders_state_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Allow Orders In Crossed Market Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional = {}
+
+-- Size: Efid Single Order Allow Orders In Crossed Market Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional.size = 4
+
+-- Display: Efid Single Order Allow Orders In Crossed Market Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Allow Orders In Crossed Market Change Request Efid optional: No Value"
+  end
+
+  return "Efid Single Order Allow Orders In Crossed Market Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Allow Orders In Crossed Market Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Max Contracts Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional = {}
+
+-- Size: Efid Single Order Max Contracts Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional.size = 4
+
+-- Display: Efid Single Order Max Contracts Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Max Contracts Change Request Efid optional: No Value"
+  end
+
+  return "Efid Single Order Max Contracts Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Max Contracts Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_max_contracts_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Max Notional Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional = {}
+
+-- Size: Efid Single Order Max Notional Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional.size = 4
+
+-- Display: Efid Single Order Max Notional Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Max Notional Change Request Efid optional: No Value"
+  end
+
+  return "Efid Single Order Max Notional Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Max Notional Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_max_notional_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Restricted Underlier Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional = {}
+
+-- Size: Efid Single Order Restricted Underlier Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional.size = 4
+
+-- Display: Efid Single Order Restricted Underlier Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Restricted Underlier Change Request Efid optional: No Value"
+  end
+
+  return "Efid Single Order Restricted Underlier Change Request Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Restricted Underlier Change Request Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_restricted_underlier_change_request_efid_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Efid Single Order Restricted Underlier State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional = {}
+
+-- Size: Efid Single Order Restricted Underlier State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional.size = 4
+
+-- Display: Efid Single Order Restricted Underlier State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Efid Single Order Restricted Underlier State Efid optional: No Value"
+  end
+
+  return "Efid Single Order Restricted Underlier State Efid optional: "..value
+end
+
+-- Dissect: Efid Single Order Restricted Underlier State Efid optional
+memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_7.fields.efid_single_order_restricted_underlier_state_efid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -6530,9 +6530,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_reje
 
 -- Size: Breach Clear All By Efid Or Underlier Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_breach_clear_all_by_efid_or_underlier_rejected_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
 -- Display: Breach Clear All By Efid Or Underlier Rejected Message
@@ -6544,14 +6544,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Breach Clear All By Efid Or Underlier Rejected Cl Ord Id: BreachClearAllByEFIDOrUnderlierRejectedClOrdID
-  index, cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Breach Clear All By Efid Or Underlier Rejected Cl Ord Id: BreachClearAllByEFIDOrUnderlierRejectedClOrdID
+  index, cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Breach Clear All By Efid Or Underlier Rejected Underlier optional: BreachClearAllByEFIDOrUnderlierRejectedUnderlier
   index, underlier_breach_clear_all_by_efid_or_underlier_rejected_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_breach_clear_all_by_efid_or_underlier_rejected_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Breach Clear All By Efid Or Underlier Rejected Efi D optional: BreachClearAllByEFIDOrUnderlierRejectedEFID
-  index, efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_rejected_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Breach Clear All By Efid Or Underlier Rejected Efid optional: BreachClearAllByEFIDOrUnderlierRejectedEFID
+  index, efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_rejected_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.dissect(buffer, index, packet, parent)
@@ -6582,9 +6582,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_acce
 
 -- Size: Breach Clear All By Efid Or Underlier Accepted Message
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_accepted_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_breach_clear_all_by_efid_or_underlier_accepted_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional.size
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional.size
 
 -- Display: Breach Clear All By Efid Or Underlier Accepted Message
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_accepted_message.display = function(packet, parent, length)
@@ -6595,14 +6595,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_by_efid_or_underlier_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Breach Clear All By Efid Or Underlier Accepted Cl Ord Id: BreachClearAllByEFIDOrUnderlierAcceptedClOrdID
-  index, cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Breach Clear All By Efid Or Underlier Accepted Cl Ord Id: BreachClearAllByEFIDOrUnderlierAcceptedClOrdID
+  index, cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_by_efid_or_underlier_accepted_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Breach Clear All By Efid Or Underlier Accepted Underlier optional: BreachClearAllByEFIDOrUnderlierAcceptedUnderlier
   index, underlier_breach_clear_all_by_efid_or_underlier_accepted_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_breach_clear_all_by_efid_or_underlier_accepted_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Breach Clear All By Efid Or Underlier Accepted Efi D optional: BreachClearAllByEFIDOrUnderlierAcceptedEFID
-  index, efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_breach_clear_all_by_efid_or_underlier_accepted_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Breach Clear All By Efid Or Underlier Accepted Efid optional: BreachClearAllByEFIDOrUnderlierAcceptedEFID
+  index, efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_breach_clear_all_by_efid_or_underlier_accepted_efid_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6630,7 +6630,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_rejected_message = {}
 
 -- Size: Breach Clear All Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
 -- Display: Breach Clear All Rejected Message
@@ -6642,8 +6642,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Breach Clear All Rejected Cl Ord Id: BreachClearAllRejectedClOrdID
-  index, cl_ord_i_d_breach_clear_all_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Breach Clear All Rejected Cl Ord Id: BreachClearAllRejectedClOrdID
+  index, cl_ord_id_breach_clear_all_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.dissect(buffer, index, packet, parent)
@@ -6674,7 +6674,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_accepted_message = {}
 
 -- Size: Breach Clear All Accepted Message
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_accepted_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id.size
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id.size
 
 -- Display: Breach Clear All Accepted Message
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_accepted_message.display = function(packet, parent, length)
@@ -6685,8 +6685,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_all_accepted_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Breach Clear All Accepted Cl Ord Id: BreachClearAllAcceptedClOrdID
-  index, cl_ord_i_d_breach_clear_all_accepted_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_all_accepted_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Breach Clear All Accepted Cl Ord Id: BreachClearAllAcceptedClOrdID
+  index, cl_ord_id_breach_clear_all_accepted_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_all_accepted_cl_ord_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6758,7 +6758,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_rejected_message = {}
 
 -- Size: Breach Clear Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.breach_id_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
@@ -6771,8 +6771,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.breach_clear_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Breach Clear Rejected Cl Ord Id: BreachClearRejectedClOrdID
-  index, cl_ord_i_d_breach_clear_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_breach_clear_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Breach Clear Rejected Cl Ord Id: BreachClearRejectedClOrdID
+  index, cl_ord_id_breach_clear_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_breach_clear_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Breach Id Optional: uint64
   index, breach_id_optional = memx_memxoptions_riskcontrol_sbe_v1_7.breach_id_optional.dissect(buffer, index, packet, parent)
@@ -6806,9 +6806,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_rejected_message 
 
 -- Size: Manual Cp Breach Trigger Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_manual_cp_breach_trigger_rejected_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
@@ -6821,14 +6821,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Manual Cp Breach Trigger Rejected Cl Ord Id: ManualCPBreachTriggerRejectedClOrdID
-  index, cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Manual Cp Breach Trigger Rejected Cl Ord Id: ManualCPBreachTriggerRejectedClOrdID
+  index, cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Manual Cp Breach Trigger Rejected Underlier optional: ManualCPBreachTriggerRejectedUnderlier
   index, underlier_manual_cp_breach_trigger_rejected_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_manual_cp_breach_trigger_rejected_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Manual Cp Breach Trigger Rejected Efi D optional: ManualCPBreachTriggerRejectedEFID
-  index, efi_d_manual_cp_breach_trigger_rejected_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_rejected_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Manual Cp Breach Trigger Rejected Efid optional: ManualCPBreachTriggerRejectedEFID
+  index, efid_manual_cp_breach_trigger_rejected_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_rejected_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -6862,7 +6862,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_rejected_message = {}
 
 -- Size: Risk Settings Query Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
 -- Display: Risk Settings Query Rejected Message
@@ -6874,8 +6874,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.risk_settings_query_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Risk Settings Query Rejected Cl Ord Id: RiskSettingsQueryRejectedClOrdID
-  index, cl_ord_i_d_risk_settings_query_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_settings_query_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Risk Settings Query Rejected Cl Ord Id: RiskSettingsQueryRejectedClOrdID
+  index, cl_ord_id_risk_settings_query_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_settings_query_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Reject Reason: RiskRejectReason
   index, reject_reason = memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.dissect(buffer, index, packet, parent)
@@ -6950,9 +6950,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_state_me
 
 -- Size: Single Order Restricted Underlier State Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_state_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_restricted_underlier_state_underlier.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.restricted.size
 
@@ -6965,14 +6965,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Restricted Underlier State Cl Ord I D optional: SingleOrderRestrictedUnderlierStateClOrdID
-  index, cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_state_cl_ord_i_d_optional.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Restricted Underlier State Cl Ord Id optional: SingleOrderRestrictedUnderlierStateClOrdID
+  index, cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_state_cl_ord_id_optional.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Restricted Underlier State Underlier: SingleOrderRestrictedUnderlierStateUnderlier
   index, underlier_single_order_restricted_underlier_state_underlier = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_restricted_underlier_state_underlier.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Restricted Underlier State Efi D optional: SingleOrderRestrictedUnderlierStateEFID
-  index, efi_d_single_order_restricted_underlier_state_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_state_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Restricted Underlier State Efid optional: SingleOrderRestrictedUnderlierStateEFID
+  index, efid_single_order_restricted_underlier_state_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_state_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -7006,9 +7006,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_state_mes
 
 -- Size: Single Order Allow Market Orders State Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_state_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_market_orders_state_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.market_orders.size
 
@@ -7021,14 +7021,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_state_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Market Orders State Cl Ord I D optional: SingleOrderAllowMarketOrdersStateClOrdID
-  index, cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_state_cl_ord_i_d_optional.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Allow Market Orders State Cl Ord Id optional: SingleOrderAllowMarketOrdersStateClOrdID
+  index, cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_state_cl_ord_id_optional.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Allow Market Orders State Underlier optional: SingleOrderAllowMarketOrdersStateUnderlier
   index, underlier_single_order_allow_market_orders_state_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_market_orders_state_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Market Orders State Efi D optional: SingleOrderAllowMarketOrdersStateEFID
-  index, efi_d_single_order_allow_market_orders_state_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_state_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Allow Market Orders State Efid optional: SingleOrderAllowMarketOrdersStateEFID
+  index, efid_single_order_allow_market_orders_state_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_state_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -7350,7 +7350,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.risk_threshold_update_rejected_message = {
 
 -- Size: Risk Threshold Update Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.risk_threshold_update_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_type.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
@@ -7363,8 +7363,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.risk_threshold_update_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Risk Threshold Update Rejected Cl Ord Id: RiskThresholdUpdateRejectedClOrdID
-  index, cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_risk_threshold_update_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Risk Threshold Update Rejected Cl Ord Id: RiskThresholdUpdateRejectedClOrdID
+  index, cl_ord_id_risk_threshold_update_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_risk_threshold_update_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Risk Type: RuleType
   index, risk_type = memx_memxoptions_riskcontrol_sbe_v1_7.risk_type.dissect(buffer, index, packet, parent)
@@ -7886,9 +7886,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_rejected_message =
 
 -- Size: Active Risk Acknowledge Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_acknowledge_rejected_underlier.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.threshold_quantity.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
@@ -7901,14 +7901,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Acknowledge Rejected Cl Ord Id: ActiveRiskAcknowledgeRejectedClOrdID
-  index, cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Active Risk Acknowledge Rejected Cl Ord Id: ActiveRiskAcknowledgeRejectedClOrdID
+  index, cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Active Risk Acknowledge Rejected Underlier: ActiveRiskAcknowledgeRejectedUnderlier
   index, underlier_active_risk_acknowledge_rejected_underlier = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_acknowledge_rejected_underlier.dissect(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Acknowledge Rejected Efid: ActiveRiskAcknowledgeRejectedEFID
-  index, efi_d_active_risk_acknowledge_rejected_efid = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_rejected_efid.dissect(buffer, index, packet, parent)
+  -- Efid Active Risk Acknowledge Rejected Efid: ActiveRiskAcknowledgeRejectedEFID
+  index, efid_active_risk_acknowledge_rejected_efid = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_rejected_efid.dissect(buffer, index, packet, parent)
 
   -- Threshold Quantity: uint32
   index, threshold_quantity = memx_memxoptions_riskcontrol_sbe_v1_7.threshold_quantity.dissect(buffer, index, packet, parent)
@@ -7998,9 +7998,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_rejected_mess
 
 -- Size: Active Risk Threshold Change Rejected Message
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_rejected_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_threshold_change_rejected_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.threshold_quantity.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.reject_reason.size
 
@@ -8013,14 +8013,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_rejected_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Threshold Change Rejected Cl Ord Id: ActiveRiskThresholdChangeRejectedClOrdID
-  index, cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Active Risk Threshold Change Rejected Cl Ord Id: ActiveRiskThresholdChangeRejectedClOrdID
+  index, cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_rejected_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Active Risk Threshold Change Rejected Underlier optional: ActiveRiskThresholdChangeRejectedUnderlier
   index, underlier_active_risk_threshold_change_rejected_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_threshold_change_rejected_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Threshold Change Rejected Efi D optional: ActiveRiskThresholdChangeRejectedEFID
-  index, efi_d_active_risk_threshold_change_rejected_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_rejected_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Active Risk Threshold Change Rejected Efid optional: ActiveRiskThresholdChangeRejectedEFID
+  index, efid_active_risk_threshold_change_rejected_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_rejected_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Threshold Quantity: uint32
   index, threshold_quantity = memx_memxoptions_riskcontrol_sbe_v1_7.threshold_quantity.dissect(buffer, index, packet, parent)
@@ -8110,9 +8110,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_all_request_messag
 
 -- Size: Active Risk Acknowledge All Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_all_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_acknowledge_all_request_underlier.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid.size
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid.size
 
 -- Display: Active Risk Acknowledge All Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_all_request_message.display = function(packet, parent, length)
@@ -8123,14 +8123,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledge_all_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Acknowledge All Request Cl Ord Id: ActiveRiskAcknowledgeAllRequestClOrdID
-  index, cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledge_all_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Active Risk Acknowledge All Request Cl Ord Id: ActiveRiskAcknowledgeAllRequestClOrdID
+  index, cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledge_all_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Active Risk Acknowledge All Request Underlier: ActiveRiskAcknowledgeAllRequestUnderlier
   index, underlier_active_risk_acknowledge_all_request_underlier = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_acknowledge_all_request_underlier.dissect(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Acknowledge All Request Efid: ActiveRiskAcknowledgeAllRequestEFID
-  index, efi_d_active_risk_acknowledge_all_request_efid = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledge_all_request_efid.dissect(buffer, index, packet, parent)
+  -- Efid Active Risk Acknowledge All Request Efid: ActiveRiskAcknowledgeAllRequestEFID
+  index, efid_active_risk_acknowledge_all_request_efid = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledge_all_request_efid.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8158,9 +8158,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_by_efid_or_underlier
 
 -- Size: Cp Clear All Breaches By Efid Or Underlier Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_by_efid_or_underlier_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_clear_all_breaches_by_efid_or_underlier_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional.size
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional.size
 
 -- Display: Cp Clear All Breaches By Efid Or Underlier Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_by_efid_or_underlier_request_message.display = function(packet, parent, length)
@@ -8171,14 +8171,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_by_efid_or_underlier_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id: CPClearAllBreachesByEFIDOrUnderlierRequestClOrdID
-  index, cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Clear All Breaches By Efid Or Underlier Request Cl Ord Id: CPClearAllBreachesByEFIDOrUnderlierRequestClOrdID
+  index, cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_by_efid_or_underlier_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Clear All Breaches By Efid Or Underlier Request Underlier optional: CPClearAllBreachesByEFIDOrUnderlierRequestUnderlier
   index, underlier_cp_clear_all_breaches_by_efid_or_underlier_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_clear_all_breaches_by_efid_or_underlier_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Clear All Breaches By Efid Or Underlier Request Efi D optional: CPClearAllBreachesByEFIDOrUnderlierRequestEFID
-  index, efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_clear_all_breaches_by_efid_or_underlier_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Clear All Breaches By Efid Or Underlier Request Efid optional: CPClearAllBreachesByEFIDOrUnderlierRequestEFID
+  index, efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_clear_all_breaches_by_efid_or_underlier_request_efid_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8206,7 +8206,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_request_message = {}
 
 -- Size: Cp Clear All Breaches Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id.size
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id.size
 
 -- Display: Cp Clear All Breaches Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_request_message.display = function(packet, parent, length)
@@ -8217,8 +8217,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_all_breaches_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Clear All Breaches Request Cl Ord Id: CPClearAllBreachesRequestClOrdID
-  index, cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_all_breaches_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Clear All Breaches Request Cl Ord Id: CPClearAllBreachesRequestClOrdID
+  index, cl_ord_id_cp_clear_all_breaches_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_all_breaches_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8246,9 +8246,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_order_rate_threshold_change_request_mes
 
 -- Size: Cp Order Rate Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_order_rate_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_order_rate_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.max_order_msgs.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.period_in_milli_seconds.size
@@ -8262,14 +8262,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_order_rate_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Order Rate Threshold Change Request Cl Ord Id: CPOrderRateThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_order_rate_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Order Rate Threshold Change Request Cl Ord Id: CPOrderRateThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_order_rate_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Order Rate Threshold Change Request Underlier optional: CPOrderRateThresholdChangeRequestUnderlier
   index, underlier_cp_order_rate_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_order_rate_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Order Rate Threshold Change Request Efi D optional: CPOrderRateThresholdChangeRequestEFID
-  index, efi_d_cp_order_rate_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_order_rate_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Order Rate Threshold Change Request Efid optional: CPOrderRateThresholdChangeRequestEFID
+  index, efid_cp_order_rate_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_order_rate_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8306,9 +8306,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_duplicate_order_threshold_change_reques
 
 -- Size: Cp Duplicate Order Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_duplicate_order_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_duplicate_order_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.max_dup_orders.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.use_order_price_in_dup_check_optional.size + 
@@ -8323,14 +8323,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_duplicate_order_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Duplicate Order Threshold Change Request Cl Ord Id: CPDuplicateOrderThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_duplicate_order_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Duplicate Order Threshold Change Request Cl Ord Id: CPDuplicateOrderThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_duplicate_order_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Duplicate Order Threshold Change Request Underlier optional: CPDuplicateOrderThresholdChangeRequestUnderlier
   index, underlier_cp_duplicate_order_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_duplicate_order_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Duplicate Order Threshold Change Request Efi D optional: CPDuplicateOrderThresholdChangeRequestEFID
-  index, efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_duplicate_order_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Duplicate Order Threshold Change Request Efid optional: CPDuplicateOrderThresholdChangeRequestEFID
+  index, efid_cp_duplicate_order_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_duplicate_order_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8370,9 +8370,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_net_notional_threshold_cha
 
 -- Size: Cp Market Order Net Notional Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_net_notional_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_market_order_net_notional_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.price_in_dollars.size
 
@@ -8385,14 +8385,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_net_notional_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Market Order Net Notional Threshold Change Request Cl Ord Id: CPMarketOrderNetNotionalThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_net_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Market Order Net Notional Threshold Change Request Cl Ord Id: CPMarketOrderNetNotionalThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_net_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Market Order Net Notional Threshold Change Request Underlier optional: CPMarketOrderNetNotionalThresholdChangeRequestUnderlier
   index, underlier_cp_market_order_net_notional_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_market_order_net_notional_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Market Order Net Notional Threshold Change Request Efi D optional: CPMarketOrderNetNotionalThresholdChangeRequestEFID
-  index, efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_net_notional_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Market Order Net Notional Threshold Change Request Efid optional: CPMarketOrderNetNotionalThresholdChangeRequestEFID
+  index, efid_cp_market_order_net_notional_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_net_notional_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8426,9 +8426,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_net_notional_threshold_change_request_m
 
 -- Size: Cp Net Notional Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_net_notional_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_net_notional_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.price_in_dollars.size
 
@@ -8441,14 +8441,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_net_notional_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Net Notional Threshold Change Request Cl Ord Id: CPNetNotionalThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_net_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Net Notional Threshold Change Request Cl Ord Id: CPNetNotionalThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_net_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Net Notional Threshold Change Request Underlier optional: CPNetNotionalThresholdChangeRequestUnderlier
   index, underlier_cp_net_notional_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_net_notional_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Net Notional Threshold Change Request Efi D optional: CPNetNotionalThresholdChangeRequestEFID
-  index, efi_d_cp_net_notional_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_net_notional_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Net Notional Threshold Change Request Efid optional: CPNetNotionalThresholdChangeRequestEFID
+  index, efid_cp_net_notional_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_net_notional_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8482,9 +8482,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_gross_notional_threshold_c
 
 -- Size: Cp Market Order Gross Notional Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_gross_notional_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_market_order_gross_notional_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.price_in_dollars.size
 
@@ -8497,14 +8497,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_market_order_gross_notional_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Market Order Gross Notional Threshold Change Request Cl Ord Id: CPMarketOrderGrossNotionalThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Market Order Gross Notional Threshold Change Request Cl Ord Id: CPMarketOrderGrossNotionalThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_market_order_gross_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Market Order Gross Notional Threshold Change Request Underlier optional: CPMarketOrderGrossNotionalThresholdChangeRequestUnderlier
   index, underlier_cp_market_order_gross_notional_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_market_order_gross_notional_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Market Order Gross Notional Threshold Change Request Efi D optional: CPMarketOrderGrossNotionalThresholdChangeRequestEFID
-  index, efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_market_order_gross_notional_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Market Order Gross Notional Threshold Change Request Efid optional: CPMarketOrderGrossNotionalThresholdChangeRequestEFID
+  index, efid_cp_market_order_gross_notional_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_market_order_gross_notional_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8538,9 +8538,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_gross_notional_threshold_change_request
 
 -- Size: Cp Gross Notional Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_gross_notional_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_gross_notional_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.price_in_dollars.size
 
@@ -8553,14 +8553,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_gross_notional_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Gross Notional Threshold Change Request Cl Ord Id: CPGrossNotionalThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_gross_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Gross Notional Threshold Change Request Cl Ord Id: CPGrossNotionalThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_gross_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Gross Notional Threshold Change Request Underlier optional: CPGrossNotionalThresholdChangeRequestUnderlier
   index, underlier_cp_gross_notional_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_gross_notional_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Gross Notional Threshold Change Request Efi D optional: CPGrossNotionalThresholdChangeRequestEFID
-  index, efi_d_cp_gross_notional_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_gross_notional_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Gross Notional Threshold Change Request Efid optional: CPGrossNotionalThresholdChangeRequestEFID
+  index, efid_cp_gross_notional_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_gross_notional_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8594,9 +8594,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_change_r
 
 -- Size: Single Order Restricted Underlier Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_restricted_underlier_change_request_underlier.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.restricted.size
 
@@ -8609,14 +8609,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_restricted_underlier_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Restricted Underlier Change Request Cl Ord Id: SingleOrderRestrictedUnderlierChangeRequestClOrdID
-  index, cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_restricted_underlier_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Restricted Underlier Change Request Cl Ord Id: SingleOrderRestrictedUnderlierChangeRequestClOrdID
+  index, cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_restricted_underlier_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Restricted Underlier Change Request Underlier: SingleOrderRestrictedUnderlierChangeRequestUnderlier
   index, underlier_single_order_restricted_underlier_change_request_underlier = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_restricted_underlier_change_request_underlier.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Restricted Underlier Change Request Efi D optional: SingleOrderRestrictedUnderlierChangeRequestEFID
-  index, efi_d_single_order_restricted_underlier_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_restricted_underlier_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Restricted Underlier Change Request Efid optional: SingleOrderRestrictedUnderlierChangeRequestEFID
+  index, efid_single_order_restricted_underlier_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_restricted_underlier_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8650,9 +8650,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_change_re
 
 -- Size: Single Order Allow Market Orders Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_market_orders_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.allow_market_orders.size
 
@@ -8665,14 +8665,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_market_orders_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Market Orders Change Request Cl Ord Id: SingleOrderAllowMarketOrdersChangeRequestClOrdID
-  index, cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_market_orders_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Allow Market Orders Change Request Cl Ord Id: SingleOrderAllowMarketOrdersChangeRequestClOrdID
+  index, cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_market_orders_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Allow Market Orders Change Request Underlier optional: SingleOrderAllowMarketOrdersChangeRequestUnderlier
   index, underlier_single_order_allow_market_orders_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_market_orders_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Market Orders Change Request Efi D optional: SingleOrderAllowMarketOrdersChangeRequestEFID
-  index, efi_d_single_order_allow_market_orders_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_market_orders_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Allow Market Orders Change Request Efid optional: SingleOrderAllowMarketOrdersChangeRequestEFID
+  index, efid_single_order_allow_market_orders_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_market_orders_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8706,9 +8706,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_contracts_change_request_
 
 -- Size: Single Order Max Contracts Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_contracts_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_max_contracts_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.max_contracts.size
 
@@ -8721,14 +8721,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_contracts_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Max Contracts Change Request Cl Ord Id: SingleOrderMaxContractsChangeRequestClOrdID
-  index, cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_contracts_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Max Contracts Change Request Cl Ord Id: SingleOrderMaxContractsChangeRequestClOrdID
+  index, cl_ord_id_single_order_max_contracts_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_contracts_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Max Contracts Change Request Underlier optional: SingleOrderMaxContractsChangeRequestUnderlier
   index, underlier_single_order_max_contracts_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_max_contracts_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Max Contracts Change Request Efi D optional: SingleOrderMaxContractsChangeRequestEFID
-  index, efi_d_single_order_max_contracts_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_contracts_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Max Contracts Change Request Efid optional: SingleOrderMaxContractsChangeRequestEFID
+  index, efid_single_order_max_contracts_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_contracts_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8762,9 +8762,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_notional_change_request_m
 
 -- Size: Single Order Max Notional Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_notional_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_max_notional_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.max_notional_in_dollars.size
 
@@ -8777,14 +8777,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_max_notional_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Max Notional Change Request Cl Ord Id: SingleOrderMaxNotionalChangeRequestClOrdID
-  index, cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_max_notional_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Max Notional Change Request Cl Ord Id: SingleOrderMaxNotionalChangeRequestClOrdID
+  index, cl_ord_id_single_order_max_notional_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_max_notional_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Max Notional Change Request Underlier optional: SingleOrderMaxNotionalChangeRequestUnderlier
   index, underlier_single_order_max_notional_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_max_notional_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Max Notional Change Request Efi D optional: SingleOrderMaxNotionalChangeRequestEFID
-  index, efi_d_single_order_max_notional_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_max_notional_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Max Notional Change Request Efid optional: SingleOrderMaxNotionalChangeRequestEFID
+  index, efid_single_order_max_notional_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_max_notional_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8818,9 +8818,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_orders_in_crossed_marke
 
 -- Size: Single Order Allow Orders In Crossed Market Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_orders_in_crossed_market_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_orders_in_crossed_market_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.allow_orders.size
 
@@ -8833,14 +8833,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_orders_in_crossed_market_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Orders In Crossed Market Change Request Cl Ord Id: SingleOrderAllowOrdersInCrossedMarketChangeRequestClOrdID
-  index, cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Allow Orders In Crossed Market Change Request Cl Ord Id: SingleOrderAllowOrdersInCrossedMarketChangeRequestClOrdID
+  index, cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_orders_in_crossed_market_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Allow Orders In Crossed Market Change Request Underlier optional: SingleOrderAllowOrdersInCrossedMarketChangeRequestUnderlier
   index, underlier_single_order_allow_orders_in_crossed_market_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_orders_in_crossed_market_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Orders In Crossed Market Change Request Efi D optional: SingleOrderAllowOrdersInCrossedMarketChangeRequestEFID
-  index, efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_orders_in_crossed_market_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Allow Orders In Crossed Market Change Request Efid optional: SingleOrderAllowOrdersInCrossedMarketChangeRequestEFID
+  index, efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_orders_in_crossed_market_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8874,9 +8874,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_iso_orders_change_reque
 
 -- Size: Single Order Allow Iso Orders Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_iso_orders_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_iso_orders_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.allow_iso_orders.size
 
@@ -8889,14 +8889,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.single_order_allow_iso_orders_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Iso Orders Change Request Cl Ord Id: SingleOrderAllowISOOrdersChangeRequestClOrdID
-  index, cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_single_order_allow_iso_orders_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Single Order Allow Iso Orders Change Request Cl Ord Id: SingleOrderAllowISOOrdersChangeRequestClOrdID
+  index, cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_single_order_allow_iso_orders_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Single Order Allow Iso Orders Change Request Underlier optional: SingleOrderAllowISOOrdersChangeRequestUnderlier
   index, underlier_single_order_allow_iso_orders_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_single_order_allow_iso_orders_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Iso Orders Change Request Efi D optional: SingleOrderAllowISOOrdersChangeRequestEFID
-  index, efi_d_single_order_allow_iso_orders_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_single_order_allow_iso_orders_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Single Order Allow Iso Orders Change Request Efid optional: SingleOrderAllowISOOrdersChangeRequestEFID
+  index, efid_single_order_allow_iso_orders_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_single_order_allow_iso_orders_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -8930,7 +8930,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_breach_request_message = {}
 
 -- Size: Cp Clear Breach Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_breach_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.breach_id.size
 
 -- Display: Cp Clear Breach Request Message
@@ -8942,8 +8942,8 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_clear_breach_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Clear Breach Request Cl Ord Id: CPClearBreachRequestClOrdID
-  index, cl_ord_i_d_cp_clear_breach_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_clear_breach_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Clear Breach Request Cl Ord Id: CPClearBreachRequestClOrdID
+  index, cl_ord_id_cp_clear_breach_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_clear_breach_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Breach Id: uint64
   index, breach_id = memx_memxoptions_riskcontrol_sbe_v1_7.breach_id.dissect(buffer, index, packet, parent)
@@ -8974,9 +8974,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_request_message =
 
 -- Size: Manual Cp Breach Trigger Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_manual_cp_breach_trigger_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.send_cancels.size
 
@@ -8989,14 +8989,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.manual_cp_breach_trigger_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Manual Cp Breach Trigger Request Cl Ord Id: ManualCPBreachTriggerRequestClOrdID
-  index, cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_manual_cp_breach_trigger_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Manual Cp Breach Trigger Request Cl Ord Id: ManualCPBreachTriggerRequestClOrdID
+  index, cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_manual_cp_breach_trigger_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Manual Cp Breach Trigger Request Underlier optional: ManualCPBreachTriggerRequestUnderlier
   index, underlier_manual_cp_breach_trigger_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_manual_cp_breach_trigger_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Manual Cp Breach Trigger Request Efi D optional: ManualCPBreachTriggerRequestEFID
-  index, efi_d_manual_cp_breach_trigger_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_manual_cp_breach_trigger_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Manual Cp Breach Trigger Request Efid optional: ManualCPBreachTriggerRequestEFID
+  index, efid_manual_cp_breach_trigger_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_manual_cp_breach_trigger_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -9030,9 +9030,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_breach_count_threshold_change_request_m
 
 -- Size: Cp Breach Count Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_breach_count_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_breach_count_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.count.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.period_in_milli_seconds.size
@@ -9046,14 +9046,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_breach_count_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Breach Count Threshold Change Request Cl Ord Id: CPBreachCountThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_breach_count_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Breach Count Threshold Change Request Cl Ord Id: CPBreachCountThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_breach_count_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Breach Count Threshold Change Request Underlier optional: CPBreachCountThresholdChangeRequestUnderlier
   index, underlier_cp_breach_count_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_breach_count_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Breach Count Threshold Change Request Efi D optional: CPBreachCountThresholdChangeRequestEFID
-  index, efi_d_cp_breach_count_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_breach_count_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Breach Count Threshold Change Request Efid optional: CPBreachCountThresholdChangeRequestEFID
+  index, efid_cp_breach_count_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_breach_count_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -9090,9 +9090,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_percent_outstanding_contracts_threshold
 
 -- Size: Cp Percent Outstanding Contracts Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_percent_outstanding_contracts_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_percent_outstanding_contracts_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.percent.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.period_in_milli_seconds.size
 
@@ -9105,14 +9105,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_percent_outstanding_contracts_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id: CPPercentOutstandingContractsThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Percent Outstanding Contracts Threshold Change Request Cl Ord Id: CPPercentOutstandingContractsThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_percent_outstanding_contracts_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Percent Outstanding Contracts Threshold Change Request Underlier optional: CPPercentOutstandingContractsThresholdChangeRequestUnderlier
   index, underlier_cp_percent_outstanding_contracts_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_percent_outstanding_contracts_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Percent Outstanding Contracts Threshold Change Request Efi D optional: CPPercentOutstandingContractsThresholdChangeRequestEFID
-  index, efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_percent_outstanding_contracts_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Percent Outstanding Contracts Threshold Change Request Efid optional: CPPercentOutstandingContractsThresholdChangeRequestEFID
+  index, efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_percent_outstanding_contracts_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Percent: int32
   index, percent = memx_memxoptions_riskcontrol_sbe_v1_7.percent.dissect(buffer, index, packet, parent)
@@ -9146,9 +9146,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_total_executions_threshold_change_reque
 
 -- Size: Cp Total Executions Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_total_executions_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_total_executions_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.total_executions.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.period_in_milli_seconds.size
@@ -9162,14 +9162,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_total_executions_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Total Executions Threshold Change Request Cl Ord Id: CPTotalExecutionsThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_total_executions_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Total Executions Threshold Change Request Cl Ord Id: CPTotalExecutionsThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_total_executions_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Total Executions Threshold Change Request Underlier optional: CPTotalExecutionsThresholdChangeRequestUnderlier
   index, underlier_cp_total_executions_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_total_executions_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Total Executions Threshold Change Request Efi D optional: CPTotalExecutionsThresholdChangeRequestEFID
-  index, efi_d_cp_total_executions_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_total_executions_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Total Executions Threshold Change Request Efid optional: CPTotalExecutionsThresholdChangeRequestEFID
+  index, efid_cp_total_executions_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_total_executions_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -9206,9 +9206,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_executed_notional_threshold_change_requ
 
 -- Size: Cp Executed Notional Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_executed_notional_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_executed_notional_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.price_in_dollars.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.period_in_milli_seconds.size
@@ -9222,14 +9222,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_executed_notional_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Executed Notional Threshold Change Request Cl Ord Id: CPExecutedNotionalThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_executed_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Executed Notional Threshold Change Request Cl Ord Id: CPExecutedNotionalThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_executed_notional_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Executed Notional Threshold Change Request Underlier optional: CPExecutedNotionalThresholdChangeRequestUnderlier
   index, underlier_cp_executed_notional_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_executed_notional_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Executed Notional Threshold Change Request Efi D optional: CPExecutedNotionalThresholdChangeRequestEFID
-  index, efi_d_cp_executed_notional_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_executed_notional_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Executed Notional Threshold Change Request Efid optional: CPExecutedNotionalThresholdChangeRequestEFID
+  index, efid_cp_executed_notional_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_executed_notional_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -9266,9 +9266,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.cp_volume_threshold_change_request_message
 
 -- Size: Cp Volume Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_volume_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_volume_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.volume.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.period_in_milli_seconds.size
@@ -9282,14 +9282,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.cp_volume_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Volume Threshold Change Request Cl Ord Id: CPVolumeThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_cp_volume_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Cp Volume Threshold Change Request Cl Ord Id: CPVolumeThresholdChangeRequestClOrdID
+  index, cl_ord_id_cp_volume_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_cp_volume_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Cp Volume Threshold Change Request Underlier optional: CPVolumeThresholdChangeRequestUnderlier
   index, underlier_cp_volume_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_cp_volume_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Cp Volume Threshold Change Request Efi D optional: CPVolumeThresholdChangeRequestEFID
-  index, efi_d_cp_volume_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_cp_volume_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Cp Volume Threshold Change Request Efid optional: CPVolumeThresholdChangeRequestEFID
+  index, efid_cp_volume_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_cp_volume_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Group Id: uint16
   index, risk_group_id = memx_memxoptions_riskcontrol_sbe_v1_7.risk_group_id.dissect(buffer, index, packet, parent)
@@ -9326,9 +9326,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledgement_request_messag
 
 -- Size: Active Risk Acknowledgement Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledgement_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_acknowledgement_request_underlier.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.quantity.size
 
 -- Display: Active Risk Acknowledgement Request Message
@@ -9340,14 +9340,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_acknowledgement_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Acknowledgement Request Cl Ord Id: ActiveRiskAcknowledgementRequestClOrdID
-  index, cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_acknowledgement_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Active Risk Acknowledgement Request Cl Ord Id: ActiveRiskAcknowledgementRequestClOrdID
+  index, cl_ord_id_active_risk_acknowledgement_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_acknowledgement_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Active Risk Acknowledgement Request Underlier: ActiveRiskAcknowledgementRequestUnderlier
   index, underlier_active_risk_acknowledgement_request_underlier = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_acknowledgement_request_underlier.dissect(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Acknowledgement Request Efid: ActiveRiskAcknowledgementRequestEFID
-  index, efi_d_active_risk_acknowledgement_request_efid = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_acknowledgement_request_efid.dissect(buffer, index, packet, parent)
+  -- Efid Active Risk Acknowledgement Request Efid: ActiveRiskAcknowledgementRequestEFID
+  index, efid_active_risk_acknowledgement_request_efid = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_acknowledgement_request_efid.dissect(buffer, index, packet, parent)
 
   -- Quantity: uint32
   index, quantity = memx_memxoptions_riskcontrol_sbe_v1_7.quantity.dissect(buffer, index, packet, parent)
@@ -9378,9 +9378,9 @@ memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_request_messa
 
 -- Size: Active Risk Threshold Change Request Message
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_request_message.size =
-  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_threshold_change_request_underlier_optional.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional.size + 
   memx_memxoptions_riskcontrol_sbe_v1_7.threshold_quantity.size
 
 -- Display: Active Risk Threshold Change Request Message
@@ -9392,14 +9392,14 @@ end
 memx_memxoptions_riskcontrol_sbe_v1_7.active_risk_threshold_change_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Threshold Change Request Cl Ord Id: ActiveRiskThresholdChangeRequestClOrdID
-  index, cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_i_d_active_risk_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Active Risk Threshold Change Request Cl Ord Id: ActiveRiskThresholdChangeRequestClOrdID
+  index, cl_ord_id_active_risk_threshold_change_request_cl_ord_id = memx_memxoptions_riskcontrol_sbe_v1_7.cl_ord_id_active_risk_threshold_change_request_cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Underlier Active Risk Threshold Change Request Underlier optional: ActiveRiskThresholdChangeRequestUnderlier
   index, underlier_active_risk_threshold_change_request_underlier_optional = memx_memxoptions_riskcontrol_sbe_v1_7.underlier_active_risk_threshold_change_request_underlier_optional.dissect(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Threshold Change Request Efi D optional: ActiveRiskThresholdChangeRequestEFID
-  index, efi_d_active_risk_threshold_change_request_efi_d_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efi_d_active_risk_threshold_change_request_efi_d_optional.dissect(buffer, index, packet, parent)
+  -- Efid Active Risk Threshold Change Request Efid optional: ActiveRiskThresholdChangeRequestEFID
+  index, efid_active_risk_threshold_change_request_efid_optional = memx_memxoptions_riskcontrol_sbe_v1_7.efid_active_risk_threshold_change_request_efid_optional.dissect(buffer, index, packet, parent)
 
   -- Threshold Quantity: uint32
   index, threshold_quantity = memx_memxoptions_riskcontrol_sbe_v1_7.threshold_quantity.dissect(buffer, index, packet, parent)

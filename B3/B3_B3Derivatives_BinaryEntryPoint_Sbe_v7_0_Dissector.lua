@@ -205,8 +205,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sender_location = ProtoFie
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sendingtime", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.session_id = ProtoField.new("Session Id", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sessionid", ftypes.UINT32)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.session_ver_id = ProtoField.new("Session Ver Id", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sessionverid", ftypes.UINT64)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settltype = ProtoField.new("SettlType", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.settltype", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settltype_optional = ProtoField.new("SettlType Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.settltypeoptional", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settl_type = ProtoField.new("Settl Type", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.settltype", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settl_type_optional = ProtoField.new("Settl Type Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.settltypeoptional", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.short_qty = ProtoField.new("Short Qty", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.shortqty", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.side = ProtoField.new("Side", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.side", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.side_optional = ProtoField.new("Side Optional", "b3.b3derivatives.binaryentrypoint.sbe.v7.0.sideoptional", ftypes.STRING)
@@ -7004,35 +7004,35 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.session_ver_id.dissect = function(buf
   return offset + length, value
 end
 
--- SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype = {}
+-- Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type = {}
 
--- Size: SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.size = 1
+-- Size: Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.size = 1
 
--- Display: SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.display = function(value)
+-- Display: Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "SettlType: No Value"
+    return "Settl Type: No Value"
   end
 
   if value == "0" then
-    return "SettlType: Buyers Discretion (0)"
+    return "Settl Type: Buyers Discretion (0)"
   end
   if value == "8" then
-    return "SettlType: Sellers Discretion (8)"
+    return "Settl Type: Sellers Discretion (8)"
   end
   if value == "X" then
-    return "SettlType: Mutual (X)"
+    return "Settl Type: Mutual (X)"
   end
 
-  return "SettlType: Unknown("..value..")"
+  return "Settl Type: Unknown("..value..")"
 end
 
--- Dissect: SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.size
+-- Dissect: Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -7043,45 +7043,45 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.dissect = function(buffer, 
     value = range:string()
   end
 
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settltype, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settl_type, range, value, display)
 
   return offset + length, value
 end
 
--- SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional = {}
+-- Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional = {}
 
--- Size: SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.size = 1
+-- Size: Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.size = 1
 
--- Display: SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.display = function(value)
+-- Display: Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "SettlType Optional: No Value"
+    return "Settl Type Optional: No Value"
   end
 
   if value == "0" then
-    return "SettlType Optional: Buyers Discretion (0)"
+    return "Settl Type Optional: Buyers Discretion (0)"
   end
   if value == "8" then
-    return "SettlType Optional: Sellers Discretion (8)"
+    return "Settl Type Optional: Sellers Discretion (8)"
   end
   if value == "X" then
-    return "SettlType Optional: Mutual (X)"
+    return "Settl Type Optional: Mutual (X)"
   end
   if value == 0 then
-    return "SettlType Optional: No Value"
+    return "Settl Type Optional: No Value"
   end
 
-  return "SettlType Optional: Unknown("..value..")"
+  return "Settl Type Optional: Unknown("..value..")"
 end
 
--- Dissect: SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.size
+-- Dissect: Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -7092,9 +7092,9 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.dissect = function
     value = range:string()
   end
 
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settltype_optional, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v7_0.fields.settl_type_optional, range, value, display)
 
   return offset + length, value
 end
@@ -9655,7 +9655,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_request_reject_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.entering_trader.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.price_optional.size
 
@@ -9715,8 +9715,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_request_reject_message.fields =
   -- Entering Trader: Trader
   index, entering_trader = b3_b3derivatives_binaryentrypoint_sbe_v7_0.entering_trader.dissect(buffer, index, packet, parent)
 
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.dissect(buffer, index, packet, parent)
+  -- Settl Type Optional: SettlType
+  index, settl_type_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.dissect(buffer, index, packet, parent)
 
   -- Price Optional: PriceOptional
   index, price_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
@@ -9883,7 +9883,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_message.size = function(buffer,
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.side.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.account.size
 
@@ -9938,8 +9938,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_message.fields = function(buffe
   -- Side: Side
   index, side = b3_b3derivatives_binaryentrypoint_sbe_v7_0.side.dissect(buffer, index, packet, parent)
 
-  -- SettlType: SettlType
-  index, settltype = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.dissect(buffer, index, packet, parent)
+  -- Settl Type: SettlType
+  index, settl_type = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.dissect(buffer, index, packet, parent)
 
   -- Account: AccountOptional
   index, account = b3_b3derivatives_binaryentrypoint_sbe_v7_0.account.dissect(buffer, index, packet, parent)
@@ -10021,7 +10021,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_status_report_message.size = fu
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.side_optional.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.price_optional.size
 
@@ -10092,8 +10092,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_status_report_message.fields = 
   -- Side Optional: Side
   index, side_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.side_optional.dissect(buffer, index, packet, parent)
 
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.dissect(buffer, index, packet, parent)
+  -- Settl Type Optional: SettlType
+  index, settl_type_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.dissect(buffer, index, packet, parent)
 
   -- Price Optional: PriceOptional
   index, price_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
@@ -10173,7 +10173,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_request_message.size = function
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.price.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.execute_underlying_trade.size
 
@@ -10230,8 +10230,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.quote_request_message.fields = functi
   -- Price: Price
   index, price = b3_b3derivatives_binaryentrypoint_sbe_v7_0.price.dissect(buffer, index, packet, parent)
 
-  -- SettlType: SettlType
-  index, settltype = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype.dissect(buffer, index, packet, parent)
+  -- Settl Type: SettlType
+  index, settl_type = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type.dissect(buffer, index, packet, parent)
 
   -- Execute Underlying Trade: ExecuteUnderlyingTrade
   index, execute_underlying_trade = b3_b3derivatives_binaryentrypoint_sbe_v7_0.execute_underlying_trade.dissect(buffer, index, packet, parent)
@@ -10664,7 +10664,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.execution_report_forward_message.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.aggressor_indicator.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v7_0.trade_date.size
 
@@ -10747,8 +10747,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.execution_report_forward_message.fiel
   -- Aggressor Indicator: Boolean
   index, aggressor_indicator = b3_b3derivatives_binaryentrypoint_sbe_v7_0.aggressor_indicator.dissect(buffer, index, packet, parent)
 
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settltype_optional.dissect(buffer, index, packet, parent)
+  -- Settl Type Optional: SettlType
+  index, settl_type_optional = b3_b3derivatives_binaryentrypoint_sbe_v7_0.settl_type_optional.dissect(buffer, index, packet, parent)
 
   -- Trade Date: LocalMktDate
   index, trade_date = b3_b3derivatives_binaryentrypoint_sbe_v7_0.trade_date.dissect(buffer, index, packet, parent)

@@ -74,8 +74,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.legs_groups = ProtoField.new("Le
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.lot_type = ProtoField.new("Lot Type", "b3.b3derivatives.binaryumdf.sbe.v1.9.lottype", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.low_limit_price = ProtoField.new("Low Limit Price", "b3.b3derivatives.binaryumdf.sbe.v1.9.lowlimitprice", ftypes.DOUBLE)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.market_segment_id = ProtoField.new("Market Segment Id", "b3.b3derivatives.binaryumdf.sbe.v1.9.marketsegmentid", ftypes.UINT8)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator_match_event_indicator = ProtoField.new("Match Event Indicator Match Event Indicator", "b3.b3derivatives.binaryumdf.sbe.v1.9.matcheventindicatormatcheventindicator", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator_match_event_indicator_optional = ProtoField.new("Match Event Indicator Match Event Indicator optional", "b3.b3derivatives.binaryumdf.sbe.v1.9.matcheventindicatormatcheventindicatoroptional", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "b3.b3derivatives.binaryumdf.sbe.v1.9.matcheventindicator", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator_optional = ProtoField.new("Match Event Indicator Optional", "b3.b3derivatives.binaryumdf.sbe.v1.9.matcheventindicatoroptional", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.maturity_date = ProtoField.new("Maturity Date", "b3.b3derivatives.binaryumdf.sbe.v1.9.maturitydate", ftypes.INT32)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "b3.b3derivatives.binaryumdf.sbe.v1.9.maturitymonthyear", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.max_order_qty = ProtoField.new("Max Order Qty", "b3.b3derivatives.binaryumdf.sbe.v1.9.maxorderqty", ftypes.INT64)
@@ -133,8 +133,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_band_midpoint_price_type =
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_band_type = ProtoField.new("Price Band Type", "b3.b3derivatives.binaryumdf.sbe.v1.9.pricebandtype", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_divisor = ProtoField.new("Price Divisor", "b3.b3derivatives.binaryumdf.sbe.v1.9.pricedivisor", ftypes.DOUBLE)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_limit_type = ProtoField.new("Price Limit Type", "b3.b3derivatives.binaryumdf.sbe.v1.9.pricelimittype", ftypes.UINT8)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type_price_type = ProtoField.new("Price Type Price Type", "b3.b3derivatives.binaryumdf.sbe.v1.9.pricetypepricetype", ftypes.UINT8)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type_price_type_optional = ProtoField.new("Price Type Price Type optional", "b3.b3derivatives.binaryumdf.sbe.v1.9.pricetypepricetypeoptional", ftypes.UINT8)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type = ProtoField.new("Price Type", "b3.b3derivatives.binaryumdf.sbe.v1.9.pricetype", ftypes.UINT8)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type_optional = ProtoField.new("Price Type Optional", "b3.b3derivatives.binaryumdf.sbe.v1.9.pricetypeoptional", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.product = ProtoField.new("Product", "b3.b3derivatives.binaryumdf.sbe.v1.9.product", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.put_or_call = ProtoField.new("Put Or Call", "b3.b3derivatives.binaryumdf.sbe.v1.9.putorcall", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.b3derivatives.binaryumdf.sbe.v1.9.recoverymsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
@@ -3363,71 +3363,71 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.price_limit_type.dissect = function(buffer,
   return offset + length, value
 end
 
--- Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type = {}
+-- Price Type
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type = {}
 
--- Size: Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type.size = 1
+-- Size: Price Type
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type.size = 1
 
--- Display: Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type.display = function(value)
+-- Display: Price Type
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type.display = function(value)
   if value == 1 then
-    return "Price Type Price Type: Percentage (1)"
+    return "Price Type: Percentage (1)"
   end
   if value == 2 then
-    return "Price Type Price Type: Pu (2)"
+    return "Price Type: Pu (2)"
   end
   if value == 3 then
-    return "Price Type Price Type: Fixed Amount (3)"
+    return "Price Type: Fixed Amount (3)"
   end
 
-  return "Price Type Price Type: Unknown("..value..")"
+  return "Price Type: Unknown("..value..")"
 end
 
--- Dissect: Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type.size
+-- Dissect: Price Type
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type_price_type, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type, range, value, display)
 
   return offset + length, value
 end
 
--- Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional = {}
+-- Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional = {}
 
--- Size: Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional.size = 1
+-- Size: Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional.size = 1
 
--- Display: Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional.display = function(value)
+-- Display: Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional.display = function(value)
   if value == 1 then
-    return "Price Type Price Type optional: Percentage (1)"
+    return "Price Type Optional: Percentage (1)"
   end
   if value == 2 then
-    return "Price Type Price Type optional: Pu (2)"
+    return "Price Type Optional: Pu (2)"
   end
   if value == 3 then
-    return "Price Type Price Type optional: Fixed Amount (3)"
+    return "Price Type Optional: Fixed Amount (3)"
   end
   if value == 0 then
-    return "Price Type Price Type optional: No Value"
+    return "Price Type Optional: No Value"
   end
 
-  return "Price Type Price Type optional: Unknown("..value..")"
+  return "Price Type Optional: Unknown("..value..")"
 end
 
--- Dissect: Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional.size
+-- Dissect: Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type_price_type_optional, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.price_type_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5390,14 +5390,14 @@ end
 -- Dissect B3 B3Derivatives BinaryUmdf Sbe 1.9
 -----------------------------------------------------------------------
 
--- Match Event Indicator Match Event Indicator optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional = {}
+-- Match Event Indicator Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional = {}
 
--- Size: Match Event Indicator Match Event Indicator optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.size = 1
+-- Size: Match Event Indicator Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.size = 1
 
--- Display: Match Event Indicator Match Event Indicator optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.display = function(range, value, packet, parent)
+-- Display: Match Event Indicator Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.display = function(range, value, packet, parent)
   local flags = {}
 
   -- Is Unused Match Event Indicator 0 flag set?
@@ -5436,8 +5436,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator
   return table.concat(flags, "|")
 end
 
--- Dissect Bit Fields: Match Event Indicator Match Event Indicator optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.bits = function(range, value, packet, parent)
+-- Dissect Bit Fields: Match Event Indicator Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.bits = function(range, value, packet, parent)
 
   -- Unused Match Event Indicator 0: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.unused_match_event_indicator_0, range, value)
@@ -5464,16 +5464,16 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.end_of_event, range, value)
 end
 
--- Dissect: Match Event Indicator Match Event Indicator optional
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.dissect = function(buffer, offset, packet, parent)
-  local size = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.size
+-- Dissect: Match Event Indicator Optional
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.dissect = function(buffer, offset, packet, parent)
+  local size = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.size
   local range = buffer(offset, size)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.display(range, value, packet, parent)
-  local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator_match_event_indicator_optional, range, display)
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.display(range, value, packet, parent)
+  local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator_optional, range, display)
 
   if show.structs then
-    b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.bits(range, value, packet, element)
+    b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.bits(range, value, packet, element)
   end
 
   return offset + size, value
@@ -5491,7 +5491,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.snapshot_full_refresh_orders_mb_o_71_messag
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_insert_timestamp.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.secondary_order_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_type.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.size
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.size
 
 -- Display: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v1_9.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.display = function(packet, parent, length)
@@ -5529,8 +5529,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.snapshot_full_refresh_orders_mb_o_71_messag
   -- Md Entry Type: MDEntryType
   index, md_entry_type = b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator optional: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator_optional = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator_optional.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator Optional: Struct of 8 fields
+  index, match_event_indicator_optional = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5704,14 +5704,14 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.snapshot_full_refresh_orders_mb_o_71_messag
   end
 end
 
--- Match Event Indicator Match Event Indicator
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator = {}
+-- Match Event Indicator
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator = {}
 
--- Size: Match Event Indicator Match Event Indicator
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size = 1
+-- Size: Match Event Indicator
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size = 1
 
--- Display: Match Event Indicator Match Event Indicator
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.display = function(range, value, packet, parent)
+-- Display: Match Event Indicator
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.display = function(range, value, packet, parent)
   local flags = {}
 
   -- Is Unused Match Event Indicator 0 flag set?
@@ -5750,8 +5750,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator
   return table.concat(flags, "|")
 end
 
--- Dissect Bit Fields: Match Event Indicator Match Event Indicator
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.bits = function(range, value, packet, parent)
+-- Dissect Bit Fields: Match Event Indicator
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.bits = function(range, value, packet, parent)
 
   -- Unused Match Event Indicator 0: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.unused_match_event_indicator_0, range, value)
@@ -5778,16 +5778,16 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.end_of_event, range, value)
 end
 
--- Dissect: Match Event Indicator Match Event Indicator
-b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect = function(buffer, offset, packet, parent)
-  local size = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size
+-- Dissect: Match Event Indicator
+b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect = function(buffer, offset, packet, parent)
+  local size = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size
   local range = buffer(offset, size)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.display(range, value, packet, parent)
-  local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator_match_event_indicator, range, display)
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.display(range, value, packet, parent)
+  local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.match_event_indicator, range, display)
 
   if show.structs then
-    b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.bits(range, value, packet, element)
+    b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.bits(range, value, packet, element)
   end
 
   return offset + size, value
@@ -5799,7 +5799,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.trade_bust_57_message = {}
 -- Size: Trade Bust 57 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.trade_bust_57_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_10_padding_2.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_future_price.size + 
@@ -5822,8 +5822,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.trade_bust_57_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.dissect(buffer, index, packet, parent)
@@ -5879,7 +5879,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.execution_statistics_56_message = {}
 -- Size: Execution Statistics 56 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.execution_statistics_56_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_volume.size + 
@@ -5901,8 +5901,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.execution_statistics_56_message.fields = fu
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.dissect(buffer, index, packet, parent)
@@ -6180,7 +6180,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.forward_trade_54_message = {}
 -- Size: Forward Trade 54 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.forward_trade_54_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_condition.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_future_price.size + 
@@ -6208,8 +6208,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.forward_trade_54_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.dissect(buffer, index, packet, parent)
@@ -6280,7 +6280,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.trade_53_message = {}
 -- Size: Trade 53 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.trade_53_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_condition.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_future_price.size + 
@@ -6306,8 +6306,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.trade_53_message.fields = function(buffer, 
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.dissect(buffer, index, packet, parent)
@@ -6372,7 +6372,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.mass_delete_orders_mb_o_52_message = {}
 -- Size: Mass Delete Orders Mb O 52 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.mass_delete_orders_mb_o_52_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_11_padding_1.size + 
@@ -6392,8 +6392,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.mass_delete_orders_mb_o_52_message.fields =
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
@@ -6440,7 +6440,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.delete_order_mb_o_51_message = {}
 -- Size: Delete Order Mb O 51 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.delete_order_mb_o_51_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_1.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_11_padding_1.size + 
@@ -6462,8 +6462,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.delete_order_mb_o_51_message.fields = funct
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
   index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_1.dissect(buffer, index, packet, parent)
@@ -6516,7 +6516,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.order_mb_o_50_message = {}
 -- Size: Order Mb O 50 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.order_mb_o_50_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_11_padding_1.size + 
@@ -6541,8 +6541,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.order_mb_o_50_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
@@ -6672,7 +6672,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.open_interest_29_message = {}
 -- Size: Open Interest 29 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.open_interest_29_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_1.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_size_quantity.size + 
@@ -6691,8 +6691,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.open_interest_29_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
   index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_1.dissect(buffer, index, packet, parent)
@@ -6736,13 +6736,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.settlement_price_28_message = {}
 -- Size: Settlement Price 28 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.settlement_price_28_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_1.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_future_price.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_timestamp.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.open_close_settl_flag.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.price_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.settl_price_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.rpt_seq.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.padding_1.size
@@ -6759,8 +6759,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.settlement_price_28_message.fields = functi
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
   index, offset_9_padding_1 = b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_1.dissect(buffer, index, packet, parent)
@@ -6777,8 +6777,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.settlement_price_28_message.fields = functi
   -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = b3_b3derivatives_binaryumdf_sbe_v1_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Price Type Price Type: PriceType
-  index, price_type_price_type = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type.dissect(buffer, index, packet, parent)
+  -- Price Type: PriceType
+  index, price_type = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: SettlPriceType
   index, settl_price_type = b3_b3derivatives_binaryumdf_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
@@ -6816,7 +6816,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.last_trade_price_27_message = {}
 -- Size: Last Trade Price 27 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.last_trade_price_27_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_condition.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_future_price.size + 
@@ -6844,8 +6844,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.last_trade_price_27_message.fields = functi
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.dissect(buffer, index, packet, parent)
@@ -6916,7 +6916,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.low_price_25_message = {}
 -- Size: Low Price 25 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.low_price_25_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_future_price.size + 
@@ -6935,8 +6935,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.low_price_25_message.fields = function(buff
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
@@ -6980,7 +6980,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.high_price_24_message = {}
 -- Size: High Price 24 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.high_price_24_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_future_price.size + 
@@ -6999,8 +6999,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.high_price_24_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
@@ -7044,7 +7044,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.price_band_22_message = {}
 -- Size: Price Band 22 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.price_band_22_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.price_band_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.price_limit_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.price_band_midpoint_price_type.size + 
@@ -7066,8 +7066,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.price_band_22_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Band Type: PriceBandType
   index, price_band_type = b3_b3derivatives_binaryumdf_sbe_v1_9.price_band_type.dissect(buffer, index, packet, parent)
@@ -7120,7 +7120,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.quantity_band_21_message = {}
 -- Size: Quantity Band 21 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.quantity_band_21_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_3.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.avg_daily_traded_qty.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.max_trade_vol.size + 
@@ -7139,8 +7139,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.quantity_band_21_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte
   index, offset_9_padding_3 = b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_3.dissect(buffer, index, packet, parent)
@@ -7290,7 +7290,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.auction_imbalance_19_message = {}
 -- Size: Auction Imbalance 19 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.auction_imbalance_19_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.imbalance_condition.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_size_quantity_optional.size + 
@@ -7309,8 +7309,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.auction_imbalance_19_message.fields = funct
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
@@ -7354,7 +7354,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.closing_price_17_message = {}
 -- Size: Closing Price 17 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.closing_price_17_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.open_close_settl_flag.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_10_padding_2.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_corporate_price.size + 
@@ -7375,8 +7375,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.closing_price_17_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = b3_b3derivatives_binaryumdf_sbe_v1_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
@@ -7426,7 +7426,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.theoretical_opening_price_16_message = {}
 -- Size: Theoretical Opening Price 16 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.theoretical_opening_price_16_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_corporate_offset_price_optional.size + 
@@ -7446,8 +7446,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.theoretical_opening_price_16_message.fields
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
@@ -7494,7 +7494,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.opening_price_15_message = {}
 -- Size: Opening Price 15 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.opening_price_15_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.open_close_settl_flag.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_11_padding_1.size + 
@@ -7517,8 +7517,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.opening_price_15_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
@@ -7769,7 +7769,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.news_5_message.size = function(buffer, offs
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.security_id_optional.size
 
-  index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size
+  index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.news_source.size
 
@@ -7806,8 +7806,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.news_5_message.fields = function(buffer, of
   -- Security Id Optional: SecurityIDOptional
   index, security_id_optional = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- News Source: NewsSource
   index, news_source = b3_b3derivatives_binaryumdf_sbe_v1_9.news_source.dissect(buffer, index, packet, parent)
@@ -8461,7 +8461,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_definition_message.size = function
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.put_or_call.size
 
-  index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional.size
+  index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional.size
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_9.market_segment_id.size
 
@@ -8628,8 +8628,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_definition_message.fields = functi
   -- Put Or Call: PutOrCall
   index, put_or_call = b3_b3derivatives_binaryumdf_sbe_v1_9.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Price Type Price Type optional: PriceType
-  index, price_type_price_type_optional = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_price_type_optional.dissect(buffer, index, packet, parent)
+  -- Price Type Optional: PriceType
+  index, price_type_optional = b3_b3derivatives_binaryumdf_sbe_v1_9.price_type_optional.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: MarketSegmentID
   index, market_segment_id = b3_b3derivatives_binaryumdf_sbe_v1_9.market_segment_id.dissect(buffer, index, packet, parent)
@@ -8695,7 +8695,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_group_phase_10_message = {}
 b3_b3derivatives_binaryumdf_sbe_v1_9.security_group_phase_10_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_group.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_3_padding_5.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_sub_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_trading_event.size + 
@@ -8719,8 +8719,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_group_phase_10_message.fields = fu
   -- Offset 3 Padding 5: 5 Byte
   index, offset_3_padding_5 = b3_b3derivatives_binaryumdf_sbe_v1_9.offset_3_padding_5.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.dissect(buffer, index, packet, parent)
@@ -8770,7 +8770,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_status_3_message = {}
 -- Size: Security Status 3 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.security_status_3_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_trading_status.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_trading_event.size + 
@@ -8792,8 +8792,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_status_3_message.fields = function
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v1_9.trading_session_id.dissect(buffer, index, packet, parent)
@@ -8845,7 +8845,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.channel_reset_11_message = {}
 
 -- Size: Channel Reset 11 Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.channel_reset_11_message.size =
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_1_padding_3.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_timestamp.size
 
@@ -8858,8 +8858,8 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_9.channel_reset_11_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 1 Padding 3: 3 Byte
   index, offset_1_padding_3 = b3_b3derivatives_binaryumdf_sbe_v1_9.offset_1_padding_3.dissect(buffer, index, packet, parent)
@@ -8894,7 +8894,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.empty_book_message = {}
 -- Size: Empty Book Message
 b3_b3derivatives_binaryumdf_sbe_v1_9.empty_book_message.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_3.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_timestamp.size
 
@@ -8910,8 +8910,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.empty_book_message.fields = function(buffer
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator Match Event Indicator: Struct of 8 fields
-  index, match_event_indicator_match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator_match_event_indicator.dissect(buffer, index, packet, parent)
+  -- Match Event Indicator: Struct of 8 fields
+  index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v1_9.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte
   index, offset_9_padding_3 = b3_b3derivatives_binaryumdf_sbe_v1_9.offset_9_padding_3.dissect(buffer, index, packet, parent)

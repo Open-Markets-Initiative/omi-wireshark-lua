@@ -59,7 +59,7 @@ grep "b3.b3derivatives.binaryumdf.sbe.v1.8.ticksizedenominator" B3.B3Derivatives
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.product" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.exercisestyle" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.putorcall" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
-grep "b3.b3derivatives.binaryumdf.sbe.v1.8.pricetypepricetypeoptional" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
+grep "b3.b3derivatives.binaryumdf.sbe.v1.8.pricetypeoptional" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.marketsegmentid" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.governanceindicator" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json
 grep "b3.b3derivatives.binaryumdf.sbe.v1.8.securitymatchtype" B3.B3Derivatives.BinaryUmdf.Sbe.v1.8.SecurityDefinitionMessage.json

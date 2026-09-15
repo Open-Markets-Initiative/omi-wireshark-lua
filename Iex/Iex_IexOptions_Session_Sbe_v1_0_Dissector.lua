@@ -16,10 +16,8 @@ local iex_iexoptions_session_sbe_v1_0 = {}
 
 -- Iex IexOptions Session Sbe 1.0 Fields
 omi_iex_iexoptions_session_sbe_v1_0.fields.block_length = ProtoField.new("Block Length", "iex.iexoptions.session.sbe.v1.0.blocklength", ftypes.UINT16)
-omi_iex_iexoptions_session_sbe_v1_0.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "iex.iexoptions.session.sbe.v1.0.blocklengthuint8", ftypes.UINT8)
+omi_iex_iexoptions_session_sbe_v1_0.fields.block_length_short = ProtoField.new("Block Length Short", "iex.iexoptions.session.sbe.v1.0.blocklengthshort", ftypes.UINT8)
 omi_iex_iexoptions_session_sbe_v1_0.fields.end_sequence = ProtoField.new("End Sequence", "iex.iexoptions.session.sbe.v1.0.endsequence", ftypes.UINT32)
-omi_iex_iexoptions_session_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_group = ProtoField.new("Gateway Heartbeat Message Sub Sessions Group", "iex.iexoptions.session.sbe.v1.0.gatewayheartbeatmessagesubsessionsgroup", ftypes.STRING)
-omi_iex_iexoptions_session_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_groups = ProtoField.new("Gateway Heartbeat Message Sub Sessions Groups", "iex.iexoptions.session.sbe.v1.0.gatewayheartbeatmessagesubsessionsgroups", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_0.fields.joined = ProtoField.new("Joined", "iex.iexoptions.session.sbe.v1.0.joined", ftypes.UINT8)
 omi_iex_iexoptions_session_sbe_v1_0.fields.keep_alive = ProtoField.new("Keep Alive", "iex.iexoptions.session.sbe.v1.0.keepalive", ftypes.UINT8)
 omi_iex_iexoptions_session_sbe_v1_0.fields.logon_id = ProtoField.new("Logon Id", "iex.iexoptions.session.sbe.v1.0.logonid", ftypes.STRING)
@@ -33,6 +31,8 @@ omi_iex_iexoptions_session_sbe_v1_0.fields.sequence = ProtoField.new("Sequence",
 omi_iex_iexoptions_session_sbe_v1_0.fields.session_info_group_encoding = ProtoField.new("Session Info Group Encoding", "iex.iexoptions.session.sbe.v1.0.sessioninfogroupencoding", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_0.fields.start_sequence = ProtoField.new("Start Sequence", "iex.iexoptions.session.sbe.v1.0.startsequence", ftypes.UINT32)
 omi_iex_iexoptions_session_sbe_v1_0.fields.status = ProtoField.new("Status", "iex.iexoptions.session.sbe.v1.0.status", ftypes.UINT8)
+omi_iex_iexoptions_session_sbe_v1_0.fields.sub_sessions_group = ProtoField.new("Sub Sessions Group", "iex.iexoptions.session.sbe.v1.0.subsessionsgroup", ftypes.STRING)
+omi_iex_iexoptions_session_sbe_v1_0.fields.sub_sessions_groups = ProtoField.new("Sub Sessions Groups", "iex.iexoptions.session.sbe.v1.0.subsessionsgroups", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_0.fields.subsession_id = ProtoField.new("Subsession Id", "iex.iexoptions.session.sbe.v1.0.subsessionid", ftypes.UINT64)
 omi_iex_iexoptions_session_sbe_v1_0.fields.subsession_type = ProtoField.new("Subsession Type", "iex.iexoptions.session.sbe.v1.0.subsessiontype", ftypes.INT8)
 omi_iex_iexoptions_session_sbe_v1_0.fields.template_id = ProtoField.new("Template Id", "iex.iexoptions.session.sbe.v1.0.templateid", ftypes.UINT16)
@@ -58,7 +58,7 @@ omi_iex_iexoptions_session_sbe_v1_0.fields.subsession_leave_response_message = P
 omi_iex_iexoptions_session_sbe_v1_0.fields.terminate_message = ProtoField.new("Terminate Message", "iex.iexoptions.session.sbe.v1.0.terminatemessage", ftypes.STRING)
 
 -- Iex IexOptions Session Sbe 1.0 generated fields
-omi_iex_iexoptions_session_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_group_index = ProtoField.new("Gateway Heartbeat Message Sub Sessions Group Index", "iex.iexoptions.session.sbe.v1.0.gatewayheartbeatmessagesubsessionsgroupindex", ftypes.UINT16)
+omi_iex_iexoptions_session_sbe_v1_0.fields.sub_sessions_group_index = ProtoField.new("Sub Sessions Group Index", "iex.iexoptions.session.sbe.v1.0.subsessionsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -68,16 +68,16 @@ local show = {}
 
 -- Iex IexOptions Session Sbe 1.0 Element Dissection Options
 show.application_messages = true
-show.repeating_groups = true
 show.headers = true
 show.structs = true
+show.repeating_groups = true
 show.indexes = true
 
 -- Register Iex IexOptions Session Sbe 1.0 Show Options
 omi_iex_iexoptions_session_sbe_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_iex_iexoptions_session_sbe_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexoptions_session_sbe_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -129,25 +129,25 @@ iex_iexoptions_session_sbe_v1_0.block_length.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Block Length uint 8
-iex_iexoptions_session_sbe_v1_0.block_length_uint_8 = {}
+-- Block Length Short
+iex_iexoptions_session_sbe_v1_0.block_length_short = {}
 
--- Size: Block Length uint 8
-iex_iexoptions_session_sbe_v1_0.block_length_uint_8.size = 1
+-- Size: Block Length Short
+iex_iexoptions_session_sbe_v1_0.block_length_short.size = 1
 
--- Display: Block Length uint 8
-iex_iexoptions_session_sbe_v1_0.block_length_uint_8.display = function(value)
-  return "Block Length uint 8: "..value
+-- Display: Block Length Short
+iex_iexoptions_session_sbe_v1_0.block_length_short.display = function(value)
+  return "Block Length Short: "..value
 end
 
--- Dissect: Block Length uint 8
-iex_iexoptions_session_sbe_v1_0.block_length_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_session_sbe_v1_0.block_length_uint_8.size
+-- Dissect: Block Length Short
+iex_iexoptions_session_sbe_v1_0.block_length_short.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_session_sbe_v1_0.block_length_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_session_sbe_v1_0.block_length_uint_8.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_session_sbe_v1_0.block_length_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.block_length_uint_8, range, value, display)
+  parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -1077,28 +1077,28 @@ iex_iexoptions_session_sbe_v1_0.client_heartbeat_message.dissect = function(buff
   return offset
 end
 
--- Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group = {}
+-- Sub Sessions Group
+iex_iexoptions_session_sbe_v1_0.sub_sessions_group = {}
 
--- Size: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.size =
+-- Size: Sub Sessions Group
+iex_iexoptions_session_sbe_v1_0.sub_sessions_group.size =
   iex_iexoptions_session_sbe_v1_0.subsession_type.size + 
   iex_iexoptions_session_sbe_v1_0.subsession_id.size + 
   iex_iexoptions_session_sbe_v1_0.joined.size + 
   iex_iexoptions_session_sbe_v1_0.next_seq_no.size
 
--- Display: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.display = function(packet, parent, length)
+-- Display: Sub Sessions Group
+iex_iexoptions_session_sbe_v1_0.sub_sessions_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.fields = function(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+-- Dissect Fields: Sub Sessions Group
+iex_iexoptions_session_sbe_v1_0.sub_sessions_group.fields = function(buffer, offset, packet, parent, sub_sessions_group_index)
   local index = offset
 
-  -- Implicit Gateway Heartbeat Message Sub Sessions Group Index
-  if gateway_heartbeat_message_sub_sessions_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_group_index, gateway_heartbeat_message_sub_sessions_group_index)
+  -- Implicit Sub Sessions Group Index
+  if sub_sessions_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.sub_sessions_group_index, sub_sessions_group_index)
     iteration:set_generated()
   end
 
@@ -1117,21 +1117,21 @@ iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.fie
   return index
 end
 
--- Dissect: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.dissect = function(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+-- Dissect: Sub Sessions Group
+iex_iexoptions_session_sbe_v1_0.sub_sessions_group.dissect = function(buffer, offset, packet, parent, sub_sessions_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_group, buffer(offset, 0))
-    local index = iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.fields(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.sub_sessions_group, buffer(offset, 0))
+    local index = iex_iexoptions_session_sbe_v1_0.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.display(packet, parent, length)
+    local display = iex_iexoptions_session_sbe_v1_0.sub_sessions_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.fields(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+    return iex_iexoptions_session_sbe_v1_0.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
   end
 end
 
@@ -1140,7 +1140,7 @@ iex_iexoptions_session_sbe_v1_0.session_info_group_encoding = {}
 
 -- Size: Session Info Group Encoding
 iex_iexoptions_session_sbe_v1_0.session_info_group_encoding.size =
-  iex_iexoptions_session_sbe_v1_0.block_length_uint_8.size + 
+  iex_iexoptions_session_sbe_v1_0.block_length_short.size + 
   iex_iexoptions_session_sbe_v1_0.num_in_group.size
 
 -- Display: Session Info Group Encoding
@@ -1152,8 +1152,8 @@ end
 iex_iexoptions_session_sbe_v1_0.session_info_group_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = iex_iexoptions_session_sbe_v1_0.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = iex_iexoptions_session_sbe_v1_0.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = iex_iexoptions_session_sbe_v1_0.num_in_group.dissect(buffer, index, packet, parent)
@@ -1179,29 +1179,29 @@ iex_iexoptions_session_sbe_v1_0.session_info_group_encoding.dissect = function(b
   end
 end
 
--- Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups = {}
+-- Sub Sessions Groups
+iex_iexoptions_session_sbe_v1_0.sub_sessions_groups = {}
 
--- Calculate size of: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.size = function(buffer, offset)
+-- Calculate size of: Sub Sessions Groups
+iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + iex_iexoptions_session_sbe_v1_0.session_info_group_encoding.size
 
   -- Calculate field size from count
-  local gateway_heartbeat_message_sub_sessions_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + gateway_heartbeat_message_sub_sessions_group_count * 14
+  local sub_sessions_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + sub_sessions_group_count * 14
 
   return index
 end
 
--- Display: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.display = function(packet, parent, length)
+-- Display: Sub Sessions Groups
+iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sub Sessions Groups
+iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session Info Group Encoding: Struct of 2 fields
@@ -1210,29 +1210,29 @@ iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.fi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Gateway Heartbeat Message Sub Sessions Group
-  for gateway_heartbeat_message_sub_sessions_group_index = 1, num_in_group do
-    index, gateway_heartbeat_message_sub_sessions_group = iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_group.dissect(buffer, index, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+  -- Repeating: Sub Sessions Group
+  for sub_sessions_group_index = 1, num_in_group do
+    index, sub_sessions_group = iex_iexoptions_session_sbe_v1_0.sub_sessions_group.dissect(buffer, index, packet, parent, sub_sessions_group_index)
   end
 
   return index
 end
 
--- Dissect: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Sub Sessions Groups
+iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.gateway_heartbeat_message_sub_sessions_groups, buffer(offset, 0))
-    local index = iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.sub_sessions_groups, buffer(offset, 0))
+    local index = iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.display(packet, parent, length)
+    local display = iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.fields(buffer, offset, packet, parent)
+    return iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1245,7 +1245,7 @@ iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message.size = function(buffer
 
   index = index + iex_iexoptions_session_sbe_v1_0.keep_alive.size
 
-  index = index + iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.size(buffer, offset + index)
+  index = index + iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.size(buffer, offset + index)
 
   return index
 end
@@ -1262,8 +1262,8 @@ iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message.fields = function(buff
   -- Keep Alive: Boolean
   index, keep_alive = iex_iexoptions_session_sbe_v1_0.keep_alive.dissect(buffer, index, packet, parent)
 
-  -- Gateway Heartbeat Message Sub Sessions Groups: Struct of 2 fields
-  index, gateway_heartbeat_message_sub_sessions_groups = iex_iexoptions_session_sbe_v1_0.gateway_heartbeat_message_sub_sessions_groups.dissect(buffer, index, packet, parent)
+  -- Sub Sessions Groups: Struct of 2 fields
+  index, sub_sessions_groups = iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.dissect(buffer, index, packet, parent)
 
   return index
 end

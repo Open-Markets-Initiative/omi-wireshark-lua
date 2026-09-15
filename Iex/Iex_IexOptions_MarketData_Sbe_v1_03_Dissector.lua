@@ -25,7 +25,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.bid_customer_size = ProtoField.ne
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.bid_price = ProtoField.new("Bid Price", "iex.iexoptions.marketdata.sbe.v1.03.bidprice", ftypes.DOUBLE)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.bid_size = ProtoField.new("Bid Size", "iex.iexoptions.marketdata.sbe.v1.03.bidsize", ftypes.UINT32)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.block_length = ProtoField.new("Block Length", "iex.iexoptions.marketdata.sbe.v1.03.blocklength", ftypes.UINT16)
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "iex.iexoptions.marketdata.sbe.v1.03.blocklengthuint8", ftypes.UINT8)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.block_length_short = ProtoField.new("Block Length Short", "iex.iexoptions.marketdata.sbe.v1.03.blocklengthshort", ftypes.UINT8)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.capacity = ProtoField.new("Capacity", "iex.iexoptions.marketdata.sbe.v1.03.capacity", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.channel_id = ProtoField.new("Channel Id", "iex.iexoptions.marketdata.sbe.v1.03.channelid", ftypes.UINT32)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.close_indicator = ProtoField.new("Close Indicator", "iex.iexoptions.marketdata.sbe.v1.03.closeindicator", ftypes.INT8)
@@ -405,25 +405,25 @@ iex_iexoptions_marketdata_sbe_v1_03.block_length.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Block Length uint 8
-iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8 = {}
+-- Block Length Short
+iex_iexoptions_marketdata_sbe_v1_03.block_length_short = {}
 
--- Size: Block Length uint 8
-iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8.size = 1
+-- Size: Block Length Short
+iex_iexoptions_marketdata_sbe_v1_03.block_length_short.size = 1
 
--- Display: Block Length uint 8
-iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8.display = function(value)
-  return "Block Length uint 8: "..value
+-- Display: Block Length Short
+iex_iexoptions_marketdata_sbe_v1_03.block_length_short.display = function(value)
+  return "Block Length Short: "..value
 end
 
--- Dissect: Block Length uint 8
-iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8.size
+-- Dissect: Block Length Short
+iex_iexoptions_marketdata_sbe_v1_03.block_length_short.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_marketdata_sbe_v1_03.block_length_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_marketdata_sbe_v1_03.block_length_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.block_length_uint_8, range, value, display)
+  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -2160,7 +2160,7 @@ iex_iexoptions_marketdata_sbe_v1_03.message_list_group_encoding = {}
 
 -- Size: Message List Group Encoding
 iex_iexoptions_marketdata_sbe_v1_03.message_list_group_encoding.size =
-  iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8.size + 
+  iex_iexoptions_marketdata_sbe_v1_03.block_length_short.size + 
   iex_iexoptions_marketdata_sbe_v1_03.num_in_group.size
 
 -- Display: Message List Group Encoding
@@ -2172,8 +2172,8 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.message_list_group_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = iex_iexoptions_marketdata_sbe_v1_03.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = iex_iexoptions_marketdata_sbe_v1_03.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = iex_iexoptions_marketdata_sbe_v1_03.num_in_group.dissect(buffer, index, packet, parent)

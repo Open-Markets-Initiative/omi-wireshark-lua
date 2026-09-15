@@ -16,7 +16,7 @@ local iex_iexoptions_binaryorderentry_sbe_v1_02 = {}
 
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Fields
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.account_account = ProtoField.new("Account Account", "iex.iexoptions.binaryorderentry.sbe.v1.02.accountaccount", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.account_string_16 = ProtoField.new("Account string 16", "iex.iexoptions.binaryorderentry.sbe.v1.02.accountstring16", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.account_string_16 = ProtoField.new("Account String 16", "iex.iexoptions.binaryorderentry.sbe.v1.02.accountstring16", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ack_style_mass_cancel_ack_style = ProtoField.new("Ack Style Mass Cancel Ack Style", "iex.iexoptions.binaryorderentry.sbe.v1.02.ackstylemasscancelackstyle", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ack_style_purge_request_ack_style = ProtoField.new("Ack Style Purge Request Ack Style", "iex.iexoptions.binaryorderentry.sbe.v1.02.ackstylepurgerequestackstyle", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ack_type = ProtoField.new("Ack Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.acktype", ftypes.INT8)
@@ -30,15 +30,15 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.appointment_type = ProtoFie
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.attributed_quote = ProtoField.new("Attributed Quote", "iex.iexoptions.binaryorderentry.sbe.v1.02.attributedquote", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.auction_id = ProtoField.new("Auction Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.auctionid", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length = ProtoField.new("Block Length", "iex.iexoptions.binaryorderentry.sbe.v1.02.blocklength", ftypes.UINT16)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "iex.iexoptions.binaryorderentry.sbe.v1.02.blocklengthuint8", ftypes.UINT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length_short = ProtoField.new("Block Length Short", "iex.iexoptions.binaryorderentry.sbe.v1.02.blocklengthshort", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "iex.iexoptions.binaryorderentry.sbe.v1.02.blockedbybreachindicator", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_action = ProtoField.new("Bulk Action", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkaction", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group = ProtoField.new("Bulk Quote Ack Message quote Acks Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroup", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_groups = ProtoField.new("Bulk Quote Ack Message quote Acks Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroups", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bust_or_correction = ProtoField.new("Bust Or Correction", "iex.iexoptions.binaryorderentry.sbe.v1.02.bustorcorrection", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_count = ProtoField.new("Cancel Count", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelcount", ftypes.UINT32)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide_cancel_instead_of_slide = ProtoField.new("Cancel Instead Of Slide Cancel Instead Of Slide", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelinsteadofslidecancelinsteadofslide", ftypes.INT8)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide_cancel_instead_of_slide_optional = ProtoField.new("Cancel Instead Of Slide Cancel Instead Of Slide optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelinsteadofslidecancelinsteadofslideoptional", ftypes.INT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide = ProtoField.new("Cancel Instead Of Slide", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelinsteadofslide", ftypes.INT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide_optional = ProtoField.new("Cancel Instead Of Slide Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelinsteadofslideoptional", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelondisconnect", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.clordid", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.clearing_account = ProtoField.new("Clearing Account", "iex.iexoptions.binaryorderentry.sbe.v1.02.clearingaccount", ftypes.STRING)
@@ -52,10 +52,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.contra_occ_id = ProtoField.
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.contra_open_close = ProtoField.new("Contra Open Close", "iex.iexoptions.binaryorderentry.sbe.v1.02.contraopenclose", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.count_limit = ProtoField.new("Count Limit", "iex.iexoptions.binaryorderentry.sbe.v1.02.countlimit", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cum_qty = ProtoField.new("Cum Qty", "iex.iexoptions.binaryorderentry.sbe.v1.02.cumqty", ftypes.UINT32)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight_uint_8 = ProtoField.new("Cust Capacity Weight uint 8", "iex.iexoptions.binaryorderentry.sbe.v1.02.custcapacityweightuint8", ftypes.UINT8)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight_uint_8_optional = ProtoField.new("Cust Capacity Weight uint 8 optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.custcapacityweightuint8optional", ftypes.UINT8)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id_uint_16 = ProtoField.new("Custom Group Id uint 16", "iex.iexoptions.binaryorderentry.sbe.v1.02.customgroupiduint16", ftypes.UINT16)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id_uint_16_optional = ProtoField.new("Custom Group Id uint 16 optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.customgroupiduint16optional", ftypes.UINT16)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight = ProtoField.new("Cust Capacity Weight", "iex.iexoptions.binaryorderentry.sbe.v1.02.custcapacityweight", ftypes.UINT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight_optional = ProtoField.new("Cust Capacity Weight Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.custcapacityweightoptional", ftypes.UINT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id = ProtoField.new("Custom Group Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.customgroupid", ftypes.UINT16)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id_optional = ProtoField.new("Custom Group Id Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.customgroupidoptional", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_ids_group_encoding = ProtoField.new("Custom Group Ids Group Encoding", "iex.iexoptions.binaryorderentry.sbe.v1.02.customgroupidsgroupencoding", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.customer_or_firm = ProtoField.new("Customer Or Firm", "iex.iexoptions.binaryorderentry.sbe.v1.02.customerorfirm", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.default_account = ProtoField.new("Default Account", "iex.iexoptions.binaryorderentry.sbe.v1.02.defaultaccount", ftypes.STRING)
@@ -72,10 +72,7 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.end_sequence = ProtoField.n
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.exec_id = ProtoField.new("Exec Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.execid", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.exec_inst = ProtoField.new("Exec Inst", "iex.iexoptions.binaryorderentry.sbe.v1.02.execinst", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.fee_code = ProtoField.new("Fee Code", "iex.iexoptions.binaryorderentry.sbe.v1.02.feecode", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message_sub_sessions_group = ProtoField.new("Gateway Heartbeat Message Sub Sessions Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.gatewayheartbeatmessagesubsessionsgroup", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message_sub_sessions_groups = ProtoField.new("Gateway Heartbeat Message Sub Sessions Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.gatewayheartbeatmessagesubsessionsgroups", ftypes.STRING)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_id_instrument_id = ProtoField.new("Instrument Id Instrument Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.instrumentidinstrumentid", ftypes.UINT32)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_id_uint_32 = ProtoField.new("Instrument Id uint 32", "iex.iexoptions.binaryorderentry.sbe.v1.02.instrumentiduint32", ftypes.UINT32)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_id = ProtoField.new("Instrument Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.instrumentid", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "iex.iexoptions.binaryorderentry.sbe.v1.02.iocattribution", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.joined = ProtoField.new("Joined", "iex.iexoptions.binaryorderentry.sbe.v1.02.joined", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.keep_alive = ProtoField.new("Keep Alive", "iex.iexoptions.binaryorderentry.sbe.v1.02.keepalive", ftypes.UINT8)
@@ -133,10 +130,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.reserved = ProtoField.new("
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.restatement_reason = ProtoField.new("Restatement Reason", "iex.iexoptions.binaryorderentry.sbe.v1.02.restatementreason", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskacktype", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_action = ProtoField.new("Risk Action", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskaction", ftypes.INT8)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_risk_control = ProtoField.new("Risk Control Risk Control", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolriskcontrol", ftypes.INT8)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_risk_control_optional = ProtoField.new("Risk Control Risk Control optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolriskcontroloptional", ftypes.INT8)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status = ProtoField.new("Risk Control Status Risk Control Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusriskcontrolstatus", ftypes.INT8)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status_optional = ProtoField.new("Risk Control Status Risk Control Status optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusriskcontrolstatusoptional", ftypes.INT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control = ProtoField.new("Risk Control", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrol", ftypes.INT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_optional = ProtoField.new("Risk Control Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontroloptional", ftypes.INT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status = ProtoField.new("Risk Control Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatus", ftypes.INT8)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_optional = ProtoField.new("Risk Control Status Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusoptional", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.routingfirmid", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.sbemessage", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.schemaid", ftypes.UINT16)
@@ -147,6 +144,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.side = ProtoField.new("Side
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.start_sequence = ProtoField.new("Start Sequence", "iex.iexoptions.binaryorderentry.sbe.v1.02.startsequence", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.status = ProtoField.new("Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.status", ftypes.UINT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.strike_price = ProtoField.new("Strike Price", "iex.iexoptions.binaryorderentry.sbe.v1.02.strikeprice", ftypes.DOUBLE)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group = ProtoField.new("Sub Sessions Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.subsessionsgroup", ftypes.STRING)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_groups = ProtoField.new("Sub Sessions Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.subsessionsgroups", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.subsession_id = ProtoField.new("Subsession Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.subsessionid", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.subsession_type = ProtoField.new("Subsession Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.subsessiontype", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.target_party_id = ProtoField.new("Target Party Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.targetpartyid", ftypes.STRING)
@@ -161,9 +160,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trade_liquidity_indicator =
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trade_ref_id = ProtoField.new("Trade Ref Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.traderefid", ftypes.UINT64)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trading_ring = ProtoField.new("Trading Ring", "iex.iexoptions.binaryorderentry.sbe.v1.02.tradingring", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.transact_time = ProtoField.new("Transact Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.transacttime", ftypes.UINT64)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_instrument_id = ProtoField.new("Underlying Id Instrument Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingidinstrumentid", ftypes.UINT32)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_instrument_id_optional = ProtoField.new("Underlying Id Instrument Id optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingidinstrumentidoptional", ftypes.UINT32)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_uint_32 = ProtoField.new("Underlying Id uint 32", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingiduint32", ftypes.UINT32)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id = ProtoField.new("Underlying Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingid", ftypes.UINT32)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_optional = ProtoField.new("Underlying Id Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingidoptional", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingsymbol", ftypes.STRING)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_status = ProtoField.new("User Session Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.usersessionstatus", ftypes.INT8)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_type = ProtoField.new("User Session Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.usersessiontype", ftypes.INT8)
@@ -219,10 +217,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.session_message = ProtoFiel
 
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 generated fields
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group_index = ProtoField.new("Bulk Quote Ack Message quote Acks Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroupindex", ftypes.UINT16)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message_sub_sessions_group_index = ProtoField.new("Gateway Heartbeat Message Sub Sessions Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.gatewayheartbeatmessagesubsessionsgroupindex", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_group_index = ProtoField.new("New Bulk Quote Message quote Updates Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroupindex", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_group_index = ProtoField.new("Purge Ack Message custom Group Ids Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroupindex", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_group_index = ProtoField.new("Purge Request Message custom Group Ids Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroupindex", ftypes.UINT16)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group_index = ProtoField.new("Sub Sessions Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.subsessionsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -314,23 +312,23 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.account_account.dissect = function(buf
   return offset + length, value
 end
 
--- Account string 16
+-- Account String 16
 iex_iexoptions_binaryorderentry_sbe_v1_02.account_string_16 = {}
 
--- Size: Account string 16
+-- Size: Account String 16
 iex_iexoptions_binaryorderentry_sbe_v1_02.account_string_16.size = 16
 
--- Display: Account string 16
+-- Display: Account String 16
 iex_iexoptions_binaryorderentry_sbe_v1_02.account_string_16.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Account string 16: No Value"
+    return "Account String 16: No Value"
   end
 
-  return "Account string 16: "..value
+  return "Account String 16: "..value
 end
 
--- Dissect: Account string 16
+-- Dissect: Account String 16
 iex_iexoptions_binaryorderentry_sbe_v1_02.account_string_16.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.account_string_16.size
   local range = buffer(offset, length)
@@ -792,25 +790,25 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.block_length.dissect = function(buffer
   return offset + length, value
 end
 
--- Block Length uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8 = {}
+-- Block Length Short
+iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short = {}
 
--- Size: Block Length uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.size = 1
+-- Size: Block Length Short
+iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size = 1
 
--- Display: Block Length uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.display = function(value)
-  return "Block Length uint 8: "..value
+-- Display: Block Length Short
+iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.display = function(value)
+  return "Block Length Short: "..value
 end
 
--- Dissect: Block Length uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.size
+-- Dissect: Block Length Short
+iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length_uint_8, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -934,65 +932,65 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_count.dissect = function(buffer
   return offset + length, value
 end
 
--- Cancel Instead Of Slide Cancel Instead Of Slide
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide = {}
+-- Cancel Instead Of Slide
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide = {}
 
--- Size: Cancel Instead Of Slide Cancel Instead Of Slide
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.size = 1
+-- Size: Cancel Instead Of Slide
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.size = 1
 
--- Display: Cancel Instead Of Slide Cancel Instead Of Slide
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.display = function(value)
+-- Display: Cancel Instead Of Slide
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.display = function(value)
   if value == 0 then
-    return "Cancel Instead Of Slide Cancel Instead Of Slide: Slide (0)"
+    return "Cancel Instead Of Slide: Slide (0)"
   end
   if value == 1 then
-    return "Cancel Instead Of Slide Cancel Instead Of Slide: Cancel (1)"
+    return "Cancel Instead Of Slide: Cancel (1)"
   end
 
-  return "Cancel Instead Of Slide Cancel Instead Of Slide: Unknown("..value..")"
+  return "Cancel Instead Of Slide: Unknown("..value..")"
 end
 
--- Dissect: Cancel Instead Of Slide Cancel Instead Of Slide
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.size
+-- Dissect: Cancel Instead Of Slide
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide_cancel_instead_of_slide, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide, range, value, display)
 
   return offset + length, value
 end
 
--- Cancel Instead Of Slide Cancel Instead Of Slide optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional = {}
+-- Cancel Instead Of Slide Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional = {}
 
--- Size: Cancel Instead Of Slide Cancel Instead Of Slide optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.size = 1
+-- Size: Cancel Instead Of Slide Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.size = 1
 
--- Display: Cancel Instead Of Slide Cancel Instead Of Slide optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.display = function(value)
+-- Display: Cancel Instead Of Slide Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.display = function(value)
   if value == 0 then
-    return "Cancel Instead Of Slide Cancel Instead Of Slide optional: Slide (0)"
+    return "Cancel Instead Of Slide Optional: Slide (0)"
   end
   if value == 1 then
-    return "Cancel Instead Of Slide Cancel Instead Of Slide optional: Cancel (1)"
+    return "Cancel Instead Of Slide Optional: Cancel (1)"
   end
   if value == 128 then
-    return "Cancel Instead Of Slide Cancel Instead Of Slide optional: No Value"
+    return "Cancel Instead Of Slide Optional: No Value"
   end
 
-  return "Cancel Instead Of Slide Cancel Instead Of Slide optional: Unknown("..value..")"
+  return "Cancel Instead Of Slide Optional: Unknown("..value..")"
 end
 
--- Dissect: Cancel Instead Of Slide Cancel Instead Of Slide optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.size
+-- Dissect: Cancel Instead Of Slide Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide_cancel_instead_of_slide_optional, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1411,104 +1409,104 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.cum_qty.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Cust Capacity Weight uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8 = {}
+-- Cust Capacity Weight
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight = {}
 
--- Size: Cust Capacity Weight uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8.size = 1
+-- Size: Cust Capacity Weight
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.size = 1
 
--- Display: Cust Capacity Weight uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8.display = function(value)
-  return "Cust Capacity Weight uint 8: "..value
+-- Display: Cust Capacity Weight
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.display = function(value)
+  return "Cust Capacity Weight: "..value
 end
 
--- Dissect: Cust Capacity Weight uint 8
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8.size
+-- Dissect: Cust Capacity Weight
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight_uint_8, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight, range, value, display)
 
   return offset + length, value
 end
 
--- Cust Capacity Weight uint 8 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional = {}
+-- Cust Capacity Weight Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional = {}
 
--- Size: Cust Capacity Weight uint 8 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional.size = 1
+-- Size: Cust Capacity Weight Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.size = 1
 
--- Display: Cust Capacity Weight uint 8 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional.display = function(value)
+-- Display: Cust Capacity Weight Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.display = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Cust Capacity Weight uint 8 optional: No Value"
+    return "Cust Capacity Weight Optional: No Value"
   end
 
-  return "Cust Capacity Weight uint 8 optional: "..value
+  return "Cust Capacity Weight Optional: "..value
 end
 
--- Dissect: Cust Capacity Weight uint 8 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional.size
+-- Dissect: Cust Capacity Weight Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight_uint_8_optional, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight_optional, range, value, display)
 
   return offset + length, value
 end
 
--- Custom Group Id uint 16
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16 = {}
+-- Custom Group Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id = {}
 
--- Size: Custom Group Id uint 16
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.size = 2
+-- Size: Custom Group Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size = 2
 
--- Display: Custom Group Id uint 16
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.display = function(value)
-  return "Custom Group Id uint 16: "..value
+-- Display: Custom Group Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.display = function(value)
+  return "Custom Group Id: "..value
 end
 
--- Dissect: Custom Group Id uint 16
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.size
+-- Dissect: Custom Group Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id_uint_16, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id, range, value, display)
 
   return offset + length, value
 end
 
--- Custom Group Id uint 16 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional = {}
+-- Custom Group Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional = {}
 
--- Size: Custom Group Id uint 16 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.size = 2
+-- Size: Custom Group Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.size = 2
 
--- Display: Custom Group Id uint 16 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.display = function(value)
+-- Display: Custom Group Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.display = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Custom Group Id uint 16 optional: No Value"
+    return "Custom Group Id Optional: No Value"
   end
 
-  return "Custom Group Id uint 16 optional: "..value
+  return "Custom Group Id Optional: "..value
 end
 
--- Dissect: Custom Group Id uint 16 optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.size
+-- Dissect: Custom Group Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id_uint_16_optional, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.custom_group_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2029,48 +2027,25 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.fee_code.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Instrument Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id = {}
+-- Instrument Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id = {}
 
--- Size: Instrument Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size = 4
+-- Size: Instrument Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size = 4
 
--- Display: Instrument Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.display = function(value)
-  return "Instrument Id Instrument Id: "..value
+-- Display: Instrument Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.display = function(value)
+  return "Instrument Id: "..value
 end
 
--- Dissect: Instrument Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size
+-- Dissect: Instrument Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_id_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32 = {}
-
--- Size: Instrument Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32.size = 4
-
--- Display: Instrument Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32.display = function(value)
-  return "Instrument Id uint 32: "..value
-end
-
--- Dissect: Instrument Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_id_uint_32, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -3961,152 +3936,152 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.dissect = function(buffer,
   return offset + length, value
 end
 
--- Risk Control Risk Control
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control = {}
+-- Risk Control
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control = {}
 
--- Size: Risk Control Risk Control
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.size = 1
+-- Size: Risk Control
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size = 1
 
--- Display: Risk Control Risk Control
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.display = function(value)
+-- Display: Risk Control
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.display = function(value)
   if value == 1 then
-    return "Risk Control Risk Control: Transaction Based (1)"
+    return "Risk Control: Transaction Based (1)"
   end
   if value == 2 then
-    return "Risk Control Risk Control: Volume Based (2)"
+    return "Risk Control: Volume Based (2)"
   end
   if value == 3 then
-    return "Risk Control Risk Control: Percentage Based (3)"
+    return "Risk Control: Percentage Based (3)"
   end
   if value == 4 then
-    return "Risk Control Risk Control: Grmp (4)"
+    return "Risk Control: Grmp (4)"
   end
   if value == 5 then
-    return "Risk Control Risk Control: Purge Lockout Reset (5)"
+    return "Risk Control: Purge Lockout Reset (5)"
   end
   if value == 6 then
-    return "Risk Control Risk Control: Intrinsic Value And Arbitrage (6)"
+    return "Risk Control: Intrinsic Value And Arbitrage (6)"
   end
 
-  return "Risk Control Risk Control: Unknown("..value..")"
+  return "Risk Control: Unknown("..value..")"
 end
 
--- Dissect: Risk Control Risk Control
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.size
+-- Dissect: Risk Control
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_risk_control, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control, range, value, display)
 
   return offset + length, value
 end
 
--- Risk Control Risk Control optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional = {}
+-- Risk Control Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional = {}
 
--- Size: Risk Control Risk Control optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional.size = 1
+-- Size: Risk Control Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.size = 1
 
--- Display: Risk Control Risk Control optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional.display = function(value)
+-- Display: Risk Control Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.display = function(value)
   if value == 1 then
-    return "Risk Control Risk Control optional: Transaction Based (1)"
+    return "Risk Control Optional: Transaction Based (1)"
   end
   if value == 2 then
-    return "Risk Control Risk Control optional: Volume Based (2)"
+    return "Risk Control Optional: Volume Based (2)"
   end
   if value == 3 then
-    return "Risk Control Risk Control optional: Percentage Based (3)"
+    return "Risk Control Optional: Percentage Based (3)"
   end
   if value == 4 then
-    return "Risk Control Risk Control optional: Grmp (4)"
+    return "Risk Control Optional: Grmp (4)"
   end
   if value == 5 then
-    return "Risk Control Risk Control optional: Purge Lockout Reset (5)"
+    return "Risk Control Optional: Purge Lockout Reset (5)"
   end
   if value == 6 then
-    return "Risk Control Risk Control optional: Intrinsic Value And Arbitrage (6)"
+    return "Risk Control Optional: Intrinsic Value And Arbitrage (6)"
   end
   if value == 128 then
-    return "Risk Control Risk Control optional: No Value"
+    return "Risk Control Optional: No Value"
   end
 
-  return "Risk Control Risk Control optional: Unknown("..value..")"
+  return "Risk Control Optional: Unknown("..value..")"
 end
 
--- Dissect: Risk Control Risk Control optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional.size
+-- Dissect: Risk Control Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_risk_control_optional, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_optional, range, value, display)
 
   return offset + length, value
 end
 
--- Risk Control Status Risk Control Status
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status = {}
+-- Risk Control Status
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status = {}
 
--- Size: Risk Control Status Risk Control Status
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status.size = 1
+-- Size: Risk Control Status
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.size = 1
 
--- Display: Risk Control Status Risk Control Status
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status.display = function(value)
+-- Display: Risk Control Status
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.display = function(value)
   if value == 0 then
-    return "Risk Control Status Risk Control Status: Disabled (0)"
+    return "Risk Control Status: Disabled (0)"
   end
   if value == 1 then
-    return "Risk Control Status Risk Control Status: Enabled (1)"
+    return "Risk Control Status: Enabled (1)"
   end
 
-  return "Risk Control Status Risk Control Status: Unknown("..value..")"
+  return "Risk Control Status: Unknown("..value..")"
 end
 
--- Dissect: Risk Control Status Risk Control Status
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status.size
+-- Dissect: Risk Control Status
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status, range, value, display)
 
   return offset + length, value
 end
 
--- Risk Control Status Risk Control Status optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional = {}
+-- Risk Control Status Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional = {}
 
--- Size: Risk Control Status Risk Control Status optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional.size = 1
+-- Size: Risk Control Status Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.size = 1
 
--- Display: Risk Control Status Risk Control Status optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional.display = function(value)
+-- Display: Risk Control Status Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.display = function(value)
   if value == 0 then
-    return "Risk Control Status Risk Control Status optional: Disabled (0)"
+    return "Risk Control Status Optional: Disabled (0)"
   end
   if value == 1 then
-    return "Risk Control Status Risk Control Status optional: Enabled (1)"
+    return "Risk Control Status Optional: Enabled (1)"
   end
   if value == 128 then
-    return "Risk Control Status Risk Control Status optional: No Value"
+    return "Risk Control Status Optional: No Value"
   end
 
-  return "Risk Control Status Risk Control Status optional: Unknown("..value..")"
+  return "Risk Control Status Optional: Unknown("..value..")"
 end
 
--- Dissect: Risk Control Status Risk Control Status optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional.size
+-- Dissect: Risk Control Status Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_risk_control_status_optional, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4909,76 +4884,53 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect = function(buffe
   return offset + length, value
 end
 
--- Underlying Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id = {}
+-- Underlying Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id = {}
 
--- Size: Underlying Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.size = 4
+-- Size: Underlying Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size = 4
 
--- Display: Underlying Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.display = function(value)
-  return "Underlying Id Instrument Id: "..value
+-- Display: Underlying Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.display = function(value)
+  return "Underlying Id: "..value
 end
 
--- Dissect: Underlying Id Instrument Id
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.size
+-- Dissect: Underlying Id
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_instrument_id, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id, range, value, display)
 
   return offset + length, value
 end
 
--- Underlying Id Instrument Id optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional = {}
+-- Underlying Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional = {}
 
--- Size: Underlying Id Instrument Id optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size = 4
+-- Size: Underlying Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size = 4
 
--- Display: Underlying Id Instrument Id optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.display = function(value)
+-- Display: Underlying Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.display = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Underlying Id Instrument Id optional: No Value"
+    return "Underlying Id Optional: No Value"
   end
 
-  return "Underlying Id Instrument Id optional: "..value
+  return "Underlying Id Optional: "..value
 end
 
--- Dissect: Underlying Id Instrument Id optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size
+-- Dissect: Underlying Id Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_instrument_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32 = {}
-
--- Size: Underlying Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.size = 4
-
--- Display: Underlying Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.display = function(value)
-  return "Underlying Id uint 32: "..value
-end
-
--- Dissect: Underlying Id uint 32
-iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_uint_32, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5123,9 +5075,9 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_alert_message = {}
 -- Size: Risk Control Alert Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_alert_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.percentage_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.count_limit.size + 
@@ -5143,14 +5095,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_alert_message.fields = fu
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id Instrument Id optional: InstrumentId
-  index, underlying_id_instrument_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.dissect(buffer, index, packet, parent)
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Control Risk Control: RiskControl
-  index, risk_control_risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.dissect(buffer, index, packet, parent)
+  -- Risk Control: RiskControl
+  index, risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.dissect(buffer, index, packet, parent)
 
   -- Time Limit: uint64
   index, time_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.dissect(buffer, index, packet, parent)
@@ -5191,20 +5143,20 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_acknowledgment_message = 
 -- Size: Risk Control Acknowledgment Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_acknowledgment_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.risk_ack_type.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.percentage_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.count_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.blocked_by_breach_indicator.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.size
 
 -- Display: Risk Control Acknowledgment Message
@@ -5219,8 +5171,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_acknowledgment_message.fi
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id Instrument Id optional: InstrumentId
-  index, underlying_id_instrument_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.dissect(buffer, index, packet, parent)
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -5228,17 +5180,17 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_acknowledgment_message.fi
   -- Cl Ord Id: ClOrdId
   index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Custom Group Id uint 16 optional: uint16
-  index, custom_group_id_uint_16_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.dissect(buffer, index, packet, parent)
+  -- Custom Group Id Optional: uint16
+  index, custom_group_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.dissect(buffer, index, packet, parent)
 
   -- Risk Ack Type: RiskAckType
   index, risk_ack_type = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_ack_type.dissect(buffer, index, packet, parent)
 
-  -- Risk Control Status Risk Control Status: RiskControlStatus
-  index, risk_control_status_risk_control_status = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status.dissect(buffer, index, packet, parent)
+  -- Risk Control Status: RiskControlStatus
+  index, risk_control_status = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.dissect(buffer, index, packet, parent)
 
-  -- Risk Control Risk Control: RiskControl
-  index, risk_control_risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.dissect(buffer, index, packet, parent)
+  -- Risk Control: RiskControl
+  index, risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.dissect(buffer, index, packet, parent)
 
   -- Risk Action: RiskActionType
   index, risk_action = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.dissect(buffer, index, packet, parent)
@@ -5258,8 +5210,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_acknowledgment_message.fi
   -- Blocked By Breach Indicator: BlockedByBreachIndicator
   index, blocked_by_breach_indicator = iex_iexoptions_binaryorderentry_sbe_v1_02.blocked_by_breach_indicator.dissect(buffer, index, packet, parent)
 
-  -- Cust Capacity Weight uint 8: uint8
-  index, cust_capacity_weight_uint_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8.dissect(buffer, index, packet, parent)
+  -- Cust Capacity Weight: uint8
+  index, cust_capacity_weight = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.dissect(buffer, index, packet, parent)
 
   -- Throttle Indicator: ThrottleIndicator
   index, throttle_indicator = iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.dissect(buffer, index, packet, parent)
@@ -5379,7 +5331,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.market_maker_symbol_appointment_messag
 -- Size: Market Maker Symbol Appointment Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.market_maker_symbol_appointment_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_type.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_status.size + 
@@ -5398,8 +5350,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.market_maker_symbol_appointment_messag
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id Instrument Id: InstrumentId
-  index, underlying_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Underlying Id: InstrumentId
+  index, underlying_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -5531,8 +5483,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_ref_data_message = {}
 -- Size: Instrument Ref Data Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_ref_data_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.osi_symbol.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.maturity_date.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.option_type.size + 
@@ -5554,11 +5506,11 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_ref_data_message.fields = f
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id uint 32: uint32
-  index, instrument_id_uint_32 = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_uint_32.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id uint 32: uint32
-  index, underlying_id_uint_32 = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.dissect(buffer, index, packet, parent)
+  -- Underlying Id: InstrumentId
+  index, underlying_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.dissect(buffer, index, packet, parent)
 
   -- Osi Symbol: string21
   index, osi_symbol = iex_iexoptions_binaryorderentry_sbe_v1_02.osi_symbol.dissect(buffer, index, packet, parent)
@@ -5611,7 +5563,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_ref_data_message = {}
 -- Size: Underlying Ref Data Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_ref_data_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_symbol.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.mic.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.mpv_group.size
@@ -5628,8 +5580,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_ref_data_message.fields = f
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id uint 32: uint32
-  index, underlying_id_uint_32 = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_uint_32.dissect(buffer, index, packet, parent)
+  -- Underlying Id: InstrumentId
+  index, underlying_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.dissect(buffer, index, packet, parent)
 
   -- Underlying Symbol: string8
   index, underlying_symbol = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_symbol.dissect(buffer, index, packet, parent)
@@ -5666,12 +5618,12 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message = {}
 
 -- Size: Risk Action Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.size
+  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.size
 
 -- Display: Risk Action Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.display = function(packet, parent, length)
@@ -5682,8 +5634,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Id Instrument Id optional: InstrumentId
-  index, underlying_id_instrument_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.dissect(buffer, index, packet, parent)
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -5691,14 +5643,14 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action_request_message.fields = f
   -- Cl Ord Id: ClOrdId
   index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Control Risk Control: RiskControl
-  index, risk_control_risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control.dissect(buffer, index, packet, parent)
+  -- Risk Control: RiskControl
+  index, risk_control = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.dissect(buffer, index, packet, parent)
 
   -- Risk Action: RiskActionType
   index, risk_action = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.dissect(buffer, index, packet, parent)
 
-  -- Custom Group Id uint 16 optional: uint16
-  index, custom_group_id_uint_16_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16_optional.dissect(buffer, index, packet, parent)
+  -- Custom Group Id Optional: uint16
+  index, custom_group_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5726,16 +5678,16 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message = {}
 
 -- Size: Risk Limit Update Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.percentage_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.count_limit.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional.size
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.size
 
 -- Display: Risk Limit Update Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.display = function(packet, parent, length)
@@ -5746,8 +5698,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Id Instrument Id optional: InstrumentId
-  index, underlying_id_instrument_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.dissect(buffer, index, packet, parent)
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -5755,11 +5707,11 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fiel
   -- Cl Ord Id: ClOrdId
   index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Risk Control Risk Control optional: RiskControl
-  index, risk_control_risk_control_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_risk_control_optional.dissect(buffer, index, packet, parent)
+  -- Risk Control Optional: RiskControl
+  index, risk_control_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.dissect(buffer, index, packet, parent)
 
-  -- Risk Control Status Risk Control Status optional: RiskControlStatus
-  index, risk_control_status_risk_control_status_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_risk_control_status_optional.dissect(buffer, index, packet, parent)
+  -- Risk Control Status Optional: RiskControlStatus
+  index, risk_control_status_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.dissect(buffer, index, packet, parent)
 
   -- Time Limit: uint64
   index, time_limit = iex_iexoptions_binaryorderentry_sbe_v1_02.time_limit.dissect(buffer, index, packet, parent)
@@ -5773,8 +5725,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.fiel
   -- Ioc Attribution: IOCAttribution
   index, ioc_attribution = iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.dissect(buffer, index, packet, parent)
 
-  -- Cust Capacity Weight uint 8 optional: uint8
-  index, cust_capacity_weight_uint_8_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_uint_8_optional.dissect(buffer, index, packet, parent)
+  -- Cust Capacity Weight Optional: uint8
+  index, cust_capacity_weight_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5803,8 +5755,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.application_layer_reject_message = {}
 -- Size: Application Layer Reject Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.application_layer_reject_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.account_string_16.size + 
@@ -5824,11 +5776,11 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.application_layer_reject_message.field
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id Instrument Id: InstrumentId
-  index, underlying_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Underlying Id: InstrumentId
+  index, underlying_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -5836,7 +5788,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.application_layer_reject_message.field
   -- Cl Ord Id: ClOrdId
   index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Account string 16: string16
+  -- Account String 16: string16
   index, account_string_16 = iex_iexoptions_binaryorderentry_sbe_v1_02.account_string_16.dissect(buffer, index, packet, parent)
 
   -- Reason Code: ReasonCode
@@ -5875,7 +5827,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.trade_bust_correct_message = {}
 -- Size: Trade Bust Correct Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.trade_bust_correct_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
@@ -5900,8 +5852,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.trade_bust_correct_message.fields = fu
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -5964,7 +5916,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.execution_report_message = {}
 iex_iexoptions_binaryorderentry_sbe_v1_02.execution_report_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.account_account.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.clearing_account.size + 
@@ -6010,8 +5962,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.execution_report_message.fields = func
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -6126,7 +6078,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
 
 -- Size: Purge Ack Message custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.size
+  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size
 
 -- Display: Purge Ack Message custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group.display = function(packet, parent, length)
@@ -6143,8 +6095,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
     iteration:set_generated()
   end
 
-  -- Custom Group Id uint 16: uint16
-  index, custom_group_id_uint_16 = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.dissect(buffer, index, packet, parent)
+  -- Custom Group Id: uint16
+  index, custom_group_id = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6172,7 +6124,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding = {}
 
 -- Size: Custom Group Ids Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.size
 
 -- Display: Custom Group Ids Group Encoding
@@ -6184,8 +6136,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.dissect(buffer, index, packet, parent)
@@ -6277,7 +6229,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message.size = function(buff
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size
 
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.size
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size
 
@@ -6308,8 +6260,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message.fields = function(bu
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id Instrument Id: InstrumentId
-  index, underlying_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Underlying Id: InstrumentId
+  index, underlying_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -6359,7 +6311,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_canceled_message = {}
 -- Size: Quote Canceled Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_canceled_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
@@ -6380,8 +6332,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_canceled_message.fields = functi
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -6431,7 +6383,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_restated_message = {}
 -- Size: Quote Restated Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_restated_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
@@ -6453,8 +6405,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_restated_message.fields = functi
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -6511,7 +6463,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_ioc_quote_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.clearing_account.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.aiq.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.size + 
@@ -6544,8 +6496,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_ioc_quote_ack_message.fields = fun
   -- Aiq: string3
   index, aiq = iex_iexoptions_binaryorderentry_sbe_v1_02.aiq.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Side: Side
   index, side = iex_iexoptions_binaryorderentry_sbe_v1_02.side.dissect(buffer, index, packet, parent)
@@ -6594,7 +6546,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
 
 -- Size: Bulk Quote Ack Message quote Acks Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_group.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.size + 
@@ -6617,8 +6569,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
     iteration:set_generated()
   end
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Side: Side
   index, side = iex_iexoptions_binaryorderentry_sbe_v1_02.side.dissect(buffer, index, packet, parent)
@@ -6664,7 +6616,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_acks_group_encoding = {}
 
 -- Size: Quote Acks Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_acks_group_encoding.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.size
 
 -- Display: Quote Acks Group Encoding
@@ -6676,8 +6628,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_acks_group_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.dissect(buffer, index, packet, parent)
@@ -6771,7 +6723,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message.size = function
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size
 
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.size
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size
 
@@ -6801,8 +6753,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message.fields = functi
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Custom Group Id uint 16: uint16
-  index, custom_group_id_uint_16 = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.dissect(buffer, index, packet, parent)
+  -- Custom Group Id: uint16
+  index, custom_group_id = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.dissect(buffer, index, packet, parent)
 
   -- Cl Ord Id: ClOrdId
   index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
@@ -6846,7 +6798,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_ack_message = {}
 -- Size: Mass Cancel Ack Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.size + 
@@ -6868,8 +6820,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_ack_message.fields = funct
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Underlying Id Instrument Id optional: InstrumentId
-  index, underlying_id_instrument_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.dissect(buffer, index, packet, parent)
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -6922,7 +6874,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_ack_message = {}
 -- Size: Order Cancel Ack Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.orig_cl_ord_id.size + 
@@ -6945,8 +6897,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_ack_message.fields = func
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7002,7 +6954,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.unsolicited_modify_ack_message = {}
 -- Size: Unsolicited Modify Ack Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.unsolicited_modify_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.orig_cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
@@ -7027,8 +6979,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.unsolicited_modify_ack_message.fields 
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7091,7 +7043,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message = {}
 iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.account_account.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.clearing_account.size + 
@@ -7101,7 +7053,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.open_close.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.attributed_quote.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.exec_inst.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ord_type.size + 
@@ -7136,8 +7088,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.fields = function(bu
   -- Transact Time: EpochNanos
   index, transact_time = iex_iexoptions_binaryorderentry_sbe_v1_02.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7166,8 +7118,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.fields = function(bu
   -- Time In Force: TimeInForce
   index, time_in_force = iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Cancel Instead Of Slide Cancel Instead Of Slide: CancelInsteadOfSlide
-  index, cancel_instead_of_slide_cancel_instead_of_slide = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.dissect(buffer, index, packet, parent)
+  -- Cancel Instead Of Slide: CancelInsteadOfSlide
+  index, cancel_instead_of_slide = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.dissect(buffer, index, packet, parent)
 
   -- Display Inst: DisplayInst
   index, display_inst = iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.dissect(buffer, index, packet, parent)
@@ -7249,7 +7201,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
 
 -- Size: Purge Request Message custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.size
+  iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size
 
 -- Display: Purge Request Message custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group.display = function(packet, parent, length)
@@ -7266,8 +7218,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
     iteration:set_generated()
   end
 
-  -- Custom Group Id uint 16: uint16
-  index, custom_group_id_uint_16 = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.dissect(buffer, index, packet, parent)
+  -- Custom Group Id: uint16
+  index, custom_group_id = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7354,7 +7306,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message = {}
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.size
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.size
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size
 
@@ -7380,8 +7332,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Id Instrument Id: InstrumentId
-  index, underlying_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Underlying Id: InstrumentId
+  index, underlying_id = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7427,7 +7379,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_request_message = {}
 
 -- Size: Mass Cancel Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_request_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.send_time.size + 
@@ -7444,8 +7396,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Id Instrument Id optional: InstrumentId
-  index, underlying_id_instrument_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_instrument_id_optional.dissect(buffer, index, packet, parent)
+  -- Underlying Id Optional: InstrumentId
+  index, underlying_id_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.underlying_id_optional.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7491,7 +7443,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
 
 -- Size: New Bulk Quote Message quote Updates Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_group.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.size + 
@@ -7513,8 +7465,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
     iteration:set_generated()
   end
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Side: Side
   index, side = iex_iexoptions_binaryorderentry_sbe_v1_02.side.dissect(buffer, index, packet, parent)
@@ -7557,7 +7509,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_updates_group_encoding = {}
 
 -- Size: Quote Updates Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_updates_group_encoding.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.size
 
 -- Display: Quote Updates Group Encoding
@@ -7569,8 +7521,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_updates_group_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.dissect(buffer, index, packet, parent)
@@ -7662,13 +7614,13 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message.size = function
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size
 
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.size
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.clearing_account.size
 
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.size
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.size
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.send_time.size
 
@@ -7693,8 +7645,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message.fields = functi
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
 
-  -- Custom Group Id uint 16: uint16
-  index, custom_group_id_uint_16 = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id_uint_16.dissect(buffer, index, packet, parent)
+  -- Custom Group Id: uint16
+  index, custom_group_id = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.dissect(buffer, index, packet, parent)
 
   -- Cl Ord Id: ClOrdId
   index, cl_ord_id = iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.dissect(buffer, index, packet, parent)
@@ -7702,8 +7654,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message.fields = functi
   -- Clearing Account: ClearingAccount
   index, clearing_account = iex_iexoptions_binaryorderentry_sbe_v1_02.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Cancel Instead Of Slide Cancel Instead Of Slide optional: CancelInsteadOfSlide
-  index, cancel_instead_of_slide_cancel_instead_of_slide_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.dissect(buffer, index, packet, parent)
+  -- Cancel Instead Of Slide Optional: CancelInsteadOfSlide
+  index, cancel_instead_of_slide_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.dissect(buffer, index, packet, parent)
 
   -- Send Time: EpochNanos
   index, send_time = iex_iexoptions_binaryorderentry_sbe_v1_02.send_time.dissect(buffer, index, packet, parent)
@@ -7743,7 +7695,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_request_message = {}
 
 -- Size: Order Cancel Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_request_message.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.orig_cl_ord_id.size
@@ -7757,8 +7709,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7796,7 +7748,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message =
 -- Size: Order Cancel Replace Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.account_account.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.clearing_account.size + 
@@ -7805,7 +7757,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message.s
   iex_iexoptions_binaryorderentry_sbe_v1_02.open_close.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.attributed_quote.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.exec_inst.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ord_type.size + 
@@ -7831,8 +7783,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message.f
   -- Account Account: Account
   index, account_account = iex_iexoptions_binaryorderentry_sbe_v1_02.account_account.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7858,8 +7810,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message.f
   -- Time In Force: TimeInForce
   index, time_in_force = iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Cancel Instead Of Slide Cancel Instead Of Slide optional: CancelInsteadOfSlide
-  index, cancel_instead_of_slide_cancel_instead_of_slide_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide_optional.dissect(buffer, index, packet, parent)
+  -- Cancel Instead Of Slide Optional: CancelInsteadOfSlide
+  index, cancel_instead_of_slide_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.dissect(buffer, index, packet, parent)
 
   -- Display Inst: DisplayInst
   index, display_inst = iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.dissect(buffer, index, packet, parent)
@@ -7924,7 +7876,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message = {}
 -- Size: New Order Single Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.account_account.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.clearing_account.size + 
@@ -7932,7 +7884,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.open_close.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.attributed_quote.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.exec_inst.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ord_type.size + 
@@ -7958,8 +7910,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.fields = func
   -- Account Account: Account
   index, account_account = iex_iexoptions_binaryorderentry_sbe_v1_02.account_account.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Instrument Id: InstrumentId
-  index, instrument_id_instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id_instrument_id.dissect(buffer, index, packet, parent)
+  -- Instrument Id: InstrumentId
+  index, instrument_id = iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Market Participant Id: MPID
   index, market_participant_id = iex_iexoptions_binaryorderentry_sbe_v1_02.market_participant_id.dissect(buffer, index, packet, parent)
@@ -7982,8 +7934,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.fields = func
   -- Time In Force: TimeInForce
   index, time_in_force = iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Cancel Instead Of Slide Cancel Instead Of Slide: CancelInsteadOfSlide
-  index, cancel_instead_of_slide_cancel_instead_of_slide = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_cancel_instead_of_slide.dissect(buffer, index, packet, parent)
+  -- Cancel Instead Of Slide: CancelInsteadOfSlide
+  index, cancel_instead_of_slide = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.dissect(buffer, index, packet, parent)
 
   -- Display Inst: DisplayInst
   index, display_inst = iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.dissect(buffer, index, packet, parent)
@@ -8508,28 +8460,28 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_heartbeat_message.dissect = fun
   return offset
 end
 
--- Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group = {}
+-- Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group = {}
 
--- Size: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.size =
+-- Size: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.joined.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.next_seq_no.size
 
--- Display: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.display = function(packet, parent, length)
+-- Display: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.fields = function(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+-- Dissect Fields: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields = function(buffer, offset, packet, parent, sub_sessions_group_index)
   local index = offset
 
-  -- Implicit Gateway Heartbeat Message Sub Sessions Group Index
-  if gateway_heartbeat_message_sub_sessions_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message_sub_sessions_group_index, gateway_heartbeat_message_sub_sessions_group_index)
+  -- Implicit Sub Sessions Group Index
+  if sub_sessions_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group_index, sub_sessions_group_index)
     iteration:set_generated()
   end
 
@@ -8548,21 +8500,21 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions
   return index
 end
 
--- Dissect: Gateway Heartbeat Message Sub Sessions Group
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.dissect = function(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+-- Dissect: Sub Sessions Group
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.dissect = function(buffer, offset, packet, parent, sub_sessions_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message_sub_sessions_group, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.fields(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.display(packet, parent, length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.fields(buffer, offset, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.fields(buffer, offset, packet, parent, sub_sessions_group_index)
   end
 end
 
@@ -8571,7 +8523,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding = {}
 
 -- Size: Session Info Group Encoding
 iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.size =
-  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.size
 
 -- Display: Session Info Group Encoding
@@ -8583,8 +8535,8 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.dissect(buffer, index, packet, parent)
@@ -8610,29 +8562,29 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.dissect = 
   end
 end
 
--- Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups = {}
+-- Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups = {}
 
--- Calculate size of: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.size = function(buffer, offset)
+-- Calculate size of: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.size
 
   -- Calculate field size from count
-  local gateway_heartbeat_message_sub_sessions_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + gateway_heartbeat_message_sub_sessions_group_count * 14
+  local sub_sessions_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + sub_sessions_group_count * 14
 
   return index
 end
 
--- Display: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.display = function(packet, parent, length)
+-- Display: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session Info Group Encoding: Struct of 2 fields
@@ -8641,29 +8593,29 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Gateway Heartbeat Message Sub Sessions Group
-  for gateway_heartbeat_message_sub_sessions_group_index = 1, num_in_group do
-    index, gateway_heartbeat_message_sub_sessions_group = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_group.dissect(buffer, index, packet, parent, gateway_heartbeat_message_sub_sessions_group_index)
+  -- Repeating: Sub Sessions Group
+  for sub_sessions_group_index = 1, num_in_group do
+    index, sub_sessions_group = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_group.dissect(buffer, index, packet, parent, sub_sessions_group_index)
   end
 
   return index
 end
 
--- Dissect: Gateway Heartbeat Message Sub Sessions Groups
-iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Sub Sessions Groups
+iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message_sub_sessions_groups, buffer(offset, 0))
-    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_groups, buffer(offset, 0))
+    local index = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.display(packet, parent, length)
+    local display = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.fields(buffer, offset, packet, parent)
+    return iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8676,7 +8628,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.size = funct
 
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.size
 
-  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.size(buffer, offset + index)
+  index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8693,8 +8645,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message.fields = fun
   -- Keep Alive: Boolean
   index, keep_alive = iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.dissect(buffer, index, packet, parent)
 
-  -- Gateway Heartbeat Message Sub Sessions Groups: Struct of 2 fields
-  index, gateway_heartbeat_message_sub_sessions_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.gateway_heartbeat_message_sub_sessions_groups.dissect(buffer, index, packet, parent)
+  -- Sub Sessions Groups: Struct of 2 fields
+  index, sub_sessions_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.dissect(buffer, index, packet, parent)
 
   return index
 end

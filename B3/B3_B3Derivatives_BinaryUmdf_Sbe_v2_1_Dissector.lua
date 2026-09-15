@@ -133,8 +133,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_band_midpoint_price_type =
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_band_type = ProtoField.new("Price Band Type", "b3.b3derivatives.binaryumdf.sbe.v2.1.pricebandtype", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_divisor = ProtoField.new("Price Divisor", "b3.b3derivatives.binaryumdf.sbe.v2.1.pricedivisor", ftypes.DOUBLE)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_limit_type = ProtoField.new("Price Limit Type", "b3.b3derivatives.binaryumdf.sbe.v2.1.pricelimittype", ftypes.UINT8)
-omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type_price_type = ProtoField.new("Price Type Price Type", "b3.b3derivatives.binaryumdf.sbe.v2.1.pricetypepricetype", ftypes.UINT8)
-omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type_price_type_optional = ProtoField.new("Price Type Price Type optional", "b3.b3derivatives.binaryumdf.sbe.v2.1.pricetypepricetypeoptional", ftypes.UINT8)
+omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type = ProtoField.new("Price Type", "b3.b3derivatives.binaryumdf.sbe.v2.1.pricetype", ftypes.UINT8)
+omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type_optional = ProtoField.new("Price Type Optional", "b3.b3derivatives.binaryumdf.sbe.v2.1.pricetypeoptional", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.product = ProtoField.new("Product", "b3.b3derivatives.binaryumdf.sbe.v2.1.product", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.put_or_call = ProtoField.new("Put Or Call", "b3.b3derivatives.binaryumdf.sbe.v2.1.putorcall", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.b3derivatives.binaryumdf.sbe.v2.1.recoverymsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
@@ -3396,71 +3396,71 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.price_limit_type.dissect = function(buffer,
   return offset + length, value
 end
 
--- Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type = {}
+-- Price Type
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type = {}
 
--- Size: Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type.size = 1
+-- Size: Price Type
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type.size = 1
 
--- Display: Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type.display = function(value)
+-- Display: Price Type
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type.display = function(value)
   if value == 1 then
-    return "Price Type Price Type: Percentage (1)"
+    return "Price Type: Percentage (1)"
   end
   if value == 2 then
-    return "Price Type Price Type: Pu (2)"
+    return "Price Type: Pu (2)"
   end
   if value == 3 then
-    return "Price Type Price Type: Fixed Amount (3)"
+    return "Price Type: Fixed Amount (3)"
   end
 
-  return "Price Type Price Type: Unknown("..value..")"
+  return "Price Type: Unknown("..value..")"
 end
 
--- Dissect: Price Type Price Type
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type.size
+-- Dissect: Price Type
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type_price_type, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type, range, value, display)
 
   return offset + length, value
 end
 
--- Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional = {}
+-- Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional = {}
 
--- Size: Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional.size = 1
+-- Size: Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional.size = 1
 
--- Display: Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional.display = function(value)
+-- Display: Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional.display = function(value)
   if value == 1 then
-    return "Price Type Price Type optional: Percentage (1)"
+    return "Price Type Optional: Percentage (1)"
   end
   if value == 2 then
-    return "Price Type Price Type optional: Pu (2)"
+    return "Price Type Optional: Pu (2)"
   end
   if value == 3 then
-    return "Price Type Price Type optional: Fixed Amount (3)"
+    return "Price Type Optional: Fixed Amount (3)"
   end
   if value == 0 then
-    return "Price Type Price Type optional: No Value"
+    return "Price Type Optional: No Value"
   end
 
-  return "Price Type Price Type optional: Unknown("..value..")"
+  return "Price Type Optional: Unknown("..value..")"
 end
 
--- Dissect: Price Type Price Type optional
-b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional.size
+-- Dissect: Price Type Optional
+b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type_price_type_optional, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.price_type_optional, range, value, display)
 
   return offset + length, value
 end
@@ -6694,7 +6694,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.settlement_price_28_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_1.md_future_price.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_1.md_entry_timestamp.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_1.open_close_settl_flag.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_1.price_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_1.settl_price_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_1.rpt_seq.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_1.padding_1.size
@@ -6729,8 +6729,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.settlement_price_28_message.fields = functi
   -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = b3_b3derivatives_binaryumdf_sbe_v2_1.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Price Type Price Type: PriceType
-  index, price_type_price_type = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type.dissect(buffer, index, packet, parent)
+  -- Price Type: PriceType
+  index, price_type = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: SettlPriceType
   index, settl_price_type = b3_b3derivatives_binaryumdf_sbe_v2_1.settl_price_type.dissect(buffer, index, packet, parent)
@@ -8413,7 +8413,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.security_definition_message.size = function
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.put_or_call.size
 
-  index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional.size
+  index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional.size
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.market_segment_id.size
 
@@ -8580,8 +8580,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.security_definition_message.fields = functi
   -- Put Or Call: PutOrCall
   index, put_or_call = b3_b3derivatives_binaryumdf_sbe_v2_1.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Price Type Price Type optional: PriceType
-  index, price_type_price_type_optional = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_price_type_optional.dissect(buffer, index, packet, parent)
+  -- Price Type Optional: PriceType
+  index, price_type_optional = b3_b3derivatives_binaryumdf_sbe_v2_1.price_type_optional.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: MarketSegmentID
   index, market_segment_id = b3_b3derivatives_binaryumdf_sbe_v2_1.market_segment_id.dissect(buffer, index, packet, parent)

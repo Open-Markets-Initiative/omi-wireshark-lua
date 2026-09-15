@@ -125,8 +125,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.memo_data = ProtoField.new
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.memo_length = ProtoField.new("Memo Length", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.memolength", ftypes.UINT8)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.message_length = ProtoField.new("Message Length", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.messagelength", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.min_qty = ProtoField.new("Min Qty", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.minqty", ftypes.UINT64)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean = ProtoField.new("Mm Protection Reset Boolean", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.mmprotectionresetboolean", ftypes.UINT8)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean_optional = ProtoField.new("Mm Protection Reset Boolean optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.mmprotectionresetbooleanoptional", ftypes.UINT8)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset = ProtoField.new("Mm Protection Reset", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.mmprotectionreset", ftypes.UINT8)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_optional = ProtoField.new("Mm Protection Reset Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.mmprotectionresetoptional", ftypes.UINT8)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.msgseqnum", ftypes.UINT32)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.multi_leg_reporting_type = ProtoField.new("Multi Leg Reporting Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.multilegreportingtype", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.negotiation_reject_code = ProtoField.new("Negotiation Reject Code", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.negotiationrejectcode", ftypes.UINT8)
@@ -215,8 +215,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.sender_location = ProtoFie
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sendingtime", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.session_id = ProtoField.new("Session Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sessionid", ftypes.UINT32)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.session_ver_id = ProtoField.new("Session Ver Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sessionverid", ftypes.UINT64)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settltype = ProtoField.new("SettlType", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.settltype", ftypes.STRING)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settltype_optional = ProtoField.new("SettlType Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.settltypeoptional", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settl_type = ProtoField.new("Settl Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.settltype", ftypes.STRING)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settl_type_optional = ProtoField.new("Settl Type Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.settltypeoptional", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.short_qty = ProtoField.new("Short Qty", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.shortqty", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.side = ProtoField.new("Side", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.side", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.side_optional = ProtoField.new("Side Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.1.sideoptional", ftypes.STRING)
@@ -3127,65 +3127,65 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.min_qty.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Mm Protection Reset Boolean
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean = {}
+-- Mm Protection Reset
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset = {}
 
--- Size: Mm Protection Reset Boolean
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size = 1
+-- Size: Mm Protection Reset
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.size = 1
 
--- Display: Mm Protection Reset Boolean
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.display = function(value)
+-- Display: Mm Protection Reset
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.display = function(value)
   if value == 0 then
-    return "Mm Protection Reset Boolean: False Value (0)"
+    return "Mm Protection Reset: False Value (0)"
   end
   if value == 1 then
-    return "Mm Protection Reset Boolean: True Value (1)"
+    return "Mm Protection Reset: True Value (1)"
   end
 
-  return "Mm Protection Reset Boolean: Unknown("..value..")"
+  return "Mm Protection Reset: Unknown("..value..")"
 end
 
--- Dissect: Mm Protection Reset Boolean
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size
+-- Dissect: Mm Protection Reset
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset, range, value, display)
 
   return offset + length, value
 end
 
--- Mm Protection Reset Boolean optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional = {}
+-- Mm Protection Reset Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional = {}
 
--- Size: Mm Protection Reset Boolean optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size = 1
+-- Size: Mm Protection Reset Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.size = 1
 
--- Display: Mm Protection Reset Boolean optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.display = function(value)
+-- Display: Mm Protection Reset Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.display = function(value)
   if value == 0 then
-    return "Mm Protection Reset Boolean optional: False Value (0)"
+    return "Mm Protection Reset Optional: False Value (0)"
   end
   if value == 1 then
-    return "Mm Protection Reset Boolean optional: True Value (1)"
+    return "Mm Protection Reset Optional: True Value (1)"
   end
   if value == 255 then
-    return "Mm Protection Reset Boolean optional: No Value"
+    return "Mm Protection Reset Optional: No Value"
   end
 
-  return "Mm Protection Reset Boolean optional: Unknown("..value..")"
+  return "Mm Protection Reset Optional: Unknown("..value..")"
 end
 
--- Dissect: Mm Protection Reset Boolean optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size
+-- Dissect: Mm Protection Reset Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_boolean_optional, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_optional, range, value, display)
 
   return offset + length, value
 end
@@ -7431,35 +7431,35 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.session_ver_id.dissect = function(buf
   return offset + length, value
 end
 
--- SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype = {}
+-- Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type = {}
 
--- Size: SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.size = 1
+-- Size: Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.size = 1
 
--- Display: SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.display = function(value)
+-- Display: Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "SettlType: No Value"
+    return "Settl Type: No Value"
   end
 
   if value == "0" then
-    return "SettlType: Buyers Discretion (0)"
+    return "Settl Type: Buyers Discretion (0)"
   end
   if value == "8" then
-    return "SettlType: Sellers Discretion (8)"
+    return "Settl Type: Sellers Discretion (8)"
   end
   if value == "X" then
-    return "SettlType: Mutual (X)"
+    return "Settl Type: Mutual (X)"
   end
 
-  return "SettlType: Unknown("..value..")"
+  return "Settl Type: Unknown("..value..")"
 end
 
--- Dissect: SettlType
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.size
+-- Dissect: Settl Type
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -7470,45 +7470,45 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.dissect = function(buffer, 
     value = range:string()
   end
 
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settltype, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settl_type, range, value, display)
 
   return offset + length, value
 end
 
--- SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional = {}
+-- Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional = {}
 
--- Size: SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.size = 1
+-- Size: Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.size = 1
 
--- Display: SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.display = function(value)
+-- Display: Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "SettlType Optional: No Value"
+    return "Settl Type Optional: No Value"
   end
 
   if value == "0" then
-    return "SettlType Optional: Buyers Discretion (0)"
+    return "Settl Type Optional: Buyers Discretion (0)"
   end
   if value == "8" then
-    return "SettlType Optional: Sellers Discretion (8)"
+    return "Settl Type Optional: Sellers Discretion (8)"
   end
   if value == "X" then
-    return "SettlType Optional: Mutual (X)"
+    return "Settl Type Optional: Mutual (X)"
   end
   if value == 0 then
-    return "SettlType Optional: No Value"
+    return "Settl Type Optional: No Value"
   end
 
-  return "SettlType Optional: Unknown("..value..")"
+  return "Settl Type Optional: Unknown("..value..")"
 end
 
--- Dissect: SettlType Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.size
+-- Dissect: Settl Type Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.size
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -7519,9 +7519,9 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.dissect = function
     value = range:string()
   end
 
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settltype_optional, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.settl_type_optional, range, value, display)
 
   return offset + length, value
 end
@@ -10056,7 +10056,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_request_reject_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.entering_trader.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.price_8_optional.size
 
@@ -10117,8 +10117,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_request_reject_message.fields =
   -- Entering Trader: Trader
   index, entering_trader = b3_b3derivatives_binaryentrypoint_sbe_v8_1.entering_trader.dissect(buffer, index, packet, parent)
 
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
+  -- Settl Type Optional: SettlType
+  index, settl_type_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.dissect(buffer, index, packet, parent)
 
   -- Price 8 Optional: Price8Optional
   index, price_8_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
@@ -10284,7 +10284,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_message.size = function(buffer,
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.side.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.account.size
 
@@ -10340,8 +10340,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_message.fields = function(buffe
   -- Side: Side
   index, side = b3_b3derivatives_binaryentrypoint_sbe_v8_1.side.dissect(buffer, index, packet, parent)
 
-  -- SettlType: SettlType
-  index, settltype = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.dissect(buffer, index, packet, parent)
+  -- Settl Type: SettlType
+  index, settl_type = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.dissect(buffer, index, packet, parent)
 
   -- Account: AccountOptional
   index, account = b3_b3derivatives_binaryentrypoint_sbe_v8_1.account.dissect(buffer, index, packet, parent)
@@ -10422,7 +10422,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_status_report_message.size = fu
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.side_optional.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.price_8_optional.size
 
@@ -10494,8 +10494,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_status_report_message.fields = 
   -- Side Optional: Side
   index, side_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.side_optional.dissect(buffer, index, packet, parent)
 
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
+  -- Settl Type Optional: SettlType
+  index, settl_type_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.dissect(buffer, index, packet, parent)
 
   -- Price 8 Optional: Price8Optional
   index, price_8_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.price_8_optional.dissect(buffer, index, packet, parent)
@@ -10574,7 +10574,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_request_message.size = function
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.price_8.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.execute_underlying_trade.size
 
@@ -10632,8 +10632,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_request_message.fields = functi
   -- Price 8: Price8
   index, price_8 = b3_b3derivatives_binaryentrypoint_sbe_v8_1.price_8.dissect(buffer, index, packet, parent)
 
-  -- SettlType: SettlType
-  index, settltype = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype.dissect(buffer, index, packet, parent)
+  -- Settl Type: SettlType
+  index, settl_type = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type.dissect(buffer, index, packet, parent)
 
   -- Execute Underlying Trade: ExecuteUnderlyingTrade
   index, execute_underlying_trade = b3_b3derivatives_binaryentrypoint_sbe_v8_1.execute_underlying_trade.dissect(buffer, index, packet, parent)
@@ -11063,7 +11063,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_forward_message.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.aggressor_indicator.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.trade_date.size
 
@@ -11152,8 +11152,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_forward_message.fiel
   -- Aggressor Indicator: Boolean
   index, aggressor_indicator = b3_b3derivatives_binaryentrypoint_sbe_v8_1.aggressor_indicator.dissect(buffer, index, packet, parent)
 
-  -- SettlType Optional: SettlType
-  index, settltype_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settltype_optional.dissect(buffer, index, packet, parent)
+  -- Settl Type Optional: SettlType
+  index, settl_type_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.settl_type_optional.dissect(buffer, index, packet, parent)
 
   -- Trade Date: LocalMktDate
   index, trade_date = b3_b3derivatives_binaryentrypoint_sbe_v8_1.trade_date.dissect(buffer, index, packet, parent)
@@ -11909,7 +11909,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_modify_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.investor_id.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.offset_179_padding_3.size
 
@@ -12021,8 +12021,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_modify_message.field
   -- Investor Id: Struct of 2 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_1.investor_id.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset Boolean optional: Boolean
-  index, mm_protection_reset_boolean_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.dissect(buffer, index, packet, parent)
+  -- Mm Protection Reset Optional: Boolean
+  index, mm_protection_reset_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.dissect(buffer, index, packet, parent)
 
   -- Offset 179 Padding 3: 3 Byte
   index, offset_179_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v8_1.offset_179_padding_3.dissect(buffer, index, packet, parent)
@@ -12124,7 +12124,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_new_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_prioritization.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.offset_165_padding_3.size
 
@@ -12236,8 +12236,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.execution_report_new_message.fields =
   -- Cross Prioritization: CrossPrioritization
   index, cross_prioritization = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_prioritization.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset Boolean optional: Boolean
-  index, mm_protection_reset_boolean_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean_optional.dissect(buffer, index, packet, parent)
+  -- Mm Protection Reset Optional: Boolean
+  index, mm_protection_reset_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.dissect(buffer, index, packet, parent)
 
   -- Offset 165 Padding 3: 3 Byte
   index, offset_165_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v8_1.offset_165_padding_3.dissect(buffer, index, packet, parent)
@@ -12680,7 +12680,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.order_cancel_replace_request_message.
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.size
 
@@ -12752,8 +12752,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.order_cancel_replace_request_message.
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset Boolean: Boolean
-  index, mm_protection_reset_boolean = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.dissect(buffer, index, packet, parent)
+  -- Mm Protection Reset: Boolean
+  index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.dissect(buffer, index, packet, parent)
 
   -- ClOrdId: ClOrdID
   index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)
@@ -12865,7 +12865,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.new_order_single_message.size = funct
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.size
 
@@ -12929,8 +12929,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.new_order_single_message.fields = fun
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset Boolean: Boolean
-  index, mm_protection_reset_boolean = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.dissect(buffer, index, packet, parent)
+  -- Mm Protection Reset: Boolean
+  index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.dissect(buffer, index, packet, parent)
 
   -- ClOrdId: ClOrdID
   index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)
@@ -13030,7 +13030,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.simple_modify_order_message.size = fu
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.size
 
@@ -13082,8 +13082,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.simple_modify_order_message.fields = 
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset Boolean: Boolean
-  index, mm_protection_reset_boolean = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.dissect(buffer, index, packet, parent)
+  -- Mm Protection Reset: Boolean
+  index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.dissect(buffer, index, packet, parent)
 
   -- ClOrdId: ClOrdID
   index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)
@@ -13165,7 +13165,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.simple_new_order_message.size = funct
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.size
 
@@ -13213,8 +13213,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.simple_new_order_message.fields = fun
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Mm Protection Reset Boolean: Boolean
-  index, mm_protection_reset_boolean = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_boolean.dissect(buffer, index, packet, parent)
+  -- Mm Protection Reset: Boolean
+  index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.dissect(buffer, index, packet, parent)
 
   -- ClOrdId: ClOrdID
   index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_1.clordid.dissect(buffer, index, packet, parent)

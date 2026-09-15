@@ -16,14 +16,14 @@ local n24x_24xequities_memo_sbe_v1_13 = {}
 
 -- 24X 24XEquities Memo Sbe 1.13 Fields
 omi_n24x_24xequities_memo_sbe_v1_13.fields.block_length = ProtoField.new("Block Length", "24x.24xequities.memo.sbe.v1.13.blocklength", ftypes.UINT16)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "24x.24xequities.memo.sbe.v1.13.blocklengthuint8", ftypes.UINT8)
+omi_n24x_24xequities_memo_sbe_v1_13.fields.block_length_short = ProtoField.new("Block Length Short", "24x.24xequities.memo.sbe.v1.13.blocklengthshort", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "24x.24xequities.memo.sbe.v1.13.cancelgroupid", ftypes.UINT16)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cancel_reason = ProtoField.new("Cancel Reason", "24x.24xequities.memo.sbe.v1.13.cancelreason", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.clordid = ProtoField.new("ClOrdId", "24x.24xequities.memo.sbe.v1.13.clordid", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.count = ProtoField.new("Count", "24x.24xequities.memo.sbe.v1.13.count", ftypes.UINT32)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cum_qty = ProtoField.new("Cum Qty", "24x.24xequities.memo.sbe.v1.13.cumqty", ftypes.UINT32)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type = ProtoField.new("Cust Order Capacity Cust Order Capacity Type", "24x.24xequities.memo.sbe.v1.13.custordercapacitycustordercapacitytype", ftypes.UINT8)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type_optional = ProtoField.new("Cust Order Capacity Cust Order Capacity Type optional", "24x.24xequities.memo.sbe.v1.13.custordercapacitycustordercapacitytypeoptional", ftypes.UINT8)
+omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity = ProtoField.new("Cust Order Capacity", "24x.24xequities.memo.sbe.v1.13.custordercapacity", ftypes.UINT8)
+omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity_optional = ProtoField.new("Cust Order Capacity Optional", "24x.24xequities.memo.sbe.v1.13.custordercapacityoptional", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "24x.24xequities.memo.sbe.v1.13.cxlrejreason", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.cxl_rej_response_to = ProtoField.new("Cxl Rej Response To", "24x.24xequities.memo.sbe.v1.13.cxlrejresponseto", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.display_method = ProtoField.new("Display Method", "24x.24xequities.memo.sbe.v1.13.displaymethod", ftypes.STRING)
@@ -71,7 +71,7 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.origclordid_optional = ProtoField.new
 omi_n24x_24xequities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "24x.24xequities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "24x.24xequities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "24x.24xequities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)
-omi_n24x_24xequities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id = ProtoField.new("Party I D New Order Single Party Id", "24x.24xequities.memo.sbe.v1.13.partyidnewordersinglepartyid", ftypes.STRING)
+omi_n24x_24xequities_memo_sbe_v1_13.fields.party_id_new_order_single_party_id = ProtoField.new("Party Id New Order Single Party Id", "24x.24xequities.memo.sbe.v1.13.partyidnewordersinglepartyid", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.party_id_source = ProtoField.new("Party Id Source", "24x.24xequities.memo.sbe.v1.13.partyidsource", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.party_role = ProtoField.new("Party Role", "24x.24xequities.memo.sbe.v1.13.partyrole", ftypes.UINT8)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "24x.24xequities.memo.sbe.v1.13.pegoffsetvalue", ftypes.DOUBLE)
@@ -228,25 +228,25 @@ n24x_24xequities_memo_sbe_v1_13.block_length.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Block Length uint 8
-n24x_24xequities_memo_sbe_v1_13.block_length_uint_8 = {}
+-- Block Length Short
+n24x_24xequities_memo_sbe_v1_13.block_length_short = {}
 
--- Size: Block Length uint 8
-n24x_24xequities_memo_sbe_v1_13.block_length_uint_8.size = 1
+-- Size: Block Length Short
+n24x_24xequities_memo_sbe_v1_13.block_length_short.size = 1
 
--- Display: Block Length uint 8
-n24x_24xequities_memo_sbe_v1_13.block_length_uint_8.display = function(value)
-  return "Block Length uint 8: "..value
+-- Display: Block Length Short
+n24x_24xequities_memo_sbe_v1_13.block_length_short.display = function(value)
+  return "Block Length Short: "..value
 end
 
--- Dissect: Block Length uint 8
-n24x_24xequities_memo_sbe_v1_13.block_length_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_24xequities_memo_sbe_v1_13.block_length_uint_8.size
+-- Dissect: Block Length Short
+n24x_24xequities_memo_sbe_v1_13.block_length_short.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_24xequities_memo_sbe_v1_13.block_length_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_24xequities_memo_sbe_v1_13.block_length_uint_8.display(value, buffer, offset, packet, parent)
+  local display = n24x_24xequities_memo_sbe_v1_13.block_length_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.block_length_uint_8, range, value, display)
+  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -451,71 +451,71 @@ n24x_24xequities_memo_sbe_v1_13.cum_qty.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Cust Order Capacity Cust Order Capacity Type
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type = {}
+-- Cust Order Capacity
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity = {}
 
--- Size: Cust Order Capacity Cust Order Capacity Type
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.size = 1
+-- Size: Cust Order Capacity
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.size = 1
 
--- Display: Cust Order Capacity Cust Order Capacity Type
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.display = function(value)
+-- Display: Cust Order Capacity
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.display = function(value)
   if value == 1 then
-    return "Cust Order Capacity Cust Order Capacity Type: Member Trading On Their Own Account (1)"
+    return "Cust Order Capacity: Member Trading On Their Own Account (1)"
   end
   if value == 5 then
-    return "Cust Order Capacity Cust Order Capacity Type: Retail Customer (5)"
+    return "Cust Order Capacity: Retail Customer (5)"
   end
   if value == 255 then
-    return "Cust Order Capacity Cust Order Capacity Type: Null Value (255)"
+    return "Cust Order Capacity: Null Value (255)"
   end
 
-  return "Cust Order Capacity Cust Order Capacity Type: Unknown("..value..")"
+  return "Cust Order Capacity: Unknown("..value..")"
 end
 
--- Dissect: Cust Order Capacity Cust Order Capacity Type
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.size
+-- Dissect: Cust Order Capacity
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.display(value, buffer, offset, packet, parent)
+  local display = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type, range, value, display)
+  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity, range, value, display)
 
   return offset + length, value
 end
 
--- Cust Order Capacity Cust Order Capacity Type optional
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional = {}
+-- Cust Order Capacity Optional
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional = {}
 
--- Size: Cust Order Capacity Cust Order Capacity Type optional
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional.size = 1
+-- Size: Cust Order Capacity Optional
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional.size = 1
 
--- Display: Cust Order Capacity Cust Order Capacity Type optional
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional.display = function(value)
+-- Display: Cust Order Capacity Optional
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional.display = function(value)
   if value == 1 then
-    return "Cust Order Capacity Cust Order Capacity Type optional: Member Trading On Their Own Account (1)"
+    return "Cust Order Capacity Optional: Member Trading On Their Own Account (1)"
   end
   if value == 5 then
-    return "Cust Order Capacity Cust Order Capacity Type optional: Retail Customer (5)"
+    return "Cust Order Capacity Optional: Retail Customer (5)"
   end
   if value == 255 then
-    return "Cust Order Capacity Cust Order Capacity Type optional: Null Value (255)"
+    return "Cust Order Capacity Optional: Null Value (255)"
   end
   if value == 255 then
-    return "Cust Order Capacity Cust Order Capacity Type optional: No Value"
+    return "Cust Order Capacity Optional: No Value"
   end
 
-  return "Cust Order Capacity Cust Order Capacity Type optional: Unknown("..value..")"
+  return "Cust Order Capacity Optional: Unknown("..value..")"
 end
 
--- Dissect: Cust Order Capacity Cust Order Capacity Type optional
-n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional.size
+-- Dissect: Cust Order Capacity Optional
+n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional.display(value, buffer, offset, packet, parent)
+  local display = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity_cust_order_capacity_type_optional, range, value, display)
+  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.cust_order_capacity_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2401,25 +2401,25 @@ n24x_24xequities_memo_sbe_v1_13.origclordid_optional.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Party I D New Order Single Party Id
-n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id = {}
+-- Party Id New Order Single Party Id
+n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id = {}
 
--- Size: Party I D New Order Single Party Id
-n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size = 16
+-- Size: Party Id New Order Single Party Id
+n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id.size = 16
 
--- Display: Party I D New Order Single Party Id
-n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display = function(value)
+-- Display: Party Id New Order Single Party Id
+n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Party I D New Order Single Party Id: No Value"
+    return "Party Id New Order Single Party Id: No Value"
   end
 
-  return "Party I D New Order Single Party Id: "..value
+  return "Party Id New Order Single Party Id: "..value
 end
 
--- Dissect: Party I D New Order Single Party Id
-n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size
+-- Dissect: Party Id New Order Single Party Id
+n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2433,9 +2433,9 @@ n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dissect = fu
     value = range:string()
   end
 
-  local display = n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display(value, buffer, offset, packet, parent)
+  local display = n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id, range, value, display)
+  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.party_id_new_order_single_party_id, range, value, display)
 
   return offset + length, value
 end
@@ -3682,7 +3682,7 @@ n24x_24xequities_memo_sbe_v1_13.parties_group = {}
 
 -- Size: Parties Group
 n24x_24xequities_memo_sbe_v1_13.parties_group.size =
-  n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size + 
+  n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id.size + 
   n24x_24xequities_memo_sbe_v1_13.party_id_source.size + 
   n24x_24xequities_memo_sbe_v1_13.party_role.size
 
@@ -3701,8 +3701,8 @@ n24x_24xequities_memo_sbe_v1_13.parties_group.fields = function(buffer, offset, 
     iteration:set_generated()
   end
 
-  -- Party I D New Order Single Party Id: NewOrderSinglePartyID
-  index, party_i_d_new_order_single_party_id = n24x_24xequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dissect(buffer, index, packet, parent)
+  -- Party Id New Order Single Party Id: NewOrderSinglePartyID
+  index, party_id_new_order_single_party_id = n24x_24xequities_memo_sbe_v1_13.party_id_new_order_single_party_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Source: char
   index, party_id_source = n24x_24xequities_memo_sbe_v1_13.party_id_source.dissect(buffer, index, packet, parent)
@@ -3736,7 +3736,7 @@ n24x_24xequities_memo_sbe_v1_13.repeating_group_dimensions = {}
 
 -- Size: Repeating Group Dimensions
 n24x_24xequities_memo_sbe_v1_13.repeating_group_dimensions.size =
-  n24x_24xequities_memo_sbe_v1_13.block_length_uint_8.size + 
+  n24x_24xequities_memo_sbe_v1_13.block_length_short.size + 
   n24x_24xequities_memo_sbe_v1_13.num_in_group.size
 
 -- Display: Repeating Group Dimensions
@@ -3748,8 +3748,8 @@ end
 n24x_24xequities_memo_sbe_v1_13.repeating_group_dimensions.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = n24x_24xequities_memo_sbe_v1_13.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = n24x_24xequities_memo_sbe_v1_13.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = n24x_24xequities_memo_sbe_v1_13.num_in_group.dissect(buffer, index, packet, parent)
@@ -5044,7 +5044,7 @@ n24x_24xequities_memo_sbe_v1_13.execution_report_new_message.size = function(buf
 
   index = index + n24x_24xequities_memo_sbe_v1_13.order_capacity.size
 
-  index = index + n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.size
+  index = index + n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.size
 
   index = index + n24x_24xequities_memo_sbe_v1_13.exec_inst.size
 
@@ -5141,8 +5141,8 @@ n24x_24xequities_memo_sbe_v1_13.execution_report_new_message.fields = function(b
   -- Order Capacity: OrderCapacityType
   index, order_capacity = n24x_24xequities_memo_sbe_v1_13.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity Cust Order Capacity Type: CustOrderCapacityType
-  index, cust_order_capacity_cust_order_capacity_type = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.dissect(buffer, index, packet, parent)
+  -- Cust Order Capacity: CustOrderCapacityType
+  index, cust_order_capacity = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = n24x_24xequities_memo_sbe_v1_13.exec_inst.dissect(buffer, index, packet, parent)
@@ -5264,7 +5264,7 @@ n24x_24xequities_memo_sbe_v1_13.execution_report_pending_new_message.size = func
 
   index = index + n24x_24xequities_memo_sbe_v1_13.order_capacity.size
 
-  index = index + n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.size
+  index = index + n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.size
 
   index = index + n24x_24xequities_memo_sbe_v1_13.exec_inst.size
 
@@ -5359,8 +5359,8 @@ n24x_24xequities_memo_sbe_v1_13.execution_report_pending_new_message.fields = fu
   -- Order Capacity: OrderCapacityType
   index, order_capacity = n24x_24xequities_memo_sbe_v1_13.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity Cust Order Capacity Type: CustOrderCapacityType
-  index, cust_order_capacity_cust_order_capacity_type = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type.dissect(buffer, index, packet, parent)
+  -- Cust Order Capacity: CustOrderCapacityType
+  index, cust_order_capacity = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = n24x_24xequities_memo_sbe_v1_13.exec_inst.dissect(buffer, index, packet, parent)
@@ -5675,7 +5675,7 @@ n24x_24xequities_memo_sbe_v1_13.new_order_single_message.size = function(buffer,
 
   index = index + n24x_24xequities_memo_sbe_v1_13.order_capacity.size
 
-  index = index + n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional.size
+  index = index + n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional.size
 
   index = index + n24x_24xequities_memo_sbe_v1_13.exec_inst.size
 
@@ -5754,8 +5754,8 @@ n24x_24xequities_memo_sbe_v1_13.new_order_single_message.fields = function(buffe
   -- Order Capacity: OrderCapacityType
   index, order_capacity = n24x_24xequities_memo_sbe_v1_13.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Cust Order Capacity Cust Order Capacity Type optional: CustOrderCapacityType
-  index, cust_order_capacity_cust_order_capacity_type_optional = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_cust_order_capacity_type_optional.dissect(buffer, index, packet, parent)
+  -- Cust Order Capacity Optional: CustOrderCapacityType
+  index, cust_order_capacity_optional = n24x_24xequities_memo_sbe_v1_13.cust_order_capacity_optional.dissect(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 4 fields
   index, exec_inst = n24x_24xequities_memo_sbe_v1_13.exec_inst.dissect(buffer, index, packet, parent)

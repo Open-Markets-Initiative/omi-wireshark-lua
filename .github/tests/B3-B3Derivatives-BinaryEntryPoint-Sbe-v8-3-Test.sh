@@ -147,7 +147,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset168padding3" B3.B3Derivat
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetbooleanoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset179padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportModifyMessage.json
@@ -193,7 +193,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.prefix" B3.B3Derivatives.Binary
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.document" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crosstype" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.crossprioritization" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetbooleanoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetoptional" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.offset165padding3" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.strategyid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.tradingsubaccount" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.ExecutionReportNewMessage.json
@@ -351,7 +351,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.B
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionreset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.account" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.senderlocation" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.NewOrderSingleMessage.json
@@ -389,7 +389,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.B
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionreset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.account" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.senderlocation" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.OrderCancelReplaceRequestMessage.json
@@ -543,7 +543,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.B
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionreset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.account" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.senderlocation" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleModifyOrderMessage.json
@@ -573,7 +573,7 @@ grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.sendingtime" B3.B3Derivatives.B
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.marketsegmentid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.padding" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
-grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionresetboolean" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
+grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.mmprotectionreset" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.clordid" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.account" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json
 grep "b3.b3derivatives.binaryentrypoint.sbe.v8.3.senderlocation" B3.B3Derivatives.BinaryEntryPoint.Sbe.v8.3.SimpleNewOrderMessage.json

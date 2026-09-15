@@ -30,8 +30,8 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message_type = ProtoField.
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.memxequities.memoirtopofbook.sbe.v1.3.mpv", ftypes.DOUBLE)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_price = ProtoField.new("Offer Price", "memx.memxequities.memoirtopofbook.sbe.v1.3.offerprice", ftypes.DOUBLE)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoField.new("Offer Price Short", "memx.memxequities.memoirtopofbook.sbe.v1.3.offerpriceshort", ftypes.DOUBLE)
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer size", "memx.memxequities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
-omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "memx.memxequities.memoirtopofbook.sbe.v1.3.offersizeuint16", ftypes.UINT16)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer Size", "memx.memxequities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size_short = ProtoField.new("Offer Size Short", "memx.memxequities.memoirtopofbook.sbe.v1.3.offersizeshort", ftypes.UINT16)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "memx.memxequities.memoirtopofbook.sbe.v1.3.roundlot", ftypes.UINT32)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memoirtopofbook.sbe.v1.3.schemaid", ftypes.UINT8)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.memxequities.memoirtopofbook.sbe.v1.3.securityid", ftypes.UINT16)
@@ -484,18 +484,18 @@ memx_memxequities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect = function(
   return offset + length, value
 end
 
--- Offer size
+-- Offer Size
 memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size = {}
 
--- Size: Offer size
+-- Size: Offer Size
 memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size.size = 4
 
--- Display: Offer size
+-- Display: Offer Size
 memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size.display = function(value)
-  return "Offer size: "..value
+  return "Offer Size: "..value
 end
 
--- Dissect: Offer size
+-- Dissect: Offer Size
 memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size.size
   local range = buffer(offset, length)
@@ -507,25 +507,25 @@ memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size.dissect = function(buffer,
   return offset + length, value
 end
 
--- Offer Size uint 16
-memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16 = {}
+-- Offer Size Short
+memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short = {}
 
--- Size: Offer Size uint 16
-memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size = 2
+-- Size: Offer Size Short
+memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short.size = 2
 
--- Display: Offer Size uint 16
-memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.display = function(value)
-  return "Offer Size uint 16: "..value
+-- Display: Offer Size Short
+memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short.display = function(value)
+  return "Offer Size Short: "..value
 end
 
--- Dissect: Offer Size uint 16
-memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size
+-- Dissect: Offer Size Short
+memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.display(value, buffer, offset, packet, parent)
+  local display = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size_uint_16, range, value, display)
+  parent:add(omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.offer_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -1068,7 +1068,7 @@ memx_memxequities_memoirtopofbook_sbe_v1_3.best_offer_short_message = {}
 memx_memxequities_memoirtopofbook_sbe_v1_3.best_offer_short_message.size =
   memx_memxequities_memoirtopofbook_sbe_v1_3.timestamp.size + 
   memx_memxequities_memoirtopofbook_sbe_v1_3.security_id.size + 
-  memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.size + 
+  memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short.size + 
   memx_memxequities_memoirtopofbook_sbe_v1_3.offer_price_short.size
 
 -- Display: Best Offer Short Message
@@ -1086,8 +1086,8 @@ memx_memxequities_memoirtopofbook_sbe_v1_3.best_offer_short_message.fields = fun
   -- Security Id: uint16
   index, security_id = memx_memxequities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Offer Size uint 16: uint16
-  index, offer_size_uint_16 = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_uint_16.dissect(buffer, index, packet, parent)
+  -- Offer Size Short: uint16
+  index, offer_size_short = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size_short.dissect(buffer, index, packet, parent)
 
   -- Offer Price Short: ShortPrice
   index, offer_price_short = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect(buffer, index, packet, parent)
@@ -1190,7 +1190,7 @@ memx_memxequities_memoirtopofbook_sbe_v1_3.best_offer_message.fields = function(
   -- Security Id: uint16
   index, security_id = memx_memxequities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Offer size: uint32
+  -- Offer Size: uint32
   index, offer_size = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
   -- Offer Price: Price
@@ -1302,7 +1302,7 @@ memx_memxequities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.fields = funct
   -- Bid Price: Price
   index, bid_price = memx_memxequities_memoirtopofbook_sbe_v1_3.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Offer size: uint32
+  -- Offer Size: uint32
   index, offer_size = memx_memxequities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
   -- Offer Price: Price

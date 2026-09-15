@@ -16,7 +16,7 @@ local blueoceanats_blueequities_memo_sbe_v1_13 = {}
 
 -- BlueOceanAts BlueEquities Memo Sbe 1.13 Fields
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length = ProtoField.new("Block Length", "blueoceanats.blueequities.memo.sbe.v1.13.blocklength", ftypes.UINT16)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "blueoceanats.blueequities.memo.sbe.v1.13.blocklengthuint8", ftypes.UINT8)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length_short = ProtoField.new("Block Length Short", "blueoceanats.blueequities.memo.sbe.v1.13.blocklengthshort", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "blueoceanats.blueequities.memo.sbe.v1.13.cancelgroupid", ftypes.UINT16)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.cancel_reason = ProtoField.new("Cancel Reason", "blueoceanats.blueequities.memo.sbe.v1.13.cancelreason", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.clordid = ProtoField.new("ClOrdId", "blueoceanats.blueequities.memo.sbe.v1.13.clordid", ftypes.STRING)
@@ -70,7 +70,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.origclordid_optional = Proto
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "blueoceanats.blueequities.memo.sbe.v1.13.participatedonotinitiate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_group = ProtoField.new("Parties Group", "blueoceanats.blueequities.memo.sbe.v1.13.partiesgroup", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_groups = ProtoField.new("Parties Groups", "blueoceanats.blueequities.memo.sbe.v1.13.partiesgroups", ftypes.STRING)
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id = ProtoField.new("Party I D New Order Single Party Id", "blueoceanats.blueequities.memo.sbe.v1.13.partyidnewordersinglepartyid", ftypes.STRING)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.party_id_new_order_single_party_id = ProtoField.new("Party Id New Order Single Party Id", "blueoceanats.blueequities.memo.sbe.v1.13.partyidnewordersinglepartyid", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.party_id_source = ProtoField.new("Party Id Source", "blueoceanats.blueequities.memo.sbe.v1.13.partyidsource", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.party_role = ProtoField.new("Party Role", "blueoceanats.blueequities.memo.sbe.v1.13.partyrole", ftypes.UINT8)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "blueoceanats.blueequities.memo.sbe.v1.13.pegoffsetvalue", ftypes.DOUBLE)
@@ -227,25 +227,25 @@ blueoceanats_blueequities_memo_sbe_v1_13.block_length.dissect = function(buffer,
   return offset + length, value
 end
 
--- Block Length uint 8
-blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8 = {}
+-- Block Length Short
+blueoceanats_blueequities_memo_sbe_v1_13.block_length_short = {}
 
--- Size: Block Length uint 8
-blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8.size = 1
+-- Size: Block Length Short
+blueoceanats_blueequities_memo_sbe_v1_13.block_length_short.size = 1
 
--- Display: Block Length uint 8
-blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8.display = function(value)
-  return "Block Length uint 8: "..value
+-- Display: Block Length Short
+blueoceanats_blueequities_memo_sbe_v1_13.block_length_short.display = function(value)
+  return "Block Length Short: "..value
 end
 
--- Dissect: Block Length uint 8
-blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8.dissect = function(buffer, offset, packet, parent)
-  local length = blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8.size
+-- Dissect: Block Length Short
+blueoceanats_blueequities_memo_sbe_v1_13.block_length_short.dissect = function(buffer, offset, packet, parent)
+  local length = blueoceanats_blueequities_memo_sbe_v1_13.block_length_short.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8.display(value, buffer, offset, packet, parent)
+  local display = blueoceanats_blueequities_memo_sbe_v1_13.block_length_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length_uint_8, range, value, display)
+  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -2364,25 +2364,25 @@ blueoceanats_blueequities_memo_sbe_v1_13.origclordid_optional.dissect = function
   return offset + length, value
 end
 
--- Party I D New Order Single Party Id
-blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id = {}
+-- Party Id New Order Single Party Id
+blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id = {}
 
--- Size: Party I D New Order Single Party Id
-blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size = 16
+-- Size: Party Id New Order Single Party Id
+blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id.size = 16
 
--- Display: Party I D New Order Single Party Id
-blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display = function(value)
+-- Display: Party Id New Order Single Party Id
+blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Party I D New Order Single Party Id: No Value"
+    return "Party Id New Order Single Party Id: No Value"
   end
 
-  return "Party I D New Order Single Party Id: "..value
+  return "Party Id New Order Single Party Id: "..value
 end
 
--- Dissect: Party I D New Order Single Party Id
-blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dissect = function(buffer, offset, packet, parent)
-  local length = blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size
+-- Dissect: Party Id New Order Single Party Id
+blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id.dissect = function(buffer, offset, packet, parent)
+  local length = blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2396,9 +2396,9 @@ blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dis
     value = range:string()
   end
 
-  local display = blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.display(value, buffer, offset, packet, parent)
+  local display = blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.party_i_d_new_order_single_party_id, range, value, display)
+  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.party_id_new_order_single_party_id, range, value, display)
 
   return offset + length, value
 end
@@ -3645,7 +3645,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.parties_group = {}
 
 -- Size: Parties Group
 blueoceanats_blueequities_memo_sbe_v1_13.parties_group.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id.size + 
   blueoceanats_blueequities_memo_sbe_v1_13.party_id_source.size + 
   blueoceanats_blueequities_memo_sbe_v1_13.party_role.size
 
@@ -3664,8 +3664,8 @@ blueoceanats_blueequities_memo_sbe_v1_13.parties_group.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Party I D New Order Single Party Id: NewOrderSinglePartyID
-  index, party_i_d_new_order_single_party_id = blueoceanats_blueequities_memo_sbe_v1_13.party_i_d_new_order_single_party_id.dissect(buffer, index, packet, parent)
+  -- Party Id New Order Single Party Id: NewOrderSinglePartyID
+  index, party_id_new_order_single_party_id = blueoceanats_blueequities_memo_sbe_v1_13.party_id_new_order_single_party_id.dissect(buffer, index, packet, parent)
 
   -- Party Id Source: char
   index, party_id_source = blueoceanats_blueequities_memo_sbe_v1_13.party_id_source.dissect(buffer, index, packet, parent)
@@ -3699,7 +3699,7 @@ blueoceanats_blueequities_memo_sbe_v1_13.repeating_group_dimensions = {}
 
 -- Size: Repeating Group Dimensions
 blueoceanats_blueequities_memo_sbe_v1_13.repeating_group_dimensions.size =
-  blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8.size + 
+  blueoceanats_blueequities_memo_sbe_v1_13.block_length_short.size + 
   blueoceanats_blueequities_memo_sbe_v1_13.num_in_group.size
 
 -- Display: Repeating Group Dimensions
@@ -3711,8 +3711,8 @@ end
 blueoceanats_blueequities_memo_sbe_v1_13.repeating_group_dimensions.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: uint8
-  index, block_length_uint_8 = blueoceanats_blueequities_memo_sbe_v1_13.block_length_uint_8.dissect(buffer, index, packet, parent)
+  -- Block Length Short: uint8
+  index, block_length_short = blueoceanats_blueequities_memo_sbe_v1_13.block_length_short.dissect(buffer, index, packet, parent)
 
   -- Num In Group: uint8
   index, num_in_group = blueoceanats_blueequities_memo_sbe_v1_13.num_in_group.dissect(buffer, index, packet, parent)

@@ -39,9 +39,9 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.deepest_price = P
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.definition_flags = ProtoField.new("Definition Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.definitionflags", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.description = ProtoField.new("Description", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.description", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.details = ProtoField.new("Details", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.details", ftypes.STRING)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value = ProtoField.new("Fair Value", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fairvalue", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_limit = ProtoField.new("Fair Value Limit", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fairvaluelimit", ftypes.INT32)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_price = ProtoField.new("Fair Value Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fairvalueprice", ftypes.DOUBLE)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_price_optional = ProtoField.new("Fair Value Price optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fairvaluepriceoptional", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_optional = ProtoField.new("Fair Value Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fairvalueoptional", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate = ProtoField.new("Final Funding Rate", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfundingrate", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate_timestamp = ProtoField.new("Final Funding Rate Timestamp", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfundingratetimestamp", ftypes.INT64)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_futures_mark_price = ProtoField.new("Final Futures Mark Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfuturesmarkprice", ftypes.DOUBLE)
@@ -51,8 +51,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.frame_length = Pr
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.funding_interval_minutes = ProtoField.new("Funding Interval Minutes", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fundingintervalminutes", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.funding_rate = ProtoField.new("Funding Rate", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fundingrate", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.funding_rate_applicable = ProtoField.new("Funding Rate Applicable", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fundingrateapplicable", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price_price = ProtoField.new("Futures Mark Price Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.futuresmarkpriceprice", ftypes.DOUBLE)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price_price_optional = ProtoField.new("Futures Mark Price Price optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.futuresmarkpricepriceoptional", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price = ProtoField.new("Futures Mark Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.futuresmarkprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price_optional = ProtoField.new("Futures Mark Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.futuresmarkpriceoptional", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.high_price = ProtoField.new("High Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.highprice", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.incremental_update = ProtoField.new("Incremental Update", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.incrementalupdate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.indicativeopenprice", ftypes.DOUBLE)
@@ -126,8 +126,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.small_tick = Prot
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.snapshot = ProtoField.new("Snapshot", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.snapshot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.snapshotinstrumentid", ftypes.INT32)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.snapshotseqnum", ftypes.UINT16)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price_price = ProtoField.new("Spot Mark Price Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.spotmarkpriceprice", ftypes.DOUBLE)
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price_price_optional = ProtoField.new("Spot Mark Price Price optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.spotmarkpricepriceoptional", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price = ProtoField.new("Spot Mark Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.spotmarkprice", ftypes.DOUBLE)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price_optional = ProtoField.new("Spot Mark Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.spotmarkpriceoptional", ftypes.DOUBLE)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.spreadbuyconvention", ftypes.INT8)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.stat_type = ProtoField.new("Stat Type", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.stattype", ftypes.STRING)
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.strike_price = ProtoField.new("Strike Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.strikeprice", ftypes.DOUBLE)
@@ -906,6 +906,35 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.details.dissect = function(b
   return offset + length, value
 end
 
+-- Fair Value
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value = {}
+
+-- Size: Fair Value
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.size = 8
+
+-- Display: Fair Value
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.display = function(value)
+  return "Fair Value: "..value
+end
+
+-- Translate: Fair Value
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Fair Value
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value, range, value, display)
+
+  return offset + length, value
+end
+
 -- Fair Value Limit
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_limit = {}
 
@@ -929,53 +958,24 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_limit.dissect = f
   return offset + length, value
 end
 
--- Fair Value Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price = {}
+-- Fair Value Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional = {}
 
--- Size: Fair Value Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.size = 8
+-- Size: Fair Value Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.size = 8
 
--- Display: Fair Value Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.display = function(value)
-  return "Fair Value Price: "..value
-end
-
--- Translate: Fair Value Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Fair Value Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.translate(raw)
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Fair Value Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional = {}
-
--- Size: Fair Value Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.size = 8
-
--- Display: Fair Value Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.display = function(raw, value)
+-- Display: Fair Value Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Fair Value Price optional: No Value"
+    return "Fair Value Optional: No Value"
   end
 
-  return "Fair Value Price optional: "..value
+  return "Fair Value Optional: "..value
 end
 
--- Translate: Fair Value Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.translate = function(raw)
+-- Translate: Fair Value Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -984,15 +984,15 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.tr
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Fair Value Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.size
+-- Dissect: Fair Value Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.translate(raw)
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.display(raw, value, buffer, offset, packet, parent)
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_price_optional, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1201,53 +1201,53 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.funding_rate.dissect = funct
   return offset + length, value
 end
 
--- Futures Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price = {}
+-- Futures Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price = {}
 
--- Size: Futures Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.size = 8
+-- Size: Futures Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.size = 8
 
--- Display: Futures Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.display = function(value)
-  return "Futures Mark Price Price: "..value
+-- Display: Futures Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.display = function(value)
+  return "Futures Mark Price: "..value
 end
 
--- Translate: Futures Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.translate = function(raw)
+-- Translate: Futures Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Futures Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.size
+-- Dissect: Futures Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.translate(raw)
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.display(value, buffer, offset, packet, parent)
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price_price, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price, range, value, display)
 
   return offset + length, value
 end
 
--- Futures Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional = {}
+-- Futures Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional = {}
 
--- Size: Futures Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.size = 8
+-- Size: Futures Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.size = 8
 
--- Display: Futures Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.display = function(raw, value)
+-- Display: Futures Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Futures Mark Price Price optional: No Value"
+    return "Futures Mark Price Optional: No Value"
   end
 
-  return "Futures Mark Price Price optional: "..value
+  return "Futures Mark Price Optional: "..value
 end
 
--- Translate: Futures Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.translate = function(raw)
+-- Translate: Futures Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -1256,15 +1256,15 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_opt
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Futures Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.size
+-- Dissect: Futures Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.translate(raw)
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.display(raw, value, buffer, offset, packet, parent)
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price_price_optional, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.futures_mark_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2938,53 +2938,53 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.snapshot_seq_num.dissect = f
   return offset + length, value
 end
 
--- Spot Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price = {}
+-- Spot Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price = {}
 
--- Size: Spot Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.size = 8
+-- Size: Spot Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.size = 8
 
--- Display: Spot Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.display = function(value)
-  return "Spot Mark Price Price: "..value
+-- Display: Spot Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.display = function(value)
+  return "Spot Mark Price: "..value
 end
 
--- Translate: Spot Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.translate = function(raw)
+-- Translate: Spot Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Spot Mark Price Price
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.size
+-- Dissect: Spot Mark Price
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.translate(raw)
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.display(value, buffer, offset, packet, parent)
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price_price, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price, range, value, display)
 
   return offset + length, value
 end
 
--- Spot Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional = {}
+-- Spot Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional = {}
 
--- Size: Spot Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.size = 8
+-- Size: Spot Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.size = 8
 
--- Display: Spot Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.display = function(raw, value)
+-- Display: Spot Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Spot Mark Price Price optional: No Value"
+    return "Spot Mark Price Optional: No Value"
   end
 
-  return "Spot Mark Price Price optional: "..value
+  return "Spot Mark Price Optional: "..value
 end
 
--- Translate: Spot Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.translate = function(raw)
+-- Translate: Spot Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -2993,15 +2993,15 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_option
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Spot Mark Price Price optional
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.size
+-- Dissect: Spot Mark Price Optional
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.translate(raw)
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.display(raw, value, buffer, offset, packet, parent)
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.translate(raw)
+  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price_price_optional, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spot_mark_price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3810,10 +3810,10 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.end_of_snapshot_message.size
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate.size + 
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_futures_mark_price.size + 
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.size + 
-  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.size + 
+  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.size + 
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.predicted_funding_rate.size + 
-  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.size + 
-  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.size
+  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.size + 
+  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.size
 
 -- Display: End Of Snapshot Message
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.end_of_snapshot_message.display = function(packet, parent, length)
@@ -3908,17 +3908,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.end_of_snapshot_message.fiel
   -- Final Funding Rate Timestamp: TimestampNanos
   index, final_funding_rate_timestamp = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Futures Mark Price Price optional: Price
-  index, futures_mark_price_price_optional = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price_optional.dissect(buffer, index, packet, parent)
+  -- Futures Mark Price Optional: Price
+  index, futures_mark_price_optional = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_optional.dissect(buffer, index, packet, parent)
 
   -- Predicted Funding Rate: Price
   index, predicted_funding_rate = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.predicted_funding_rate.dissect(buffer, index, packet, parent)
 
-  -- Spot Mark Price Price optional: Price
-  index, spot_mark_price_price_optional = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price_optional.dissect(buffer, index, packet, parent)
+  -- Spot Mark Price Optional: Price
+  index, spot_mark_price_optional = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Fair Value Price optional: Price
-  index, fair_value_price_optional = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price_optional.dissect(buffer, index, packet, parent)
+  -- Fair Value Optional: Price
+  index, fair_value_optional = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_optional.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4515,9 +4515,9 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.funding_rate_message = {}
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.funding_rate_message.size =
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.instr_header.size + 
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.funding_rate.size + 
-  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.size + 
-  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.size + 
-  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.size + 
+  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.size + 
+  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.size + 
+  coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.size + 
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.size + 
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.correlation_id.size + 
   coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.flags.size
@@ -4537,14 +4537,14 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.funding_rate_message.fields 
   -- Funding Rate: Price
   index, funding_rate = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.funding_rate.dissect(buffer, index, packet, parent)
 
-  -- Futures Mark Price Price: Price
-  index, futures_mark_price_price = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price_price.dissect(buffer, index, packet, parent)
+  -- Futures Mark Price: Price
+  index, futures_mark_price = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.futures_mark_price.dissect(buffer, index, packet, parent)
 
-  -- Spot Mark Price Price: Price
-  index, spot_mark_price_price = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price_price.dissect(buffer, index, packet, parent)
+  -- Spot Mark Price: Price
+  index, spot_mark_price = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spot_mark_price.dissect(buffer, index, packet, parent)
 
-  -- Fair Value Price: Price
-  index, fair_value_price = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value_price.dissect(buffer, index, packet, parent)
+  -- Fair Value: Price
+  index, fair_value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fair_value.dissect(buffer, index, packet, parent)
 
   -- Final Funding Rate Timestamp: TimestampNanos
   index, final_funding_rate_timestamp = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.dissect(buffer, index, packet, parent)

@@ -29,7 +29,7 @@ omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.message_type = Pro
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.mpv", ftypes.DOUBLE)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.offer_price = ProtoField.new("Offer Price", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.offerprice", ftypes.DOUBLE)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.offer_price_short = ProtoField.new("Offer Price Short", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.offerpriceshort", ftypes.DOUBLE)
-omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer size", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
+omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.offer_size = ProtoField.new("Offer Size", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.offersize", ftypes.UINT32)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.offer_size_short = ProtoField.new("Offer Size Short", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.offersizeshort", ftypes.UINT16)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.round_lot = ProtoField.new("Round Lot", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.roundlot", ftypes.UINT32)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.schemaid", ftypes.UINT8)
@@ -480,18 +480,18 @@ blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_price_short.dissect = f
   return offset + length, value
 end
 
--- Offer size
+-- Offer Size
 blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_size = {}
 
--- Size: Offer size
+-- Size: Offer Size
 blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_size.size = 4
 
--- Display: Offer size
+-- Display: Offer Size
 blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_size.display = function(value)
-  return "Offer size: "..value
+  return "Offer Size: "..value
 end
 
--- Dissect: Offer size
+-- Dissect: Offer Size
 blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_size.dissect = function(buffer, offset, packet, parent)
   local length = blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_size.size
   local range = buffer(offset, length)
@@ -1182,7 +1182,7 @@ blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.best_offer_message.fields = f
   -- Security Id: uint16
   index, security_id = blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.security_id.dissect(buffer, index, packet, parent)
 
-  -- Offer size: uint32
+  -- Offer Size: uint32
   index, offer_size = blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
   -- Offer Price: Price
@@ -1294,7 +1294,7 @@ blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.best_bid_offer_message.fields
   -- Bid Price: Price
   index, bid_price = blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Offer size: uint32
+  -- Offer Size: uint32
   index, offer_size = blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.offer_size.dissect(buffer, index, packet, parent)
 
   -- Offer Price: Price
