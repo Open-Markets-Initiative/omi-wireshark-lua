@@ -3569,7 +3569,8 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.size = 4
 
 -- Display: Seconds
 lseg_millennium_nativetradinggateway_ntgi_v21_2.seconds.display = function(value)
-  return "Seconds: "..value
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
 end
 
 -- Dissect: Seconds
