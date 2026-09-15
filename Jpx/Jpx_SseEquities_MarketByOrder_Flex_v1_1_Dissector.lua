@@ -65,6 +65,7 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message = ProtoField.new("Mes
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message_header = ProtoField.new("Message Header", "jpx.sseequities.marketbyorder.flex.v1.1.messageheader", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_header = ProtoField.new("Packet Header", "jpx.sseequities.marketbyorder.flex.v1.1.packetheader", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.tcp_packet = ProtoField.new("Tcp Packet", "jpx.sseequities.marketbyorder.flex.v1.1.tcppacket", ftypes.STRING)
+omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.tcp_packet_header = ProtoField.new("Tcp Packet Header", "jpx.sseequities.marketbyorder.flex.v1.1.tcppacketheader", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.udp_packet = ProtoField.new("Udp Packet", "jpx.sseequities.marketbyorder.flex.v1.1.udppacket", ftypes.STRING)
 
 -- Jpx SseEquities MarketByOrder 1.1 Application Messages
@@ -1689,11 +1690,11 @@ jpx_sseequities_marketbyorder_flex_v1_1.login_request_message.dissect = function
   end
 end
 
--- Payload
-jpx_sseequities_marketbyorder_flex_v1_1.payload = {}
+-- Tcp Payload
+jpx_sseequities_marketbyorder_flex_v1_1.tcp_payload = {}
 
--- Dissect: Payload
-jpx_sseequities_marketbyorder_flex_v1_1.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Tcp Payload
+jpx_sseequities_marketbyorder_flex_v1_1.tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Login Request Message
   if packet_type == "R" then
     return jpx_sseequities_marketbyorder_flex_v1_1.login_request_message.dissect(buffer, offset, packet, parent)
@@ -1714,21 +1715,21 @@ jpx_sseequities_marketbyorder_flex_v1_1.payload.dissect = function(buffer, offse
   return offset
 end
 
--- Packet Header
-jpx_sseequities_marketbyorder_flex_v1_1.packet_header = {}
+-- Tcp Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header = {}
 
--- Size: Packet Header
-jpx_sseequities_marketbyorder_flex_v1_1.packet_header.size =
+-- Size: Tcp Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.size =
   jpx_sseequities_marketbyorder_flex_v1_1.packet_length.size + 
   jpx_sseequities_marketbyorder_flex_v1_1.packet_type.size
 
--- Display: Packet Header
-jpx_sseequities_marketbyorder_flex_v1_1.packet_header.display = function(packet, parent, length)
+-- Display: Tcp Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Packet Header
-jpx_sseequities_marketbyorder_flex_v1_1.packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Tcp Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
@@ -1740,21 +1741,21 @@ jpx_sseequities_marketbyorder_flex_v1_1.packet_header.fields = function(buffer, 
   return index
 end
 
--- Dissect: Packet Header
-jpx_sseequities_marketbyorder_flex_v1_1.packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Tcp Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_header, buffer(offset, 0))
-    local index = jpx_sseequities_marketbyorder_flex_v1_1.packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.tcp_packet_header, buffer(offset, 0))
+    local index = jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jpx_sseequities_marketbyorder_flex_v1_1.packet_header.display(packet, parent, length)
+    local display = jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jpx_sseequities_marketbyorder_flex_v1_1.packet_header.fields(buffer, offset, packet, parent)
+    return jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -1763,21 +1764,21 @@ jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet = {}
 
 -- Verify required size of Tcp packet
 jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= jpx_sseequities_marketbyorder_flex_v1_1.packet_header.size
+  return buffer:len() >= jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.size
 end
 
 -- Dissect Tcp Packet
 jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet Header: Struct of 2 fields
-  index, packet_header = jpx_sseequities_marketbyorder_flex_v1_1.packet_header.dissect(buffer, index, packet, parent)
+  -- Tcp Packet Header: Struct of 2 fields
+  index, tcp_packet_header = jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 4 branches
-  index = jpx_sseequities_marketbyorder_flex_v1_1.payload.dissect(buffer, index, packet, parent, packet_type)
+  -- Tcp Payload: Runtime Type with 4 branches
+  index = jpx_sseequities_marketbyorder_flex_v1_1.tcp_payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index
 end
@@ -2277,6 +2278,51 @@ jpx_sseequities_marketbyorder_flex_v1_1.seconds_timestamp_message.dissect = func
   end
 end
 
+-- Payload
+jpx_sseequities_marketbyorder_flex_v1_1.payload = {}
+
+-- Dissect: Payload
+jpx_sseequities_marketbyorder_flex_v1_1.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Seconds Timestamp Message
+  if message_type == "T" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.seconds_timestamp_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == "O" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Execution Summary Message
+  if message_type == "K" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.execution_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order Message
+  if message_type == "A" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.add_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed Message
+  if message_type == "E" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.order_executed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Executed With Price Message
+  if message_type == "C" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.order_executed_with_price_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Delete Message
+  if message_type == "D" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.order_delete_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Reset Message
+  if message_type == "R" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.reset_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Communication Control Message
+  if message_type == "L" then
+    return jpx_sseequities_marketbyorder_flex_v1_1.communication_control_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
 -- Message Header
 jpx_sseequities_marketbyorder_flex_v1_1.message_header = {}
 
@@ -2369,6 +2415,78 @@ jpx_sseequities_marketbyorder_flex_v1_1.message.dissect = function(buffer, offse
     jpx_sseequities_marketbyorder_flex_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
 
     return index
+  end
+end
+
+-- Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.packet_header = {}
+
+-- Size: Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.packet_header.size =
+  jpx_sseequities_marketbyorder_flex_v1_1.multicast_group_number.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.number_of_system_reboots.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.sequence_number.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.issue_code.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.update_number.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.packet_number.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.total_number_of_packets.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.utility_flag.size + 
+  jpx_sseequities_marketbyorder_flex_v1_1.message_count.size
+
+-- Display: Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Multicast Group Number: Bn
+  index, multicast_group_number = jpx_sseequities_marketbyorder_flex_v1_1.multicast_group_number.dissect(buffer, index, packet, parent)
+
+  -- Number Of System Reboots: Bn
+  index, number_of_system_reboots = jpx_sseequities_marketbyorder_flex_v1_1.number_of_system_reboots.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Bn
+  index, sequence_number = jpx_sseequities_marketbyorder_flex_v1_1.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Issue Code: 12 Byte Ascii String
+  index, issue_code = jpx_sseequities_marketbyorder_flex_v1_1.issue_code.dissect(buffer, index, packet, parent)
+
+  -- Update Number: 4 Byte Unsigned Fixed Width Integer
+  index, update_number = jpx_sseequities_marketbyorder_flex_v1_1.update_number.dissect(buffer, index, packet, parent)
+
+  -- Packet Number: 1 Byte Unsigned Fixed Width Integer
+  index, packet_number = jpx_sseequities_marketbyorder_flex_v1_1.packet_number.dissect(buffer, index, packet, parent)
+
+  -- Total Number Of Packets: 1 Byte Unsigned Fixed Width Integer
+  index, total_number_of_packets = jpx_sseequities_marketbyorder_flex_v1_1.total_number_of_packets.dissect(buffer, index, packet, parent)
+
+  -- Utility Flag: 1 Byte Unsigned Fixed Width Integer
+  index, utility_flag = jpx_sseequities_marketbyorder_flex_v1_1.utility_flag.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = jpx_sseequities_marketbyorder_flex_v1_1.message_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+jpx_sseequities_marketbyorder_flex_v1_1.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.packet_header, buffer(offset, 0))
+    local index = jpx_sseequities_marketbyorder_flex_v1_1.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = jpx_sseequities_marketbyorder_flex_v1_1.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return jpx_sseequities_marketbyorder_flex_v1_1.packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
