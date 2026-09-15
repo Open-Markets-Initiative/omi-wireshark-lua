@@ -85,6 +85,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.packet = ProtoField.new("Packet",
 -- Iex IexOptions MarketData 1.03 Application Messages
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_customer_message = ProtoField.new("Add Order Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordercustomermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.add_order_non_customer_message = ProtoField.new("Add Order Non Customer Message", "iex.iexoptions.marketdata.sbe.v1.03.addordernoncustomermessage", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.03.clientheartbeatmessage", ftypes.BYTES)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.deep_trade_break_message = ProtoField.new("Deep Trade Break Message", "iex.iexoptions.marketdata.sbe.v1.03.deeptradebreakmessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.delete_order_message = ProtoField.new("Delete Order Message", "iex.iexoptions.marketdata.sbe.v1.03.deleteordermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.03.heartbeatmessage", ftypes.STRING)
@@ -101,6 +102,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.quote_update_no_customer_interest
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "iex.iexoptions.marketdata.sbe.v1.03.retransmissionrequestmessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.retransmission_response_message = ProtoField.new("Retransmission Response Message", "iex.iexoptions.marketdata.sbe.v1.03.retransmissionresponsemessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message = ProtoField.new("Sequenced Packet Message", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessage", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.server_heartbeat_message = ProtoField.new("Server Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.03.serverheartbeatmessage", ftypes.BYTES)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.session_shutdown_message = ProtoField.new("Session Shutdown Message", "iex.iexoptions.marketdata.sbe.v1.03.sessionshutdownmessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.snapshot_header_message = ProtoField.new("Snapshot Header Message", "iex.iexoptions.marketdata.sbe.v1.03.snapshotheadermessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "iex.iexoptions.marketdata.sbe.v1.03.symbolmappingmessage", ftypes.STRING)

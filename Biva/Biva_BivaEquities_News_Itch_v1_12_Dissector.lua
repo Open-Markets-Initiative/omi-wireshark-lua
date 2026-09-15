@@ -60,6 +60,10 @@ omi_biva_bivaequities_news_itch_v1_12.fields.message_header = ProtoField.new("Me
 omi_biva_bivaequities_news_itch_v1_12.fields.packet = ProtoField.new("Packet", "biva.bivaequities.news.itch.v1.12.packet", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.packet_header = ProtoField.new("Packet Header", "biva.bivaequities.news.itch.v1.12.packetheader", ftypes.STRING)
 
+-- Biva BivaEquities News 1.12 Session Messages
+omi_biva_bivaequities_news_itch_v1_12.fields.end_of_session = ProtoField.new("End Of Session", "biva.bivaequities.news.itch.v1.12.endofsession", ftypes.BYTES)
+omi_biva_bivaequities_news_itch_v1_12.fields.heartbeat = ProtoField.new("Heartbeat", "biva.bivaequities.news.itch.v1.12.heartbeat", ftypes.BYTES)
+
 -- Biva BivaEquities News 1.12 Application Messages
 omi_biva_bivaequities_news_itch_v1_12.fields.news_message = ProtoField.new("News Message", "biva.bivaequities.news.itch.v1.12.newsmessage", ftypes.STRING)
 omi_biva_bivaequities_news_itch_v1_12.fields.orderbook_directory_message = ProtoField.new("Orderbook Directory Message", "biva.bivaequities.news.itch.v1.12.orderbookdirectorymessage", ftypes.STRING)

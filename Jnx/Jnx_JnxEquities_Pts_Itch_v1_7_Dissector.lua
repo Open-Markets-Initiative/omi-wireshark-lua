@@ -73,11 +73,17 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.server_tcp_packet_header = ProtoField.n
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "jnx.jnxequities.pts.itch.v1.7.udppacketheader", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.7 Session Messages
+omi_jnx_jnxequities_pts_itch_v1_7.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.itch.v1.7.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.itch.v1.7.debugpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.end_of_session = ProtoField.new("End Of Session", "jnx.jnxequities.pts.itch.v1.7.endofsession", ftypes.BYTES)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxequities.pts.itch.v1.7.endofsessionpacket", ftypes.BYTES)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.heartbeat = ProtoField.new("Heartbeat", "jnx.jnxequities.pts.itch.v1.7.heartbeat", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.itch.v1.7.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.itch.v1.7.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxequities.pts.itch.v1.7.loginrequestpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxequities.pts.itch.v1.7.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.sequenceddatapacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxequities.pts.itch.v1.7.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.itch.v1.7.unsequenceddatapacket", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.7 Application Messages

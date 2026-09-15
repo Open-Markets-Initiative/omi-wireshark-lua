@@ -52,6 +52,10 @@ omi_jnx_jnxequities_pts_itch_v1_6.fields.message_header = ProtoField.new("Messag
 omi_jnx_jnxequities_pts_itch_v1_6.fields.packet = ProtoField.new("Packet", "jnx.jnxequities.pts.itch.v1.6.packet", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxequities.pts.itch.v1.6.packetheader", ftypes.STRING)
 
+-- Jnx JnxEquities Pts 1.6 Session Messages
+omi_jnx_jnxequities_pts_itch_v1_6.fields.end_of_session = ProtoField.new("End Of Session", "jnx.jnxequities.pts.itch.v1.6.endofsession", ftypes.BYTES)
+omi_jnx_jnxequities_pts_itch_v1_6.fields.heartbeat = ProtoField.new("Heartbeat", "jnx.jnxequities.pts.itch.v1.6.heartbeat", ftypes.BYTES)
+
 -- Jnx JnxEquities Pts 1.6 Application Messages
 omi_jnx_jnxequities_pts_itch_v1_6.fields.order_added_with_attributes_message = ProtoField.new("Order Added With Attributes Message", "jnx.jnxequities.pts.itch.v1.6.orderaddedwithattributesmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.order_added_without_attributes_message = ProtoField.new("Order Added Without Attributes Message", "jnx.jnxequities.pts.itch.v1.6.orderaddedwithoutattributesmessage", ftypes.STRING)

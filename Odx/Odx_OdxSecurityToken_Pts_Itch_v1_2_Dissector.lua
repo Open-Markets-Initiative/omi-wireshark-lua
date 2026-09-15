@@ -69,11 +69,15 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet_header = ProtoField.
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxsecuritytoken.pts.itch.v1.2.serversoupbintcppacket", ftypes.STRING)
 
 -- Odx OdxSecurityToken Pts 1.2 Session Messages
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "odx.odxsecuritytoken.pts.itch.v1.2.clientheartbeat", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.debug_packet = ProtoField.new("Debug Packet", "odx.odxsecuritytoken.pts.itch.v1.2.debugpacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.end_of_session = ProtoField.new("End Of Session", "odx.odxsecuritytoken.pts.itch.v1.2.endofsession", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginacceptedpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginrejectedpacket", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "odx.odxsecuritytoken.pts.itch.v1.2.loginrequestpacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.logout_request = ProtoField.new("Logout Request", "odx.odxsecuritytoken.pts.itch.v1.2.logoutrequest", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.sequenceddatapacket", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "odx.odxsecuritytoken.pts.itch.v1.2.serverheartbeat", ftypes.BYTES)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "odx.odxsecuritytoken.pts.itch.v1.2.unsequenceddatapacket", ftypes.STRING)
 
 -- Odx OdxSecurityToken Pts 1.2 Application Messages

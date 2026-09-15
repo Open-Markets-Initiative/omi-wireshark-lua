@@ -40,6 +40,10 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_header = Pro
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packet", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.packetheader", ftypes.STRING)
 
+-- BruceAts BruceEquities BestBidAndOffer 1.0 Session Messages
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.end_of_session = ProtoField.new("End Of Session", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.endofsession", ftypes.BYTES)
+omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.heartbeat", ftypes.BYTES)
+
 -- BruceAts BruceEquities BestBidAndOffer 1.0 Application Messages
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.quotation_message = ProtoField.new("Quotation Message", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.quotationmessage", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.reg_sho_short_sale_price_test_restricted_indicator = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.regshoshortsalepricetestrestrictedindicator", ftypes.STRING)

@@ -64,6 +64,10 @@ omi_nasdaq_nsmequities_level2_itch_v2_0.fields.message_header = ProtoField.new("
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.level2.itch.v2.0.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.level2.itch.v2.0.packetheader", ftypes.STRING)
 
+-- Nasdaq NsmEquities Level2 2.0 Session Messages
+omi_nasdaq_nsmequities_level2_itch_v2_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.level2.itch.v2.0.endofsession", ftypes.BYTES)
+omi_nasdaq_nsmequities_level2_itch_v2_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.level2.itch.v2.0.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NsmEquities Level2 2.0 Application Messages
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.nsmequities.level2.itch.v2.0.ipoquotingperiodupdatemessage", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.market_participant_bid_ask_update_message = ProtoField.new("Market Participant Bid Ask Update Message", "nasdaq.nsmequities.level2.itch.v2.0.marketparticipantbidaskupdatemessage", ftypes.STRING)

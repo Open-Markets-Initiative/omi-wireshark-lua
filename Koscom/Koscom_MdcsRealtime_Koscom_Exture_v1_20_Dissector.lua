@@ -27,7 +27,9 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.ask_yield_investor = ProtoFie
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.available_lending_quantity = ProtoField.new("Available Lending Quantity", "koscom.mdcsrealtime.koscom.exture.v1.20.availablelendingquantity", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_convexity = ProtoField.new("Average Convexity", "koscom.mdcsrealtime.koscom.exture.v1.20.averageconvexity", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_duration = ProtoField.new("Average Duration", "koscom.mdcsrealtime.koscom.exture.v1.20.averageduration", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_duration_nullable = ProtoField.new("Average Duration Nullable", "koscom.mdcsrealtime.koscom.exture.v1.20.averagedurationnullable", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_forward_ytm = ProtoField.new("Average Forward Ytm", "koscom.mdcsrealtime.koscom.exture.v1.20.averageforwardytm", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_forward_ytm_nullable = ProtoField.new("Average Forward Ytm Nullable", "koscom.mdcsrealtime.koscom.exture.v1.20.averageforwardytmnullable", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_ytm = ProtoField.new("Average Ytm", "koscom.mdcsrealtime.koscom.exture.v1.20.averageytm", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.based_fx = ProtoField.new("Based Fx", "koscom.mdcsrealtime.koscom.exture.v1.20.basedfx", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.basis_price_after_action = ProtoField.new("Basis Price After Action", "koscom.mdcsrealtime.koscom.exture.v1.20.basispriceafteraction", ftypes.STRING)
@@ -105,6 +107,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_60 = ProtoField.new("F
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_7 = ProtoField.new("Filler 7", "koscom.mdcsrealtime.koscom.exture.v1.20.filler7", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_8 = ProtoField.new("Filler 8", "koscom.mdcsrealtime.koscom.exture.v1.20.filler8", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.futures_basis_price = ProtoField.new("Futures Basis Price", "koscom.mdcsrealtime.koscom.exture.v1.20.futuresbasisprice", ftypes.DOUBLE)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.futures_basis_price_nullable = ProtoField.new("Futures Basis Price Nullable", "koscom.mdcsrealtime.koscom.exture.v1.20.futuresbasispricenullable", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.fx_category = ProtoField.new("Fx Category", "koscom.mdcsrealtime.koscom.exture.v1.20.fxcategory", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.high_price = ProtoField.new("High Price", "koscom.mdcsrealtime.koscom.exture.v1.20.highprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.hours = ProtoField.new("Hours", "koscom.mdcsrealtime.koscom.exture.v1.20.hours", ftypes.STRING)
@@ -115,6 +118,7 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.institution_code = ProtoField
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.intrinsic_volatility = ProtoField.new("Intrinsic Volatility", "koscom.mdcsrealtime.koscom.exture.v1.20.intrinsicvolatility", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.investor_category = ProtoField.new("Investor Category", "koscom.mdcsrealtime.koscom.exture.v1.20.investorcategory", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.isin = ProtoField.new("Isin", "koscom.mdcsrealtime.koscom.exture.v1.20.isin", ftypes.STRING)
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.isin_nullable = ProtoField.new("Isin Nullable", "koscom.mdcsrealtime.koscom.exture.v1.20.isinnullable", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.issue_code = ProtoField.new("Issue Code", "koscom.mdcsrealtime.koscom.exture.v1.20.issuecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.low_price = ProtoField.new("Low Price", "koscom.mdcsrealtime.koscom.exture.v1.20.lowprice", ftypes.STRING)
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.lower_limit_price_after_action = ProtoField.new("Lower Limit Price After Action", "koscom.mdcsrealtime.koscom.exture.v1.20.lowerlimitpriceafteraction", ftypes.STRING)
@@ -683,11 +687,6 @@ koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size = 6
 
 -- Display: Average Duration
 koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.display = function(value, buffer, offset, packet, parent)
-  -- Check if field has value
-  if value == 0 then
-    return "Average Duration: No Value"
-  end
-
   local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size):string():match("^%s*(.-)%s*$")
   local sign = ""
 
@@ -722,6 +721,57 @@ koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.dissect = function(buff
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_duration, range, value, display)
+
+  return offset + length, value
+end
+
+-- Average Duration Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable = {}
+
+-- Size: Average Duration Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.size = 6
+
+-- Display: Average Duration Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.display = function(value, buffer, offset, packet, parent)
+  -- Check if field has value
+  if value == 0 then
+    return "Average Duration Nullable: No Value"
+  end
+
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Duration Nullable: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Duration Nullable: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+end
+
+-- Dissect: Average Duration Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_duration_nullable, range, value, display)
 
   return offset + length, value
 end
@@ -768,6 +818,57 @@ koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.dissect = function(b
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_forward_ytm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Average Forward Ytm Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable = {}
+
+-- Size: Average Forward Ytm Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.size = 6
+
+-- Display: Average Forward Ytm Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.display = function(value, buffer, offset, packet, parent)
+  -- Check if field has value
+  if value == 0 then
+    return "Average Forward Ytm Nullable: No Value"
+  end
+
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Average Forward Ytm Nullable: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 3 then
+    digits = string.rep("0", 3 - #digits + 1)..digits
+  end
+
+  return "Average Forward Ytm Nullable: "..sign..digits:sub(1, #digits - 3)..".".. digits:sub(-3)
+end
+
+-- Dissect: Average Forward Ytm Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.average_forward_ytm_nullable, range, value, display)
 
   return offset + length, value
 end
@@ -3042,6 +3143,57 @@ koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.dissect = function(b
   return offset + length, value
 end
 
+-- Futures Basis Price Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable = {}
+
+-- Size: Futures Basis Price Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.size = 9
+
+-- Display: Futures Basis Price Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.display = function(value, buffer, offset, packet, parent)
+  -- Check if field has value
+  if value == 0 then
+    return "Futures Basis Price Nullable: No Value"
+  end
+
+  local digits = buffer(offset, koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.size):string():match("^%s*(.-)%s*$")
+  local sign = ""
+
+  if digits:sub(1, 1) == "-" or digits:sub(1, 1) == "+" then
+    sign = digits:sub(1, 1)
+    digits = digits:sub(2)
+  end
+
+  if not digits:match("^%d+$") then
+    return "Futures Basis Price Nullable: "..tostring(value)
+  end
+
+  digits = digits:gsub("^0+", "")
+
+  if #digits <= 2 then
+    digits = string.rep("0", 2 - #digits + 1)..digits
+  end
+
+  return "Futures Basis Price Nullable: "..sign..digits:sub(1, #digits - 2)..".".. digits:sub(-2)
+end
+
+-- Dissect: Futures Basis Price Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.futures_basis_price_nullable, range, value, display)
+
+  return offset + length, value
+end
+
 -- Fx Category
 koscom_mdcsrealtime_koscom_exture_v1_20.fx_category = {}
 
@@ -3327,6 +3479,34 @@ koscom_mdcsrealtime_koscom_exture_v1_20.isin.dissect = function(buffer, offset, 
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.isin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable = {}
+
+-- Size: Isin Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.size = 12
+
+-- Display: Isin Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin Nullable: No Value"
+  end
+
+  return "Isin Nullable: "..value
+end
+
+-- Dissect: Isin Nullable
+koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_koscom_exture_v1_20.text_encoding))
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.isin_nullable, range, value, display)
 
   return offset + length, value
 end
@@ -7732,7 +7912,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.nicepni_bond_index_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.size + 
@@ -7778,8 +7958,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.nicepni_bond_index_message.fields = func
   -- Futures Basis Price: Double
   index, futures_basis_price = koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.dissect(buffer, index, packet, parent)
 
-  -- Average Duration: Double
-  index, average_duration = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.dissect(buffer, index, packet, parent)
+  -- Average Duration Nullable: Double
+  index, average_duration_nullable = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.dissect(buffer, index, packet, parent)
 
   -- Average Convexity: Double
   index, average_convexity = koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.dissect(buffer, index, packet, parent)
@@ -7831,11 +8011,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kabi_bond_index_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.market_price_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
 
@@ -7875,8 +8055,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kabi_bond_index_message.fields = functio
   -- Zero Re Investment Index: Double
   index, zero_re_investment_index = koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.dissect(buffer, index, packet, parent)
 
-  -- Futures Basis Price: Double
-  index, futures_basis_price = koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.dissect(buffer, index, packet, parent)
+  -- Futures Basis Price Nullable: Double
+  index, futures_basis_price_nullable = koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price_nullable.dissect(buffer, index, packet, parent)
 
   -- Average Duration: Double
   index, average_duration = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.dissect(buffer, index, packet, parent)
@@ -7887,8 +8067,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kabi_bond_index_message.fields = functio
   -- Average Ytm: Double
   index, average_ytm = koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.dissect(buffer, index, packet, parent)
 
-  -- Average Forward Ytm: Double
-  index, average_forward_ytm = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.dissect(buffer, index, packet, parent)
+  -- Average Forward Ytm Nullable: Double
+  index, average_forward_ytm_nullable = koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm_nullable.dissect(buffer, index, packet, parent)
 
   -- Filler 1: String
   index, filler_1 = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect(buffer, index, packet, parent)
@@ -7932,7 +8112,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kebi_bond_index_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.size + 
@@ -7978,8 +8158,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kebi_bond_index_message.fields = functio
   -- Futures Basis Price: Double
   index, futures_basis_price = koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.dissect(buffer, index, packet, parent)
 
-  -- Average Duration: Double
-  index, average_duration = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.dissect(buffer, index, packet, parent)
+  -- Average Duration Nullable: Double
+  index, average_duration_nullable = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.dissect(buffer, index, packet, parent)
 
   -- Average Convexity: Double
   index, average_convexity = koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.dissect(buffer, index, packet, parent)
@@ -8132,7 +8312,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_bond_index_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.call_re_investment_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.zero_re_investment_index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_ytm.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.average_forward_ytm.size + 
@@ -8178,8 +8358,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_bond_index_message.fields = function
   -- Futures Basis Price: Double
   index, futures_basis_price = koscom_mdcsrealtime_koscom_exture_v1_20.futures_basis_price.dissect(buffer, index, packet, parent)
 
-  -- Average Duration: Double
-  index, average_duration = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration.dissect(buffer, index, packet, parent)
+  -- Average Duration Nullable: Double
+  index, average_duration_nullable = koscom_mdcsrealtime_koscom_exture_v1_20.average_duration_nullable.dissect(buffer, index, packet, parent)
 
   -- Average Convexity: Double
   index, average_convexity = koscom_mdcsrealtime_koscom_exture_v1_20.average_convexity.dissect(buffer, index, packet, parent)
@@ -9174,7 +9354,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_action_message = {}
 
 -- Size: K Otc Market Action Message
 koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_action_message.size =
-  koscom_mdcsrealtime_koscom_exture_v1_20.isin.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.data_type.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.change_date.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.change_time.size + 
@@ -9196,8 +9376,8 @@ end
 koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_market_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Isin: String
-  index, isin = koscom_mdcsrealtime_koscom_exture_v1_20.isin.dissect(buffer, index, packet, parent)
+  -- Isin Nullable: String
+  index, isin_nullable = koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.dissect(buffer, index, packet, parent)
 
   -- Data Type: String
   index, data_type = koscom_mdcsrealtime_koscom_exture_v1_20.data_type.dissect(buffer, index, packet, parent)

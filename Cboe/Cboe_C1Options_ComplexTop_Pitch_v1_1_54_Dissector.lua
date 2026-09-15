@@ -52,7 +52,8 @@ omi_cboe_c1options_complextop_pitch_v1_1_54.fields.indicative_price = ProtoField
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_count = ProtoField.new("Leg Count", "cboe.c1options.complextop.pitch.v1.1.54.legcount", ftypes.UINT8)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.c1options.complextop.pitch.v1.1.54.legratio", ftypes.INT32)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_security_type = ProtoField.new("Leg Security Type", "cboe.c1options.complextop.pitch.v1.1.54.legsecuritytype", ftypes.STRING)
-omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.c1options.complextop.pitch.v1.1.54.legsymbol", ftypes.STRING)
+omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_symbol_long = ProtoField.new("Leg Symbol Long", "cboe.c1options.complextop.pitch.v1.1.54.legsymbollong", ftypes.STRING)
+omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_symbol_short = ProtoField.new("Leg Symbol Short", "cboe.c1options.complextop.pitch.v1.1.54.legsymbolshort", ftypes.STRING)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.length = ProtoField.new("Length", "cboe.c1options.complextop.pitch.v1.1.54.length", ftypes.UINT16)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.complextop.pitch.v1.1.54.messagelength", ftypes.UINT8)
 omi_cboe_c1options_complextop_pitch_v1_1_54.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.complextop.pitch.v1.1.54.messagetype", ftypes.UINT8)
@@ -1073,25 +1074,48 @@ cboe_c1options_complextop_pitch_v1_1_54.leg_security_type.dissect = function(buf
   return offset + length, value
 end
 
--- Leg Symbol
-cboe_c1options_complextop_pitch_v1_1_54.leg_symbol = {}
+-- Leg Symbol Long
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long = {}
 
--- Size: Leg Symbol
-cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.size = 8
+-- Size: Leg Symbol Long
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long.size = 8
 
--- Display: Leg Symbol
-cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.display = function(value)
-  return "Leg Symbol: "..value
+-- Display: Leg Symbol Long
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long.display = function(value)
+  return "Leg Symbol Long: "..value
 end
 
--- Dissect: Leg Symbol
-cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.size
+-- Dissect: Leg Symbol Long
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_symbol, range, value, display)
+  parent:add(omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_symbol_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol Short
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short = {}
+
+-- Size: Leg Symbol Short
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short.size = 6
+
+-- Display: Leg Symbol Short
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short.display = function(value)
+  return "Leg Symbol Short: "..value
+end
+
+-- Dissect: Leg Symbol Short
+cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_complextop_pitch_v1_1_54.fields.leg_symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -2562,7 +2586,7 @@ cboe_c1options_complextop_pitch_v1_1_54.edcid_leg = {}
 
 -- Size: Edcid Leg
 cboe_c1options_complextop_pitch_v1_1_54.edcid_leg.size =
-  cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.size + 
+  cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short.size + 
   cboe_c1options_complextop_pitch_v1_1_54.leg_ratio.size
 
 -- Display: Edcid Leg
@@ -2580,8 +2604,8 @@ cboe_c1options_complextop_pitch_v1_1_54.edcid_leg.fields = function(buffer, offs
     iteration:set_generated()
   end
 
-  -- Leg Symbol: Printable ASCII
-  index, leg_symbol = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.dissect(buffer, index, packet, parent)
+  -- Leg Symbol Short: Printable ASCII
+  index, leg_symbol_short = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_short.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio: Signed Binary
   index, leg_ratio = cboe_c1options_complextop_pitch_v1_1_54.leg_ratio.dissect(buffer, index, packet, parent)
@@ -2630,7 +2654,7 @@ cboe_c1options_complextop_pitch_v1_1_54.exchange_designated_complex_instrument_d
 
   -- Calculate field size from count
   local edcid_leg_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + edcid_leg_count * 12
+  index = index + edcid_leg_count * 10
 
   return index
 end
@@ -2696,7 +2720,7 @@ cboe_c1options_complextop_pitch_v1_1_54.complex_leg = {}
 
 -- Size: Complex Leg
 cboe_c1options_complextop_pitch_v1_1_54.complex_leg.size =
-  cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.size + 
+  cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long.size + 
   cboe_c1options_complextop_pitch_v1_1_54.leg_ratio.size + 
   cboe_c1options_complextop_pitch_v1_1_54.leg_security_type.size
 
@@ -2715,8 +2739,8 @@ cboe_c1options_complextop_pitch_v1_1_54.complex_leg.fields = function(buffer, of
     iteration:set_generated()
   end
 
-  -- Leg Symbol: Printable ASCII
-  index, leg_symbol = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol.dissect(buffer, index, packet, parent)
+  -- Leg Symbol Long: Printable ASCII
+  index, leg_symbol_long = cboe_c1options_complextop_pitch_v1_1_54.leg_symbol_long.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio: Signed Binary
   index, leg_ratio = cboe_c1options_complextop_pitch_v1_1_54.leg_ratio.dissect(buffer, index, packet, parent)

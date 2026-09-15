@@ -120,6 +120,9 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_g.fields.symbol_clear_message =
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_g.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nyseequities.integratedfeed.pillar.v2.5.g.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_g.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.nyseequities.integratedfeed.pillar.v2.5.g.tradecancelmessage", ftypes.STRING)
 
+-- Nyse NyseEquities IntegratedFeed 2.5.g Session Messages
+omi_nyse_nyseequities_integratedfeed_pillar_v2_5_g.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.integratedfeed.pillar.v2.5.g.heartbeat", ftypes.BYTES)
+
 -- Nyse NyseEquities IntegratedFeed Pillar 2.5.g generated fields
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_g.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeed.pillar.v2.5.g.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_g.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.integratedfeed.pillar.v2.5.g.messagesequencenumber", ftypes.UINT64)

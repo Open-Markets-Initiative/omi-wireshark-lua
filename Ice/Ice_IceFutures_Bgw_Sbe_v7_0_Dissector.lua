@@ -86,6 +86,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.give_up_clearing_firm = ProtoField.new("G
 omi_ice_icefutures_bgw_sbe_v7_0.fields.granularity = ProtoField.new("Granularity", "ice.icefutures.bgw.sbe.v7.0.granularity", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "ice.icefutures.bgw.sbe.v7.0.groupsizeencoding", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.icefutures.bgw.sbe.v7.0.gtallowed", ftypes.UINT8)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags = ProtoField.new("Header Flags", "ice.icefutures.bgw.sbe.v7.0.headerflags", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.heart_beat_interval = ProtoField.new("Heart Beat Interval", "ice.icefutures.bgw.sbe.v7.0.heartbeatinterval", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_market_id = ProtoField.new("Hedge Market Id", "ice.icefutures.bgw.sbe.v7.0.hedgemarketid", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_only = ProtoField.new("Hedge Only", "ice.icefutures.bgw.sbe.v7.0.hedgeonly", ftypes.UINT8)
@@ -194,6 +195,12 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_sub_i_d_string_41_null = Pro
 omi_ice_icefutures_bgw_sbe_v7_0.fields.options_allowed = ProtoField.new("Options Allowed", "ice.icefutures.bgw.sbe.v7.0.optionsallowed", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type_order_type_enum = ProtoField.new("Ord Type Order Type Enum", "ice.icefutures.bgw.sbe.v7.0.ordtypeordertypeenum", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type_order_type_enum_null = ProtoField.new("Ord Type Order Type Enum Null", "ice.icefutures.bgw.sbe.v7.0.ordtypeordertypeenumnull", ftypes.UINT8)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_2 = ProtoField.new("Order Flags reserved 2", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_3 = ProtoField.new("Order Flags reserved 3", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_4 = ProtoField.new("Order Flags reserved 4", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_5 = ProtoField.new("Order Flags reserved 5", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_6 = ProtoField.new("Order Flags reserved 6", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_7 = ProtoField.new("Order Flags reserved 7", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_id = ProtoField.new("Order Id", "ice.icefutures.bgw.sbe.v7.0.orderid", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_modification_flags = ProtoField.new("Order Modification Flags", "ice.icefutures.bgw.sbe.v7.0.ordermodificationflags", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_qty_decimal_9 = ProtoField.new("Order Qty Decimal 9", "ice.icefutures.bgw.sbe.v7.0.orderqtydecimal9", ftypes.INT64)
@@ -252,12 +259,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.ref_sequence_id = ProtoField.new("Ref Seq
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ref_sprd_product_id = ProtoField.new("Ref Sprd Product Id", "ice.icefutures.bgw.sbe.v7.0.refsprdproductid", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reject_reason = ProtoField.new("Reject Reason", "ice.icefutures.bgw.sbe.v7.0.rejectreason", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reject_response_to = ProtoField.new("Reject Response To", "ice.icefutures.bgw.sbe.v7.0.rejectresponseto", ftypes.UINT8)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_2 = ProtoField.new("Reserved 2", "ice.icefutures.bgw.sbe.v7.0.reserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_3 = ProtoField.new("Reserved 3", "ice.icefutures.bgw.sbe.v7.0.reserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_4 = ProtoField.new("Reserved 4", "ice.icefutures.bgw.sbe.v7.0.reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_5 = ProtoField.new("Reserved 5", "ice.icefutures.bgw.sbe.v7.0.reserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_6 = ProtoField.new("Reserved 6", "ice.icefutures.bgw.sbe.v7.0.reserved6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_7 = ProtoField.new("Reserved 7", "ice.icefutures.bgw.sbe.v7.0.reserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "ice.icefutures.bgw.sbe.v7.0.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.rfc_status = ProtoField.new("Rfc Status", "ice.icefutures.bgw.sbe.v7.0.rfcstatus", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.rfq_futures_allowed = ProtoField.new("Rfq Futures Allowed", "ice.icefutures.bgw.sbe.v7.0.rfqfuturesallowed", ftypes.UINT8)
@@ -338,11 +339,18 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator_boolean_enum_null =
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text = ProtoField.new("Text", "ice.icefutures.bgw.sbe.v7.0.text", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text_data = ProtoField.new("Text Data", "ice.icefutures.bgw.sbe.v7.0.textdata", ftypes.BYTES)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text_length = ProtoField.new("Text Length", "ice.icefutures.bgw.sbe.v7.0.textlength", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.text_var_string_16_null = ProtoField.new("Text var String 16 Null", "ice.icefutures.bgw.sbe.v7.0.textvarstring16null", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.tick_value = ProtoField.new("Tick Value", "ice.icefutures.bgw.sbe.v7.0.tickvalue", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_time_in_force_enum = ProtoField.new("Time In Force Time In Force Enum", "ice.icefutures.bgw.sbe.v7.0.timeinforcetimeinforceenum", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_time_in_force_enum_null = ProtoField.new("Time In Force Time In Force Enum Null", "ice.icefutures.bgw.sbe.v7.0.timeinforcetimeinforceenumnull", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority", ftypes.UINT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags = ProtoField.new("Trade Flags", "ice.icefutures.bgw.sbe.v7.0.tradeflags", ftypes.STRING)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_2 = ProtoField.new("Trade Flags reserved 2", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_3 = ProtoField.new("Trade Flags reserved 3", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_4 = ProtoField.new("Trade Flags reserved 4", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_5 = ProtoField.new("Trade Flags reserved 5", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_6 = ProtoField.new("Trade Flags reserved 6", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_7 = ProtoField.new("Trade Flags reserved 7", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_type = ProtoField.new("Trade Type", "ice.icefutures.bgw.sbe.v7.0.tradetype", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trading_capacity = ProtoField.new("Trading Capacity", "ice.icefutures.bgw.sbe.v7.0.tradingcapacity", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_details = ProtoField.new("Transact Details", "ice.icefutures.bgw.sbe.v7.0.transactdetails", ftypes.STRING)
@@ -362,8 +370,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.user_id = ProtoField.new("User Id", "ice.
 omi_ice_icefutures_bgw_sbe_v7_0.fields.version = ProtoField.new("Version", "ice.icefutures.bgw.sbe.v7.0.version", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "ice.icefutures.bgw.sbe.v7.0.waiverindicator", ftypes.UINT8)
 
--- Ice IceFutures Bgw Sbe 7.0 Headers
-omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags = ProtoField.new("Header Flags", "ice.icefutures.bgw.sbe.v7.0.headerflags", ftypes.STRING)
+-- Ice IceFutures Bgw Sbe 7.0 Framing
 omi_ice_icefutures_bgw_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.bgw.sbe.v7.0.messageheader", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.packet = ProtoField.new("Packet", "ice.icefutures.bgw.sbe.v7.0.packet", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_frame = ProtoField.new("Simple Open Frame", "ice.icefutures.bgw.sbe.v7.0.simpleopenframe", ftypes.STRING)
@@ -7927,6 +7934,45 @@ ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.dissect = fu
   return offset + length, value
 end
 
+-- Text
+ice_icefutures_bgw_sbe_v7_0.text = {}
+
+-- Size: Text
+ice_icefutures_bgw_sbe_v7_0.text.size = 100
+
+-- Display: Text
+ice_icefutures_bgw_sbe_v7_0.text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
+  return "Text: "..value
+end
+
+-- Dissect: Text
+ice_icefutures_bgw_sbe_v7_0.text.dissect = function(buffer, offset, packet, parent)
+  local length = ice_icefutures_bgw_sbe_v7_0.text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = ice_icefutures_bgw_sbe_v7_0.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
 -- Text Data
 ice_icefutures_bgw_sbe_v7_0.text_data = {}
 
@@ -8615,96 +8661,16 @@ ice_icefutures_bgw_sbe_v7_0.sequence_reset_message.dissect = function(buffer, of
   end
 end
 
--- Text
-ice_icefutures_bgw_sbe_v7_0.text = {}
-
--- Calculate size of: Text
-ice_icefutures_bgw_sbe_v7_0.text.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text_length.size
-
-  local text_length = buffer(offset + 0, 2):le_uint()
-
-  if text_length > 0 then
-    -- Parse runtime size of: Text Data
-    index = index + buffer(offset + index - 2, 2):le_uint()
-
-  end
-
-  return index
-end
-
--- Display: Text
-ice_icefutures_bgw_sbe_v7_0.text.display = function(packet, parent, value, length)
-  if value == nil then
-    return "No Value"
-  end
-
-  return value
-end
-
--- Dissect Fields: Text
-ice_icefutures_bgw_sbe_v7_0.text.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Text Length: uint16
-  index, text_length = ice_icefutures_bgw_sbe_v7_0.text_length.dissect(buffer, index, packet, parent)
-
-  -- Runtime optional field: Text Data
-  local text_data = nil
-
-  local text_data_exists = text_length > 0
-
-  if text_data_exists then
-
-    -- Runtime Size Of: Text Data
-    index, text_data = ice_icefutures_bgw_sbe_v7_0.text_data.dissect(buffer, index, packet, parent, text_length)
-  end
-
-  -- Composite value
-  local text = text_data
-
-  return index, text
-end
-
--- Dissect: Text
-ice_icefutures_bgw_sbe_v7_0.text.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.text, buffer(offset, 0))
-    local index, value = ice_icefutures_bgw_sbe_v7_0.text.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = ice_icefutures_bgw_sbe_v7_0.text.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return ice_icefutures_bgw_sbe_v7_0.text.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Resend Report Message
 ice_icefutures_bgw_sbe_v7_0.resend_report_message = {}
 
--- Calculate size of: Resend Report Message
-ice_icefutures_bgw_sbe_v7_0.resend_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.begin_seq_no.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.end_seq_no.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.status.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Resend Report Message
+ice_icefutures_bgw_sbe_v7_0.resend_report_message.size =
+  ice_icefutures_bgw_sbe_v7_0.begin_seq_no.size + 
+  ice_icefutures_bgw_sbe_v7_0.end_seq_no.size + 
+  ice_icefutures_bgw_sbe_v7_0.status.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Resend Report Message
 ice_icefutures_bgw_sbe_v7_0.resend_report_message.display = function(packet, parent, length)
@@ -8727,7 +8693,7 @@ ice_icefutures_bgw_sbe_v7_0.resend_report_message.fields = function(buffer, offs
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -8989,7 +8955,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message.size = function(buffer, of
 
   index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
 
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
+  index = index + ice_icefutures_bgw_sbe_v7_0.text.size
 
   index = index + ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.size(buffer, offset + index)
 
@@ -9029,7 +8995,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message.fields = function(buffer, 
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   -- Mass Quote Report Message no Quote Sets Groups: Struct of 2 fields
@@ -9059,32 +9025,18 @@ end
 -- Order Mass Cancel Report Message
 ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message = {}
 
--- Calculate size of: Order Mass Cancel Report Message
-ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.originator_user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.symbol_int_32_null.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.cl_ord_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.market_type_i_d_int_32_null.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Order Mass Cancel Report Message
+ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.size =
+  ice_icefutures_bgw_sbe_v7_0.originator_user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.symbol_int_32_null.size + 
+  ice_icefutures_bgw_sbe_v7_0.cl_ord_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.size + 
+  ice_icefutures_bgw_sbe_v7_0.market_type_i_d_int_32_null.size + 
+  ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.size + 
+  ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.size + 
+  ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Order Mass Cancel Report Message
 ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.display = function(packet, parent, length)
@@ -9104,7 +9056,7 @@ ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.fields = function(b
   -- Cl Ord Id: int64
   index, cl_ord_id = ice_icefutures_bgw_sbe_v7_0.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Utc Timestamp: UTCTimestamp
+  -- Transact Time Utc Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_utc_timestamp = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect(buffer, index, packet, parent)
 
   -- Market Type I D int 32 Null: int32NULL
@@ -9122,7 +9074,7 @@ ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.fields = function(b
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -9149,26 +9101,15 @@ end
 -- New Order Cross Report Message
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message = {}
 
--- Calculate size of: New Order Cross Report Message
-ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.originator_user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.symbol_int_32.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.cross_i_d_int_64.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.rfc_status.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: New Order Cross Report Message
+ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message.size =
+  ice_icefutures_bgw_sbe_v7_0.originator_user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.symbol_int_32.size + 
+  ice_icefutures_bgw_sbe_v7_0.cross_i_d_int_64.size + 
+  ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.size + 
+  ice_icefutures_bgw_sbe_v7_0.rfc_status.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: New Order Cross Report Message
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message.display = function(packet, parent, length)
@@ -9188,7 +9129,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message.fields = function(buf
   -- Cross I D int 64: int64
   index, cross_i_d_int_64 = ice_icefutures_bgw_sbe_v7_0.cross_i_d_int_64.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Utc Timestamp: UTCTimestamp
+  -- Transact Time Utc Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_utc_timestamp = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect(buffer, index, packet, parent)
 
   -- Rfc Status: RFCStatusEnum
@@ -9197,7 +9138,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_report_message.fields = function(buf
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -9260,7 +9201,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_report_message.fields = function(buffer, offse
   -- Rfq System Id: int64
   index, rfq_system_id = ice_icefutures_bgw_sbe_v7_0.rfq_system_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Utc Timestamp: UTCTimestamp
+  -- Transact Time Utc Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_utc_timestamp = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect(buffer, index, packet, parent)
 
   -- Order Qty Decimal 9 Null: Decimal9NULL
@@ -9311,29 +9252,29 @@ ice_icefutures_bgw_sbe_v7_0.trade_flags.display = function(range, value, packet,
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Deal Adjust Indicator"
   end
-  -- Is Reserved 2 flag set?
+  -- Is Trade Flags reserved 2 flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Reserved 2"
+    flags[#flags + 1] = "Trade Flags reserved 2"
   end
-  -- Is Reserved 3 flag set?
+  -- Is Trade Flags reserved 3 flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Reserved 3"
+    flags[#flags + 1] = "Trade Flags reserved 3"
   end
-  -- Is Reserved 4 flag set?
+  -- Is Trade Flags reserved 4 flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Reserved 4"
+    flags[#flags + 1] = "Trade Flags reserved 4"
   end
-  -- Is Reserved 5 flag set?
+  -- Is Trade Flags reserved 5 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Reserved 5"
+    flags[#flags + 1] = "Trade Flags reserved 5"
   end
-  -- Is Reserved 6 flag set?
+  -- Is Trade Flags reserved 6 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Reserved 6"
+    flags[#flags + 1] = "Trade Flags reserved 6"
   end
-  -- Is Reserved 7 flag set?
+  -- Is Trade Flags reserved 7 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Reserved 7"
+    flags[#flags + 1] = "Trade Flags reserved 7"
   end
 
   return table.concat(flags, "|")
@@ -9348,23 +9289,23 @@ ice_icefutures_bgw_sbe_v7_0.trade_flags.bits = function(range, value, packet, pa
   -- Deal Adjust Indicator: 1 Bit
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.deal_adjust_indicator, range, value)
 
-  -- Reserved 2: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_2, range, value)
+  -- Trade Flags reserved 2: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_2, range, value)
 
-  -- Reserved 3: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_3, range, value)
+  -- Trade Flags reserved 3: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_3, range, value)
 
-  -- Reserved 4: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_4, range, value)
+  -- Trade Flags reserved 4: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_4, range, value)
 
-  -- Reserved 5: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_5, range, value)
+  -- Trade Flags reserved 5: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_5, range, value)
 
-  -- Reserved 6: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_6, range, value)
+  -- Trade Flags reserved 6: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_6, range, value)
 
-  -- Reserved 7: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_7, range, value)
+  -- Trade Flags reserved 7: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_7, range, value)
 end
 
 -- Dissect: Trade Flags
@@ -9507,7 +9448,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_trade_message.fields = function(buf
   -- Last Shares: Decimal9
   index, last_shares = ice_icefutures_bgw_sbe_v7_0.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Utc Timestamp: UTCTimestamp
+  -- Transact Time Utc Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_utc_timestamp = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect(buffer, index, packet, parent)
 
   -- Num Of Lots: int64NULL
@@ -9606,7 +9547,7 @@ ice_icefutures_bgw_sbe_v7_0.exec_i_d_order_exec_id.fields = function(buffer, off
   -- System Sequence Id: int32
   index, system_sequence_id = ice_icefutures_bgw_sbe_v7_0.system_sequence_id.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Utc Timestamp: UTCTimestamp
+  -- Transact Time Utc Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_utc_timestamp = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -9833,40 +9774,22 @@ end
 -- Execution Report Reject Message
 ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message = {}
 
--- Calculate size of: Execution Report Reject Message
-ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.originator_user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exec_i_d_order_exec_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.cl_ord_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.symbol_int_32.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.side_side_enum.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.orig_order_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_int_64_null.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.order_status.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.reject_response_to.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.reject_reason.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.memo.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Execution Report Reject Message
+ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.size =
+  ice_icefutures_bgw_sbe_v7_0.originator_user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.exec_i_d_order_exec_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.cl_ord_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.symbol_int_32.size + 
+  ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.size + 
+  ice_icefutures_bgw_sbe_v7_0.side_side_enum.size + 
+  ice_icefutures_bgw_sbe_v7_0.orig_order_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_int_64_null.size + 
+  ice_icefutures_bgw_sbe_v7_0.order_status.size + 
+  ice_icefutures_bgw_sbe_v7_0.reject_response_to.size + 
+  ice_icefutures_bgw_sbe_v7_0.reject_reason.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.memo.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Execution Report Reject Message
 ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.display = function(packet, parent, length)
@@ -9916,7 +9839,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.fields = function(bu
   -- Memo: string30NULL
   index, memo = ice_icefutures_bgw_sbe_v7_0.memo.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -9943,38 +9866,21 @@ end
 -- Execution Report Cancel Message
 ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message = {}
 
--- Calculate size of: Execution Report Cancel Message
-ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.originator_user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exec_i_d_order_exec_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.cl_ord_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.symbol_int_32.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.side_side_enum.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.orig_order_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_int_64_null.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_utc_timestamp.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.cancel_reason.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.cross_i_d_int_64_null.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Execution Report Cancel Message
+ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.size =
+  ice_icefutures_bgw_sbe_v7_0.originator_user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.exec_i_d_order_exec_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.cl_ord_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.symbol_int_32.size + 
+  ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.size + 
+  ice_icefutures_bgw_sbe_v7_0.side_side_enum.size + 
+  ice_icefutures_bgw_sbe_v7_0.orig_order_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_int_64_null.size + 
+  ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_utc_timestamp.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.cancel_reason.size + 
+  ice_icefutures_bgw_sbe_v7_0.cross_i_d_int_64_null.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Execution Report Cancel Message
 ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.display = function(packet, parent, length)
@@ -10021,7 +9927,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.fields = function(bu
   -- Cross I D int 64 Null: int64NULL
   index, cross_i_d_int_64_null = ice_icefutures_bgw_sbe_v7_0.cross_i_d_int_64_null.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -10063,29 +9969,29 @@ ice_icefutures_bgw_sbe_v7_0.order_modification_flags.display = function(range, v
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Stop Elected"
   end
-  -- Is Reserved 2 flag set?
+  -- Is Order Flags reserved 2 flag set?
   if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Reserved 2"
+    flags[#flags + 1] = "Order Flags reserved 2"
   end
-  -- Is Reserved 3 flag set?
+  -- Is Order Flags reserved 3 flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Reserved 3"
+    flags[#flags + 1] = "Order Flags reserved 3"
   end
-  -- Is Reserved 4 flag set?
+  -- Is Order Flags reserved 4 flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Reserved 4"
+    flags[#flags + 1] = "Order Flags reserved 4"
   end
-  -- Is Reserved 5 flag set?
+  -- Is Order Flags reserved 5 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Reserved 5"
+    flags[#flags + 1] = "Order Flags reserved 5"
   end
-  -- Is Reserved 6 flag set?
+  -- Is Order Flags reserved 6 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Reserved 6"
+    flags[#flags + 1] = "Order Flags reserved 6"
   end
-  -- Is Reserved 7 flag set?
+  -- Is Order Flags reserved 7 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Reserved 7"
+    flags[#flags + 1] = "Order Flags reserved 7"
   end
 
   return table.concat(flags, "|")
@@ -10100,23 +10006,23 @@ ice_icefutures_bgw_sbe_v7_0.order_modification_flags.bits = function(range, valu
   -- Stop Elected: 1 Bit
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.stop_elected, range, value)
 
-  -- Reserved 2: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_2, range, value)
+  -- Order Flags reserved 2: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_2, range, value)
 
-  -- Reserved 3: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_3, range, value)
+  -- Order Flags reserved 3: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_3, range, value)
 
-  -- Reserved 4: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_4, range, value)
+  -- Order Flags reserved 4: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_4, range, value)
 
-  -- Reserved 5: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_5, range, value)
+  -- Order Flags reserved 5: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_5, range, value)
 
-  -- Reserved 6: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_6, range, value)
+  -- Order Flags reserved 6: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_6, range, value)
 
-  -- Reserved 7: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_7, range, value)
+  -- Order Flags reserved 7: 1 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_7, range, value)
 end
 
 -- Dissect: Order Modification Flags
@@ -11537,7 +11443,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message.fields = function(bu
   -- Transact Details: string100NULL
   index, transact_details = ice_icefutures_bgw_sbe_v7_0.transact_details.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Utc Timestamp: UTCTimestamp
+  -- Transact Time Utc Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_utc_timestamp = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect(buffer, index, packet, parent)
 
   -- New Order Cross Request Message no Sides Groups: Struct of 2 fields
@@ -12058,18 +11964,11 @@ end
 -- Trader Logout Report Message
 ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message = {}
 
--- Calculate size of: Trader Logout Report Message
-ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.originator_user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Trader Logout Report Message
+ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.size =
+  ice_icefutures_bgw_sbe_v7_0.originator_user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Trader Logout Report Message
 ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.display = function(packet, parent, length)
@@ -12086,7 +11985,7 @@ ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.fields = function(buffe
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -12153,20 +12052,12 @@ end
 -- Trader Logon Report Message
 ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message = {}
 
--- Calculate size of: Trader Logon Report Message
-ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.originator_user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.client_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Trader Logon Report Message
+ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.size =
+  ice_icefutures_bgw_sbe_v7_0.originator_user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.client_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Trader Logon Report Message
 ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.display = function(packet, parent, length)
@@ -12186,7 +12077,7 @@ ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.fields = function(buffer
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -12414,7 +12305,7 @@ ice_icefutures_bgw_sbe_v7_0.ip_report_message.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
 
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
+  index = index + ice_icefutures_bgw_sbe_v7_0.text.size
 
   index = index + ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.size(buffer, offset + index)
 
@@ -12433,7 +12324,7 @@ ice_icefutures_bgw_sbe_v7_0.ip_report_message.fields = function(buffer, offset, 
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   -- I P Report Message no Users Groups: Struct of 2 fields
@@ -13032,26 +12923,15 @@ end
 -- Security Definition Reject Message
 ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message = {}
 
--- Calculate size of: Security Definition Reject Message
-ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.security_req_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.security_response_type.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.security_request_type.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.market_type_i_d_int_32.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Security Definition Reject Message
+ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message.size =
+  ice_icefutures_bgw_sbe_v7_0.security_req_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.security_response_type.size + 
+  ice_icefutures_bgw_sbe_v7_0.security_request_type.size + 
+  ice_icefutures_bgw_sbe_v7_0.market_type_i_d_int_32.size + 
+  ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Security Definition Reject Message
 ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message.display = function(packet, parent, length)
@@ -13080,7 +12960,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message.fields = function
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -15190,7 +15070,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message.fields =
   -- Exchange Silo: ExchangeSiloEnum
   index, exchange_silo = ice_icefutures_bgw_sbe_v7_0.exchange_silo.dissect(buffer, index, packet, parent)
 
-  -- Transact Time Utc Timestamp: UTCTimestamp
+  -- Transact Time Utc Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, transact_time_utc_timestamp = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect(buffer, index, packet, parent)
 
   -- Leg Deals Suppressed: BooleanEnum
@@ -15337,6 +15217,77 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message.dissect 
   end
 end
 
+-- Text var String 16 Null
+ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null = {}
+
+-- Calculate size of: Text var String 16 Null
+ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.size = function(buffer, offset)
+  local index = 0
+
+  index = index + ice_icefutures_bgw_sbe_v7_0.text_length.size
+
+  local text_length = buffer(offset + 0, 2):le_uint()
+
+  if text_length > 0 then
+    -- Parse runtime size of: Text Data
+    index = index + buffer(offset + index - 2, 2):le_uint()
+
+  end
+
+  return index
+end
+
+-- Display: Text var String 16 Null
+ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
+end
+
+-- Dissect Fields: Text var String 16 Null
+ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Text Length: uint16
+  index, text_length = ice_icefutures_bgw_sbe_v7_0.text_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Text Data
+  local text_data = nil
+
+  local text_data_exists = text_length > 0
+
+  if text_data_exists then
+
+    -- Runtime Size Of: Text Data
+    index, text_data = ice_icefutures_bgw_sbe_v7_0.text_data.dissect(buffer, index, packet, parent, text_length)
+  end
+
+  -- Composite value
+  local text_var_string_16_null = text_data
+
+  return index, text_var_string_16_null
+end
+
+-- Dissect: Text var String 16 Null
+ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.text_var_string_16_null, buffer(offset, 0))
+    local index, value = ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- News Message
 ice_icefutures_bgw_sbe_v7_0.news_message = {}
 
@@ -15348,7 +15299,7 @@ ice_icefutures_bgw_sbe_v7_0.news_message.size = function(buffer, offset)
 
   index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
 
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
+  index = index + ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.size(buffer, offset + index)
 
   return index
 end
@@ -15368,8 +15319,8 @@ ice_icefutures_bgw_sbe_v7_0.news_message.fields = function(buffer, offset, packe
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
-  index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
+  -- Text var String 16 Null: Struct of 2 fields
+  index, text_var_string_16_null = ice_icefutures_bgw_sbe_v7_0.text_var_string_16_null.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -15395,22 +15346,13 @@ end
 -- Error Message
 ice_icefutures_bgw_sbe_v7_0.error_message = {}
 
--- Calculate size of: Error Message
-ice_icefutures_bgw_sbe_v7_0.error_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.ref_sequence_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.severity_level.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.supported_schema_version.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Error Message
+ice_icefutures_bgw_sbe_v7_0.error_message.size =
+  ice_icefutures_bgw_sbe_v7_0.ref_sequence_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.severity_level.size + 
+  ice_icefutures_bgw_sbe_v7_0.supported_schema_version.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Error Message
 ice_icefutures_bgw_sbe_v7_0.error_message.display = function(packet, parent, length)
@@ -15433,7 +15375,7 @@ ice_icefutures_bgw_sbe_v7_0.error_message.fields = function(buffer, offset, pack
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -15460,18 +15402,11 @@ end
 -- Logout Report Message
 ice_icefutures_bgw_sbe_v7_0.logout_report_message = {}
 
--- Calculate size of: Logout Report Message
-ice_icefutures_bgw_sbe_v7_0.logout_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Logout Report Message
+ice_icefutures_bgw_sbe_v7_0.logout_report_message.size =
+  ice_icefutures_bgw_sbe_v7_0.user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Logout Report Message
 ice_icefutures_bgw_sbe_v7_0.logout_report_message.display = function(packet, parent, length)
@@ -15488,7 +15423,7 @@ ice_icefutures_bgw_sbe_v7_0.logout_report_message.fields = function(buffer, offs
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -15555,22 +15490,13 @@ end
 -- Logon Report Message
 ice_icefutures_bgw_sbe_v7_0.logon_report_message = {}
 
--- Calculate size of: Logon Report Message
-ice_icefutures_bgw_sbe_v7_0.logon_report_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.user_id.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.heart_beat_interval.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.severity_level.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.exchange_code.size
-
-  index = index + ice_icefutures_bgw_sbe_v7_0.text.size(buffer, offset + index)
-
-  return index
-end
+-- Size: Logon Report Message
+ice_icefutures_bgw_sbe_v7_0.logon_report_message.size =
+  ice_icefutures_bgw_sbe_v7_0.user_id.size + 
+  ice_icefutures_bgw_sbe_v7_0.heart_beat_interval.size + 
+  ice_icefutures_bgw_sbe_v7_0.severity_level.size + 
+  ice_icefutures_bgw_sbe_v7_0.exchange_code.size + 
+  ice_icefutures_bgw_sbe_v7_0.text.size
 
 -- Display: Logon Report Message
 ice_icefutures_bgw_sbe_v7_0.logon_report_message.display = function(packet, parent, length)
@@ -15593,7 +15519,7 @@ ice_icefutures_bgw_sbe_v7_0.logon_report_message.fields = function(buffer, offse
   -- Exchange Code: int32NULL
   index, exchange_code = ice_icefutures_bgw_sbe_v7_0.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Text: Struct of 2 fields
+  -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
   return index
@@ -16088,7 +16014,7 @@ end
 
 -- Dissect: Simple Open Framing Header
 ice_icefutures_bgw_sbe_v7_0.simple_open_framing_header.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.headers then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.simple_open_framing_header.fields(buffer, offset, packet, parent)

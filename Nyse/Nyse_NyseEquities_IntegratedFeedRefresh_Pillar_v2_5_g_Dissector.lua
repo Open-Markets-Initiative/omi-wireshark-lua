@@ -102,6 +102,9 @@ omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.sequence_number
 omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.sourcetimereferencemessage", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.symbolindexmappingmessage", ftypes.STRING)
 
+-- Nyse NyseEquities IntegratedFeedRefresh 2.5.g Session Messages
+omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.heartbeat", ftypes.BYTES)
+
 -- Nyse NyseEquities IntegratedFeedRefresh Pillar 2.5.g generated fields
 omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeedrefresh_pillar_v2_5_g.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.messagesequencenumber", ftypes.UINT64)

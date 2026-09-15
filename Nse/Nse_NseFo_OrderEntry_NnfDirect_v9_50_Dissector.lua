@@ -117,7 +117,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.exp_year = ProtoField.new("Exp Y
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnfdirect.v9.50.expirydate", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_1 = ProtoField.new("Expirydate 1", "nse.nsefo.orderentry.nnfdirect.v9.50.expirydate1", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.expirydate_2 = ProtoField.new("Expirydate 2", "nse.nsefo.orderentry.nnfdirect.v9.50.expirydate2", ftypes.INT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fifthreserved1", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fifthreserved1", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_number = ProtoField.new("Fill Number", "nse.nsefo.orderentry.nnfdirect.v9.50.fillnumber", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.orderentry.nnfdirect.v9.50.fillprice", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsefo.orderentry.nnfdirect.v9.50.fillquantity", ftypes.INT32)
@@ -137,7 +137,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_1 = ProtoField.new("Fill
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_2 = ProtoField.new("Fillerx 2", "nse.nsefo.orderentry.nnfdirect.v9.50.fillerx2", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillery_1 = ProtoField.new("Fillery 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fillery1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.firm_name = ProtoField.new("Firm Name", "nse.nsefo.orderentry.nnfdirect.v9.50.firmname", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fourthreserved1", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fourthreserved1", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.frozen = ProtoField.new("Frozen", "nse.nsefo.orderentry.nnfdirect.v9.50.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.giveup = ProtoField.new("Giveup", "nse.nsefo.orderentry.nnfdirect.v9.50.giveup", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.giveup_flag = ProtoField.new("Giveup Flag", "nse.nsefo.orderentry.nnfdirect.v9.50.giveupflag", ftypes.STRING)
@@ -300,36 +300,36 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.report_statistics_body = ProtoFi
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.report_trailer_body = ProtoField.new("Report Trailer Body", "nse.nsefo.orderentry.nnfdirect.v9.50.reporttrailerbody", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.request_for_open_orders = ProtoField.new("Request For Open Orders", "nse.nsefo.orderentry.nnfdirect.v9.50.requestforopenorders", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.requested_by = ProtoField.new("Requested By", "nse.nsefo.orderentry.nnfdirect.v9.50.requestedby", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1 = ProtoField.new("Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_10 = ProtoField.new("Reserved 10", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved10", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1 = ProtoField.new("Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved1", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_10 = ProtoField.new("Reserved 10", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved10", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_113 = ProtoField.new("Reserved 113", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved113", ftypes.UINT16, nil, base.DEC, 0x1FFF)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_12 = ProtoField.new("Reserved 12", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved12", ftypes.UINT16, nil, base.DEC, 0x0003)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_14 = ProtoField.new("Reserved 14", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved14", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_145 = ProtoField.new("Reserved 145", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved145", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16 = ProtoField.new("Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved16", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2 = ProtoField.new("Reserved 2", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved2", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_200 = ProtoField.new("Reserved 200", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved200", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_14 = ProtoField.new("Reserved 14", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved14", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_145 = ProtoField.new("Reserved 145", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved145", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16 = ProtoField.new("Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved16", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2 = ProtoField.new("Reserved 2", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved2", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_200 = ProtoField.new("Reserved 200", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved200", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_212 = ProtoField.new("Reserved 212", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved212", ftypes.UINT16, nil, base.DEC, 0x0FFE)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_24 = ProtoField.new("Reserved 24", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved24", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_25 = ProtoField.new("Reserved 25", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved25", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_26 = ProtoField.new("Reserved 26", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved26", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_32 = ProtoField.new("Reserved 32", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved32", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_24 = ProtoField.new("Reserved 24", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved24", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_25 = ProtoField.new("Reserved 25", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved25", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_26 = ProtoField.new("Reserved 26", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved26", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_32 = ProtoField.new("Reserved 32", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved32", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_34 = ProtoField.new("Reserved 34", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved34", ftypes.UINT8, nil, base.DEC, 0x0C)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_36 = ProtoField.new("Reserved 36", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved36", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_4 = ProtoField.new("Reserved 4", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved4", ftypes.INT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_5 = ProtoField.new("Reserved 5", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved5", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_52 = ProtoField.new("Reserved 52", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved52", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_60 = ProtoField.new("Reserved 60", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved60", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_36 = ProtoField.new("Reserved 36", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved36", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_4 = ProtoField.new("Reserved 4", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved4", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_5 = ProtoField.new("Reserved 5", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved5", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_52 = ProtoField.new("Reserved 52", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved52", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_60 = ProtoField.new("Reserved 60", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved60", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_68 = ProtoField.new("Reserved 68", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved68", ftypes.UINT8, nil, base.DEC, 0xE0)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_7 = ProtoField.new("Reserved 7", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved7", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_70 = ProtoField.new("Reserved 70", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved70", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8 = ProtoField.new("Reserved 8", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved8", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_7 = ProtoField.new("Reserved 7", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved7", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_70 = ProtoField.new("Reserved 70", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved70", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8 = ProtoField.new("Reserved 8", "nse.nsefo.orderentry.nnfdirect.v9.50.reserved8", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.response_order_number = ProtoField.new("Response Order Number", "nse.nsefo.orderentry.nnfdirect.v9.50.responseordernumber", ftypes.DOUBLE)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.risk_free_interest_rate = ProtoField.new("Risk Free Interest Rate", "nse.nsefo.orderentry.nnfdirect.v9.50.riskfreeinterestrate", ftypes.INT32)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved1", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_16 = ProtoField.new("Second Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved16", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved2", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved8", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved1", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_16 = ProtoField.new("Second Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved16", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved2", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "nse.nsefo.orderentry.nnfdirect.v9.50.secondreserved8", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sector_name = ProtoField.new("Sector Name", "nse.nsefo.orderentry.nnfdirect.v9.50.sectorname", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sell_account_number = ProtoField.new("Sell Account Number", "nse.nsefo.orderentry.nnfdirect.v9.50.sellaccountnumber", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sell_broker_id = ProtoField.new("Sell Broker Id", "nse.nsefo.orderentry.nnfdirect.v9.50.sellbrokerid", ftypes.STRING)
@@ -342,7 +342,7 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.settlement_period_1 = ProtoField
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.settlor = ProtoField.new("Settlor", "nse.nsefo.orderentry.nnfdirect.v9.50.settlor", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.settlor_1 = ProtoField.new("Settlor 1", "nse.nsefo.orderentry.nnfdirect.v9.50.settlor1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.show_index = ProtoField.new("Show Index", "nse.nsefo.orderentry.nnfdirect.v9.50.showindex", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sixth_reserved_1 = ProtoField.new("Sixth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.sixthreserved1", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sixth_reserved_1 = ProtoField.new("Sixth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.sixthreserved1", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sl = ProtoField.new("Sl", "nse.nsefo.orderentry.nnfdirect.v9.50.sl", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.snap_quote_time = ProtoField.new("Snap Quote Time", "nse.nsefo.orderentry.nnfdirect.v9.50.snapquotetime", ftypes.INT16)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.solicitor_period = ProtoField.new("Solicitor Period", "nse.nsefo.orderentry.nnfdirect.v9.50.solicitorperiod", ftypes.INT16)
@@ -372,8 +372,8 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.strikeprice_2 = ProtoField.new("
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.symbol = ProtoField.new("Symbol", "nse.nsefo.orderentry.nnfdirect.v9.50.symbol", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.symbol_1 = ProtoField.new("Symbol 1", "nse.nsefo.orderentry.nnfdirect.v9.50.symbol1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.symbol_2 = ProtoField.new("Symbol 2", "nse.nsefo.orderentry.nnfdirect.v9.50.symbol2", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.thirdreserved1", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_16 = ProtoField.new("Third Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.thirdreserved16", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.thirdreserved1", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_16 = ProtoField.new("Third Reserved 16", "nse.nsefo.orderentry.nnfdirect.v9.50.thirdreserved16", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.tick_size = ProtoField.new("Tick Size", "nse.nsefo.orderentry.nnfdirect.v9.50.ticksize", ftypes.INT32)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp1", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsefo.orderentry.nnfdirect.v9.50.timestamp2", ftypes.STRING)
@@ -3504,7 +3504,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.fifth_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fifth_reserved_1, range, value, display)
@@ -3970,7 +3970,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.fourth_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fourth_reserved_1, range, value, display)
@@ -7394,7 +7394,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_1, range, value, display)
@@ -7417,7 +7417,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_10.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_10, range, value, display)
@@ -7440,7 +7440,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_14, range, value, display)
@@ -7463,7 +7463,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_145.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_145.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_145.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_145, range, value, display)
@@ -7486,7 +7486,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_16, range, value, display)
@@ -7509,7 +7509,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_2, range, value, display)
@@ -7532,7 +7532,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_200.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_200.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_200.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_200, range, value, display)
@@ -7555,7 +7555,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_24.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_24, range, value, display)
@@ -7578,7 +7578,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_25, range, value, display)
@@ -7601,7 +7601,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_26, range, value, display)
@@ -7624,7 +7624,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_32.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_32.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_32.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_32, range, value, display)
@@ -7647,7 +7647,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_36.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_36, range, value, display)
@@ -7670,7 +7670,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_4, range, value, display)
@@ -7693,7 +7693,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_5.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_5.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_5, range, value, display)
@@ -7716,7 +7716,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_52, range, value, display)
@@ -7739,7 +7739,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_60.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_60.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_60.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_60, range, value, display)
@@ -7762,7 +7762,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_7, range, value, display)
@@ -7785,7 +7785,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_70.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_70.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_70.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_70, range, value, display)
@@ -7808,7 +7808,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reserved_8, range, value, display)
@@ -7877,7 +7877,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_1, range, value, display)
@@ -7900,7 +7900,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_16, range, value, display)
@@ -7923,7 +7923,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_2, range, value, display)
@@ -7946,7 +7946,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.second_reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.second_reserved_8, range, value, display)
@@ -8245,7 +8245,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.sixth_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sixth_reserved_1, range, value, display)
@@ -8661,7 +8661,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_1, range, value, display)
@@ -8684,7 +8684,7 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.third_reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.third_reserved_16, range, value, display)

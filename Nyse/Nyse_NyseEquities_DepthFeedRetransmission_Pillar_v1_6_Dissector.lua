@@ -101,6 +101,9 @@ omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_6.fields.sequence_number
 omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_6.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.nyseequities.depthfeedretransmission.pillar.v1.6.symbolclearmessage", ftypes.STRING)
 omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_6.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nyseequities.depthfeedretransmission.pillar.v1.6.symbolindexmappingmessage", ftypes.STRING)
 
+-- Nyse NyseEquities DepthFeedRetransmission 1.6 Session Messages
+omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.depthfeedretransmission.pillar.v1.6.heartbeat", ftypes.BYTES)
+
 -- Nyse NyseEquities DepthFeedRetransmission Pillar 1.6 generated fields
 omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_6.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.depthfeedretransmission.pillar.v1.6.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_depthfeedretransmission_pillar_v1_6.fields.participant_index = ProtoField.new("Participant Index", "nyse.nyseequities.depthfeedretransmission.pillar.v1.6.participantindex", ftypes.UINT16)

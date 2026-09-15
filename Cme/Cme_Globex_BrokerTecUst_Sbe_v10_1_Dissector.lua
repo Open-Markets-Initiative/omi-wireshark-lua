@@ -59,6 +59,7 @@ omi_cme_globex_brokertecust_sbe_v10_1.fields.technical_header = ProtoField.new("
 omi_cme_globex_brokertecust_sbe_v10_1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.brokertecust.sbe.v10.1.udppacket", ftypes.STRING)
 
 -- Cme Globex BrokerTecUst 10.1 Application Messages
+omi_cme_globex_brokertecust_sbe_v10_1.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.brokertecust.sbe.v10.1.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_brokertecust_sbe_v10_1.fields.md_incremental_refresh_btec = ProtoField.new("Md Incremental Refresh Btec", "cme.globex.brokertecust.sbe.v10.1.mdincrementalrefreshbtec", ftypes.STRING)
 
 -- Cme Globex BrokerTecUst Sbe 10.1 generated fields

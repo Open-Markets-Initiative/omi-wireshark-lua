@@ -45,9 +45,11 @@ omi_iex_iexoptions_session_sbe_v1_0.fields.message_header = ProtoField.new("Mess
 omi_iex_iexoptions_session_sbe_v1_0.fields.packet = ProtoField.new("Packet", "iex.iexoptions.session.sbe.v1.0.packet", ftypes.STRING)
 
 -- Iex IexOptions Session 1.0 Application Messages
+omi_iex_iexoptions_session_sbe_v1_0.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.session.sbe.v1.0.clientheartbeatmessage", ftypes.BYTES)
 omi_iex_iexoptions_session_sbe_v1_0.fields.gateway_heartbeat_message = ProtoField.new("Gateway Heartbeat Message", "iex.iexoptions.session.sbe.v1.0.gatewayheartbeatmessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_0.fields.login_request_message = ProtoField.new("Login Request Message", "iex.iexoptions.session.sbe.v1.0.loginrequestmessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_0.fields.login_response_message = ProtoField.new("Login Response Message", "iex.iexoptions.session.sbe.v1.0.loginresponsemessage", ftypes.STRING)
+omi_iex_iexoptions_session_sbe_v1_0.fields.logout_request_message = ProtoField.new("Logout Request Message", "iex.iexoptions.session.sbe.v1.0.logoutrequestmessage", ftypes.BYTES)
 omi_iex_iexoptions_session_sbe_v1_0.fields.sequenced_message_header_message = ProtoField.new("Sequenced Message Header Message", "iex.iexoptions.session.sbe.v1.0.sequencedmessageheadermessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_0.fields.subsession_join_message = ProtoField.new("Subsession Join Message", "iex.iexoptions.session.sbe.v1.0.subsessionjoinmessage", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_0.fields.subsession_join_response_message = ProtoField.new("Subsession Join Response Message", "iex.iexoptions.session.sbe.v1.0.subsessionjoinresponsemessage", ftypes.STRING)

@@ -100,6 +100,10 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.stock_directory_message = Pro
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.aggregated.itch.v2.0.stocktradingactionmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.aggregated.itch.v2.0.systemeventmessage", ftypes.STRING)
 
+-- Nasdaq NsmEquities Aggregated 2.0 Session Messages
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.aggregated.itch.v2.0.endofsession", ftypes.BYTES)
+omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.aggregated.itch.v2.0.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NsmEquities Aggregated Itch 2.0 generated fields
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.aggregated.itch.v2.0.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.aggregated.itch.v2.0.messagesequencenumber", ftypes.UINT64)

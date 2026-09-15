@@ -80,6 +80,10 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.system_event_message = ProtoFi
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.nsmequities.totalview.itch.v4.1.timestampmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.nsmequities.totalview.itch.v4.1.trademessage", ftypes.STRING)
 
+-- Nasdaq NsmEquities TotalView 4.1 Session Messages
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.totalview.itch.v4.1.endofsession", ftypes.BYTES)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.totalview.itch.v4.1.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NsmEquities TotalView Itch 4.1 generated fields
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.totalview.itch.v4.1.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.messagesequencenumber", ftypes.UINT64)

@@ -24,9 +24,7 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.count = ProtoFiel
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.executedquantity", ftypes.UINT32)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.execution_id = ProtoField.new("Execution Id", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.executionid", ftypes.UINT64)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.execution_type = ProtoField.new("Execution Type", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.executiontype", ftypes.STRING)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.fifthreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.flags = ProtoField.new("Flags", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.flags", ftypes.STRING)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.fourthreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.indicativeprice", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.length = ProtoField.new("Length", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.length", ftypes.UINT16)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.market_id_code = ProtoField.new("Market Id Code", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.marketidcode", ftypes.STRING)
@@ -38,23 +36,21 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.price = ProtoFiel
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.quantity = ProtoField.new("Quantity", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.quantity", ftypes.UINT32)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.reserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.reserved4", ftypes.UINT32)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.secondreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.sellshares", ftypes.UINT32)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.sequence = ProtoField.new("Sequence", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.sequence", ftypes.UINT32)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.seventh_reserved_1 = ProtoField.new("Seventh Reserved 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.seventhreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.shares = ProtoField.new("Shares", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.shares", ftypes.UINT32)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.sideindicator", ftypes.STRING)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.sixth_reserved_1 = ProtoField.new("Sixth Reserved 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.sixthreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.symbol = ProtoField.new("Symbol", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.symbol", ftypes.STRING)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.thirdreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.timestamp", ftypes.UINT64)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_designation = ProtoField.new("Trade Designation", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradedesignation", ftypes.STRING)
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_from_converted_order = ProtoField.new("Trade From Converted Order", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradefromconvertedorder", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x00000000000100)
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_from_converted_order = ProtoField.new("Trade From Converted Order", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradefromconvertedorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_report_type = ProtoField.new("Trade Report Type", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradereporttype", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_transaction_time = ProtoField.new("Trade Transaction Time", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradetransactiontime", ftypes.UINT64)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_type = ProtoField.new("Trade Type", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradetype", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradingstatus", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.unit = ProtoField.new("Unit", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.unit", ftypes.UINT8)
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.unused_1 = ProtoField.new("Unused 1", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.unused_6 = ProtoField.new("Unused 6", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value = ProtoField.new("Value", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.value", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.valuecategory", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.valuetimestamp", ftypes.UINT64)
@@ -366,52 +362,6 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.execution_type.dissect = fun
   local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.execution_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.execution_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Fifth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fifth_reserved_1 = {}
-
--- Size: Fifth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fifth_reserved_1.size = 1
-
--- Display: Fifth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fifth_reserved_1.display = function(value)
-  return "Fifth Reserved 1: "..value
-end
-
--- Dissect: Fifth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fifth_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fifth_reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fifth_reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.fifth_reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Fourth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fourth_reserved_1 = {}
-
--- Size: Fourth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fourth_reserved_1.size = 1
-
--- Display: Fourth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fourth_reserved_1.display = function(value)
-  return "Fourth Reserved 1: "..value
-end
-
--- Dissect: Fourth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fourth_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fourth_reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fourth_reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.fourth_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -740,29 +690,6 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.reserved_4.dissect = functio
   return offset + length, value
 end
 
--- Second Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.second_reserved_1 = {}
-
--- Size: Second Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.second_reserved_1.size = 1
-
--- Display: Second Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.second_reserved_1.display = function(value)
-  return "Second Reserved 1: "..value
-end
-
--- Dissect: Second Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.second_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.second_reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.second_reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.second_reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sell Shares
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sell_shares = {}
 
@@ -805,29 +732,6 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sequence.dissect = function(
   local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sequence.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.sequence, range, value, display)
-
-  return offset + length, value
-end
-
--- Seventh Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.seventh_reserved_1 = {}
-
--- Size: Seventh Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.seventh_reserved_1.size = 1
-
--- Display: Seventh Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.seventh_reserved_1.display = function(value)
-  return "Seventh Reserved 1: "..value
-end
-
--- Dissect: Seventh Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.seventh_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.seventh_reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.seventh_reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.seventh_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -885,29 +789,6 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.side_indicator.dissect = fun
   return offset + length, value
 end
 
--- Sixth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sixth_reserved_1 = {}
-
--- Size: Sixth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sixth_reserved_1.size = 1
-
--- Display: Sixth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sixth_reserved_1.display = function(value)
-  return "Sixth Reserved 1: "..value
-end
-
--- Dissect: Sixth Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sixth_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sixth_reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.sixth_reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.sixth_reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.symbol = {}
 
@@ -927,29 +808,6 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.symbol.dissect = function(bu
   local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Third Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.third_reserved_1 = {}
-
--- Size: Third Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.third_reserved_1.size = 1
-
--- Display: Third Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.third_reserved_1.display = function(value)
-  return "Third Reserved 1: "..value
-end
-
--- Dissect: Third Reserved 1
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.third_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.third_reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.third_reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.third_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1574,14 +1432,18 @@ end
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags = {}
 
 -- Size: Flags
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.size = 7
+cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.size = 1
 
 -- Display: Flags
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.display = function(range, value, packet, parent)
   local flags = {}
 
+  -- Is Unused 1 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Unused 1"
+  end
   -- Is Trade From Converted Order flag set?
-  if value:band(0x00000000000100) ~= UInt64(0) then
+  if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Trade From Converted Order"
   end
 
@@ -1591,36 +1453,21 @@ end
 -- Dissect Bit Fields: Flags
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.bits = function(range, value, packet, parent)
 
-  -- Reserved 1: Binary
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.reserved_1, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.unused_1, range, value)
 
   -- Trade From Converted Order: 1 Bit
   parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_from_converted_order, range, value)
 
-  -- Second Reserved 1: Binary
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.second_reserved_1, range, value)
-
-  -- Third Reserved 1: Binary
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.third_reserved_1, range, value)
-
-  -- Fourth Reserved 1: Binary
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.fourth_reserved_1, range, value)
-
-  -- Fifth Reserved 1: Binary
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.fifth_reserved_1, range, value)
-
-  -- Sixth Reserved 1: Binary
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.sixth_reserved_1, range, value)
-
-  -- Seventh Reserved 1: Binary
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.seventh_reserved_1, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.unused_6, range, value)
 end
 
 -- Dissect: Flags
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.dissect = function(buffer, offset, packet, parent)
   local size = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.size
   local range = buffer(offset, size)
-  local value = range:le_uint64()
+  local value = range:le_uint()
   local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.display(range, value, packet, parent)
   local element = parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.flags, range, display)
 
@@ -1699,7 +1546,7 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_message.fields = funct
   -- Trade Transaction Time: Binary UTC Timestamp
   index, trade_transaction_time = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_transaction_time.dissect(buffer, index, packet, parent)
 
-  -- Flags: Struct of 8 fields
+  -- Flags: Struct of 3 fields
   index, flags = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.flags.dissect(buffer, index, packet, parent)
 
   return index

@@ -79,6 +79,10 @@ omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.security_open_closed_message = 
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.systemeventmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.orderfeed.itch.v1.1.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq IseOptions OrderFeed 1.1 Session Messages
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.iseoptions.orderfeed.itch.v1.1.endofsession", ftypes.BYTES)
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.iseoptions.orderfeed.itch.v1.1.heartbeat", ftypes.BYTES)
+
 -- Nasdaq IseOptions OrderFeed Itch 1.1 generated fields
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response_index = ProtoField.new("Auction Response Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.auctionresponseindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.orderfeed.itch.v1.1.messageindex", ftypes.UINT16)

@@ -114,6 +114,10 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.single_side_update_message 
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.systemeventmessage", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq NtxOptions DepthOfMarket 1.3 Session Messages
+omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.endofsession", ftypes.BYTES)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NtxOptions DepthOfMarket Itch 1.3 generated fields
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messageindex", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messagesequencenumber", ftypes.UINT64)

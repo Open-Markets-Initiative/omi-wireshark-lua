@@ -33,9 +33,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.bid_size = ProtoField.new("
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "euronext.optiq.orderentrygateway.sbe.v1.3.blocklength", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.block_length_short = ProtoField.new("Block Length Short", "euronext.optiq.orderentrygateway.sbe.v1.3.blocklengthshort", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_in = ProtoField.new("Book In", "euronext.optiq.orderentrygateway.sbe.v1.3.bookin", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_in_optional = ProtoField.new("Book In Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.bookinoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_out_time = ProtoField.new("Book Out Time", "euronext.optiq.orderentrygateway.sbe.v1.3.bookouttime", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_out_time_optional = ProtoField.new("Book Out Time Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.bookouttimeoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.breached_collar_price = ProtoField.new("Breached Collar Price", "euronext.optiq.orderentrygateway.sbe.v1.3.breachedcollarprice", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.buy_revision_flag = ProtoField.new("Buy Revision Flag", "euronext.optiq.orderentrygateway.sbe.v1.3.buyrevisionflag", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.bypass_indicator = ProtoField.new("Bypass Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.bypassindicator", ftypes.UINT8)
@@ -53,7 +51,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_id = ProtoField.new(
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_identification_short_code_cross = ProtoField.new("Client Identification Short Code Cross", "euronext.optiq.orderentrygateway.sbe.v1.3.clientidentificationshortcodecross", ftypes.INT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_identification_shortcode = ProtoField.new("Client Identification Shortcode", "euronext.optiq.orderentrygateway.sbe.v1.3.clientidentificationshortcode", ftypes.INT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_order_id = ProtoField.new("Client Order Id", "euronext.optiq.orderentrygateway.sbe.v1.3.clientorderid", ftypes.INT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_order_id_optional = ProtoField.new("Client Order Id Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.clientorderidoptional", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_fields_group = ProtoField.new("Collar Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.collarfieldsgroup", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_fields_groups = ProtoField.new("Collar Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.collarfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.collar_rej_type = ProtoField.new("Collar Rej Type", "euronext.optiq.orderentrygateway.sbe.v1.3.collarrejtype", ftypes.UINT8)
@@ -64,7 +61,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dark_execution_instruction 
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dark_indicator = ProtoField.new("Dark Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.darkindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.dea_indicator = ProtoField.new("Dea Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.deaindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_id = ProtoField.new("Declaration Id", "euronext.optiq.orderentrygateway.sbe.v1.3.declarationid", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_id_optional = ProtoField.new("Declaration Id Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.declarationidoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_status = ProtoField.new("Declaration Status", "euronext.optiq.orderentrygateway.sbe.v1.3.declarationstatus", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.deferral_indicator = ProtoField.new("Deferral Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.deferralindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.deferred_trade_indicator = ProtoField.new("Deferred Trade Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.deferredtradeindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -84,7 +80,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_id = ProtoField.n
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_instruction = ProtoField.new("Execution Instruction", "euronext.optiq.orderentrygateway.sbe.v1.3.executioninstruction", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_phase = ProtoField.new("Execution Phase", "euronext.optiq.orderentrygateway.sbe.v1.3.executionphase", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_within_firm_short_code = ProtoField.new("Execution Within Firm Short Code", "euronext.optiq.orderentrygateway.sbe.v1.3.executionwithinfirmshortcode", ftypes.INT32)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_within_firm_short_code_optional = ProtoField.new("Execution Within Firm Short Code Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.executionwithinfirmshortcodeoptional", ftypes.INT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.family_id = ProtoField.new("Family Id", "euronext.optiq.orderentrygateway.sbe.v1.3.familyid", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.field_actively_used = ProtoField.new("Field Actively Used", "euronext.optiq.orderentrygateway.sbe.v1.3.fieldactivelyused", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_optional_field_group = ProtoField.new("Fill Optional Field Group", "euronext.optiq.orderentrygateway.sbe.v1.3.filloptionalfieldgroup", ftypes.STRING)
@@ -114,7 +109,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.kill_reason = ProtoField.ne
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.last_book_in_time = ProtoField.new("Last Book In Time", "euronext.optiq.orderentrygateway.sbe.v1.3.lastbookintime", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.last_cl_msg_seq_num = ProtoField.new("Last Cl Msg Seq Num", "euronext.optiq.orderentrygateway.sbe.v1.3.lastclmsgseqnum", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.last_msg_seq_num = ProtoField.new("Last Msg Seq Num", "euronext.optiq.orderentrygateway.sbe.v1.3.lastmsgseqnum", ftypes.UINT32)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.last_msg_seq_num_optional = ProtoField.new("Last Msg Seq Num Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.lastmsgseqnumoptional", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.last_shares = ProtoField.new("Last Shares", "euronext.optiq.orderentrygateway.sbe.v1.3.lastshares", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.last_traded_px = ProtoField.new("Last Traded Px", "euronext.optiq.orderentrygateway.sbe.v1.3.lasttradedpx", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leaves_qty = ProtoField.new("Leaves Qty", "euronext.optiq.orderentrygateway.sbe.v1.3.leavesqty", ftypes.UINT64)
@@ -155,13 +149,10 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.non_executing_broker_short_
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.num_in_group = ProtoField.new("Num In Group", "euronext.optiq.orderentrygateway.sbe.v1.3.numingroup", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.number_of_lps = ProtoField.new("Number Of Lps", "euronext.optiq.orderentrygateway.sbe.v1.3.numberoflps", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oe_partition_id = ProtoField.new("Oe Partition Id", "euronext.optiq.orderentrygateway.sbe.v1.3.oepartitionid", ftypes.UINT16)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oe_partition_id_optional = ProtoField.new("Oe Partition Id Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.oepartitionidoptional", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_in_from_me = ProtoField.new("Oeg In From Me", "euronext.optiq.orderentrygateway.sbe.v1.3.oeginfromme", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_in_from_me_optional = ProtoField.new("Oeg In From Me Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.oeginfrommeoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_in_from_member = ProtoField.new("Oeg In From Member", "euronext.optiq.orderentrygateway.sbe.v1.3.oeginfrommember", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_out_time_to_me = ProtoField.new("Oeg Out Time To Me", "euronext.optiq.orderentrygateway.sbe.v1.3.oegouttimetome", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_out_to_member = ProtoField.new("Oeg Out To Member", "euronext.optiq.orderentrygateway.sbe.v1.3.oegouttomember", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_out_to_member_optional = ProtoField.new("Oeg Out To Member Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.oegouttomemberoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.offer_error_code = ProtoField.new("Offer Error Code", "euronext.optiq.orderentrygateway.sbe.v1.3.offererrorcode", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.offer_order_id = ProtoField.new("Offer Order Id", "euronext.optiq.orderentrygateway.sbe.v1.3.offerorderid", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.offer_px = ProtoField.new("Offer Px", "euronext.optiq.orderentrygateway.sbe.v1.3.offerpx", ftypes.INT64)
@@ -176,13 +167,11 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_clearing_fields_group
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_expiration_date = ProtoField.new("Order Expiration Date", "euronext.optiq.orderentrygateway.sbe.v1.3.orderexpirationdate", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_expiration_time = ProtoField.new("Order Expiration Time", "euronext.optiq.orderentrygateway.sbe.v1.3.orderexpirationtime", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "euronext.optiq.orderentrygateway.sbe.v1.3.orderid", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_id_optional = ProtoField.new("Order Id Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.orderidoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_group = ProtoField.new("Order Optional Fields Group", "euronext.optiq.orderentrygateway.sbe.v1.3.orderoptionalfieldsgroup", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_groups = ProtoField.new("Order Optional Fields Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.orderoptionalfieldsgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_priority = ProtoField.new("Order Priority", "euronext.optiq.orderentrygateway.sbe.v1.3.orderpriority", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_px = ProtoField.new("Order Px", "euronext.optiq.orderentrygateway.sbe.v1.3.orderpx", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_qty = ProtoField.new("Order Qty", "euronext.optiq.orderentrygateway.sbe.v1.3.orderqty", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_qty_optional = ProtoField.new("Order Qty Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.orderqtyoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_type = ProtoField.new("Order Type", "euronext.optiq.orderentrygateway.sbe.v1.3.ordertype", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.orig_client_order_id = ProtoField.new("Orig Client Order Id", "euronext.optiq.orderentrygateway.sbe.v1.3.origclientorderid", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.other_leg_last_px = ProtoField.new("Other Leg Last Px", "euronext.optiq.orderentrygateway.sbe.v1.3.otherleglastpx", ftypes.INT64)
@@ -195,7 +184,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.pre_matching_type = ProtoFi
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.previous_day_indicator = ProtoField.new("Previous Day Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.previousdayindicator", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.pric = ProtoField.new("Pric", "euronext.optiq.orderentrygateway.sbe.v1.3.pric", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.price = ProtoField.new("Price", "euronext.optiq.orderentrygateway.sbe.v1.3.price", ftypes.INT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.price_optional = ProtoField.new("Price Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.priceoptional", ftypes.INT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.principal_code = ProtoField.new("Principal Code", "euronext.optiq.orderentrygateway.sbe.v1.3.principalcode", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.principal_code_cross = ProtoField.new("Principal Code Cross", "euronext.optiq.orderentrygateway.sbe.v1.3.principalcodecross", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "euronext.optiq.orderentrygateway.sbe.v1.3.quantity", ftypes.UINT64)
@@ -204,7 +192,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.queueing_indicator = ProtoF
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_group = ProtoField.new("Quote Acks Group", "euronext.optiq.orderentrygateway.sbe.v1.3.quoteacksgroup", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_groups = ProtoField.new("Quote Acks Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.quoteacksgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_req_id = ProtoField.new("Quote Req Id", "euronext.optiq.orderentrygateway.sbe.v1.3.quotereqid", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_req_id_optional = ProtoField.new("Quote Req Id Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.quotereqidoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_group = ProtoField.new("Quotes Rep Group", "euronext.optiq.orderentrygateway.sbe.v1.3.quotesrepgroup", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_groups = ProtoField.new("Quotes Rep Groups", "euronext.optiq.orderentrygateway.sbe.v1.3.quotesrepgroups", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.recipient_type = ProtoField.new("Recipient Type", "euronext.optiq.orderentrygateway.sbe.v1.3.recipienttype", ftypes.UINT8)
@@ -224,14 +211,11 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_update_type = ProtoFiel
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.orderentrygateway.sbe.v1.3.schemaid", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sell_revision_flag = ProtoField.new("Sell Revision Flag", "euronext.optiq.orderentrygateway.sbe.v1.3.sellrevisionflag", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sending_time = ProtoField.new("Sending Time", "euronext.optiq.orderentrygateway.sbe.v1.3.sendingtime", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sending_time_optional = ProtoField.new("Sending Time Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.sendingtimeoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_1 = ProtoField.new("Session 1", "euronext.optiq.orderentrygateway.sbe.v1.3.session1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_2 = ProtoField.new("Session 2", "euronext.optiq.orderentrygateway.sbe.v1.3.session2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_3 = ProtoField.new("Session 3", "euronext.optiq.orderentrygateway.sbe.v1.3.session3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.settlement_flag = ProtoField.new("Settlement Flag", "euronext.optiq.orderentrygateway.sbe.v1.3.settlementflag", ftypes.UINT8)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.settlement_flag_optional = ProtoField.new("Settlement Flag Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.settlementflagoptional", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.settlement_period = ProtoField.new("Settlement Period", "euronext.optiq.orderentrygateway.sbe.v1.3.settlementperiod", ftypes.UINT8)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.settlement_period_optional = ProtoField.new("Settlement Period Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.settlementperiodoptional", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.side = ProtoField.new("Side", "euronext.optiq.orderentrygateway.sbe.v1.3.side", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.side_optional = ProtoField.new("Side Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.sideoptional", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.size = ProtoField.new("Size", "euronext.optiq.orderentrygateway.sbe.v1.3.size", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
@@ -244,7 +228,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stp_resting_order = ProtoFi
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.stpid = ProtoField.new("Stpid", "euronext.optiq.orderentrygateway.sbe.v1.3.stpid", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sweep_order_indicator = ProtoField.new("Sweep Order Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.sweeporderindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.symbol_index = ProtoField.new("Symbol Index", "euronext.optiq.orderentrygateway.sbe.v1.3.symbolindex", ftypes.UINT32)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.symbol_index_optional = ProtoField.new("Symbol Index Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.symbolindexoptional", ftypes.UINT32)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.technical_origin = ProtoField.new("Technical Origin", "euronext.optiq.orderentrygateway.sbe.v1.3.technicalorigin", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "euronext.optiq.orderentrygateway.sbe.v1.3.templateid", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.time_in_force = ProtoField.new("Time In Force", "euronext.optiq.orderentrygateway.sbe.v1.3.timeinforce", ftypes.UINT8)
@@ -252,7 +235,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.total_affected_orders = Pro
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_creation_by_market_operations = ProtoField.new("Trade Creation By Market Operations", "euronext.optiq.orderentrygateway.sbe.v1.3.tradecreationbymarketoperations", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "euronext.optiq.orderentrygateway.sbe.v1.3.tradequalifier", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_time = ProtoField.new("Trade Time", "euronext.optiq.orderentrygateway.sbe.v1.3.tradetime", ftypes.UINT64)
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_time_optional = ProtoField.new("Trade Time Optional", "euronext.optiq.orderentrygateway.sbe.v1.3.tradetimeoptional", ftypes.UINT64)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_type = ProtoField.new("Trade Type", "euronext.optiq.orderentrygateway.sbe.v1.3.tradetype", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trading_capacity = ProtoField.new("Trading Capacity", "euronext.optiq.orderentrygateway.sbe.v1.3.tradingcapacity", ftypes.UINT8)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trading_capacity_cross = ProtoField.new("Trading Capacity Cross", "euronext.optiq.orderentrygateway.sbe.v1.3.tradingcapacitycross", ftypes.UINT8)
@@ -288,6 +270,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_notice_message 
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_message = ProtoField.new("Fill Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fillmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fund_price_input_ack_message = ProtoField.new("Fund Price Input Ack Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fundpriceinputackmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fund_price_input_message = ProtoField.new("Fund Price Input Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fundpriceinputmessage", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "euronext.optiq.orderentrygateway.sbe.v1.3.heartbeatmessage", ftypes.BYTES)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_list_message = ProtoField.new("Instrument Synchronization List Message", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationlistmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.kill_message = ProtoField.new("Kill Message", "euronext.optiq.orderentrygateway.sbe.v1.3.killmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.liquidity_provider_command_message = ProtoField.new("Liquidity Provider Command Message", "euronext.optiq.orderentrygateway.sbe.v1.3.liquidityprovidercommandmessage", ftypes.STRING)
@@ -311,6 +294,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_matching_status_message
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_notification_message = ProtoField.new("Rfq Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.rfqnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.synchronization_time_message = ProtoField.new("Synchronization Time Message", "euronext.optiq.orderentrygateway.sbe.v1.3.synchronizationtimemessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.technical_reject_message = ProtoField.new("Technical Reject Message", "euronext.optiq.orderentrygateway.sbe.v1.3.technicalrejectmessage", ftypes.STRING)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.test_request_message = ProtoField.new("Test Request Message", "euronext.optiq.orderentrygateway.sbe.v1.3.testrequestmessage", ftypes.BYTES)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.tradebustnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.usernotificationmessage", ftypes.STRING)
 
@@ -949,6 +933,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size = 8
 
 -- Display: Book In
 euronext_optiq_orderentrygateway_sbe_v1_3.book_in.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Book In: No Value"
+  end
+
   return "Book In: "..value
 end
 
@@ -964,34 +953,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Book In Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional = {}
-
--- Size: Book In Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional.size = 8
-
--- Display: Book In Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Book In Optional: No Value"
-  end
-
-  return "Book In Optional: "..value
-end
-
--- Dissect: Book In Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_in_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Book Out Time
 euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time = {}
 
@@ -1000,6 +961,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size = 8
 
 -- Display: Book Out Time
 euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Book Out Time: No Value"
+  end
+
   return "Book Out Time: "..value
 end
 
@@ -1011,34 +977,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect = function(buffe
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_out_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Book Out Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional = {}
-
--- Size: Book Out Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size = 8
-
--- Display: Book Out Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Book Out Time Optional: No Value"
-  end
-
-  return "Book Out Time Optional: "..value
-end
-
--- Dissect: Book Out Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.book_out_time_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1182,6 +1120,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cl_msg_seq_num.size = 4
 
 -- Display: Cl Msg Seq Num
 euronext_optiq_orderentrygateway_sbe_v1_3.cl_msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Cl Msg Seq Num: No Value"
+  end
+
   return "Cl Msg Seq Num: "..value
 end
 
@@ -1387,6 +1330,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size = 8
 
 -- Display: Client Order Id
 euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Client Order Id: No Value"
+  end
+
   return "Client Order Id: "..value
 end
 
@@ -1398,34 +1346,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect = function(buf
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Client Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional = {}
-
--- Size: Client Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.size = 8
-
--- Display: Client Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Client Order Id Optional: No Value"
-  end
-
-  return "Client Order Id Optional: "..value
-end
-
--- Dissect: Client Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.client_order_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1538,6 +1458,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.size = 8
 
 -- Display: Declaration Id
 euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Declaration Id: No Value"
+  end
+
   return "Declaration Id: "..value
 end
 
@@ -1549,34 +1474,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.dissect = function(buff
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Declaration Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional = {}
-
--- Size: Declaration Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional.size = 8
-
--- Display: Declaration Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Declaration Id Optional: No Value"
-  end
-
-  return "Declaration Id Optional: "..value
-end
-
--- Dissect: Declaration Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1885,6 +1782,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.error_code.size = 2
 
 -- Display: Error Code
 euronext_optiq_orderentrygateway_sbe_v1_3.error_code.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Error Code: No Value"
+  end
+
   return "Error Code: "..value
 end
 
@@ -1947,6 +1849,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.execution_id.size = 4
 
 -- Display: Execution Id
 euronext_optiq_orderentrygateway_sbe_v1_3.execution_id.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Execution Id: No Value"
+  end
+
   return "Execution Id: "..value
 end
 
@@ -2009,6 +1916,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.size 
 
 -- Display: Execution Within Firm Short Code
 euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Execution Within Firm Short Code: No Value"
+  end
+
   return "Execution Within Firm Short Code: "..value
 end
 
@@ -2020,34 +1932,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.disse
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_within_firm_short_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution Within Firm Short Code Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional = {}
-
--- Size: Execution Within Firm Short Code Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional.size = 4
-
--- Display: Execution Within Firm Short Code Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional.display = function(value)
-  -- Check if field has value
-  if value == -2147483648 then
-    return "Execution Within Firm Short Code Optional: No Value"
-  end
-
-  return "Execution Within Firm Short Code Optional: "..value
-end
-
--- Dissect: Execution Within Firm Short Code Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.execution_within_firm_short_code_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2177,6 +2061,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.firm_id_publication.size = 1
 
 -- Display: Firm Id Publication
 euronext_optiq_orderentrygateway_sbe_v1_3.firm_id_publication.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Firm Id Publication: No Value"
+  end
+
   return "Firm Id Publication: "..value
 end
 
@@ -2561,6 +2450,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.last_book_in_time.size = 8
 
 -- Display: Last Book In Time
 euronext_optiq_orderentrygateway_sbe_v1_3.last_book_in_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Last Book In Time: No Value"
+  end
+
   return "Last Book In Time: "..value
 end
 
@@ -2584,6 +2478,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.last_cl_msg_seq_num.size = 4
 
 -- Display: Last Cl Msg Seq Num
 euronext_optiq_orderentrygateway_sbe_v1_3.last_cl_msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Cl Msg Seq Num: No Value"
+  end
+
   return "Last Cl Msg Seq Num: "..value
 end
 
@@ -2607,6 +2506,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num.size = 4
 
 -- Display: Last Msg Seq Num
 euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Msg Seq Num: No Value"
+  end
+
   return "Last Msg Seq Num: "..value
 end
 
@@ -2622,34 +2526,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num.dissect = function(bu
   return offset + length, value
 end
 
--- Last Msg Seq Num Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional = {}
-
--- Size: Last Msg Seq Num Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional.size = 4
-
--- Display: Last Msg Seq Num Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Last Msg Seq Num Optional: No Value"
-  end
-
-  return "Last Msg Seq Num Optional: "..value
-end
-
--- Dissect: Last Msg Seq Num Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.last_msg_seq_num_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Last Shares
 euronext_optiq_orderentrygateway_sbe_v1_3.last_shares = {}
 
@@ -2658,6 +2534,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.last_shares.size = 8
 
 -- Display: Last Shares
 euronext_optiq_orderentrygateway_sbe_v1_3.last_shares.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Last Shares: No Value"
+  end
+
   return "Last Shares: "..value
 end
 
@@ -2681,6 +2562,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.last_traded_px.size = 8
 
 -- Display: Last Traded Px
 euronext_optiq_orderentrygateway_sbe_v1_3.last_traded_px.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Last Traded Px: No Value"
+  end
+
   return "Last Traded Px: "..value
 end
 
@@ -2704,6 +2590,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.leaves_qty.size = 8
 
 -- Display: Leaves Qty
 euronext_optiq_orderentrygateway_sbe_v1_3.leaves_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Leaves Qty: No Value"
+  end
+
   return "Leaves Qty: "..value
 end
 
@@ -2886,6 +2777,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.size = 4
 
 -- Display: Logical Access Id
 euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Logical Access Id: No Value"
+  end
+
   return "Logical Access Id: "..value
 end
 
@@ -3019,16 +2915,21 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional = {}
 
 -- Size: Lp Role Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.size = 4
+euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.size = 1
 
 -- Display: Lp Role Optional
 euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
+  if value == 1 then
+    return "Lp Role Optional: Liquidity Provideror Market Maker (1)"
+  end
+  if value == 3 then
+    return "Lp Role Optional: Retail Liquidity Provider (3)"
+  end
+  if value == 255 then
     return "Lp Role Optional: No Value"
   end
 
-  return "Lp Role Optional: "..value
+  return "Lp Role Optional: Unknown("..value..")"
 end
 
 -- Dissect: Lp Role Optional
@@ -3185,6 +3086,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size = 4
 
 -- Display: Msg Seq Num
 euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Msg Seq Num: No Value"
+  end
+
   return "Msg Seq Num: "..value
 end
 
@@ -3287,6 +3193,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.size = 2
 
 -- Display: Oe Partition Id
 euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Oe Partition Id: No Value"
+  end
+
   return "Oe Partition Id: "..value
 end
 
@@ -3302,34 +3213,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.dissect = function(buf
   return offset + length, value
 end
 
--- Oe Partition Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional = {}
-
--- Size: Oe Partition Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.size = 2
-
--- Display: Oe Partition Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.display = function(value)
-  -- Check if field has value
-  if value == 65535 then
-    return "Oe Partition Id Optional: No Value"
-  end
-
-  return "Oe Partition Id Optional: "..value
-end
-
--- Dissect: Oe Partition Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oe_partition_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Oeg In From Me
 euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me = {}
 
@@ -3338,6 +3221,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size = 8
 
 -- Display: Oeg In From Me
 euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Oeg In From Me: No Value"
+  end
+
   return "Oeg In From Me: "..value
 end
 
@@ -3349,34 +3237,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect = function(buff
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_in_from_me, range, value, display)
-
-  return offset + length, value
-end
-
--- Oeg In From Me Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional = {}
-
--- Size: Oeg In From Me Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size = 8
-
--- Display: Oeg In From Me Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Oeg In From Me Optional: No Value"
-  end
-
-  return "Oeg In From Me Optional: "..value
-end
-
--- Dissect: Oeg In From Me Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_in_from_me_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3445,6 +3305,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size = 8
 
 -- Display: Oeg Out To Member
 euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Oeg Out To Member: No Value"
+  end
+
   return "Oeg Out To Member: "..value
 end
 
@@ -3456,34 +3321,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect = function(b
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_out_to_member, range, value, display)
-
-  return offset + length, value
-end
-
--- Oeg Out To Member Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional = {}
-
--- Size: Oeg Out To Member Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size = 8
-
--- Display: Oeg Out To Member Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Oeg Out To Member Optional: No Value"
-  end
-
-  return "Oeg Out To Member Optional: "..value
-end
-
--- Dissect: Oeg Out To Member Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.oeg_out_to_member_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3736,6 +3573,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size = 8
 
 -- Display: Order Id
 euronext_optiq_orderentrygateway_sbe_v1_3.order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Id: No Value"
+  end
+
   return "Order Id: "..value
 end
 
@@ -3747,34 +3589,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect = function(buffer, of
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional = {}
-
--- Size: Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size = 8
-
--- Display: Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Order Id Optional: No Value"
-  end
-
-  return "Order Id Optional: "..value
-end
-
--- Dissect: Order Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3843,6 +3657,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_qty.size = 8
 
 -- Display: Order Qty
 euronext_optiq_orderentrygateway_sbe_v1_3.order_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Qty: No Value"
+  end
+
   return "Order Qty: "..value
 end
 
@@ -3854,34 +3673,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_qty.dissect = function(buffer, o
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional = {}
-
--- Size: Order Qty Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional.size = 8
-
--- Display: Order Qty Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Order Qty Optional: No Value"
-  end
-
-  return "Order Qty Optional: "..value
-end
-
--- Dissect: Order Qty Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_qty_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4099,6 +3890,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.potential_matching_qty.size = 8
 
 -- Display: Potential Matching Qty
 euronext_optiq_orderentrygateway_sbe_v1_3.potential_matching_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Potential Matching Qty: No Value"
+  end
+
   return "Potential Matching Qty: "..value
 end
 
@@ -4195,6 +3991,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.price.size = 8
 
 -- Display: Price
 euronext_optiq_orderentrygateway_sbe_v1_3.price.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
@@ -4206,34 +4007,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.price.dissect = function(buffer, offse
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.price_optional = {}
-
--- Size: Price Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.size = 8
-
--- Display: Price Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Price Optional: No Value"
-  end
-
-  return "Price Optional: "..value
-end
-
--- Dissect: Price Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4352,6 +4125,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.queueing_indicator.size = 1
 
 -- Display: Queueing Indicator
 euronext_optiq_orderentrygateway_sbe_v1_3.queueing_indicator.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Queueing Indicator: No Value"
+  end
+
   return "Queueing Indicator: "..value
 end
 
@@ -4375,6 +4153,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.size = 8
 
 -- Display: Quote Req Id
 euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Quote Req Id: No Value"
+  end
+
   return "Quote Req Id: "..value
 end
 
@@ -4386,34 +4169,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.dissect = function(buffer
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_req_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional = {}
-
--- Size: Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size = 8
-
--- Display: Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quote Req Id Optional: No Value"
-  end
-
-  return "Quote Req Id Optional: "..value
-end
-
--- Dissect: Quote Req Id Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_req_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4540,6 +4295,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.size = 2
 
 -- Display: Resynchronization Id
 euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Resynchronization Id: No Value"
+  end
+
   return "Resynchronization Id: "..value
 end
 
@@ -4563,6 +4323,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.rfe_answer.size = 1
 
 -- Display: Rfe Answer
 euronext_optiq_orderentrygateway_sbe_v1_3.rfe_answer.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Rfe Answer: No Value"
+  end
+
   return "Rfe Answer: "..value
 end
 
@@ -4685,6 +4450,12 @@ euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.size = 8
 
 -- Display: Sending Time
 euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Sending Time: No Value"
+
+  end
+
   -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
@@ -4704,34 +4475,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.dissect = function(buffer
   return offset + length, value
 end
 
--- Sending Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional = {}
-
--- Size: Sending Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.size = 8
-
--- Display: Sending Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Sending Time Optional: No Value"
-  end
-
-  return "Sending Time Optional: "..value
-end
-
--- Dissect: Sending Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.sending_time_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Settlement Flag
 euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag = {}
 
@@ -4740,6 +4483,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag.size = 1
 
 -- Display: Settlement Flag
 euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Settlement Flag: No Value"
+  end
+
   return "Settlement Flag: "..value
 end
 
@@ -4755,34 +4503,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag.dissect = function(buf
   return offset + length, value
 end
 
--- Settlement Flag Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional = {}
-
--- Size: Settlement Flag Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional.size = 1
-
--- Display: Settlement Flag Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Settlement Flag Optional: No Value"
-  end
-
-  return "Settlement Flag Optional: "..value
-end
-
--- Dissect: Settlement Flag Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.settlement_flag_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Settlement Period
 euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period = {}
 
@@ -4791,6 +4511,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period.size = 1
 
 -- Display: Settlement Period
 euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Settlement Period: No Value"
+  end
+
   return "Settlement Period: "..value
 end
 
@@ -4802,34 +4527,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period.dissect = function(b
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.settlement_period, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Period Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional = {}
-
--- Size: Settlement Period Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional.size = 1
-
--- Display: Settlement Period Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional.display = function(value)
-  -- Check if field has value
-  if value == 255 then
-    return "Settlement Period Optional: No Value"
-  end
-
-  return "Settlement Period Optional: "..value
-end
-
--- Dissect: Settlement Period Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.settlement_period_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5064,6 +4761,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size = 4
 
 -- Display: Symbol Index
 euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Symbol Index: No Value"
+  end
+
   return "Symbol Index: "..value
 end
 
@@ -5075,34 +4777,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect = function(buffer
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.symbol_index, range, value, display)
-
-  return offset + length, value
-end
-
--- Symbol Index Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional = {}
-
--- Size: Symbol Index Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.size = 4
-
--- Display: Symbol Index Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Symbol Index Optional: No Value"
-  end
-
-  return "Symbol Index Optional: "..value
-end
-
--- Dissect: Symbol Index Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.symbol_index_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5352,6 +5026,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.total_affected_orders.size = 4
 
 -- Display: Total Affected Orders
 euronext_optiq_orderentrygateway_sbe_v1_3.total_affected_orders.display = function(value)
+  -- Check if field has value
+  if value == -2147483648 then
+    return "Total Affected Orders: No Value"
+  end
+
   return "Total Affected Orders: "..value
 end
 
@@ -5375,6 +5054,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.size = 8
 
 -- Display: Trade Time
 euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Trade Time: No Value"
+  end
+
   return "Trade Time: "..value
 end
 
@@ -5386,34 +5070,6 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.dissect = function(buffer, 
   local display = euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_time, range, value, display)
-
-  return offset + length, value
-end
-
--- Trade Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional = {}
-
--- Size: Trade Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional.size = 8
-
--- Display: Trade Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Trade Time Optional: No Value"
-  end
-
-  return "Trade Time Optional: "..value
-end
-
--- Dissect: Trade Time Optional
-euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_time_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5886,7 +5542,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.technical_reject_message = {}
 
 -- Size: Technical Reject Message
 euronext_optiq_orderentrygateway_sbe_v1_3.technical_reject_message.size =
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.rejected_client_message_sequence_number.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.rejected_message.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.error_code.size + 
@@ -5901,8 +5557,8 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3.technical_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
   -- Rejected Client Message Sequence Number: uint32_t
   index, rejected_client_message_sequence_number = euronext_optiq_orderentrygateway_sbe_v1_3.rejected_client_message_sequence_number.dissect(buffer, index, packet, parent)
@@ -6114,7 +5770,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.logon_message = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.logon_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.software_provider.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.queueing_indicator.size
 
@@ -6133,8 +5789,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.logon_message.fields = function(buffer
   -- Oe Partition Id: uint16_t
   index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Last Msg Seq Num Optional: uint32_t
-  index, last_msg_seq_num_optional = euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num_optional.dissect(buffer, index, packet, parent)
+  -- Last Msg Seq Num: uint32_t
+  index, last_msg_seq_num = euronext_optiq_orderentrygateway_sbe_v1_3.last_msg_seq_num.dissect(buffer, index, packet, parent)
 
   -- Software Provider: char8
   index, software_provider = euronext_optiq_orderentrygateway_sbe_v1_3.software_provider.dissect(buffer, index, packet, parent)
@@ -6169,7 +5825,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.synchronization_time_message = {}
 -- Size: Synchronization Time Message
 euronext_optiq_orderentrygateway_sbe_v1_3.synchronization_time_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.last_book_in_time.size
 
@@ -6185,8 +5841,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.synchronization_time_message.fields = 
   -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
   -- Resynchronization Id: uint16_t
   index, resynchronization_id = euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.dissect(buffer, index, packet, parent)
@@ -6375,7 +6031,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_messag
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.size
 
@@ -6396,8 +6052,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.instrument_synchronization_list_messag
   -- Msg Seq Num: uint32_t
   index, msg_seq_num = euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
   -- Resynchronization Id: uint16_t
   index, resynchronization_id = euronext_optiq_orderentrygateway_sbe_v1_3.resynchronization_id.dissect(buffer, index, packet, parent)
@@ -6798,7 +6454,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_notice_message = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.declaration_notice_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.declaration_status.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.operation_type.size + 
@@ -6807,9 +6463,9 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_notice_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.entering_counterparty.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.side_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.quantity.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.price.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.pre_matching_type.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.mi_cof_secondary_listing.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.centralisation_date.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.clearing_firm_id.size + 
@@ -6817,8 +6473,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_notice_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.account_type_cross.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.trading_capacity_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.trading_capacity_cross.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.guarantee_flag_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.transaction_price_type.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.principal_code.size + 
@@ -6849,8 +6505,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_notice_message.fields = fu
   -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: int64_t
-  index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Declaration Id: uint64_t
   index, declaration_id = euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.dissect(buffer, index, packet, parent)
@@ -6876,14 +6532,14 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_notice_message.fields = fu
   -- Quantity: uint64_t
   index, quantity = euronext_optiq_orderentrygateway_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: int64_t
-  index, price_optional = euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_orderentrygateway_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   -- Pre Matching Type: PreMatchingType_enum
   index, pre_matching_type = euronext_optiq_orderentrygateway_sbe_v1_3.pre_matching_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Time Optional: uint64_t
-  index, trade_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.trade_time_optional.dissect(buffer, index, packet, parent)
+  -- Trade Time: uint64_t
+  index, trade_time = euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.dissect(buffer, index, packet, parent)
 
   -- Mi Cof Secondary Listing: char4
   index, mi_cof_secondary_listing = euronext_optiq_orderentrygateway_sbe_v1_3.mi_cof_secondary_listing.dissect(buffer, index, packet, parent)
@@ -6906,11 +6562,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_notice_message.fields = fu
   -- Trading Capacity Cross: TradingCapacityCross_enum
   index, trading_capacity_cross = euronext_optiq_orderentrygateway_sbe_v1_3.trading_capacity_cross.dissect(buffer, index, packet, parent)
 
-  -- Settlement Flag Optional: unsigned_char
-  index, settlement_flag_optional = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Flag: unsigned_char
+  index, settlement_flag = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_flag.dissect(buffer, index, packet, parent)
 
-  -- Settlement Period Optional: unsigned_char
-  index, settlement_period_optional = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Period: unsigned_char
+  index, settlement_period = euronext_optiq_orderentrygateway_sbe_v1_3.settlement_period.dissect(buffer, index, packet, parent)
 
   -- Guarantee Flag Optional: GuaranteeFlag_enum
   index, guarantee_flag_optional = euronext_optiq_orderentrygateway_sbe_v1_3.guarantee_flag_optional.dissect(buffer, index, packet, parent)
@@ -6982,7 +6638,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_entry_ack_message = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.declaration_entry_ack_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size + 
@@ -7006,8 +6662,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_entry_ack_message.fields =
   -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Declaration Id Optional: uint64_t
-  index, declaration_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id_optional.dissect(buffer, index, packet, parent)
+  -- Declaration Id: uint64_t
+  index, declaration_id = euronext_optiq_orderentrygateway_sbe_v1_3.declaration_id.dissect(buffer, index, packet, parent)
 
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
@@ -7137,7 +6793,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_entry_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.entering_counterparty.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.side.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.quantity.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.price.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_identification_shortcode.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.mi_cof_secondary_listing.size + 
@@ -7203,8 +6859,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.declaration_entry_message.fields = fun
   -- Quantity: uint64_t
   index, quantity = euronext_optiq_orderentrygateway_sbe_v1_3.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: int64_t
-  index, price_optional = euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_orderentrygateway_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   -- Execution Within Firm Short Code: int32_t
   index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
@@ -7309,10 +6965,10 @@ euronext_optiq_orderentrygateway_sbe_v1_3.user_notification_message = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.user_notification_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_identification_shortcode.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.family_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.user_status.size
 
 -- Display: User Notification Message
@@ -7330,8 +6986,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.user_notification_message.fields = fun
   -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code Optional: int32_t
-  index, execution_within_firm_short_code_optional = euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code_optional.dissect(buffer, index, packet, parent)
+  -- Execution Within Firm Short Code: int32_t
+  index, execution_within_firm_short_code = euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.dissect(buffer, index, packet, parent)
 
   -- Client Identification Shortcode: int32_t
   index, client_identification_shortcode = euronext_optiq_orderentrygateway_sbe_v1_3.client_identification_shortcode.dissect(buffer, index, packet, parent)
@@ -7339,8 +6995,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.user_notification_message.fields = fun
   -- Family Id: char8
   index, family_id = euronext_optiq_orderentrygateway_sbe_v1_3.family_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: uint32_t
-  index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.dissect(buffer, index, packet, parent)
+  -- Symbol Index: uint32_t
+  index, symbol_index = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect(buffer, index, packet, parent)
 
   -- User Status: UserStatus_enum
   index, user_status = euronext_optiq_orderentrygateway_sbe_v1_3.user_status.dissect(buffer, index, packet, parent)
@@ -7374,9 +7030,9 @@ euronext_optiq_orderentrygateway_sbe_v1_3.rfq_matching_status_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.potential_matching_px.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.potential_matching_qty.size + 
@@ -7404,14 +7060,14 @@ euronext_optiq_orderentrygateway_sbe_v1_3.rfq_matching_status_message.fields = f
   -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
   -- Quote Req Id: uint64_t
   index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.dissect(buffer, index, packet, parent)
@@ -7466,9 +7122,9 @@ euronext_optiq_orderentrygateway_sbe_v1_3.rfq_notification_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_qty.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.counterpart_firm_id.size + 
@@ -7496,14 +7152,14 @@ euronext_optiq_orderentrygateway_sbe_v1_3.rfq_notification_message.fields = func
   -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
   -- Quote Req Id: uint64_t
   index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.dissect(buffer, index, packet, parent)
@@ -7744,7 +7400,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.price_input_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.input_price_type.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.size
+  euronext_optiq_orderentrygateway_sbe_v1_3.price.size
 
 -- Display: Price Input Message
 euronext_optiq_orderentrygateway_sbe_v1_3.price_input_message.display = function(packet, parent, length)
@@ -7782,8 +7438,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.price_input_message.fields = function(
   -- Input Price Type: InputPriceType_enum
   index, input_price_type = euronext_optiq_orderentrygateway_sbe_v1_3.input_price_type.dissect(buffer, index, packet, parent)
 
-  -- Price Optional: int64_t
-  index, price_optional = euronext_optiq_orderentrygateway_sbe_v1_3.price_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_orderentrygateway_sbe_v1_3.price.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7819,7 +7475,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.collar_breach_confirmation_message.siz
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.size
 
 -- Display: Collar Breach Confirmation Message
@@ -7855,8 +7511,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.collar_breach_confirmation_message.fie
   -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v1_3.emm.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.dissect(buffer, index, packet, parent)
@@ -7890,9 +7546,9 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_bust_notification_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.execution_id.size + 
@@ -7917,14 +7573,14 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_bust_notification_message.fields
   -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect(buffer, index, packet, parent)
@@ -7973,12 +7629,12 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ownership_request_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_identification_shortcode.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.size
+  euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.size
 
 -- Display: Ownership Request Message
 euronext_optiq_orderentrygateway_sbe_v1_3.ownership_request_message.display = function(packet, parent, length)
@@ -8007,8 +7663,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ownership_request_message.fields = fun
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.dissect(buffer, index, packet, parent)
@@ -8019,11 +7675,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ownership_request_message.fields = fun
   -- Emm: EMM_enum
   index, emm = euronext_optiq_orderentrygateway_sbe_v1_3.emm.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: uint32_t
-  index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: uint16_t
-  index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8054,10 +7710,10 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ownership_request_ack_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.total_affected_orders.size
 
 -- Display: Ownership Request Ack Message
@@ -8078,17 +7734,17 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ownership_request_ack_message.fields =
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: uint32_t
-  index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: uint16_t
-  index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.dissect(buffer, index, packet, parent)
 
   -- Total Affected Orders: int32_t
   index, total_affected_orders = euronext_optiq_orderentrygateway_sbe_v1_3.total_affected_orders.dissect(buffer, index, packet, parent)
@@ -8125,7 +7781,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.open_order_request_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_identification_shortcode.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size
@@ -8157,8 +7813,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.open_order_request_message.fields = fu
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.dissect(buffer, index, packet, parent)
@@ -8197,7 +7853,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_ack_message = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_ack_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_time_to_me.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size + 
@@ -8206,12 +7862,12 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_ack_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.total_affected_orders.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.instrument_group_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.side_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.contract_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.maturity.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.account_type_optional.size + 
@@ -8232,8 +7888,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_ack_message.fields = funct
   -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: uint64_t
-  index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.dissect(buffer, index, packet, parent)
+  -- Sending Time: uint64_t
+  index, sending_time = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
 
   -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.dissect(buffer, index, packet, parent)
@@ -8259,8 +7915,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_ack_message.fields = funct
   -- Total Affected Orders: int32_t
   index, total_affected_orders = euronext_optiq_orderentrygateway_sbe_v1_3.total_affected_orders.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: uint32_t
-  index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.dissect(buffer, index, packet, parent)
+  -- Symbol Index: uint32_t
+  index, symbol_index = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v1_3.emm_optional.dissect(buffer, index, packet, parent)
@@ -8271,11 +7927,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_ack_message.fields = funct
   -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: uint32_t
-  index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: uint16_t
-  index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.dissect(buffer, index, packet, parent)
 
   -- Contract Id: uint32_t
   index, contract_id = euronext_optiq_orderentrygateway_sbe_v1_3.contract_id.dissect(buffer, index, packet, parent)
@@ -8321,12 +7977,12 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_identification_shortcode.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.instrument_group_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.side_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.contract_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.maturity.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.account_type_optional.size + 
@@ -8359,8 +8015,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_message.fields = function(
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: uint32_t
-  index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.dissect(buffer, index, packet, parent)
+  -- Symbol Index: uint32_t
+  index, symbol_index = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v1_3.emm_optional.dissect(buffer, index, packet, parent)
@@ -8371,11 +8027,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mass_cancel_message.fields = function(
   -- Side Optional: MassCancelAckOrderSide_enum
   index, side_optional = euronext_optiq_orderentrygateway_sbe_v1_3.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Lp Role Optional: uint32_t
-  index, lp_role_optional = euronext_optiq_orderentrygateway_sbe_v1_3.lp_role_optional.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_orderentrygateway_sbe_v1_3.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition Id Optional: uint16_t
-  index, oe_partition_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id_optional.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_orderentrygateway_sbe_v1_3.oe_partition_id.dissect(buffer, index, packet, parent)
 
   -- Contract Id: uint32_t
   index, contract_id = euronext_optiq_orderentrygateway_sbe_v1_3.contract_id.dissect(buffer, index, packet, parent)
@@ -8421,7 +8077,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_request_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.execution_within_firm_short_code.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_identification_shortcode.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size + 
@@ -8455,8 +8111,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_request_message.fields = functi
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.dissect(buffer, index, packet, parent)
@@ -8720,7 +8376,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.size = function(buff
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.size
 
@@ -8728,11 +8384,11 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.size = function(buff
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size
 
@@ -8760,8 +8416,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.fields = function(bu
   -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: uint64_t
-  index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.dissect(buffer, index, packet, parent)
+  -- Sending Time: uint64_t
+  index, sending_time = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
 
   -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.dissect(buffer, index, packet, parent)
@@ -8772,14 +8428,14 @@ euronext_optiq_orderentrygateway_sbe_v1_3.quote_ack_message.fields = function(bu
   -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
@@ -9504,25 +9160,25 @@ euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.size = function(buffer,
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.firm_id_optional.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_time_to_me.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.emm_optional.size
 
@@ -9552,8 +9208,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.fields = function(buffe
   -- Firm Id Optional: char8
   index, firm_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: uint64_t
-  index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.dissect(buffer, index, packet, parent)
+  -- Sending Time: uint64_t
+  index, sending_time = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
 
   -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.dissect(buffer, index, packet, parent)
@@ -9561,26 +9217,26 @@ euronext_optiq_orderentrygateway_sbe_v1_3.reject_message.fields = function(buffe
   -- Oeg Out Time To Me: uint64_t
   index, oeg_out_time_to_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_time_to_me.dissect(buffer, index, packet, parent)
 
-  -- Book In Optional: uint64_t
-  index, book_in_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_in_optional.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: int64_t
-  index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index Optional: uint32_t
-  index, symbol_index_optional = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index_optional.dissect(buffer, index, packet, parent)
+  -- Symbol Index: uint32_t
+  index, symbol_index = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect(buffer, index, packet, parent)
 
   -- Emm Optional: EMM_enum
   index, emm_optional = euronext_optiq_orderentrygateway_sbe_v1_3.emm_optional.dissect(buffer, index, packet, parent)
@@ -10211,7 +9867,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.size = function
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.size
 
@@ -10277,8 +9933,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.cancel_replace_message.fields = functi
   -- Client Order Id: int64_t
   index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.dissect(buffer, index, packet, parent)
@@ -10359,14 +10015,14 @@ euronext_optiq_orderentrygateway_sbe_v1_3.kill_message = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.kill_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_time_to_me.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
@@ -10388,8 +10044,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.kill_message.fields = function(buffer,
   -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: uint64_t
-  index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.dissect(buffer, index, packet, parent)
+  -- Sending Time: uint64_t
+  index, sending_time = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
 
   -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.dissect(buffer, index, packet, parent)
@@ -10400,17 +10056,17 @@ euronext_optiq_orderentrygateway_sbe_v1_3.kill_message.fields = function(buffer,
   -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: int64_t
-  index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.dissect(buffer, index, packet, parent)
@@ -10780,13 +10436,13 @@ euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.size = function(buffer, o
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size
 
-  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.size
+  index = index + euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size
 
   index = index + euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size
 
@@ -10835,17 +10491,17 @@ euronext_optiq_orderentrygateway_sbe_v1_3.fill_message.fields = function(buffer,
   -- Trade Time: uint64_t
   index, trade_time = euronext_optiq_orderentrygateway_sbe_v1_3.trade_time.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: int64_t
-  index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.dissect(buffer, index, packet, parent)
@@ -10964,24 +10620,24 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_message = {}
 euronext_optiq_orderentrygateway_sbe_v1_3.ack_message.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.msg_seq_num.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_time_to_me.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.book_in.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.symbol_index.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.emm.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.side_optional.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.ack_type.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.ack_phase.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_priority.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_px.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.order_qty.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.size
 
 -- Display: Ack Message
@@ -10999,8 +10655,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_message.fields = function(buffer, 
   -- Firm Id: char8
   index, firm_id = euronext_optiq_orderentrygateway_sbe_v1_3.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Sending Time Optional: uint64_t
-  index, sending_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time_optional.dissect(buffer, index, packet, parent)
+  -- Sending Time: uint64_t
+  index, sending_time = euronext_optiq_orderentrygateway_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
 
   -- Oeg In From Member: uint64_t
   index, oeg_in_from_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_member.dissect(buffer, index, packet, parent)
@@ -11011,17 +10667,17 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_message.fields = function(buffer, 
   -- Book In: uint64_t
   index, book_in = euronext_optiq_orderentrygateway_sbe_v1_3.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time Optional: uint64_t
-  index, book_out_time_optional = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_orderentrygateway_sbe_v1_3.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oeg In From Me Optional: uint64_t
-  index, oeg_in_from_me_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me_optional.dissect(buffer, index, packet, parent)
+  -- Oeg In From Me: uint64_t
+  index, oeg_in_from_me = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_in_from_me.dissect(buffer, index, packet, parent)
 
-  -- Oeg Out To Member Optional: uint64_t
-  index, oeg_out_to_member_optional = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member_optional.dissect(buffer, index, packet, parent)
+  -- Oeg Out To Member: uint64_t
+  index, oeg_out_to_member = euronext_optiq_orderentrygateway_sbe_v1_3.oeg_out_to_member.dissect(buffer, index, packet, parent)
 
-  -- Client Order Id Optional: int64_t
-  index, client_order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id_optional.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Orig Client Order Id: int64_t
   index, orig_client_order_id = euronext_optiq_orderentrygateway_sbe_v1_3.orig_client_order_id.dissect(buffer, index, packet, parent)
@@ -11041,8 +10697,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_message.fields = function(buffer, 
   -- Ack Phase: AckPhase_enum
   index, ack_phase = euronext_optiq_orderentrygateway_sbe_v1_3.ack_phase.dissect(buffer, index, packet, parent)
 
-  -- Order Id Optional: uint64_t
-  index, order_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Id: uint64_t
+  index, order_id = euronext_optiq_orderentrygateway_sbe_v1_3.order_id.dissect(buffer, index, packet, parent)
 
   -- Order Priority: uint64_t
   index, order_priority = euronext_optiq_orderentrygateway_sbe_v1_3.order_priority.dissect(buffer, index, packet, parent)
@@ -11050,8 +10706,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_message.fields = function(buffer, 
   -- Order Px: int64_t
   index, order_px = euronext_optiq_orderentrygateway_sbe_v1_3.order_px.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Optional: uint64_t
-  index, order_qty_optional = euronext_optiq_orderentrygateway_sbe_v1_3.order_qty_optional.dissect(buffer, index, packet, parent)
+  -- Order Qty: uint64_t
+  index, order_qty = euronext_optiq_orderentrygateway_sbe_v1_3.order_qty.dissect(buffer, index, packet, parent)
 
   -- Ack Qualifiers: Struct of 3 fields
   index, ack_qualifiers = euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.dissect(buffer, index, packet, parent)
@@ -11213,7 +10869,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.size =
   euronext_optiq_orderentrygateway_sbe_v1_3.undisclosed_price.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.disclosed_qty.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.size + 
-  euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.size + 
+  euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_date.size + 
   euronext_optiq_orderentrygateway_sbe_v1_3.peg_offset.size + 
@@ -11248,8 +10904,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.order_optional_fields_group.fields = f
   -- Min Order Qty: uint64_t
   index, min_order_qty = euronext_optiq_orderentrygateway_sbe_v1_3.min_order_qty.dissect(buffer, index, packet, parent)
 
-  -- Quote Req Id Optional: uint64_t
-  index, quote_req_id_optional = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id_optional.dissect(buffer, index, packet, parent)
+  -- Quote Req Id: uint64_t
+  index, quote_req_id = euronext_optiq_orderentrygateway_sbe_v1_3.quote_req_id.dissect(buffer, index, packet, parent)
 
   -- Order Expiration Time: uint32_t
   index, order_expiration_time = euronext_optiq_orderentrygateway_sbe_v1_3.order_expiration_time.dissect(buffer, index, packet, parent)

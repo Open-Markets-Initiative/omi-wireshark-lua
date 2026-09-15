@@ -101,6 +101,9 @@ omi_nyse_arcaequities_depthfeedrefresh_pillar_v1_6.fields.security_status_messag
 omi_nyse_arcaequities_depthfeedrefresh_pillar_v1_6.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaequities.depthfeedrefresh.pillar.v1.6.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeedrefresh_pillar_v1_6.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arcaequities.depthfeedrefresh.pillar.v1.6.symbolindexmappingmessage", ftypes.STRING)
 
+-- Nyse ArcaEquities DepthFeedRefresh 1.6 Session Messages
+omi_nyse_arcaequities_depthfeedrefresh_pillar_v1_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaequities.depthfeedrefresh.pillar.v1.6.heartbeat", ftypes.BYTES)
+
 -- Nyse ArcaEquities DepthFeedRefresh Pillar 1.6 generated fields
 omi_nyse_arcaequities_depthfeedrefresh_pillar_v1_6.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.depthfeedrefresh.pillar.v1.6.messageindex", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeedrefresh_pillar_v1_6.fields.participant_index = ProtoField.new("Participant Index", "nyse.arcaequities.depthfeedrefresh.pillar.v1.6.participantindex", ftypes.UINT16)

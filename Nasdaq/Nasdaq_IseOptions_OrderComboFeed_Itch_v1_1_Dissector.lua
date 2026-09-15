@@ -77,6 +77,10 @@ omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_open_closed_messa
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.systemeventmessage", ftypes.STRING)
 
+-- Nasdaq IseOptions OrderComboFeed 1.1 Session Messages
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.endofsession", ftypes.BYTES)
+omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.heartbeat", ftypes.BYTES)
+
 -- Nasdaq IseOptions OrderComboFeed Itch 1.1 generated fields
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.auction_response_index = ProtoField.new("Auction Response Index", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.auctionresponseindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_ordercombofeed_itch_v1_1.fields.leg_information_index = ProtoField.new("Leg Information Index", "nasdaq.iseoptions.ordercombofeed.itch.v1.1.leginformationindex", ftypes.UINT16)

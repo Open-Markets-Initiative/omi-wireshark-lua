@@ -82,6 +82,9 @@ omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.message_header = ProtoField.n
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.packet = ProtoField.new("Packet", "nyse.nationalequities.bbo.pillar.v2.5.d.packet", ftypes.STRING)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.nationalequities.bbo.pillar.v2.5.d.packetheader", ftypes.STRING)
 
+-- Nyse NationalEquities Bbo 2.5.d Session Messages
+omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nationalequities.bbo.pillar.v2.5.d.heartbeat", ftypes.BYTES)
+
 -- Nyse NationalEquities Bbo 2.5.d Application Messages
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nationalequities.bbo.pillar.v2.5.d.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.nationalequities.bbo.pillar.v2.5.d.messageunavailablemessage", ftypes.STRING)

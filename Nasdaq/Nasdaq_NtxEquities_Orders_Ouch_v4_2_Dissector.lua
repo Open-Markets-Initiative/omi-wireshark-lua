@@ -87,11 +87,15 @@ omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.system_event_message = ProtoField
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.trade_now_message = ProtoField.new("Trade Now Message", "nasdaq.ntxequities.orders.ouch.v4.2.tradenowmessage", ftypes.STRING)
 
 -- Nasdaq NtxEquities Orders 4.2 Session Messages
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "nasdaq.ntxequities.orders.ouch.v4.2.clientheartbeat", ftypes.BYTES)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.ntxequities.orders.ouch.v4.2.debugpacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.ntxequities.orders.ouch.v4.2.endofsession", ftypes.BYTES)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.ntxequities.orders.ouch.v4.2.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.ntxequities.orders.ouch.v4.2.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.ntxequities.orders.ouch.v4.2.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.logout_request = ProtoField.new("Logout Request", "nasdaq.ntxequities.orders.ouch.v4.2.logoutrequest", ftypes.BYTES)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.ntxequities.orders.ouch.v4.2.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "nasdaq.ntxequities.orders.ouch.v4.2.serverheartbeat", ftypes.BYTES)
 omi_nasdaq_ntxequities_orders_ouch_v4_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.ntxequities.orders.ouch.v4.2.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq NtxEquities Orders Ouch 4.2 generated fields

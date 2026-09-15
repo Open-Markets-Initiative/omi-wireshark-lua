@@ -50,6 +50,10 @@ omi_odx_odxequities_pts_itch_v2_2.fields.message_header = ProtoField.new("Messag
 omi_odx_odxequities_pts_itch_v2_2.fields.packet = ProtoField.new("Packet", "odx.odxequities.pts.itch.v2.2.packet", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.packet_header = ProtoField.new("Packet Header", "odx.odxequities.pts.itch.v2.2.packetheader", ftypes.STRING)
 
+-- Odx OdxEquities Pts 2.2 Session Messages
+omi_odx_odxequities_pts_itch_v2_2.fields.end_of_session = ProtoField.new("End Of Session", "odx.odxequities.pts.itch.v2.2.endofsession", ftypes.BYTES)
+omi_odx_odxequities_pts_itch_v2_2.fields.heartbeat = ProtoField.new("Heartbeat", "odx.odxequities.pts.itch.v2.2.heartbeat", ftypes.BYTES)
+
 -- Odx OdxEquities Pts 2.2 Application Messages
 omi_odx_odxequities_pts_itch_v2_2.fields.order_added_message = ProtoField.new("Order Added Message", "odx.odxequities.pts.itch.v2.2.orderaddedmessage", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "odx.odxequities.pts.itch.v2.2.orderdeletedmessage", ftypes.STRING)

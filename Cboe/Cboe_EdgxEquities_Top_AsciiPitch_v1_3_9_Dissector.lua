@@ -2797,25 +2797,10 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Top Lf Field
-cboe_edgxequities_top_asciipitch_v1_3_9.top_lf.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(669, 1):int()
-
-  if value == 10 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Cboe EdgxEquities Top AsciiPitch 1.3.9 (Tcp)
 local function omi_cboe_edgxequities_top_asciipitch_v1_3_9_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_edgxequities_top_asciipitch_v1_3_9.packet.requiredsize(buffer) then return false end
-
-  -- Verify Top Lf
-  if not cboe_edgxequities_top_asciipitch_v1_3_9.top_lf.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_edgxequities_top_asciipitch_v1_3_9

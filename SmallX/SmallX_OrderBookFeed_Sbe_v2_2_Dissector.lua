@@ -372,12 +372,22 @@ smallx_orderbookfeed_sbe_v2_2.close_price = {}
 smallx_orderbookfeed_sbe_v2_2.close_price.size = 8
 
 -- Display: Close Price
-smallx_orderbookfeed_sbe_v2_2.close_price.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.close_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Close Price: No Value"
+  end
+
   return "Close Price: "..value
 end
 
 -- Translate: Close Price
 smallx_orderbookfeed_sbe_v2_2.close_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -387,7 +397,7 @@ smallx_orderbookfeed_sbe_v2_2.close_price.dissect = function(buffer, offset, pac
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.close_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.close_price.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.close_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.close_price, range, value, display)
 
@@ -686,12 +696,22 @@ smallx_orderbookfeed_sbe_v2_2.high_price = {}
 smallx_orderbookfeed_sbe_v2_2.high_price.size = 8
 
 -- Display: High Price
-smallx_orderbookfeed_sbe_v2_2.high_price.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.high_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "High Price: No Value"
+  end
+
   return "High Price: "..value
 end
 
 -- Translate: High Price
 smallx_orderbookfeed_sbe_v2_2.high_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -701,7 +721,7 @@ smallx_orderbookfeed_sbe_v2_2.high_price.dissect = function(buffer, offset, pack
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.high_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.high_price.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.high_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.high_price, range, value, display)
 
@@ -1016,12 +1036,22 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_price = {}
 smallx_orderbookfeed_sbe_v2_2.last_trade_price.size = 8
 
 -- Display: Last Trade Price
-smallx_orderbookfeed_sbe_v2_2.last_trade_price.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.last_trade_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Last Trade Price: No Value"
+  end
+
   return "Last Trade Price: "..value
 end
 
 -- Translate: Last Trade Price
 smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -1031,7 +1061,7 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_price.dissect = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.last_trade_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_price.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_price, range, value, display)
 
@@ -1045,12 +1075,22 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_size = {}
 smallx_orderbookfeed_sbe_v2_2.last_trade_size.size = 8
 
 -- Display: Last Trade Size
-smallx_orderbookfeed_sbe_v2_2.last_trade_size.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.last_trade_size.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Last Trade Size: No Value"
+  end
+
   return "Last Trade Size: "..value
 end
 
 -- Translate: Last Trade Size
 smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()
 end
 
@@ -1060,7 +1100,7 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_size.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.last_trade_size.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_size.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.last_trade_size.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.last_trade_size, range, value, display)
 
@@ -1098,6 +1138,11 @@ smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size = 8
 
 -- Display: Last Trade Time Timestamp Optional
 smallx_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Last Trade Time Timestamp Optional: No Value"
+  end
+
   return "Last Trade Time Timestamp Optional: "..value
 end
 
@@ -1316,12 +1361,22 @@ smallx_orderbookfeed_sbe_v2_2.low_price = {}
 smallx_orderbookfeed_sbe_v2_2.low_price.size = 8
 
 -- Display: Low Price
-smallx_orderbookfeed_sbe_v2_2.low_price.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.low_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Low Price: No Value"
+  end
+
   return "Low Price: "..value
 end
 
 -- Translate: Low Price
 smallx_orderbookfeed_sbe_v2_2.low_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -1331,7 +1386,7 @@ smallx_orderbookfeed_sbe_v2_2.low_price.dissect = function(buffer, offset, packe
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.low_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.low_price.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.low_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.low_price, range, value, display)
 
@@ -1437,12 +1492,22 @@ smallx_orderbookfeed_sbe_v2_2.open_interest = {}
 smallx_orderbookfeed_sbe_v2_2.open_interest.size = 8
 
 -- Display: Open Interest
-smallx_orderbookfeed_sbe_v2_2.open_interest.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.open_interest.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Open Interest: No Value"
+  end
+
   return "Open Interest: "..value
 end
 
 -- Translate: Open Interest
 smallx_orderbookfeed_sbe_v2_2.open_interest.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()
 end
 
@@ -1452,7 +1517,7 @@ smallx_orderbookfeed_sbe_v2_2.open_interest.dissect = function(buffer, offset, p
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.open_interest.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.open_interest.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.open_interest.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_interest, range, value, display)
 
@@ -1466,12 +1531,22 @@ smallx_orderbookfeed_sbe_v2_2.open_price = {}
 smallx_orderbookfeed_sbe_v2_2.open_price.size = 8
 
 -- Display: Open Price
-smallx_orderbookfeed_sbe_v2_2.open_price.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.open_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Open Price: No Value"
+  end
+
   return "Open Price: "..value
 end
 
 -- Translate: Open Price
 smallx_orderbookfeed_sbe_v2_2.open_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -1481,7 +1556,7 @@ smallx_orderbookfeed_sbe_v2_2.open_price.dissect = function(buffer, offset, pack
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.open_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.open_price.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.open_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.open_price, range, value, display)
 
@@ -1748,12 +1823,22 @@ smallx_orderbookfeed_sbe_v2_2.price_optional = {}
 smallx_orderbookfeed_sbe_v2_2.price_optional.size = 8
 
 -- Display: Price Optional
-smallx_orderbookfeed_sbe_v2_2.price_optional.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.price_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Price Optional: No Value"
+  end
+
   return "Price Optional: "..value
 end
 
 -- Translate: Price Optional
 smallx_orderbookfeed_sbe_v2_2.price_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -1763,7 +1848,7 @@ smallx_orderbookfeed_sbe_v2_2.price_optional.dissect = function(buffer, offset, 
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.price_optional.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.price_optional.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.price_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.price_optional, range, value, display)
 
@@ -1935,12 +2020,22 @@ smallx_orderbookfeed_sbe_v2_2.settlement_price = {}
 smallx_orderbookfeed_sbe_v2_2.settlement_price.size = 8
 
 -- Display: Settlement Price
-smallx_orderbookfeed_sbe_v2_2.settlement_price.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.settlement_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Settlement Price: No Value"
+  end
+
   return "Settlement Price: "..value
 end
 
 -- Translate: Settlement Price
 smallx_orderbookfeed_sbe_v2_2.settlement_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -1950,7 +2045,7 @@ smallx_orderbookfeed_sbe_v2_2.settlement_price.dissect = function(buffer, offset
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.settlement_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.settlement_price.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.settlement_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.settlement_price, range, value, display)
 
@@ -2010,12 +2105,22 @@ smallx_orderbookfeed_sbe_v2_2.shares_per_contract = {}
 smallx_orderbookfeed_sbe_v2_2.shares_per_contract.size = 8
 
 -- Display: Shares Per Contract
-smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Shares Per Contract: No Value"
+  end
+
   return "Shares Per Contract: "..value
 end
 
 -- Translate: Shares Per Contract
 smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()
 end
 
@@ -2025,7 +2130,7 @@ smallx_orderbookfeed_sbe_v2_2.shares_per_contract.dissect = function(buffer, off
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.shares_per_contract.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.shares_per_contract, range, value, display)
 
@@ -2256,12 +2361,22 @@ smallx_orderbookfeed_sbe_v2_2.strike_price = {}
 smallx_orderbookfeed_sbe_v2_2.strike_price.size = 8
 
 -- Display: Strike Price
-smallx_orderbookfeed_sbe_v2_2.strike_price.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.strike_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Strike Price: No Value"
+  end
+
   return "Strike Price: "..value
 end
 
 -- Translate: Strike Price
 smallx_orderbookfeed_sbe_v2_2.strike_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -2271,7 +2386,7 @@ smallx_orderbookfeed_sbe_v2_2.strike_price.dissect = function(buffer, offset, pa
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.strike_price.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.strike_price.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.strike_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.strike_price, range, value, display)
 
@@ -2439,12 +2554,22 @@ smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional = {}
 smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size = 8
 
 -- Display: Total Volume Quantity Optional
-smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Total Volume Quantity Optional: No Value"
+  end
+
   return "Total Volume Quantity Optional: "..value
 end
 
 -- Translate: Total Volume Quantity Optional
 smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()
 end
 
@@ -2454,7 +2579,7 @@ smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.dissect = function(
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.total_volume_quantity_optional, range, value, display)
 
@@ -2670,12 +2795,22 @@ smallx_orderbookfeed_sbe_v2_2.value = {}
 smallx_orderbookfeed_sbe_v2_2.value.size = 8
 
 -- Display: Value
-smallx_orderbookfeed_sbe_v2_2.value.display = function(value)
+smallx_orderbookfeed_sbe_v2_2.value.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Value: No Value"
+  end
+
   return "Value: "..value
 end
 
 -- Translate: Value
 smallx_orderbookfeed_sbe_v2_2.value.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -2685,7 +2820,7 @@ smallx_orderbookfeed_sbe_v2_2.value.dissect = function(buffer, offset, packet, p
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = smallx_orderbookfeed_sbe_v2_2.value.translate(raw)
-  local display = smallx_orderbookfeed_sbe_v2_2.value.display(value, buffer, offset, packet, parent)
+  local display = smallx_orderbookfeed_sbe_v2_2.value.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.value, range, value, display)
 

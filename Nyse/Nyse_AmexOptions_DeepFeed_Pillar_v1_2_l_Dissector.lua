@@ -164,6 +164,9 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.symbol_clear_message = ProtoF
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.amexoptions.deepfeed.pillar.v1.2.l.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.amexoptions.deepfeed.pillar.v1.2.l.symbolindexmappingrequestmessage", ftypes.STRING)
 
+-- Nyse AmexOptions DeepFeed 1.2.l Session Messages
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amexoptions.deepfeed.pillar.v1.2.l.heartbeat", ftypes.BYTES)
+
 -- Nyse AmexOptions DeepFeed Pillar 1.2.l generated fields
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.complex_series_index_mapping_leg_index = ProtoField.new("Complex Series Index Mapping Leg Index", "nyse.amexoptions.deepfeed.pillar.v1.2.l.complexseriesindexmappinglegindex", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.deepfeed.pillar.v1.2.l.messageindex", ftypes.UINT16)

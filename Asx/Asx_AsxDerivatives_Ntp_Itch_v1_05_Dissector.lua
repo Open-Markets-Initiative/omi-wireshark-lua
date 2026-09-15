@@ -146,6 +146,10 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.trade_cancellation_message = ProtoF
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.trade_executed_message = ProtoField.new("Trade Executed Message", "asx.asxderivatives.ntp.itch.v1.05.tradeexecutedmessage", ftypes.STRING)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.volume_and_open_interest_message = ProtoField.new("Volume And Open Interest Message", "asx.asxderivatives.ntp.itch.v1.05.volumeandopeninterestmessage", ftypes.STRING)
 
+-- Asx AsxDerivatives Ntp 1.05 Session Messages
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.end_of_session = ProtoField.new("End Of Session", "asx.asxderivatives.ntp.itch.v1.05.endofsession", ftypes.BYTES)
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxderivatives.ntp.itch.v1.05.heartbeat", ftypes.BYTES)
+
 -- Asx AsxDerivatives Ntp Itch 1.05 generated fields
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.bundle_leg_index = ProtoField.new("Bundle Leg Index", "asx.asxderivatives.ntp.itch.v1.05.bundlelegindex", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.combination_leg_index = ProtoField.new("Combination Leg Index", "asx.asxderivatives.ntp.itch.v1.05.combinationlegindex", ftypes.UINT16)

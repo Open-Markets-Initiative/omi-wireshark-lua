@@ -203,6 +203,12 @@ omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.exchange_packet = Proto
 omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.firm_message_header = ProtoField.new("Message Header", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.firmmessageheader", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.firm_packet = ProtoField.new("Packet", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.firmpacket", ftypes.STRING)
 
+-- Cboe BzxOptions BinaryOrderEntry 1.0.10 Session Messages
+omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.clientheartbeat", ftypes.BYTES)
+omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.logout_request = ProtoField.new("Logout Request", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.logoutrequest", ftypes.BYTES)
+omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.replay_complete = ProtoField.new("Replay Complete", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.replaycomplete", ftypes.BYTES)
+omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.serverheartbeat", ftypes.BYTES)
+
 -- Cboe BzxOptions BinaryOrderEntry Boe3 1.0.10 generated fields
 omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.custom_group_id_index = ProtoField.new("Custom Group Id Index", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.customgroupidindex", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.fields.quote_index = ProtoField.new("Quote Index", "cboe.bzxoptions.binaryorderentry.boe3.v1.0.10.quoteindex", ftypes.UINT16)

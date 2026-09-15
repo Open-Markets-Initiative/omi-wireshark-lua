@@ -80,11 +80,15 @@ omi_jnx_jnxbonds_pts_ouch_v2_01.fields.replace_order_message = ProtoField.new("R
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxbonds.pts.ouch.v2.01.systemeventmessage", ftypes.STRING)
 
 -- Jnx JnxBonds Pts 2.01 Session Messages
+omi_jnx_jnxbonds_pts_ouch_v2_01.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "jnx.jnxbonds.pts.ouch.v2.01.clientheartbeat", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxbonds.pts.ouch.v2.01.debugpacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v2_01.fields.end_of_session = ProtoField.new("End Of Session", "jnx.jnxbonds.pts.ouch.v2.01.endofsession", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxbonds.pts.ouch.v2.01.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxbonds.pts.ouch.v2.01.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxbonds.pts.ouch.v2.01.loginrequestpacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v2_01.fields.logout_request = ProtoField.new("Logout Request", "jnx.jnxbonds.pts.ouch.v2.01.logoutrequest", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxbonds.pts.ouch.v2.01.sequenceddatapacket", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v2_01.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "jnx.jnxbonds.pts.ouch.v2.01.serverheartbeat", ftypes.BYTES)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxbonds.pts.ouch.v2.01.unsequenceddatapacket", ftypes.STRING)
 
 -- Jnx JnxBonds Pts Ouch 2.01 generated fields

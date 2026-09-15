@@ -89,6 +89,7 @@ omi_cme_globex_settlements_sbe_v7_0.fields.technical_header = ProtoField.new("Te
 omi_cme_globex_settlements_sbe_v7_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.settlements.sbe.v7.0.udppacket", ftypes.STRING)
 
 -- Cme Globex Settlements 7.0 Application Messages
+omi_cme_globex_settlements_sbe_v7_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.settlements.sbe.v7.0.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)

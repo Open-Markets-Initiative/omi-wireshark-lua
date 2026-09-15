@@ -135,6 +135,9 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.symbol_clear_message = Pro
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.symbolindexmappingrequestmessage", ftypes.STRING)
 
+-- Nyse ArcaOptions ComplexFeed 1.0.h Session Messages
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.heartbeat", ftypes.BYTES)
+
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.h generated fields
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.complex_series_index_mapping_leg_index = ProtoField.new("Complex Series Index Mapping Leg Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.complexseriesindexmappinglegindex", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.h.messageindex", ftypes.UINT16)

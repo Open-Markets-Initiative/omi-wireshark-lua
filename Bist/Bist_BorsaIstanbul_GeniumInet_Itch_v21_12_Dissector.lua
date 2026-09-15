@@ -104,6 +104,10 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.system_event_message = Prot
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.tick_size_table_entry = ProtoField.new("Tick Size Table Entry", "bist.borsaistanbul.geniuminet.itch.v21.12.ticksizetableentry", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trade_message = ProtoField.new("Trade Message", "bist.borsaistanbul.geniuminet.itch.v21.12.trademessage", ftypes.STRING)
 
+-- Bist BorsaIstanbul GeniumInet 21.12 Session Messages
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.end_of_session = ProtoField.new("End Of Session", "bist.borsaistanbul.geniuminet.itch.v21.12.endofsession", ftypes.BYTES)
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.heartbeat = ProtoField.new("Heartbeat", "bist.borsaistanbul.geniuminet.itch.v21.12.heartbeat", ftypes.BYTES)
+
 -- Bist BorsaIstanbul GeniumInet Itch 21.12 generated fields
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_index = ProtoField.new("Message Index", "bist.borsaistanbul.geniuminet.itch.v21.12.messageindex", ftypes.UINT16)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "bist.borsaistanbul.geniuminet.itch.v21.12.messagesequencenumber", ftypes.UINT64)

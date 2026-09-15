@@ -129,6 +129,9 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.snapshot_trailer_message = Pr
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.trade_message = ProtoField.new("Trade Message", "coinbase.deribit.marketdataapi.sbe.v1.0.trademessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "coinbase.deribit.marketdataapi.sbe.v1.0.tradesummarymessage", ftypes.STRING)
 
+-- Coinbase Deribit MarketDataApi 1.0 Session Messages
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.empty_packet = ProtoField.new("Empty Packet", "coinbase.deribit.marketdataapi.sbe.v1.0.emptypacket", ftypes.BYTES)
+
 -- Coinbase Deribit MarketDataApi Sbe 1.0 generated fields
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group_index = ProtoField.new("Instrument Definition Message large Tick Sizes Group Index", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelargeticksizesgroupindex", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group_index = ProtoField.new("Instrument Definition Message legs Group Index", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelegsgroupindex", ftypes.UINT16)

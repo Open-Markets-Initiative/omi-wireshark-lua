@@ -94,6 +94,9 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_header = Prot
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.packet = ProtoField.new("Packet", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.packet", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.packet_header = ProtoField.new("Packet Header", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.packetheader", ftypes.STRING)
 
+-- Nyse TexasEquities ImbalancesFeed 2.2.n Session Messages
+omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.heartbeat", ftypes.BYTES)
+
 -- Nyse TexasEquities ImbalancesFeed 2.2.n Application Messages
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.imbalancemessage", ftypes.STRING)

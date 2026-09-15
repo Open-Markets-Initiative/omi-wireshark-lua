@@ -98,6 +98,9 @@ omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.sequence_number_reset_messag
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.texasequities.depthfeed.pillar.v1.6.symbolclearmessage", ftypes.STRING)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.texasequities.depthfeed.pillar.v1.6.symbolindexmappingmessage", ftypes.STRING)
 
+-- Nyse TexasEquities DepthFeed 1.6 Session Messages
+omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.texasequities.depthfeed.pillar.v1.6.heartbeat", ftypes.BYTES)
+
 -- Nyse TexasEquities DepthFeed Pillar 1.6 generated fields
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.message_index = ProtoField.new("Message Index", "nyse.texasequities.depthfeed.pillar.v1.6.messageindex", ftypes.UINT16)
 omi_nyse_texasequities_depthfeed_pillar_v1_6.fields.participant_index = ProtoField.new("Participant Index", "nyse.texasequities.depthfeed.pillar.v1.6.participantindex", ftypes.UINT16)

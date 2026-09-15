@@ -40,7 +40,7 @@ omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.exchange = ProtoField.n
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_1 = ProtoField.new("Filler 1", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler1", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_10 = ProtoField.new("Filler 10", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler10", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_2 = ProtoField.new("Filler 2", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler2", ftypes.STRING)
-omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler3", ftypes.BYTES)
+omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_3 = ProtoField.new("Filler 3", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler3", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler4", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler5", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.filler6", ftypes.STRING)
@@ -88,7 +88,7 @@ omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.price_quotation_factor_
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.priority", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.quantity_uint_324 = ProtoField.new("Quantity Uint 324", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.quantityuint324", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.quantity_uint_648 = ProtoField.new("Quantity Uint 648", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.quantityuint648", ftypes.UINT64)
-omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.secondfiller3", ftypes.BYTES)
+omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.secondfiller3", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.sendtime", ftypes.UINT64)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.seqnum", ftypes.UINT32)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.fulltickrefresh.omd.v2.0.settlementcurrencyid", ftypes.STRING)
@@ -811,7 +811,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v2_0.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.filler_3.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.filler_3, range, value, display)
@@ -2009,7 +2009,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v2_0.second_filler_3.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.second_filler_3.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = trim_right_spaces(range:string())
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.second_filler_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v2_0.fields.second_filler_3, range, value, display)

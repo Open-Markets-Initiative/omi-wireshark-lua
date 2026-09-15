@@ -93,6 +93,9 @@ omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.market_open_message = Pro
 omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.security_message = ProtoField.new("Security Message", "otcmarkets.linkats.quoteinside.link.v4.10.4.securitymessage", ftypes.STRING)
 omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.start_of_spin_message = ProtoField.new("Start Of Spin Message", "otcmarkets.linkats.quoteinside.link.v4.10.4.startofspinmessage", ftypes.STRING)
 
+-- OtcMarkets LinkAts QuoteInside 4.10.4 Session Messages
+omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.quoteinside.link.v4.10.4.heartbeatpacket", ftypes.BYTES)
+
 -- OtcMarkets LinkAts QuoteInside Link 4.10.4 generated fields
 omi_otcmarkets_linkats_quoteinside_link_v4_10_4.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.quoteinside.link.v4.10.4.messageindex", ftypes.UINT16)
 

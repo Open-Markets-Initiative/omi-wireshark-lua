@@ -2052,25 +2052,10 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Soup Lf Field
-cboe_cxeequities_lastsale_apf_v1_7.soup_lf.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(459, 1):int()
-
-  if value == 10 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Cboe CxeEquities LastSale Apf 1.7 (Tcp)
 local function omi_cboe_cxeequities_lastsale_apf_v1_7_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_cxeequities_lastsale_apf_v1_7.packet.requiredsize(buffer) then return false end
-
-  -- Verify Soup Lf
-  if not cboe_cxeequities_lastsale_apf_v1_7.soup_lf.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_cxeequities_lastsale_apf_v1_7

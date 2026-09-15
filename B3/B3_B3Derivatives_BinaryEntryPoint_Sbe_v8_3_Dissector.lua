@@ -166,7 +166,6 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.order_id_optional = ProtoF
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.order_qty = ProtoField.new("Order Qty", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.orderqty", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.order_qty_optional = ProtoField.new("Order Qty Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.orderqtyoptional", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.ordtagid = ProtoField.new("OrdTagId", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagid", ftypes.UINT8)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.ordtagid_optional = ProtoField.new("OrdTagId Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtagidoptional", ftypes.UINT8)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.ordtype = ProtoField.new("OrdType", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.ordtype", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.orig_pos_req_ref_id = ProtoField.new("Orig Pos Req Ref Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.origposreqrefid", ftypes.UINT64)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.origclordid = ProtoField.new("OrigClOrdId", "b3.b3derivatives.binaryentrypoint.sbe.v8.3.origclordid", ftypes.UINT64)
@@ -364,6 +363,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.account.size = 4
 
 -- Display: Account
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.account.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Account: No Value"
+  end
+
   return "Account: "..value
 end
 
@@ -420,6 +424,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.action_requested_from_session_id.size
 
 -- Display: Action Requested From Session Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.action_requested_from_session_id.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Action Requested From Session Id: No Value"
+  end
+
   return "Action Requested From Session Id: "..value
 end
 
@@ -582,6 +591,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.alloc_rej_code.size = 4
 
 -- Display: Alloc Rej Code
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.alloc_rej_code.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Alloc Rej Code: No Value"
+  end
+
   return "Alloc Rej Code: "..value
 end
 
@@ -902,6 +916,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.business_reject_ref_id.size = 8
 
 -- Display: Business Reject Ref Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.business_reject_ref_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Business Reject Ref Id: No Value"
+  end
+
   return "Business Reject Ref Id: "..value
 end
 
@@ -1133,6 +1152,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.clordid_optional.size = 8
 
 -- Display: ClOrdId Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.clordid_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "ClOrdId Optional: No Value"
+  end
+
   return "ClOrdId Optional: "..value
 end
 
@@ -1425,6 +1449,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.crossid_optional.size = 8
 
 -- Display: CrossId Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.crossid_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "CrossId Optional: No Value"
+  end
+
   return "CrossId Optional: "..value
 end
 
@@ -1471,6 +1500,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.current_session_ver_id.size = 8
 
 -- Display: Current Session Ver Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.current_session_ver_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Current Session Ver Id: No Value"
+  end
+
   return "Current Session Ver Id: "..value
 end
 
@@ -1619,6 +1653,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.days_to_settlement_optional.size = 2
 
 -- Display: Days To Settlement Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.days_to_settlement_optional.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Days To Settlement Optional: No Value"
+  end
+
   return "Days To Settlement Optional: "..value
 end
 
@@ -1753,6 +1792,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.entering_firm_optional.size = 4
 
 -- Display: Entering Firm Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.entering_firm_optional.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Entering Firm Optional: No Value"
+  end
+
   return "Entering Firm Optional: "..value
 end
 
@@ -1953,6 +1997,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.exec_ref_id.size = 8
 
 -- Display: Exec Ref Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.exec_ref_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Exec Ref Id: No Value"
+  end
+
   return "Exec Ref Id: "..value
 end
 
@@ -2233,6 +2282,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.expire_date.size = 2
 
 -- Display: Expire Date
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.expire_date.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Expire Date: No Value"
+  end
+
   return "Expire Date: "..value
 end
 
@@ -2416,6 +2470,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.last_incoming_seq_no_optional.size = 
 
 -- Display: Last Incoming Seq No Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.last_incoming_seq_no_optional.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Last Incoming Seq No Optional: No Value"
+  end
+
   return "Last Incoming Seq No Optional: "..value
 end
 
@@ -2651,6 +2710,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.long_qty_optional.size = 8
 
 -- Display: Long Qty Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.long_qty_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Long Qty Optional: No Value"
+  end
+
   return "Long Qty Optional: "..value
 end
 
@@ -2835,6 +2899,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.mass_action_report_id_optional.size =
 
 -- Display: Mass Action Report Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.mass_action_report_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Mass Action Report Id Optional: No Value"
+  end
+
   return "Mass Action Report Id Optional: "..value
 end
 
@@ -2997,6 +3066,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.max_floor.size = 8
 
 -- Display: Max Floor
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.max_floor.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Max Floor: No Value"
+  end
+
   return "Max Floor: "..value
 end
 
@@ -3113,6 +3187,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.min_qty.size = 8
 
 -- Display: Min Qty
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.min_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Min Qty: No Value"
+  end
+
   return "Min Qty: "..value
 end
 
@@ -3863,6 +3942,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.onbehalf_firm.size = 4
 
 -- Display: Onbehalf Firm
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.onbehalf_firm.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Onbehalf Firm: No Value"
+  end
+
   return "Onbehalf Firm: "..value
 end
 
@@ -5519,6 +5603,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.order_id_optional.size = 8
 
 -- Display: Order Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.order_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Order Id Optional: No Value"
+  end
+
   return "Order Id Optional: "..value
 end
 
@@ -5565,6 +5654,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.order_qty_optional.size = 8
 
 -- Display: Order Qty Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.order_qty_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Order Qty Optional: No Value"
+  end
+
   return "Order Qty Optional: "..value
 end
 
@@ -5588,6 +5682,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.size = 1
 
 -- Display: OrdTagId
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "OrdTagId: No Value"
+  end
+
   return "OrdTagId: "..value
 end
 
@@ -5599,34 +5698,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.dissect = function(buffer, o
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.ordtagid, range, value, display)
-
-  return offset + length, value
-end
-
--- OrdTagId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional = {}
-
--- Size: OrdTagId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.size = 1
-
--- Display: OrdTagId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.display = function(value)
-  -- Check if field has value
-  if value == 0 then
-    return "OrdTagId Optional: No Value"
-  end
-
-  return "OrdTagId Optional: "..value
-end
-
--- Dissect: OrdTagId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_3.fields.ordtagid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5697,6 +5768,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.orig_pos_req_ref_id.size = 8
 
 -- Display: Orig Pos Req Ref Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.orig_pos_req_ref_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Orig Pos Req Ref Id: No Value"
+  end
+
   return "Orig Pos Req Ref Id: "..value
 end
 
@@ -5720,6 +5796,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.origclordid.size = 8
 
 -- Display: OrigClOrdId
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.origclordid.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "OrigClOrdId: No Value"
+  end
+
   return "OrigClOrdId: "..value
 end
 
@@ -5868,6 +5949,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.pos_maint_result.size = 4
 
 -- Display: Pos Maint Result
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.pos_maint_result.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Pos Maint Result: No Value"
+  end
+
   return "Pos Maint Result: "..value
 end
 
@@ -5914,6 +6000,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.pos_maint_rpt_ref_id.size = 8
 
 -- Display: Pos Maint Rpt Ref Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.pos_maint_rpt_ref_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Pos Maint Rpt Ref Id: No Value"
+  end
+
   return "Pos Maint Rpt Ref Id: "..value
 end
 
@@ -6009,6 +6100,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.pos_req_id_optional.size = 8
 
 -- Display: Pos Req Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.pos_req_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Pos Req Id Optional: No Value"
+  end
+
   return "Pos Req Id Optional: "..value
 end
 
@@ -6364,6 +6460,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_id_optional.size = 8
 
 -- Display: Quote Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Quote Id Optional: No Value"
+  end
+
   return "Quote Id Optional: "..value
 end
 
@@ -6387,6 +6488,9 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_reject_reason.size = 4
 
 -- Display: Quote Reject Reason
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_reject_reason.display = function(value)
+  if value == 0 then
+    return "Quote Reject Reason: No Value"
+  end
   if value == 009999 then
     return "Quote Reject Reason: Technical Error: Function not performed (009999)"
   end
@@ -6521,6 +6625,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_req_id_optional.size = 8
 
 -- Display: Quote Req Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_req_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Quote Req Id Optional: No Value"
+  end
+
   return "Quote Req Id Optional: "..value
 end
 
@@ -6544,6 +6653,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_request_reject_reason.size = 4
 
 -- Display: Quote Request Reject Reason
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.quote_request_reject_reason.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Quote Request Reject Reason: No Value"
+  end
+
   return "Quote Request Reject Reason: "..value
 end
 
@@ -7001,6 +7115,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.secondary_exec_id.size = 8
 
 -- Display: Secondary Exec Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.secondary_exec_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Secondary Exec Id: No Value"
+  end
+
   return "Secondary Exec Id: "..value
 end
 
@@ -7047,6 +7166,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.secondary_order_id_optional.size = 8
 
 -- Display: Secondary Order Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.secondary_order_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Secondary Order Id Optional: No Value"
+  end
+
   return "Secondary Order Id Optional: "..value
 end
 
@@ -7539,6 +7663,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.short_qty.size = 8
 
 -- Display: Short Qty
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.short_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Short Qty: No Value"
+  end
+
   return "Short Qty: "..value
 end
 
@@ -8321,6 +8450,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.tot_no_related_sym.size = 1
 
 -- Display: Tot No Related Sym
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.tot_no_related_sym.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Tot No Related Sym: No Value"
+  end
+
   return "Tot No Related Sym: "..value
 end
 
@@ -8367,6 +8501,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.trade_date_optional.size = 2
 
 -- Display: Trade Date Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.trade_date_optional.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Date Optional: No Value"
+  end
+
   return "Trade Date Optional: "..value
 end
 
@@ -8413,6 +8552,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.trade_id_optional.size = 4
 
 -- Display: Trade Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.trade_id_optional.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Id Optional: No Value"
+  end
+
   return "Trade Id Optional: "..value
 end
 
@@ -8758,7 +8902,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.outbound_business_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
@@ -8934,7 +9078,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.inbound_business_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
@@ -10009,7 +10153,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.bidirectional_business_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
@@ -11299,7 +11443,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_reject_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_146_padding_3.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.size
 
@@ -11397,8 +11541,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_reject_message.field
   -- Offset 146 Padding 3: 3 Byte
   index, offset_146_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_146_padding_3.dissect(buffer, index, packet, parent)
 
-  -- OrdTagId Optional: OrdTagID
-  index, ordtagid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.dissect(buffer, index, packet, parent)
+  -- OrdTagId: OrdTagID
+  index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.dissect(buffer, index, packet, parent)
 
   -- Investor Id: Struct of 2 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.dissect(buffer, index, packet, parent)
@@ -11781,7 +11925,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_cancel_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_164_padding_3.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.size
 
@@ -11889,8 +12033,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_cancel_message.field
   -- Offset 164 Padding 3: 3 Byte
   index, offset_164_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_164_padding_3.dissect(buffer, index, packet, parent)
 
-  -- OrdTagId Optional: OrdTagID
-  index, ordtagid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.dissect(buffer, index, packet, parent)
+  -- OrdTagId: OrdTagID
+  index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.dissect(buffer, index, packet, parent)
 
   -- Investor Id: Struct of 2 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.dissect(buffer, index, packet, parent)
@@ -11991,7 +12135,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_modify_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_168_padding_3.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.size
 
@@ -12103,8 +12247,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_modify_message.field
   -- Offset 168 Padding 3: 3 Byte
   index, offset_168_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_168_padding_3.dissect(buffer, index, packet, parent)
 
-  -- OrdTagId Optional: OrdTagID
-  index, ordtagid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.dissect(buffer, index, packet, parent)
+  -- OrdTagId: OrdTagID
+  index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.dissect(buffer, index, packet, parent)
 
   -- Investor Id: Struct of 2 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.dissect(buffer, index, packet, parent)
@@ -12207,7 +12351,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_new_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_152_padding_3.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.size
 
@@ -12317,8 +12461,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.execution_report_new_message.fields =
   -- Offset 152 Padding 3: 3 Byte
   index, offset_152_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v8_3.offset_152_padding_3.dissect(buffer, index, packet, parent)
 
-  -- OrdTagId Optional: OrdTagID
-  index, ordtagid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid_optional.dissect(buffer, index, packet, parent)
+  -- OrdTagId: OrdTagID
+  index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_3.ordtagid.dissect(buffer, index, packet, parent)
 
   -- Investor Id: Struct of 2 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.investor_id.dissect(buffer, index, packet, parent)
@@ -13402,7 +13546,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.retransmit_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Request Timestamp: UTCTimestampNanos
@@ -13451,7 +13595,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.retransmission_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Request Timestamp: UTCTimestampNanos
@@ -13503,7 +13647,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.retransmit_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Timestamp: UTCTimestampNanos
@@ -13638,7 +13782,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.terminate_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -13689,7 +13833,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.establish_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -13749,7 +13893,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.establish_ack_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -13896,7 +14040,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.establish_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -13966,7 +14110,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.negotiate_reject_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -14080,7 +14224,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.negotiate_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID
@@ -14366,7 +14510,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.negotiate_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session Id: SessionID
+  -- Session Id: 4 Byte Unsigned Fixed Width Integer
   index, session_id = b3_b3derivatives_binaryentrypoint_sbe_v8_3.session_id.dissect(buffer, index, packet, parent)
 
   -- Session Ver Id: SessionVerID

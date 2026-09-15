@@ -118,11 +118,15 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.order_book_trading_ac
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.systemeventmessage", ftypes.STRING)
 
 -- Nasdaq NordicEquities TotalView 3.00.1 Session Messages
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.clientheartbeat", ftypes.BYTES)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.debugpacket", ftypes.STRING)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.endofsession", ftypes.BYTES)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.logout_request = ProtoField.new("Logout Request", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.logoutrequest", ftypes.BYTES)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.serverheartbeat", ftypes.BYTES)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 generated fields

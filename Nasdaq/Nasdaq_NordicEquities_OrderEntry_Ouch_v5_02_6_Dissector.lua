@@ -163,6 +163,7 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.server_packet_header = 
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.serversoupbintcppacket", ftypes.STRING)
 
 -- Nasdaq NordicEquities OrderEntry 5.02.6 Application Messages
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.account_query_message = ProtoField.new("Account Query Message", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.accountquerymessage", ftypes.BYTES)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.account_query_response_message = ProtoField.new("Account Query Response Message", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.accountqueryresponsemessage", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.brokentrademessage", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.cancelordermessage", ftypes.STRING)
@@ -186,11 +187,15 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.stream_status_message =
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.systemeventmessage", ftypes.STRING)
 
 -- Nasdaq NordicEquities OrderEntry 5.02.6 Session Messages
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.clientheartbeat", ftypes.BYTES)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.debugpacket", ftypes.STRING)
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.endofsession", ftypes.BYTES)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.logout_request = ProtoField.new("Logout Request", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.logoutrequest", ftypes.BYTES)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.serverheartbeat", ftypes.BYTES)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nordicequities.orderentry.ouch.v5.02.6.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq NordicEquities OrderEntry Ouch 5.02.6 generated fields

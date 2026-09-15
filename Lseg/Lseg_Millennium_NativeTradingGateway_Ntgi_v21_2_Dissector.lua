@@ -56,7 +56,7 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.execution_type = Prot
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_date_time = ProtoField.new("Expire Date Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiredatetime", ftypes.UINT32)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time = ProtoField.new("Expire Time", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiretime", ftypes.UINT32)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.expire_time_milliseconds = ProtoField.new("Expire Time Milliseconds", "lseg.millennium.nativetradinggateway.ntgi.v21.2.expiretimemilliseconds", ftypes.UINT32)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.fourthreserved8", ftypes.UINT64)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.fourthreserved8", ftypes.BYTES)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.group_id = ProtoField.new("Group Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.groupid", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.instrument_id = ProtoField.new("Instrument Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.instrumentid", ftypes.INT32)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.investment_decision_maker = ProtoField.new("Investment Decision Maker", "lseg.millennium.nativetradinggateway.ntgi.v21.2.investmentdecisionmaker", ftypes.UINT32)
@@ -116,23 +116,23 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reason = ProtoField.n
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reject_code = ProtoField.new("Reject Code", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rejectcode", ftypes.INT32)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reject_reason = ProtoField.new("Reject Reason", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rejectreason", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rejected_message_type = ProtoField.new("Rejected Message Type", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rejectedmessagetype", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved1", ftypes.INT8)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved10", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_14 = ProtoField.new("Reserved 14", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved14", ftypes.STRING)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved1", ftypes.BYTES)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved10", ftypes.BYTES)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_14 = ProtoField.new("Reserved 14", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved14", ftypes.BYTES)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_37 = ProtoField.new("Reserved 37", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved37", ftypes.UINT8, nil, base.DEC, 0xF8)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved4", ftypes.INT32)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved5", ftypes.STRING)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved4", ftypes.BYTES)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved5", ftypes.BYTES)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_67 = ProtoField.new("Reserved 67", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved67", ftypes.UINT8, nil, base.DEC, 0xC0)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_7 = ProtoField.new("Reserved 7", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved7", ftypes.STRING)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved8", ftypes.UINT64)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_7 = ProtoField.new("Reserved 7", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved7", ftypes.BYTES)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.reserved8", ftypes.BYTES)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.restatement_reason = ProtoField.new("Restatement Reason", "lseg.millennium.nativetradinggateway.ntgi.v21.2.restatementreason", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_disclose_side = ProtoField.new("Rfq Disclose Side", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rfqdiscloseside", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_execution_delay = ProtoField.new("Rfq Execution Delay", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rfqexecutiondelay", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_execution_report_order_status = ProtoField.new("Rfq Execution Report Order Status", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rfqexecutionreportorderstatus", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_id = ProtoField.new("Rfq Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rfqid", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.rfq_min_quotes = ProtoField.new("Rfq Min Quotes", "lseg.millennium.nativetradinggateway.ntgi.v21.2.rfqminquotes", ftypes.UINT8)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "lseg.millennium.nativetradinggateway.ntgi.v21.2.secondreserved1", ftypes.INT8)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.secondreserved8", ftypes.UINT64)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "lseg.millennium.nativetradinggateway.ntgi.v21.2.secondreserved1", ftypes.BYTES)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.secondreserved8", ftypes.BYTES)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.nativetradinggateway.ntgi.v21.2.seconds", ftypes.UINT32)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.segment = ProtoField.new("Segment", "lseg.millennium.nativetradinggateway.ntgi.v21.2.segment", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.sequence_no = ProtoField.new("Sequence No", "lseg.millennium.nativetradinggateway.ntgi.v21.2.sequenceno", ftypes.INT32)
@@ -140,7 +140,7 @@ omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.sequence_number = Pro
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.side = ProtoField.new("Side", "lseg.millennium.nativetradinggateway.ntgi.v21.2.side", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.start_of_message = ProtoField.new("Start Of Message", "lseg.millennium.nativetradinggateway.ntgi.v21.2.startofmessage", ftypes.INT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.stop_price = ProtoField.new("Stop Price", "lseg.millennium.nativetradinggateway.ntgi.v21.2.stopprice", ftypes.DOUBLE)
-omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.thirdreserved8", ftypes.UINT64)
+omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.millennium.nativetradinggateway.ntgi.v21.2.thirdreserved8", ftypes.BYTES)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.tif = ProtoField.new("Tif", "lseg.millennium.nativetradinggateway.ntgi.v21.2.tif", ftypes.UINT8)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.trade_liquidity_indicator = ProtoField.new("Trade Liquidity Indicator", "lseg.millennium.nativetradinggateway.ntgi.v21.2.tradeliquidityindicator", ftypes.STRING)
 omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.trade_match_id = ProtoField.new("Trade Match Id", "lseg.millennium.nativetradinggateway.ntgi.v21.2.tradematchid", ftypes.UINT64)
@@ -1415,7 +1415,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.fourth_reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.fourth_reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.fourth_reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.fourth_reserved_8, range, value, display)
@@ -3195,7 +3195,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_1, range, value, display)
@@ -3211,11 +3211,6 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_10.size = 10
 
 -- Display: Reserved 10
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_10.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 10: No Value"
-  end
-
   return "Reserved 10: "..value
 end
 
@@ -3223,18 +3218,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_10.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_10, range, value, display)
@@ -3250,11 +3234,6 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_14.size = 14
 
 -- Display: Reserved 14
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_14.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 14: No Value"
-  end
-
   return "Reserved 14: "..value
 end
 
@@ -3262,18 +3241,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_14.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_14.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_14.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_14, range, value, display)
@@ -3296,7 +3264,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_4, range, value, display)
@@ -3312,11 +3280,6 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_5.size = 5
 
 -- Display: Reserved 5
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_5.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 5: No Value"
-  end
-
   return "Reserved 5: "..value
 end
 
@@ -3324,18 +3287,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_5.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_5.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_5.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_5, range, value, display)
@@ -3351,11 +3303,6 @@ lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_7.size = 7
 
 -- Display: Reserved 7
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_7.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reserved 7: No Value"
-  end
-
   return "Reserved 7: "..value
 end
 
@@ -3363,18 +3310,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_7.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_7.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_7.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_7, range, value, display)
@@ -3397,7 +3333,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.reserved_8, range, value, display)
@@ -3594,7 +3530,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.second_reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.second_reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.second_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_1, range, value, display)
@@ -3617,7 +3553,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.second_reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.second_reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.second_reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.second_reserved_8, range, value, display)
@@ -3833,7 +3769,7 @@ end
 lseg_millennium_nativetradinggateway_ntgi_v21_2.third_reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggateway_ntgi_v21_2.third_reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_nativetradinggateway_ntgi_v21_2.third_reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggateway_ntgi_v21_2.fields.third_reserved_8, range, value, display)

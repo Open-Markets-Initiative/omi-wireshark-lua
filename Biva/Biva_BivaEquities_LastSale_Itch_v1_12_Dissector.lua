@@ -67,6 +67,10 @@ omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_header = ProtoField.new
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.packet = ProtoField.new("Packet", "biva.bivaequities.lastsale.itch.v1.12.packet", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.packet_header = ProtoField.new("Packet Header", "biva.bivaequities.lastsale.itch.v1.12.packetheader", ftypes.STRING)
 
+-- Biva BivaEquities LastSale 1.12 Session Messages
+omi_biva_bivaequities_lastsale_itch_v1_12.fields.end_of_session = ProtoField.new("End Of Session", "biva.bivaequities.lastsale.itch.v1.12.endofsession", ftypes.BYTES)
+omi_biva_bivaequities_lastsale_itch_v1_12.fields.heartbeat = ProtoField.new("Heartbeat", "biva.bivaequities.lastsale.itch.v1.12.heartbeat", ftypes.BYTES)
+
 -- Biva BivaEquities LastSale 1.12 Application Messages
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.orderbook_directory_message = ProtoField.new("Orderbook Directory Message", "biva.bivaequities.lastsale.itch.v1.12.orderbookdirectorymessage", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.orderbook_reference_price_message = ProtoField.new("Orderbook Reference Price Message", "biva.bivaequities.lastsale.itch.v1.12.orderbookreferencepricemessage", ftypes.STRING)

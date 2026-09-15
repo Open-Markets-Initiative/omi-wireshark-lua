@@ -28,6 +28,10 @@ omi_nasdaq_common_mold64_udp_v1_0.fields.message_header = ProtoField.new("Messag
 omi_nasdaq_common_mold64_udp_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.mold64.udp.v1.0.packet", ftypes.STRING)
 omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.mold64.udp.v1.0.packetheader", ftypes.STRING)
 
+-- Nasdaq Common Mold64 1.0 Session Messages
+omi_nasdaq_common_mold64_udp_v1_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.common.mold64.udp.v1.0.endofsession", ftypes.BYTES)
+omi_nasdaq_common_mold64_udp_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.common.mold64.udp.v1.0.heartbeat", ftypes.BYTES)
+
 -- Nasdaq Common Mold64 Udp 1.0 generated fields
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.common.mold64.udp.v1.0.messageindex", ftypes.UINT16)
 

@@ -157,7 +157,7 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_7_reser
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_7_reserved_4 = ProtoField.new("New Order Bitfield 7 Reserved 4", "cboe.bzxequities.binaryorderentry.boe.v2.3.neworderbitfield7reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_7_reserved_64 = ProtoField.new("New Order Bitfield 7 Reserved 64", "cboe.bzxequities.binaryorderentry.boe.v2.3.neworderbitfield7reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.new_order_bitfield_7_reserved_8 = ProtoField.new("New Order Bitfield 7 Reserved 8", "cboe.bzxequities.binaryorderentry.boe.v2.3.neworderbitfield7reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.no_unspecified_unit_replay = ProtoField.new("No Unspecified Unit Replay", "cboe.bzxequities.binaryorderentry.boe.v2.3.nounspecifiedunitreplay", ftypes.STRING)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.no_unspecified_unit_replay = ProtoField.new("No Unspecified Unit Replay", "cboe.bzxequities.binaryorderentry.boe.v2.3.nounspecifiedunitreplay", ftypes.UINT8)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.number_of_cancel_order_bitfields = ProtoField.new("Number Of Cancel Order Bitfields", "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofcancelorderbitfields", ftypes.UINT8)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.number_of_modify_order_bitfields = ProtoField.new("Number Of Modify Order Bitfields", "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofmodifyorderbitfields", ftypes.UINT8)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.number_of_new_order_bitfields = ProtoField.new("Number Of New Order Bitfields", "cboe.bzxequities.binaryorderentry.boe.v2.3.numberofneworderbitfields", ftypes.UINT8)
@@ -197,7 +197,7 @@ omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.purge_order_bitfield_2_res
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.purge_order_bitfield_2_symbol = ProtoField.new("Purge Order Bitfield 2 Symbol", "cboe.bzxequities.binaryorderentry.boe.v2.3.purgeorderbitfield2symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.purge_order_bitfield_2_symbol_sfx = ProtoField.new("Purge Order Bitfield 2 Symbol Sfx", "cboe.bzxequities.binaryorderentry.boe.v2.3.purgeorderbitfield2symbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.bzxequities.binaryorderentry.boe.v2.3.purgerejectreason", ftypes.STRING)
-omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.binaryorderentry.boe.v2.3.reserved1", ftypes.STRING)
+omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.bzxequities.binaryorderentry.boe.v2.3.reserved1", ftypes.BYTES)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.bzxequities.binaryorderentry.boe.v2.3.restatementreason", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1 = ProtoField.new("Return Bitfield 1", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1", ftypes.STRING)
 omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.return_bitfield_1_exec_inst = ProtoField.new("Return Bitfield 1 Exec Inst", "cboe.bzxequities.binaryorderentry.boe.v2.3.returnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -2201,13 +2201,13 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.no_unspecified_unit_replay.size = 1
 
 -- Display: No Unspecified Unit Replay
 cboe_bzxequities_binaryorderentry_boe_v2_3.no_unspecified_unit_replay.display = function(value)
-  if value == "0" then
+  if value == 0 then
     return "No Unspecified Unit Replay: False (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "No Unspecified Unit Replay: True (1)"
   end
-  if value == "T" then
+  if value == T then
     return "No Unspecified Unit Replay: Test (T)"
   end
 
@@ -2218,7 +2218,7 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.no_unspecified_unit_replay.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.no_unspecified_unit_replay.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:le_uint()
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.no_unspecified_unit_replay.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.no_unspecified_unit_replay, range, value, display)
@@ -2975,7 +2975,7 @@ end
 cboe_bzxequities_binaryorderentry_boe_v2_3.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_binaryorderentry_boe_v2_3.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_bzxequities_binaryorderentry_boe_v2_3.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxequities_binaryorderentry_boe_v2_3.fields.reserved_1, range, value, display)
@@ -11881,7 +11881,7 @@ cboe_bzxequities_binaryorderentry_boe_v2_3.login_response_message.fields = funct
   -- Login Response Text: Text
   index, login_response_text = cboe_bzxequities_binaryorderentry_boe_v2_3.login_response_text.dissect(buffer, index, packet, parent)
 
-  -- No Unspecified Unit Replay: Alphanumeric
+  -- No Unspecified Unit Replay: Binary
   index, no_unspecified_unit_replay = cboe_bzxequities_binaryorderentry_boe_v2_3.no_unspecified_unit_replay.dissect(buffer, index, packet, parent)
 
   -- Last Received Sequence Number: Binary

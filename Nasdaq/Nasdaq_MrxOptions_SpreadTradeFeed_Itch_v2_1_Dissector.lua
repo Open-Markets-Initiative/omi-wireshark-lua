@@ -40,7 +40,7 @@ omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.price = ProtoField.new("P
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.requestedsession", ftypes.STRING)
-omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.reserved16", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.reserved16", ftypes.BYTES)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.securitysymbol", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.serverpackettype", ftypes.STRING)
@@ -71,20 +71,26 @@ omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.server_tcp_packet = Proto
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.servertcppacketheader", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.udppacketheader", ftypes.STRING)
 
+-- Nasdaq MrxOptions SpreadTradeFeed 2.1 Session Messages
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.clientheartbeatpacket", ftypes.BYTES)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.endofsession", ftypes.BYTES)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.endofsessionpacket", ftypes.BYTES)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.heartbeat", ftypes.BYTES)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.logoutrequestpacket", ftypes.BYTES)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.serverheartbeatpacket", ftypes.BYTES)
+omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
+
 -- Nasdaq MrxOptions SpreadTradeFeed 2.1 Application Messages
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.complexstrategydirectorymessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.complex_strategy_trade_report = ProtoField.new("Complex Strategy Trade Report", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.complexstrategytradereport", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.end_of_replay_sequence_message = ProtoField.new("End Of Replay Sequence Message", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.endofreplaysequencemessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.systemeventmessage", ftypes.STRING)
-
--- Nasdaq MrxOptions SpreadTradeFeed 2.1 Session Messages
-omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.debugpacket", ftypes.STRING)
-omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.sequenceddatapacket", ftypes.STRING)
-omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq MrxOptions SpreadTradeFeed Itch 2.1 generated fields
 omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.leg_information_index = ProtoField.new("Leg Information Index", "nasdaq.mrxoptions.spreadtradefeed.itch.v2.1.leginformationindex", ftypes.UINT16)
@@ -808,7 +814,7 @@ end
 nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.reserved_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_spreadtradefeed_itch_v2_1.fields.reserved_16, range, value, display)

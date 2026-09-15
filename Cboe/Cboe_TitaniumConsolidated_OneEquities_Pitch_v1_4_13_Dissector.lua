@@ -51,8 +51,10 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.national_cumulati
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.national_volume_status = ProtoField.new("National Volume Status", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.nationalvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.opencloseindicator", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.opening_price = ProtoField.new("Opening Price", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.openingprice", ftypes.DOUBLE)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price = ProtoField.new("Price", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.price", ftypes.DOUBLE)
-omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity = ProtoField.new("Quantity", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.quantity", ftypes.UINT32)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price_long = ProtoField.new("Price Long", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.pricelong", ftypes.DOUBLE)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price_short = ProtoField.new("Price Short", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.priceshort", ftypes.DOUBLE)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.quantitylong", ftypes.UINT64)
+omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.quantityshort", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.regshoaction", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.reserved1", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.retail_price_improvement = ProtoField.new("Retail Price Improvement", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.retailpriceimprovement", ftypes.STRING)
@@ -990,54 +992,106 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_price.dissect = func
   return offset + length, value
 end
 
--- Price
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price = {}
+-- Price Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long = {}
 
--- Size: Price
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size = 8
+-- Size: Price Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.size = 8
 
--- Display: Price
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.display = function(value)
-  return "Price: "..value
+-- Display: Price Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Translate: Price
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.translate = function(raw)
+-- Translate: Price Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Price
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size
+-- Dissect: Price Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.translate(raw)
-  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.display(value, buffer, offset, packet, parent)
+  local value = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.translate(raw)
+  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price, range, value, display)
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Quantity
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity = {}
+-- Price Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short = {}
 
--- Size: Quantity
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.size = 4
+-- Size: Price Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.size = 4
 
--- Display: Quantity
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.display = function(value)
-  return "Quantity: "..value
+-- Display: Price Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Quantity
-cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.size
+-- Translate: Price Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.translate(raw)
+  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long = {}
+
+-- Size: Quantity Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long.size = 8
+
+-- Display: Quantity Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long.display = function(value)
+  return "Quantity Long: "..value
+end
+
+-- Dissect: Quantity Long
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short.size = 4
+
+-- Display: Quantity Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.display(value, buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity, range, value, display)
+  parent:add(omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1556,7 +1610,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_opening_closing_pri
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_long.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.open_close_indicator.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.size
 
 -- Display: Expanded Opening Closing Price Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_opening_closing_price_message.display = function(packet, parent, length)
@@ -1579,8 +1633,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.expanded_opening_closing_pri
   -- Open Close Indicator: Alphanumeric
   index, open_close_indicator = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.open_close_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price: Binary 8.4 Price
-  index, price = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.dissect(buffer, index, packet, parent)
+  -- Price Long: Binary 8.4 Price
+  index, price_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1612,7 +1666,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_closing_price_messag
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.symbol_short.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.open_close_indicator.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.size
 
 -- Display: Opening Closing Price Message
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_closing_price_message.display = function(packet, parent, length)
@@ -1635,8 +1689,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.opening_closing_price_messag
   -- Open Close Indicator: Alphanumeric
   index, open_close_indicator = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.open_close_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price: Binary 8.4 Price
-  index, price = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.dissect(buffer, index, packet, parent)
+  -- Price Long: Binary 8.4 Price
+  index, price_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2195,8 +2249,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.long_update_adap_block = {}
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.long_update_adap_block.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.size
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long.size
 
 -- Display: Long Update Adap Block
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.long_update_adap_block.display = function(packet, parent, length)
@@ -2213,11 +2267,11 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.long_update_adap_block.field
   -- Side: Alphanumeric
   index, side = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side.dissect(buffer, index, packet, parent)
 
-  -- Price: Binary 8.4 Price
-  index, price = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.dissect(buffer, index, packet, parent)
+  -- Price Long: Binary 8.4 Price
+  index, price_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_long.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Binary
-  index, quantity = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.dissect(buffer, index, packet, parent)
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2247,8 +2301,8 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.short_update_adap_block = {}
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.short_update_adap_block.size =
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.market_center.size + 
   cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.size + 
-  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.size
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.size + 
+  cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short.size
 
 -- Display: Short Update Adap Block
 cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.short_update_adap_block.display = function(packet, parent, length)
@@ -2265,11 +2319,11 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.short_update_adap_block.fiel
   -- Side: Alphanumeric
   index, side = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.side.dissect(buffer, index, packet, parent)
 
-  -- Price: Binary 8.4 Price
-  index, price = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price.dissect(buffer, index, packet, parent)
+  -- Price Short: Binary 4.4 Price
+  index, price_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.price_short.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Binary
-  index, quantity = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity.dissect(buffer, index, packet, parent)
+  -- Quantity Short: Binary
+  index, quantity_short = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.quantity_short.dissect(buffer, index, packet, parent)
 
   return index
 end

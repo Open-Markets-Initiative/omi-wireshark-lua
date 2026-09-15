@@ -95,6 +95,9 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message_header = Proto
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.packet", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.packetheader", ftypes.STRING)
 
+-- Nyse NyseEquities ImbalancesFeed 2.2.h Session Messages
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.heartbeat", ftypes.BYTES)
+
 -- Nyse NyseEquities ImbalancesFeed 2.2.h Application Messages
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.imbalancemessage", ftypes.STRING)

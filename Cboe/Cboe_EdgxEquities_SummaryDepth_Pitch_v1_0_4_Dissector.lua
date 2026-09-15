@@ -35,8 +35,10 @@ omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.long_update_adap_block = 
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.market_status = ProtoField.new("Market Status", "cboe.edgxequities.summarydepth.pitch.v1.0.4.marketstatus", ftypes.STRING)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.message_length = ProtoField.new("Message Length", "cboe.edgxequities.summarydepth.pitch.v1.0.4.messagelength", ftypes.UINT8)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.message_type = ProtoField.new("Message Type", "cboe.edgxequities.summarydepth.pitch.v1.0.4.messagetype", ftypes.UINT8)
-omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.price = ProtoField.new("Price", "cboe.edgxequities.summarydepth.pitch.v1.0.4.price", ftypes.DOUBLE)
-omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.quantity = ProtoField.new("Quantity", "cboe.edgxequities.summarydepth.pitch.v1.0.4.quantity", ftypes.UINT32)
+omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.price_long = ProtoField.new("Price Long", "cboe.edgxequities.summarydepth.pitch.v1.0.4.pricelong", ftypes.DOUBLE)
+omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.price_short = ProtoField.new("Price Short", "cboe.edgxequities.summarydepth.pitch.v1.0.4.priceshort", ftypes.DOUBLE)
+omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.edgxequities.summarydepth.pitch.v1.0.4.quantitylong", ftypes.UINT64)
+omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.edgxequities.summarydepth.pitch.v1.0.4.quantityshort", ftypes.UINT32)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "cboe.edgxequities.summarydepth.pitch.v1.0.4.regshoaction", ftypes.STRING)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgxequities.summarydepth.pitch.v1.0.4.reserved1", ftypes.STRING)
 omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.edgxequities.summarydepth.pitch.v1.0.4.reserved8", ftypes.UINT64)
@@ -522,54 +524,106 @@ cboe_edgxequities_summarydepth_pitch_v1_0_4.message_type.dissect = function(buff
   return offset + length, value
 end
 
--- Price
-cboe_edgxequities_summarydepth_pitch_v1_0_4.price = {}
+-- Price Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long = {}
 
--- Size: Price
-cboe_edgxequities_summarydepth_pitch_v1_0_4.price.size = 4
+-- Size: Price Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.size = 8
 
--- Display: Price
-cboe_edgxequities_summarydepth_pitch_v1_0_4.price.display = function(value)
-  return "Price: "..value
+-- Display: Price Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Translate: Price
-cboe_edgxequities_summarydepth_pitch_v1_0_4.price.translate = function(raw)
-  return raw/10000
+-- Translate: Price Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.translate = function(raw)
+  return raw:tonumber()/10000
 end
 
--- Dissect: Price
-cboe_edgxequities_summarydepth_pitch_v1_0_4.price.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxequities_summarydepth_pitch_v1_0_4.price.size
+-- Dissect: Price Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.size
   local range = buffer(offset, length)
-  local raw = range:le_uint()
-  local value = cboe_edgxequities_summarydepth_pitch_v1_0_4.price.translate(raw)
-  local display = cboe_edgxequities_summarydepth_pitch_v1_0_4.price.display(value, buffer, offset, packet, parent)
+  local raw = range:le_uint64()
+  local value = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.translate(raw)
+  local display = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.price, range, value, display)
+  parent:add(omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Quantity
-cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity = {}
+-- Price Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short = {}
 
--- Size: Quantity
-cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.size = 4
+-- Size: Price Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.size = 4
 
--- Display: Quantity
-cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.display = function(value)
-  return "Quantity: "..value
+-- Display: Price Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Dissect: Quantity
-cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.size
+-- Translate: Price Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.translate(raw)
+  local display = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long = {}
+
+-- Size: Quantity Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long.size = 8
+
+-- Display: Quantity Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long.display = function(value)
+  return "Quantity Long: "..value
+end
+
+-- Dissect: Quantity Long
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short.size = 4
+
+-- Display: Quantity Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.quantity, range, value, display)
+  parent:add(omi_cboe_edgxequities_summarydepth_pitch_v1_0_4.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1182,8 +1236,8 @@ cboe_edgxequities_summarydepth_pitch_v1_0_4.long_update_adap_block = {}
 -- Size: Long Update Adap Block
 cboe_edgxequities_summarydepth_pitch_v1_0_4.long_update_adap_block.size =
   cboe_edgxequities_summarydepth_pitch_v1_0_4.side.size + 
-  cboe_edgxequities_summarydepth_pitch_v1_0_4.price.size + 
-  cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.size
+  cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.size + 
+  cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long.size
 
 -- Display: Long Update Adap Block
 cboe_edgxequities_summarydepth_pitch_v1_0_4.long_update_adap_block.display = function(packet, parent, length)
@@ -1197,11 +1251,11 @@ cboe_edgxequities_summarydepth_pitch_v1_0_4.long_update_adap_block.fields = func
   -- Side: Alphanumeric
   index, side = cboe_edgxequities_summarydepth_pitch_v1_0_4.side.dissect(buffer, index, packet, parent)
 
-  -- Price: Binary 4.4 Price
-  index, price = cboe_edgxequities_summarydepth_pitch_v1_0_4.price.dissect(buffer, index, packet, parent)
+  -- Price Long: Binary 8.4 Price
+  index, price_long = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_long.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Binary
-  index, quantity = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.dissect(buffer, index, packet, parent)
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1230,8 +1284,8 @@ cboe_edgxequities_summarydepth_pitch_v1_0_4.short_update_adap_block = {}
 -- Size: Short Update Adap Block
 cboe_edgxequities_summarydepth_pitch_v1_0_4.short_update_adap_block.size =
   cboe_edgxequities_summarydepth_pitch_v1_0_4.side.size + 
-  cboe_edgxequities_summarydepth_pitch_v1_0_4.price.size + 
-  cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.size
+  cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.size + 
+  cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short.size
 
 -- Display: Short Update Adap Block
 cboe_edgxequities_summarydepth_pitch_v1_0_4.short_update_adap_block.display = function(packet, parent, length)
@@ -1245,11 +1299,11 @@ cboe_edgxequities_summarydepth_pitch_v1_0_4.short_update_adap_block.fields = fun
   -- Side: Alphanumeric
   index, side = cboe_edgxequities_summarydepth_pitch_v1_0_4.side.dissect(buffer, index, packet, parent)
 
-  -- Price: Binary 4.4 Price
-  index, price = cboe_edgxequities_summarydepth_pitch_v1_0_4.price.dissect(buffer, index, packet, parent)
+  -- Price Short: Binary 4.4 Price
+  index, price_short = cboe_edgxequities_summarydepth_pitch_v1_0_4.price_short.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Binary
-  index, quantity = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity.dissect(buffer, index, packet, parent)
+  -- Quantity Short: Binary
+  index, quantity_short = cboe_edgxequities_summarydepth_pitch_v1_0_4.quantity_short.dissect(buffer, index, packet, parent)
 
   return index
 end

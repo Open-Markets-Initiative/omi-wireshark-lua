@@ -70,6 +70,10 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.stock_directory_message = P
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.noiview.itch.v3.0.2017.stocktradingactionmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.noiview.itch.v3.0.2017.systemeventmessage", ftypes.STRING)
 
+-- Nasdaq NsmEquities NoiView 3.0.2017 Session Messages
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.noiview.itch.v3.0.2017.endofsession", ftypes.BYTES)
+omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.noiview.itch.v3.0.2017.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NsmEquities NoiView Itch 3.0.2017 generated fields
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_noiview_itch_v3_0_2017.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.noiview.itch.v3.0.2017.messagesequencenumber", ftypes.UINT64)

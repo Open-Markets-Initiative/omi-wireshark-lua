@@ -284,6 +284,7 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.server_technical_header = ProtoField.new("Se
 omi_cme_globex_mdp3_sbe_v1_9.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.9.udppacket", ftypes.STRING)
 
 -- Cme Globex Mdp3 1.9 Application Messages
+omi_cme_globex_mdp3_sbe_v1_9.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.mdp3.sbe.v1.9.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_9.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.mdp3.sbe.v1.9.adminlogin", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.mdp3.sbe.v1.9.adminlogout", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.channel_reset = ProtoField.new("Channel Reset", "cme.globex.mdp3.sbe.v1.9.channelreset", ftypes.STRING)
@@ -320,6 +321,7 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh = ProtoField.new("Snap
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy = ProtoField.new("Snapshot Full Refresh Legacy", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshlegacy", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book = ProtoField.new("Snapshot Full Refresh Order Book", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbook", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy = ProtoField.new("Snapshot Full Refresh Order Book Legacy", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbooklegacy", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_9.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.mdp3.sbe.v1.9.subscriberheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_9.fields.terminate = ProtoField.new("Terminate", "cme.globex.mdp3.sbe.v1.9.terminate", ftypes.STRING)
 
 -- Cme Globex Mdp3 Sbe 1.9 generated fields

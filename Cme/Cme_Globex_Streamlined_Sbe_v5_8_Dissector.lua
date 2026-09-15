@@ -267,6 +267,7 @@ omi_cme_globex_streamlined_sbe_v5_8.fields.technical_header = ProtoField.new("Te
 omi_cme_globex_streamlined_sbe_v5_8.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.8.udppacket", ftypes.STRING)
 
 -- Cme Globex Streamlined 5.8 Application Messages
+omi_cme_globex_streamlined_sbe_v5_8.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.streamlined.sbe.v5.8.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_streamlined_sbe_v5_8.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.streamlined.sbe.v5.8.adminlogin", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_8.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.streamlined.sbe.v5.8.adminlogout", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_8.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.globex.streamlined.sbe.v5.8.mdincrementalrefresheris351", ftypes.STRING)

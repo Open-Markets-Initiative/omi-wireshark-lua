@@ -64,6 +64,10 @@ omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.adjusted_closing_price_mes
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.on_exchange_trade_message = ProtoField.new("On Exchange Trade Message", "nasdaq.nordicequities.lastsale.itch.v1.2.9.onexchangetrademessage", ftypes.STRING)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.otc_trade_message = ProtoField.new("Otc Trade Message", "nasdaq.nordicequities.lastsale.itch.v1.2.9.otctrademessage", ftypes.STRING)
 
+-- Nasdaq NordicEquities LastSale 1.2.9 Session Messages
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nordicequities.lastsale.itch.v1.2.9.endofsession", ftypes.BYTES)
+omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nordicequities.lastsale.itch.v1.2.9.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NordicEquities LastSale Itch 1.2.9 generated fields
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_index = ProtoField.new("Message Index", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messageindex", ftypes.UINT16)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messagesequencenumber", ftypes.UINT64)

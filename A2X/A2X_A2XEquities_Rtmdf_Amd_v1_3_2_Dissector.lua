@@ -60,6 +60,7 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.packet = ProtoField.new("Packet", "a
 
 -- A2X A2XEquities Rtmdf 1.3.2 Application Messages
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.auction_on_demand_message = ProtoField.new("Auction On Demand Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.auctionondemandmessage", ftypes.STRING)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.heartbeatmessage", ftypes.BYTES)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.market_at_close = ProtoField.new("Market At Close", "a2x.a2xequities.rtmdf.amd.v1.3.2.marketatclose", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_add_message = ProtoField.new("Order Add Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.orderaddmessage", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.ordercancelmessage", ftypes.STRING)

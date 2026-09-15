@@ -43,6 +43,10 @@ omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.message_header = ProtoField.ne
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.nois.itch.v2.2.2022.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.nois.itch.v2.2.2022.packetheader", ftypes.STRING)
 
+-- Nasdaq NsmEquities Nois 2.2.2022 Session Messages
+omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.nois.itch.v2.2.2022.endofsession", ftypes.BYTES)
+omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.nois.itch.v2.2.2022.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NsmEquities Nois 2.2.2022 Application Messages
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.nois_message = ProtoField.new("Nois Message", "nasdaq.nsmequities.nois.itch.v2.2.2022.noismessage", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2_2022.fields.stock_directory = ProtoField.new("Stock Directory", "nasdaq.nsmequities.nois.itch.v2.2.2022.stockdirectory", ftypes.STRING)

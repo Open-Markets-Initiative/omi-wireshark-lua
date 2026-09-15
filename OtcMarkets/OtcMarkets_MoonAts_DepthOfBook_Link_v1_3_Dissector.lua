@@ -93,6 +93,9 @@ omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.system_recovery_event_messag
 omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.trade_message = ProtoField.new("Trade Message", "otcmarkets.moonats.depthofbook.link.v1.3.trademessage", ftypes.STRING)
 omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.trading_session_message = ProtoField.new("Trading Session Message", "otcmarkets.moonats.depthofbook.link.v1.3.tradingsessionmessage", ftypes.STRING)
 
+-- OtcMarkets MoonAts DepthOfBook 1.3 Session Messages
+omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.moonats.depthofbook.link.v1.3.heartbeatpacket", ftypes.BYTES)
+
 -- OtcMarkets MoonAts DepthOfBook Link 1.3 generated fields
 omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.message_index = ProtoField.new("Message Index", "otcmarkets.moonats.depthofbook.link.v1.3.messageindex", ftypes.UINT16)
 

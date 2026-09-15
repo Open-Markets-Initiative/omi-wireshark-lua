@@ -108,6 +108,10 @@ omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.stock_trading_action_mess
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.totalview.itch.v5.0.2018.systemeventmessage", ftypes.STRING)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.trade_message_non_cross = ProtoField.new("Trade Message Non Cross", "nasdaq.psxequities.totalview.itch.v5.0.2018.trademessagenoncross", ftypes.STRING)
 
+-- Nasdaq PsxEquities TotalView 5.0.2018 Session Messages
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.psxequities.totalview.itch.v5.0.2018.endofsession", ftypes.BYTES)
+omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.psxequities.totalview.itch.v5.0.2018.heartbeat", ftypes.BYTES)
+
 -- Nasdaq PsxEquities TotalView Itch 5.0.2018 generated fields
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.totalview.itch.v5.0.2018.messageindex", ftypes.UINT16)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.psxequities.totalview.itch.v5.0.2018.messagesequencenumber", ftypes.UINT64)

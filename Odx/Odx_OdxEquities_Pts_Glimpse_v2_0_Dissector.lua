@@ -60,11 +60,15 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_header = ProtoField.ne
 omi_odx_odxequities_pts_glimpse_v2_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "odx.odxequities.pts.glimpse.v2.0.serversoupbintcppacket", ftypes.STRING)
 
 -- Odx OdxEquities Pts 2.0 Session Messages
+omi_odx_odxequities_pts_glimpse_v2_0.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "odx.odxequities.pts.glimpse.v2.0.clientheartbeat", ftypes.BYTES)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "odx.odxequities.pts.glimpse.v2.0.debugpacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.end_of_session = ProtoField.new("End Of Session", "odx.odxequities.pts.glimpse.v2.0.endofsession", ftypes.BYTES)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "odx.odxequities.pts.glimpse.v2.0.loginacceptedpacket", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "odx.odxequities.pts.glimpse.v2.0.loginrejectedpacket", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "odx.odxequities.pts.glimpse.v2.0.loginrequestpacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.logout_request = ProtoField.new("Logout Request", "odx.odxequities.pts.glimpse.v2.0.logoutrequest", ftypes.BYTES)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "odx.odxequities.pts.glimpse.v2.0.sequenceddatapacket", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "odx.odxequities.pts.glimpse.v2.0.serverheartbeat", ftypes.BYTES)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "odx.odxequities.pts.glimpse.v2.0.unsequenceddatapacket", ftypes.STRING)
 
 -- Odx OdxEquities Pts 2.0 Application Messages

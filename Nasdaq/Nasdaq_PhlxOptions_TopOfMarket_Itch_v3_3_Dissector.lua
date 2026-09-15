@@ -80,6 +80,10 @@ omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.timestamp_message = ProtoFie
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.phlxoptions.topofmarket.itch.v3.3.tradereportmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.phlxoptions.topofmarket.itch.v3.3.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq PhlxOptions TopOfMarket 3.3 Session Messages
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.phlxoptions.topofmarket.itch.v3.3.endofsession", ftypes.BYTES)
+omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.phlxoptions.topofmarket.itch.v3.3.heartbeat", ftypes.BYTES)
+
 -- Nasdaq PhlxOptions TopOfMarket Itch 3.3 generated fields
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.topofmarket.itch.v3.3.messageindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_topofmarket_itch_v3_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.phlxoptions.topofmarket.itch.v3.3.messagesequencenumber", ftypes.UINT64)

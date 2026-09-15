@@ -58,7 +58,7 @@ omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.quantity = ProtoField.new("Quan
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.iseoptions.orderfeed.itch.v2.1.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.orderfeed.itch.v2.1.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.iseoptions.orderfeed.itch.v2.1.requestedsession", ftypes.STRING)
-omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.orderfeed.itch.v2.1.reserved16", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.orderfeed.itch.v2.1.reserved16", ftypes.BYTES)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.iseoptions.orderfeed.itch.v2.1.securitysymbol", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.iseoptions.orderfeed.itch.v2.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.iseoptions.orderfeed.itch.v2.1.serverpackettype", ftypes.STRING)
@@ -96,11 +96,17 @@ omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.system_event_message = ProtoFie
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.iseoptions.orderfeed.itch.v2.1.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq IseOptions OrderFeed 2.1 Session Messages
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.iseoptions.orderfeed.itch.v2.1.endofsession", ftypes.BYTES)
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.endofsessionpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.iseoptions.orderfeed.itch.v2.1.heartbeat", ftypes.BYTES)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.iseoptions.orderfeed.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq IseOptions OrderFeed Itch 2.1 generated fields
@@ -1438,7 +1444,7 @@ end
 nasdaq_iseoptions_orderfeed_itch_v2_1.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_orderfeed_itch_v2_1.reserved_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_iseoptions_orderfeed_itch_v2_1.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v2_1.fields.reserved_16, range, value, display)

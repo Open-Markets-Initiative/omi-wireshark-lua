@@ -124,6 +124,9 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.trade_message = ProtoField.ne
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "coinbase.deribit.marketdataapi.sbe.v0.1.tradesummarymessage", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.trading_status_update_message = ProtoField.new("Trading Status Update Message", "coinbase.deribit.marketdataapi.sbe.v0.1.tradingstatusupdatemessage", ftypes.STRING)
 
+-- Coinbase Deribit MarketDataApi 0.1 Session Messages
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.empty_packet = ProtoField.new("Empty Packet", "coinbase.deribit.marketdataapi.sbe.v0.1.emptypacket", ftypes.BYTES)
+
 -- Coinbase Deribit MarketDataApi Sbe 0.1 generated fields
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message_index = ProtoField.new("Md Message Index", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessageindex", ftypes.UINT16)
 

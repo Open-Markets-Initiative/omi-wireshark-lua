@@ -102,6 +102,10 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.system_event_message = Prot
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.tick_size_table_entry = ProtoField.new("Tick Size Table Entry", "jpx.osederivatives.geniuminet.itch.v5.0.6.ticksizetableentry", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.trade_message = ProtoField.new("Trade Message", "jpx.osederivatives.geniuminet.itch.v5.0.6.trademessage", ftypes.STRING)
 
+-- Jpx OseDerivatives GeniumInet 5.0.6 Session Messages
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.end_of_session = ProtoField.new("End Of Session", "jpx.osederivatives.geniuminet.itch.v5.0.6.endofsession", ftypes.BYTES)
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.heartbeat = ProtoField.new("Heartbeat", "jpx.osederivatives.geniuminet.itch.v5.0.6.heartbeat", ftypes.BYTES)
+
 -- Jpx OseDerivatives GeniumInet Itch 5.0.6 generated fields
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_index = ProtoField.new("Message Index", "jpx.osederivatives.geniuminet.itch.v5.0.6.messageindex", ftypes.UINT16)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jpx.osederivatives.geniuminet.itch.v5.0.6.messagesequencenumber", ftypes.UINT64)

@@ -80,6 +80,10 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.timestamp_message = ProtoField.new("
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.nomoptions.bono.itch.v3.2.tradereportmessage", ftypes.STRING)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nomoptions.bono.itch.v3.2.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq NomOptions Bono 3.2 Session Messages
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nomoptions.bono.itch.v3.2.endofsession", ftypes.BYTES)
+omi_nasdaq_nomoptions_bono_itch_v3_2.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nomoptions.bono.itch.v3.2.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NomOptions Bono Itch 3.2 generated fields
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.nomoptions.bono.itch.v3.2.messageindex", ftypes.UINT16)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nomoptions.bono.itch.v3.2.messagesequencenumber", ftypes.UINT64)

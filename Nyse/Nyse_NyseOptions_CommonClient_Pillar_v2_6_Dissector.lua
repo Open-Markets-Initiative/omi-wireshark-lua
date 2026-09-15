@@ -33,6 +33,9 @@ omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_header = ProtoField
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nyseoptions.commonclient.pillar.v2.6.packet", ftypes.STRING)
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseoptions.commonclient.pillar.v2.6.packetheader", ftypes.STRING)
 
+-- Nyse NyseOptions CommonClient 2.6 Session Messages
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseoptions.commonclient.pillar.v2.6.heartbeat", ftypes.BYTES)
+
 -- Nyse NyseOptions CommonClient Pillar 2.6 generated fields
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_index = ProtoField.new("Message Index", "nyse.nyseoptions.commonclient.pillar.v2.6.messageindex", ftypes.UINT16)
 

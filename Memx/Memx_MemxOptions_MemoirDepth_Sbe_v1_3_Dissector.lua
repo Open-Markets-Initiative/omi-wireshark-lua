@@ -80,6 +80,10 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_3.fields.order_reduced_message = ProtoFi
 omi_memx_memxoptions_memoirdepth_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.memxoptions.memoirdepth.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.memxoptions.memoirdepth.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
+-- Memx MemxOptions MemoirDepth 1.3 Session Messages
+omi_memx_memxoptions_memoirdepth_sbe_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxoptions.memoirdepth.sbe.v1.3.heartbeat", ftypes.BYTES)
+omi_memx_memxoptions_memoirdepth_sbe_v1_3.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxoptions.memoirdepth.sbe.v1.3.sessionshutdown", ftypes.BYTES)
+
 -- Memx MemxOptions MemoirDepth Sbe 1.3 generated fields
 omi_memx_memxoptions_memoirdepth_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "memx.memxoptions.memoirdepth.sbe.v1.3.messageindex", ftypes.UINT16)
 

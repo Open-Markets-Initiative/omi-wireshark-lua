@@ -65,6 +65,9 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.execution_message = ProtoField
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.arcaequities.arcabook.pillar.v2.1.imbalancemessage", ftypes.STRING)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.modify_order_message = ProtoField.new("Modify Order Message", "nyse.arcaequities.arcabook.pillar.v2.1.modifyordermessage", ftypes.STRING)
 
+-- Nyse ArcaEquities ArcaBook 2.1 Session Messages
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaequities.arcabook.pillar.v2.1.heartbeat", ftypes.BYTES)
+
 -- Nyse ArcaEquities ArcaBook Pillar 2.1 generated fields
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.arcabook.pillar.v2.1.messageindex", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaequities.arcabook.pillar.v2.1.messagesequencenumber", ftypes.UINT64)

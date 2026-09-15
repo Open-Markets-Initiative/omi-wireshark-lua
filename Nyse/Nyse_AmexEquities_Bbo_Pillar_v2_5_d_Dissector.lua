@@ -82,6 +82,9 @@ omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.message_header = ProtoField.new("
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.packet = ProtoField.new("Packet", "nyse.amexequities.bbo.pillar.v2.5.d.packet", ftypes.STRING)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.bbo.pillar.v2.5.d.packetheader", ftypes.STRING)
 
+-- Nyse AmexEquities Bbo 2.5.d Session Messages
+omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amexequities.bbo.pillar.v2.5.d.heartbeat", ftypes.BYTES)
+
 -- Nyse AmexEquities Bbo 2.5.d Application Messages
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.bbo.pillar.v2.5.d.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_bbo_pillar_v2_5_d.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.bbo.pillar.v2.5.d.messageunavailablemessage", ftypes.STRING)

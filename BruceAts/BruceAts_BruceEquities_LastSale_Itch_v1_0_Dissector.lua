@@ -39,6 +39,10 @@ omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_header = ProtoField
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet = ProtoField.new("Packet", "bruceats.bruceequities.lastsale.itch.v1.0.packet", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "bruceats.bruceequities.lastsale.itch.v1.0.packetheader", ftypes.STRING)
 
+-- BruceAts BruceEquities LastSale 1.0 Session Messages
+omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.end_of_session = ProtoField.new("End Of Session", "bruceats.bruceequities.lastsale.itch.v1.0.endofsession", ftypes.BYTES)
+omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "bruceats.bruceequities.lastsale.itch.v1.0.heartbeat", ftypes.BYTES)
+
 -- BruceAts BruceEquities LastSale 1.0 Application Messages
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.reg_sho_short_sale_price_test_restricted_indicator = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator", "bruceats.bruceequities.lastsale.itch.v1.0.regshoshortsalepricetestrestrictedindicator", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.stock_directory = ProtoField.new("Stock Directory", "bruceats.bruceequities.lastsale.itch.v1.0.stockdirectory", ftypes.STRING)

@@ -87,11 +87,15 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.replaced_message = ProtoField.new
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.orders.ouch.v4.2.systemeventmessage", ftypes.STRING)
 
 -- Nasdaq PsxEquities Orders 4.2 Session Messages
+omi_nasdaq_psxequities_orders_ouch_v4_2.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "nasdaq.psxequities.orders.ouch.v4.2.clientheartbeat", ftypes.BYTES)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.psxequities.orders.ouch.v4.2.debugpacket", ftypes.STRING)
+omi_nasdaq_psxequities_orders_ouch_v4_2.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.psxequities.orders.ouch.v4.2.endofsession", ftypes.BYTES)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.psxequities.orders.ouch.v4.2.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.psxequities.orders.ouch.v4.2.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.psxequities.orders.ouch.v4.2.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_psxequities_orders_ouch_v4_2.fields.logout_request = ProtoField.new("Logout Request", "nasdaq.psxequities.orders.ouch.v4.2.logoutrequest", ftypes.BYTES)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.psxequities.orders.ouch.v4.2.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_psxequities_orders_ouch_v4_2.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "nasdaq.psxequities.orders.ouch.v4.2.serverheartbeat", ftypes.BYTES)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.psxequities.orders.ouch.v4.2.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq PsxEquities Orders Ouch 4.2 generated fields

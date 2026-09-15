@@ -95,11 +95,11 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.recovery_trade_flags = ProtoField.new
 omi_jse_itac_marketdata_mitch_v4_07.fields.regular = ProtoField.new("Regular", "jse.itac.marketdata.mitch.v4.07.regular", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_jse_itac_marketdata_mitch_v4_07.fields.request_id = ProtoField.new("Request Id", "jse.itac.marketdata.mitch.v4.07.requestid", ftypes.UINT32)
 omi_jse_itac_marketdata_mitch_v4_07.fields.reserve_field = ProtoField.new("Reserve Field", "jse.itac.marketdata.mitch.v4.07.reservefield", ftypes.UINT16)
-omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_2 = ProtoField.new("Reserved 2", "jse.itac.marketdata.mitch.v4.07.reserved2", ftypes.STRING)
-omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_4 = ProtoField.new("Reserved 4", "jse.itac.marketdata.mitch.v4.07.reserved4", ftypes.UINT32)
-omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8 = ProtoField.new("Reserved 8", "jse.itac.marketdata.mitch.v4.07.reserved8", ftypes.STRING)
-omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_a = ProtoField.new("Reserved A", "jse.itac.marketdata.mitch.v4.07.reserveda", ftypes.STRING)
-omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b = ProtoField.new("Reserved B", "jse.itac.marketdata.mitch.v4.07.reservedb", ftypes.STRING)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_2 = ProtoField.new("Reserved 2", "jse.itac.marketdata.mitch.v4.07.reserved2", ftypes.BYTES)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_4 = ProtoField.new("Reserved 4", "jse.itac.marketdata.mitch.v4.07.reserved4", ftypes.BYTES)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8 = ProtoField.new("Reserved 8", "jse.itac.marketdata.mitch.v4.07.reserved8", ftypes.BYTES)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_a = ProtoField.new("Reserved A", "jse.itac.marketdata.mitch.v4.07.reserveda", ftypes.BYTES)
+omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b = ProtoField.new("Reserved B", "jse.itac.marketdata.mitch.v4.07.reservedb", ftypes.BYTES)
 omi_jse_itac_marketdata_mitch_v4_07.fields.rfq_id = ProtoField.new("Rfq Id", "jse.itac.marketdata.mitch.v4.07.rfqid", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.rho = ProtoField.new("Rho", "jse.itac.marketdata.mitch.v4.07.rho", ftypes.INT64)
 omi_jse_itac_marketdata_mitch_v4_07.fields.seconds = ProtoField.new("Seconds", "jse.itac.marketdata.mitch.v4.07.seconds", ftypes.UINT32)
@@ -2049,7 +2049,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reserved_2 = {}
 
 -- Size: Reserved 2
-jse_itac_marketdata_mitch_v4_07.reserved_2.size = 1
+jse_itac_marketdata_mitch_v4_07.reserved_2.size = 2
 
 -- Display: Reserved 2
 jse_itac_marketdata_mitch_v4_07.reserved_2.display = function(value)
@@ -2060,7 +2060,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reserved_2.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.reserved_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_2, range, value, display)
@@ -2083,7 +2083,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.reserved_4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_4, range, value, display)
@@ -2106,7 +2106,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.reserved_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8, range, value, display)
@@ -2129,7 +2129,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reserved_a.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.reserved_a.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_a.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_a, range, value, display)
@@ -2152,7 +2152,7 @@ end
 jse_itac_marketdata_mitch_v4_07.reserved_b.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.reserved_b.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_b.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b, range, value, display)

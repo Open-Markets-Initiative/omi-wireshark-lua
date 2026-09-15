@@ -148,6 +148,10 @@ omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.order_replace_message = 
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nordicequities.totalview.itch.v3.04.5.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.nordicequities.totalview.itch.v3.04.5.trademessage", ftypes.STRING)
 
+-- Nasdaq NordicEquities TotalView 3.04.5 Session Messages
+omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nordicequities.totalview.itch.v3.04.5.endofsession", ftypes.BYTES)
+omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nordicequities.totalview.itch.v3.04.5.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NordicEquities TotalView Itch 3.04.5 generated fields
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.nordicequities.totalview.itch.v3.04.5.messageindex", ftypes.UINT16)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_5.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nordicequities.totalview.itch.v3.04.5.messagesequencenumber", ftypes.UINT64)

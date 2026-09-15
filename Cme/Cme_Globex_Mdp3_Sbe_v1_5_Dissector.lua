@@ -253,6 +253,7 @@ omi_cme_globex_mdp3_sbe_v1_5.fields.server_technical_header = ProtoField.new("Se
 omi_cme_globex_mdp3_sbe_v1_5.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.5.udppacket", ftypes.STRING)
 
 -- Cme Globex Mdp3 1.5 Application Messages
+omi_cme_globex_mdp3_sbe_v1_5.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.mdp3.sbe.v1.5.adminheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_5.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.mdp3.sbe.v1.5.adminlogin", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.mdp3.sbe.v1.5.adminlogout", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.channel_reset = ProtoField.new("Channel Reset", "cme.globex.mdp3.sbe.v1.5.channelreset", ftypes.STRING)
@@ -277,6 +278,7 @@ omi_cme_globex_mdp3_sbe_v1_5.fields.security_list_request = ProtoField.new("Secu
 omi_cme_globex_mdp3_sbe_v1_5.fields.security_status = ProtoField.new("Security Status", "cme.globex.mdp3.sbe.v1.5.securitystatus", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.security_status_request = ProtoField.new("Security Status Request", "cme.globex.mdp3.sbe.v1.5.securitystatusrequest", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_5.fields.snapshot_full_refresh = ProtoField.new("Snapshot Full Refresh", "cme.globex.mdp3.sbe.v1.5.snapshotfullrefresh", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_5.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.mdp3.sbe.v1.5.subscriberheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_5.fields.terminate = ProtoField.new("Terminate", "cme.globex.mdp3.sbe.v1.5.terminate", ftypes.STRING)
 
 -- Cme Globex Mdp3 Sbe 1.5 generated fields

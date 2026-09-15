@@ -96,6 +96,7 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.packet = ProtoField.new("Packe
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.packet_header = ProtoField.new("Packet Header", "cboe.c1options.marketlevel2.csm.v1.0.4.packetheader", ftypes.STRING)
 
 -- Cboe C1Options MarketLevel2 1.0.4 Application Messages
+omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "cboe.c1options.marketlevel2.csm.v1.0.4.heartbeatmessage", ftypes.BYTES)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_message = ProtoField.new("Incremental Refresh Message", "cboe.c1options.marketlevel2.csm.v1.0.4.incrementalrefreshmessage", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.c1options.marketlevel2.csm.v1.0.4.securitydefinitionmessage", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_status_message = ProtoField.new("Security Status Message", "cboe.c1options.marketlevel2.csm.v1.0.4.securitystatusmessage", ftypes.STRING)

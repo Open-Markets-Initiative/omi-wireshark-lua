@@ -93,11 +93,15 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.system_event_message = Prot
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.time_stamp_seconds_message = ProtoField.new("Time Stamp Seconds Message", "biva.bivaequities.totalview.glimpse.v1.12.timestampsecondsmessage", ftypes.STRING)
 
 -- Biva BivaEquities TotalView 1.12 Session Messages
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "biva.bivaequities.totalview.glimpse.v1.12.clientheartbeat", ftypes.BYTES)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.debug_packet = ProtoField.new("Debug Packet", "biva.bivaequities.totalview.glimpse.v1.12.debugpacket", ftypes.STRING)
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.end_of_session = ProtoField.new("End Of Session", "biva.bivaequities.totalview.glimpse.v1.12.endofsession", ftypes.BYTES)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "biva.bivaequities.totalview.glimpse.v1.12.loginacceptedpacket", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "biva.bivaequities.totalview.glimpse.v1.12.loginrejectedpacket", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.login_request_packet = ProtoField.new("Login Request Packet", "biva.bivaequities.totalview.glimpse.v1.12.loginrequestpacket", ftypes.STRING)
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.logout_request = ProtoField.new("Logout Request", "biva.bivaequities.totalview.glimpse.v1.12.logoutrequest", ftypes.BYTES)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "biva.bivaequities.totalview.glimpse.v1.12.sequenceddatapacket", ftypes.STRING)
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "biva.bivaequities.totalview.glimpse.v1.12.serverheartbeat", ftypes.BYTES)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "biva.bivaequities.totalview.glimpse.v1.12.unsequenceddatapacket", ftypes.STRING)
 
 -- Biva BivaEquities TotalView Glimpse 1.12 generated fields

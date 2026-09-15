@@ -99,6 +99,10 @@ omi_biva_bivaequities_totalview_itch_v1_12.fields.system_event_message = ProtoFi
 omi_biva_bivaequities_totalview_itch_v1_12.fields.time_stamp_seconds_message = ProtoField.new("Time Stamp Seconds Message", "biva.bivaequities.totalview.itch.v1.12.timestampsecondsmessage", ftypes.STRING)
 omi_biva_bivaequities_totalview_itch_v1_12.fields.trade_message = ProtoField.new("Trade Message", "biva.bivaequities.totalview.itch.v1.12.trademessage", ftypes.STRING)
 
+-- Biva BivaEquities TotalView 1.12 Session Messages
+omi_biva_bivaequities_totalview_itch_v1_12.fields.end_of_session = ProtoField.new("End Of Session", "biva.bivaequities.totalview.itch.v1.12.endofsession", ftypes.BYTES)
+omi_biva_bivaequities_totalview_itch_v1_12.fields.heartbeat = ProtoField.new("Heartbeat", "biva.bivaequities.totalview.itch.v1.12.heartbeat", ftypes.BYTES)
+
 -- Biva BivaEquities TotalView Itch 1.12 generated fields
 omi_biva_bivaequities_totalview_itch_v1_12.fields.message_index = ProtoField.new("Message Index", "biva.bivaequities.totalview.itch.v1.12.messageindex", ftypes.UINT16)
 omi_biva_bivaequities_totalview_itch_v1_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "biva.bivaequities.totalview.itch.v1.12.messagesequencenumber", ftypes.UINT64)

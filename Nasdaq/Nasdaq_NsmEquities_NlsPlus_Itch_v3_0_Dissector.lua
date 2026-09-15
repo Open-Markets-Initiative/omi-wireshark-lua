@@ -138,6 +138,10 @@ omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.trade_cancel_error_message = Pro
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.nsmequities.nlsplus.itch.v3.0.tradecorrectionmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.nsmequities.nlsplus.itch.v3.0.tradereportmessage", ftypes.STRING)
 
+-- Nasdaq NsmEquities NlsPlus 3.0 Session Messages
+omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.nlsplus.itch.v3.0.endofsession", ftypes.BYTES)
+omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.nlsplus.itch.v3.0.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NsmEquities NlsPlus Itch 3.0 generated fields
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.nlsplus.itch.v3.0.messageindex", ftypes.UINT16)
 

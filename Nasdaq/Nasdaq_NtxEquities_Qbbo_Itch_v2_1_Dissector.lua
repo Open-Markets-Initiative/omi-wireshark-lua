@@ -75,6 +75,10 @@ omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock_directory_message = ProtoFiel
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.ntxequities.qbbo.itch.v2.1.stocktradingactionmessage", ftypes.STRING)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.ntxequities.qbbo.itch.v2.1.systemeventmessage", ftypes.STRING)
 
+-- Nasdaq NtxEquities Qbbo 2.1 Session Messages
+omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.ntxequities.qbbo.itch.v2.1.endofsession", ftypes.BYTES)
+omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.ntxequities.qbbo.itch.v2.1.heartbeat", ftypes.BYTES)
+
 -- Nasdaq NtxEquities Qbbo Itch 2.1 generated fields
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxequities.qbbo.itch.v2.1.messageindex", ftypes.UINT16)
 omi_nasdaq_ntxequities_qbbo_itch_v2_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.ntxequities.qbbo.itch.v2.1.messagesequencenumber", ftypes.UINT64)

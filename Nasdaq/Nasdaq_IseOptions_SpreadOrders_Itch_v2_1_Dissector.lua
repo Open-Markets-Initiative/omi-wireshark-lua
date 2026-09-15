@@ -56,9 +56,9 @@ omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.price = ProtoField.new("Pric
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.iseoptions.spreadorders.itch.v2.1.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.spreadorders.itch.v2.1.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.iseoptions.spreadorders.itch.v2.1.requestedsession", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.spreadorders.itch.v2.1.reserved16", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_4 = ProtoField.new("Reserved 4", "nasdaq.iseoptions.spreadorders.itch.v2.1.reserved4", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_8 = ProtoField.new("Reserved 8", "nasdaq.iseoptions.spreadorders.itch.v2.1.reserved8", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.iseoptions.spreadorders.itch.v2.1.reserved16", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_4 = ProtoField.new("Reserved 4", "nasdaq.iseoptions.spreadorders.itch.v2.1.reserved4", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_8 = ProtoField.new("Reserved 8", "nasdaq.iseoptions.spreadorders.itch.v2.1.reserved8", ftypes.BYTES)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.iseoptions.spreadorders.itch.v2.1.responseprice", ftypes.DOUBLE)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.iseoptions.spreadorders.itch.v2.1.responsesize", ftypes.UINT32)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.scope = ProtoField.new("Scope", "nasdaq.iseoptions.spreadorders.itch.v2.1.scope", ftypes.STRING)
@@ -92,6 +92,20 @@ omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.server_tcp_packet = ProtoFie
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.iseoptions.spreadorders.itch.v2.1.servertcppacketheader", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.iseoptions.spreadorders.itch.v2.1.udppacketheader", ftypes.STRING)
 
+-- Nasdaq IseOptions SpreadOrders 2.1 Session Messages
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.clientheartbeatpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.debugpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.iseoptions.spreadorders.itch.v2.1.endofsession", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.endofsessionpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.iseoptions.spreadorders.itch.v2.1.heartbeat", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginacceptedpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrejectedpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.logoutrequestpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.serverheartbeatpacket", ftypes.BYTES)
+omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
+
 -- Nasdaq IseOptions SpreadOrders 2.1 Application Messages
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.complex_add_order_message = ProtoField.new("Complex Add Order Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.complexaddordermessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.complex_strategy_auction_message = ProtoField.new("Complex Strategy Auction Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.complexstrategyauctionmessage", ftypes.STRING)
@@ -99,14 +113,6 @@ omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.complex_strategy_directory_m
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.end_of_replay_sequence_message = ProtoField.new("End Of Replay Sequence Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.endofreplaysequencemessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.strategy_trading_action_message = ProtoField.new("Strategy Trading Action Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.strategytradingactionmessage", ftypes.STRING)
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.iseoptions.spreadorders.itch.v2.1.systemeventmessage", ftypes.STRING)
-
--- Nasdaq IseOptions SpreadOrders 2.1 Session Messages
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.debugpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginacceptedpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrejectedpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.loginrequestpacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.sequenceddatapacket", ftypes.STRING)
-omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.iseoptions.spreadorders.itch.v2.1.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq IseOptions SpreadOrders Itch 2.1 generated fields
 omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.flex_dac_leg_information_index = ProtoField.new("Flex Dac Leg Information Index", "nasdaq.iseoptions.spreadorders.itch.v2.1.flexdacleginformationindex", ftypes.UINT16)
@@ -1316,7 +1322,7 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_16.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_16.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_16.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_16, range, value, display)
@@ -1339,7 +1345,7 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_4, range, value, display)
@@ -1362,7 +1368,7 @@ end
 nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_8.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_iseoptions_spreadorders_itch_v2_1.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_spreadorders_itch_v2_1.fields.reserved_8, range, value, display)

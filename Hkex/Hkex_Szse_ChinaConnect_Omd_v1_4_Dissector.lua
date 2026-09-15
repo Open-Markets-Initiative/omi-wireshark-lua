@@ -27,7 +27,7 @@ omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_12 = ProtoField.new("Filler 12
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_2 = ProtoField.new("Filler 2", "hkex.szse.chinaconnect.omd.v1.4.filler2", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_3 = ProtoField.new("Filler 3", "hkex.szse.chinaconnect.omd.v1.4.filler3", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_6 = ProtoField.new("Filler 6", "hkex.szse.chinaconnect.omd.v1.4.filler6", ftypes.STRING)
-omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_60 = ProtoField.new("Filler 60", "hkex.szse.chinaconnect.omd.v1.4.filler60", ftypes.BYTES)
+omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_60 = ProtoField.new("Filler 60", "hkex.szse.chinaconnect.omd.v1.4.filler60", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_7 = ProtoField.new("Filler 7", "hkex.szse.chinaconnect.omd.v1.4.filler7", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_8 = ProtoField.new("Filler 8", "hkex.szse.chinaconnect.omd.v1.4.filler8", ftypes.STRING)
 omi_hkex_szse_chinaconnect_omd_v1_4.fields.high_price = ProtoField.new("High Price", "hkex.szse.chinaconnect.omd.v1.4.highprice", ftypes.DOUBLE)
@@ -445,7 +445,7 @@ end
 hkex_szse_chinaconnect_omd_v1_4.filler_60.dissect = function(buffer, offset, packet, parent)
   local length = hkex_szse_chinaconnect_omd_v1_4.filler_60.size
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local value = trim_right_spaces(range:string())
   local display = hkex_szse_chinaconnect_omd_v1_4.filler_60.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_szse_chinaconnect_omd_v1_4.fields.filler_60, range, value, display)

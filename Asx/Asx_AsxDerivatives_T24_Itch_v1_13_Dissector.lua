@@ -159,6 +159,10 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.trade_cancellation_message = ProtoF
 omi_asx_asxderivatives_t24_itch_v1_13.fields.trade_spread_execution_chain_message = ProtoField.new("Trade Spread Execution Chain Message", "asx.asxderivatives.t24.itch.v1.13.tradespreadexecutionchainmessage", ftypes.STRING)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.volume_and_open_interest_message = ProtoField.new("Volume And Open Interest Message", "asx.asxderivatives.t24.itch.v1.13.volumeandopeninterestmessage", ftypes.STRING)
 
+-- Asx AsxDerivatives T24 1.13 Session Messages
+omi_asx_asxderivatives_t24_itch_v1_13.fields.end_of_session = ProtoField.new("End Of Session", "asx.asxderivatives.t24.itch.v1.13.endofsession", ftypes.BYTES)
+omi_asx_asxderivatives_t24_itch_v1_13.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxderivatives.t24.itch.v1.13.heartbeat", ftypes.BYTES)
+
 -- Asx AsxDerivatives T24 Itch 1.13 generated fields
 omi_asx_asxderivatives_t24_itch_v1_13.fields.contract_legs_index = ProtoField.new("Contract Legs Index", "asx.asxderivatives.t24.itch.v1.13.contractlegsindex", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_index = ProtoField.new("Message Index", "asx.asxderivatives.t24.itch.v1.13.messageindex", ftypes.UINT16)

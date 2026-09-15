@@ -57,6 +57,11 @@ omi_cme_globex_ilink3_sbe_v8_2.fields.exchange_quote_req_id = ProtoField.new("Ex
 omi_cme_globex_ilink3_sbe_v8_2.fields.exec_ack_status = ProtoField.new("Exec Ack Status", "cme.globex.ilink3.sbe.v8.2.execackstatus", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_2.fields.exec_id = ProtoField.new("Exec Id", "cme.globex.ilink3.sbe.v8.2.execid", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst = ProtoField.new("Exec Inst", "cme.globex.ilink3.sbe.v8.2.execinst", ftypes.STRING)
+omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_1 = ProtoField.new("Exec Inst Reserved 1", "cme.globex.ilink3.sbe.v8.2.execinstreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_2 = ProtoField.new("Exec Inst Reserved 2", "cme.globex.ilink3.sbe.v8.2.execinstreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_3 = ProtoField.new("Exec Inst Reserved 3", "cme.globex.ilink3.sbe.v8.2.execinstreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_4 = ProtoField.new("Exec Inst Reserved 4", "cme.globex.ilink3.sbe.v8.2.execinstreserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_5 = ProtoField.new("Exec Inst Reserved 5", "cme.globex.ilink3.sbe.v8.2.execinstreserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cme_globex_ilink3_sbe_v8_2.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "cme.globex.ilink3.sbe.v8.2.execrestatementreason", ftypes.UINT8)
 omi_cme_globex_ilink3_sbe_v8_2.fields.exec_type = ProtoField.new("Exec Type", "cme.globex.ilink3.sbe.v8.2.exectype", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_2.fields.execution_mode = ProtoField.new("Execution Mode", "cme.globex.ilink3.sbe.v8.2.executionmode", ftypes.STRING)
@@ -224,11 +229,6 @@ omi_cme_globex_ilink3_sbe_v8_2.fields.requesting_party_id_source = ProtoField.ne
 omi_cme_globex_ilink3_sbe_v8_2.fields.requesting_party_ids_group = ProtoField.new("Requesting Party Ids Group", "cme.globex.ilink3.sbe.v8.2.requestingpartyidsgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_2.fields.requesting_party_ids_groups = ProtoField.new("Requesting Party Ids Groups", "cme.globex.ilink3.sbe.v8.2.requestingpartyidsgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_2.fields.requesting_party_role = ProtoField.new("Requesting Party Role", "cme.globex.ilink3.sbe.v8.2.requestingpartyrole", ftypes.STRING)
-omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_1 = ProtoField.new("Reserved 1", "cme.globex.ilink3.sbe.v8.2.reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_2 = ProtoField.new("Reserved 2", "cme.globex.ilink3.sbe.v8.2.reserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
-omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_3 = ProtoField.new("Reserved 3", "cme.globex.ilink3.sbe.v8.2.reserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
-omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_4 = ProtoField.new("Reserved 4", "cme.globex.ilink3.sbe.v8.2.reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_5 = ProtoField.new("Reserved 5", "cme.globex.ilink3.sbe.v8.2.reserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cme_globex_ilink3_sbe_v8_2.fields.response_legs_group = ProtoField.new("Response Legs Group", "cme.globex.ilink3.sbe.v8.2.responselegsgroup", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_2.fields.response_legs_groups = ProtoField.new("Response Legs Groups", "cme.globex.ilink3.sbe.v8.2.responselegsgroups", ftypes.STRING)
 omi_cme_globex_ilink3_sbe_v8_2.fields.rfq_side = ProtoField.new("Rfq Side", "cme.globex.ilink3.sbe.v8.2.rfqside", ftypes.UINT8)
@@ -8886,25 +8886,25 @@ cme_globex_ilink3_sbe_v8_2.exec_inst.display = function(range, value, packet, pa
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Nh"
   end
-  -- Is Reserved 1 flag set?
+  -- Is Exec Inst Reserved 1 flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
+    flags[#flags + 1] = "Exec Inst Reserved 1"
   end
-  -- Is Reserved 2 flag set?
+  -- Is Exec Inst Reserved 2 flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Reserved 2"
+    flags[#flags + 1] = "Exec Inst Reserved 2"
   end
-  -- Is Reserved 3 flag set?
+  -- Is Exec Inst Reserved 3 flag set?
   if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Reserved 3"
+    flags[#flags + 1] = "Exec Inst Reserved 3"
   end
-  -- Is Reserved 4 flag set?
+  -- Is Exec Inst Reserved 4 flag set?
   if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Reserved 4"
+    flags[#flags + 1] = "Exec Inst Reserved 4"
   end
-  -- Is Reserved 5 flag set?
+  -- Is Exec Inst Reserved 5 flag set?
   if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Reserved 5"
+    flags[#flags + 1] = "Exec Inst Reserved 5"
   end
 
   return table.concat(flags, "|")
@@ -8922,20 +8922,20 @@ cme_globex_ilink3_sbe_v8_2.exec_inst.bits = function(range, value, packet, paren
   -- Nh: 1 Bit
   parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.nh, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_1, range, value)
+  -- Exec Inst Reserved 1: 1 Bit
+  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_1, range, value)
 
-  -- Reserved 2: 1 Bit
-  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_2, range, value)
+  -- Exec Inst Reserved 2: 1 Bit
+  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_2, range, value)
 
-  -- Reserved 3: 1 Bit
-  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_3, range, value)
+  -- Exec Inst Reserved 3: 1 Bit
+  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_3, range, value)
 
-  -- Reserved 4: 1 Bit
-  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_4, range, value)
+  -- Exec Inst Reserved 4: 1 Bit
+  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_4, range, value)
 
-  -- Reserved 5: 1 Bit
-  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.reserved_5, range, value)
+  -- Exec Inst Reserved 5: 1 Bit
+  parent:add(omi_cme_globex_ilink3_sbe_v8_2.fields.exec_inst_reserved_5, range, value)
 end
 
 -- Dissect: Exec Inst

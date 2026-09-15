@@ -260,6 +260,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.security_definition_message = Pr
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.security_group_phase_10_message = ProtoField.new("Security Group Phase 10 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.securitygroupphase10message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.security_status_3_message = ProtoField.new("Security Status 3 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.securitystatus3message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.sequence_message = ProtoField.new("Sequence Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.sequencemessage", ftypes.STRING)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.sequenceresetmessage", ftypes.BYTES)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.settlement_price_28_message = ProtoField.new("Settlement Price 28 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.settlementprice28message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.snapshot_full_refresh_header_30_message = ProtoField.new("Snapshot Full Refresh Header 30 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.snapshotfullrefreshheader30message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.snapshot_full_refresh_orders_mb_o_71_message = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.snapshotfullrefreshordersmbo71message", ftypes.STRING)
@@ -360,6 +361,12 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.aggressor_time.size = 8
 
 -- Display: Aggressor Time
 b3_b3derivatives_binaryumdf_sbe_v1_9.aggressor_time.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Aggressor Time: No Value"
+
+  end
+
   -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
@@ -426,6 +433,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.avg_daily_traded_qty.size = 8
 
 -- Display: Avg Daily Traded Qty
 b3_b3derivatives_binaryumdf_sbe_v1_9.avg_daily_traded_qty.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Avg Daily Traded Qty: No Value"
+  end
+
   return "Avg Daily Traded Qty: "..value
 end
 
@@ -534,6 +546,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.clearing_house_id.size = 8
 
 -- Display: Clearing House Id
 b3_b3derivatives_binaryumdf_sbe_v1_9.clearing_house_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Clearing House Id: No Value"
+  end
+
   return "Clearing House Id: "..value
 end
 
@@ -596,6 +613,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.corporate_action_event_id.size = 4
 
 -- Display: Corporate Action Event Id
 b3_b3derivatives_binaryumdf_sbe_v1_9.corporate_action_event_id.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Corporate Action Event Id: No Value"
+  end
+
   return "Corporate Action Event Id: "..value
 end
 
@@ -697,6 +719,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.cxl_qty.size = 8
 
 -- Display: Cxl Qty
 b3_b3derivatives_binaryumdf_sbe_v1_9.cxl_qty.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Cxl Qty: No Value"
+  end
+
   return "Cxl Qty: "..value
 end
 
@@ -822,6 +849,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.entering_firm.size = 4
 
 -- Display: Entering Firm
 b3_b3derivatives_binaryumdf_sbe_v1_9.entering_firm.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Entering Firm: No Value"
+  end
+
   return "Entering Firm: "..value
 end
 
@@ -1318,6 +1350,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.last_rpt_seq.size = 4
 
 -- Display: Last Rpt Seq
 b3_b3derivatives_binaryumdf_sbe_v1_9.last_rpt_seq.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Last Rpt Seq: No Value"
+  end
+
   return "Last Rpt Seq: "..value
 end
 
@@ -1368,12 +1405,22 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty = {}
 b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.size = 8
 
 -- Display: Leg Ratio Qty
-b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.display = function(value)
+b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return "Leg Ratio Qty: No Value"
+  end
+
   return "Leg Ratio Qty: "..value
 end
 
 -- Translate: Leg Ratio Qty
 b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000000
 end
 
@@ -1383,7 +1430,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.dissect = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.translate(raw)
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.leg_ratio_qty.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.leg_ratio_qty, range, value, display)
 
@@ -1640,6 +1687,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.market_segment_id.size = 1
 
 -- Display: Market Segment Id
 b3_b3derivatives_binaryumdf_sbe_v1_9.market_segment_id.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Market Segment Id: No Value"
+  end
+
   return "Market Segment Id: "..value
 end
 
@@ -1691,6 +1743,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.max_order_qty.size = 8
 
 -- Display: Max Order Qty
 b3_b3derivatives_binaryumdf_sbe_v1_9.max_order_qty.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Max Order Qty: No Value"
+  end
+
   return "Max Order Qty: "..value
 end
 
@@ -1714,6 +1771,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.max_trade_vol.size = 8
 
 -- Display: Max Trade Vol
 b3_b3derivatives_binaryumdf_sbe_v1_9.max_trade_vol.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Max Trade Vol: No Value"
+  end
+
   return "Max Trade Vol: "..value
 end
 
@@ -1805,6 +1867,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_buyer.size = 4
 
 -- Display: Md Entry Buyer
 b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_buyer.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Md Entry Buyer: No Value"
+  end
+
   return "Md Entry Buyer: "..value
 end
 
@@ -1890,6 +1957,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_seller.size = 4
 
 -- Display: Md Entry Seller
 b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_seller.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Md Entry Seller: No Value"
+  end
+
   return "Md Entry Seller: "..value
 end
 
@@ -1964,6 +2036,12 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_timestamp.size = 8
 
 -- Display: Md Entry Timestamp
 b3_b3derivatives_binaryumdf_sbe_v1_9.md_entry_timestamp.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Md Entry Timestamp: No Value"
+
+  end
+
   -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
@@ -2120,6 +2198,12 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.md_insert_timestamp.size = 8
 
 -- Display: Md Insert Timestamp
 b3_b3derivatives_binaryumdf_sbe_v1_9.md_insert_timestamp.display = function(value)
+  -- Check null value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Md Insert Timestamp: No Value"
+
+  end
+
   -- Parse unix nanosecond timestamp
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanoseconds = (value % UInt64(1000000000)):tonumber()
@@ -2212,6 +2296,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.min_cross_qty.size = 8
 
 -- Display: Min Cross Qty
 b3_b3derivatives_binaryumdf_sbe_v1_9.min_cross_qty.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Min Cross Qty: No Value"
+  end
+
   return "Min Cross Qty: "..value
 end
 
@@ -2235,6 +2324,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.min_lot_size.size = 8
 
 -- Display: Min Lot Size
 b3_b3derivatives_binaryumdf_sbe_v1_9.min_lot_size.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Min Lot Size: No Value"
+  end
+
   return "Min Lot Size: "..value
 end
 
@@ -2258,6 +2352,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.min_order_qty.size = 8
 
 -- Display: Min Order Qty
 b3_b3derivatives_binaryumdf_sbe_v1_9.min_order_qty.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Min Order Qty: No Value"
+  end
+
   return "Min Order Qty: "..value
 end
 
@@ -2320,6 +2419,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.min_trade_vol.size = 8
 
 -- Display: Min Trade Vol
 b3_b3derivatives_binaryumdf_sbe_v1_9.min_trade_vol.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Min Trade Vol: No Value"
+  end
+
   return "Min Trade Vol: "..value
 end
 
@@ -2483,6 +2587,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.news_id.size = 8
 
 -- Display: News Id
 b3_b3derivatives_binaryumdf_sbe_v1_9.news_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "News Id: No Value"
+  end
+
   return "News Id: "..value
 end
 
@@ -2598,6 +2707,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.no_shares_issued.size = 8
 
 -- Display: No Shares Issued
 b3_b3derivatives_binaryumdf_sbe_v1_9.no_shares_issued.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "No Shares Issued: No Value"
+  end
+
   return "No Shares Issued: "..value
 end
 
@@ -3430,6 +3544,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.rpt_seq.size = 4
 
 -- Display: Rpt Seq
 b3_b3derivatives_binaryumdf_sbe_v1_9.rpt_seq.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Rpt Seq: No Value"
+  end
+
   return "Rpt Seq: "..value
 end
 
@@ -4011,6 +4130,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.security_validity_timestamp.size = 8
 
 -- Display: Security Validity Timestamp
 b3_b3derivatives_binaryumdf_sbe_v1_9.security_validity_timestamp.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Security Validity Timestamp: No Value"
+  end
+
   return "Security Validity Timestamp: "..value
 end
 
@@ -4034,6 +4158,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.seller_days.size = 2
 
 -- Display: Seller Days
 b3_b3derivatives_binaryumdf_sbe_v1_9.seller_days.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Seller Days: No Value"
+  end
+
   return "Seller Days: "..value
 end
 
@@ -4824,6 +4953,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.traded_hidden_qty.size = 8
 
 -- Display: Traded Hidden Qty
 b3_b3derivatives_binaryumdf_sbe_v1_9.traded_hidden_qty.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Traded Hidden Qty: No Value"
+  end
+
   return "Traded Hidden Qty: "..value
 end
 
@@ -4961,6 +5095,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.transact_time.size = 8
 
 -- Display: Transact Time
 b3_b3derivatives_binaryumdf_sbe_v1_9.transact_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "Transact Time: No Value"
+  end
+
   return "Transact Time: "..value
 end
 

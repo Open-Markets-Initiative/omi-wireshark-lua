@@ -75,11 +75,15 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.fields.replaced_message = ProtoField
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.system_event_message = ProtoField.new("System Event Message", "biva.bivaequities.orderentry.ouch.v1.05.systemeventmessage", ftypes.STRING)
 
 -- Biva BivaEquities OrderEntry 1.05 Session Messages
+omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "biva.bivaequities.orderentry.ouch.v1.05.clientheartbeat", ftypes.BYTES)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.debug_packet = ProtoField.new("Debug Packet", "biva.bivaequities.orderentry.ouch.v1.05.debugpacket", ftypes.STRING)
+omi_biva_bivaequities_orderentry_ouch_v1_05.fields.end_of_session = ProtoField.new("End Of Session", "biva.bivaequities.orderentry.ouch.v1.05.endofsession", ftypes.BYTES)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "biva.bivaequities.orderentry.ouch.v1.05.loginacceptedpacket", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "biva.bivaequities.orderentry.ouch.v1.05.loginrejectedpacket", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.login_request_packet = ProtoField.new("Login Request Packet", "biva.bivaequities.orderentry.ouch.v1.05.loginrequestpacket", ftypes.STRING)
+omi_biva_bivaequities_orderentry_ouch_v1_05.fields.logout_request = ProtoField.new("Logout Request", "biva.bivaequities.orderentry.ouch.v1.05.logoutrequest", ftypes.BYTES)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "biva.bivaequities.orderentry.ouch.v1.05.sequenceddatapacket", ftypes.STRING)
+omi_biva_bivaequities_orderentry_ouch_v1_05.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "biva.bivaequities.orderentry.ouch.v1.05.serverheartbeat", ftypes.BYTES)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "biva.bivaequities.orderentry.ouch.v1.05.unsequenceddatapacket", ftypes.STRING)
 
 -- Biva BivaEquities OrderEntry Ouch 1.05 generated fields

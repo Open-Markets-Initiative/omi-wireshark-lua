@@ -86,11 +86,15 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.order_replaced_message = ProtoField
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.replace_order_message = ProtoField.new("Replace Order Message", "asx.asxsecurities.trade.ouch.v2.0.replaceordermessage", ftypes.STRING)
 
 -- Asx AsxSecurities Trade 2.0 Session Messages
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "asx.asxsecurities.trade.ouch.v2.0.clientheartbeat", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.debug_packet = ProtoField.new("Debug Packet", "asx.asxsecurities.trade.ouch.v2.0.debugpacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.end_of_session = ProtoField.new("End Of Session", "asx.asxsecurities.trade.ouch.v2.0.endofsession", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "asx.asxsecurities.trade.ouch.v2.0.loginacceptedpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "asx.asxsecurities.trade.ouch.v2.0.loginrejectedpacket", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "asx.asxsecurities.trade.ouch.v2.0.loginrequestpacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.logout_request = ProtoField.new("Logout Request", "asx.asxsecurities.trade.ouch.v2.0.logoutrequest", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "asx.asxsecurities.trade.ouch.v2.0.sequenceddatapacket", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "asx.asxsecurities.trade.ouch.v2.0.serverheartbeat", ftypes.BYTES)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.asxsecurities.trade.ouch.v2.0.unsequenceddatapacket", ftypes.STRING)
 
 -- Asx AsxSecurities Trade Ouch 2.0 generated fields

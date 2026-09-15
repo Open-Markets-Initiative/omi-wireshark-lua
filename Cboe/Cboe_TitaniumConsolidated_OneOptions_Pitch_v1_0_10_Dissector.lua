@@ -38,9 +38,9 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_center_exec
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.market_status = ProtoField.new("Market Status", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.marketstatus", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagelength", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messagetype", ftypes.UINT8)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved1", ftypes.UINT8)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved1", ftypes.BYTES)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_5 = ProtoField.new("Reserved 5", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved5", ftypes.BYTES)
-omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved8", ftypes.UINT64)
+omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_8 = ProtoField.new("Reserved 8", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved8", ftypes.BYTES)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_9 = ProtoField.new("Reserved 9", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.reserved9", ftypes.BYTES)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.sequence = ProtoField.new("Sequence", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.sequence", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.sideindicator", ftypes.STRING)
@@ -812,7 +812,7 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_1, range, value, display)
@@ -858,7 +858,7 @@ end
 cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_8.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.reserved_8, range, value, display)

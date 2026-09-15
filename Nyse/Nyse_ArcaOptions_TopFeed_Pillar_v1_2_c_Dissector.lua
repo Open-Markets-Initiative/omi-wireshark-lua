@@ -130,6 +130,9 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_header = ProtoField.ne
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packet", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.pillar.v1.2.c.packetheader", ftypes.STRING)
 
+-- Nyse ArcaOptions TopFeed 1.2.c Session Messages
+omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaoptions.topfeed.pillar.v1.2.c.heartbeat", ftypes.BYTES)
+
 -- Nyse ArcaOptions TopFeed 1.2.c Application Messages
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messageunavailablemessage", ftypes.STRING)

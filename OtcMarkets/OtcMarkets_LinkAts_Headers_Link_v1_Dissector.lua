@@ -35,6 +35,9 @@ omi_otcmarkets_linkats_headers_link_v1.fields.message_header = ProtoField.new("M
 omi_otcmarkets_linkats_headers_link_v1.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.headers.link.v1.packet", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.headers.link.v1.packetheader", ftypes.STRING)
 
+-- OtcMarkets LinkAts Headers 1. Session Messages
+omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.headers.link.v1.heartbeatpacket", ftypes.BYTES)
+
 -- OtcMarkets LinkAts Headers Link 1. generated fields
 omi_otcmarkets_linkats_headers_link_v1.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.headers.link.v1.messageindex", ftypes.UINT16)
 

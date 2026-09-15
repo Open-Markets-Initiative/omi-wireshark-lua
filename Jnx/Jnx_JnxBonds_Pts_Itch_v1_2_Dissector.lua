@@ -49,6 +49,10 @@ omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_header = ProtoField.new("Message H
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.packet = ProtoField.new("Packet", "jnx.jnxbonds.pts.itch.v1.2.packet", ftypes.STRING)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "jnx.jnxbonds.pts.itch.v1.2.packetheader", ftypes.STRING)
 
+-- Jnx JnxBonds Pts 1.2 Session Messages
+omi_jnx_jnxbonds_pts_itch_v1_2.fields.end_of_session = ProtoField.new("End Of Session", "jnx.jnxbonds.pts.itch.v1.2.endofsession", ftypes.BYTES)
+omi_jnx_jnxbonds_pts_itch_v1_2.fields.heartbeat = ProtoField.new("Heartbeat", "jnx.jnxbonds.pts.itch.v1.2.heartbeat", ftypes.BYTES)
+
 -- Jnx JnxBonds Pts 1.2 Application Messages
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.order_added_message = ProtoField.new("Order Added Message", "jnx.jnxbonds.pts.itch.v1.2.orderaddedmessage", ftypes.STRING)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "jnx.jnxbonds.pts.itch.v1.2.orderdeletedmessage", ftypes.STRING)

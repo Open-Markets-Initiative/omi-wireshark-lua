@@ -80,6 +80,10 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.order_reduced_message = Proto
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.snapshotcompletemessage", ftypes.STRING)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.underlier_instrument_status_message = ProtoField.new("Underlier Instrument Status Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.underlierinstrumentstatusmessage", ftypes.STRING)
 
+-- Memx MemxOptions MemoirDepth 1.6.a Session Messages
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxoptions.memoirdepth.sbe.v1.6.a.heartbeat", ftypes.BYTES)
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sessionshutdown", ftypes.BYTES)
+
 -- Memx MemxOptions MemoirDepth Sbe 1.6.a generated fields
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.message_index = ProtoField.new("Message Index", "memx.memxoptions.memoirdepth.sbe.v1.6.a.messageindex", ftypes.UINT16)
 

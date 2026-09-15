@@ -41,10 +41,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.block_length = ProtoField.ne
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "euronext.optiq.dropcopygateway.sbe.v5.56.blocklengthuint8", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_in = ProtoField.new("Book In", "euronext.optiq.dropcopygateway.sbe.v5.56.bookin", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_in_time = ProtoField.new("Book In Time", "euronext.optiq.dropcopygateway.sbe.v5.56.bookintime", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_in_uint_64t = ProtoField.new("Book In uint 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.bookinuint64t", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_in_uint_64t_optional = ProtoField.new("Book In uint 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.bookinuint64toptional", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_out_time_uint_64t = ProtoField.new("Book Out Time uint 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.bookouttimeuint64t", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_out_time_uint_64t_optional = ProtoField.new("Book Out Time uint 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.bookouttimeuint64toptional", ftypes.UINT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_out_time = ProtoField.new("Book Out Time", "euronext.optiq.dropcopygateway.sbe.v5.56.bookouttime", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_state = ProtoField.new("Book State", "euronext.optiq.dropcopygateway.sbe.v5.56.bookstate", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.breached_collar_price = ProtoField.new("Breached Collar Price", "euronext.optiq.dropcopygateway.sbe.v5.56.breachedcollarprice", ftypes.INT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.buy_revision_flag = ProtoField.new("Buy Revision Flag", "euronext.optiq.dropcopygateway.sbe.v5.56.buyrevisionflag", ftypes.UINT8)
@@ -57,8 +54,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.clearing_firm_i_d_char_8_opt
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.clearing_instruction_clearing_instructionenum = ProtoField.new("Clearing Instruction Clearing Instructionenum", "euronext.optiq.dropcopygateway.sbe.v5.56.clearinginstructionclearinginstructionenum", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.clearing_instruction_clearing_instructionenum_optional = ProtoField.new("Clearing Instruction Clearing Instructionenum optional", "euronext.optiq.dropcopygateway.sbe.v5.56.clearinginstructionclearinginstructionenumoptional", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.client_id = ProtoField.new("Client Id", "euronext.optiq.dropcopygateway.sbe.v5.56.clientid", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.client_order_i_d_int_64t = ProtoField.new("Client Order I D int 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.clientorderidint64t", ftypes.INT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.client_order_i_d_int_64t_optional = ProtoField.new("Client Order I D int 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.clientorderidint64toptional", ftypes.INT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.client_order_id = ProtoField.new("Client Order Id", "euronext.optiq.dropcopygateway.sbe.v5.56.clientorderid", ftypes.INT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.collar_rej_type = ProtoField.new("Collar Rej Type", "euronext.optiq.dropcopygateway.sbe.v5.56.collarrejtype", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.commodity_derivative_indicator = ProtoField.new("Commodity Derivative Indicator", "euronext.optiq.dropcopygateway.sbe.v5.56.commodityderivativeindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.conditional_order = ProtoField.new("Conditional Order", "euronext.optiq.dropcopygateway.sbe.v5.56.conditionalorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
@@ -66,8 +62,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.consume_time = ProtoField.ne
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.contract_symbol_index = ProtoField.new("Contract Symbol Index", "euronext.optiq.dropcopygateway.sbe.v5.56.contractsymbolindex", ftypes.UINT32)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.counterpart_firm_id = ProtoField.new("Counterpart Firm Id", "euronext.optiq.dropcopygateway.sbe.v5.56.counterpartfirmid", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.counterparty_reason_type = ProtoField.new("Counterparty Reason Type", "euronext.optiq.dropcopygateway.sbe.v5.56.counterpartyreasontype", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.cross_order_indicator_unsignedchar = ProtoField.new("Cross Order Indicator unsignedchar", "euronext.optiq.dropcopygateway.sbe.v5.56.crossorderindicatorunsignedchar", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.cross_order_indicator_unsignedchar_optional = ProtoField.new("Cross Order Indicator unsignedchar optional", "euronext.optiq.dropcopygateway.sbe.v5.56.crossorderindicatorunsignedcharoptional", ftypes.UINT8)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.cross_order_indicator = ProtoField.new("Cross Order Indicator", "euronext.optiq.dropcopygateway.sbe.v5.56.crossorderindicator", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.d_c_quote_message_bid_quoterep_group = ProtoField.new("D C Quote Message Bid Quoterep Group", "euronext.optiq.dropcopygateway.sbe.v5.56.dcquotemessagebidquoterepgroup", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.d_c_quote_message_bid_quoterep_groups = ProtoField.new("D C Quote Message Bid Quoterep Groups", "euronext.optiq.dropcopygateway.sbe.v5.56.dcquotemessagebidquoterepgroups", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.d_c_quote_message_clearing_dataset_group = ProtoField.new("D C Quote Message Clearing Dataset Group", "euronext.optiq.dropcopygateway.sbe.v5.56.dcquotemessageclearingdatasetgroup", ftypes.STRING)
@@ -116,8 +111,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.displayed_qty = ProtoField.n
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.emm = ProtoField.new("Emm", "euronext.optiq.dropcopygateway.sbe.v5.56.emm", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.end_client = ProtoField.new("End Client", "euronext.optiq.dropcopygateway.sbe.v5.56.endclient", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.entering_counterparty = ProtoField.new("Entering Counterparty", "euronext.optiq.dropcopygateway.sbe.v5.56.enteringcounterparty", ftypes.STRING)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.error_code_uint_16t = ProtoField.new("Error Code uint 16t", "euronext.optiq.dropcopygateway.sbe.v5.56.errorcodeuint16t", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.error_code_uint_16t_optional = ProtoField.new("Error Code uint 16t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.errorcodeuint16toptional", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.error_code = ProtoField.new("Error Code", "euronext.optiq.dropcopygateway.sbe.v5.56.errorcode", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.escb_membership = ProtoField.new("Escb Membership", "euronext.optiq.dropcopygateway.sbe.v5.56.escbmembership", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.evaluated_price = ProtoField.new("Evaluated Price", "euronext.optiq.dropcopygateway.sbe.v5.56.evaluatedprice", ftypes.INT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.event_client_id_short_code = ProtoField.new("Event Client Id Short Code", "euronext.optiq.dropcopygateway.sbe.v5.56.eventclientidshortcode", ftypes.INT32)
@@ -130,8 +124,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.exceptional_market_condition
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.exec_phase = ProtoField.new("Exec Phase", "euronext.optiq.dropcopygateway.sbe.v5.56.execphase", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.executed_upon_entry_flag = ProtoField.new("Executed Upon Entry Flag", "euronext.optiq.dropcopygateway.sbe.v5.56.executeduponentryflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_algo_indicator = ProtoField.new("Execution Algo Indicator", "euronext.optiq.dropcopygateway.sbe.v5.56.executionalgoindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_i_d_uint_32t = ProtoField.new("Execution I D uint 32t", "euronext.optiq.dropcopygateway.sbe.v5.56.executioniduint32t", ftypes.UINT32)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_i_d_uint_32t_optional = ProtoField.new("Execution I D uint 32t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.executioniduint32toptional", ftypes.UINT32)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_id = ProtoField.new("Execution Id", "euronext.optiq.dropcopygateway.sbe.v5.56.executionid", ftypes.UINT32)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_instruction_execution_instructionset = ProtoField.new("Execution Instruction Execution Instructionset", "euronext.optiq.dropcopygateway.sbe.v5.56.executioninstructionexecutioninstructionset", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_instruction_execution_instructionset_optional = ProtoField.new("Execution Instruction Execution Instructionset optional", "euronext.optiq.dropcopygateway.sbe.v5.56.executioninstructionexecutioninstructionsetoptional", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_phase_execution_phaseenum = ProtoField.new("Execution Phase Execution Phaseenum", "euronext.optiq.dropcopygateway.sbe.v5.56.executionphaseexecutionphaseenum", ftypes.UINT8)
@@ -162,10 +155,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.internal_2 = ProtoField.new(
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.investment_algo_indicator = ProtoField.new("Investment Algo Indicator", "euronext.optiq.dropcopygateway.sbe.v5.56.investmentalgoindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.investor_id = ProtoField.new("Investor Id", "euronext.optiq.dropcopygateway.sbe.v5.56.investorid", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.kill_reason = ProtoField.new("Kill Reason", "euronext.optiq.dropcopygateway.sbe.v5.56.killreason", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_shares_uint_64t = ProtoField.new("Last Shares uint 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.lastsharesuint64t", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_shares_uint_64t_optional = ProtoField.new("Last Shares uint 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.lastsharesuint64toptional", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_traded_px_int_64t = ProtoField.new("Last Traded Px int 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.lasttradedpxint64t", ftypes.INT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_traded_px_int_64t_optional = ProtoField.new("Last Traded Px int 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.lasttradedpxint64toptional", ftypes.INT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_shares = ProtoField.new("Last Shares", "euronext.optiq.dropcopygateway.sbe.v5.56.lastshares", ftypes.UINT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_traded_px = ProtoField.new("Last Traded Px", "euronext.optiq.dropcopygateway.sbe.v5.56.lasttradedpx", ftypes.INT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.leaves_qty = ProtoField.new("Leaves Qty", "euronext.optiq.dropcopygateway.sbe.v5.56.leavesqty", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.leg_1 = ProtoField.new("Leg 1", "euronext.optiq.dropcopygateway.sbe.v5.56.leg1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.leg_2 = ProtoField.new("Leg 2", "euronext.optiq.dropcopygateway.sbe.v5.56.leg2", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
@@ -182,8 +173,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.leg_last_qty = ProtoField.ne
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.leg_side = ProtoField.new("Leg Side", "euronext.optiq.dropcopygateway.sbe.v5.56.legside", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.limit_matching_price = ProtoField.new("Limit Matching Price", "euronext.optiq.dropcopygateway.sbe.v5.56.limitmatchingprice", ftypes.INT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.lis_transaction_id = ProtoField.new("Lis Transaction Id", "euronext.optiq.dropcopygateway.sbe.v5.56.listransactionid", ftypes.UINT32)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.logical_access_i_d_uint_32t = ProtoField.new("Logical Access I D uint 32t", "euronext.optiq.dropcopygateway.sbe.v5.56.logicalaccessiduint32t", ftypes.UINT32)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.logical_access_i_d_uint_32t_optional = ProtoField.new("Logical Access I D uint 32t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.logicalaccessiduint32toptional", ftypes.UINT32)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.logical_access_id = ProtoField.new("Logical Access Id", "euronext.optiq.dropcopygateway.sbe.v5.56.logicalaccessid", ftypes.UINT32)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.long_client_id = ProtoField.new("Long Client Id", "euronext.optiq.dropcopygateway.sbe.v5.56.longclientid", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.long_order_additional_infos_group = ProtoField.new("Long Order Additional Infos Group", "euronext.optiq.dropcopygateway.sbe.v5.56.longorderadditionalinfosgroup", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.long_order_additional_infos_groups = ProtoField.new("Long Order Additional Infos Groups", "euronext.optiq.dropcopygateway.sbe.v5.56.longorderadditionalinfosgroups", ftypes.STRING)
@@ -232,14 +222,10 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.nav_trade_expressed_in_bps =
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.nav_trade_expressed_in_price_currency = ProtoField.new("Nav Trade Expressed In Price Currency", "euronext.optiq.dropcopygateway.sbe.v5.56.navtradeexpressedinpricecurrency", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.no_qualifier = ProtoField.new("No Qualifier", "euronext.optiq.dropcopygateway.sbe.v5.56.noqualifier", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.num_in_group = ProtoField.new("Num In Group", "euronext.optiq.dropcopygateway.sbe.v5.56.numingroup", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_partition_i_d_uint_16t = ProtoField.new("Oe Partition I D uint 16t", "euronext.optiq.dropcopygateway.sbe.v5.56.oepartitioniduint16t", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_partition_i_d_uint_16t_optional = ProtoField.new("Oe Partition I D uint 16t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.oepartitioniduint16toptional", ftypes.UINT16)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_session_i_d_uint_64t = ProtoField.new("Oe Session I D uint 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.oesessioniduint64t", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_session_i_d_uint_64t_optional = ProtoField.new("Oe Session I D uint 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.oesessioniduint64toptional", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegin_from_member_uint_64t = ProtoField.new("Oegin From Member uint 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.oeginfrommemberuint64t", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegin_from_member_uint_64t_optional = ProtoField.new("Oegin From Member uint 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.oeginfrommemberuint64toptional", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegout_time_to_m_e_uint_64t = ProtoField.new("Oegout Time To M E uint 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.oegouttimetomeuint64t", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegout_time_to_m_e_uint_64t_optional = ProtoField.new("Oegout Time To M E uint 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.oegouttimetomeuint64toptional", ftypes.UINT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_partition_id = ProtoField.new("Oe Partition Id", "euronext.optiq.dropcopygateway.sbe.v5.56.oepartitionid", ftypes.UINT16)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_session_id = ProtoField.new("Oe Session Id", "euronext.optiq.dropcopygateway.sbe.v5.56.oesessionid", ftypes.UINT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegin_from_member = ProtoField.new("Oegin From Member", "euronext.optiq.dropcopygateway.sbe.v5.56.oeginfrommember", ftypes.UINT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegout_time_to_me = ProtoField.new("Oegout Time To Me", "euronext.optiq.dropcopygateway.sbe.v5.56.oegouttimetome", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.offer_error_code = ProtoField.new("Offer Error Code", "euronext.optiq.dropcopygateway.sbe.v5.56.offererrorcode", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.offer_leaves_quantity = ProtoField.new("Offer Leaves Quantity", "euronext.optiq.dropcopygateway.sbe.v5.56.offerleavesquantity", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.offer_oe_session_id = ProtoField.new("Offer Oe Session Id", "euronext.optiq.dropcopygateway.sbe.v5.56.offeroesessionid", ftypes.UINT64)
@@ -279,17 +265,15 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.peg_offset = ProtoField.new(
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.phase_id = ProtoField.new("Phase Id", "euronext.optiq.dropcopygateway.sbe.v5.56.phaseid", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.phase_qualifier = ProtoField.new("Phase Qualifier", "euronext.optiq.dropcopygateway.sbe.v5.56.phasequalifier", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.phase_time = ProtoField.new("Phase Time", "euronext.optiq.dropcopygateway.sbe.v5.56.phasetime", ftypes.UINT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price = ProtoField.new("Price", "euronext.optiq.dropcopygateway.sbe.v5.56.price", ftypes.INT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_improvement_only = ProtoField.new("Price Improvement Only", "euronext.optiq.dropcopygateway.sbe.v5.56.priceimprovementonly", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_int_64t = ProtoField.new("Price int 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.priceint64t", ftypes.INT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_int_64t_optional = ProtoField.new("Price int 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.priceint64toptional", ftypes.INT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_limit_style = ProtoField.new("Price Limit Style", "euronext.optiq.dropcopygateway.sbe.v5.56.pricelimitstyle", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_limits = ProtoField.new("Price Limits", "euronext.optiq.dropcopygateway.sbe.v5.56.pricelimits", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_type = ProtoField.new("Price Type", "euronext.optiq.dropcopygateway.sbe.v5.56.pricetype", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.principal_code = ProtoField.new("Principal Code", "euronext.optiq.dropcopygateway.sbe.v5.56.principalcode", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.produce_time = ProtoField.new("Produce Time", "euronext.optiq.dropcopygateway.sbe.v5.56.producetime", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.publication_time = ProtoField.new("Publication Time", "euronext.optiq.dropcopygateway.sbe.v5.56.publicationtime", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quantity_uint_64t = ProtoField.new("Quantity uint 64t", "euronext.optiq.dropcopygateway.sbe.v5.56.quantityuint64t", ftypes.UINT64)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quantity_uint_64t_optional = ProtoField.new("Quantity uint 64t optional", "euronext.optiq.dropcopygateway.sbe.v5.56.quantityuint64toptional", ftypes.UINT64)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quantity = ProtoField.new("Quantity", "euronext.optiq.dropcopygateway.sbe.v5.56.quantity", ftypes.UINT64)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.queue_indicator = ProtoField.new("Queue Indicator", "euronext.optiq.dropcopygateway.sbe.v5.56.queueindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quote_indicator = ProtoField.new("Quote Indicator", "euronext.optiq.dropcopygateway.sbe.v5.56.quoteindicator", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quote_spread_multiplier = ProtoField.new("Quote Spread Multiplier", "euronext.optiq.dropcopygateway.sbe.v5.56.quotespreadmultiplier", ftypes.UINT8)
@@ -302,8 +286,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.reserved_2 = ProtoField.new(
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.reserved_3 = ProtoField.new("Reserved 3", "euronext.optiq.dropcopygateway.sbe.v5.56.reserved3", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.reserved_5 = ProtoField.new("Reserved 5", "euronext.optiq.dropcopygateway.sbe.v5.56.reserved5", ftypes.UINT16, nil, base.DEC, 0xF800)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.dropcopygateway.sbe.v5.56.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfe_answer_unsignedchar = ProtoField.new("Rfe Answer unsignedchar", "euronext.optiq.dropcopygateway.sbe.v5.56.rfeanswerunsignedchar", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfe_answer_unsignedchar_optional = ProtoField.new("Rfe Answer unsignedchar optional", "euronext.optiq.dropcopygateway.sbe.v5.56.rfeanswerunsignedcharoptional", ftypes.UINT8)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfe_answer = ProtoField.new("Rfe Answer", "euronext.optiq.dropcopygateway.sbe.v5.56.rfeanswer", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfq_answer = ProtoField.new("Rfq Answer", "euronext.optiq.dropcopygateway.sbe.v5.56.rfqanswer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfq_confirmation = ProtoField.new("Rfq Confirmation", "euronext.optiq.dropcopygateway.sbe.v5.56.rfqconfirmation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfq_status = ProtoField.new("Rfq Status", "euronext.optiq.dropcopygateway.sbe.v5.56.rfqstatus", ftypes.UINT8)
@@ -320,10 +303,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.session_3 = ProtoField.new("
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.session_4 = ProtoField.new("Session 4", "euronext.optiq.dropcopygateway.sbe.v5.56.session4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.session_sessionenum = ProtoField.new("Session Sessionenum", "euronext.optiq.dropcopygateway.sbe.v5.56.sessionsessionenum", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.session_sessionenum_optional = ProtoField.new("Session Sessionenum optional", "euronext.optiq.dropcopygateway.sbe.v5.56.sessionsessionenumoptional", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_flag_unsignedchar = ProtoField.new("Settlement Flag unsignedchar", "euronext.optiq.dropcopygateway.sbe.v5.56.settlementflagunsignedchar", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_flag_unsignedchar_optional = ProtoField.new("Settlement Flag unsignedchar optional", "euronext.optiq.dropcopygateway.sbe.v5.56.settlementflagunsignedcharoptional", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_period_unsignedchar = ProtoField.new("Settlement Period unsignedchar", "euronext.optiq.dropcopygateway.sbe.v5.56.settlementperiodunsignedchar", ftypes.UINT8)
-omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_period_unsignedchar_optional = ProtoField.new("Settlement Period unsignedchar optional", "euronext.optiq.dropcopygateway.sbe.v5.56.settlementperiodunsignedcharoptional", ftypes.UINT8)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_flag = ProtoField.new("Settlement Flag", "euronext.optiq.dropcopygateway.sbe.v5.56.settlementflag", ftypes.UINT8)
+omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_period = ProtoField.new("Settlement Period", "euronext.optiq.dropcopygateway.sbe.v5.56.settlementperiod", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.short_code_role = ProtoField.new("Short Code Role", "euronext.optiq.dropcopygateway.sbe.v5.56.shortcoderole", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.short_code_role_qualifier = ProtoField.new("Short Code Role Qualifier", "euronext.optiq.dropcopygateway.sbe.v5.56.shortcoderolequalifier", ftypes.UINT8)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.side = ProtoField.new("Side", "euronext.optiq.dropcopygateway.sbe.v5.56.side", ftypes.UINT8)
@@ -1022,6 +1003,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.afq_indicator.size = 1
 
 -- Display: Afq Indicator
 euronext_optiq_dropcopygateway_sbe_v5_56.afq_indicator.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Afq Indicator: No Value"
+  end
+
   return "Afq Indicator: "..value
 end
 
@@ -1385,6 +1371,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size = 8
 
 -- Display: Book In
 euronext_optiq_dropcopygateway_sbe_v5_56.book_in.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Book In: No Value"
+  end
+
   return "Book In: "..value
 end
 
@@ -1408,6 +1399,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.book_in_time.size = 8
 
 -- Display: Book In Time
 euronext_optiq_dropcopygateway_sbe_v5_56.book_in_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Book In Time: No Value"
+  end
+
   return "Book In Time: "..value
 end
 
@@ -1423,104 +1419,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.book_in_time.dissect = function(buffer,
   return offset + length, value
 end
 
--- Book In uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t = {}
+-- Book Out Time
+euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time = {}
 
--- Size: Book In uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size = 8
+-- Size: Book Out Time
+euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size = 8
 
--- Display: Book In uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.display = function(value)
-  return "Book In uint 64t: "..value
-end
-
--- Dissect: Book In uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_in_uint_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Book In uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional = {}
-
--- Size: Book In uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.size = 8
-
--- Display: Book In uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.display = function(value)
+-- Display: Book Out Time
+euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Book In uint 64t optional: No Value"
+    return "Book Out Time: No Value"
   end
 
-  return "Book In uint 64t optional: "..value
+  return "Book Out Time: "..value
 end
 
--- Dissect: Book In uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.size
+-- Dissect: Book Out Time
+euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_in_uint_64t_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Book Out Time uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t = {}
-
--- Size: Book Out Time uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size = 8
-
--- Display: Book Out Time uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.display = function(value)
-  return "Book Out Time uint 64t: "..value
-end
-
--- Dissect: Book Out Time uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_out_time_uint_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Book Out Time uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional = {}
-
--- Size: Book Out Time uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional.size = 8
-
--- Display: Book Out Time uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Book Out Time uint 64t optional: No Value"
-  end
-
-  return "Book Out Time uint 64t optional: "..value
-end
-
--- Dissect: Book Out Time uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_out_time_uint_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.book_out_time, range, value, display)
 
   return offset + length, value
 end
@@ -1958,53 +1880,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.client_id.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Client Order I D int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t = {}
+-- Client Order Id
+euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id = {}
 
--- Size: Client Order I D int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size = 8
+-- Size: Client Order Id
+euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size = 8
 
--- Display: Client Order I D int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.display = function(value)
-  return "Client Order I D int 64t: "..value
-end
-
--- Dissect: Client Order I D int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.client_order_i_d_int_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Client Order I D int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional = {}
-
--- Size: Client Order I D int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional.size = 8
-
--- Display: Client Order I D int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional.display = function(value)
+-- Display: Client Order Id
+euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Client Order I D int 64t optional: No Value"
+    return "Client Order Id: No Value"
   end
 
-  return "Client Order I D int 64t optional: "..value
+  return "Client Order Id: "..value
 end
 
--- Dissect: Client Order I D int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional.size
+-- Dissect: Client Order Id
+euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.client_order_i_d_int_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.client_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -2050,6 +1949,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size = 8
 
 -- Display: Consume Time
 euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Consume Time: No Value"
+  end
+
   return "Consume Time: "..value
 end
 
@@ -2180,53 +2084,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.counterparty_reason_type.dissect = func
   return offset + length, value
 end
 
--- Cross Order Indicator unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar = {}
+-- Cross Order Indicator
+euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator = {}
 
--- Size: Cross Order Indicator unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.size = 1
+-- Size: Cross Order Indicator
+euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size = 1
 
--- Display: Cross Order Indicator unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.display = function(value)
-  return "Cross Order Indicator unsignedchar: "..value
-end
-
--- Dissect: Cross Order Indicator unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.cross_order_indicator_unsignedchar, range, value, display)
-
-  return offset + length, value
-end
-
--- Cross Order Indicator unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional = {}
-
--- Size: Cross Order Indicator unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.size = 1
-
--- Display: Cross Order Indicator unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.display = function(value)
+-- Display: Cross Order Indicator
+euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.display = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Cross Order Indicator unsignedchar optional: No Value"
+    return "Cross Order Indicator: No Value"
   end
 
-  return "Cross Order Indicator unsignedchar optional: "..value
+  return "Cross Order Indicator: "..value
 end
 
--- Dissect: Cross Order Indicator unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.size
+-- Dissect: Cross Order Indicator
+euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.cross_order_indicator_unsignedchar_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.cross_order_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2293,6 +2174,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.size = 8
 
 -- Display: Declaration Id
 euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Declaration Id: No Value"
+  end
+
   return "Declaration Id: "..value
 end
 
@@ -2646,53 +2532,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.entering_counterparty.dissect = functio
   return offset + length, value
 end
 
--- Error Code uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t = {}
+-- Error Code
+euronext_optiq_dropcopygateway_sbe_v5_56.error_code = {}
 
--- Size: Error Code uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.size = 2
+-- Size: Error Code
+euronext_optiq_dropcopygateway_sbe_v5_56.error_code.size = 2
 
--- Display: Error Code uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.display = function(value)
-  return "Error Code uint 16t: "..value
-end
-
--- Dissect: Error Code uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.error_code_uint_16t, range, value, display)
-
-  return offset + length, value
-end
-
--- Error Code uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional = {}
-
--- Size: Error Code uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional.size = 2
-
--- Display: Error Code uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional.display = function(value)
+-- Display: Error Code
+euronext_optiq_dropcopygateway_sbe_v5_56.error_code.display = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Error Code uint 16t optional: No Value"
+    return "Error Code: No Value"
   end
 
-  return "Error Code uint 16t optional: "..value
+  return "Error Code: "..value
 end
 
--- Dissect: Error Code uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional.size
+-- Dissect: Error Code
+euronext_optiq_dropcopygateway_sbe_v5_56.error_code.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.error_code.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.error_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.error_code_uint_16t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.error_code, range, value, display)
 
   return offset + length, value
 end
@@ -2817,6 +2680,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size = 8
 
 -- Display: Event Id
 euronext_optiq_dropcopygateway_sbe_v5_56.event_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Event Id: No Value"
+  end
+
   return "Event Id: "..value
 end
 
@@ -2912,6 +2780,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.event_time.size = 8
 
 -- Display: Event Time
 euronext_optiq_dropcopygateway_sbe_v5_56.event_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Event Time: No Value"
+  end
+
   return "Event Time: "..value
 end
 
@@ -2969,53 +2842,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.exec_phase.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Execution I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t = {}
+-- Execution Id
+euronext_optiq_dropcopygateway_sbe_v5_56.execution_id = {}
 
--- Size: Execution I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.size = 4
+-- Size: Execution Id
+euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size = 4
 
--- Display: Execution I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.display = function(value)
-  return "Execution I D uint 32t: "..value
-end
-
--- Dissect: Execution I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_i_d_uint_32t, range, value, display)
-
-  return offset + length, value
-end
-
--- Execution I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional = {}
-
--- Size: Execution I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.size = 4
-
--- Display: Execution I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.display = function(value)
+-- Display: Execution Id
+euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.display = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Execution I D uint 32t optional: No Value"
+    return "Execution Id: No Value"
   end
 
-  return "Execution I D uint 32t optional: "..value
+  return "Execution Id: "..value
 end
 
--- Dissect: Execution I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.size
+-- Dissect: Execution Id
+euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_i_d_uint_32t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
@@ -3232,6 +3082,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.firm_id_publication.size = 1
 
 -- Display: Firm Id Publication
 euronext_optiq_dropcopygateway_sbe_v5_56.firm_id_publication.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Firm Id Publication: No Value"
+  end
+
   return "Firm Id Publication: "..value
 end
 
@@ -3813,104 +3668,58 @@ euronext_optiq_dropcopygateway_sbe_v5_56.kill_reason.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Last Shares uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t = {}
+-- Last Shares
+euronext_optiq_dropcopygateway_sbe_v5_56.last_shares = {}
 
--- Size: Last Shares uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.size = 8
+-- Size: Last Shares
+euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.size = 8
 
--- Display: Last Shares uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.display = function(value)
-  return "Last Shares uint 64t: "..value
-end
-
--- Dissect: Last Shares uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_shares_uint_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Shares uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional = {}
-
--- Size: Last Shares uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional.size = 8
-
--- Display: Last Shares uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional.display = function(value)
+-- Display: Last Shares
+euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Last Shares uint 64t optional: No Value"
+    return "Last Shares: No Value"
   end
 
-  return "Last Shares uint 64t optional: "..value
+  return "Last Shares: "..value
 end
 
--- Dissect: Last Shares uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional.size
+-- Dissect: Last Shares
+euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_shares_uint_64t_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Traded Px int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t = {}
-
--- Size: Last Traded Px int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.size = 8
-
--- Display: Last Traded Px int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.display = function(value)
-  return "Last Traded Px int 64t: "..value
-end
-
--- Dissect: Last Traded Px int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_traded_px_int_64t, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_shares, range, value, display)
 
   return offset + length, value
 end
 
--- Last Traded Px int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional = {}
+-- Last Traded Px
+euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px = {}
 
--- Size: Last Traded Px int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional.size = 8
+-- Size: Last Traded Px
+euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.size = 8
 
--- Display: Last Traded Px int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional.display = function(value)
+-- Display: Last Traded Px
+euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Last Traded Px int 64t optional: No Value"
+    return "Last Traded Px: No Value"
   end
 
-  return "Last Traded Px int 64t optional: "..value
+  return "Last Traded Px: "..value
 end
 
--- Dissect: Last Traded Px int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional.size
+-- Dissect: Last Traded Px
+euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_traded_px_int_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.last_traded_px, range, value, display)
 
   return offset + length, value
 end
@@ -3923,6 +3732,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.leaves_qty.size = 8
 
 -- Display: Leaves Qty
 euronext_optiq_dropcopygateway_sbe_v5_56.leaves_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Leaves Qty: No Value"
+  end
+
   return "Leaves Qty: "..value
 end
 
@@ -4111,53 +3925,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.lis_transaction_id.dissect = function(b
   return offset + length, value
 end
 
--- Logical Access I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t = {}
+-- Logical Access Id
+euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id = {}
 
--- Size: Logical Access I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.size = 4
+-- Size: Logical Access Id
+euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.size = 4
 
--- Display: Logical Access I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.display = function(value)
-  return "Logical Access I D uint 32t: "..value
-end
-
--- Dissect: Logical Access I D uint 32t
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.logical_access_i_d_uint_32t, range, value, display)
-
-  return offset + length, value
-end
-
--- Logical Access I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional = {}
-
--- Size: Logical Access I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.size = 4
-
--- Display: Logical Access I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.display = function(value)
+-- Display: Logical Access Id
+euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.display = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Logical Access I D uint 32t optional: No Value"
+    return "Logical Access Id: No Value"
   end
 
-  return "Logical Access I D uint 32t optional: "..value
+  return "Logical Access Id: "..value
 end
 
--- Dissect: Logical Access I D uint 32t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.size
+-- Dissect: Logical Access Id
+euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.logical_access_i_d_uint_32t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.logical_access_id, range, value, display)
 
   return offset + length, value
 end
@@ -4383,6 +4174,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.size = 8
 
 -- Display: Message Sending Time
 euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Message Sending Time: No Value"
+  end
+
   return "Message Sending Time: "..value
 end
 
@@ -4490,6 +4286,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.msg_seq_num.size = 4
 
 -- Display: Msg Seq Num
 euronext_optiq_dropcopygateway_sbe_v5_56.msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Msg Seq Num: No Value"
+  end
+
   return "Msg Seq Num: "..value
 end
 
@@ -4528,206 +4329,114 @@ euronext_optiq_dropcopygateway_sbe_v5_56.num_in_group.dissect = function(buffer,
   return offset + length, value
 end
 
--- Oe Partition I D uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t = {}
+-- Oe Partition Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id = {}
 
--- Size: Oe Partition I D uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.size = 2
+-- Size: Oe Partition Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.size = 2
 
--- Display: Oe Partition I D uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.display = function(value)
-  return "Oe Partition I D uint 16t: "..value
-end
-
--- Dissect: Oe Partition I D uint 16t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_partition_i_d_uint_16t, range, value, display)
-
-  return offset + length, value
-end
-
--- Oe Partition I D uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional = {}
-
--- Size: Oe Partition I D uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.size = 2
-
--- Display: Oe Partition I D uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.display = function(value)
+-- Display: Oe Partition Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.display = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Oe Partition I D uint 16t optional: No Value"
+    return "Oe Partition Id: No Value"
   end
 
-  return "Oe Partition I D uint 16t optional: "..value
+  return "Oe Partition Id: "..value
 end
 
--- Dissect: Oe Partition I D uint 16t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.size
+-- Dissect: Oe Partition Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_partition_i_d_uint_16t_optional, range, value, display)
-
-  return offset + length, value
-end
-
--- Oe Session I D uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t = {}
-
--- Size: Oe Session I D uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size = 8
-
--- Display: Oe Session I D uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.display = function(value)
-  return "Oe Session I D uint 64t: "..value
-end
-
--- Dissect: Oe Session I D uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_session_i_d_uint_64t, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_partition_id, range, value, display)
 
   return offset + length, value
 end
 
--- Oe Session I D uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional = {}
+-- Oe Session Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id = {}
 
--- Size: Oe Session I D uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional.size = 8
+-- Size: Oe Session Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size = 8
 
--- Display: Oe Session I D uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional.display = function(value)
+-- Display: Oe Session Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Oe Session I D uint 64t optional: No Value"
+    return "Oe Session Id: No Value"
   end
 
-  return "Oe Session I D uint 64t optional: "..value
+  return "Oe Session Id: "..value
 end
 
--- Dissect: Oe Session I D uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional.size
+-- Dissect: Oe Session Id
+euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_session_i_d_uint_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oe_session_id, range, value, display)
 
   return offset + length, value
 end
 
--- Oegin From Member uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t = {}
+-- Oegin From Member
+euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member = {}
 
--- Size: Oegin From Member uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size = 8
+-- Size: Oegin From Member
+euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size = 8
 
--- Display: Oegin From Member uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.display = function(value)
-  return "Oegin From Member uint 64t: "..value
-end
-
--- Dissect: Oegin From Member uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegin_from_member_uint_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Oegin From Member uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional = {}
-
--- Size: Oegin From Member uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.size = 8
-
--- Display: Oegin From Member uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.display = function(value)
+-- Display: Oegin From Member
+euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Oegin From Member uint 64t optional: No Value"
+    return "Oegin From Member: No Value"
   end
 
-  return "Oegin From Member uint 64t optional: "..value
+  return "Oegin From Member: "..value
 end
 
--- Dissect: Oegin From Member uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.size
+-- Dissect: Oegin From Member
+euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegin_from_member_uint_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegin_from_member, range, value, display)
 
   return offset + length, value
 end
 
--- Oegout Time To M E uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t = {}
+-- Oegout Time To Me
+euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me = {}
 
--- Size: Oegout Time To M E uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size = 8
+-- Size: Oegout Time To Me
+euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size = 8
 
--- Display: Oegout Time To M E uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.display = function(value)
-  return "Oegout Time To M E uint 64t: "..value
-end
-
--- Dissect: Oegout Time To M E uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegout_time_to_m_e_uint_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Oegout Time To M E uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional = {}
-
--- Size: Oegout Time To M E uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional.size = 8
-
--- Display: Oegout Time To M E uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional.display = function(value)
+-- Display: Oegout Time To Me
+euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Oegout Time To M E uint 64t optional: No Value"
+    return "Oegout Time To Me: No Value"
   end
 
-  return "Oegout Time To M E uint 64t optional: "..value
+  return "Oegout Time To Me: "..value
 end
 
--- Dissect: Oegout Time To M E uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional.size
+-- Dissect: Oegout Time To Me
+euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegout_time_to_m_e_uint_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.oegout_time_to_me, range, value, display)
 
   return offset + length, value
 end
@@ -5216,6 +4925,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.order_id.size = 8
 
 -- Display: Order Id
 euronext_optiq_dropcopygateway_sbe_v5_56.order_id.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Id: No Value"
+  end
+
   return "Order Id: "..value
 end
 
@@ -5295,6 +5009,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.order_qty.size = 8
 
 -- Display: Order Qty
 euronext_optiq_dropcopygateway_sbe_v5_56.order_qty.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Order Qty: No Value"
+  end
+
   return "Order Qty: "..value
 end
 
@@ -5511,6 +5230,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.orig_client_order_id.size = 8
 
 -- Display: Orig Client Order Id
 euronext_optiq_dropcopygateway_sbe_v5_56.orig_client_order_id.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Orig Client Order Id: No Value"
+  end
+
   return "Orig Client Order Id: "..value
 end
 
@@ -5909,53 +5633,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.phase_time.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Price int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t = {}
+-- Price
+euronext_optiq_dropcopygateway_sbe_v5_56.price = {}
 
--- Size: Price int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.size = 8
+-- Size: Price
+euronext_optiq_dropcopygateway_sbe_v5_56.price.size = 8
 
--- Display: Price int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.display = function(value)
-  return "Price int 64t: "..value
-end
-
--- Dissect: Price int 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_int_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Price int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional = {}
-
--- Size: Price int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.size = 8
-
--- Display: Price int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.display = function(value)
+-- Display: Price
+euronext_optiq_dropcopygateway_sbe_v5_56.price.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Price int 64t optional: No Value"
+    return "Price: No Value"
   end
 
-  return "Price int 64t optional: "..value
+  return "Price: "..value
 end
 
--- Dissect: Price int 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.size
+-- Dissect: Price
+euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.price.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price_int_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -6196,6 +5897,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size = 8
 
 -- Display: Produce Time
 euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Produce Time: No Value"
+  end
+
   return "Produce Time: "..value
 end
 
@@ -6239,53 +5945,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.publication_time.dissect = function(buf
   return offset + length, value
 end
 
--- Quantity uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t = {}
+-- Quantity
+euronext_optiq_dropcopygateway_sbe_v5_56.quantity = {}
 
--- Size: Quantity uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.size = 8
+-- Size: Quantity
+euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size = 8
 
--- Display: Quantity uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.display = function(value)
-  return "Quantity uint 64t: "..value
-end
-
--- Dissect: Quantity uint 64t
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quantity_uint_64t, range, value, display)
-
-  return offset + length, value
-end
-
--- Quantity uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional = {}
-
--- Size: Quantity uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.size = 8
-
--- Display: Quantity uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.display = function(value)
+-- Display: Quantity
+euronext_optiq_dropcopygateway_sbe_v5_56.quantity.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Quantity uint 64t optional: No Value"
+    return "Quantity: No Value"
   end
 
-  return "Quantity uint 64t optional: "..value
+  return "Quantity: "..value
 end
 
--- Dissect: Quantity uint 64t optional
-euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.size
+-- Dissect: Quantity
+euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quantity_uint_64t_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -6298,6 +5981,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.quote_indicator.size = 1
 
 -- Display: Quote Indicator
 euronext_optiq_dropcopygateway_sbe_v5_56.quote_indicator.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Quote Indicator: No Value"
+  end
+
   return "Quote Indicator: "..value
 end
 
@@ -6385,6 +6073,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message_id.size = 2
 
 -- Display: Rejected Message Id
 euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message_id.display = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Rejected Message Id: No Value"
+  end
+
   return "Rejected Message Id: "..value
 end
 
@@ -6400,53 +6093,30 @@ euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message_id.dissect = function(
   return offset + length, value
 end
 
--- Rfe Answer unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar = {}
+-- Rfe Answer
+euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer = {}
 
--- Size: Rfe Answer unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar.size = 1
+-- Size: Rfe Answer
+euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.size = 1
 
--- Display: Rfe Answer unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar.display = function(value)
-  return "Rfe Answer unsignedchar: "..value
-end
-
--- Dissect: Rfe Answer unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfe_answer_unsignedchar, range, value, display)
-
-  return offset + length, value
-end
-
--- Rfe Answer unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional = {}
-
--- Size: Rfe Answer unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.size = 1
-
--- Display: Rfe Answer unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.display = function(value)
+-- Display: Rfe Answer
+euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.display = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Rfe Answer unsignedchar optional: No Value"
+    return "Rfe Answer: No Value"
   end
 
-  return "Rfe Answer unsignedchar optional: "..value
+  return "Rfe Answer: "..value
 end
 
--- Dissect: Rfe Answer unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.size
+-- Dissect: Rfe Answer
+euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfe_answer_unsignedchar_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.rfe_answer, range, value, display)
 
   return offset + length, value
 end
@@ -6879,104 +6549,58 @@ euronext_optiq_dropcopygateway_sbe_v5_56.session_sessionenum_optional.dissect = 
   return offset + length, value
 end
 
--- Settlement Flag unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar = {}
+-- Settlement Flag
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag = {}
 
--- Size: Settlement Flag unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar.size = 1
+-- Size: Settlement Flag
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.size = 1
 
--- Display: Settlement Flag unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar.display = function(value)
-  return "Settlement Flag unsignedchar: "..value
-end
-
--- Dissect: Settlement Flag unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_flag_unsignedchar, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Flag unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional = {}
-
--- Size: Settlement Flag unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.size = 1
-
--- Display: Settlement Flag unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.display = function(value)
+-- Display: Settlement Flag
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.display = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Settlement Flag unsignedchar optional: No Value"
+    return "Settlement Flag: No Value"
   end
 
-  return "Settlement Flag unsignedchar optional: "..value
+  return "Settlement Flag: "..value
 end
 
--- Dissect: Settlement Flag unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.size
+-- Dissect: Settlement Flag
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_flag_unsignedchar_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_flag, range, value, display)
 
   return offset + length, value
 end
 
--- Settlement Period unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar = {}
+-- Settlement Period
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period = {}
 
--- Size: Settlement Period unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar.size = 1
+-- Size: Settlement Period
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.size = 1
 
--- Display: Settlement Period unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar.display = function(value)
-  return "Settlement Period unsignedchar: "..value
-end
-
--- Dissect: Settlement Period unsignedchar
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_period_unsignedchar, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Period unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional = {}
-
--- Size: Settlement Period unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.size = 1
-
--- Display: Settlement Period unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.display = function(value)
+-- Display: Settlement Period
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.display = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Settlement Period unsignedchar optional: No Value"
+    return "Settlement Period: No Value"
   end
 
-  return "Settlement Period unsignedchar optional: "..value
+  return "Settlement Period: "..value
 end
 
--- Dissect: Settlement Period unsignedchar optional
-euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.dissect = function(buffer, offset, packet, parent)
-  local length = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.size
+-- Dissect: Settlement Period
+euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.dissect = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.display(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_period_unsignedchar_optional, range, value, display)
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.settlement_period, range, value, display)
 
   return offset + length, value
 end
@@ -7298,6 +6922,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size = 4
 
 -- Display: Symbol Index
 euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Symbol Index: No Value"
+  end
+
   return "Symbol Index: "..value
 end
 
@@ -9111,9 +8740,9 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_request_message.size = functio
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.dark_execution_instruction.size
 
@@ -9125,11 +8754,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_request_message.size = functio
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.firm_id_publication.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.order_id.size
 
@@ -9180,11 +8809,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_request_message.fields = funct
   -- Book In: uint64_t
   index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Dark Execution Instruction: Struct of 7 fields
   index, dark_execution_instruction = euronext_optiq_dropcopygateway_sbe_v5_56.dark_execution_instruction.dissect(buffer, index, packet, parent)
@@ -9201,14 +8830,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_request_message.fields = funct
   -- Firm Id Publication: unsigned_char
   index, firm_id_publication = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id_publication.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t: uint64_t
-  index, oe_session_i_d_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t: uint64_t
-  index, oegin_from_member_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t: uint64_t
-  index, oegout_time_to_m_e_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Order Id: uint64_t
   index, order_id = euronext_optiq_dropcopygateway_sbe_v5_56.order_id.dissect(buffer, index, packet, parent)
@@ -9273,10 +8902,10 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_fill_message.size 
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_event_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_status.size + 
@@ -9284,27 +8913,27 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_fill_message.size 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.price.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.side.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trade_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.entering_counterparty.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.session_sessionenum_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trade_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.investor_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.principal_code.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_firm_i_d_char_8_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_account.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.free_text.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum_optional.size
 
 -- Display: Dc Short Declaration Fill Message
@@ -9328,17 +8957,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_fill_message.field
   -- Message Sending Time: uint64_t
   index, message_sending_time = euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t: uint64_t
-  index, oegin_from_member_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t: uint64_t
-  index, oegout_time_to_m_e_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Operation Type: OperationType_enum
   index, operation_type = euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.dissect(buffer, index, packet, parent)
@@ -9361,17 +8990,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_fill_message.field
   -- Declaration Id: uint64_t
   index, declaration_id = euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t: int64_t
-  index, price_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 64t: uint64_t
-  index, quantity_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.dissect(buffer, index, packet, parent)
+  -- Quantity: uint64_t
+  index, quantity = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect(buffer, index, packet, parent)
 
   -- Side: Side_enum
   index, side = euronext_optiq_dropcopygateway_sbe_v5_56.side.dissect(buffer, index, packet, parent)
 
-  -- Cross Order Indicator unsignedchar: unsigned_char
-  index, cross_order_indicator_unsignedchar = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.dissect(buffer, index, packet, parent)
+  -- Cross Order Indicator: unsigned_char
+  index, cross_order_indicator = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.dissect(buffer, index, packet, parent)
 
   -- Trade Time: uint64_t
   index, trade_time = euronext_optiq_dropcopygateway_sbe_v5_56.trade_time.dissect(buffer, index, packet, parent)
@@ -9388,11 +9017,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_fill_message.field
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition I D uint 16t: uint16_t
-  index, oe_partition_i_d_uint_16t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Logical Access I D uint 32t: uint32_t
-  index, logical_access_i_d_uint_32t = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.dissect(buffer, index, packet, parent)
 
   -- Trader Id: char16
   index, trader_id = euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.dissect(buffer, index, packet, parent)
@@ -9412,17 +9041,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_fill_message.field
   -- Account Type Account Typeenum: AccountType_enum
   index, account_type_account_typeenum = euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Free Text: char18
   index, free_text = euronext_optiq_dropcopygateway_sbe_v5_56.free_text.dissect(buffer, index, packet, parent)
 
-  -- Settlement Period unsignedchar optional: unsigned_char
-  index, settlement_period_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Period: unsigned_char
+  index, settlement_period = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.dissect(buffer, index, packet, parent)
 
-  -- Settlement Flag unsignedchar optional: unsigned_char
-  index, settlement_flag_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Flag: unsigned_char
+  index, settlement_flag = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.dissect(buffer, index, packet, parent)
 
   -- Guarantee Flag Guarantee Flagenum optional: GuaranteeFlag_enum
   index, guarantee_flag_guarantee_flagenum_optional = euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum_optional.dissect(buffer, index, packet, parent)
@@ -9457,16 +9086,16 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_trade_message_matched_declarations_
   euronext_optiq_dropcopygateway_sbe_v5_56.side.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.free_text.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_firm_i_d_char_8_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_account.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.principal_code.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.investor_id.size
 
@@ -9497,20 +9126,20 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_trade_message_matched_declarations_
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition I D uint 16t optional: uint16_t
-  index, oe_partition_i_d_uint_16t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Logical Access I D uint 32t optional: uint32_t
-  index, logical_access_i_d_uint_32t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t optional: uint64_t
-  index, book_in_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
   -- Account Type Account Typeenum optional: AccountType_enum
   index, account_type_account_typeenum_optional = euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum_optional.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Free Text: char18
   index, free_text = euronext_optiq_dropcopygateway_sbe_v5_56.free_text.dissect(buffer, index, packet, parent)
@@ -9524,8 +9153,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_trade_message_matched_declarations_
   -- Principal Code: char8
   index, principal_code = euronext_optiq_dropcopygateway_sbe_v5_56.principal_code.dissect(buffer, index, packet, parent)
 
-  -- Cross Order Indicator unsignedchar optional: unsigned_char
-  index, cross_order_indicator_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Cross Order Indicator: unsigned_char
+  index, cross_order_indicator = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.dissect(buffer, index, packet, parent)
 
   -- Trader Id: char16
   index, trader_id = euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.dissect(buffer, index, packet, parent)
@@ -9819,11 +9448,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_trade_message_matched_orders_group.
   euronext_optiq_dropcopygateway_sbe_v5_56.client_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.technical_origin.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.open_close.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trade_qualifier_trade_qualifierset_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.account_type_internal_account_type_internalenum_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.lp_role_lp_roleenum_optional.size + 
@@ -9832,7 +9461,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_trade_message_matched_orders_group.
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_firm_i_d_char_8_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.original_investor_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_instruction_clearing_instructionenum.size
 
 -- Display: D C Trade Message Matched Orders Group
@@ -9874,20 +9503,20 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_trade_message_matched_orders_group.
   -- Open Close: Struct of 11 fields
   index, open_close = euronext_optiq_dropcopygateway_sbe_v5_56.open_close.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition I D uint 16t optional: uint16_t
-  index, oe_partition_i_d_uint_16t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t_optional.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Logical Access I D uint 32t optional: uint32_t
-  index, logical_access_i_d_uint_32t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t_optional.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t optional: uint64_t
-  index, book_in_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
   -- Trade Qualifier Trade Qualifierset optional: Struct of 8 fields
   index, trade_qualifier_trade_qualifierset_optional = euronext_optiq_dropcopygateway_sbe_v5_56.trade_qualifier_trade_qualifierset_optional.dissect(buffer, index, packet, parent)
@@ -9913,8 +9542,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_trade_message_matched_orders_group.
   -- Original Investor Id: char16
   index, original_investor_id = euronext_optiq_dropcopygateway_sbe_v5_56.original_investor_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Order Indicator unsignedchar optional: unsigned_char
-  index, cross_order_indicator_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Cross Order Indicator: unsigned_char
+  index, cross_order_indicator = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.dissect(buffer, index, packet, parent)
 
   -- Clearing Instruction Clearing Instructionenum: ClearingInstruction_enum
   index, clearing_instruction_clearing_instructionenum = euronext_optiq_dropcopygateway_sbe_v5_56.clearing_instruction_clearing_instructionenum.dissect(buffer, index, packet, parent)
@@ -10101,11 +9730,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_message.size = function(buffer
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.price.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.trade_time.size
 
@@ -10119,9 +9748,9 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_message.size = function(buffer
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.trade_qualifier_trade_qualifierset.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum_optional.size
 
@@ -10161,14 +9790,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_message.fields = function(buff
   -- Event Id: uint64_t
   index, event_id = euronext_optiq_dropcopygateway_sbe_v5_56.event_id.dissect(buffer, index, packet, parent)
 
-  -- Execution I D uint 32t: uint32_t
-  index, execution_i_d_uint_32t = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.dissect(buffer, index, packet, parent)
+  -- Execution Id: uint32_t
+  index, execution_id = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 64t: uint64_t
-  index, quantity_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.dissect(buffer, index, packet, parent)
+  -- Quantity: uint64_t
+  index, quantity = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t optional: int64_t
-  index, price_int_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
   -- Trade Time: uint64_t
   index, trade_time = euronext_optiq_dropcopygateway_sbe_v5_56.trade_time.dissect(buffer, index, packet, parent)
@@ -10188,11 +9817,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_message.fields = function(buff
   -- Trade Qualifier Trade Qualifierset: Struct of 8 fields
   index, trade_qualifier_trade_qualifierset = euronext_optiq_dropcopygateway_sbe_v5_56.trade_qualifier_trade_qualifierset.dissect(buffer, index, packet, parent)
 
-  -- Settlement Period unsignedchar optional: unsigned_char
-  index, settlement_period_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Period: unsigned_char
+  index, settlement_period = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.dissect(buffer, index, packet, parent)
 
-  -- Settlement Flag unsignedchar optional: unsigned_char
-  index, settlement_flag_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Flag: unsigned_char
+  index, settlement_flag = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.dissect(buffer, index, packet, parent)
 
   -- Guarantee Flag Guarantee Flagenum optional: GuaranteeFlag_enum
   index, guarantee_flag_guarantee_flagenum_optional = euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum_optional.dissect(buffer, index, packet, parent)
@@ -10245,21 +9874,21 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_bust_declaration_message.size 
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_event_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_status.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.price.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.side.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.size + 
@@ -10291,17 +9920,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_bust_declaration_message.field
   -- Message Sending Time: uint64_t
   index, message_sending_time = euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t: uint64_t
-  index, oegin_from_member_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t: uint64_t
-  index, oegout_time_to_m_e_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Event Id: uint64_t
   index, event_id = euronext_optiq_dropcopygateway_sbe_v5_56.event_id.dissect(buffer, index, packet, parent)
@@ -10312,14 +9941,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_bust_declaration_message.field
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t: uint64_t
-  index, oe_session_i_d_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
   -- Account Type Account Typeenum: AccountType_enum
   index, account_type_account_typeenum = euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
@@ -10330,11 +9959,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_trade_bust_declaration_message.field
   -- Declaration Status: DeclarationStatus_enum
   index, declaration_status = euronext_optiq_dropcopygateway_sbe_v5_56.declaration_status.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t optional: int64_t
-  index, price_int_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 64t optional: uint64_t
-  index, quantity_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Quantity: uint64_t
+  index, quantity = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect(buffer, index, packet, parent)
 
   -- Side: Side_enum
   index, side = euronext_optiq_dropcopygateway_sbe_v5_56.side.dissect(buffer, index, packet, parent)
@@ -10392,13 +10021,13 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_cancellation
   euronext_optiq_dropcopygateway_sbe_v5_56.msg_seq_num.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.size
+  euronext_optiq_dropcopygateway_sbe_v5_56.price.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size
 
 -- Display: Dc Short Trade Declaration Cancellation Message
 euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_cancellation_message.display = function(packet, parent, length)
@@ -10418,8 +10047,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_cancellation
   -- Consume Time: uint64_t
   index, consume_time = euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
   -- Event Id: uint64_t
   index, event_id = euronext_optiq_dropcopygateway_sbe_v5_56.event_id.dissect(buffer, index, packet, parent)
@@ -10427,17 +10056,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_cancellation
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
 
-  -- Execution I D uint 32t: uint32_t
-  index, execution_i_d_uint_32t = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.dissect(buffer, index, packet, parent)
+  -- Execution Id: uint32_t
+  index, execution_id = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t: int64_t
-  index, price_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 64t: uint64_t
-  index, quantity_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t.dissect(buffer, index, packet, parent)
+  -- Quantity: uint64_t
+  index, quantity = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10466,21 +10095,21 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_short_trade_declaration_message_sho
 -- Size: D C Short Trade Declaration Message Short Trade Declarations Group
 euronext_optiq_dropcopygateway_sbe_v5_56.d_c_short_trade_declaration_message_short_trade_declarations_group.size =
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.price.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.side.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.investor_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.principal_code.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_firm_i_d_char_8_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_account.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.free_text.size
 
 -- Display: D C Short Trade Declaration Message Short Trade Declarations Group
@@ -10501,11 +10130,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_short_trade_declaration_message_sho
   -- Declaration Id: uint64_t
   index, declaration_id = euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t optional: int64_t
-  index, price_int_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 64t optional: uint64_t
-  index, quantity_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Quantity: uint64_t
+  index, quantity = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect(buffer, index, packet, parent)
 
   -- Operation Type: OperationType_enum
   index, operation_type = euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.dissect(buffer, index, packet, parent)
@@ -10516,14 +10145,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_short_trade_declaration_message_sho
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Partition I D uint 16t: uint16_t
-  index, oe_partition_i_d_uint_16t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_i_d_uint_16t.dissect(buffer, index, packet, parent)
+  -- Oe Partition Id: uint16_t
+  index, oe_partition_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_partition_id.dissect(buffer, index, packet, parent)
 
-  -- Logical Access I D uint 32t: uint32_t
-  index, logical_access_i_d_uint_32t = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_i_d_uint_32t.dissect(buffer, index, packet, parent)
+  -- Logical Access Id: uint32_t
+  index, logical_access_id = euronext_optiq_dropcopygateway_sbe_v5_56.logical_access_id.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
   -- Trader Id: char16
   index, trader_id = euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.dissect(buffer, index, packet, parent)
@@ -10543,8 +10172,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_short_trade_declaration_message_sho
   -- Account Type Account Typeenum: AccountType_enum
   index, account_type_account_typeenum = euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Free Text: char18
   index, free_text = euronext_optiq_dropcopygateway_sbe_v5_56.free_text.dissect(buffer, index, packet, parent)
@@ -10646,9 +10275,9 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_message.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.trade_time.size
 
@@ -10658,9 +10287,9 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_message.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.trade_type.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum_optional.size
 
@@ -10696,11 +10325,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_message.fiel
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Execution I D uint 32t: uint32_t
-  index, execution_i_d_uint_32t = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.dissect(buffer, index, packet, parent)
+  -- Execution Id: uint32_t
+  index, execution_id = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Order Indicator unsignedchar: unsigned_char
-  index, cross_order_indicator_unsignedchar = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.dissect(buffer, index, packet, parent)
+  -- Cross Order Indicator: unsigned_char
+  index, cross_order_indicator = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.dissect(buffer, index, packet, parent)
 
   -- Trade Time: uint64_t
   index, trade_time = euronext_optiq_dropcopygateway_sbe_v5_56.trade_time.dissect(buffer, index, packet, parent)
@@ -10714,11 +10343,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_declaration_message.fiel
   -- Trade Type: TradeType_enum
   index, trade_type = euronext_optiq_dropcopygateway_sbe_v5_56.trade_type.dissect(buffer, index, packet, parent)
 
-  -- Settlement Period unsignedchar optional: unsigned_char
-  index, settlement_period_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Period: unsigned_char
+  index, settlement_period = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.dissect(buffer, index, packet, parent)
 
-  -- Settlement Flag unsignedchar optional: unsigned_char
-  index, settlement_flag_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Settlement Flag: unsigned_char
+  index, settlement_flag = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.dissect(buffer, index, packet, parent)
 
   -- Guarantee Flag Guarantee Flagenum optional: GuaranteeFlag_enum
   index, guarantee_flag_guarantee_flagenum_optional = euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum_optional.dissect(buffer, index, packet, parent)
@@ -10756,15 +10385,15 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_cancel_message.siz
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_event_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
@@ -10791,17 +10420,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_cancel_message.fie
   -- Message Sending Time: uint64_t
   index, message_sending_time = euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t: uint64_t
-  index, oegin_from_member_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t: uint64_t
-  index, oegout_time_to_m_e_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Event Id: uint64_t
   index, event_id = euronext_optiq_dropcopygateway_sbe_v5_56.event_id.dissect(buffer, index, packet, parent)
@@ -10812,11 +10441,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_cancel_message.fie
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t: uint64_t
-  index, oe_session_i_d_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
@@ -10860,18 +10489,18 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_reject_message.siz
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_event_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.error_code.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message_id.size
 
 -- Display: Dc Short Declaration Reject Message
@@ -10895,17 +10524,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_reject_message.fie
   -- Message Sending Time: uint64_t
   index, message_sending_time = euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t: uint64_t
-  index, oegin_from_member_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t: uint64_t
-  index, oegout_time_to_m_e_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Event Id: uint64_t
   index, event_id = euronext_optiq_dropcopygateway_sbe_v5_56.event_id.dissect(buffer, index, packet, parent)
@@ -10916,8 +10545,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_reject_message.fie
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
@@ -10928,8 +10557,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_declaration_reject_message.fie
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Error Code uint 16t: uint16_t
-  index, error_code_uint_16t = euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.dissect(buffer, index, packet, parent)
+  -- Error Code: uint16_t
+  index, error_code = euronext_optiq_dropcopygateway_sbe_v5_56.error_code.dissect(buffer, index, packet, parent)
 
   -- Rejected Message Id: uint16_t
   index, rejected_message_id = euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message_id.dissect(buffer, index, packet, parent)
@@ -10964,25 +10593,25 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_declaration_new_message.size =
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_event_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.declaration_status.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.price.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.side.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.entering_counterparty.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trader_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.investor_id.size + 
@@ -10990,8 +10619,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_declaration_new_message.size =
   euronext_optiq_dropcopygateway_sbe_v5_56.principal_code.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_firm_i_d_char_8_optional.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.clearing_account.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.transaction_price_type.size
 
@@ -11016,17 +10645,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_declaration_new_message.fields = fun
   -- Message Sending Time: uint64_t
   index, message_sending_time = euronext_optiq_dropcopygateway_sbe_v5_56.message_sending_time.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t: uint64_t
-  index, oegin_from_member_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t: uint64_t
-  index, oegout_time_to_m_e_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Event Id: uint64_t
   index, event_id = euronext_optiq_dropcopygateway_sbe_v5_56.event_id.dissect(buffer, index, packet, parent)
@@ -11037,14 +10666,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_declaration_new_message.fields = fun
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t: uint64_t
-  index, oe_session_i_d_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
   -- Account Type Account Typeenum: AccountType_enum
   index, account_type_account_typeenum = euronext_optiq_dropcopygateway_sbe_v5_56.account_type_account_typeenum.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
@@ -11055,11 +10684,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_declaration_new_message.fields = fun
   -- Declaration Status: DeclarationStatus_enum
   index, declaration_status = euronext_optiq_dropcopygateway_sbe_v5_56.declaration_status.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t optional: int64_t
-  index, price_int_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 64t optional: uint64_t
-  index, quantity_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Quantity: uint64_t
+  index, quantity = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect(buffer, index, packet, parent)
 
   -- Side: Side_enum
   index, side = euronext_optiq_dropcopygateway_sbe_v5_56.side.dissect(buffer, index, packet, parent)
@@ -11070,8 +10699,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_declaration_new_message.fields = fun
   -- Operation Type: OperationType_enum
   index, operation_type = euronext_optiq_dropcopygateway_sbe_v5_56.operation_type.dissect(buffer, index, packet, parent)
 
-  -- Cross Order Indicator unsignedchar: unsigned_char
-  index, cross_order_indicator_unsignedchar = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.dissect(buffer, index, packet, parent)
+  -- Cross Order Indicator: unsigned_char
+  index, cross_order_indicator = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.dissect(buffer, index, packet, parent)
 
   -- Entering Counterparty: char8
   index, entering_counterparty = euronext_optiq_dropcopygateway_sbe_v5_56.entering_counterparty.dissect(buffer, index, packet, parent)
@@ -11094,11 +10723,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_declaration_new_message.fields = fun
   -- Clearing Account: char16
   index, clearing_account = euronext_optiq_dropcopygateway_sbe_v5_56.clearing_account.dissect(buffer, index, packet, parent)
 
-  -- Settlement Period unsignedchar: unsigned_char
-  index, settlement_period_unsignedchar = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period_unsignedchar.dissect(buffer, index, packet, parent)
+  -- Settlement Period: unsigned_char
+  index, settlement_period = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_period.dissect(buffer, index, packet, parent)
 
-  -- Settlement Flag unsignedchar: unsigned_char
-  index, settlement_flag_unsignedchar = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag_unsignedchar.dissect(buffer, index, packet, parent)
+  -- Settlement Flag: unsigned_char
+  index, settlement_flag = euronext_optiq_dropcopygateway_sbe_v5_56.settlement_flag.dissect(buffer, index, packet, parent)
 
   -- Guarantee Flag Guarantee Flagenum: GuaranteeFlag_enum
   index, guarantee_flag_guarantee_flagenum = euronext_optiq_dropcopygateway_sbe_v5_56.guarantee_flag_guarantee_flagenum.dissect(buffer, index, packet, parent)
@@ -11136,13 +10765,13 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dcafqrfe_message.size =
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.afq_reason.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.afq_indicator.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size
+  euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size
 
 -- Display: Dcafqrfe Message
 euronext_optiq_dropcopygateway_sbe_v5_56.dcafqrfe_message.display = function(packet, parent, length)
@@ -11165,8 +10794,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dcafqrfe_message.fields = function(buff
   -- Afq Reason: AFQReason_enum
   index, afq_reason = euronext_optiq_dropcopygateway_sbe_v5_56.afq_reason.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
@@ -11183,8 +10812,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dcafqrfe_message.fields = function(buff
   -- Afq Indicator: unsigned_char
   index, afq_indicator = euronext_optiq_dropcopygateway_sbe_v5_56.afq_indicator.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t: uint64_t
-  index, oe_session_i_d_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11568,7 +11197,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_quote_message_offer_quoterep_group.
   euronext_optiq_dropcopygateway_sbe_v5_56.sell_revision_flag.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.offer_error_code.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.offer_oe_session_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.offer_leaves_quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.offer_previous_size.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.offer_previous_px.size
@@ -11609,8 +11238,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_quote_message_offer_quoterep_group.
   -- Offer Oe Session Id: uint64_t
   index, offer_oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.offer_oe_session_id.dissect(buffer, index, packet, parent)
 
-  -- Rfe Answer unsignedchar optional: unsigned_char
-  index, rfe_answer_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Rfe Answer: unsigned_char
+  index, rfe_answer = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.dissect(buffer, index, packet, parent)
 
   -- Offer Leaves Quantity: uint64_t
   index, offer_leaves_quantity = euronext_optiq_dropcopygateway_sbe_v5_56.offer_leaves_quantity.dissect(buffer, index, packet, parent)
@@ -11711,7 +11340,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_quote_message_bid_quoterep_group.si
   euronext_optiq_dropcopygateway_sbe_v5_56.buy_revision_flag.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.bid_error_code.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.bid_oe_session_id.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.bid_leaves_quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.bid_previous_size.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.bid_previous_px.size
@@ -11752,8 +11381,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_quote_message_bid_quoterep_group.fi
   -- Bid Oe Session Id: uint64_t
   index, bid_oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.bid_oe_session_id.dissect(buffer, index, packet, parent)
 
-  -- Rfe Answer unsignedchar optional: unsigned_char
-  index, rfe_answer_unsignedchar_optional = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar_optional.dissect(buffer, index, packet, parent)
+  -- Rfe Answer: unsigned_char
+  index, rfe_answer = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.dissect(buffer, index, packet, parent)
 
   -- Bid Leaves Quantity: uint64_t
   index, bid_leaves_quantity = euronext_optiq_dropcopygateway_sbe_v5_56.bid_leaves_quantity.dissect(buffer, index, packet, parent)
@@ -12022,9 +11651,9 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_message.size = function(buffer
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size
 
@@ -12032,7 +11661,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_message.size = function(buffer
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.trading_capacity_trading_capacityenum.size
 
@@ -12042,7 +11671,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_message.size = function(buffer
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.mi_fid_indicators_mi_fid_indicatorsset.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size
 
@@ -12081,11 +11710,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_message.fields = function(buff
   -- Consume Time: uint64_t
   index, consume_time = euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.dissect(buffer, index, packet, parent)
@@ -12096,8 +11725,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_message.fields = function(buff
   -- Event Id: uint64_t
   index, event_id = euronext_optiq_dropcopygateway_sbe_v5_56.event_id.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Trading Capacity Trading Capacityenum: TradingCapacity_enum
   index, trading_capacity_trading_capacityenum = euronext_optiq_dropcopygateway_sbe_v5_56.trading_capacity_trading_capacityenum.dissect(buffer, index, packet, parent)
@@ -12111,8 +11740,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_quote_message.fields = function(buff
   -- Mi Fid Indicators Mi Fid Indicatorsset: Struct of 7 fields
   index, mi_fid_indicators_mi_fid_indicatorsset = euronext_optiq_dropcopygateway_sbe_v5_56.mi_fid_indicators_mi_fid_indicatorsset.dissect(buffer, index, packet, parent)
 
-  -- Rfe Answer unsignedchar: unsigned_char
-  index, rfe_answer_unsignedchar = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer_unsignedchar.dissect(buffer, index, packet, parent)
+  -- Rfe Answer: unsigned_char
+  index, rfe_answer = euronext_optiq_dropcopygateway_sbe_v5_56.rfe_answer.dissect(buffer, index, packet, parent)
 
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
@@ -12396,11 +12025,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.trade_bust_notification_message.size = 
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.order_side_order_sideenum.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in_time.size
 
@@ -12408,11 +12037,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.trade_bust_notification_message.size = 
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.emm.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.order_id.size
 
@@ -12422,7 +12051,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.trade_bust_notification_message.size = 
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.trading_capacity_trading_capacityenum.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_phase_execution_phaseenum.size
 
@@ -12500,14 +12129,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.trade_bust_notification_message.fields 
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t: uint64_t
-  index, oe_session_i_d_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
   -- Order Side Order Sideenum: OrderSide_enum
   index, order_side_order_sideenum = euronext_optiq_dropcopygateway_sbe_v5_56.order_side_order_sideenum.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
   -- Book In Time: uint64_t
   index, book_in_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_time.dissect(buffer, index, packet, parent)
@@ -12518,14 +12147,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.trade_bust_notification_message.fields 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
 
-  -- Execution I D uint 32t: uint32_t
-  index, execution_i_d_uint_32t = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.dissect(buffer, index, packet, parent)
+  -- Execution Id: uint32_t
+  index, execution_id = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Last Shares uint 64t: uint64_t
-  index, last_shares_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.dissect(buffer, index, packet, parent)
+  -- Last Shares: uint64_t
+  index, last_shares = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Traded Px int 64t: int64_t
-  index, last_traded_px_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.dissect(buffer, index, packet, parent)
+  -- Last Traded Px: int64_t
+  index, last_traded_px = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.dissect(buffer, index, packet, parent)
 
   -- Order Id: uint64_t
   index, order_id = euronext_optiq_dropcopygateway_sbe_v5_56.order_id.dissect(buffer, index, packet, parent)
@@ -12539,8 +12168,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.trade_bust_notification_message.fields 
   -- Trading Capacity Trading Capacityenum: TradingCapacity_enum
   index, trading_capacity_trading_capacityenum = euronext_optiq_dropcopygateway_sbe_v5_56.trading_capacity_trading_capacityenum.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t: uint64_t
-  index, oegin_from_member_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
   -- Execution Phase Execution Phaseenum: ExecutionPhase_enum
   index, execution_phase_execution_phaseenum = euronext_optiq_dropcopygateway_sbe_v5_56.execution_phase_execution_phaseenum.dissect(buffer, index, packet, parent)
@@ -12647,7 +12276,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_static_collars_message_static_colla
 -- Size: D C Static Collars Message Static Collarsrep Group
 euronext_optiq_dropcopygateway_sbe_v5_56.d_c_static_collars_message_static_collarsrep_group.size =
   euronext_optiq_dropcopygateway_sbe_v5_56.update_type.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.size
+  euronext_optiq_dropcopygateway_sbe_v5_56.price.size
 
 -- Display: D C Static Collars Message Static Collarsrep Group
 euronext_optiq_dropcopygateway_sbe_v5_56.d_c_static_collars_message_static_collarsrep_group.display = function(packet, parent, length)
@@ -12667,8 +12296,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.d_c_static_collars_message_static_colla
   -- Update Type: MarketDataUpdateType_enum
   index, update_type = euronext_optiq_dropcopygateway_sbe_v5_56.update_type.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t: int64_t
-  index, price_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12826,13 +12455,13 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_cancellation_message.siz
   euronext_optiq_dropcopygateway_sbe_v5_56.msg_seq_num.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.produce_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.emm.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.event_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trade_unique_identifier.size
 
 -- Display: Dc Short Trade Cancellation Message
@@ -12853,8 +12482,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_cancellation_message.fie
   -- Consume Time: uint64_t
   index, consume_time = euronext_optiq_dropcopygateway_sbe_v5_56.consume_time.dissect(buffer, index, packet, parent)
 
-  -- Execution I D uint 32t: uint32_t
-  index, execution_i_d_uint_32t = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t.dissect(buffer, index, packet, parent)
+  -- Execution Id: uint32_t
+  index, execution_id = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect(buffer, index, packet, parent)
 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
@@ -12865,14 +12494,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_trade_cancellation_message.fie
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Last Traded Px int 64t: int64_t
-  index, last_traded_px_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t.dissect(buffer, index, packet, parent)
+  -- Last Traded Px: int64_t
+  index, last_traded_px = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.dissect(buffer, index, packet, parent)
 
-  -- Last Shares uint 64t: uint64_t
-  index, last_shares_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t.dissect(buffer, index, packet, parent)
+  -- Last Shares: uint64_t
+  index, last_shares = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.dissect(buffer, index, packet, parent)
 
   -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_dropcopygateway_sbe_v5_56.trade_unique_identifier.dissect(buffer, index, packet, parent)
@@ -13209,11 +12838,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_order_reject_message.size = fu
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.order_event_type.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.emm.size
 
@@ -13221,9 +12850,9 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_order_reject_message.size = fu
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.order_id.size
 
@@ -13235,11 +12864,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_order_reject_message.size = fu
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.error_code.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.mi_fid_indicators_mi_fid_indicatorsset_optional.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.order_side_order_sideenum_optional.size
 
@@ -13273,14 +12902,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_order_reject_message.fields = 
   -- Order Event Type: OrderEventType_enum
   index, order_event_type = euronext_optiq_dropcopygateway_sbe_v5_56.order_event_type.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t: uint64_t
-  index, book_in_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t: uint64_t
-  index, book_out_time_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t: int64_t
-  index, client_order_i_d_int_64t = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Emm: EMM_enum
   index, emm = euronext_optiq_dropcopygateway_sbe_v5_56.emm.dissect(buffer, index, packet, parent)
@@ -13291,11 +12920,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_order_reject_message.fields = 
   -- Firm Id: char8
   index, firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t optional: uint64_t
-  index, oegin_from_member_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t: uint64_t
-  index, oegout_time_to_m_e_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Order Id: uint64_t
   index, order_id = euronext_optiq_dropcopygateway_sbe_v5_56.order_id.dissect(buffer, index, packet, parent)
@@ -13312,14 +12941,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_short_order_reject_message.fields = 
   -- Rejected Message: unsigned_char
   index, rejected_message = euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message.dissect(buffer, index, packet, parent)
 
-  -- Error Code uint 16t: uint16_t
-  index, error_code_uint_16t = euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t.dissect(buffer, index, packet, parent)
+  -- Error Code: uint16_t
+  index, error_code = euronext_optiq_dropcopygateway_sbe_v5_56.error_code.dissect(buffer, index, packet, parent)
 
   -- Mi Fid Indicators Mi Fid Indicatorsset optional: Struct of 7 fields
   index, mi_fid_indicators_mi_fid_indicatorsset_optional = euronext_optiq_dropcopygateway_sbe_v5_56.mi_fid_indicators_mi_fid_indicatorsset_optional.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t optional: uint64_t
-  index, oe_session_i_d_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
   -- Order Side Order Sideenum optional: OrderSide_enum
   index, order_side_order_sideenum_optional = euronext_optiq_dropcopygateway_sbe_v5_56.order_side_order_sideenum_optional.dissect(buffer, index, packet, parent)
@@ -13803,7 +13432,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_strategy_fields_group.size =
   euronext_optiq_dropcopygateway_sbe_v5_56.leg_last_qty.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.leg_instrument_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.leg_side.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.trade_unique_identifier.size
 
 -- Display: Long Order Strategy Fields Group
@@ -13833,8 +13462,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_strategy_fields_group.fields
   -- Leg Side: LegSide_enum
   index, leg_side = euronext_optiq_dropcopygateway_sbe_v5_56.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Execution I D uint 32t optional: uint32_t
-  index, execution_i_d_uint_32t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.dissect(buffer, index, packet, parent)
+  -- Execution Id: uint32_t
+  index, execution_id = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect(buffer, index, packet, parent)
 
   -- Trade Unique Identifier: char16
   index, trade_unique_identifier = euronext_optiq_dropcopygateway_sbe_v5_56.trade_unique_identifier.dissect(buffer, index, packet, parent)
@@ -15315,11 +14944,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.size = function(buff
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.ack_type.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_in.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.dark_execution_instruction.size
 
@@ -15335,15 +14964,15 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.size = function(buff
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.indicative_auction_volume.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.lp_role_lp_roleenum_optional.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.mi_fid_indicators_mi_fid_indicatorsset.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.order_id.size
 
@@ -15367,17 +14996,17 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.size = function(buff
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.displayed_qty.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.counterpart_firm_id.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.execution_phase_execution_phaseenum_optional.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.leaves_qty.size
 
@@ -15395,7 +15024,7 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.size = function(buff
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message.size
 
-  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional.size
+  index = index + euronext_optiq_dropcopygateway_sbe_v5_56.error_code.size
 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_56.stop_queue_priority.size
 
@@ -15481,14 +15110,14 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.fields = function(bu
   -- Ack Type: AckType_enum
   index, ack_type = euronext_optiq_dropcopygateway_sbe_v5_56.ack_type.dissect(buffer, index, packet, parent)
 
-  -- Book In uint 64t optional: uint64_t
-  index, book_in_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.book_in_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Book In: uint64_t
+  index, book_in = euronext_optiq_dropcopygateway_sbe_v5_56.book_in.dissect(buffer, index, packet, parent)
 
-  -- Book Out Time uint 64t optional: uint64_t
-  index, book_out_time_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Book Out Time: uint64_t
+  index, book_out_time = euronext_optiq_dropcopygateway_sbe_v5_56.book_out_time.dissect(buffer, index, packet, parent)
 
-  -- Client Order I D int 64t optional: int64_t
-  index, client_order_i_d_int_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_i_d_int_64t_optional.dissect(buffer, index, packet, parent)
+  -- Client Order Id: int64_t
+  index, client_order_id = euronext_optiq_dropcopygateway_sbe_v5_56.client_order_id.dissect(buffer, index, packet, parent)
 
   -- Dark Execution Instruction: Struct of 7 fields
   index, dark_execution_instruction = euronext_optiq_dropcopygateway_sbe_v5_56.dark_execution_instruction.dissect(buffer, index, packet, parent)
@@ -15511,8 +15140,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.fields = function(bu
   -- Indicative Auction Volume: uint64_t
   index, indicative_auction_volume = euronext_optiq_dropcopygateway_sbe_v5_56.indicative_auction_volume.dissect(buffer, index, packet, parent)
 
-  -- Oe Session I D uint 64t: uint64_t
-  index, oe_session_i_d_uint_64t = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_i_d_uint_64t.dissect(buffer, index, packet, parent)
+  -- Oe Session Id: uint64_t
+  index, oe_session_id = euronext_optiq_dropcopygateway_sbe_v5_56.oe_session_id.dissect(buffer, index, packet, parent)
 
   -- Lp Role Lp Roleenum optional: LPRole_enum
   index, lp_role_lp_roleenum_optional = euronext_optiq_dropcopygateway_sbe_v5_56.lp_role_lp_roleenum_optional.dissect(buffer, index, packet, parent)
@@ -15520,11 +15149,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.fields = function(bu
   -- Mi Fid Indicators Mi Fid Indicatorsset: Struct of 7 fields
   index, mi_fid_indicators_mi_fid_indicatorsset = euronext_optiq_dropcopygateway_sbe_v5_56.mi_fid_indicators_mi_fid_indicatorsset.dissect(buffer, index, packet, parent)
 
-  -- Oegin From Member uint 64t optional: uint64_t
-  index, oegin_from_member_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Oegin From Member: uint64_t
+  index, oegin_from_member = euronext_optiq_dropcopygateway_sbe_v5_56.oegin_from_member.dissect(buffer, index, packet, parent)
 
-  -- Oegout Time To M E uint 64t optional: uint64_t
-  index, oegout_time_to_m_e_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_m_e_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Oegout Time To Me: uint64_t
+  index, oegout_time_to_me = euronext_optiq_dropcopygateway_sbe_v5_56.oegout_time_to_me.dissect(buffer, index, packet, parent)
 
   -- Order Id: uint64_t
   index, order_id = euronext_optiq_dropcopygateway_sbe_v5_56.order_id.dissect(buffer, index, packet, parent)
@@ -15559,23 +15188,23 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.fields = function(bu
   -- Displayed Qty: uint64_t
   index, displayed_qty = euronext_optiq_dropcopygateway_sbe_v5_56.displayed_qty.dissect(buffer, index, packet, parent)
 
-  -- Cross Order Indicator unsignedchar: unsigned_char
-  index, cross_order_indicator_unsignedchar = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator_unsignedchar.dissect(buffer, index, packet, parent)
+  -- Cross Order Indicator: unsigned_char
+  index, cross_order_indicator = euronext_optiq_dropcopygateway_sbe_v5_56.cross_order_indicator.dissect(buffer, index, packet, parent)
 
   -- Counterpart Firm Id: char8
   index, counterpart_firm_id = euronext_optiq_dropcopygateway_sbe_v5_56.counterpart_firm_id.dissect(buffer, index, packet, parent)
 
-  -- Execution I D uint 32t optional: uint32_t
-  index, execution_i_d_uint_32t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.execution_i_d_uint_32t_optional.dissect(buffer, index, packet, parent)
+  -- Execution Id: uint32_t
+  index, execution_id = euronext_optiq_dropcopygateway_sbe_v5_56.execution_id.dissect(buffer, index, packet, parent)
 
   -- Execution Phase Execution Phaseenum optional: ExecutionPhase_enum
   index, execution_phase_execution_phaseenum_optional = euronext_optiq_dropcopygateway_sbe_v5_56.execution_phase_execution_phaseenum_optional.dissect(buffer, index, packet, parent)
 
-  -- Last Shares uint 64t optional: uint64_t
-  index, last_shares_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Last Shares: uint64_t
+  index, last_shares = euronext_optiq_dropcopygateway_sbe_v5_56.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Traded Px int 64t optional: int64_t
-  index, last_traded_px_int_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px_int_64t_optional.dissect(buffer, index, packet, parent)
+  -- Last Traded Px: int64_t
+  index, last_traded_px = euronext_optiq_dropcopygateway_sbe_v5_56.last_traded_px.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: uint64_t
   index, leaves_qty = euronext_optiq_dropcopygateway_sbe_v5_56.leaves_qty.dissect(buffer, index, packet, parent)
@@ -15601,8 +15230,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.long_order_message.fields = function(bu
   -- Rejected Message: unsigned_char
   index, rejected_message = euronext_optiq_dropcopygateway_sbe_v5_56.rejected_message.dissect(buffer, index, packet, parent)
 
-  -- Error Code uint 16t optional: uint16_t
-  index, error_code_uint_16t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.error_code_uint_16t_optional.dissect(buffer, index, packet, parent)
+  -- Error Code: uint16_t
+  index, error_code = euronext_optiq_dropcopygateway_sbe_v5_56.error_code.dissect(buffer, index, packet, parent)
 
   -- Stop Queue Priority: uint64_t
   index, stop_queue_priority = euronext_optiq_dropcopygateway_sbe_v5_56.stop_queue_priority.dissect(buffer, index, packet, parent)
@@ -15710,8 +15339,8 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_price_update_message.size =
   euronext_optiq_dropcopygateway_sbe_v5_56.event_time.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.price_type.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.size + 
-  euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.price.size + 
+  euronext_optiq_dropcopygateway_sbe_v5_56.quantity.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.imbalance_qty.size + 
   euronext_optiq_dropcopygateway_sbe_v5_56.imbalance_qty_side.size
 
@@ -15748,11 +15377,11 @@ euronext_optiq_dropcopygateway_sbe_v5_56.dc_price_update_message.fields = functi
   -- Symbol Index: uint32_t
   index, symbol_index = euronext_optiq_dropcopygateway_sbe_v5_56.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Price int 64t optional: int64_t
-  index, price_int_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.price_int_64t_optional.dissect(buffer, index, packet, parent)
+  -- Price: int64_t
+  index, price = euronext_optiq_dropcopygateway_sbe_v5_56.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity uint 64t optional: uint64_t
-  index, quantity_uint_64t_optional = euronext_optiq_dropcopygateway_sbe_v5_56.quantity_uint_64t_optional.dissect(buffer, index, packet, parent)
+  -- Quantity: uint64_t
+  index, quantity = euronext_optiq_dropcopygateway_sbe_v5_56.quantity.dissect(buffer, index, packet, parent)
 
   -- Imbalance Qty: uint64_t
   index, imbalance_qty = euronext_optiq_dropcopygateway_sbe_v5_56.imbalance_qty.dissect(buffer, index, packet, parent)

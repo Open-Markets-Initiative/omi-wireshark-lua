@@ -52,6 +52,7 @@ omi_ice_icefutures_mdf_impact_v1_1_34.fields.eur_price = ProtoField.new("Eur Pri
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.event_code = ProtoField.new("Event Code", "ice.icefutures.mdf.impact.v1.1.34.eventcode", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.event_type = ProtoField.new("Event Type", "ice.icefutures.mdf.impact.v1.1.34.eventtype", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.exchange_silo = ProtoField.new("Exchange Silo", "ice.icefutures.mdf.impact.v1.1.34.exchangesilo", ftypes.STRING)
+omi_ice_icefutures_mdf_impact_v1_1_34.fields.extra_data = ProtoField.new("Extra Data", "ice.icefutures.mdf.impact.v1.1.34.extradata", ftypes.BYTES)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.extra_flags = ProtoField.new("Extra Flags", "ice.icefutures.mdf.impact.v1.1.34.extraflags", ftypes.INT8)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.flex_allowed = ProtoField.new("Flex Allowed", "ice.icefutures.mdf.impact.v1.1.34.flexallowed", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "ice.icefutures.mdf.impact.v1.1.34.futurescontractsymbol", ftypes.STRING)
@@ -234,7 +235,7 @@ omi_ice_icefutures_mdf_impact_v1_1_34.fields.volatility = ProtoField.new("Volati
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.volume = ProtoField.new("Volume", "ice.icefutures.mdf.impact.v1.1.34.volume", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.vwap = ProtoField.new("Vwap", "ice.icefutures.mdf.impact.v1.1.34.vwap", ftypes.INT64)
 
--- Ice IceFutures Mdf iMpact 1.1.34 Headers
+-- Ice IceFutures Mdf iMpact 1.1.34 Framing
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.message = ProtoField.new("Message", "ice.icefutures.mdf.impact.v1.1.34.message", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.message_header = ProtoField.new("Message Header", "ice.icefutures.mdf.impact.v1.1.34.messageheader", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.packet = ProtoField.new("Packet", "ice.icefutures.mdf.impact.v1.1.34.packet", ftypes.STRING)
@@ -1459,6 +1460,25 @@ ice_icefutures_mdf_impact_v1_1_34.exchange_silo.dissect = function(buffer, offse
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_34.fields.exchange_silo, range, value, display)
 
   return offset + length, value
+end
+
+-- Extra Data
+ice_icefutures_mdf_impact_v1_1_34.extra_data = {}
+
+-- Display: Extra Data
+ice_icefutures_mdf_impact_v1_1_34.extra_data.display = function(value)
+  return "Extra Data: "..value
+end
+
+-- Dissect runtime sized field: Extra Data
+ice_icefutures_mdf_impact_v1_1_34.extra_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = ice_icefutures_mdf_impact_v1_1_34.extra_data.display(value, packet, parent, size)
+
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_34.fields.extra_data, range, value, display)
+
+  return offset + size, value
 end
 
 -- Extra Flags
@@ -11380,6 +11400,12 @@ ice_icefutures_mdf_impact_v1_1_34.message.fields = function(buffer, offset, pack
   -- Payload: Runtime Type with 39 branches
   index = ice_icefutures_mdf_impact_v1_1_34.payload.dissect(buffer, index, packet, parent, message_type)
 
+  -- Runtime Size Of: Extra Data
+  local size_of_extra_data = offset + size_of_message - index
+
+  -- Extra Data: 0 Byte
+  index, extra_data = ice_icefutures_mdf_impact_v1_1_34.extra_data.dissect(buffer, index, packet, parent, size_of_extra_data)
+
   return index
 end
 
@@ -11483,7 +11509,7 @@ ice_icefutures_mdf_impact_v1_1_34.packet.dissect = function(buffer, packet, pare
     -- Runtime Size Of: Message
     local size_of_message = length + 3
 
-    -- Message: Struct of 2 fields
+    -- Message: Struct of 3 fields
     index, message = ice_icefutures_mdf_impact_v1_1_34.message.dissect(buffer, index, packet, parent, size_of_message, message_index)
   end
 

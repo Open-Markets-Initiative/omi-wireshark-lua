@@ -40,11 +40,15 @@ omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_packet_header = ProtoField.new(
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbin.tcp.v3.0.serversoupbintcppacket", ftypes.STRING)
 
 -- Nasdaq Common SoupBin 3.0 Session Messages
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "nasdaq.common.soupbin.tcp.v3.0.clientheartbeat", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbin.tcp.v3.0.debugpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.common.soupbin.tcp.v3.0.endofsession", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbin.tcp.v3.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.common.soupbin.tcp.v3.0.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.logout_request = ProtoField.new("Logout Request", "nasdaq.common.soupbin.tcp.v3.0.logoutrequest", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_common_soupbin_tcp_v3_0.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "nasdaq.common.soupbin.tcp.v3.0.serverheartbeat", ftypes.BYTES)
 omi_nasdaq_common_soupbin_tcp_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbin.tcp.v3.0.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq Common SoupBin Tcp 3.0 generated fields

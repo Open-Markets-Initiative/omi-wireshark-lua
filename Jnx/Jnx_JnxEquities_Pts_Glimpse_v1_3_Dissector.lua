@@ -64,11 +64,15 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet = ProtoField.new("
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.servertcppacketheader", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.3 Session Messages
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.glimpse.v1.3.clientheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.debug_packet = ProtoField.new("Debug Packet", "jnx.jnxequities.pts.glimpse.v1.3.debugpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "jnx.jnxequities.pts.glimpse.v1.3.endofsessionpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "jnx.jnxequities.pts.glimpse.v1.3.loginacceptedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "jnx.jnxequities.pts.glimpse.v1.3.loginrejectedpacket", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.login_request_packet = ProtoField.new("Login Request Packet", "jnx.jnxequities.pts.glimpse.v1.3.loginrequestpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "jnx.jnxequities.pts.glimpse.v1.3.logoutrequestpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "jnx.jnxequities.pts.glimpse.v1.3.sequenceddatapacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "jnx.jnxequities.pts.glimpse.v1.3.serverheartbeatpacket", ftypes.BYTES)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "jnx.jnxequities.pts.glimpse.v1.3.unsequenceddatapacket", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.3 Application Messages

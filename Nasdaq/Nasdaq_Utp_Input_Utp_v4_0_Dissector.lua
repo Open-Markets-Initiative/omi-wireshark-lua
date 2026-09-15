@@ -180,10 +180,14 @@ omi_nasdaq_utp_input_utp_v4_0.fields.trading_action_message = ProtoField.new("Tr
 omi_nasdaq_utp_input_utp_v4_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.utp.input.utp.v4.0.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq Utp Input 4.0 Session Messages
+omi_nasdaq_utp_input_utp_v4_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.utp.input.utp.v4.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_utp_input_utp_v4_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.utp.input.utp.v4.0.debugpacket", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.utp.input.utp.v4.0.endofsessionpacket", ftypes.BYTES)
 omi_nasdaq_utp_input_utp_v4_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.utp.input.utp.v4.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.utp.input.utp.v4.0.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.utp.input.utp.v4.0.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.utp.input.utp.v4.0.logoutrequestpacket", ftypes.BYTES)
+omi_nasdaq_utp_input_utp_v4_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.utp.input.utp.v4.0.serverheartbeatpacket", ftypes.BYTES)
 
 -- Nasdaq Utp Input Utp 4.0 generated fields
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_adf_form_attachment_index = ProtoField.new("Odd Lot Ask Adf Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotaskadfformattachmentindex", ftypes.UINT16)

@@ -94,6 +94,9 @@ omi_nyse_nyseequities_trades_pillar_v2_6.fields.message_header = ProtoField.new(
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.packet = ProtoField.new("Packet", "nyse.nyseequities.trades.pillar.v2.6.packet", ftypes.STRING)
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.packet_header = ProtoField.new("Packet Header", "nyse.nyseequities.trades.pillar.v2.6.packetheader", ftypes.STRING)
 
+-- Nyse NyseEquities Trades 2.6 Session Messages
+omi_nyse_nyseequities_trades_pillar_v2_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.trades.pillar.v2.6.heartbeat", ftypes.BYTES)
+
 -- Nyse NyseEquities Trades 2.6 Application Messages
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.nyseequities.trades.pillar.v2.6.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_nyseequities_trades_pillar_v2_6.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.nyseequities.trades.pillar.v2.6.messageunavailablemessage", ftypes.STRING)

@@ -151,6 +151,10 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.trade_correction_message = ProtoField.n
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.trade_report_message_longform_message = ProtoField.new("Trade Report Message Longform Message", "nasdaq.utdf.output.utp.v3.0.c.tradereportmessagelongformmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.trade_report_message_shortform_message = ProtoField.new("Trade Report Message Shortform Message", "nasdaq.utdf.output.utp.v3.0.c.tradereportmessageshortformmessage", ftypes.STRING)
 
+-- Nasdaq Utdf Output 3.0.c Session Messages
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.utdf.output.utp.v3.0.c.endofsession", ftypes.BYTES)
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.utdf.output.utp.v3.0.c.heartbeat", ftypes.BYTES)
+
 -- Nasdaq Utdf Output Utp 3.0.c generated fields
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_closing_price_and_volume_summary_index = ProtoField.new("Market Center Closing Price And Volume Summary Index", "nasdaq.utdf.output.utp.v3.0.c.marketcenterclosingpriceandvolumesummaryindex", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_volume_group_index = ProtoField.new("Market Center Volume Group Index", "nasdaq.utdf.output.utp.v3.0.c.marketcentervolumegroupindex", ftypes.UINT16)

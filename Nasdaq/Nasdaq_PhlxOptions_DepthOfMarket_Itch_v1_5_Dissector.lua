@@ -114,6 +114,10 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.single_side_update_message
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.systemeventmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.tradingactionmessage", ftypes.STRING)
 
+-- Nasdaq PhlxOptions DepthOfMarket 1.5 Session Messages
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.endofsession", ftypes.BYTES)
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.heartbeat", ftypes.BYTES)
+
 -- Nasdaq PhlxOptions DepthOfMarket Itch 1.5 generated fields
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.cancelled_reference_number_delta_index = ProtoField.new("Cancelled Reference Number Delta Index", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.cancelledreferencenumberdeltaindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.messageindex", ftypes.UINT16)

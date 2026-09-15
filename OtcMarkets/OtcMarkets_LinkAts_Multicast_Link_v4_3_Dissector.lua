@@ -151,6 +151,9 @@ omi_otcmarkets_linkats_multicast_link_v4_3.fields.security_message = ProtoField.
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.start_of_spin_message = ProtoField.new("Start Of Spin Message", "otcmarkets.linkats.multicast.link.v4.3.startofspinmessage", ftypes.STRING)
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.trade_message = ProtoField.new("Trade Message", "otcmarkets.linkats.multicast.link.v4.3.trademessage", ftypes.STRING)
 
+-- OtcMarkets LinkAts Multicast 4.3 Session Messages
+omi_otcmarkets_linkats_multicast_link_v4_3.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.multicast.link.v4.3.heartbeatpacket", ftypes.BYTES)
+
 -- OtcMarkets LinkAts Multicast Link 4.3 generated fields
 omi_otcmarkets_linkats_multicast_link_v4_3.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.multicast.link.v4.3.messageindex", ftypes.UINT16)
 

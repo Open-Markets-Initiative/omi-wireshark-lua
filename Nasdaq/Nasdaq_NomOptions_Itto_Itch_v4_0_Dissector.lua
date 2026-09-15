@@ -73,7 +73,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reference_number = ProtoField.new("R
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nomoptions.itto.itch.v4.0.rejectreasoncode", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.nomoptions.itto.itch.v4.0.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nomoptions.itto.itch.v4.0.requestedsession", ftypes.STRING)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.nomoptions.itto.itch.v4.0.reserved3", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.nomoptions.itto.itch.v4.0.reserved3", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.nomoptions.itto.itch.v4.0.securitysymbol", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nomoptions.itto.itch.v4.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nomoptions.itto.itch.v4.0.serverpackettype", ftypes.STRING)
@@ -128,11 +128,17 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.system_event_message = ProtoField.ne
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nomoptions.itto.itch.v4.0.tradingactionmessage", ftypes.STRING)
 
 -- Nasdaq NomOptions Itto 4.0 Session Messages
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "nasdaq.nomoptions.itto.itch.v4.0.clientheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nomoptions.itto.itch.v4.0.debugpacket", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nomoptions.itto.itch.v4.0.endofsession", ftypes.BYTES)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.end_of_session_packet = ProtoField.new("End Of Session Packet", "nasdaq.nomoptions.itto.itch.v4.0.endofsessionpacket", ftypes.BYTES)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nomoptions.itto.itch.v4.0.heartbeat", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginacceptedpacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginrejectedpacket", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.nomoptions.itto.itch.v4.0.loginrequestpacket", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.nomoptions.itto.itch.v4.0.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nomoptions.itto.itch.v4.0.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.nomoptions.itto.itch.v4.0.serverheartbeatpacket", ftypes.BYTES)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nomoptions.itto.itch.v4.0.unsequenceddatapacket", ftypes.STRING)
 
 -- Nasdaq NomOptions Itto Itch 4.0 generated fields
@@ -1863,7 +1869,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.reserved_3.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.reserved_3.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nomoptions_itto_itch_v4_0.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.reserved_3, range, value, display)

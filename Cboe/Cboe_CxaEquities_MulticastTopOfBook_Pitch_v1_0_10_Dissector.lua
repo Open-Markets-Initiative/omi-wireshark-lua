@@ -34,7 +34,6 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.pid = ProtoField.ne
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.price = ProtoField.new("Price", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.price", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.quantity = ProtoField.new("Quantity", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.quantity", ftypes.UINT32)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.reserved1", ftypes.UINT8)
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.reserved_27 = ProtoField.new("Reserved 27", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.reserved27", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.reserved4", ftypes.UINT32)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.secondreserved1", ftypes.UINT8)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.sell_shares = ProtoField.new("Sell Shares", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.sellshares", ftypes.UINT32)
@@ -52,6 +51,7 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.trade_transaction_t
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.trade_type = ProtoField.new("Trade Type", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.tradetype", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.tradingstatus", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.unit", ftypes.UINT8)
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unused_6 = ProtoField.new("Unused 6", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value = ProtoField.new("Value", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.value", ftypes.DOUBLE)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuecategory", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuetimestamp", ftypes.UINT64)
@@ -1421,8 +1421,8 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.flags.bits = function(range, v
   -- Trade From Converted Order: 1 Bit
   parent:add(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.trade_from_converted_order, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unused_6, range, value)
 end
 
 -- Dissect: Flags

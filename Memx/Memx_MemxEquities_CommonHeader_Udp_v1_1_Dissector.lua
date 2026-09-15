@@ -29,6 +29,10 @@ omi_memx_memxequities_commonheader_udp_v1_1.fields.session_id = ProtoField.new("
 omi_memx_memxequities_commonheader_udp_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.memxequities.commonheader.udp.v1.1.commonheader", ftypes.STRING)
 omi_memx_memxequities_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "memx.memxequities.commonheader.udp.v1.1.packet", ftypes.STRING)
 
+-- Memx MemxEquities CommonHeader 1.1 Session Messages
+omi_memx_memxequities_commonheader_udp_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxequities.commonheader.udp.v1.1.heartbeat", ftypes.BYTES)
+omi_memx_memxequities_commonheader_udp_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxequities.commonheader.udp.v1.1.sessionshutdown", ftypes.BYTES)
+
 -- Memx MemxEquities CommonHeader Udp 1.1 generated fields
 omi_memx_memxequities_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "memx.memxequities.commonheader.udp.v1.1.messageindex", ftypes.UINT16)
 

@@ -2834,25 +2834,10 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Verify Soup Lf Field
-cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.soup_lf.verify = function(buffer)
-  -- Attempt to read field
-  local value = buffer(624, 1):int()
-
-  if value == 10 then
-    return true
-  end
-
-  return false
-end
-
 -- Dissector Heuristic for Cboe EdgaEquities TcpDepthOfBook AsciiPitch 1.15.13 (Tcp)
 local function omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.packet.requiredsize(buffer) then return false end
-
-  -- Verify Soup Lf
-  if not cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13.soup_lf.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_15_13

@@ -57,12 +57,12 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.private_rfq = ProtoField.new("Priv
 omi_lseg_millennium_level2_mitch_v11_9.fields.pt_mod_flags = ProtoField.new("Pt Mod Flags", "lseg.millennium.level2.mitch.v11.9.ptmodflags", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.quantity = ProtoField.new("Quantity", "lseg.millennium.level2.mitch.v11.9.quantity", ftypes.UINT32)
 omi_lseg_millennium_level2_mitch_v11_9.fields.reason = ProtoField.new("Reason", "lseg.millennium.level2.mitch.v11.9.reason", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.millennium.level2.mitch.v11.9.reserved1", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.millennium.level2.mitch.v11.9.reserved10", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.millennium.level2.mitch.v11.9.reserved4", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lseg.millennium.level2.mitch.v11.9.reserveda", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lseg.millennium.level2.mitch.v11.9.reservedb", ftypes.STRING)
-omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lseg.millennium.level2.mitch.v11.9.reservedbyte", ftypes.STRING)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.millennium.level2.mitch.v11.9.reserved1", ftypes.BYTES)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.millennium.level2.mitch.v11.9.reserved10", ftypes.BYTES)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.millennium.level2.mitch.v11.9.reserved4", ftypes.BYTES)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_a = ProtoField.new("Reserved A", "lseg.millennium.level2.mitch.v11.9.reserveda", ftypes.BYTES)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_b = ProtoField.new("Reserved B", "lseg.millennium.level2.mitch.v11.9.reservedb", ftypes.BYTES)
+omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_byte = ProtoField.new("Reserved Byte", "lseg.millennium.level2.mitch.v11.9.reservedbyte", ftypes.BYTES)
 omi_lseg_millennium_level2_mitch_v11_9.fields.second_unused_1 = ProtoField.new("Second Unused 1", "lseg.millennium.level2.mitch.v11.9.secondunused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_lseg_millennium_level2_mitch_v11_9.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.level2.mitch.v11.9.seconds", ftypes.UINT32)
 omi_lseg_millennium_level2_mitch_v11_9.fields.sedol = ProtoField.new("Sedol", "lseg.millennium.level2.mitch.v11.9.sedol", ftypes.STRING)
@@ -991,7 +991,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2_mitch_v11_9.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_1, range, value, display)
@@ -1014,7 +1014,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_10.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_10.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2_mitch_v11_9.reserved_10.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_10, range, value, display)
@@ -1037,7 +1037,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_4.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2_mitch_v11_9.reserved_4.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_4, range, value, display)
@@ -1060,7 +1060,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_a.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_a.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2_mitch_v11_9.reserved_a.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_a, range, value, display)
@@ -1083,7 +1083,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_b.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_b.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2_mitch_v11_9.reserved_b.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_b, range, value, display)
@@ -1106,7 +1106,7 @@ end
 lseg_millennium_level2_mitch_v11_9.reserved_byte.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2_mitch_v11_9.reserved_byte.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2_mitch_v11_9.reserved_byte.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)

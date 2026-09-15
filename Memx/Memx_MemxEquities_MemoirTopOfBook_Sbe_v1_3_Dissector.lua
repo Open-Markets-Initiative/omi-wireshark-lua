@@ -67,6 +67,10 @@ omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.security_trading_status_me
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.memxequities.memoirtopofbook.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
+-- Memx MemxEquities MemoirTopOfBook 1.3 Session Messages
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxequities.memoirtopofbook.sbe.v1.3.heartbeat", ftypes.BYTES)
+omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxequities.memoirtopofbook.sbe.v1.3.sessionshutdown", ftypes.BYTES)
+
 -- Memx MemxEquities MemoirTopOfBook Sbe 1.3 generated fields
 omi_memx_memxequities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "memx.memxequities.memoirtopofbook.sbe.v1.3.messageindex", ftypes.UINT16)
 

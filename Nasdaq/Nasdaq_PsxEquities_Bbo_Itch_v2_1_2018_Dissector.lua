@@ -60,6 +60,10 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_header = ProtoField.new
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.bbo.itch.v2.1.2018.packet", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.bbo.itch.v2.1.2018.packetheader", ftypes.STRING)
 
+-- Nasdaq PsxEquities Bbo 2.1.2018 Session Messages
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.psxequities.bbo.itch.v2.1.2018.endofsession", ftypes.BYTES)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.psxequities.bbo.itch.v2.1.2018.heartbeat", ftypes.BYTES)
+
 -- Nasdaq PsxEquities Bbo 2.1.2018 Application Messages
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.mwcbdeclinelevelmessage", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.mwcb_status_message = ProtoField.new("Mwcb Status Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.mwcbstatusmessage", ftypes.STRING)

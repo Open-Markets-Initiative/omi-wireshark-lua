@@ -100,6 +100,10 @@ omi_asx_asxsecurities_trade_itch_v3_1.fields.system_event_message = ProtoField.n
 omi_asx_asxsecurities_trade_itch_v3_1.fields.tick_size_table_entry_message = ProtoField.new("Tick Size Table Entry Message", "asx.asxsecurities.trade.itch.v3.1.ticksizetableentrymessage", ftypes.STRING)
 omi_asx_asxsecurities_trade_itch_v3_1.fields.trade_message = ProtoField.new("Trade Message", "asx.asxsecurities.trade.itch.v3.1.trademessage", ftypes.STRING)
 
+-- Asx AsxSecurities Trade 3.1 Session Messages
+omi_asx_asxsecurities_trade_itch_v3_1.fields.end_of_session = ProtoField.new("End Of Session", "asx.asxsecurities.trade.itch.v3.1.endofsession", ftypes.BYTES)
+omi_asx_asxsecurities_trade_itch_v3_1.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxsecurities.trade.itch.v3.1.heartbeat", ftypes.BYTES)
+
 -- Asx AsxSecurities Trade Itch 3.1 generated fields
 omi_asx_asxsecurities_trade_itch_v3_1.fields.message_index = ProtoField.new("Message Index", "asx.asxsecurities.trade.itch.v3.1.messageindex", ftypes.UINT16)
 omi_asx_asxsecurities_trade_itch_v3_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "asx.asxsecurities.trade.itch.v3.1.messagesequencenumber", ftypes.UINT64)

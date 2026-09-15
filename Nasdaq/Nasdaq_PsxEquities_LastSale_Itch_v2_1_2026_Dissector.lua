@@ -76,6 +76,10 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_header = ProtoFiel
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet = ProtoField.new("Packet", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packet", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psxequities.lastsale.itch.v2.1.2026.packetheader", ftypes.STRING)
 
+-- Nasdaq PsxEquities LastSale 2.1.2026 Session Messages
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.psxequities.lastsale.itch.v2.1.2026.endofsession", ftypes.BYTES)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.psxequities.lastsale.itch.v2.1.2026.heartbeat", ftypes.BYTES)
+
 -- Nasdaq PsxEquities LastSale 2.1.2026 Application Messages
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.mwcb_breach_message = ProtoField.new("Mwcb Breach Message", "nasdaq.psxequities.lastsale.itch.v2.1.2026.mwcbbreachmessage", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psxequities.lastsale.itch.v2.1.2026.mwcbdeclinelevelmessage", ftypes.STRING)

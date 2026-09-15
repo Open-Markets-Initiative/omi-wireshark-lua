@@ -241,6 +241,12 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.exchange_packet = ProtoF
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.firm_message_header = ProtoField.new("Message Header", "cboe.c1options.binaryorderentry.boe3.v1.0.10.firmmessageheader", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.firm_packet = ProtoField.new("Packet", "cboe.c1options.binaryorderentry.boe3.v1.0.10.firmpacket", ftypes.STRING)
 
+-- Cboe C1Options BinaryOrderEntry 1.0.10 Session Messages
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "cboe.c1options.binaryorderentry.boe3.v1.0.10.clientheartbeat", ftypes.BYTES)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.logout_request = ProtoField.new("Logout Request", "cboe.c1options.binaryorderentry.boe3.v1.0.10.logoutrequest", ftypes.BYTES)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.replay_complete = ProtoField.new("Replay Complete", "cboe.c1options.binaryorderentry.boe3.v1.0.10.replaycomplete", ftypes.BYTES)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "cboe.c1options.binaryorderentry.boe3.v1.0.10.serverheartbeat", ftypes.BYTES)
+
 -- Cboe C1Options BinaryOrderEntry Boe3 1.0.10 generated fields
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.acknowledgement_allocation_index = ProtoField.new("Acknowledgement Allocation Index", "cboe.c1options.binaryorderentry.boe3.v1.0.10.acknowledgementallocationindex", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.allocation_index = ProtoField.new("Allocation Index", "cboe.c1options.binaryorderentry.boe3.v1.0.10.allocationindex", ftypes.UINT16)

@@ -86,6 +86,10 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.simple_order_message = ProtoField
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.strategy_open_closed_message = ProtoField.new("Strategy Open Closed Message", "nasdaq.phlxoptions.orders.itch.v1.9.strategyopenclosedmessage", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.orders.itch.v1.9.systemeventmessage", ftypes.STRING)
 
+-- Nasdaq PhlxOptions Orders 1.9 Session Messages
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.phlxoptions.orders.itch.v1.9.endofsession", ftypes.BYTES)
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.phlxoptions.orders.itch.v1.9.heartbeat", ftypes.BYTES)
+
 -- Nasdaq PhlxOptions Orders Itch 1.9 generated fields
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg_index = ProtoField.new("Complex Order Leg Index", "nasdaq.phlxoptions.orders.itch.v1.9.complexorderlegindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg_index = ProtoField.new("Complex Order Strategy Leg Index", "nasdaq.phlxoptions.orders.itch.v1.9.complexorderstrategylegindex", ftypes.UINT16)
