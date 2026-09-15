@@ -62,6 +62,8 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.side = ProtoField.new("Side", "na
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.source = ProtoField.new("Source", "nasdaq.phlxoptions.orders.itch.v1.9.source", ftypes.UINT8)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.phlxoptions.orders.itch.v1.9.strategyid", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.phlxoptions.orders.itch.v1.9.timeinforce", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.orders.itch.v1.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.timestamp_utc = ProtoField.new("Timestamp", "nasdaq.phlxoptions.orders.itch.v1.9.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.orders.itch.v1.9.underlyingsymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.version = ProtoField.new("Version", "nasdaq.phlxoptions.orders.itch.v1.9.version", ftypes.UINT8)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.orders.itch.v1.9.volume", ftypes.UINT32)
@@ -96,6 +98,33 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg_index 
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.orders.itch.v1.9.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nasdaq PhlxOptions Orders Itch 1.9 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_phlxoptions_orders_itch_v1_9.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_phlxoptions_orders_itch_v1_9.utc_offset_hours = 5
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nasdaq_phlxoptions_orders_itch_v1_9.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -113,6 +142,10 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_structs = Pref.bool("Show Str
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
 
@@ -128,6 +161,15 @@ function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_indexes then
     show.indexes = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_indexes
+  end
+  if nasdaq_phlxoptions_orders_itch_v1_9.timestamp_format ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.timestamp_format then
+    nasdaq_phlxoptions_orders_itch_v1_9.timestamp_format = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.timestamp_format
+  end
+  if nasdaq_phlxoptions_orders_itch_v1_9.utc_offset_hours ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.utc_offset_hours then
+    nasdaq_phlxoptions_orders_itch_v1_9.utc_offset_hours = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.utc_offset_hours
+  end
+  if nasdaq_phlxoptions_orders_itch_v1_9.absolute_time_base ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.absolute_time_base then
+    nasdaq_phlxoptions_orders_itch_v1_9.absolute_time_base = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.absolute_time_base
   end
 end
 
@@ -1460,13 +1502,73 @@ end
 -- Dissect Nasdaq PhlxOptions Orders Itch 1.9
 -----------------------------------------------------------------------
 
+-- Timestamp
+nasdaq_phlxoptions_orders_itch_v1_9.timestamp = {}
+
+-- Size: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size =
+  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
+
+-- Display: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_9.timestamp.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_9.timestamp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, timestamp
+end
+
+-- Dissect: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.timestamp
+    if nasdaq_phlxoptions_orders_itch_v1_9.absolute_time_base == 1 then field = omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.timestamp_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_9.timestamp.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Complex Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message = {}
 
 -- Size: Complex Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.auction_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.auction_type.size + 
@@ -1484,11 +1586,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
@@ -1579,8 +1678,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message = {}
 
 -- Size: Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
@@ -1603,11 +1701,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
@@ -1747,9 +1842,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message = {}
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
+  index = index + nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size
 
   index = index + nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size
 
@@ -1795,11 +1888,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
@@ -1874,8 +1964,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message = {}
 
 -- Size: Simple Order Message
 nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
@@ -1903,11 +1992,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
@@ -1986,8 +2072,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message = {}
 
 -- Size: Strategy Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.open_state.size
 
@@ -2000,11 +2085,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
@@ -2038,8 +2120,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message = {}
 
 -- Size: Security Open Closed Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
@@ -2056,11 +2137,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
@@ -2106,8 +2184,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message = {}
 
 -- Size: Complex Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.size
 
@@ -2120,11 +2197,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
@@ -2158,8 +2232,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message = {}
 
 -- Size: Security Trading Action Message
 nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
@@ -2176,11 +2249,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
@@ -2298,9 +2368,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message = {}
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message.size = function(buffer, offset)
   local index = 0
 
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.seconds.size
-
-  index = index + nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size
+  index = index + nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size
 
   index = index + nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.size
 
@@ -2328,11 +2396,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
@@ -2380,8 +2445,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message = {}
 
 -- Size: Options Directory Message
 nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.option_id.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.expiration.size + 
@@ -2401,11 +2465,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
@@ -2460,8 +2521,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.system_event_message = {}
 
 -- Size: System Event Message
 nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.size =
-  nasdaq_phlxoptions_orders_itch_v1_9.seconds.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_9.timestamp.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.event_code.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.version.size
 
@@ -2474,11 +2534,8 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
-
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 8 values
   index, event_code = nasdaq_phlxoptions_orders_itch_v1_9.event_code.dissect(buffer, index, packet, parent)
