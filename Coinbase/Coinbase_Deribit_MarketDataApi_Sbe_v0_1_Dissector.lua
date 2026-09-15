@@ -66,6 +66,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.month = ProtoField.new("Month
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.name = ProtoField.new("Name", "coinbase.deribit.marketdataapi.sbe.v0.1.name", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "coinbase.deribit.marketdataapi.sbe.v0.1.numberoflegs", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.order_id = ProtoField.new("Order Id", "coinbase.deribit.marketdataapi.sbe.v0.1.orderid", ftypes.INT64)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_reserved_bits = ProtoField.new("Packet Reserved Bits", "coinbase.deribit.marketdataapi.sbe.v0.1.packetreservedbits", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v0.1.packettype", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.price = ProtoField.new("Price", "coinbase.deribit.marketdataapi.sbe.v0.1.price", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quantity_exponent = ProtoField.new("Quantity Exponent", "coinbase.deribit.marketdataapi.sbe.v0.1.quantityexponent", ftypes.INT8)
@@ -74,7 +75,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quote_currency = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reason = ProtoField.new("Reason", "coinbase.deribit.marketdataapi.sbe.v0.1.reason", ftypes.INT8)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_29 = ProtoField.new("Reserved 29", "coinbase.deribit.marketdataapi.sbe.v0.1.reserved29", ftypes.UINT32, nil, base.DEC, 0xFFFFFFF8)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_30 = ProtoField.new("Reserved 30", "coinbase.deribit.marketdataapi.sbe.v0.1.reserved30", ftypes.UINT32, nil, base.DEC, 0xFFFFFFFC)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.deribit.marketdataapi.sbe.v0.1.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFF8)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.deribit.marketdataapi.sbe.v0.1.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFFC)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.retransmit = ProtoField.new("Retransmit", "coinbase.deribit.marketdataapi.sbe.v0.1.retransmit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.deribit.marketdataapi.sbe.v0.1.retrydelaynanos", ftypes.INT64)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.schema_version = ProtoField.new("Schema Version", "coinbase.deribit.marketdataapi.sbe.v0.1.schemaversion", ftypes.UINT16)
@@ -3582,8 +3583,8 @@ coinbase_deribit_marketdataapi_sbe_v0_1.packet_type.bits = function(range, value
   -- Retransmit: choice
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.retransmit, range, value)
 
-  -- Reserved Bits: 13 Bit
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_bits, range, value)
+  -- Packet Reserved Bits: 13 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.packet_reserved_bits, range, value)
 end
 
 -- Dissect: Packet Type
