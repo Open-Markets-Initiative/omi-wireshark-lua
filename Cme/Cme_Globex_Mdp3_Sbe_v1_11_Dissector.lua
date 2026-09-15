@@ -164,9 +164,9 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.message_sequence_number = ProtoField.new("M
 omi_cme_globex_mdp3_sbe_v1_11.fields.message_size = ProtoField.new("Message Size", "cme.globex.mdp3.sbe.v1.11.messagesize", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_11.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.globex.mdp3.sbe.v1.11.mincabprice", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_11.fields.min_lot_size = ProtoField.new("Min Lot Size", "cme.globex.mdp3.sbe.v1.11.minlotsize", ftypes.DOUBLE)
-omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.globex.mdp3.sbe.v1.11.minpriceincrement", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.globex.mdp3.sbe.v1.11.minpriceincrementamount", ftypes.DOUBLE)
-omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.globex.mdp3.sbe.v1.11.minpriceincrementoptional", ftypes.DOUBLE)
+omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment_ex = ProtoField.new("Min Price Increment Ex", "cme.globex.mdp3.sbe.v1.11.minpriceincrementex", ftypes.DOUBLE)
+omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment_optional_ex = ProtoField.new("Min Price Increment Optional Ex", "cme.globex.mdp3.sbe.v1.11.minpriceincrementoptionalex", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_11.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.globex.mdp3.sbe.v1.11.mintradevol", ftypes.UINT32)
 omi_cme_globex_mdp3_sbe_v1_11.fields.money_or_par = ProtoField.new("Money Or Par", "cme.globex.mdp3.sbe.v1.11.moneyorpar", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_11.fields.month = ProtoField.new("Month", "cme.globex.mdp3.sbe.v1.11.month", ftypes.UINT8)
@@ -3240,35 +3240,6 @@ cme_globex_mdp3_sbe_v1_11.min_lot_size.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Min Price Increment
-cme_globex_mdp3_sbe_v1_11.min_price_increment = {}
-
--- Size: Min Price Increment
-cme_globex_mdp3_sbe_v1_11.min_price_increment.size = 8
-
--- Display: Min Price Increment
-cme_globex_mdp3_sbe_v1_11.min_price_increment.display = function(value)
-  return "Min Price Increment: "..value
-end
-
--- Translate: Min Price Increment
-cme_globex_mdp3_sbe_v1_11.min_price_increment.translate = function(raw)
-  return raw:tonumber()/1000000000
-end
-
--- Dissect: Min Price Increment
-cme_globex_mdp3_sbe_v1_11.min_price_increment.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_mdp3_sbe_v1_11.min_price_increment.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cme_globex_mdp3_sbe_v1_11.min_price_increment.translate(raw)
-  local display = cme_globex_mdp3_sbe_v1_11.min_price_increment.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment, range, value, display)
-
-  return offset + length, value
-end
-
 -- Min Price Increment Amount
 cme_globex_mdp3_sbe_v1_11.min_price_increment_amount = {}
 
@@ -3308,24 +3279,53 @@ cme_globex_mdp3_sbe_v1_11.min_price_increment_amount.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Min Price Increment Optional
-cme_globex_mdp3_sbe_v1_11.min_price_increment_optional = {}
+-- Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_ex = {}
 
--- Size: Min Price Increment Optional
-cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.size = 8
+-- Size: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.size = 8
 
--- Display: Min Price Increment Optional
-cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.display = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Min Price Increment Optional: No Value"
-  end
-
-  return "Min Price Increment Optional: "..value
+-- Display: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.display = function(value)
+  return "Min Price Increment Ex: "..value
 end
 
--- Translate: Min Price Increment Optional
-cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.translate = function(raw)
+-- Translate: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.translate(raw)
+  local display = cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment_ex, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex = {}
+
+-- Size: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.size = 8
+
+-- Display: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Min Price Increment Optional Ex: No Value"
+  end
+
+  return "Min Price Increment Optional Ex: "..value
+end
+
+-- Translate: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -3334,15 +3334,15 @@ cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.translate = function(raw)
   return raw:tonumber()/1000000000
 end
 
--- Dissect: Min Price Increment Optional
-cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.size
+-- Dissect: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.translate(raw)
-  local display = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.display(raw, value, buffer, offset, packet, parent)
+  local value = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.translate(raw)
+  local display = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment_optional, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.min_price_increment_optional_ex, range, value, display)
 
   return offset + length, value
 end
@@ -9058,7 +9058,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_repo.size = function(buffer, 
 
   index = index + cme_globex_mdp3_sbe_v1_11.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment.size
+  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_11.display_factor.size
 
@@ -9188,8 +9188,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_repo.fields = function(buffer
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_11.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment: PRICE9
-  index, min_price_increment = cme_globex_mdp3_sbe_v1_11.min_price_increment.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Ex: PRICE9
+  index, min_price_increment_ex = cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.dissect(buffer, index, packet, parent)
 
   -- Display Factor: Decimal9
   index, display_factor = cme_globex_mdp3_sbe_v1_11.display_factor.dissect(buffer, index, packet, parent)
@@ -9343,7 +9343,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_fixed_income.size = function(
 
   index = index + cme_globex_mdp3_sbe_v1_11.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.size
+  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_11.display_factor.size
 
@@ -9487,8 +9487,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_fixed_income.fields = functio
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_11.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: PRICENULL9
-  index, min_price_increment_optional = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Optional Ex: PRICENULL9
+  index, min_price_increment_optional_ex = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.dissect(buffer, index, packet, parent)
 
   -- Display Factor: Decimal9
   index, display_factor = cme_globex_mdp3_sbe_v1_11.display_factor.dissect(buffer, index, packet, parent)
@@ -9838,7 +9838,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_spread.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_11.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.size
+  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_11.display_factor.size
 
@@ -9968,8 +9968,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_spread.fields = function(buff
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_11.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: PRICENULL9
-  index, min_price_increment_optional = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Optional Ex: PRICENULL9
+  index, min_price_increment_optional_ex = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.dissect(buffer, index, packet, parent)
 
   -- Display Factor: Decimal9
   index, display_factor = cme_globex_mdp3_sbe_v1_11.display_factor.dissect(buffer, index, packet, parent)
@@ -10338,7 +10338,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_option.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_11.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.size
+  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_amount.size
 
@@ -10473,8 +10473,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_option.fields = function(buff
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_11.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: PRICENULL9
-  index, min_price_increment_optional = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Optional Ex: PRICENULL9
+  index, min_price_increment_optional_ex = cme_globex_mdp3_sbe_v1_11.min_price_increment_optional_ex.dissect(buffer, index, packet, parent)
 
   -- Min Price Increment Amount: PRICENULL9
   index, min_price_increment_amount = cme_globex_mdp3_sbe_v1_11.min_price_increment_amount.dissect(buffer, index, packet, parent)
@@ -10615,7 +10615,7 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_future.size = function(buffer
 
   index = index + cme_globex_mdp3_sbe_v1_11.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment.size
+  index = index + cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_11.display_factor.size
 
@@ -10746,8 +10746,8 @@ cme_globex_mdp3_sbe_v1_11.md_instrument_definition_future.fields = function(buff
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_11.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment: PRICE9
-  index, min_price_increment = cme_globex_mdp3_sbe_v1_11.min_price_increment.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Ex: PRICE9
+  index, min_price_increment_ex = cme_globex_mdp3_sbe_v1_11.min_price_increment_ex.dissect(buffer, index, packet, parent)
 
   -- Display Factor: Decimal9
   index, display_factor = cme_globex_mdp3_sbe_v1_11.display_factor.dissect(buffer, index, packet, parent)

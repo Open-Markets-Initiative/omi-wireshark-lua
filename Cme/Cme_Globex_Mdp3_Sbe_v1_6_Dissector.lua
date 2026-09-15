@@ -95,8 +95,8 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.leg_price = ProtoField.new("Leg Price", "cme
 omi_cme_globex_mdp3_sbe_v1_6.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.globex.mdp3.sbe.v1.6.legratioqty", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_6.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.globex.mdp3.sbe.v1.6.legsecurityid", ftypes.INT32)
 omi_cme_globex_mdp3_sbe_v1_6.fields.leg_side = ProtoField.new("Leg Side", "cme.globex.mdp3.sbe.v1.6.legside", ftypes.UINT8)
-omi_cme_globex_mdp3_sbe_v1_6.fields.legs_group = ProtoField.new("Legs Group", "cme.globex.mdp3.sbe.v1.6.legsgroup", ftypes.STRING)
-omi_cme_globex_mdp3_sbe_v1_6.fields.legs_groups = ProtoField.new("Legs Groups", "cme.globex.mdp3.sbe.v1.6.legsgroups", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.legacy_legs_group = ProtoField.new("Legacy Legs Group", "cme.globex.mdp3.sbe.v1.6.legacylegsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_6.fields.legacy_legs_groups = ProtoField.new("Legacy Legs Groups", "cme.globex.mdp3.sbe.v1.6.legacylegsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.lot_type = ProtoField.new("Lot Type", "cme.globex.mdp3.sbe.v1.6.lottype", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_6.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.6.lottyperulesgroup", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.6.lottyperulesgroups", ftypes.STRING)
@@ -294,7 +294,7 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.incremental_refresh_trade_summary_group_inde
 omi_cme_globex_mdp3_sbe_v1_6.fields.incremental_refresh_trade_summary_order_id_group_index = ProtoField.new("Incremental Refresh Trade Summary Order Id Group Index", "cme.globex.mdp3.sbe.v1.6.incrementalrefreshtradesummaryorderidgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.incremental_refresh_volume_group_index = ProtoField.new("Incremental Refresh Volume Group Index", "cme.globex.mdp3.sbe.v1.6.incrementalrefreshvolumegroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.inst_attrib_group_index = ProtoField.new("Inst Attrib Group Index", "cme.globex.mdp3.sbe.v1.6.instattribgroupindex", ftypes.UINT16)
-omi_cme_globex_mdp3_sbe_v1_6.fields.legs_group_index = ProtoField.new("Legs Group Index", "cme.globex.mdp3.sbe.v1.6.legsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_6.fields.legacy_legs_group_index = ProtoField.new("Legacy Legs Group Index", "cme.globex.mdp3.sbe.v1.6.legacylegsgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.lot_type_rules_group_index = ProtoField.new("Lot Type Rules Group Index", "cme.globex.mdp3.sbe.v1.6.lottyperulesgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_related_symbol_group_index = ProtoField.new("Market Data Request Related Symbol Group Index", "cme.globex.mdp3.sbe.v1.6.marketdatarequestrelatedsymbolgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.market_data_request_security_group_index = ProtoField.new("Market Data Request Security Group Index", "cme.globex.mdp3.sbe.v1.6.marketdatarequestsecuritygroupindex", ftypes.UINT16)
@@ -8327,29 +8327,29 @@ cme_globex_mdp3_sbe_v1_6.security_status.dissect = function(buffer, offset, pack
   end
 end
 
--- Legs Group
-cme_globex_mdp3_sbe_v1_6.legs_group = {}
+-- Legacy Legs Group
+cme_globex_mdp3_sbe_v1_6.legacy_legs_group = {}
 
--- Size: Legs Group
-cme_globex_mdp3_sbe_v1_6.legs_group.size =
+-- Size: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_6.legacy_legs_group.size =
   cme_globex_mdp3_sbe_v1_6.leg_security_id.size + 
   cme_globex_mdp3_sbe_v1_6.leg_side.size + 
   cme_globex_mdp3_sbe_v1_6.leg_ratio_qty.size + 
   cme_globex_mdp3_sbe_v1_6.leg_price.size + 
   cme_globex_mdp3_sbe_v1_6.leg_option_delta.size
 
--- Display: Legs Group
-cme_globex_mdp3_sbe_v1_6.legs_group.display = function(packet, parent, length)
+-- Display: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_6.legacy_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Legs Group
-cme_globex_mdp3_sbe_v1_6.legs_group.fields = function(buffer, offset, packet, parent, legs_group_index)
+-- Dissect Fields: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_6.legacy_legs_group.fields = function(buffer, offset, packet, parent, legacy_legs_group_index)
   local index = offset
 
-  -- Implicit Legs Group Index
-  if legs_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.legs_group_index, legs_group_index)
+  -- Implicit Legacy Legs Group Index
+  if legacy_legs_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.legacy_legs_group_index, legacy_legs_group_index)
     iteration:set_generated()
   end
 
@@ -8371,47 +8371,47 @@ cme_globex_mdp3_sbe_v1_6.legs_group.fields = function(buffer, offset, packet, pa
   return index
 end
 
--- Dissect: Legs Group
-cme_globex_mdp3_sbe_v1_6.legs_group.dissect = function(buffer, offset, packet, parent, legs_group_index)
+-- Dissect: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_6.legacy_legs_group.dissect = function(buffer, offset, packet, parent, legacy_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.legs_group, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.legacy_legs_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.legacy_legs_group.fields(buffer, offset, packet, parent, legacy_legs_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.legs_group.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_6.legacy_legs_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.legs_group.fields(buffer, offset, packet, parent, legs_group_index)
+    return cme_globex_mdp3_sbe_v1_6.legacy_legs_group.fields(buffer, offset, packet, parent, legacy_legs_group_index)
   end
 end
 
--- Legs Groups
-cme_globex_mdp3_sbe_v1_6.legs_groups = {}
+-- Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_6.legacy_legs_groups = {}
 
--- Calculate size of: Legs Groups
-cme_globex_mdp3_sbe_v1_6.legs_groups.size = function(buffer, offset)
+-- Calculate size of: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_mdp3_sbe_v1_6.group_size.size
 
   -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + legs_group_count * 18
+  local legacy_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + legacy_legs_group_count * 18
 
   return index
 end
 
--- Display: Legs Groups
-cme_globex_mdp3_sbe_v1_6.legs_groups.display = function(packet, parent, length)
+-- Display: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Legs Groups
-cme_globex_mdp3_sbe_v1_6.legs_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -8420,29 +8420,29 @@ cme_globex_mdp3_sbe_v1_6.legs_groups.fields = function(buffer, offset, packet, p
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
-  -- Repeating: Legs Group
-  for legs_group_index = 1, num_in_group do
-    index, legs_group = cme_globex_mdp3_sbe_v1_6.legs_group.dissect(buffer, index, packet, parent, legs_group_index)
+  -- Repeating: Legacy Legs Group
+  for legacy_legs_group_index = 1, num_in_group do
+    index, legacy_legs_group = cme_globex_mdp3_sbe_v1_6.legacy_legs_group.dissect(buffer, index, packet, parent, legacy_legs_group_index)
   end
 
   return index
 end
 
--- Dissect: Legs Groups
-cme_globex_mdp3_sbe_v1_6.legs_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.legs_groups, buffer(offset, 0))
-    local index = cme_globex_mdp3_sbe_v1_6.legs_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.legacy_legs_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_mdp3_sbe_v1_6.legs_groups.display(packet, parent, length)
+    local display = cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_mdp3_sbe_v1_6.legs_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8537,7 +8537,7 @@ cme_globex_mdp3_sbe_v1_6.md_instrument_definition_spread.size = function(buffer,
 
   index = index + cme_globex_mdp3_sbe_v1_6.lot_type_rules_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_6.legs_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8677,8 +8677,8 @@ cme_globex_mdp3_sbe_v1_6.md_instrument_definition_spread.fields = function(buffe
   -- Lot Type Rules Groups: Struct of 2 fields
   index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_6.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = cme_globex_mdp3_sbe_v1_6.legs_groups.dissect(buffer, index, packet, parent)
+  -- Legacy Legs Groups: Struct of 2 fields
+  index, legacy_legs_groups = cme_globex_mdp3_sbe_v1_6.legacy_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
 end

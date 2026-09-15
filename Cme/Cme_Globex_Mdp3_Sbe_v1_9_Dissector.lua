@@ -101,6 +101,8 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.leg_price_ex = ProtoField.new("Leg Price Ex"
 omi_cme_globex_mdp3_sbe_v1_9.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.globex.mdp3.sbe.v1.9.legratioqty", ftypes.INT8)
 omi_cme_globex_mdp3_sbe_v1_9.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.globex.mdp3.sbe.v1.9.legsecurityid", ftypes.INT32)
 omi_cme_globex_mdp3_sbe_v1_9.fields.leg_side = ProtoField.new("Leg Side", "cme.globex.mdp3.sbe.v1.9.legside", ftypes.UINT8)
+omi_cme_globex_mdp3_sbe_v1_9.fields.legacy_legs_group = ProtoField.new("Legacy Legs Group", "cme.globex.mdp3.sbe.v1.9.legacylegsgroup", ftypes.STRING)
+omi_cme_globex_mdp3_sbe_v1_9.fields.legacy_legs_groups = ProtoField.new("Legacy Legs Groups", "cme.globex.mdp3.sbe.v1.9.legacylegsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.legs_group = ProtoField.new("Legs Group", "cme.globex.mdp3.sbe.v1.9.legsgroup", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.legs_groups = ProtoField.new("Legs Groups", "cme.globex.mdp3.sbe.v1.9.legsgroups", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.lot_type = ProtoField.new("Lot Type", "cme.globex.mdp3.sbe.v1.9.lottype", ftypes.INT8)
@@ -150,7 +152,9 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.min_lot_size = ProtoField.new("Min Lot Size"
 omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.globex.mdp3.sbe.v1.9.minpriceincrement", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.globex.mdp3.sbe.v1.9.minpriceincrementamount", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_amount_ex = ProtoField.new("Min Price Increment Amount Ex", "cme.globex.mdp3.sbe.v1.9.minpriceincrementamountex", ftypes.DOUBLE)
+omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_ex = ProtoField.new("Min Price Increment Ex", "cme.globex.mdp3.sbe.v1.9.minpriceincrementex", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.globex.mdp3.sbe.v1.9.minpriceincrementoptional", ftypes.DOUBLE)
+omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_optional_ex = ProtoField.new("Min Price Increment Optional Ex", "cme.globex.mdp3.sbe.v1.9.minpriceincrementoptionalex", ftypes.DOUBLE)
 omi_cme_globex_mdp3_sbe_v1_9.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.globex.mdp3.sbe.v1.9.mintradevol", ftypes.UINT32)
 omi_cme_globex_mdp3_sbe_v1_9.fields.month = ProtoField.new("Month", "cme.globex.mdp3.sbe.v1.9.month", ftypes.UINT8)
 omi_cme_globex_mdp3_sbe_v1_9.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.globex.mdp3.sbe.v1.9.negativepriceoutrighteligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000400)
@@ -338,6 +342,7 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_group_inde
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_order_id_group_index = ProtoField.new("Incremental Refresh Trade Summary Order Id Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummaryorderidgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_volume_group_index = ProtoField.new("Incremental Refresh Volume Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshvolumegroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.inst_attrib_group_index = ProtoField.new("Inst Attrib Group Index", "cme.globex.mdp3.sbe.v1.9.instattribgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.legacy_legs_group_index = ProtoField.new("Legacy Legs Group Index", "cme.globex.mdp3.sbe.v1.9.legacylegsgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.legs_group_index = ProtoField.new("Legs Group Index", "cme.globex.mdp3.sbe.v1.9.legsgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.lot_type_rules_group_index = ProtoField.new("Lot Type Rules Group Index", "cme.globex.mdp3.sbe.v1.9.lottyperulesgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.market_data_request_related_symbol_group_index = ProtoField.new("Market Data Request Related Symbol Group Index", "cme.globex.mdp3.sbe.v1.9.marketdatarequestrelatedsymbolgroupindex", ftypes.UINT16)
@@ -2797,7 +2802,7 @@ end
 
 -- Translate: Min Price Increment
 cme_globex_mdp3_sbe_v1_9.min_price_increment.translate = function(raw)
-  return raw:tonumber()/1000000000
+  return raw:tonumber()/10000000
 end
 
 -- Dissect: Min Price Increment
@@ -2891,6 +2896,35 @@ cme_globex_mdp3_sbe_v1_9.min_price_increment_amount_ex.dissect = function(buffer
   return offset + length, value
 end
 
+-- Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_ex = {}
+
+-- Size: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.size = 8
+
+-- Display: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.display = function(value)
+  return "Min Price Increment Ex: "..value
+end
+
+-- Translate: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.translate = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Min Price Increment Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.translate(raw)
+  local display = cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_ex, range, value, display)
+
+  return offset + length, value
+end
+
 -- Min Price Increment Optional
 cme_globex_mdp3_sbe_v1_9.min_price_increment_optional = {}
 
@@ -2914,7 +2948,7 @@ cme_globex_mdp3_sbe_v1_9.min_price_increment_optional.translate = function(raw)
     return 0/0
   end
 
-  return raw:tonumber()/1000000000
+  return raw:tonumber()/10000000
 end
 
 -- Dissect: Min Price Increment Optional
@@ -2926,6 +2960,45 @@ cme_globex_mdp3_sbe_v1_9.min_price_increment_optional.dissect = function(buffer,
   local display = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex = {}
+
+-- Size: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.size = 8
+
+-- Display: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Min Price Increment Optional Ex: No Value"
+  end
+
+  return "Min Price Increment Optional Ex: "..value
+end
+
+-- Translate: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Min Price Increment Optional Ex
+cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.translate(raw)
+  local display = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.min_price_increment_optional_ex, range, value, display)
 
   return offset + length, value
 end
@@ -6981,7 +7054,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread.size = function(buffer,
 
   index = index + cme_globex_mdp3_sbe_v1_9.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.min_price_increment_optional.size
+  index = index + cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_9.display_factor_ex.size
 
@@ -7101,8 +7174,8 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread.fields = function(buffe
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_9.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: PRICENULL9
-  index, min_price_increment_optional = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Optional Ex: PRICENULL9
+  index, min_price_increment_optional_ex = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.dissect(buffer, index, packet, parent)
 
   -- Display Factor Ex: Decimal9
   index, display_factor_ex = cme_globex_mdp3_sbe_v1_9.display_factor_ex.dissect(buffer, index, packet, parent)
@@ -7456,7 +7529,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option.size = function(buffer,
 
   index = index + cme_globex_mdp3_sbe_v1_9.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.min_price_increment_optional.size
+  index = index + cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_9.min_price_increment_amount_ex.size
 
@@ -7589,8 +7662,8 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option.fields = function(buffe
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_9.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment Optional: PRICENULL9
-  index, min_price_increment_optional = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Optional Ex: PRICENULL9
+  index, min_price_increment_optional_ex = cme_globex_mdp3_sbe_v1_9.min_price_increment_optional_ex.dissect(buffer, index, packet, parent)
 
   -- Min Price Increment Amount Ex: PRICENULL9
   index, min_price_increment_amount_ex = cme_globex_mdp3_sbe_v1_9.min_price_increment_amount_ex.dissect(buffer, index, packet, parent)
@@ -7728,7 +7801,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future.size = function(buffer,
 
   index = index + cme_globex_mdp3_sbe_v1_9.max_trade_vol.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.min_price_increment.size
+  index = index + cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.size
 
   index = index + cme_globex_mdp3_sbe_v1_9.display_factor_ex.size
 
@@ -7857,8 +7930,8 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future.fields = function(buffe
   -- Max Trade Vol: uInt32
   index, max_trade_vol = cme_globex_mdp3_sbe_v1_9.max_trade_vol.dissect(buffer, index, packet, parent)
 
-  -- Min Price Increment: PRICE9
-  index, min_price_increment = cme_globex_mdp3_sbe_v1_9.min_price_increment.dissect(buffer, index, packet, parent)
+  -- Min Price Increment Ex: PRICE9
+  index, min_price_increment_ex = cme_globex_mdp3_sbe_v1_9.min_price_increment_ex.dissect(buffer, index, packet, parent)
 
   -- Display Factor Ex: Decimal9
   index, display_factor_ex = cme_globex_mdp3_sbe_v1_9.display_factor_ex.dissect(buffer, index, packet, parent)
@@ -11086,6 +11159,125 @@ cme_globex_mdp3_sbe_v1_9.security_status.dissect = function(buffer, offset, pack
   end
 end
 
+-- Legacy Legs Group
+cme_globex_mdp3_sbe_v1_9.legacy_legs_group = {}
+
+-- Size: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_9.legacy_legs_group.size =
+  cme_globex_mdp3_sbe_v1_9.leg_security_id.size + 
+  cme_globex_mdp3_sbe_v1_9.leg_side.size + 
+  cme_globex_mdp3_sbe_v1_9.leg_ratio_qty.size + 
+  cme_globex_mdp3_sbe_v1_9.leg_price.size + 
+  cme_globex_mdp3_sbe_v1_9.leg_option_delta.size
+
+-- Display: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_9.legacy_legs_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_9.legacy_legs_group.fields = function(buffer, offset, packet, parent, legacy_legs_group_index)
+  local index = offset
+
+  -- Implicit Legacy Legs Group Index
+  if legacy_legs_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.legacy_legs_group_index, legacy_legs_group_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Security Id: Int32
+  index, leg_security_id = cme_globex_mdp3_sbe_v1_9.leg_security_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: LegSide
+  index, leg_side = cme_globex_mdp3_sbe_v1_9.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: Int8
+  index, leg_ratio_qty = cme_globex_mdp3_sbe_v1_9.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Price: PRICENULL
+  index, leg_price = cme_globex_mdp3_sbe_v1_9.leg_price.dissect(buffer, index, packet, parent)
+
+  -- Leg Option Delta: DecimalQty
+  index, leg_option_delta = cme_globex_mdp3_sbe_v1_9.leg_option_delta.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Legacy Legs Group
+cme_globex_mdp3_sbe_v1_9.legacy_legs_group.dissect = function(buffer, offset, packet, parent, legacy_legs_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.legacy_legs_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.legacy_legs_group.fields(buffer, offset, packet, parent, legacy_legs_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.legacy_legs_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.legacy_legs_group.fields(buffer, offset, packet, parent, legacy_legs_group_index)
+  end
+end
+
+-- Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_9.legacy_legs_groups = {}
+
+-- Calculate size of: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local legacy_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + legacy_legs_group_count * 18
+
+  return index
+end
+
+-- Display: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
+  -- Repeating: Legacy Legs Group
+  for legacy_legs_group_index = 1, num_in_group do
+    index, legacy_legs_group = cme_globex_mdp3_sbe_v1_9.legacy_legs_group.dissect(buffer, index, packet, parent, legacy_legs_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Legacy Legs Groups
+cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.legacy_legs_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Md Instrument Definition Spread Legacy
 cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy = {}
 
@@ -11177,7 +11369,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.size = function(
 
   index = index + cme_globex_mdp3_sbe_v1_9.lot_type_rules_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_mdp3_sbe_v1_9.legs_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.size(buffer, offset + index)
 
   return index
 end
@@ -11317,8 +11509,8 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.fields = functio
   -- Lot Type Rules Groups: Struct of 2 fields
   index, lot_type_rules_groups = cme_globex_mdp3_sbe_v1_9.lot_type_rules_groups.dissect(buffer, index, packet, parent)
 
-  -- Legs Groups: Struct of 2 fields
-  index, legs_groups = cme_globex_mdp3_sbe_v1_9.legs_groups.dissect(buffer, index, packet, parent)
+  -- Legacy Legs Groups: Struct of 2 fields
+  index, legacy_legs_groups = cme_globex_mdp3_sbe_v1_9.legacy_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
