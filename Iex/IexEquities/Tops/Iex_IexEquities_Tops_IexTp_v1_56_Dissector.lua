@@ -51,6 +51,7 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.quote_update_flags = ProtoField.new(
 omi_iex_iexequities_tops_iextp_v1_56.fields.reason = ProtoField.new("Reason", "iex.iexequities.tops.iextp.v1.56.reason", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.reference_price = ProtoField.new("Reference Price", "iex.iexequities.tops.iextp.v1.56.referenceprice", ftypes.DOUBLE)
 omi_iex_iexequities_tops_iextp_v1_56.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.tops.iextp.v1.56.reserved", ftypes.BYTES)
+omi_iex_iexequities_tops_iextp_v1_56.fields.reserved_4 = ProtoField.new("Reserved 4", "iex.iexequities.tops.iextp.v1.56.reserved4", ftypes.UINT32)
 omi_iex_iexequities_tops_iextp_v1_56.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.iexequities.tops.iextp.v1.56.roundlotsize", ftypes.UINT32)
 omi_iex_iexequities_tops_iextp_v1_56.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.tops.iextp.v1.56.saleconditionflags", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_56.fields.scheduled_auction_time = ProtoField.new("Scheduled Auction Time", "iex.iexequities.tops.iextp.v1.56.scheduledauctiontime", ftypes.UINT32)
@@ -1015,6 +1016,29 @@ iex_iexequities_tops_iextp_v1_56.reserved.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Reserved 4
+iex_iexequities_tops_iextp_v1_56.reserved_4 = {}
+
+-- Size: Reserved 4
+iex_iexequities_tops_iextp_v1_56.reserved_4.size = 4
+
+-- Display: Reserved 4
+iex_iexequities_tops_iextp_v1_56.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+iex_iexequities_tops_iextp_v1_56.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexequities_tops_iextp_v1_56.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_iexequities_tops_iextp_v1_56.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexequities_tops_iextp_v1_56.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
 -- Round Lot Size
 iex_iexequities_tops_iextp_v1_56.round_lot_size = {}
 
@@ -1586,7 +1610,8 @@ iex_iexequities_tops_iextp_v1_56.trade_break_message.size =
   iex_iexequities_tops_iextp_v1_56.symbol.size + 
   iex_iexequities_tops_iextp_v1_56.size.size + 
   iex_iexequities_tops_iextp_v1_56.price.size + 
-  iex_iexequities_tops_iextp_v1_56.trade_id.size
+  iex_iexequities_tops_iextp_v1_56.trade_id.size + 
+  iex_iexequities_tops_iextp_v1_56.reserved_4.size
 
 -- Display: Trade Break Message
 iex_iexequities_tops_iextp_v1_56.trade_break_message.display = function(packet, parent, length)
@@ -1614,6 +1639,9 @@ iex_iexequities_tops_iextp_v1_56.trade_break_message.fields = function(buffer, o
 
   -- Trade Id: Long
   index, trade_id = iex_iexequities_tops_iextp_v1_56.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Integer
+  index, reserved_4 = iex_iexequities_tops_iextp_v1_56.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1698,7 +1726,8 @@ iex_iexequities_tops_iextp_v1_56.trade_report_message.size =
   iex_iexequities_tops_iextp_v1_56.symbol.size + 
   iex_iexequities_tops_iextp_v1_56.size.size + 
   iex_iexequities_tops_iextp_v1_56.price.size + 
-  iex_iexequities_tops_iextp_v1_56.trade_id.size
+  iex_iexequities_tops_iextp_v1_56.trade_id.size + 
+  iex_iexequities_tops_iextp_v1_56.reserved_4.size
 
 -- Display: Trade Report Message
 iex_iexequities_tops_iextp_v1_56.trade_report_message.display = function(packet, parent, length)
@@ -1726,6 +1755,9 @@ iex_iexequities_tops_iextp_v1_56.trade_report_message.fields = function(buffer, 
 
   -- Trade Id: Long
   index, trade_id = iex_iexequities_tops_iextp_v1_56.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Integer
+  index, reserved_4 = iex_iexequities_tops_iextp_v1_56.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end

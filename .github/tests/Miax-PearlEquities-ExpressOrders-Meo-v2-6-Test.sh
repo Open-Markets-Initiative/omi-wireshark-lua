@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/CancelOrderRequest.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr \
   || { echo "--- tshark FAILED (CancelOrderRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json.stderr; exit 1; }
@@ -18,7 +18,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.Exp
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved10" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderRequest.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/CancelOrderResponse.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr \
   || { echo "--- tshark FAILED (CancelOrderResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json.stderr; exit 1; }
@@ -34,14 +34,14 @@ grep "miax.pearlequities.expressorders.meo.v2.6.cancelstatus" Miax.PearlEquities
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved10" Miax.PearlEquities.ExpressOrders.Meo.v2.6.CancelOrderResponse.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/ClientHeartbeat.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.ClientHeartbeat.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.ClientHeartbeat.json.stderr \
   || { echo "--- tshark FAILED (ClientHeartbeat) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.ClientHeartbeat.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/LoginRequest.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr \
   || { echo "--- tshark FAILED (LoginRequest) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json.stderr; exit 1; }
@@ -54,7 +54,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6.requestedtradingsessionid" Miax.
 grep "miax.pearlequities.expressorders.meo.v2.6.requestedsequencenumber" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/LoginResponse.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr \
   || { echo "--- tshark FAILED (LoginResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr; exit 1; }
@@ -65,7 +65,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6.tradingsessionid" Miax.PearlEqui
 grep "miax.pearlequities.expressorders.meo.v2.6.highestsequencenumber" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/NewOrderNotification.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr \
   || { echo "--- tshark FAILED (NewOrderNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json.stderr; exit 1; }
@@ -98,7 +98,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6.originalordercapacity" Miax.Pear
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved18" Miax.PearlEquities.ExpressOrders.Meo.v2.6.NewOrderNotification.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/OrderPriceUpdateNotification.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr \
   || { echo "--- tshark FAILED (OrderPriceUpdateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json.stderr; exit 1; }
@@ -111,14 +111,14 @@ grep "miax.pearlequities.expressorders.meo.v2.6.nbboindicator" Miax.PearlEquitie
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved9" Miax.PearlEquities.ExpressOrders.Meo.v2.6.OrderPriceUpdateNotification.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/ServerHeartbeat.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.ServerHeartbeat.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.ServerHeartbeat.json.stderr \
   || { echo "--- tshark FAILED (ServerHeartbeat) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.ServerHeartbeat.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/SymbolUpdate.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr \
   || { echo "--- tshark FAILED (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr; exit 1; }
@@ -136,7 +136,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6.primarymarketcode" Miax.PearlEqu
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved12" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/SystemStateNotification.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr \
   || { echo "--- tshark FAILED (SystemStateNotification) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json.stderr; exit 1; }
@@ -148,7 +148,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6.systemstatus" Miax.PearlEquities
 grep "miax.pearlequities.expressorders.meo.v2.6.reserved8" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SystemStateNotification.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/Reassembly.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
   > Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json.stderr \
   || { echo "--- tshark FAILED (Reassembly) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.Reassembly.json.stderr; exit 1; }
@@ -157,7 +157,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6." Miax.PearlEquities.ExpressOrde
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/Reassembly.pcap" \
-  -X "lua_script:Miax/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
+  -X "lua_script:miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -Y "tcp.segments" \
   | grep . \
   || { echo "--- no reassembly (Reassembly) ---"; exit 1; }

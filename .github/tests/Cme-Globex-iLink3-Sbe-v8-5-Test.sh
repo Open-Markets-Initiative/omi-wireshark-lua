@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/ExecutionReportStatus.pcap" \
-  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -X "lua_script:cme/Globex/iLink3/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json 2> Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr \
   || { echo "--- tshark FAILED (ExecutionReportStatus) ---"; cat Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json.stderr; exit 1; }
@@ -50,7 +50,7 @@ grep "cme.globex.ilink3.sbe.v8.5.managedorder" Cme.Globex.iLink3.Sbe.v8.5.Execut
 grep "cme.globex.ilink3.sbe.v8.5.shortsaletype" Cme.Globex.iLink3.Sbe.v8.5.ExecutionReportStatus.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/QuoteCancel.pcap" \
-  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -X "lua_script:cme/Globex/iLink3/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json 2> Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json.stderr \
   || { echo "--- tshark FAILED (QuoteCancel) ---"; cat Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json.stderr; exit 1; }
@@ -70,7 +70,7 @@ grep "cme.globex.ilink3.sbe.v8.5.blocklength" Cme.Globex.iLink3.Sbe.v8.5.QuoteCa
 grep "cme.globex.ilink3.sbe.v8.5.numingroup" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancel.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/QuoteCancelAck.pcap" \
-  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -X "lua_script:cme/Globex/iLink3/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json 2> Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr \
   || { echo "--- tshark FAILED (QuoteCancelAck) ---"; cat Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json.stderr; exit 1; }
@@ -103,7 +103,7 @@ grep "cme.globex.ilink3.sbe.v8.5.blocklength" Cme.Globex.iLink3.Sbe.v8.5.QuoteCa
 grep "cme.globex.ilink3.sbe.v8.5.numingroup" Cme.Globex.iLink3.Sbe.v8.5.QuoteCancelAck.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Sequence.pcap" \
-  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -X "lua_script:cme/Globex/iLink3/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.Sequence.json 2> Cme.Globex.iLink3.Sbe.v8.5.Sequence.json.stderr \
   || { echo "--- tshark FAILED (Sequence) ---"; cat Cme.Globex.iLink3.Sbe.v8.5.Sequence.json.stderr; exit 1; }
@@ -114,7 +114,7 @@ grep "cme.globex.ilink3.sbe.v8.5.faulttoleranceindicator" Cme.Globex.iLink3.Sbe.
 grep "cme.globex.ilink3.sbe.v8.5.keepaliveintervallapsed" Cme.Globex.iLink3.Sbe.v8.5.Sequence.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Reassembly.pcap" \
-  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -X "lua_script:cme/Globex/iLink3/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -T json \
   > Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json 2> Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json.stderr \
   || { echo "--- tshark FAILED (Reassembly) ---"; cat Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json.stderr; exit 1; }
@@ -123,7 +123,7 @@ grep "cme.globex.ilink3.sbe.v8.5." Cme.Globex.iLink3.Sbe.v8.5.Reassembly.json
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.iLink3.Sbe.v8.5/Reassembly.pcap" \
-  -X "lua_script:Cme/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
+  -X "lua_script:cme/Globex/iLink3/Cme_Globex_iLink3_Sbe_v8_5_Dissector.lua" \
   -Y "tcp.segments" \
   | grep . \
   || { echo "--- no reassembly (Reassembly) ---"; exit 1; }

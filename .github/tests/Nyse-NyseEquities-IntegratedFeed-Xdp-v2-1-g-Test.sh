@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/AddOrderMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json.stderr; exit 1; }
@@ -21,7 +21,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.firmid" Nyse.NyseEquities.Inte
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.numparitysplits" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.AddOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/CrossTradeMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.CrossTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.CrossTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (CrossTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.CrossTradeMessage.json.stderr; exit 1; }
@@ -35,7 +35,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.volume" Nyse.NyseEquities.Inte
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.crosstype" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.CrossTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/DeleteOrderMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.DeleteOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.DeleteOrderMessage.json.stderr; exit 1; }
@@ -47,7 +47,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.orderid" Nyse.NyseEquities.Int
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.numparitysplits" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.DeleteOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/ImbalanceMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json.stderr; exit 1; }
@@ -74,7 +74,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.freezestatus" Nyse.NyseEquitie
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.numextensions" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ImbalanceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/ModifyOrderMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ModifyOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ModifyOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ModifyOrderMessage.json.stderr; exit 1; }
@@ -90,7 +90,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.prevpriceparitysplits" Nyse.Ny
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.newpriceparitysplits" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ModifyOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/NonDisplayedTradeMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.NonDisplayedTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.NonDisplayedTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (NonDisplayedTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.NonDisplayedTradeMessage.json.stderr; exit 1; }
@@ -105,7 +105,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.printableflag" Nyse.NyseEquiti
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.dbexecid" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.NonDisplayedTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/OrderExecutionMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutionMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json.stderr; exit 1; }
@@ -122,7 +122,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.numparitysplits" Nyse.NyseEqui
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.dbexecid" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.OrderExecutionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/ReplaceOrderMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json.stderr; exit 1; }
@@ -138,7 +138,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.prevpriceparitysplits" Nyse.Ny
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.newpriceparitysplits" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.ReplaceOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/SecurityStatusMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json.stderr; exit 1; }
@@ -160,7 +160,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.marketstate" Nyse.NyseEquities
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.sessionstate" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/SequenceNumberResetMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json.stderr; exit 1; }
@@ -171,7 +171,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.productid" Nyse.NyseEquities.I
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.channelid" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SequenceNumberResetMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/SourceTimeReferenceMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json.stderr; exit 1; }
@@ -181,7 +181,7 @@ grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.symbolseqnum" Nyse.NyseEquitie
 grep "nyse.nyseequities.integratedfeed.xdp.v2.1.g.sourcetime" Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SourceTimeReferenceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeed.Xdp.v2.1.g/SymbolIndexMappingMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
+  -X "lua_script:nyse/NyseEquities/IntegratedFeed/Nyse_NyseEquities_IntegratedFeed_Xdp_v2_1_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json 2> Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.NyseEquities.IntegratedFeed.Xdp.v2.1.g.SymbolIndexMappingMessage.json.stderr; exit 1; }

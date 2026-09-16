@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/ComplexCrossingRfqMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexCrossingRfqMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexCrossingRfqMessage.json.stderr \
   || { echo "--- tshark FAILED (ComplexCrossingRfqMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexCrossingRfqMessage.json.stderr; exit 1; }
@@ -20,7 +20,7 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.volume2" Nyse.AmexOptions.ComplexF
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.price" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexCrossingRfqMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/ComplexQuoteMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexQuoteMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (ComplexQuoteMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexQuoteMessage.json.stderr; exit 1; }
@@ -40,7 +40,7 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved1" Nyse.AmexOptions.Comple
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexQuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/ComplexStatusMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexStatusMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (ComplexStatusMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexStatusMessage.json.stderr; exit 1; }
@@ -54,7 +54,7 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.haltcondition" Nyse.AmexOptions.Co
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/ComplexSymbolDefinitionMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json.stderr \
   || { echo "--- tshark FAILED (ComplexSymbolDefinitionMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json.stderr; exit 1; }
@@ -70,7 +70,7 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.nooflegs" Nyse.AmexOptions.Complex
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/ComplexTradeMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexTradeMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (ComplexTradeMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexTradeMessage.json.stderr; exit 1; }
@@ -87,7 +87,7 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.tradecond2" Nyse.AmexOptions.Compl
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/RefreshComplexQuoteMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexQuoteMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshComplexQuoteMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexQuoteMessage.json.stderr; exit 1; }
@@ -107,7 +107,7 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved1" Nyse.AmexOptions.Comple
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexQuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/RefreshComplexTradeMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexTradeMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshComplexTradeMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexTradeMessage.json.stderr; exit 1; }
@@ -124,7 +124,7 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.tradecond2" Nyse.AmexOptions.Compl
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.RefreshComplexTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/StreamIdMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.StreamIdMessage.json 2> Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.StreamIdMessage.json.stderr \
   || { echo "--- tshark FAILED (StreamIdMessage) ---"; cat Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.StreamIdMessage.json.stderr; exit 1; }

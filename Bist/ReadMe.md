@@ -30,6 +30,6 @@
 [BorsaIstanbul.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Bist/Protocols/BorsaIstanbul "Bist BorsaIstanbul"
 [Bist.BorsaIstanbul.GeniumInet]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bist/Protocols/BorsaIstanbul/GeniumInet.md "Genium Inet"
 
-[Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Bist/Bist_BorsaIstanbul_GeniumInet_Itch_v21_12_Dissector.lua "Bist BorsaIstanbul GeniumInet Itch v21.12 Wireshark Dissector"
+[Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/bist/GeniumInet/Bist_BorsaIstanbul_GeniumInet_Itch_v21_12_Dissector.lua "Bist BorsaIstanbul GeniumInet Itch v21.12 Wireshark Dissector"
 [Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Url]: https://www.borsaistanbul.com/en/technical-resources/technical-documents "Borsa İstanbul A.Ş. 21.12 Url"
 [Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bist/Specifications/Itch/Bist.BorsaIstanbul.GeniumInet.Itch.v21.12.pdf "Borsa İstanbul A.Ş. 21.12 Pdf"

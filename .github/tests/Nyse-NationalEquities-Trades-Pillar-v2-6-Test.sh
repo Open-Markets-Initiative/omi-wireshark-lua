@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NationalEquities.Trades.Pillar.v2.6/SecurityStatusMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NationalEquities_Trades_Pillar_v2_6_Dissector.lua" \
+  -X "lua_script:nyse/NationalEquities/Trades/Nyse_NationalEquities_Trades_Pillar_v2_6_Dissector.lua" \
   -T json \
   > Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json 2> Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json.stderr; exit 1; }
@@ -27,7 +27,7 @@ grep "nyse.nationalequities.trades.pillar.v2.6.marketstate" Nyse.NationalEquitie
 grep "nyse.nationalequities.trades.pillar.v2.6.sessionstate" Nyse.NationalEquities.Trades.Pillar.v2.6.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NationalEquities.Trades.Pillar.v2.6/TradeMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NationalEquities_Trades_Pillar_v2_6_Dissector.lua" \
+  -X "lua_script:nyse/NationalEquities/Trades/Nyse_NationalEquities_Trades_Pillar_v2_6_Dissector.lua" \
   -T json \
   > Nyse.NationalEquities.Trades.Pillar.v2.6.TradeMessage.json 2> Nyse.NationalEquities.Trades.Pillar.v2.6.TradeMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeMessage) ---"; cat Nyse.NationalEquities.Trades.Pillar.v2.6.TradeMessage.json.stderr; exit 1; }

@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.8/MdIncrementalRefreshTradeSummary.pcap" \
-  -X "lua_script:Cme/Cme_Globex_Mdp3_Sbe_v1_8_Dissector.lua" \
+  -X "lua_script:cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_8_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json 2> Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshTradeSummary) ---"; cat Cme.Globex.Mdp3.Sbe.v1.8.MdIncrementalRefreshTradeSummary.json.stderr; exit 1; }

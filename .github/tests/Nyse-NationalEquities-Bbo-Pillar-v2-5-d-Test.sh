@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NationalEquities.Bbo.Pillar.v2.5.d/QuoteMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NationalEquities_Bbo_Pillar_v2_5_d_Dissector.lua" \
+  -X "lua_script:nyse/NationalEquities/Bbo/Nyse_NationalEquities_Bbo_Pillar_v2_5_d_Dissector.lua" \
   -T json \
   > Nyse.NationalEquities.Bbo.Pillar.v2.5.d.QuoteMessage.json 2> Nyse.NationalEquities.Bbo.Pillar.v2.5.d.QuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteMessage) ---"; cat Nyse.NationalEquities.Bbo.Pillar.v2.5.d.QuoteMessage.json.stderr; exit 1; }
@@ -21,7 +21,7 @@ grep "nyse.nationalequities.bbo.pillar.v2.5.d.quotecondition" Nyse.NationalEquit
 grep "nyse.nationalequities.bbo.pillar.v2.5.d.rpiindicator" Nyse.NationalEquities.Bbo.Pillar.v2.5.d.QuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NationalEquities.Bbo.Pillar.v2.5.d/SecurityStatusMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NationalEquities_Bbo_Pillar_v2_5_d_Dissector.lua" \
+  -X "lua_script:nyse/NationalEquities/Bbo/Nyse_NationalEquities_Bbo_Pillar_v2_5_d_Dissector.lua" \
   -T json \
   > Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SecurityStatusMessage.json 2> Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SecurityStatusMessage.json.stderr; exit 1; }
@@ -43,7 +43,7 @@ grep "nyse.nationalequities.bbo.pillar.v2.5.d.marketstate" Nyse.NationalEquities
 grep "nyse.nationalequities.bbo.pillar.v2.5.d.sessionstate" Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NationalEquities.Bbo.Pillar.v2.5.d/SourceTimeReferenceMessage.pcap" \
-  -X "lua_script:Nyse/Nyse_NationalEquities_Bbo_Pillar_v2_5_d_Dissector.lua" \
+  -X "lua_script:nyse/NationalEquities/Bbo/Nyse_NationalEquities_Bbo_Pillar_v2_5_d_Dissector.lua" \
   -T json \
   > Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SourceTimeReferenceMessage.json 2> Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NationalEquities.Bbo.Pillar.v2.5.d.SourceTimeReferenceMessage.json.stderr; exit 1; }

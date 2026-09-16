@@ -5,14 +5,14 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MarketLevel2.Csm.v1.0.4/HeartbeatMessage.pcap" \
-  -X "lua_script:Cboe/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
+  -X "lua_script:cboe/C1Options/MarketLevel2/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketLevel2.Csm.v1.0.4.HeartbeatMessage.json 2> Cboe.C1Options.MarketLevel2.Csm.v1.0.4.HeartbeatMessage.json.stderr \
   || { echo "--- tshark FAILED (HeartbeatMessage) ---"; cat Cboe.C1Options.MarketLevel2.Csm.v1.0.4.HeartbeatMessage.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MarketLevel2.Csm.v1.0.4/IncrementalRefreshMessage.pcap" \
-  -X "lua_script:Cboe/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
+  -X "lua_script:cboe/C1Options/MarketLevel2/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketLevel2.Csm.v1.0.4.IncrementalRefreshMessage.json 2> Cboe.C1Options.MarketLevel2.Csm.v1.0.4.IncrementalRefreshMessage.json.stderr \
   || { echo "--- tshark FAILED (IncrementalRefreshMessage) ---"; cat Cboe.C1Options.MarketLevel2.Csm.v1.0.4.IncrementalRefreshMessage.json.stderr; exit 1; }
@@ -25,7 +25,7 @@ grep "cboe.c1options.marketlevel2.csm.v1.0.4.pricetype" Cboe.C1Options.MarketLev
 grep "cboe.c1options.marketlevel2.csm.v1.0.4.noentries" Cboe.C1Options.MarketLevel2.Csm.v1.0.4.IncrementalRefreshMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MarketLevel2.Csm.v1.0.4/SecurityDefinitionMessage.pcap" \
-  -X "lua_script:Cboe/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
+  -X "lua_script:cboe/C1Options/MarketLevel2/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityDefinitionMessage.json 2> Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityDefinitionMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityDefinitionMessage) ---"; cat Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityDefinitionMessage.json.stderr; exit 1; }
@@ -65,7 +65,7 @@ grep "cboe.c1options.marketlevel2.csm.v1.0.4.contractsize" Cboe.C1Options.Market
 grep "cboe.c1options.marketlevel2.csm.v1.0.4.nolegs" Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityDefinitionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MarketLevel2.Csm.v1.0.4/SecurityStatusMessage.pcap" \
-  -X "lua_script:Cboe/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
+  -X "lua_script:cboe/C1Options/MarketLevel2/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityStatusMessage.json 2> Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityStatusMessage.json.stderr; exit 1; }
@@ -76,7 +76,7 @@ grep "cboe.c1options.marketlevel2.csm.v1.0.4.rptseq" Cboe.C1Options.MarketLevel2
 grep "cboe.c1options.marketlevel2.csm.v1.0.4.securitytradingstatus" Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MarketLevel2.Csm.v1.0.4/SnapshotFullRefreshMessage.pcap" \
-  -X "lua_script:Cboe/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
+  -X "lua_script:cboe/C1Options/MarketLevel2/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SnapshotFullRefreshMessage.json 2> Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SnapshotFullRefreshMessage.json.stderr \
   || { echo "--- tshark FAILED (SnapshotFullRefreshMessage) ---"; cat Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SnapshotFullRefreshMessage.json.stderr; exit 1; }
@@ -90,7 +90,7 @@ grep "cboe.c1options.marketlevel2.csm.v1.0.4.refreshindicator" Cboe.C1Options.Ma
 grep "cboe.c1options.marketlevel2.csm.v1.0.4.noentries" Cboe.C1Options.MarketLevel2.Csm.v1.0.4.SnapshotFullRefreshMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/C1Options.MarketLevel2.Csm.v1.0.4/MultipleMessages.pcap" \
-  -X "lua_script:Cboe/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
+  -X "lua_script:cboe/C1Options/MarketLevel2/Cboe_C1Options_MarketLevel2_Csm_v1_0_4_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketLevel2.Csm.v1.0.4.Multiplemessages.json 2> Cboe.C1Options.MarketLevel2.Csm.v1.0.4.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.C1Options.MarketLevel2.Csm.v1.0.4.Multiplemessages.json.stderr; exit 1; }
