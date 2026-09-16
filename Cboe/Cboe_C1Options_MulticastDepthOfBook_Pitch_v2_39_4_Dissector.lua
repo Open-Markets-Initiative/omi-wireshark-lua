@@ -1332,7 +1332,7 @@ cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_condition.size = 1
 
 -- Display: Trade Condition
 cboe_c1options_multicastdepthofbook_pitch_v2_39_4.trade_condition.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Trade Condition: Normal Trade (<whitespace>)"
   end
   if value == "S" then
@@ -3375,7 +3375,7 @@ udp_table:add_for_decode_as(omi_cboe_c1options_multicastdepthofbook_pitch_v2_39_
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

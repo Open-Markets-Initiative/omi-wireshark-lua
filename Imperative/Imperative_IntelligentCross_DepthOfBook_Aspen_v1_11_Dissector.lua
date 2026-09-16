@@ -1646,7 +1646,7 @@ udp_table:add_for_decode_as(omi_imperative_intelligentcross_depthofbook_aspen_v1
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

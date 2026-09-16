@@ -20,7 +20,7 @@ omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.best_bid = ProtoField.new("Be
 omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.best_offer = ProtoField.new("Best Offer", "jpx.nseequities.marketbyorder.flex.v1.1.bestoffer", ftypes.DOUBLE)
 omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.book_center_price = ProtoField.new("Book Center Price", "jpx.nseequities.marketbyorder.flex.v1.1.bookcenterprice", ftypes.DOUBLE)
 omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.communication_start_end_flag = ProtoField.new("Communication Start End Flag", "jpx.nseequities.marketbyorder.flex.v1.1.communicationstartendflag", ftypes.UINT8)
-omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.data = ProtoField.new("Data", "jpx.nseequities.marketbyorder.flex.v1.1.data", ftypes.STRING)
+omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.data = ProtoField.new("Data", "jpx.nseequities.marketbyorder.flex.v1.1.data", ftypes.BYTES)
 omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.execution_price = ProtoField.new("Execution Price", "jpx.nseequities.marketbyorder.flex.v1.1.executionprice", ftypes.DOUBLE)
 omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.issue_code = ProtoField.new("Issue Code", "jpx.nseequities.marketbyorder.flex.v1.1.issuecode", ftypes.STRING)
 omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.last_price = ProtoField.new("Last Price", "jpx.nseequities.marketbyorder.flex.v1.1.lastprice", ftypes.DOUBLE)
@@ -341,24 +341,20 @@ end
 -- Data
 jpx_nseequities_marketbyorder_flex_v1_1.data = {}
 
--- Size: Data
-jpx_nseequities_marketbyorder_flex_v1_1.data.size = 1
-
 -- Display: Data
 jpx_nseequities_marketbyorder_flex_v1_1.data.display = function(value)
   return "Data: "..value
 end
 
--- Dissect: Data
-jpx_nseequities_marketbyorder_flex_v1_1.data.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_nseequities_marketbyorder_flex_v1_1.data.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_nseequities_marketbyorder_flex_v1_1.data.display(value, buffer, offset, packet, parent)
+-- Dissect runtime sized field: Data
+jpx_nseequities_marketbyorder_flex_v1_1.data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = jpx_nseequities_marketbyorder_flex_v1_1.data.display(value, packet, parent, size)
 
   parent:add(omi_jpx_nseequities_marketbyorder_flex_v1_1.fields.data, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Execution Price
@@ -1106,7 +1102,7 @@ end
 jpx_nseequities_marketbyorder_flex_v1_1.status_flag = {}
 
 -- Size: Status Flag
-jpx_nseequities_marketbyorder_flex_v1_1.status_flag.size = 1
+jpx_nseequities_marketbyorder_flex_v1_1.status_flag.size = 2
 
 -- Display: Status Flag
 jpx_nseequities_marketbyorder_flex_v1_1.status_flag.display = function(value)
@@ -1131,7 +1127,7 @@ jpx_nseequities_marketbyorder_flex_v1_1.status_flag.display = function(value)
   if value == "D0" then
     return "Status Flag: Trading Halted Not Accepting Orders (D0)"
   end
-  if value == " " then
+  if value == "  " then
     return "Status Flag: Other Than The Above (<whitespace>)"
   end
 
@@ -1389,7 +1385,7 @@ end
 jpx_nseequities_marketbyorder_flex_v1_1.user_id = {}
 
 -- Size: User Id
-jpx_nseequities_marketbyorder_flex_v1_1.user_id.size = 1
+jpx_nseequities_marketbyorder_flex_v1_1.user_id.size = 6
 
 -- Display: User Id
 jpx_nseequities_marketbyorder_flex_v1_1.user_id.display = function(value)
@@ -1553,9 +1549,15 @@ end
 -- Message Response Message
 jpx_nseequities_marketbyorder_flex_v1_1.message_response_message = {}
 
--- Size: Message Response Message
-jpx_nseequities_marketbyorder_flex_v1_1.message_response_message.size =
-  jpx_nseequities_marketbyorder_flex_v1_1.data.size
+-- Calculate size of: Message Response Message
+jpx_nseequities_marketbyorder_flex_v1_1.message_response_message.size = function(buffer, offset)
+  local index = 0
+
+  -- Remaining size of: Data
+  index = index + (buffer:len() - (offset + index))
+
+  return index
+end
 
 -- Display: Message Response Message
 jpx_nseequities_marketbyorder_flex_v1_1.message_response_message.display = function(packet, parent, length)
@@ -1566,8 +1568,11 @@ end
 jpx_nseequities_marketbyorder_flex_v1_1.message_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
+  -- Runtime Size Of: Data
+  local size_of_data = buffer:len() - (offset + index)
+
   -- Data: Char
-  index, data = jpx_nseequities_marketbyorder_flex_v1_1.data.dissect(buffer, index, packet, parent)
+  index, data = jpx_nseequities_marketbyorder_flex_v1_1.data.dissect(buffer, index, packet, parent, size_of_data)
 
   return index
 end
@@ -2613,7 +2618,7 @@ tcp_table:add_for_decode_as(omi_jpx_nseequities_marketbyorder_flex_v1_1)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

@@ -1189,7 +1189,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.display = function(val
   if value == "P" then
     return "Option Type: Put (P)"
   end
-  if value == " " then
+  if value == "  " then
     return "Option Type: Na (<whitespace>)"
   end
 
@@ -1268,7 +1268,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.size = 1
 
 -- Display: Quote Condition
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Quote Condition: Regular Quote (<whitespace>)"
   end
   if value == "X" then
@@ -1389,7 +1389,7 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.display = function(value)
   if value == "S" then
     return "Side: Sell (S)"
   end
-  if value == " " then
+  if value == "  " then
     return "Side: Hidden (<whitespace>)"
   end
 
@@ -2689,7 +2689,7 @@ udp_table:add_for_decode_as(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

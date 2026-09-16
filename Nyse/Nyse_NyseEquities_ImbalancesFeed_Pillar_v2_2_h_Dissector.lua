@@ -656,7 +656,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.imbalance_side.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Imbalance Side: No Imbalance (<whitespace>)"
   end
   if value == "B" then
@@ -1702,7 +1702,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.size = 1
 
 -- Display: Significant Imbalance
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Significant Imbalance: Not Applicable (<whitespace>)"
   end
   if value == "Y" then
@@ -2258,7 +2258,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unpaired_side.size = 1
 
 -- Display: Unpaired Side
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unpaired_side.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Unpaired Side: Not Applicable (<whitespace>)"
   end
   if value == "B" then
@@ -3573,7 +3573,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

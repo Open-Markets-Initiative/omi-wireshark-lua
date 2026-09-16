@@ -1221,7 +1221,7 @@ nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
 nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
   if value == "A" then
@@ -3130,7 +3130,7 @@ udp_table:add_for_decode_as(omi_nyse_arcaequities_bbo_xdp_v2_4_c)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

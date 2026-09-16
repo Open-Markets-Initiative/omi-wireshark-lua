@@ -1070,7 +1070,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.market_category.display = function(va
   if value == "V" then
     return "Market Category: Investors Exchange (V)"
   end
-  if value == " " then
+  if value == "  " then
     return "Market Category: Not Available (<whitespace>)"
   end
 
@@ -1647,7 +1647,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_2.displ
   if value == "6" then
     return "Sale Condition Modifier Level 2: Closing Print (6)"
   end
-  if value == " " then
+  if value == "  " then
     return "Sale Condition Modifier Level 2: Not Applicable (<whitespace>)"
   end
 
@@ -1686,7 +1686,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_3.displ
   if value == "Z" then
     return "Sale Condition Modifier Level 3: Sold Out Of Sequence (Z)"
   end
-  if value == " " then
+  if value == "  " then
     return "Sale Condition Modifier Level 3: Not Applicable (<whitespace>)"
   end
 
@@ -1749,7 +1749,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_4.displ
   if value == "x" then
     return "Sale Condition Modifier Level 4: Odd Lot Cross Execution (x)"
   end
-  if value == " " then
+  if value == "  " then
     return "Sale Condition Modifier Level 4: Not Applicable (<whitespace>)"
   end
 
@@ -2176,7 +2176,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.trading_action_reason.display = funct
   if value == "IPOE" then
     return "Trading Action Reason: Ipo Security Positioning Window Extension (IPOE)"
   end
-  if value == "" then
+  if value == "   " then
     return "Trading Action Reason: Reason Not Available (<whitespace>)"
   end
 
@@ -3388,7 +3388,7 @@ udp_table:add_for_decode_as(omi_nasdaq_psxequities_lastsale_itch_v2_1_2018)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

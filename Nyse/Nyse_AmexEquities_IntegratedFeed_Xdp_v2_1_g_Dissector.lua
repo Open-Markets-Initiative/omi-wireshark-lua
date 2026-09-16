@@ -830,7 +830,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_side.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Imbalance Side: No Imbalance (<whitespace>)"
   end
   if value == "B" then
@@ -1958,7 +1958,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
 nyse_amexequities_integratedfeed_xdp_v2_1_g.rpi_indicator.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
   if value == "A" then
@@ -4862,7 +4862,7 @@ udp_table:add_for_decode_as(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

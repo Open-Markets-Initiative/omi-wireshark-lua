@@ -696,11 +696,6 @@ ice_icefutures_mdf_impact_v1_1_43.auction_date.size = 10
 
 -- Display: Auction Date
 ice_icefutures_mdf_impact_v1_1_43.auction_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Auction Date: No Value"
-  end
-
   return "Auction Date: "..value
 end
 
@@ -708,18 +703,7 @@ end
 ice_icefutures_mdf_impact_v1_1_43.auction_date.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.auction_date.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = ice_icefutures_mdf_impact_v1_1_43.auction_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.auction_date, range, value, display)
@@ -5411,11 +5395,6 @@ ice_icefutures_mdf_impact_v1_1_43.open_interest_date.size = 10
 
 -- Display: Open Interest Date
 ice_icefutures_mdf_impact_v1_1_43.open_interest_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Open Interest Date: No Value"
-  end
-
   return "Open Interest Date: "..value
 end
 
@@ -5423,18 +5402,7 @@ end
 ice_icefutures_mdf_impact_v1_1_43.open_interest_date.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.open_interest_date.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = ice_icefutures_mdf_impact_v1_1_43.open_interest_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.open_interest_date, range, value, display)
@@ -7960,11 +7928,6 @@ ice_icefutures_mdf_impact_v1_1_43.valuation_date_applying_date.size = 10
 
 -- Display: Valuation Date Applying Date
 ice_icefutures_mdf_impact_v1_1_43.valuation_date_applying_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Valuation Date Applying Date: No Value"
-  end
-
   return "Valuation Date Applying Date: "..value
 end
 
@@ -7972,18 +7935,7 @@ end
 ice_icefutures_mdf_impact_v1_1_43.valuation_date_applying_date.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_mdf_impact_v1_1_43.valuation_date_applying_date.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = ice_icefutures_mdf_impact_v1_1_43.valuation_date_applying_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_43.fields.valuation_date_applying_date, range, value, display)
@@ -12335,7 +12287,7 @@ udp_table:add_for_decode_as(omi_ice_icefutures_mdf_impact_v1_1_43)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

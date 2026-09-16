@@ -3995,7 +3995,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.quote_liquidity_indicator.display = f
   if value == "U" then
     return "Quote Liquidity Indicator: Market Turner (U)"
   end
-  if value == " " then
+  if value == "  " then
     return "Quote Liquidity Indicator: No Quote On Book (<whitespace>)"
   end
 
@@ -4523,7 +4523,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.risk_reset_result.size = 1
 
 -- Display: Risk Reset Result
 cboe_bzxoptions_binaryorderentry_boe_v2_10.risk_reset_result.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Risk Reset Result: Ignored (<whitespace>)"
   end
   if value == "Y" then
@@ -31590,7 +31590,7 @@ tcp_table:add_for_decode_as(omi_cboe_bzxoptions_binaryorderentry_boe_v2_10)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

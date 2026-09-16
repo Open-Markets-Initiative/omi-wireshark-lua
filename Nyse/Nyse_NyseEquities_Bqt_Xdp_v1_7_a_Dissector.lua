@@ -1807,7 +1807,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
 nyse_nyseequities_bqt_xdp_v1_7_a.rpi_indicator.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
   if value == "A" then
@@ -2613,7 +2613,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.trade_condition_2.size = 1
 
 -- Display: Trade Condition 2
 nyse_nyseequities_bqt_xdp_v1_7_a.trade_condition_2.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Trade Condition 2: Na (<whitespace>)"
   end
   if value == "F" then
@@ -2658,7 +2658,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.trade_condition_3.size = 1
 
 -- Display: Trade Condition 3
 nyse_nyseequities_bqt_xdp_v1_7_a.trade_condition_3.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Trade Condition 3: Na (<whitespace>)"
   end
   if value == "L" then
@@ -2697,7 +2697,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.trade_condition_4.size = 1
 
 -- Display: Trade Condition 4
 nyse_nyseequities_bqt_xdp_v1_7_a.trade_condition_4.display = function(value)
-  if value == " " then
+  if value == "  " then
     return "Trade Condition 4: Na (<whitespace>)"
   end
   if value == "@" then
@@ -4498,7 +4498,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_bqt_xdp_v1_7_a)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

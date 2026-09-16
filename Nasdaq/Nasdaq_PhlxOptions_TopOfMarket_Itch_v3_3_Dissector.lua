@@ -1017,7 +1017,7 @@ nasdaq_phlxoptions_topofmarket_itch_v3_3.quote_condition.size = 1
 
 -- Display: Quote Condition
 nasdaq_phlxoptions_topofmarket_itch_v3_3.quote_condition.display = function(value)
-  if value == "" then
+  if value == "   " then
     return "Quote Condition: Regular Quoteautox Eligible (<whitespace>)"
   end
   if value == "F" then
@@ -2604,7 +2604,7 @@ udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_topofmarket_itch_v3_3)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.
