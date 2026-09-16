@@ -167,6 +167,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.agency_cross_indicator.size = 1
 
 -- Display: Agency Cross Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.agency_cross_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Agency Cross Indicator: No Value"
+  end
+
   if value == "-" then
     return "Agency Cross Indicator: No Agency Cross Trade (-)"
   end
@@ -178,7 +183,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.agency_cross_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.agency_cross_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.agency_cross_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.agency_cross_indicator, range, value, display)
@@ -194,6 +207,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.algorithmic_indicator.size = 1
 
 -- Display: Algorithmic Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.algorithmic_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Algorithmic Indicator: No Value"
+  end
+
   if value == "H" then
     return "Algorithmic Indicator: Algorithmic Trade (H)"
   end
@@ -208,7 +226,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.algorithmic_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.algorithmic_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.algorithmic_indicator, range, value, display)
@@ -224,6 +250,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.auction_type.size = 1
 
 -- Display: Auction Type
 lseg_turquoise_mifid2posttrade_gtp_v24_4.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Auction Type: No Value"
+  end
+
   return "Auction Type: "..value
 end
 
@@ -231,7 +262,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.auction_type, range, value, display)
@@ -247,6 +286,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_id.size = 20
 
 -- Display: Cross Id
 lseg_turquoise_mifid2posttrade_gtp_v24_4.cross_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cross Id: No Value"
+  end
+
   return "Cross Id: "..value
 end
 
@@ -300,6 +344,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.currency.size = 3
 
 -- Display: Currency
 lseg_turquoise_mifid2posttrade_gtp_v24_4.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
   return "Currency: "..value
 end
 
@@ -323,6 +372,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.size = 1
 
 -- Display: Deferral Enrichment Type
 lseg_turquoise_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Deferral Enrichment Type: No Value"
+  end
+
   if value == "-" then
     return "Deferral Enrichment Type: Not Applicable (-)"
   end
@@ -334,7 +388,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.deferral_enrichment_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.deferral_enrichment_type, range, value, display)
@@ -350,6 +412,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.duplicative_indicator.size = 1
 
 -- Display: Duplicative Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.duplicative_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Duplicative Indicator: No Value"
+  end
+
   if value == "-" then
     return "Duplicative Indicator: Unique Trade Report (-)"
   end
@@ -361,7 +428,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.duplicative_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.duplicative_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.duplicative_indicator, range, value, display)
@@ -406,6 +481,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.event_code.size = 1
 
 -- Display: Event Code
 lseg_turquoise_mifid2posttrade_gtp_v24_4.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
   if value == "C" then
     return "Event Code: End Of Day (C)"
   end
@@ -420,7 +500,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.event_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.event_code, range, value, display)
@@ -459,6 +547,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_identification_code.size = 1
 
 -- Display: Instrument Identification Code
 lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_identification_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Instrument Identification Code: No Value"
+  end
+
   return "Instrument Identification Code: "..value
 end
 
@@ -482,6 +575,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_identification_code_type.siz
 
 -- Display: Instrument Identification Code Type
 lseg_turquoise_mifid2posttrade_gtp_v24_4.instrument_identification_code_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Instrument Identification Code Type: No Value"
+  end
+
   return "Instrument Identification Code Type: "..value
 end
 
@@ -505,6 +603,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.isin.size = 12
 
 -- Display: Isin
 lseg_turquoise_mifid2posttrade_gtp_v24_4.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
   return "Isin: "..value
 end
 
@@ -551,6 +654,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.market_closing_price_flag.size = 4
 
 -- Display: Market Closing Price Flag
 lseg_turquoise_mifid2posttrade_gtp_v24_4.market_closing_price_flag.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Closing Price Flag: No Value"
+  end
+
   return "Market Closing Price Flag: "..value
 end
 
@@ -597,6 +705,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.market_mechanism.size = 1
 
 -- Display: Market Mechanism
 lseg_turquoise_mifid2posttrade_gtp_v24_4.market_mechanism.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Market Mechanism: No Value"
+  end
+
   if value == "1" then
     return "Market Mechanism: Central Limit Order Book (1)"
   end
@@ -614,7 +727,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.market_mechanism.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.market_mechanism.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.market_mechanism.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.market_mechanism, range, value, display)
@@ -715,6 +836,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.mi_fid_price.size = 20
 
 -- Display: Mi Fid Price
 lseg_turquoise_mifid2posttrade_gtp_v24_4.mi_fid_price.display = function(value)
+  -- Check if field has value
+  if value == nil or value:match("^%s*$") ~= nil then
+    return "Mi Fid Price: No Value"
+  end
+
   return "Mi Fid Price: "..value
 end
 
@@ -738,6 +864,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.mi_fid_quantity.size = 20
 
 -- Display: Mi Fid Quantity
 lseg_turquoise_mifid2posttrade_gtp_v24_4.mi_fid_quantity.display = function(value)
+  -- Check if field has value
+  if value == nil or value:match("^%s*$") ~= nil then
+    return "Mi Fid Quantity: No Value"
+  end
+
   return "Mi Fid Quantity: "..value
 end
 
@@ -761,6 +892,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.modification_indicator.size = 1
 
 -- Display: Modification Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.modification_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Modification Indicator: No Value"
+  end
+
   if value == "C" then
     return "Modification Indicator: Trade Cancellation (C)"
   end
@@ -778,7 +914,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.modification_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.modification_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.modification_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.modification_indicator, range, value, display)
@@ -794,6 +938,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.negotiation_indicator.size = 1
 
 -- Display: Negotiation Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.negotiation_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Negotiation Indicator: No Value"
+  end
+
   if value == "8" then
     return "Negotiation Indicator: Negotiated Trade With Pretrade Transparency Waiver (8)"
   end
@@ -808,7 +957,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.negotiation_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.negotiation_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.negotiation_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.negotiation_indicator, range, value, display)
@@ -824,6 +981,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_turquoise_mifid2posttrade_gtp_v24_4.new_end_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New End Time: No Value"
+  end
+
   if #value < 6 then
     return "New End Time: "..value
   end
@@ -835,7 +997,7 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.new_end_time.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.new_end_time, range, value, display)
@@ -851,6 +1013,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.notional_amount.size = 20
 
 -- Display: Notional Amount
 lseg_turquoise_mifid2posttrade_gtp_v24_4.notional_amount.display = function(value)
+  -- Check if field has value
+  if value == nil or value:match("^%s*$") ~= nil then
+    return "Notional Amount: No Value"
+  end
+
   return "Notional Amount: "..value
 end
 
@@ -874,6 +1041,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.notional_currency.size = 3
 
 -- Display: Notional Currency
 lseg_turquoise_mifid2posttrade_gtp_v24_4.notional_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Notional Currency: No Value"
+  end
+
   return "Notional Currency: "..value
 end
 
@@ -897,6 +1069,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.nt_pre_trade_waiver_flag.size = 4
 
 -- Display: Nt Pre Trade Waiver Flag
 lseg_turquoise_mifid2posttrade_gtp_v24_4.nt_pre_trade_waiver_flag.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Nt Pre Trade Waiver Flag: No Value"
+  end
+
   return "Nt Pre Trade Waiver Flag: "..value
 end
 
@@ -920,6 +1097,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.off_book_automated_indicator.size = 1
 
 -- Display: Off Book Automated Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.off_book_automated_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Off Book Automated Indicator: No Value"
+  end
+
   if value == "-" then
     return "Off Book Automated Indicator: Unspecified Or Does Not Apply (-)"
   end
@@ -931,7 +1113,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.off_book_automated_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.off_book_automated_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.off_book_automated_indicator, range, value, display)
@@ -974,6 +1164,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.size = 1
 
 -- Display: Post Trade Deferral Reason
 lseg_turquoise_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Post Trade Deferral Reason: No Value"
+  end
+
   if value == "-" then
     return "Post Trade Deferral Reason: Immediate Publication (-)"
   end
@@ -985,7 +1180,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.post_trade_deferral_reason, range, value, display)
@@ -1030,6 +1233,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.price_formation_indicator.size = 1
 
 -- Display: Price Formation Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.price_formation_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Price Formation Indicator: No Value"
+  end
+
   if value == "P" then
     return "Price Formation Indicator: Plain Vanilla Trade (P)"
   end
@@ -1041,7 +1249,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.price_formation_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.price_formation_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.price_formation_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.price_formation_indicator, range, value, display)
@@ -1057,6 +1273,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.price_major_currency.size = 3
 
 -- Display: Price Major Currency
 lseg_turquoise_mifid2posttrade_gtp_v24_4.price_major_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price Major Currency: No Value"
+  end
+
   return "Price Major Currency: "..value
 end
 
@@ -1080,6 +1301,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.price_notation.size = 4
 
 -- Display: Price Notation
 lseg_turquoise_mifid2posttrade_gtp_v24_4.price_notation.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price Notation: No Value"
+  end
+
   return "Price Notation: "..value
 end
 
@@ -1103,6 +1329,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_algo_trade.size = 4
 
 -- Display: Pt Algo Trade
 lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_algo_trade.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Pt Algo Trade: No Value"
+  end
+
   return "Pt Algo Trade: "..value
 end
 
@@ -1126,6 +1357,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_amendment_flag.size = 4
 
 -- Display: Pt Amendment Flag
 lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_amendment_flag.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Pt Amendment Flag: No Value"
+  end
+
   return "Pt Amendment Flag: "..value
 end
 
@@ -1149,6 +1385,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_cancellation_flag.size = 4
 
 -- Display: Pt Cancellation Flag
 lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_cancellation_flag.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Pt Cancellation Flag: No Value"
+  end
+
   return "Pt Cancellation Flag: "..value
 end
 
@@ -1172,6 +1413,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_ref_price_waiver_flag.size = 4
 
 -- Display: Pt Ref Price Waiver Flag
 lseg_turquoise_mifid2posttrade_gtp_v24_4.pt_ref_price_waiver_flag.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Pt Ref Price Waiver Flag: No Value"
+  end
+
   return "Pt Ref Price Waiver Flag: "..value
 end
 
@@ -1195,6 +1441,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.publication_date_and_time.size = 27
 
 -- Display: Publication Date And Time
 lseg_turquoise_mifid2posttrade_gtp_v24_4.publication_date_and_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Publication Date And Time: No Value"
+  end
+
   return "Publication Date And Time: "..value
 end
 
@@ -1202,7 +1453,7 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.publication_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.publication_date_and_time.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.publication_date_and_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.publication_date_and_time, range, value, display)
@@ -1218,6 +1469,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.reference_price_indicator.size = 1
 
 -- Display: Reference Price Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.reference_price_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reference Price Indicator: No Value"
+  end
+
   if value == "S" then
     return "Reference Price Indicator: Reference Price Trade (S)"
   end
@@ -1235,7 +1491,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.reference_price_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.reference_price_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.reference_price_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.reference_price_indicator, range, value, display)
@@ -1366,6 +1630,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.segment.size = 6
 
 -- Display: Segment
 lseg_turquoise_mifid2posttrade_gtp_v24_4.segment.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Segment: No Value"
+  end
+
   return "Segment: "..value
 end
 
@@ -1499,6 +1768,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.special_dividend_indicator.size = 1
 
 -- Display: Special Dividend Indicator
 lseg_turquoise_mifid2posttrade_gtp_v24_4.special_dividend_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Special Dividend Indicator: No Value"
+  end
+
   if value == "-" then
     return "Special Dividend Indicator: No Special Dividend Trade (-)"
   end
@@ -1510,7 +1784,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.special_dividend_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.special_dividend_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.special_dividend_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.special_dividend_indicator, range, value, display)
@@ -1555,6 +1837,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.tick_id.size = 2
 
 -- Display: Tick Id
 lseg_turquoise_mifid2posttrade_gtp_v24_4.tick_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Tick Id: No Value"
+  end
+
   return "Tick Id: "..value
 end
 
@@ -1605,6 +1892,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_qualifier.size = 1
 
 -- Display: Trade Qualifier
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_qualifier.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Qualifier: No Value"
+  end
+
   if value == " " then
     return "Trade Qualifier: Not Available (<whitespace>)"
   end
@@ -1619,7 +1911,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_qualifier.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.trade_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.trade_qualifier, range, value, display)
@@ -1668,6 +1968,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_date_and_time.size = 27
 
 -- Display: Trading Date And Time
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_date_and_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trading Date And Time: No Value"
+  end
+
   return "Trading Date And Time: "..value
 end
 
@@ -1675,7 +1980,7 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_date_and_time.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_date_and_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.trading_date_and_time, range, value, display)
@@ -1691,6 +1996,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_mode.size = 1
 
 -- Display: Trading Mode
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_mode.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Mode: No Value"
+  end
+
   if value == "U" then
     return "Trading Mode: Unscheduled Auction (U)"
   end
@@ -1711,7 +2021,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_mode.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_mode.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.trading_mode, range, value, display)
@@ -1727,6 +2045,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_status.size = 1
 
 -- Display: Trading Status
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
   if value == "H" then
     return "Trading Status: Halted (H)"
   end
@@ -1762,7 +2085,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.trading_status, range, value, display)
@@ -1778,6 +2109,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.transaction_category.size = 1
 
 -- Display: Transaction Category
 lseg_turquoise_mifid2posttrade_gtp_v24_4.transaction_category.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Transaction Category: No Value"
+  end
+
   if value == "D" then
     return "Transaction Category: Dark Trade (D)"
   end
@@ -1792,7 +2128,15 @@ end
 lseg_turquoise_mifid2posttrade_gtp_v24_4.transaction_category.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_mifid2posttrade_gtp_v24_4.transaction_category.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_mifid2posttrade_gtp_v24_4.transaction_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.transaction_category, range, value, display)
@@ -1808,6 +2152,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.transaction_identification_code.size = 
 
 -- Display: Transaction Identification Code
 lseg_turquoise_mifid2posttrade_gtp_v24_4.transaction_identification_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Transaction Identification Code: No Value"
+  end
+
   return "Transaction Identification Code: "..value
 end
 
@@ -1831,6 +2180,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.venue_instrument_id.size = 11
 
 -- Display: Venue Instrument Id
 lseg_turquoise_mifid2posttrade_gtp_v24_4.venue_instrument_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Venue Instrument Id: No Value"
+  end
+
   return "Venue Instrument Id: "..value
 end
 
@@ -1854,6 +2208,11 @@ lseg_turquoise_mifid2posttrade_gtp_v24_4.venue_of_execution.size = 4
 
 -- Display: Venue Of Execution
 lseg_turquoise_mifid2posttrade_gtp_v24_4.venue_of_execution.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Venue Of Execution: No Value"
+  end
+
   return "Venue Of Execution: "..value
 end
 
@@ -2771,7 +3130,7 @@ udp_table:add_for_decode_as(omi_lseg_turquoise_mifid2posttrade_gtp_v24_4)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

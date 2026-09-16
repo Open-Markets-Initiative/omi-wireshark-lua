@@ -291,6 +291,11 @@ lseg_turquoise_analytics_gtp_v26_3.currency.size = 3
 
 -- Display: Currency
 lseg_turquoise_analytics_gtp_v26_3.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
   return "Currency: "..value
 end
 
@@ -370,6 +375,11 @@ lseg_turquoise_analytics_gtp_v26_3.event_code.size = 1
 
 -- Display: Event Code
 lseg_turquoise_analytics_gtp_v26_3.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
   if value == "C" then
     return "Event Code: End Of Day (C)"
   end
@@ -384,7 +394,15 @@ end
 lseg_turquoise_analytics_gtp_v26_3.event_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_analytics_gtp_v26_3.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.event_code, range, value, display)
@@ -423,6 +441,11 @@ lseg_turquoise_analytics_gtp_v26_3.isin.size = 12
 
 -- Display: Isin
 lseg_turquoise_analytics_gtp_v26_3.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
   return "Isin: "..value
 end
 
@@ -574,6 +597,11 @@ lseg_turquoise_analytics_gtp_v26_3.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_turquoise_analytics_gtp_v26_3.new_end_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New End Time: No Value"
+  end
+
   if #value < 6 then
     return "New End Time: "..value
   end
@@ -585,7 +613,7 @@ end
 lseg_turquoise_analytics_gtp_v26_3.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.new_end_time.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_turquoise_analytics_gtp_v26_3.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.new_end_time, range, value, display)
@@ -703,6 +731,11 @@ lseg_turquoise_analytics_gtp_v26_3.segment.size = 6
 
 -- Display: Segment
 lseg_turquoise_analytics_gtp_v26_3.segment.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Segment: No Value"
+  end
+
   return "Segment: "..value
 end
 
@@ -1013,6 +1046,11 @@ lseg_turquoise_analytics_gtp_v26_3.tick_id.size = 2
 
 -- Display: Tick Id
 lseg_turquoise_analytics_gtp_v26_3.tick_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Tick Id: No Value"
+  end
+
   return "Tick Id: "..value
 end
 
@@ -1063,6 +1101,11 @@ lseg_turquoise_analytics_gtp_v26_3.trading_status.size = 1
 
 -- Display: Trading Status
 lseg_turquoise_analytics_gtp_v26_3.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
   if value == "H" then
     return "Trading Status: Halted (H)"
   end
@@ -1098,7 +1141,15 @@ end
 lseg_turquoise_analytics_gtp_v26_3.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_analytics_gtp_v26_3.trading_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_turquoise_analytics_gtp_v26_3.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_analytics_gtp_v26_3.fields.trading_status, range, value, display)
@@ -1114,6 +1165,11 @@ lseg_turquoise_analytics_gtp_v26_3.venue_instrument_id.size = 11
 
 -- Display: Venue Instrument Id
 lseg_turquoise_analytics_gtp_v26_3.venue_instrument_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Venue Instrument Id: No Value"
+  end
+
   return "Venue Instrument Id: "..value
 end
 
@@ -1813,7 +1869,7 @@ udp_table:add_for_decode_as(omi_lseg_turquoise_analytics_gtp_v26_3)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

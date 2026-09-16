@@ -203,6 +203,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.size = 3
 
 -- Display: Currency
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
   return "Currency: "..value
 end
 
@@ -255,6 +260,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.size = 1
 
 -- Display: Event Code
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
   if value == "O" then
     return "Event Code: Start Of Day (O)"
   end
@@ -275,7 +285,15 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.event_code, range, value, display)
@@ -291,6 +309,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.size = 6
 
 -- Display: Group Id
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.group_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Group Id: No Value"
+  end
+
   return "Group Id: "..value
 end
 
@@ -360,6 +383,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.size = 12
 
 -- Display: Isin
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
   return "Isin: "..value
 end
 
@@ -406,6 +434,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.size = 1
 
 -- Display: Login Status
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Login Status: No Value"
+  end
+
   if value == "A" then
     return "Login Status: Login Accepted (A)"
   end
@@ -435,7 +468,15 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.login_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.login_status, range, value, display)
@@ -574,6 +615,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New End Time: No Value"
+  end
+
   if #value < 6 then
     return "New End Time: "..value
   end
@@ -585,7 +631,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.new_end_time, range, value, display)
@@ -678,6 +724,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.size = 11
 
 -- Display: Participant
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.participant.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Participant: No Value"
+  end
+
   return "Participant: "..value
 end
 
@@ -759,6 +810,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.size = 1
 
 -- Display: Recovery Status
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Recovery Status: No Value"
+  end
+
   if value == "A" then
     return "Recovery Status: Request Accepted (A)"
   end
@@ -788,7 +844,15 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.recovery_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_status, range, value, display)
@@ -988,6 +1052,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.size = 11
 
 -- Display: Security Exchange
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.security_exchange.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
   return "Security Exchange: "..value
 end
 
@@ -1011,6 +1080,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.size = 6
 
 -- Display: Segment
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.segment.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Segment: No Value"
+  end
+
   return "Segment: "..value
 end
 
@@ -1084,6 +1158,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.size = 1
 
 -- Display: Side
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Side: No Value"
+  end
+
   if value == "B" then
     return "Side: Buy Order (B)"
   end
@@ -1098,7 +1177,15 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.side, range, value, display)
@@ -1199,6 +1286,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.size = 2
 
 -- Display: Tick Id
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.tick_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Tick Id: No Value"
+  end
+
   return "Tick Id: "..value
 end
 
@@ -1249,6 +1341,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.size = 1
 
 -- Display: Trading Status
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
   if value == "1" then
     return "Trading Status: Inactive (1)"
   end
@@ -1269,7 +1366,15 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.trading_status, range, value, display)
@@ -1285,6 +1390,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.size = 8
 
 -- Display: Username
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -1308,6 +1418,11 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.size = 
 
 -- Display: Venue Instrument Id
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.venue_instrument_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Venue Instrument Id: No Value"
+  end
+
   return "Venue Instrument Id: "..value
 end
 
@@ -2265,7 +2380,7 @@ tcp_table:add_for_decode_as(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.

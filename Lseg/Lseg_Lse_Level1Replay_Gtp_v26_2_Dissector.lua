@@ -187,6 +187,11 @@ lseg_lse_level1replay_gtp_v26_2.auction_info.size = 1
 
 -- Display: Auction Info
 lseg_lse_level1replay_gtp_v26_2.auction_info.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Info: No Value"
+  end
+
   if value == "0" then
     return "Auction Info: Not Applicable (0)"
   end
@@ -210,7 +215,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.auction_info.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.auction_info.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.auction_info.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.auction_info, range, value, display)
@@ -226,6 +239,11 @@ lseg_lse_level1replay_gtp_v26_2.auction_type.size = 1
 
 -- Display: Auction Type
 lseg_lse_level1replay_gtp_v26_2.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
   if value == "C" then
     return "Auction Type: Closing Auction (C)"
   end
@@ -252,7 +270,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.auction_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.auction_type, range, value, display)
@@ -407,6 +433,11 @@ lseg_lse_level1replay_gtp_v26_2.currency.size = 3
 
 -- Display: Currency
 lseg_lse_level1replay_gtp_v26_2.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
   return "Currency: "..value
 end
 
@@ -459,6 +490,11 @@ lseg_lse_level1replay_gtp_v26_2.event_code.size = 1
 
 -- Display: Event Code
 lseg_lse_level1replay_gtp_v26_2.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
   if value == "C" then
     return "Event Code: End Of Day (C)"
   end
@@ -473,7 +509,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.event_code.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.event_code.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.event_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.event_code, range, value, display)
@@ -649,6 +693,11 @@ lseg_lse_level1replay_gtp_v26_2.isin.size = 12
 
 -- Display: Isin
 lseg_lse_level1replay_gtp_v26_2.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
   return "Isin: "..value
 end
 
@@ -695,6 +744,11 @@ lseg_lse_level1replay_gtp_v26_2.login_status.size = 1
 
 -- Display: Login Status
 lseg_lse_level1replay_gtp_v26_2.login_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Login Status: No Value"
+  end
+
   if value == "A" then
     return "Login Status: Login Accepted (A)"
   end
@@ -724,7 +778,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.login_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.login_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.login_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.login_status, range, value, display)
@@ -872,6 +934,11 @@ lseg_lse_level1replay_gtp_v26_2.new_end_time.size = 6
 
 -- Display: New End Time
 lseg_lse_level1replay_gtp_v26_2.new_end_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New End Time: No Value"
+  end
+
   if #value < 6 then
     return "New End Time: "..value
   end
@@ -883,7 +950,7 @@ end
 lseg_lse_level1replay_gtp_v26_2.new_end_time.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.new_end_time.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = lseg_lse_level1replay_gtp_v26_2.new_end_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.new_end_time, range, value, display)
@@ -1032,6 +1099,11 @@ lseg_lse_level1replay_gtp_v26_2.opening_closing_price_indicator.size = 1
 
 -- Display: Opening Closing Price Indicator
 lseg_lse_level1replay_gtp_v26_2.opening_closing_price_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Opening Closing Price Indicator: No Value"
+  end
+
   if value == "A" then
     return "Opening Closing Price Indicator: Ut (A)"
   end
@@ -1061,7 +1133,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.opening_closing_price_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.opening_closing_price_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.opening_closing_price_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.opening_closing_price_indicator, range, value, display)
@@ -1113,6 +1193,11 @@ lseg_lse_level1replay_gtp_v26_2.partition_id.size = 1
 
 -- Display: Partition Id
 lseg_lse_level1replay_gtp_v26_2.partition_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Partition Id: No Value"
+  end
+
   return "Partition Id: "..value
 end
 
@@ -1120,7 +1205,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.partition_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.partition_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.partition_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.partition_id, range, value, display)
@@ -1165,6 +1258,11 @@ lseg_lse_level1replay_gtp_v26_2.replay_status.size = 1
 
 -- Display: Replay Status
 lseg_lse_level1replay_gtp_v26_2.replay_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Replay Status: No Value"
+  end
+
   if value == "A" then
     return "Replay Status: Request Accepted (A)"
   end
@@ -1191,7 +1289,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.replay_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.replay_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.replay_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.replay_status, range, value, display)
@@ -1345,6 +1451,11 @@ lseg_lse_level1replay_gtp_v26_2.segment.size = 6
 
 -- Display: Segment
 lseg_lse_level1replay_gtp_v26_2.segment.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Segment: No Value"
+  end
+
   return "Segment: "..value
 end
 
@@ -1636,6 +1747,11 @@ lseg_lse_level1replay_gtp_v26_2.tick_id.size = 2
 
 -- Display: Tick Id
 lseg_lse_level1replay_gtp_v26_2.tick_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Tick Id: No Value"
+  end
+
   return "Tick Id: "..value
 end
 
@@ -1709,6 +1825,11 @@ lseg_lse_level1replay_gtp_v26_2.trade_qualifier.size = 1
 
 -- Display: Trade Qualifier
 lseg_lse_level1replay_gtp_v26_2.trade_qualifier.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Qualifier: No Value"
+  end
+
   if value == " " then
     return "Trade Qualifier: Na (<whitespace>)"
   end
@@ -1723,7 +1844,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.trade_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.trade_qualifier.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.trade_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.trade_qualifier, range, value, display)
@@ -1787,6 +1916,11 @@ lseg_lse_level1replay_gtp_v26_2.trading_status.size = 1
 
 -- Display: Trading Status
 lseg_lse_level1replay_gtp_v26_2.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
   if value == "H" then
     return "Trading Status: Halt (H)"
   end
@@ -1861,7 +1995,15 @@ end
 lseg_lse_level1replay_gtp_v26_2.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level1replay_gtp_v26_2.trading_status.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = lseg_lse_level1replay_gtp_v26_2.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level1replay_gtp_v26_2.fields.trading_status, range, value, display)
@@ -1962,6 +2104,11 @@ lseg_lse_level1replay_gtp_v26_2.username.size = 8
 
 -- Display: Username
 lseg_lse_level1replay_gtp_v26_2.username.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -1985,6 +2132,11 @@ lseg_lse_level1replay_gtp_v26_2.venue_instrument_id.size = 11
 
 -- Display: Venue Instrument Id
 lseg_lse_level1replay_gtp_v26_2.venue_instrument_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Venue Instrument Id: No Value"
+  end
+
   return "Venue Instrument Id: "..value
 end
 
@@ -3467,7 +3619,7 @@ tcp_table:add_for_decode_as(omi_lseg_lse_level1replay_gtp_v26_2)
 -- Script:
 --   Generator: 1.5.0.0
 --   Compiler: 2.0
---   License: Public/GPLv3
+--   License: GPL-2.0-or-later
 --   Authors: Omi Developers
 --
 -- Copyright (c) 2026 Scaled Sources LLC.
