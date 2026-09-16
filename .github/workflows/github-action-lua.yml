@@ -148,14 +148,23 @@ jobs:
       - name: Run Iex IexEquities Deep IexTp 1.06 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Deep-IexTp-v1-06-Test.sh
 
+      - name: Run Iex IexEquities Deep IexTp 1.08 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-Deep-IexTp-v1-08-Test.sh
+
       - name: Run Iex IexEquities DeepPlus IexTp 1.01 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-DeepPlus-IexTp-v1-01-Test.sh
+
+      - name: Run Iex IexEquities DeepPlus IexTp 1.04 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-DeepPlus-IexTp-v1-04-Test.sh
 
       - name: Run Iex IexEquities Tops IexTp 1.56 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-56-Test.sh
 
       - name: Run Iex IexEquities Tops IexTp 1.64 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-64-Test.sh
+
+      - name: Run Iex IexEquities Tops IexTp 1.66 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-66-Test.sh
 
       - name: Run Imperative IntelligentCross DepthOfBook Aspen 1.11 Dissector Tests
         run: bash -x .github/tests/Imperative-IntelligentCross-DepthOfBook-Aspen-v1-11-Test.sh
@@ -241,8 +250,17 @@ jobs:
       - name: Run Nyse ArcaEquities Bbo Xdp 2.4.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaEquities-Bbo-Xdp-v2-4-c-Test.sh
 
+      - name: Run Nyse ArcaEquities IntegratedFeed Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaEquities-IntegratedFeed-Pillar-v2-5-g-Test.sh
+
       - name: Run Nyse ArcaOptions TopFeed Pillar 1.2.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaOptions-TopFeed-Pillar-v1-2-c-Test.sh
+
+      - name: Run Nyse NationalEquities Bbo Pillar 2.5.d Dissector Tests
+        run: bash -x .github/tests/Nyse-NationalEquities-Bbo-Pillar-v2-5-d-Test.sh
+
+      - name: Run Nyse NationalEquities Trades Pillar 2.6 Dissector Tests
+        run: bash -x .github/tests/Nyse-NationalEquities-Trades-Pillar-v2-6-Test.sh
 
       - name: Run Nyse NyseEquities Bbo Pillar 2.5.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-Bbo-Pillar-v2-5-b-Test.sh

@@ -201,13 +201,11 @@ cboe_edgaequities_multicastdepthofbook_pitch_v2_41_64.conversation.current = nil
 trim_right_spaces = function(str)
   local finish = str:len()
 
-  for i = 1, finish do
-    if str:byte(i) == 0x20 then
-      return str:sub(1, i - 1)
-    end
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
   end
 
-  return str
+  return str:sub(1, finish)
 end
 
 
