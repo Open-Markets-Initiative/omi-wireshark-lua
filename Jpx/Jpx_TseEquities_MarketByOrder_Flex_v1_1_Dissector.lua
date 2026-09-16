@@ -225,12 +225,22 @@ jpx_tseequities_marketbyorder_flex_v1_1.best_bid = {}
 jpx_tseequities_marketbyorder_flex_v1_1.best_bid.size = 8
 
 -- Display: Best Bid
-jpx_tseequities_marketbyorder_flex_v1_1.best_bid.display = function(value)
+jpx_tseequities_marketbyorder_flex_v1_1.best_bid.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Best Bid: No Value"
+  end
+
   return "Best Bid: "..value
 end
 
 -- Translate: Best Bid
 jpx_tseequities_marketbyorder_flex_v1_1.best_bid.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -240,7 +250,7 @@ jpx_tseequities_marketbyorder_flex_v1_1.best_bid.dissect = function(buffer, offs
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = jpx_tseequities_marketbyorder_flex_v1_1.best_bid.translate(raw)
-  local display = jpx_tseequities_marketbyorder_flex_v1_1.best_bid.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_marketbyorder_flex_v1_1.best_bid.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.best_bid, range, value, display)
 
@@ -254,12 +264,22 @@ jpx_tseequities_marketbyorder_flex_v1_1.best_offer = {}
 jpx_tseequities_marketbyorder_flex_v1_1.best_offer.size = 8
 
 -- Display: Best Offer
-jpx_tseequities_marketbyorder_flex_v1_1.best_offer.display = function(value)
+jpx_tseequities_marketbyorder_flex_v1_1.best_offer.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return "Best Offer: No Value"
+  end
+
   return "Best Offer: "..value
 end
 
 -- Translate: Best Offer
 jpx_tseequities_marketbyorder_flex_v1_1.best_offer.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0x00000000, 0x00000000) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -269,7 +289,7 @@ jpx_tseequities_marketbyorder_flex_v1_1.best_offer.dissect = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = jpx_tseequities_marketbyorder_flex_v1_1.best_offer.translate(raw)
-  local display = jpx_tseequities_marketbyorder_flex_v1_1.best_offer.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_marketbyorder_flex_v1_1.best_offer.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.best_offer, range, value, display)
 
@@ -827,12 +847,22 @@ jpx_tseequities_marketbyorder_flex_v1_1.price = {}
 jpx_tseequities_marketbyorder_flex_v1_1.price.size = 8
 
 -- Display: Price
-jpx_tseequities_marketbyorder_flex_v1_1.price.display = function(value)
+jpx_tseequities_marketbyorder_flex_v1_1.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 jpx_tseequities_marketbyorder_flex_v1_1.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return 0/0
+  end
+
   return raw:tonumber()/10000
 end
 
@@ -842,7 +872,7 @@ jpx_tseequities_marketbyorder_flex_v1_1.price.dissect = function(buffer, offset,
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = jpx_tseequities_marketbyorder_flex_v1_1.price.translate(raw)
-  local display = jpx_tseequities_marketbyorder_flex_v1_1.price.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_marketbyorder_flex_v1_1.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_marketbyorder_flex_v1_1.fields.price, range, value, display)
 
