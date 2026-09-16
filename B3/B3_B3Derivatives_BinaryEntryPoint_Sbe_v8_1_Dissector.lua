@@ -400,7 +400,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.account_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.account_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.account_type, range, value, display)
@@ -458,7 +458,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.aggressor_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.aggressor_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.aggressor_indicator, range, value, display)
@@ -956,7 +956,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cancel_on_disconnect_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.cancel_on_disconnect_type, range, value, display)
@@ -1021,7 +1021,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_name_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_name_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_name_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.client_app_name_length, range, value, display)
@@ -1063,7 +1063,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_version_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_version_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_version_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.client_app_version_length, range, value, display)
@@ -1105,7 +1105,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_ip_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_ip_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_ip_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.client_ip_length, range, value, display)
@@ -1232,7 +1232,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.contrary_instruction_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.contrary_instruction_indicator, range, value, display)
@@ -1297,7 +1297,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.credentials_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.credentials_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.credentials_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.credentials_length, range, value, display)
@@ -1333,7 +1333,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_prioritization.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_prioritization.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_prioritization.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.cross_prioritization, range, value, display)
@@ -1366,7 +1366,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.cross_type, range, value, display)
@@ -1606,7 +1606,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.cxl_rej_response_to.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.cxl_rej_response_to, range, value, display)
@@ -1699,7 +1699,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.desk_id_length, range, value, display)
@@ -1904,7 +1904,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.establishment_reject_code.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.establishment_reject_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.establishment_reject_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.establishment_reject_code, range, value, display)
@@ -2042,7 +2042,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.exec_restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.exec_restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.exec_restatement_reason, range, value, display)
@@ -2688,7 +2688,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.market_segment_id, range, value, display)
@@ -2711,7 +2711,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id_optional.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.market_segment_id_optional, range, value, display)
@@ -2780,7 +2780,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mass_action_reject_reason, range, value, display)
@@ -2904,7 +2904,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_scope.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_scope.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mass_action_scope, range, value, display)
@@ -2937,7 +2937,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_action_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mass_action_type, range, value, display)
@@ -2970,7 +2970,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mass_cancel_restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mass_cancel_restatement_reason, range, value, display)
@@ -3068,7 +3068,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.memo_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.memo_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.memo_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.memo_length, range, value, display)
@@ -3149,7 +3149,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset, range, value, display)
@@ -3182,7 +3182,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.mm_protection_reset_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.mm_protection_reset_optional, range, value, display)
@@ -3317,7 +3317,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.negotiation_reject_code.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.negotiation_reject_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.negotiation_reject_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.negotiation_reject_code, range, value, display)
@@ -3363,7 +3363,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.num_in_group, range, value, display)
@@ -5565,7 +5565,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ordtagid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.ordtagid, range, value, display)
@@ -5993,7 +5993,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.pos_trans_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.pos_trans_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.pos_trans_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.pos_trans_type, range, value, display)
@@ -6071,7 +6071,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.poss_resend.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.poss_resend.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.poss_resend.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.poss_resend, range, value, display)
@@ -6581,7 +6581,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_status.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.quote_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.quote_status, range, value, display)
@@ -6807,7 +6807,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.ref_msg_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ref_msg_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.ref_msg_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.ref_msg_type, range, value, display)
@@ -6904,7 +6904,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.retransmit_reject_code.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.retransmit_reject_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.retransmit_reject_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.retransmit_reject_code, range, value, display)
@@ -6943,7 +6943,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.routing_instruction.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.routing_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.routing_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.routing_instruction, range, value, display)
@@ -7179,7 +7179,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.security_response_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.security_response_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.security_response_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.security_response_type, range, value, display)
@@ -7269,7 +7269,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.security_trading_status, range, value, display)
@@ -7305,7 +7305,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.self_trade_prevention_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.self_trade_prevention_instruction, range, value, display)
@@ -7708,7 +7708,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.single_cancel_restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.single_cancel_restatement_reason, range, value, display)
@@ -8036,7 +8036,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.termination_code.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.termination_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.termination_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.termination_code, range, value, display)
@@ -8078,7 +8078,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.text_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.text_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.text_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.text_length, range, value, display)
@@ -8333,7 +8333,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.tot_no_related_sym.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.tot_no_related_sym.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.tot_no_related_sym.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.tot_no_related_sym, range, value, display)
@@ -8468,7 +8468,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.trading_session_id.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.trading_session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.trading_session_id, range, value, display)
@@ -8513,7 +8513,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.trading_session_sub_id, range, value, display)
@@ -8597,7 +8597,7 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.working_indicator.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryentrypoint_sbe_v8_1.working_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_1.working_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_1.fields.working_indicator, range, value, display)
@@ -8619,11 +8619,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.text.size = function(buffer, offset)
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.text_length.size
 
-  local text_length = buffer(offset + 0, 1):le_uint()
+  local text_length = buffer(offset + 0, 1):uint()
 
   if text_length > 0 then
     -- Parse runtime size of: Text Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 
@@ -9142,11 +9142,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.memo.size = function(buffer, offset)
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.memo_length.size
 
-  local memo_length = buffer(offset + 0, 1):le_uint()
+  local memo_length = buffer(offset + 0, 1):uint()
 
   if memo_length > 0 then
     -- Parse runtime size of: Memo Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 
@@ -9213,11 +9213,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id.size = function(buffer, offse
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.desk_id_length.size
 
-  local desk_id_length = buffer(offset + 0, 1):le_uint()
+  local desk_id_length = buffer(offset + 0, 1):uint()
 
   if desk_id_length > 0 then
     -- Parse runtime size of: Desk Id Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 
@@ -9503,7 +9503,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.positions_groups.size = function(buff
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.size
 
   -- Calculate field size from count
-  local positions_group_count = buffer(offset + index - 1, 1):le_uint()
+  local positions_group_count = buffer(offset + index - 1, 1):uint()
   index = index + positions_group_count * 17
 
   return index
@@ -9522,7 +9522,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.positions_groups.fields = function(bu
   index, group_size_encoding = b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Positions Group
   for positions_group_index = 1, num_in_group do
@@ -9924,7 +9924,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.sides_groups.size = function(buffer, 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.size
 
   -- Calculate field size from count
-  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  local sides_group_count = buffer(offset + index - 1, 1):uint()
   index = index + sides_group_count * 5
 
   return index
@@ -9943,7 +9943,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.sides_groups.fields = function(buffer
   index, group_size_encoding = b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Sides Group
   for sides_group_index = 1, num_in_group do
@@ -10830,7 +10830,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.legs_groups.size = function(buffer, o
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.size
 
   -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + legs_group_count * 30
 
   return index
@@ -10849,7 +10849,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.legs_groups.fields = function(buffer,
   index, group_size_encoding = b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Legs Group
   for legs_group_index = 1, num_in_group do
@@ -12344,7 +12344,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_sides_groups.size = function(bu
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.size
 
   -- Calculate field size from count
-  local cross_sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  local cross_sides_group_count = buffer(offset + index - 1, 1):uint()
   index = index + cross_sides_group_count * 18
 
   return index
@@ -12363,7 +12363,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.cross_sides_groups.fields = function(
   index, group_size_encoding = b3_b3derivatives_binaryentrypoint_sbe_v8_1.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Cross Sides Group
   for cross_sides_group_index = 1, num_in_group do
@@ -13692,11 +13692,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.credentials.size = function(buffer, o
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.credentials_length.size
 
-  local credentials_length = buffer(offset + 0, 1):le_uint()
+  local credentials_length = buffer(offset + 0, 1):uint()
 
   if credentials_length > 0 then
     -- Parse runtime size of: Credentials Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 
@@ -13964,11 +13964,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_version.size = function(bu
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_version_length.size
 
-  local client_app_version_length = buffer(offset + 0, 1):le_uint()
+  local client_app_version_length = buffer(offset + 0, 1):uint()
 
   if client_app_version_length > 0 then
     -- Parse runtime size of: Client App Version Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 
@@ -14035,11 +14035,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_name.size = function(buffe
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_app_name_length.size
 
-  local client_app_name_length = buffer(offset + 0, 1):le_uint()
+  local client_app_name_length = buffer(offset + 0, 1):uint()
 
   if client_app_name_length > 0 then
     -- Parse runtime size of: Client App Name Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 
@@ -14106,11 +14106,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_ip.size = function(buffer, off
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_1.client_ip_length.size
 
-  local client_ip_length = buffer(offset + 0, 1):le_uint()
+  local client_ip_length = buffer(offset + 0, 1):uint()
 
   if client_ip_length > 0 then
     -- Parse runtime size of: Client Ip Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 

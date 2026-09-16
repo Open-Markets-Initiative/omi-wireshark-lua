@@ -255,7 +255,7 @@ end
 cme_globex_settlements_sbe_v7_0.day.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.day.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_settlements_sbe_v7_0.day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.day, range, value, display)
@@ -310,7 +310,7 @@ end
 cme_globex_settlements_sbe_v7_0.exponent.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.exponent.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_settlements_sbe_v7_0.exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.exponent, range, value, display)
@@ -605,7 +605,7 @@ end
 cme_globex_settlements_sbe_v7_0.md_update_action.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.md_update_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_settlements_sbe_v7_0.md_update_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.md_update_action, range, value, display)
@@ -679,7 +679,7 @@ end
 cme_globex_settlements_sbe_v7_0.month.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.month.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_settlements_sbe_v7_0.month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.month, range, value, display)
@@ -702,7 +702,7 @@ end
 cme_globex_settlements_sbe_v7_0.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_settlements_sbe_v7_0.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.num_in_group, range, value, display)
@@ -732,7 +732,7 @@ end
 cme_globex_settlements_sbe_v7_0.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.open_close_settl_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_settlements_sbe_v7_0.open_close_settl_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.open_close_settl_flag, range, value, display)
@@ -844,7 +844,7 @@ end
 cme_globex_settlements_sbe_v7_0.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_settlements_sbe_v7_0.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.put_or_call, range, value, display)
@@ -1380,7 +1380,7 @@ end
 cme_globex_settlements_sbe_v7_0.week.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_settlements_sbe_v7_0.week.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_settlements_sbe_v7_0.week.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.week, range, value, display)
@@ -1880,7 +1880,7 @@ cme_globex_settlements_sbe_v7_0.incremental_refresh_high_low_groups.size = funct
   index = index + cme_globex_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_high_low_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_high_low_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_high_low_group_count * 142
 
   return index
@@ -1899,7 +1899,7 @@ cme_globex_settlements_sbe_v7_0.incremental_refresh_high_low_groups.fields = fun
   index, group_size = cme_globex_settlements_sbe_v7_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh High Low Group
   for incremental_refresh_high_low_group_index = 1, num_in_group do
@@ -2105,7 +2105,7 @@ cme_globex_settlements_sbe_v7_0.incremental_refresh_voi_groups.size = function(b
   index = index + cme_globex_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_voi_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_voi_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_voi_group_count * 131
 
   return index
@@ -2124,7 +2124,7 @@ cme_globex_settlements_sbe_v7_0.incremental_refresh_voi_groups.fields = function
   index, group_size = cme_globex_settlements_sbe_v7_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh Voi Group
   for incremental_refresh_voi_group_index = 1, num_in_group do
@@ -2485,7 +2485,7 @@ cme_globex_settlements_sbe_v7_0.incremental_refresh_settle_groups.size = functio
   index = index + cme_globex_settlements_sbe_v7_0.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_settle_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_settle_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_settle_group_count * 182
 
   return index
@@ -2504,7 +2504,7 @@ cme_globex_settlements_sbe_v7_0.incremental_refresh_settle_groups.fields = funct
   index, group_size = cme_globex_settlements_sbe_v7_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh Settle Group
   for incremental_refresh_settle_group_index = 1, num_in_group do

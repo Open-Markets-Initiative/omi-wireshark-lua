@@ -531,7 +531,7 @@ end
 cme_globex_ilink3_sbe_v8_5.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.aggressor_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.aggressor_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.aggressor_indicator, range, value, display)
@@ -561,7 +561,7 @@ end
 cme_globex_ilink3_sbe_v8_5.auto_quote_request.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.auto_quote_request.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.auto_quote_request.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.auto_quote_request, range, value, display)
@@ -636,7 +636,7 @@ end
 cme_globex_ilink3_sbe_v8_5.avg_px_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.avg_px_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.avg_px_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.avg_px_indicator, range, value, display)
@@ -849,7 +849,7 @@ end
 cme_globex_ilink3_sbe_v8_5.clearing_account_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.clearing_account_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.clearing_account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.clearing_account_type, range, value, display)
@@ -882,7 +882,7 @@ end
 cme_globex_ilink3_sbe_v8_5.clearing_trade_price_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.clearing_trade_price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.clearing_trade_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.clearing_trade_price_type, range, value, display)
@@ -1085,7 +1085,7 @@ end
 cme_globex_ilink3_sbe_v8_5.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.cross_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.cross_type, range, value, display)
@@ -1186,7 +1186,7 @@ end
 cme_globex_ilink3_sbe_v8_5.cust_order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.cust_order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.cust_order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.cust_order_capacity, range, value, display)
@@ -1315,7 +1315,7 @@ end
 cme_globex_ilink3_sbe_v8_5.day.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.day.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.day, range, value, display)
@@ -1603,7 +1603,7 @@ end
 cme_globex_ilink3_sbe_v8_5.exec_ack_status.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.exec_ack_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.exec_ack_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.exec_ack_status, range, value, display)
@@ -1696,7 +1696,7 @@ end
 cme_globex_ilink3_sbe_v8_5.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.exec_restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.exec_restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.exec_restatement_reason, range, value, display)
@@ -1843,7 +1843,7 @@ end
 cme_globex_ilink3_sbe_v8_5.expiration_cycle.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.expiration_cycle.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.expiration_cycle.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.expiration_cycle, range, value, display)
@@ -1899,7 +1899,7 @@ end
 cme_globex_ilink3_sbe_v8_5.exponent.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.exponent.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_ilink3_sbe_v8_5.exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.exponent, range, value, display)
@@ -1932,7 +1932,7 @@ end
 cme_globex_ilink3_sbe_v8_5.fault_tolerance_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.fault_tolerance_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.fault_tolerance_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.fault_tolerance_indicator, range, value, display)
@@ -2046,7 +2046,7 @@ end
 cme_globex_ilink3_sbe_v8_5.fill_yield_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.fill_yield_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.fill_yield_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.fill_yield_type, range, value, display)
@@ -2279,7 +2279,7 @@ end
 cme_globex_ilink3_sbe_v8_5.keep_alive_interval_lapsed.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.keep_alive_interval_lapsed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.keep_alive_interval_lapsed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.keep_alive_interval_lapsed, range, value, display)
@@ -2309,7 +2309,7 @@ end
 cme_globex_ilink3_sbe_v8_5.last_fragment.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.last_fragment.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.last_fragment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.last_fragment, range, value, display)
@@ -2394,7 +2394,7 @@ end
 cme_globex_ilink3_sbe_v8_5.last_rpt_requested.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.last_rpt_requested.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.last_rpt_requested.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.last_rpt_requested, range, value, display)
@@ -2615,7 +2615,7 @@ end
 cme_globex_ilink3_sbe_v8_5.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.leg_ratio_qty.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.leg_ratio_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.leg_ratio_qty, range, value, display)
@@ -2668,7 +2668,7 @@ end
 cme_globex_ilink3_sbe_v8_5.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.leg_side, range, value, display)
@@ -2752,7 +2752,7 @@ end
 cme_globex_ilink3_sbe_v8_5.liquidity_flag.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.liquidity_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.liquidity_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.liquidity_flag, range, value, display)
@@ -2906,7 +2906,7 @@ end
 cme_globex_ilink3_sbe_v8_5.managed_order.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.managed_order.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.managed_order.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.managed_order, range, value, display)
@@ -2992,7 +2992,7 @@ end
 cme_globex_ilink3_sbe_v8_5.manual_order_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.manual_order_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.manual_order_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.manual_order_indicator, range, value, display)
@@ -3025,7 +3025,7 @@ end
 cme_globex_ilink3_sbe_v8_5.manual_order_indicator_optional.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.manual_order_indicator_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.manual_order_indicator_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.manual_order_indicator_optional, range, value, display)
@@ -3053,7 +3053,7 @@ end
 cme_globex_ilink3_sbe_v8_5.market_segment_id.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.market_segment_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.market_segment_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.market_segment_id, range, value, display)
@@ -3124,7 +3124,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mass_action_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mass_action_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mass_action_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mass_action_reject_reason, range, value, display)
@@ -3177,7 +3177,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mass_action_response.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mass_action_response.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mass_action_response.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mass_action_response, range, value, display)
@@ -3216,7 +3216,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mass_action_scope.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mass_action_scope.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mass_action_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mass_action_scope, range, value, display)
@@ -3249,7 +3249,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mass_cancel_request_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mass_cancel_request_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mass_cancel_request_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mass_cancel_request_type, range, value, display)
@@ -3285,7 +3285,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mass_cancel_tif.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mass_cancel_tif.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mass_cancel_tif.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mass_cancel_tif, range, value, display)
@@ -3369,7 +3369,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mass_status_req_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mass_status_req_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mass_status_req_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mass_status_req_type, range, value, display)
@@ -3405,7 +3405,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mass_status_tif.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mass_status_tif.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mass_status_tif.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mass_status_tif, range, value, display)
@@ -3433,7 +3433,7 @@ end
 cme_globex_ilink3_sbe_v8_5.max_no_of_substitutions.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.max_no_of_substitutions.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.max_no_of_substitutions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.max_no_of_substitutions, range, value, display)
@@ -3576,7 +3576,7 @@ end
 cme_globex_ilink3_sbe_v8_5.mm_protection_reset.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.mm_protection_reset.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.mm_protection_reset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.mm_protection_reset, range, value, display)
@@ -3604,7 +3604,7 @@ end
 cme_globex_ilink3_sbe_v8_5.month.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.month.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.month, range, value, display)
@@ -3719,7 +3719,7 @@ end
 cme_globex_ilink3_sbe_v8_5.no_processed_quotes.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.no_processed_quotes.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.no_processed_quotes.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.no_processed_quotes, range, value, display)
@@ -3742,7 +3742,7 @@ end
 cme_globex_ilink3_sbe_v8_5.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.num_in_group, range, value, display)
@@ -3839,7 +3839,7 @@ end
 cme_globex_ilink3_sbe_v8_5.ofm_override.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.ofm_override.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.ofm_override.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.ofm_override, range, value, display)
@@ -4007,7 +4007,7 @@ end
 cme_globex_ilink3_sbe_v8_5.ord_status_req_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.ord_status_req_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.ord_status_req_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.ord_status_req_type, range, value, display)
@@ -4037,7 +4037,7 @@ end
 cme_globex_ilink3_sbe_v8_5.ord_status_trd.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.ord_status_trd.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.ord_status_trd.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.ord_status_trd, range, value, display)
@@ -4279,7 +4279,7 @@ end
 cme_globex_ilink3_sbe_v8_5.order_event_reason.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.order_event_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.order_event_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.order_event_reason, range, value, display)
@@ -4351,7 +4351,7 @@ end
 cme_globex_ilink3_sbe_v8_5.order_event_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.order_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.order_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.order_event_type, range, value, display)
@@ -4594,7 +4594,7 @@ end
 cme_globex_ilink3_sbe_v8_5.ownership.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.ownership.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.ownership.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.ownership, range, value, display)
@@ -4617,7 +4617,7 @@ end
 cme_globex_ilink3_sbe_v8_5.party_detail_definition_status.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.party_detail_definition_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.party_detail_definition_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.party_detail_definition_status, range, value, display)
@@ -4679,7 +4679,7 @@ end
 cme_globex_ilink3_sbe_v8_5.party_detail_request_status.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.party_detail_request_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.party_detail_request_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.party_detail_request_status, range, value, display)
@@ -4904,7 +4904,7 @@ end
 cme_globex_ilink3_sbe_v8_5.poss_retrans_flag.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.poss_retrans_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.poss_retrans_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.poss_retrans_flag, range, value, display)
@@ -5048,7 +5048,7 @@ end
 cme_globex_ilink3_sbe_v8_5.quote_ack_status.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.quote_ack_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.quote_ack_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.quote_ack_status, range, value, display)
@@ -5084,7 +5084,7 @@ end
 cme_globex_ilink3_sbe_v8_5.quote_cancel_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.quote_cancel_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.quote_cancel_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.quote_cancel_type, range, value, display)
@@ -5123,7 +5123,7 @@ end
 cme_globex_ilink3_sbe_v8_5.quote_cxl_status.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.quote_cxl_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.quote_cxl_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.quote_cxl_status, range, value, display)
@@ -5169,7 +5169,7 @@ end
 cme_globex_ilink3_sbe_v8_5.quote_entry_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.quote_entry_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.quote_entry_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.quote_entry_reject_reason, range, value, display)
@@ -5347,7 +5347,7 @@ end
 cme_globex_ilink3_sbe_v8_5.quote_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.quote_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.quote_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.quote_type, range, value, display)
@@ -5517,7 +5517,7 @@ end
 cme_globex_ilink3_sbe_v8_5.request_result.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.request_result.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.request_result.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.request_result, range, value, display)
@@ -5753,7 +5753,7 @@ end
 cme_globex_ilink3_sbe_v8_5.rfq_side.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.rfq_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.rfq_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.rfq_side, range, value, display)
@@ -6000,7 +6000,7 @@ end
 cme_globex_ilink3_sbe_v8_5.security_response_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.security_response_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.security_response_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.security_response_type, range, value, display)
@@ -6355,7 +6355,7 @@ end
 cme_globex_ilink3_sbe_v8_5.short_sale_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.short_sale_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.short_sale_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.short_sale_type, range, value, display)
@@ -6385,7 +6385,7 @@ end
 cme_globex_ilink3_sbe_v8_5.side.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.side, range, value, display)
@@ -6418,7 +6418,7 @@ end
 cme_globex_ilink3_sbe_v8_5.side_optional.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.side_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.side_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.side_optional, range, value, display)
@@ -6448,7 +6448,7 @@ end
 cme_globex_ilink3_sbe_v8_5.side_time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.side_time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.side_time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.side_time_in_force, range, value, display)
@@ -6535,7 +6535,7 @@ end
 cme_globex_ilink3_sbe_v8_5.split_msg.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.split_msg.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.split_msg.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.split_msg, range, value, display)
@@ -6926,7 +6926,7 @@ end
 cme_globex_ilink3_sbe_v8_5.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.time_in_force, range, value, display)
@@ -6949,7 +6949,7 @@ end
 cme_globex_ilink3_sbe_v8_5.tot_no_quote_entries.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.tot_no_quote_entries.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.tot_no_quote_entries.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.tot_no_quote_entries, range, value, display)
@@ -6977,7 +6977,7 @@ end
 cme_globex_ilink3_sbe_v8_5.tot_no_quote_entries_optional.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.tot_no_quote_entries_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.tot_no_quote_entries_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.tot_no_quote_entries_optional, range, value, display)
@@ -7046,7 +7046,7 @@ end
 cme_globex_ilink3_sbe_v8_5.total_num_securities.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.total_num_securities.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.total_num_securities.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.total_num_securities, range, value, display)
@@ -7082,7 +7082,7 @@ end
 cme_globex_ilink3_sbe_v8_5.trade_addendum.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.trade_addendum.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.trade_addendum.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.trade_addendum, range, value, display)
@@ -7328,7 +7328,7 @@ end
 cme_globex_ilink3_sbe_v8_5.trd_reg_publication_reason.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.trd_reg_publication_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.trd_reg_publication_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.trd_reg_publication_reason, range, value, display)
@@ -7351,7 +7351,7 @@ end
 cme_globex_ilink3_sbe_v8_5.trd_reg_publication_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.trd_reg_publication_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.trd_reg_publication_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.trd_reg_publication_type, range, value, display)
@@ -7532,7 +7532,7 @@ end
 cme_globex_ilink3_sbe_v8_5.week.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ilink3_sbe_v8_5.week.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ilink3_sbe_v8_5.week.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ilink3_sbe_v8_5.fields.week, range, value, display)
@@ -7677,7 +7677,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_ack_sets_groups.size = function(buffer, 
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_ack_sets_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_cancel_ack_sets_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_cancel_ack_sets_group_count * 4
 
   return index
@@ -7696,7 +7696,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_ack_sets_groups.fields = function(buffer
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Quote Cancel Ack Sets Group
   for quote_cancel_ack_sets_group_index = 1, num_in_group do
@@ -7788,7 +7788,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_ack_entries_groups.size = function(buffe
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_ack_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_cancel_ack_entries_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_cancel_ack_entries_group_count * 9
 
   return index
@@ -7807,7 +7807,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_ack_entries_groups.fields = function(buf
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Quote Cancel Ack Entries Group
   for quote_cancel_ack_entries_group_index = 1, num_in_group do
@@ -8059,7 +8059,7 @@ cme_globex_ilink3_sbe_v8_5.affected_orders_groups.size = function(buffer, offset
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local affected_orders_group_count = buffer(offset + index - 1, 1):le_uint()
+  local affected_orders_group_count = buffer(offset + index - 1, 1):uint()
   index = index + affected_orders_group_count * 32
 
   return index
@@ -8078,7 +8078,7 @@ cme_globex_ilink3_sbe_v8_5.affected_orders_groups.fields = function(buffer, offs
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Affected Orders Group
   for affected_orders_group_index = 1, num_in_group do
@@ -8412,7 +8412,7 @@ cme_globex_ilink3_sbe_v8_5.response_legs_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local response_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local response_legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + response_legs_group_count * 19
 
   return index
@@ -8431,7 +8431,7 @@ cme_globex_ilink3_sbe_v8_5.response_legs_groups.fields = function(buffer, offset
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Response Legs Group
   for response_legs_group_index = 1, num_in_group do
@@ -8776,7 +8776,7 @@ cme_globex_ilink3_sbe_v8_5.spread_leg_trade_events_groups.size = function(buffer
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local spread_leg_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local spread_leg_trade_events_group_count = buffer(offset + index - 1, 1):uint()
   index = index + spread_leg_trade_events_group_count * 27
 
   return index
@@ -8795,7 +8795,7 @@ cme_globex_ilink3_sbe_v8_5.spread_leg_trade_events_groups.fields = function(buff
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Spread Leg Trade Events Group
   for spread_leg_trade_events_group_index = 1, num_in_group do
@@ -8891,7 +8891,7 @@ cme_globex_ilink3_sbe_v8_5.fills_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local fills_group_count = buffer(offset + index - 1, 1):le_uint()
+  local fills_group_count = buffer(offset + index - 1, 1):uint()
   index = index + fills_group_count * 15
 
   return index
@@ -8910,7 +8910,7 @@ cme_globex_ilink3_sbe_v8_5.fills_groups.fields = function(buffer, offset, packet
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Fills Group
   for fills_group_index = 1, num_in_group do
@@ -9183,7 +9183,7 @@ cme_globex_ilink3_sbe_v8_5.spread_trade_events_groups.size = function(buffer, of
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local spread_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local spread_trade_events_group_count = buffer(offset + index - 1, 1):uint()
   index = index + spread_trade_events_group_count * 27
 
   return index
@@ -9202,7 +9202,7 @@ cme_globex_ilink3_sbe_v8_5.spread_trade_events_groups.fields = function(buffer, 
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Spread Trade Events Group
   for spread_trade_events_group_index = 1, num_in_group do
@@ -9314,7 +9314,7 @@ cme_globex_ilink3_sbe_v8_5.trade_addendum_legs_groups.size = function(buffer, of
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local trade_addendum_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_addendum_legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_addendum_legs_group_count * 41
 
   return index
@@ -9333,7 +9333,7 @@ cme_globex_ilink3_sbe_v8_5.trade_addendum_legs_groups.fields = function(buffer, 
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Addendum Legs Group
   for trade_addendum_legs_group_index = 1, num_in_group do
@@ -9740,7 +9740,7 @@ cme_globex_ilink3_sbe_v8_5.outright_trade_events_groups.size = function(buffer, 
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local outright_trade_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local outright_trade_events_group_count = buffer(offset + index - 1, 1):uint()
   index = index + outright_trade_events_group_count * 27
 
   return index
@@ -9759,7 +9759,7 @@ cme_globex_ilink3_sbe_v8_5.outright_trade_events_groups.fields = function(buffer
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Outright Trade Events Group
   for outright_trade_events_group_index = 1, num_in_group do
@@ -10149,7 +10149,7 @@ cme_globex_ilink3_sbe_v8_5.quote_ack_entries_groups.size = function(buffer, offs
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local quote_ack_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_ack_entries_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_ack_entries_group_count * 11
 
   return index
@@ -10168,7 +10168,7 @@ cme_globex_ilink3_sbe_v8_5.quote_ack_entries_groups.fields = function(buffer, of
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Quote Ack Entries Group
   for quote_ack_entries_group_index = 1, num_in_group do
@@ -10507,7 +10507,7 @@ cme_globex_ilink3_sbe_v8_5.trd_reg_publications_groups.size = function(buffer, o
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local trd_reg_publications_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trd_reg_publications_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trd_reg_publications_group_count * 2
 
   return index
@@ -10526,7 +10526,7 @@ cme_globex_ilink3_sbe_v8_5.trd_reg_publications_groups.fields = function(buffer,
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Trd Reg Publications Group
   for trd_reg_publications_group_index = 1, num_in_group do
@@ -10614,7 +10614,7 @@ cme_globex_ilink3_sbe_v8_5.party_details_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local party_details_group_count = buffer(offset + index - 1, 1):le_uint()
+  local party_details_group_count = buffer(offset + index - 1, 1):uint()
   index = index + party_details_group_count * 22
 
   return index
@@ -10633,7 +10633,7 @@ cme_globex_ilink3_sbe_v8_5.party_details_groups.fields = function(buffer, offset
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Party Details Group
   for party_details_group_index = 1, num_in_group do
@@ -11664,7 +11664,7 @@ cme_globex_ilink3_sbe_v8_5.spread_leg_order_events_groups.size = function(buffer
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local spread_leg_order_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local spread_leg_order_events_group_count = buffer(offset + index - 1, 1):uint()
   index = index + spread_leg_order_events_group_count * 23
 
   return index
@@ -11683,7 +11683,7 @@ cme_globex_ilink3_sbe_v8_5.spread_leg_order_events_groups.fields = function(buff
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Spread Leg Order Events Group
   for spread_leg_order_events_group_index = 1, num_in_group do
@@ -12183,7 +12183,7 @@ cme_globex_ilink3_sbe_v8_5.spread_order_events_groups.size = function(buffer, of
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local spread_order_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local spread_order_events_group_count = buffer(offset + index - 1, 1):uint()
   index = index + spread_order_events_group_count * 23
 
   return index
@@ -12202,7 +12202,7 @@ cme_globex_ilink3_sbe_v8_5.spread_order_events_groups.fields = function(buffer, 
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Spread Order Events Group
   for spread_order_events_group_index = 1, num_in_group do
@@ -12306,7 +12306,7 @@ cme_globex_ilink3_sbe_v8_5.trade_legs_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local trade_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_legs_group_count * 29
 
   return index
@@ -12325,7 +12325,7 @@ cme_globex_ilink3_sbe_v8_5.trade_legs_groups.fields = function(buffer, offset, p
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Legs Group
   for trade_legs_group_index = 1, num_in_group do
@@ -12679,7 +12679,7 @@ cme_globex_ilink3_sbe_v8_5.outright_order_events_groups.size = function(buffer, 
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local outright_order_events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local outright_order_events_group_count = buffer(offset + index - 1, 1):uint()
   index = index + outright_order_events_group_count * 23
 
   return index
@@ -12698,7 +12698,7 @@ cme_globex_ilink3_sbe_v8_5.outright_order_events_groups.fields = function(buffer
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Outright Order Events Group
   for outright_order_events_group_index = 1, num_in_group do
@@ -14784,7 +14784,7 @@ cme_globex_ilink3_sbe_v8_5.request_legs_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local request_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local request_legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + request_legs_group_count * 19
 
   return index
@@ -14803,7 +14803,7 @@ cme_globex_ilink3_sbe_v8_5.request_legs_groups.fields = function(buffer, offset,
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Request Legs Group
   for request_legs_group_index = 1, num_in_group do
@@ -15008,7 +15008,7 @@ cme_globex_ilink3_sbe_v8_5.sides_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local sides_group_count = buffer(offset + index - 1, 1):le_uint()
+  local sides_group_count = buffer(offset + index - 1, 1):uint()
   index = index + sides_group_count * 34
 
   return index
@@ -15027,7 +15027,7 @@ cme_globex_ilink3_sbe_v8_5.sides_groups.fields = function(buffer, offset, packet
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Sides Group
   for sides_group_index = 1, num_in_group do
@@ -15214,7 +15214,7 @@ cme_globex_ilink3_sbe_v8_5.related_sym_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
+  local related_sym_group_count = buffer(offset + index - 1, 1):uint()
   index = index + related_sym_group_count * 9
 
   return index
@@ -15233,7 +15233,7 @@ cme_globex_ilink3_sbe_v8_5.related_sym_groups.fields = function(buffer, offset, 
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Related Sym Group
   for related_sym_group_index = 1, num_in_group do
@@ -15410,7 +15410,7 @@ cme_globex_ilink3_sbe_v8_5.party_ids_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  local party_ids_group_count = buffer(offset + index - 1, 1):uint()
   index = index + party_ids_group_count * 11
 
   return index
@@ -15429,7 +15429,7 @@ cme_globex_ilink3_sbe_v8_5.party_ids_groups.fields = function(buffer, offset, pa
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Party Ids Group
   for party_ids_group_index = 1, num_in_group do
@@ -15521,7 +15521,7 @@ cme_globex_ilink3_sbe_v8_5.requesting_party_ids_groups.size = function(buffer, o
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local requesting_party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  local requesting_party_ids_group_count = buffer(offset + index - 1, 1):uint()
   index = index + requesting_party_ids_group_count * 7
 
   return index
@@ -15540,7 +15540,7 @@ cme_globex_ilink3_sbe_v8_5.requesting_party_ids_groups.fields = function(buffer,
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Requesting Party Ids Group
   for requesting_party_ids_group_index = 1, num_in_group do
@@ -15953,7 +15953,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_sets_groups.size = function(buffer, offs
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_sets_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_cancel_sets_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_cancel_sets_group_count * 10
 
   return index
@@ -15972,7 +15972,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_sets_groups.fields = function(buffer, of
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Quote Cancel Sets Group
   for quote_cancel_sets_group_index = 1, num_in_group do
@@ -16060,7 +16060,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_entries_groups.size = function(buffer, o
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local quote_cancel_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_cancel_entries_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_cancel_entries_group_count * 10
 
   return index
@@ -16079,7 +16079,7 @@ cme_globex_ilink3_sbe_v8_5.quote_cancel_entries_groups.fields = function(buffer,
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Quote Cancel Entries Group
   for quote_cancel_entries_group_index = 1, num_in_group do
@@ -16416,7 +16416,7 @@ cme_globex_ilink3_sbe_v8_5.quote_entries_groups.size = function(buffer, offset)
   index = index + cme_globex_ilink3_sbe_v8_5.group_size.size
 
   -- Calculate field size from count
-  local quote_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_entries_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_entries_group_count * 38
 
   return index
@@ -16435,7 +16435,7 @@ cme_globex_ilink3_sbe_v8_5.quote_entries_groups.fields = function(buffer, offset
   index, group_size = cme_globex_ilink3_sbe_v8_5.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Quote Entries Group
   for quote_entries_group_index = 1, num_in_group do

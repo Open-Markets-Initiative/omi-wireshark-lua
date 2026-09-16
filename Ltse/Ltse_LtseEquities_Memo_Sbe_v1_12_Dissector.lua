@@ -4523,7 +4523,7 @@ end
 ltse_ltseequities_memo_sbe_v1_12.exec_inst.dissect = function(buffer, offset, packet, parent)
   local size = ltse_ltseequities_memo_sbe_v1_12.exec_inst.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ltse_ltseequities_memo_sbe_v1_12.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.exec_inst, range, display)
 

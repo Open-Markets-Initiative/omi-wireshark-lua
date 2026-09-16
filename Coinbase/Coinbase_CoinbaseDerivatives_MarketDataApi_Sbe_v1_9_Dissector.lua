@@ -1824,7 +1824,7 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.message_count.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.message_count, range, value, display)
@@ -2298,7 +2298,7 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.option_expiry_type.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.option_expiry_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.option_expiry_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.option_expiry_type, range, value, display)
@@ -2583,7 +2583,7 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.product_group.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.product_group.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.product_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.product_group, range, value, display)
@@ -2665,7 +2665,7 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.reason.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.reason, range, value, display)
@@ -3028,7 +3028,7 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spread_buy_convention.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spread_buy_convention.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.spread_buy_convention.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.spread_buy_convention, range, value, display)
@@ -3370,7 +3370,7 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.trading_status, range, value, display)
@@ -3768,7 +3768,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.definition_flags.dissect = f
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.definition_flags.display(range, value, packet, parent)
-  local element = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.definition_flags, range, display)
+  local element = parent:add_le(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.definition_flags, range, display)
 
   if show.structs then
     coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.definition_flags.bits(range, value, packet, element)

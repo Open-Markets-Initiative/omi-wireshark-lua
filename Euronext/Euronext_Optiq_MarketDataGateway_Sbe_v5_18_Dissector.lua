@@ -654,7 +654,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.account_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.account_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.account_type, range, value, display)
@@ -702,7 +702,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.action_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.action_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.action_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.action_type, range, value, display)
@@ -730,7 +730,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.amount_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.amount_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.amount_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.amount_decimals, range, value, display)
@@ -763,7 +763,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.anonymous.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.anonymous.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.anonymous.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.anonymous, range, value, display)
@@ -904,7 +904,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.block_length_short.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.block_length_short.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.block_length_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.block_length_short, range, value, display)
@@ -1007,7 +1007,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.book_state.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.book_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.book_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.book_state, range, value, display)
@@ -1118,7 +1118,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.change_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.change_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.change_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.change_type, range, value, display)
@@ -1243,7 +1243,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.collar_expansion_factor.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.collar_expansion_factor.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.collar_expansion_factor.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.collar_expansion_factor, range, value, display)
@@ -1271,7 +1271,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.collar_max_unhalt_nb.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.collar_max_unhalt_nb.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.collar_max_unhalt_nb.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.collar_max_unhalt_nb, range, value, display)
@@ -1486,7 +1486,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.contract_trading_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.contract_trading_type, range, value, display)
@@ -1775,7 +1775,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.dark_eligibility.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.dark_eligibility.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.dark_eligibility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.dark_eligibility, range, value, display)
@@ -2074,7 +2074,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.derivatives_instrument_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.derivatives_instrument_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.derivatives_instrument_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.derivatives_instrument_type, range, value, display)
@@ -2110,7 +2110,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.derivatives_market_model.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.derivatives_market_model.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.derivatives_market_model.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.derivatives_market_model, range, value, display)
@@ -2269,7 +2269,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.dynamic_collar_logic.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.dynamic_collar_logic.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.dynamic_collar_logic.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.dynamic_collar_logic, range, value, display)
@@ -2330,7 +2330,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.effective_date_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.effective_date_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.effective_date_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.effective_date_indicator, range, value, display)
@@ -2617,7 +2617,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.efficient_mmt_market_mechanism.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.efficient_mmt_market_mechanism.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.efficient_mmt_market_mechanism.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.efficient_mmt_market_mechanism, range, value, display)
@@ -3144,7 +3144,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.emm.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.emm.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.emm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.emm, range, value, display)
@@ -3201,7 +3201,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.emm_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.emm_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.emm_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.emm_optional, range, value, display)
@@ -3476,7 +3476,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.exer_style.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.exer_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.exer_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.exer_style, range, value, display)
@@ -3512,7 +3512,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.expiry_cycle_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.expiry_cycle_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.expiry_cycle_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.expiry_cycle_type, range, value, display)
@@ -3821,7 +3821,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.guarantee_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.guarantee_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.guarantee_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.guarantee_indicator, range, value, display)
@@ -4013,7 +4013,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.imbalance_qty_side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.imbalance_qty_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.imbalance_qty_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.imbalance_qty_side, range, value, display)
@@ -4084,7 +4084,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.index_level_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.index_level_type, range, value, display)
@@ -4129,7 +4129,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.index_price_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.index_price_code, range, value, display)
@@ -4177,7 +4177,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.inst_unit_exp.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.inst_unit_exp.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.inst_unit_exp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.inst_unit_exp, range, value, display)
@@ -4237,7 +4237,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.instrument_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.instrument_category, range, value, display)
@@ -4422,7 +4422,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.instrument_state.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.instrument_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.instrument_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.instrument_state, range, value, display)
@@ -4651,7 +4651,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.issue_price_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.issue_price_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.issue_price_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.issue_price_decimals, range, value, display)
@@ -5042,7 +5042,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.liquid_instrument_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.liquid_instrument_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.liquid_instrument_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.liquid_instrument_indicator, range, value, display)
@@ -5439,7 +5439,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.market_model.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.market_model.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.market_model.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.market_model, range, value, display)
@@ -5696,7 +5696,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.maximum_decimals_in_quantity.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.maximum_decimals_in_quantity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.maximum_decimals_in_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.maximum_decimals_in_quantity, range, value, display)
@@ -5783,7 +5783,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.message_price_notation.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.message_price_notation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.message_price_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.message_price_notation, range, value, display)
@@ -6547,7 +6547,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.mifidii_liquid_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.mifidii_liquid_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.mifidii_liquid_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.mifidii_liquid_flag, range, value, display)
@@ -6815,7 +6815,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.mmt_market_mechanism.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.mmt_market_mechanism.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.mmt_market_mechanism.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.mmt_market_mechanism, range, value, display)
@@ -7540,7 +7540,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.num_in_group, range, value, display)
@@ -7781,7 +7781,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.option_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.option_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.option_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.option_type, range, value, display)
@@ -7853,7 +7853,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.optiq_segment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.optiq_segment, range, value, display)
@@ -7892,7 +7892,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.order_entry_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.order_entry_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.order_entry_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.order_entry_qualifier, range, value, display)
@@ -8012,7 +8012,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.order_side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.order_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.order_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.order_side, range, value, display)
@@ -8069,7 +8069,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.order_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.order_type, range, value, display)
@@ -8282,7 +8282,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.payment_frequency.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.payment_frequency.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.payment_frequency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.payment_frequency, range, value, display)
@@ -8338,7 +8338,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.peg_offset.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.peg_offset.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.peg_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.peg_offset, range, value, display)
@@ -8380,7 +8380,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.phase_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.phase_id, range, value, display)
@@ -8537,7 +8537,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.price_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.price_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.price_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.price_decimals, range, value, display)
@@ -8565,7 +8565,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.price_decimals_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.price_decimals_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.price_decimals_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.price_decimals_optional, range, value, display)
@@ -8593,7 +8593,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.price_index_level_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.price_index_level_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.price_index_level_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.price_index_level_decimals, range, value, display)
@@ -8632,7 +8632,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.price_limits.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.price_limits.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.price_limits.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.price_limits, range, value, display)
@@ -8688,7 +8688,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.price_multiplier_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.price_multiplier_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.price_multiplier_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.price_multiplier_decimals, range, value, display)
@@ -8739,7 +8739,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.price_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.price_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.price_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.price_qualifier, range, value, display)
@@ -8832,7 +8832,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.price_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.price_type, range, value, display)
@@ -8865,7 +8865,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.pricing_algorithm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.pricing_algorithm, range, value, display)
@@ -8994,7 +8994,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.quantity_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.quantity_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.quantity_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.quantity_decimals, range, value, display)
@@ -9097,7 +9097,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.quote_spread_multiplier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.quote_spread_multiplier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.quote_spread_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.quote_spread_multiplier, range, value, display)
@@ -9133,7 +9133,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.quote_update_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.quote_update_type, range, value, display)
@@ -9156,7 +9156,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.ratio_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.ratio_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.ratio_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.ratio_decimals, range, value, display)
@@ -9184,7 +9184,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.ratio_decimals_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.ratio_decimals_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.ratio_decimals_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.ratio_decimals_optional, range, value, display)
@@ -9212,7 +9212,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.ratio_multiplier_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.ratio_multiplier_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.ratio_multiplier_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.ratio_multiplier_decimals, range, value, display)
@@ -9235,7 +9235,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.rebroadcast_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.rebroadcast_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.rebroadcast_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.rebroadcast_indicator, range, value, display)
@@ -9283,7 +9283,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_continuous.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_continuous.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_continuous.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.reference_price_origin_in_continuous, range, value, display)
@@ -9331,7 +9331,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_opening_call.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_opening_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_opening_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.reference_price_origin_in_opening_call, range, value, display)
@@ -9379,7 +9379,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_trading_interruption.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_trading_interruption.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.reference_price_origin_in_trading_interruption.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.reference_price_origin_in_trading_interruption, range, value, display)
@@ -9455,7 +9455,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.repo_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.repo_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.repo_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.repo_indicator, range, value, display)
@@ -9624,7 +9624,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.scheduled_event.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.scheduled_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.scheduled_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.scheduled_event, range, value, display)
@@ -9877,7 +9877,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.session.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.session.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.session, range, value, display)
@@ -10179,7 +10179,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.stats_update_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.stats_update_type, range, value, display)
@@ -10276,7 +10276,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.status_reason.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.status_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.status_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.status_reason, range, value, display)
@@ -10529,7 +10529,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.strike_currency_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.strike_currency_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.strike_currency_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.strike_currency_indicator, range, value, display)
@@ -10585,7 +10585,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.strike_price_decimals.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.strike_price_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.strike_price_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.strike_price_decimals, range, value, display)
@@ -10613,7 +10613,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.strike_price_decimals_ratio.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.strike_price_decimals_ratio.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.strike_price_decimals_ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.strike_price_decimals_ratio, range, value, display)
@@ -10700,7 +10700,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.tax_code.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.tax_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.tax_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.tax_code, range, value, display)
@@ -10776,7 +10776,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.technical_notification_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.technical_notification_type, range, value, display)
@@ -11203,7 +11203,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.trade_type, range, value, display)
@@ -11314,7 +11314,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.trading_currency_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.trading_currency_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.trading_currency_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.trading_currency_indicator, range, value, display)
@@ -11425,7 +11425,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.trading_period.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.trading_period, range, value, display)
@@ -11461,7 +11461,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.trading_period_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.trading_period_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.trading_period_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.trading_period_optional, range, value, display)
@@ -11494,7 +11494,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.trading_policy.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.trading_policy.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.trading_policy.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.trading_policy, range, value, display)
@@ -11533,7 +11533,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.trading_side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.trading_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.trading_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.trading_side, range, value, display)
@@ -11612,7 +11612,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.transaction_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.transaction_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.transaction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.transaction_type, range, value, display)
@@ -11648,7 +11648,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.transparency_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.transparency_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.transparency_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.transparency_indicator, range, value, display)
@@ -12103,7 +12103,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.underlying_subtype.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.underlying_subtype.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.underlying_subtype.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.underlying_subtype, range, value, display)
@@ -12537,7 +12537,7 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_18.update_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_18.update_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.update_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.update_type, range, value, display)
@@ -13048,7 +13048,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.interest_payment_date_rep_groups.size
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local interest_payment_date_rep_group_count = buffer(offset + index - 1, 1):le_uint()
+  local interest_payment_date_rep_group_count = buffer(offset + index - 1, 1):uint()
   index = index + interest_payment_date_rep_group_count * 2
 
   return index
@@ -13067,7 +13067,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.interest_payment_date_rep_groups.fiel
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Interest Payment Date Rep Group
   for interest_payment_date_rep_group_index = 1, num_in_group do
@@ -13807,7 +13807,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.package_components_groups.size = func
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local package_components_group_count = buffer(offset + index - 1, 1):le_uint()
+  local package_components_group_count = buffer(offset + index - 1, 1):uint()
   index = index + package_components_group_count * 24
 
   return index
@@ -13826,7 +13826,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.package_components_groups.fields = fu
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Package Components Group
   for package_components_group_index = 1, num_in_group do
@@ -14030,7 +14030,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.long_order_updates_groups.size = func
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_updates_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_updates_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_updates_group_count * 49
 
   return index
@@ -14049,7 +14049,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.long_order_updates_groups.fields = fu
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Updates Group
   for long_order_updates_group_index = 1, num_in_group do
@@ -14198,7 +14198,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.outright_rep_groups.size = function(b
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local outright_rep_group_count = buffer(offset + index - 1, 1):le_uint()
+  local outright_rep_group_count = buffer(offset + index - 1, 1):uint()
   index = index + outright_rep_group_count * 1
 
   return index
@@ -14217,7 +14217,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.outright_rep_groups.fields = function
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Outright Rep Group
   for outright_rep_group_index = 1, num_in_group do
@@ -14743,7 +14743,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.strategy_authorized.dissect = functio
   local range = buffer(offset, size)
   local value = range:le_uint64()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.strategy_authorized.display(range, value, packet, parent)
-  local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.strategy_authorized, range, display)
+  local element = parent:add_le(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.strategy_authorized, range, display)
 
   if show.structs then
     euronext_optiq_marketdatagateway_sbe_v5_18.strategy_authorized.bits(range, value, packet, element)
@@ -14836,7 +14836,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.contract_emm_properties_groups.size =
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local contract_emm_properties_group_count = buffer(offset + index - 1, 1):le_uint()
+  local contract_emm_properties_group_count = buffer(offset + index - 1, 1):uint()
   index = index + contract_emm_properties_group_count * 27
 
   return index
@@ -14855,7 +14855,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.contract_emm_properties_groups.fields
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Contract Emm Properties Group
   for contract_emm_properties_group_index = 1, num_in_group do
@@ -15002,7 +15002,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.order_type_rules.dissect = function(b
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.order_type_rules.display(range, value, packet, parent)
-  local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.order_type_rules, range, display)
+  local element = parent:add_le(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.order_type_rules, range, display)
 
   if show.structs then
     euronext_optiq_marketdatagateway_sbe_v5_18.order_type_rules.bits(range, value, packet, element)
@@ -15344,7 +15344,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.strategy_standing_data_groups.size = 
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local strategy_standing_data_group_count = buffer(offset + index - 1, 1):le_uint()
+  local strategy_standing_data_group_count = buffer(offset + index - 1, 1):uint()
   index = index + strategy_standing_data_group_count * 17
 
   return index
@@ -15363,7 +15363,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.strategy_standing_data_groups.fields 
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Strategy Standing Data Group
   for strategy_standing_data_group_index = 1, num_in_group do
@@ -15654,7 +15654,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.new_stats_groups.size = function(buff
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local new_stats_group_count = buffer(offset + index - 1, 1):le_uint()
+  local new_stats_group_count = buffer(offset + index - 1, 1):uint()
   index = index + new_stats_group_count * 9
 
   return index
@@ -15673,7 +15673,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.new_stats_groups.fields = function(bu
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: New Stats Group
   for new_stats_group_index = 1, num_in_group do
@@ -15921,7 +15921,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.emm_pattern_rep_groups.size = functio
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local emm_pattern_rep_group_count = buffer(offset + index - 1, 1):le_uint()
+  local emm_pattern_rep_group_count = buffer(offset + index - 1, 1):uint()
   index = index + emm_pattern_rep_group_count * 16
 
   return index
@@ -15940,7 +15940,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.emm_pattern_rep_groups.fields = funct
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Emm Pattern Rep Group
   for emm_pattern_rep_group_index = 1, num_in_group do
@@ -16431,7 +16431,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.phase_qualifier.dissect = function(bu
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = euronext_optiq_marketdatagateway_sbe_v5_18.phase_qualifier.display(range, value, packet, parent)
-  local element = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.phase_qualifier, range, display)
+  local element = parent:add_le(omi_euronext_optiq_marketdatagateway_sbe_v5_18.fields.phase_qualifier, range, display)
 
   if show.structs then
     euronext_optiq_marketdatagateway_sbe_v5_18.phase_qualifier.bits(range, value, packet, element)
@@ -16520,7 +16520,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.timetables_groups.size = function(buf
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local timetables_group_count = buffer(offset + index - 1, 1):le_uint()
+  local timetables_group_count = buffer(offset + index - 1, 1):uint()
   index = index + timetables_group_count * 15
 
   return index
@@ -16539,7 +16539,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.timetables_groups.fields = function(b
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Timetables Group
   for timetables_group_index = 1, num_in_group do
@@ -16749,7 +16749,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.market_states_groups.size = function(
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local market_states_group_count = buffer(offset + index - 1, 1):le_uint()
+  local market_states_group_count = buffer(offset + index - 1, 1):uint()
   index = index + market_states_group_count * 33
 
   return index
@@ -16768,7 +16768,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.market_states_groups.fields = functio
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Market States Group
   for market_states_group_index = 1, num_in_group do
@@ -16866,7 +16866,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.not_used_groups.size = function(buffe
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local not_used_group_count = buffer(offset + index - 1, 1):le_uint()
+  local not_used_group_count = buffer(offset + index - 1, 1):uint()
   index = index + not_used_group_count * 0
 
   return index
@@ -16885,7 +16885,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.not_used_groups.fields = function(buf
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Not Used Group
   for not_used_group_index = 1, num_in_group do
@@ -17397,7 +17397,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.price_updates_groups.size = function(
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local price_updates_group_count = buffer(offset + index - 1, 1):le_uint()
+  local price_updates_group_count = buffer(offset + index - 1, 1):uint()
   index = index + price_updates_group_count * 31
 
   return index
@@ -17416,7 +17416,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.price_updates_groups.fields = functio
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Price Updates Group
   for price_updates_group_index = 1, num_in_group do
@@ -17597,7 +17597,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.order_updates_groups.size = function(
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local order_updates_group_count = buffer(offset + index - 1, 1):le_uint()
+  local order_updates_group_count = buffer(offset + index - 1, 1):uint()
   index = index + order_updates_group_count * 40
 
   return index
@@ -17616,7 +17616,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.order_updates_groups.fields = functio
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Order Updates Group
   for order_updates_group_index = 1, num_in_group do
@@ -17781,7 +17781,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.market_updates_groups.size = function
   index = index + euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.size
 
   -- Calculate field size from count
-  local market_updates_group_count = buffer(offset + index - 1, 1):le_uint()
+  local market_updates_group_count = buffer(offset + index - 1, 1):uint()
   index = index + market_updates_group_count * 23
 
   return index
@@ -17800,7 +17800,7 @@ euronext_optiq_marketdatagateway_sbe_v5_18.market_updates_groups.fields = functi
   index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v5_18.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Market Updates Group
   for market_updates_group_index = 1, num_in_group do

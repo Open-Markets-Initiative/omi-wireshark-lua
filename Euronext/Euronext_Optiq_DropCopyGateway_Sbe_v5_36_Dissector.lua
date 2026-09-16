@@ -489,7 +489,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.access_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.access_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.access_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.access_flag, range, value, display)
@@ -579,7 +579,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.account_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.account_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.account_type, range, value, display)
@@ -648,7 +648,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.account_type_cross.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_cross.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_cross.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.account_type_cross, range, value, display)
@@ -717,7 +717,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.account_type_internal.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_internal.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_internal.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.account_type_internal, range, value, display)
@@ -789,7 +789,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.account_type_internal_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_internal_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_internal_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.account_type_internal_optional, range, value, display)
@@ -843,7 +843,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.account_type_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.account_type_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.account_type_optional, range, value, display)
@@ -894,7 +894,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.ack_phase.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.ack_phase.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.ack_phase.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.ack_phase, range, value, display)
@@ -990,7 +990,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.ack_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.ack_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.ack_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.ack_type, range, value, display)
@@ -1013,7 +1013,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.afq_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.afq_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.afq_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.afq_indicator, range, value, display)
@@ -1055,7 +1055,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.afq_reason.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.afq_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.afq_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.afq_reason, range, value, display)
@@ -1353,7 +1353,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.block_length_short.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.block_length_short.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.block_length_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.block_length_short, range, value, display)
@@ -1532,7 +1532,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.book_state.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.book_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.book_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.book_state, range, value, display)
@@ -1596,7 +1596,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.buy_revision_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.buy_revision_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.buy_revision_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.buy_revision_flag, range, value, display)
@@ -1629,7 +1629,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.change_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.change_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.change_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.change_type, range, value, display)
@@ -1962,7 +1962,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.collar_rej_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.collar_rej_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.collar_rej_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.collar_rej_type, range, value, display)
@@ -2100,7 +2100,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.counterparty_reason_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.counterparty_reason_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.counterparty_reason_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.counterparty_reason_type, range, value, display)
@@ -2123,7 +2123,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.cross_order_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.cross_order_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.cross_order_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.cross_order_indicator, range, value, display)
@@ -2151,7 +2151,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.cross_order_indicator_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.cross_order_indicator_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.cross_order_indicator_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.cross_order_indicator_optional, range, value, display)
@@ -2205,7 +2205,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.declaration_event_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.declaration_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.declaration_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.declaration_event_type, range, value, display)
@@ -2270,7 +2270,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.declaration_kill_reason.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.declaration_kill_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.declaration_kill_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.declaration_kill_reason, range, value, display)
@@ -2333,7 +2333,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.declaration_status.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.declaration_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.declaration_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.declaration_status, range, value, display)
@@ -2488,7 +2488,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.emm.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.emm.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.emm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.emm, range, value, display)
@@ -2645,7 +2645,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.escb_membership.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.escb_membership.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.escb_membership.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.escb_membership, range, value, display)
@@ -2824,7 +2824,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.event_short_code_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.event_short_code_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.event_short_code_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_short_code_type, range, value, display)
@@ -2889,7 +2889,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.exec_phase.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.exec_phase.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.exec_phase.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.exec_phase, range, value, display)
@@ -2979,7 +2979,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.execution_phase.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.execution_phase.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.execution_phase.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.execution_phase, range, value, display)
@@ -3021,7 +3021,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.execution_phase_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.execution_phase_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.execution_phase_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.execution_phase_optional, range, value, display)
@@ -3139,7 +3139,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.firm_id_publication.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.firm_id_publication.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.firm_id_publication.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.firm_id_publication, range, value, display)
@@ -3231,7 +3231,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.guarantee_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.guarantee_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.guarantee_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.guarantee_flag, range, value, display)
@@ -3264,7 +3264,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.guarantee_flag_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.guarantee_flag_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.guarantee_flag_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.guarantee_flag_optional, range, value, display)
@@ -3328,7 +3328,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.imbalance_qty_side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.imbalance_qty_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.imbalance_qty_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.imbalance_qty_side, range, value, display)
@@ -3423,7 +3423,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.instrument_order_entry_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.instrument_order_entry_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.instrument_order_entry_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.instrument_order_entry_qualifier, range, value, display)
@@ -3513,7 +3513,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.instrument_state.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.instrument_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.instrument_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.instrument_state, range, value, display)
@@ -3941,7 +3941,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.leg_side, range, value, display)
@@ -4092,7 +4092,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.lp_role.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.lp_role.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.lp_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.lp_role, range, value, display)
@@ -4128,7 +4128,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.lp_role_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.lp_role_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.lp_role_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.lp_role_optional, range, value, display)
@@ -4161,7 +4161,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.margin_trading_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.margin_trading_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.margin_trading_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.margin_trading_flag, range, value, display)
@@ -4197,7 +4197,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.market_phase_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.market_phase_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.market_phase_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.market_phase_flag, range, value, display)
@@ -4233,7 +4233,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.message_price_notation.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.message_price_notation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.message_price_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.message_price_notation, range, value, display)
@@ -4358,7 +4358,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.num_in_group, range, value, display)
@@ -4853,7 +4853,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.operation_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.operation_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.operation_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.operation_type, range, value, display)
@@ -4892,7 +4892,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.order_entry_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.order_entry_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.order_entry_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.order_entry_qualifier, range, value, display)
@@ -4979,7 +4979,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.order_event_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.order_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.order_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.order_event_type, range, value, display)
@@ -5170,7 +5170,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.order_side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.order_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.order_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.order_side, range, value, display)
@@ -5206,7 +5206,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.order_side_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.order_side_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.order_side_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.order_side_optional, range, value, display)
@@ -5236,7 +5236,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.order_sweep_reason.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.order_sweep_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.order_sweep_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.order_sweep_reason, range, value, display)
@@ -5324,7 +5324,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.order_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.order_type, range, value, display)
@@ -5537,7 +5537,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.original_short_code_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.original_short_code_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.original_short_code_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.original_short_code_type, range, value, display)
@@ -5660,7 +5660,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.peg_offset.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.peg_offset.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.peg_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.peg_offset, range, value, display)
@@ -5702,7 +5702,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.phase_id.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.phase_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.phase_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.phase_id, range, value, display)
@@ -5792,7 +5792,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.price_limit_style.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.price_limit_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.price_limit_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.price_limit_style, range, value, display)
@@ -5831,7 +5831,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.price_limits.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.price_limits.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.price_limits.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.price_limits, range, value, display)
@@ -5970,7 +5970,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.price_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.price_type, range, value, display)
@@ -6134,7 +6134,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.quote_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.quote_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.quote_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.quote_indicator, range, value, display)
@@ -6170,7 +6170,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.quote_spread_multiplier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.quote_spread_multiplier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.quote_spread_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.quote_spread_multiplier, range, value, display)
@@ -6198,7 +6198,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.rejected_message.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.rejected_message.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.rejected_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.rejected_message, range, value, display)
@@ -6244,7 +6244,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.rfe_answer.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.rfe_answer.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.rfe_answer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.rfe_answer, range, value, display)
@@ -6272,7 +6272,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.rfe_answer_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.rfe_answer_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.rfe_answer_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.rfe_answer_optional, range, value, display)
@@ -6308,7 +6308,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.rfq_status.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.rfq_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.rfq_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.rfq_status, range, value, display)
@@ -6383,7 +6383,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.scheduled_event.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.scheduled_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.scheduled_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.scheduled_event, range, value, display)
@@ -6474,7 +6474,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.sell_revision_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.sell_revision_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.sell_revision_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.sell_revision_flag, range, value, display)
@@ -6595,7 +6595,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.session.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.session.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.session, range, value, display)
@@ -6652,7 +6652,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.session_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.session_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.session_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.session_optional, range, value, display)
@@ -6675,7 +6675,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.settlement_flag.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.settlement_flag, range, value, display)
@@ -6703,7 +6703,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.settlement_flag_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_flag_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_flag_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.settlement_flag_optional, range, value, display)
@@ -6726,7 +6726,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.settlement_period.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_period.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_period.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.settlement_period, range, value, display)
@@ -6754,7 +6754,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.settlement_period_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_period_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.settlement_period_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.settlement_period_optional, range, value, display)
@@ -6799,7 +6799,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.short_code_role.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.short_code_role.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.short_code_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.short_code_role, range, value, display)
@@ -6835,7 +6835,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.short_code_role_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.short_code_role_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.short_code_role_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.short_code_role_qualifier, range, value, display)
@@ -6868,7 +6868,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.side, range, value, display)
@@ -6937,7 +6937,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.status_reason.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.status_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.status_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.status_reason, range, value, display)
@@ -7035,7 +7035,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.stop_triggered_time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.stop_triggered_time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.stop_triggered_time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.stop_triggered_time_in_force, range, value, display)
@@ -7128,7 +7128,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.technical_origin.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.technical_origin.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.technical_origin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.technical_origin, range, value, display)
@@ -7263,7 +7263,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.time_in_force, range, value, display)
@@ -7320,7 +7320,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.time_in_force_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.time_in_force_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.time_in_force_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.time_in_force_optional, range, value, display)
@@ -7525,7 +7525,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.trade_type, range, value, display)
@@ -7636,7 +7636,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.trading_capacity.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.trading_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.trading_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.trading_capacity, range, value, display)
@@ -7672,7 +7672,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.trading_capacity_optional.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.trading_capacity_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.trading_capacity_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.trading_capacity_optional, range, value, display)
@@ -7711,7 +7711,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.trading_group_order_entry_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.trading_group_order_entry_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.trading_group_order_entry_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.trading_group_order_entry_qualifier, range, value, display)
@@ -7741,7 +7741,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.trading_group_state.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.trading_group_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.trading_group_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.trading_group_state, range, value, display)
@@ -7777,7 +7777,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.trading_period.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.trading_period.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.trading_period.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.trading_period, range, value, display)
@@ -7816,7 +7816,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.trading_side.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.trading_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.trading_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.trading_side, range, value, display)
@@ -7855,7 +7855,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.transaction_price_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.transaction_price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.transaction_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.transaction_price_type, range, value, display)
@@ -7891,7 +7891,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.transparency_indicator.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.transparency_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.transparency_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.transparency_indicator, range, value, display)
@@ -7930,7 +7930,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.undisclosed_iceberg_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.undisclosed_iceberg_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.undisclosed_iceberg_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.undisclosed_iceberg_type, range, value, display)
@@ -8276,7 +8276,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.update_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.update_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.update_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.update_type, range, value, display)
@@ -8339,7 +8339,7 @@ end
 euronext_optiq_dropcopygateway_sbe_v5_36.wholesale_trade_type.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v5_36.wholesale_trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.wholesale_trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.wholesale_trade_type, range, value, display)
@@ -8520,7 +8520,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_request_message_short_codes_d
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_quote_request_message_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_quote_request_message_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_quote_request_message_short_codes_details_non_modifiable_group_count * 3
 
   return index
@@ -8539,7 +8539,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_request_message_short_codes_d
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Quote Request Message Short Codes Details Non Modifiable Group
   for d_c_quote_request_message_short_codes_details_non_modifiable_group_index = 1, num_in_group do
@@ -8635,7 +8635,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_request_message_non_modifiabl
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_quote_request_message_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_quote_request_message_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_quote_request_message_non_modifiable_short_codes_group_count * 16
 
   return index
@@ -8654,7 +8654,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_request_message_non_modifiabl
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Quote Request Message Non Modifiable Short Codes Group
   for d_c_quote_request_message_non_modifiable_short_codes_group_index = 1, num_in_group do
@@ -9213,7 +9213,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_trade_message_matched_declarations_
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_trade_message_matched_declarations_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_trade_message_matched_declarations_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_trade_message_matched_declarations_group_count * 124
 
   return index
@@ -9232,7 +9232,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_trade_message_matched_declarations_
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Trade Message Matched Declarations Group
   for d_c_trade_message_matched_declarations_group_index = 1, num_in_group do
@@ -9446,7 +9446,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.open_close.dissect = function(buffer, o
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.open_close.display(range, value, packet, parent)
-  local element = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.open_close, range, display)
+  local element = parent:add_le(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.open_close, range, display)
 
   if show.structs then
     euronext_optiq_dropcopygateway_sbe_v5_36.open_close.bits(range, value, packet, element)
@@ -9599,7 +9599,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_trade_message_matched_orders_groups
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_trade_message_matched_orders_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_trade_message_matched_orders_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_trade_message_matched_orders_group_count * 140
 
   return index
@@ -9618,7 +9618,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_trade_message_matched_orders_groups
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Trade Message Matched Orders Group
   for d_c_trade_message_matched_orders_group_index = 1, num_in_group do
@@ -10229,7 +10229,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_short_trade_declaration_message_sho
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_short_trade_declaration_message_short_trade_declarations_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_short_trade_declaration_message_short_trade_declarations_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_short_trade_declaration_message_short_trade_declarations_group_count * 139
 
   return index
@@ -10248,7 +10248,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_short_trade_declaration_message_sho
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Short Trade Declaration Message Short Trade Declarations Group
   for d_c_short_trade_declaration_message_short_trade_declarations_group_index = 1, num_in_group do
@@ -10916,7 +10916,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_modifiable_short_code
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_quote_message_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_quote_message_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_quote_message_modifiable_short_codes_group_count * 8
 
   return index
@@ -10935,7 +10935,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_modifiable_short_code
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Quote Message Modifiable Short Codes Group
   for d_c_quote_message_modifiable_short_codes_group_index = 1, num_in_group do
@@ -11031,7 +11031,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_non_modifiable_short_
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_quote_message_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_quote_message_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_quote_message_non_modifiable_short_codes_group_count * 16
 
   return index
@@ -11050,7 +11050,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_non_modifiable_short_
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Quote Message Non Modifiable Short Codes Group
   for d_c_quote_message_non_modifiable_short_codes_group_index = 1, num_in_group do
@@ -11158,7 +11158,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_clearing_dataset_grou
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_quote_message_clearing_dataset_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_quote_message_clearing_dataset_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_quote_message_clearing_dataset_group_count * 51
 
   return index
@@ -11177,7 +11177,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_clearing_dataset_grou
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Quote Message Clearing Dataset Group
   for d_c_quote_message_clearing_dataset_group_index = 1, num_in_group do
@@ -11301,7 +11301,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_offer_quoterep_groups
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_quote_message_offer_quoterep_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_quote_message_offer_quoterep_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_quote_message_offer_quoterep_group_count * 68
 
   return index
@@ -11320,7 +11320,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_offer_quoterep_groups
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Quote Message Offer Quoterep Group
   for d_c_quote_message_offer_quoterep_group_index = 1, num_in_group do
@@ -11444,7 +11444,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_bid_quoterep_groups.s
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_quote_message_bid_quoterep_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_quote_message_bid_quoterep_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_quote_message_bid_quoterep_group_count * 68
 
   return index
@@ -11463,7 +11463,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_quote_message_bid_quoterep_groups.f
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Quote Message Bid Quoterep Group
   for d_c_quote_message_bid_quoterep_group_index = 1, num_in_group do
@@ -11872,7 +11872,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.trade_bust_notification_short_codes_det
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local trade_bust_notification_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_bust_notification_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_bust_notification_short_codes_details_modifiable_group_count * 3
 
   return index
@@ -11891,7 +11891,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.trade_bust_notification_short_codes_det
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Bust Notification Short Codes Details Modifiable Group
   for trade_bust_notification_short_codes_details_modifiable_group_index = 1, num_in_group do
@@ -11983,7 +11983,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.trade_bust_notification_short_codes_det
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local trade_bust_notification_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_bust_notification_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_bust_notification_short_codes_details_non_modifiable_group_count * 3
 
   return index
@@ -12002,7 +12002,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.trade_bust_notification_short_codes_det
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Bust Notification Short Codes Details Non Modifiable Group
   for trade_bust_notification_short_codes_details_non_modifiable_group_index = 1, num_in_group do
@@ -12350,7 +12350,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_static_collars_message_static_colla
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_static_collars_message_static_collarsrep_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_static_collars_message_static_collarsrep_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_static_collars_message_static_collarsrep_group_count * 9
 
   return index
@@ -12369,7 +12369,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_static_collars_message_static_colla
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Static Collars Message Static Collarsrep Group
   for d_c_static_collars_message_static_collarsrep_group_index = 1, num_in_group do
@@ -12611,7 +12611,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_short_order_reject_message_short_co
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_short_order_reject_message_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_short_order_reject_message_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_short_order_reject_message_short_codes_details_modifiable_group_count * 3
 
   return index
@@ -12630,7 +12630,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_short_order_reject_message_short_co
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Short Order Reject Message Short Codes Details Modifiable Group
   for d_c_short_order_reject_message_short_codes_details_modifiable_group_index = 1, num_in_group do
@@ -12718,7 +12718,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_short_order_reject_message_modifiab
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local d_c_short_order_reject_message_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  local d_c_short_order_reject_message_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):uint()
   index = index + d_c_short_order_reject_message_modifiable_short_codes_group_count * 8
 
   return index
@@ -12737,7 +12737,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.d_c_short_order_reject_message_modifiab
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: D C Short Order Reject Message Modifiable Short Codes Group
   for d_c_short_order_reject_message_modifiable_short_codes_group_index = 1, num_in_group do
@@ -13067,7 +13067,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_short_codes_details_modifiab
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_short_codes_details_modifiable_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_short_codes_details_modifiable_group_count * 3
 
   return index
@@ -13086,7 +13086,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_short_codes_details_modifiab
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Short Codes Details Modifiable Group
   for long_order_short_codes_details_modifiable_group_index = 1, num_in_group do
@@ -13178,7 +13178,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_short_codes_details_non_modi
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_short_codes_details_non_modifiable_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_short_codes_details_non_modifiable_group_count * 3
 
   return index
@@ -13197,7 +13197,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_short_codes_details_non_modi
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Short Codes Details Non Modifiable Group
   for long_order_short_codes_details_non_modifiable_group_index = 1, num_in_group do
@@ -13281,7 +13281,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_additional_infos_groups.size
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_additional_infos_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_additional_infos_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_additional_infos_group_count * 16
 
   return index
@@ -13300,7 +13300,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_additional_infos_groups.fiel
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Additional Infos Group
   for long_order_additional_infos_group_index = 1, num_in_group do
@@ -13396,7 +13396,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_optional_fields_derivatives_
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_optional_fields_derivatives_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_optional_fields_derivatives_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_optional_fields_derivatives_group_count * 17
 
   return index
@@ -13415,7 +13415,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_optional_fields_derivatives_
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Optional Fields Derivatives Group
   for long_order_optional_fields_derivatives_group_index = 1, num_in_group do
@@ -13519,7 +13519,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_strategy_fields_groups.size 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_strategy_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_strategy_fields_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_strategy_fields_group_count * 41
 
   return index
@@ -13538,7 +13538,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_strategy_fields_groups.field
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Strategy Fields Group
   for long_order_strategy_fields_group_index = 1, num_in_group do
@@ -13622,7 +13622,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_extended_clearing_account_gr
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_extended_clearing_account_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_extended_clearing_account_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_extended_clearing_account_group_count * 16
 
   return index
@@ -13641,7 +13641,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_extended_clearing_account_gr
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Extended Clearing Account Group
   for long_order_extended_clearing_account_group_index = 1, num_in_group do
@@ -13725,7 +13725,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_non_modifiable_commercial_in
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_non_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_non_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_non_modifiable_commercial_investor_field_group_count * 16
 
   return index
@@ -13744,7 +13744,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_non_modifiable_commercial_in
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Non Modifiable Commercial Investor Field Group
   for long_order_non_modifiable_commercial_investor_field_group_index = 1, num_in_group do
@@ -13828,7 +13828,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_modifiable_commercial_invest
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_modifiable_commercial_investor_field_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_modifiable_commercial_investor_field_group_count * 16
 
   return index
@@ -13847,7 +13847,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_modifiable_commercial_invest
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Modifiable Commercial Investor Field Group
   for long_order_modifiable_commercial_investor_field_group_index = 1, num_in_group do
@@ -13951,7 +13951,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_commercial_fields_groups.siz
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_commercial_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_commercial_fields_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_commercial_fields_group_count * 41
 
   return index
@@ -13970,7 +13970,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_commercial_fields_groups.fie
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Commercial Fields Group
   for long_order_commercial_fields_group_index = 1, num_in_group do
@@ -14058,7 +14058,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_modifiable_short_codes_group
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_modifiable_short_codes_group_count * 8
 
   return index
@@ -14077,7 +14077,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_modifiable_short_codes_group
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Modifiable Short Codes Group
   for long_order_modifiable_short_codes_group_index = 1, num_in_group do
@@ -14173,7 +14173,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_non_modifiable_short_codes_g
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_non_modifiable_short_codes_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_non_modifiable_short_codes_group_count * 16
 
   return index
@@ -14192,7 +14192,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_non_modifiable_short_codes_g
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Non Modifiable Short Codes Group
   for long_order_non_modifiable_short_codes_group_index = 1, num_in_group do
@@ -14284,7 +14284,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_non_modifiable_opt_fields_gr
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_non_modifiable_opt_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_non_modifiable_opt_fields_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_non_modifiable_opt_fields_group_count * 10
 
   return index
@@ -14303,7 +14303,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_non_modifiable_opt_fields_gr
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Non Modifiable Opt Fields Group
   for long_order_non_modifiable_opt_fields_group_index = 1, num_in_group do
@@ -14407,7 +14407,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_clearing_fields_groups.size 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_clearing_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_clearing_fields_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_clearing_fields_group_count * 33
 
   return index
@@ -14426,7 +14426,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_clearing_fields_groups.field
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Clearing Fields Group
   for long_order_clearing_fields_group_index = 1, num_in_group do
@@ -14613,7 +14613,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_optional_fields_groups.size 
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_optional_fields_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_optional_fields_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_optional_fields_group_count * 34
 
   return index
@@ -14632,7 +14632,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_optional_fields_groups.field
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Optional Fields Group
   for long_order_optional_fields_group_index = 1, num_in_group do
@@ -14716,7 +14716,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_free_text_section_groups.siz
   index = index + euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.size
 
   -- Calculate field size from count
-  local long_order_free_text_section_group_count = buffer(offset + index - 1, 1):le_uint()
+  local long_order_free_text_section_group_count = buffer(offset + index - 1, 1):uint()
   index = index + long_order_free_text_section_group_count * 18
 
   return index
@@ -14735,7 +14735,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.long_order_free_text_section_groups.fie
   index, group_size_encoding = euronext_optiq_dropcopygateway_sbe_v5_36.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Long Order Free Text Section Group
   for long_order_free_text_section_group_index = 1, num_in_group do
@@ -15534,7 +15534,7 @@ euronext_optiq_dropcopygateway_sbe_v5_36.phase_qualifier.dissect = function(buff
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = euronext_optiq_dropcopygateway_sbe_v5_36.phase_qualifier.display(range, value, packet, parent)
-  local element = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.phase_qualifier, range, display)
+  local element = parent:add_le(omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.phase_qualifier, range, display)
 
   if show.structs then
     euronext_optiq_dropcopygateway_sbe_v5_36.phase_qualifier.bits(range, value, packet, element)

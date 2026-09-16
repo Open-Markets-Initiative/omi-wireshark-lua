@@ -518,7 +518,7 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.reset_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reset_seq_num, range, value, display)

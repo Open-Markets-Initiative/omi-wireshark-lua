@@ -4195,7 +4195,7 @@ end
 memx_memxequities_memo_sbe_v1_8.exec_inst.dissect = function(buffer, offset, packet, parent)
   local size = memx_memxequities_memo_sbe_v1_8.exec_inst.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = memx_memxequities_memo_sbe_v1_8.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_memxequities_memo_sbe_v1_8.fields.exec_inst, range, display)
 

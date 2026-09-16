@@ -181,7 +181,7 @@ end
 cme_globex_brokertecust_sbe_v10_1.exponent.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_brokertecust_sbe_v10_1.exponent.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_brokertecust_sbe_v10_1.exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.exponent, range, value, display)
@@ -391,7 +391,7 @@ end
 cme_globex_brokertecust_sbe_v10_1.md_price_level.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_brokertecust_sbe_v10_1.md_price_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_brokertecust_sbe_v10_1.md_price_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.md_price_level, range, value, display)
@@ -424,7 +424,7 @@ end
 cme_globex_brokertecust_sbe_v10_1.md_update_action.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_brokertecust_sbe_v10_1.md_update_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_brokertecust_sbe_v10_1.md_update_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.md_update_action, range, value, display)
@@ -493,7 +493,7 @@ end
 cme_globex_brokertecust_sbe_v10_1.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_brokertecust_sbe_v10_1.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_brokertecust_sbe_v10_1.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.num_in_group, range, value, display)
@@ -544,7 +544,7 @@ end
 cme_globex_brokertecust_sbe_v10_1.price_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_brokertecust_sbe_v10_1.price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_brokertecust_sbe_v10_1.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_brokertecust_sbe_v10_1.fields.price_type, range, value, display)
@@ -1220,7 +1220,7 @@ cme_globex_brokertecust_sbe_v10_1.incremental_refresh_btec_groups.size = functio
   index = index + cme_globex_brokertecust_sbe_v10_1.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_btec_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_btec_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_btec_group_count * 62
 
   return index
@@ -1239,7 +1239,7 @@ cme_globex_brokertecust_sbe_v10_1.incremental_refresh_btec_groups.fields = funct
   index, group_size = cme_globex_brokertecust_sbe_v10_1.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh Btec Group
   for incremental_refresh_btec_group_index = 1, num_in_group do

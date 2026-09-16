@@ -144,7 +144,7 @@ end
 iex_iexoptions_session_sbe_v1_0.block_length_short.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_session_sbe_v1_0.block_length_short.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_session_sbe_v1_0.block_length_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.block_length_short, range, value, display)
@@ -197,7 +197,7 @@ end
 iex_iexoptions_session_sbe_v1_0.joined.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_session_sbe_v1_0.joined.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_session_sbe_v1_0.joined.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.joined, range, value, display)
@@ -227,7 +227,7 @@ end
 iex_iexoptions_session_sbe_v1_0.keep_alive.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_session_sbe_v1_0.keep_alive.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_session_sbe_v1_0.keep_alive.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.keep_alive, range, value, display)
@@ -312,7 +312,7 @@ end
 iex_iexoptions_session_sbe_v1_0.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_session_sbe_v1_0.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_session_sbe_v1_0.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.num_in_group, range, value, display)
@@ -413,7 +413,7 @@ end
 iex_iexoptions_session_sbe_v1_0.reason.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_session_sbe_v1_0.reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_session_sbe_v1_0.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.reason, range, value, display)
@@ -564,7 +564,7 @@ end
 iex_iexoptions_session_sbe_v1_0.status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_session_sbe_v1_0.status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_session_sbe_v1_0.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.status, range, value, display)
@@ -620,7 +620,7 @@ end
 iex_iexoptions_session_sbe_v1_0.subsession_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_session_sbe_v1_0.subsession_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_session_sbe_v1_0.subsession_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_session_sbe_v1_0.fields.subsession_type, range, value, display)
@@ -1189,7 +1189,7 @@ iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.size = function(buffer, offs
   index = index + iex_iexoptions_session_sbe_v1_0.session_info_group_encoding.size
 
   -- Calculate field size from count
-  local sub_sessions_group_count = buffer(offset + index - 1, 1):le_uint()
+  local sub_sessions_group_count = buffer(offset + index - 1, 1):uint()
   index = index + sub_sessions_group_count * 14
 
   return index
@@ -1208,7 +1208,7 @@ iex_iexoptions_session_sbe_v1_0.sub_sessions_groups.fields = function(buffer, of
   index, session_info_group_encoding = iex_iexoptions_session_sbe_v1_0.session_info_group_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Sub Sessions Group
   for sub_sessions_group_index = 1, num_in_group do

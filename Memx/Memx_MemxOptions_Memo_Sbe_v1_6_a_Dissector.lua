@@ -6407,7 +6407,7 @@ end
 memx_memxoptions_memo_sbe_v1_6_a.exec_inst.dissect = function(buffer, offset, packet, parent)
   local size = memx_memxoptions_memo_sbe_v1_6_a.exec_inst.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = memx_memxoptions_memo_sbe_v1_6_a.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_memx_memxoptions_memo_sbe_v1_6_a.fields.exec_inst, range, display)
 

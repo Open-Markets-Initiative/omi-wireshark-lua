@@ -39,7 +39,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.cfi_code = ProtoField.new("Cfi Code", "ic
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "ice.icefutures.bgw.sbe.v7.0.clordid", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.clearable = ProtoField.new("Clearable", "ice.icefutures.bgw.sbe.v7.0.clearable", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias = ProtoField.new("Cleared Alias", "ice.icefutures.bgw.sbe.v7.0.clearedalias", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias_data = ProtoField.new("Cleared Alias Data", "ice.icefutures.bgw.sbe.v7.0.clearedaliasdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias_data = ProtoField.new("Cleared Alias Data", "ice.icefutures.bgw.sbe.v7.0.clearedaliasdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias_length = ProtoField.new("Cleared Alias Length", "ice.icefutures.bgw.sbe.v7.0.clearedaliaslength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_account_string_14 = ProtoField.new("Clearing Account string 14", "ice.icefutures.bgw.sbe.v7.0.clearingaccountstring14", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_account_string_14_null = ProtoField.new("Clearing Account string 14 Null", "ice.icefutures.bgw.sbe.v7.0.clearingaccountstring14null", ftypes.STRING)
@@ -92,14 +92,14 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_market_id = ProtoField.new("Hedge M
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_only = ProtoField.new("Hedge Only", "ice.icefutures.bgw.sbe.v7.0.hedgeonly", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_product_id = ProtoField.new("Hedge Product Id", "ice.icefutures.bgw.sbe.v7.0.hedgeproductid", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.home_exchange = ProtoField.new("Home Exchange", "ice.icefutures.bgw.sbe.v7.0.homeexchange", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.home_exchange_data = ProtoField.new("Home Exchange Data", "ice.icefutures.bgw.sbe.v7.0.homeexchangedata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.home_exchange_data = ProtoField.new("Home Exchange Data", "ice.icefutures.bgw.sbe.v7.0.homeexchangedata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.home_exchange_length = ProtoField.new("Home Exchange Length", "ice.icefutures.bgw.sbe.v7.0.homeexchangelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_alias = ProtoField.new("Hub Alias", "ice.icefutures.bgw.sbe.v7.0.hubalias", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_alias_data = ProtoField.new("Hub Alias Data", "ice.icefutures.bgw.sbe.v7.0.hubaliasdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_alias_data = ProtoField.new("Hub Alias Data", "ice.icefutures.bgw.sbe.v7.0.hubaliasdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_alias_length = ProtoField.new("Hub Alias Length", "ice.icefutures.bgw.sbe.v7.0.hubaliaslength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_id = ProtoField.new("Hub Id", "ice.icefutures.bgw.sbe.v7.0.hubid", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name = ProtoField.new("Hub Name", "ice.icefutures.bgw.sbe.v7.0.hubname", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name_data = ProtoField.new("Hub Name Data", "ice.icefutures.bgw.sbe.v7.0.hubnamedata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name_data = ProtoField.new("Hub Name Data", "ice.icefutures.bgw.sbe.v7.0.hubnamedata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name_length = ProtoField.new("Hub Name Length", "ice.icefutures.bgw.sbe.v7.0.hubnamelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group = ProtoField.new("I P Report Message no Users Group", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroup", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_groups = ProtoField.new("I P Report Message no Users Groups", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroups", ftypes.STRING)
@@ -215,7 +215,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.original_system_id = ProtoField.new("Orig
 omi_ice_icefutures_bgw_sbe_v7_0.fields.originator_user_id = ProtoField.new("Originator User Id", "ice.icefutures.bgw.sbe.v7.0.originatoruserid", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.override_block_min = ProtoField.new("Override Block Min", "ice.icefutures.bgw.sbe.v7.0.overrideblockmin", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code = ProtoField.new("Physical Code", "ice.icefutures.bgw.sbe.v7.0.physicalcode", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_data = ProtoField.new("Physical Code Data", "ice.icefutures.bgw.sbe.v7.0.physicalcodedata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_data = ProtoField.new("Physical Code Data", "ice.icefutures.bgw.sbe.v7.0.physicalcodedata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_length = ProtoField.new("Physical Code Length", "ice.icefutures.bgw.sbe.v7.0.physicalcodelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.port = ProtoField.new("Port", "ice.icefutures.bgw.sbe.v7.0.port", ftypes.INT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.position_effect = ProtoField.new("Position Effect", "ice.icefutures.bgw.sbe.v7.0.positioneffect", ftypes.STRING)
@@ -224,22 +224,22 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.poss_resend = ProtoField.new("Poss Resend
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_decimal_9 = ProtoField.new("Price Decimal 9", "ice.icefutures.bgw.sbe.v7.0.pricedecimal9", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_decimal_9_null = ProtoField.new("Price Decimal 9 Null", "ice.icefutures.bgw.sbe.v7.0.pricedecimal9null", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination = ProtoField.new("Price Denomination", "ice.icefutures.bgw.sbe.v7.0.pricedenomination", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination_data = ProtoField.new("Price Denomination Data", "ice.icefutures.bgw.sbe.v7.0.pricedenominationdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination_data = ProtoField.new("Price Denomination Data", "ice.icefutures.bgw.sbe.v7.0.pricedenominationdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination_length = ProtoField.new("Price Denomination Length", "ice.icefutures.bgw.sbe.v7.0.pricedenominationlength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_type = ProtoField.new("Price Type", "ice.icefutures.bgw.sbe.v7.0.pricetype", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit = ProtoField.new("Price Unit", "ice.icefutures.bgw.sbe.v7.0.priceunit", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit_data = ProtoField.new("Price Unit Data", "ice.icefutures.bgw.sbe.v7.0.priceunitdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit_data = ProtoField.new("Price Unit Data", "ice.icefutures.bgw.sbe.v7.0.priceunitdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit_length = ProtoField.new("Price Unit Length", "ice.icefutures.bgw.sbe.v7.0.priceunitlength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_desc = ProtoField.new("Product Desc", "ice.icefutures.bgw.sbe.v7.0.productdesc", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.product_desc_data = ProtoField.new("Product Desc Data", "ice.icefutures.bgw.sbe.v7.0.productdescdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.product_desc_data = ProtoField.new("Product Desc Data", "ice.icefutures.bgw.sbe.v7.0.productdescdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_desc_length = ProtoField.new("Product Desc Length", "ice.icefutures.bgw.sbe.v7.0.productdesclength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group = ProtoField.new("Product Group", "ice.icefutures.bgw.sbe.v7.0.productgroup", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group_data = ProtoField.new("Product Group Data", "ice.icefutures.bgw.sbe.v7.0.productgroupdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group_data = ProtoField.new("Product Group Data", "ice.icefutures.bgw.sbe.v7.0.productgroupdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group_length = ProtoField.new("Product Group Length", "ice.icefutures.bgw.sbe.v7.0.productgrouplength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_i_d_int_32 = ProtoField.new("Product I D int 32", "ice.icefutures.bgw.sbe.v7.0.productidint32", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_i_d_int_32_null = ProtoField.new("Product I D int 32 Null", "ice.icefutures.bgw.sbe.v7.0.productidint32null", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name = ProtoField.new("Product Name", "ice.icefutures.bgw.sbe.v7.0.productname", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name_data = ProtoField.new("Product Name Data", "ice.icefutures.bgw.sbe.v7.0.productnamedata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name_data = ProtoField.new("Product Name Data", "ice.icefutures.bgw.sbe.v7.0.productnamedata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name_length = ProtoField.new("Product Name Length", "ice.icefutures.bgw.sbe.v7.0.productnamelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_type = ProtoField.new("Product Type", "ice.icefutures.bgw.sbe.v7.0.producttype", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "ice.icefutures.bgw.sbe.v7.0.putorcall", ftypes.UINT8)
@@ -285,13 +285,13 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_messa
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group = ProtoField.new("Security Definition Request Create Strategy Message no Legs Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroup", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_groups = ProtoField.new("Security Definition Request Create Strategy Message no Legs Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroups", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc = ProtoField.new("Security Desc", "ice.icefutures.bgw.sbe.v7.0.securitydesc", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc_data = ProtoField.new("Security Desc Data", "ice.icefutures.bgw.sbe.v7.0.securitydescdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc_data = ProtoField.new("Security Desc Data", "ice.icefutures.bgw.sbe.v7.0.securitydescdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc_length = ProtoField.new("Security Desc Length", "ice.icefutures.bgw.sbe.v7.0.securitydesclength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_exchange = ProtoField.new("Security Exchange", "ice.icefutures.bgw.sbe.v7.0.securityexchange", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_exchange_data = ProtoField.new("Security Exchange Data", "ice.icefutures.bgw.sbe.v7.0.securityexchangedata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_exchange_data = ProtoField.new("Security Exchange Data", "ice.icefutures.bgw.sbe.v7.0.securityexchangedata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_exchange_length = ProtoField.new("Security Exchange Length", "ice.icefutures.bgw.sbe.v7.0.securityexchangelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_id = ProtoField.new("Security Id", "ice.icefutures.bgw.sbe.v7.0.securityid", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_id_data = ProtoField.new("Security Id Data", "ice.icefutures.bgw.sbe.v7.0.securityiddata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_id_data = ProtoField.new("Security Id Data", "ice.icefutures.bgw.sbe.v7.0.securityiddata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_id_length = ProtoField.new("Security Id Length", "ice.icefutures.bgw.sbe.v7.0.securityidlength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_req_id = ProtoField.new("Security Req Id", "ice.icefutures.bgw.sbe.v7.0.securityreqid", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_request_type = ProtoField.new("Security Request Type", "ice.icefutures.bgw.sbe.v7.0.securityrequesttype", ftypes.UINT8)
@@ -318,13 +318,13 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.stop_limit_price_changed = ProtoField.new
 omi_ice_icefutures_bgw_sbe_v7_0.fields.stop_px = ProtoField.new("Stop Px", "ice.icefutures.bgw.sbe.v7.0.stoppx", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.stops_allowed = ProtoField.new("Stops Allowed", "ice.icefutures.bgw.sbe.v7.0.stopsallowed", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strategy_security_id = ProtoField.new("Strategy Security Id", "ice.icefutures.bgw.sbe.v7.0.strategysecurityid", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.strategy_security_id_data = ProtoField.new("Strategy Security Id Data", "ice.icefutures.bgw.sbe.v7.0.strategysecurityiddata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.strategy_security_id_data = ProtoField.new("Strategy Security Id Data", "ice.icefutures.bgw.sbe.v7.0.strategysecurityiddata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strategy_security_id_length = ProtoField.new("Strategy Security Id Length", "ice.icefutures.bgw.sbe.v7.0.strategysecurityidlength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strike_exercise_style = ProtoField.new("Strike Exercise Style", "ice.icefutures.bgw.sbe.v7.0.strikeexercisestyle", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "ice.icefutures.bgw.sbe.v7.0.strikeprice", ftypes.INT64)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_id = ProtoField.new("Strip Id", "ice.icefutures.bgw.sbe.v7.0.stripid", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_name = ProtoField.new("Strip Name", "ice.icefutures.bgw.sbe.v7.0.stripname", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_name_data = ProtoField.new("Strip Name Data", "ice.icefutures.bgw.sbe.v7.0.stripnamedata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_name_data = ProtoField.new("Strip Name Data", "ice.icefutures.bgw.sbe.v7.0.stripnamedata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_name_length = ProtoField.new("Strip Name Length", "ice.icefutures.bgw.sbe.v7.0.stripnamelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_type = ProtoField.new("Strip Type", "ice.icefutures.bgw.sbe.v7.0.striptype", ftypes.INT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.success = ProtoField.new("Success", "ice.icefutures.bgw.sbe.v7.0.success", ftypes.UINT8)
@@ -337,7 +337,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.template_id = ProtoField.new("Template Id
 omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator_boolean_enum = ProtoField.new("Test Market Indicator Boolean Enum", "ice.icefutures.bgw.sbe.v7.0.testmarketindicatorbooleanenum", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator_boolean_enum_null = ProtoField.new("Test Market Indicator Boolean Enum Null", "ice.icefutures.bgw.sbe.v7.0.testmarketindicatorbooleanenumnull", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text = ProtoField.new("Text", "ice.icefutures.bgw.sbe.v7.0.text", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.text_data = ProtoField.new("Text Data", "ice.icefutures.bgw.sbe.v7.0.textdata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.text_data = ProtoField.new("Text Data", "ice.icefutures.bgw.sbe.v7.0.textdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text_length = ProtoField.new("Text Length", "ice.icefutures.bgw.sbe.v7.0.textlength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text_var_string_16_null = ProtoField.new("Text var String 16 Null", "ice.icefutures.bgw.sbe.v7.0.textvarstring16null", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.tick_value = ProtoField.new("Tick Value", "ice.icefutures.bgw.sbe.v7.0.tickvalue", ftypes.INT64)
@@ -364,7 +364,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_strategy_symbol = ProtoField.n
 omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_symbol_int_32 = ProtoField.new("Underlying Symbol int 32", "ice.icefutures.bgw.sbe.v7.0.underlyingsymbolint32", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_symbol_int_32_null = ProtoField.new("Underlying Symbol int 32 Null", "ice.icefutures.bgw.sbe.v7.0.underlyingsymbolint32null", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.icefutures.bgw.sbe.v7.0.unitofmeasure", ftypes.STRING)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure_data = ProtoField.new("Unit Of Measure Data", "ice.icefutures.bgw.sbe.v7.0.unitofmeasuredata", ftypes.BYTES)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure_data = ProtoField.new("Unit Of Measure Data", "ice.icefutures.bgw.sbe.v7.0.unitofmeasuredata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure_length = ProtoField.new("Unit Of Measure Length", "ice.icefutures.bgw.sbe.v7.0.unitofmeasurelength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.user_id = ProtoField.new("User Id", "ice.icefutures.bgw.sbe.v7.0.userid", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.version = ProtoField.new("Version", "ice.icefutures.bgw.sbe.v7.0.version", ftypes.UINT16)
@@ -585,7 +585,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.aon_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.aon_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.aon_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.aon_allowed, range, value, display)
@@ -775,7 +775,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.bench_mark_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.bench_mark_price_type, range, value, display)
@@ -880,7 +880,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.block_details_block_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.block_details_block_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.block_details_block_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.block_details_block_type, range, value, display)
@@ -995,7 +995,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.block_only.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.block_only.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.block_only.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.block_only, range, value, display)
@@ -1048,7 +1048,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.bypass_mqr.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.bypass_mqr.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.bypass_mqr.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.bypass_mqr, range, value, display)
@@ -1096,7 +1096,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.cancel_reason.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.cancel_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.cancel_reason, range, value, display)
@@ -1188,7 +1188,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.clearable.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.clearable.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.clearable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.clearable, range, value, display)
@@ -1207,7 +1207,7 @@ end
 -- Dissect runtime sized field: Cleared Alias Data
 ice_icefutures_bgw_sbe_v7_0.cleared_alias_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.cleared_alias_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias_data, range, value, display)
@@ -1430,7 +1430,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.commodity_deriv_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.commodity_deriv_indicator, range, value, display)
@@ -1638,7 +1638,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.crossing_order_futures_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.crossing_order_futures_allowed, range, value, display)
@@ -1668,7 +1668,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.crossing_order_options_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.crossing_order_options_allowed, range, value, display)
@@ -1923,7 +1923,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.direct_electronic_access.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.direct_electronic_access, range, value, display)
@@ -2048,7 +2048,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.exchange_silo.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.exchange_silo.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.exchange_silo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.exchange_silo, range, value, display)
@@ -2170,7 +2170,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.exec_restatement_reason, range, value, display)
@@ -2310,7 +2310,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.flex_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.flex_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.flex_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.flex_allowed, range, value, display)
@@ -2340,7 +2340,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.flex_strike_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.flex_strike_allowed, range, value, display)
@@ -2370,7 +2370,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.gap_fill_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.gap_fill_flag, range, value, display)
@@ -2462,7 +2462,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.gt_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.gt_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.gt_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.gt_allowed, range, value, display)
@@ -2538,7 +2538,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.hedge_only.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.hedge_only.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.hedge_only.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.hedge_only, range, value, display)
@@ -2580,7 +2580,7 @@ end
 -- Dissect runtime sized field: Home Exchange Data
 ice_icefutures_bgw_sbe_v7_0.home_exchange_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.home_exchange_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.home_exchange_data, range, value, display)
@@ -2622,7 +2622,7 @@ end
 -- Dissect runtime sized field: Hub Alias Data
 ice_icefutures_bgw_sbe_v7_0.hub_alias_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.hub_alias_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_alias_data, range, value, display)
@@ -2687,7 +2687,7 @@ end
 -- Dissect runtime sized field: Hub Name Data
 ice_icefutures_bgw_sbe_v7_0.hub_name_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.hub_name_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name_data, range, value, display)
@@ -2946,7 +2946,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.is_dividend_adjusted.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.is_dividend_adjusted, range, value, display)
@@ -3068,7 +3068,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.leg_deals_suppressed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_deals_suppressed, range, value, display)
@@ -3399,7 +3399,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.leg_security_id_source.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.leg_security_id_source.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = ice_icefutures_bgw_sbe_v7_0.leg_security_id_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_security_id_source, range, value, display)
@@ -3458,7 +3458,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.leg_security_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.leg_security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.leg_security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_security_type, range, value, display)
@@ -3488,7 +3488,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_side, range, value, display)
@@ -3587,7 +3587,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.liquidity_provision.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.liquidity_provision.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.liquidity_provision.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.liquidity_provision, range, value, display)
@@ -3709,7 +3709,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.manual_order_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.manual_order_indicator, range, value, display)
@@ -3739,7 +3739,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.market_transparency_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.market_transparency_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.market_transparency_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.market_transparency_type, range, value, display)
@@ -3821,7 +3821,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_reject_reason, range, value, display)
@@ -3851,7 +3851,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_request_type, range, value, display)
@@ -3884,7 +3884,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.mass_cancel_response.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_response, range, value, display)
@@ -3914,7 +3914,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.mass_quotes_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quotes_allowed, range, value, display)
@@ -4144,7 +4144,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market_boolean_enum, range, value, display)
@@ -4174,7 +4174,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_boolean_enum_null.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market_boolean_enum_null, range, value, display)
@@ -4296,7 +4296,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.non_commoditized_market, range, value, display)
@@ -4388,7 +4388,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.num_of_decimal_price.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.num_of_decimal_price.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = ice_icefutures_bgw_sbe_v7_0.num_of_decimal_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_decimal_price, range, value, display)
@@ -4411,7 +4411,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.num_of_decimal_qty.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.num_of_decimal_qty.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = ice_icefutures_bgw_sbe_v7_0.num_of_decimal_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_decimal_qty, range, value, display)
@@ -4434,7 +4434,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.num_of_decimal_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.num_of_decimal_strike_price.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = ice_icefutures_bgw_sbe_v7_0.num_of_decimal_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_decimal_strike_price, range, value, display)
@@ -4820,7 +4820,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.options_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.options_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.options_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.options_allowed, range, value, display)
@@ -4856,7 +4856,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type_order_type_enum, range, value, display)
@@ -4892,7 +4892,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.ord_type_order_type_enum_null.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type_order_type_enum_null, range, value, display)
@@ -5000,7 +5000,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.order_state.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.order_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.order_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_state, range, value, display)
@@ -5042,7 +5042,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.order_status.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.order_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.order_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_status, range, value, display)
@@ -5203,7 +5203,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.override_block_min.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.override_block_min.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.override_block_min.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.override_block_min, range, value, display)
@@ -5222,7 +5222,7 @@ end
 -- Dissect runtime sized field: Physical Code Data
 ice_icefutures_bgw_sbe_v7_0.physical_code_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.physical_code_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.physical_code_data, range, value, display)
@@ -5376,7 +5376,7 @@ end
 -- Dissect runtime sized field: Price Denomination Data
 ice_icefutures_bgw_sbe_v7_0.price_denomination_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.price_denomination_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination_data, range, value, display)
@@ -5441,7 +5441,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.price_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.price_type, range, value, display)
@@ -5460,7 +5460,7 @@ end
 -- Dissect runtime sized field: Price Unit Data
 ice_icefutures_bgw_sbe_v7_0.price_unit_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.price_unit_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit_data, range, value, display)
@@ -5502,7 +5502,7 @@ end
 -- Dissect runtime sized field: Product Desc Data
 ice_icefutures_bgw_sbe_v7_0.product_desc_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.product_desc_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.product_desc_data, range, value, display)
@@ -5544,7 +5544,7 @@ end
 -- Dissect runtime sized field: Product Group Data
 ice_icefutures_bgw_sbe_v7_0.product_group_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.product_group_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group_data, range, value, display)
@@ -5632,7 +5632,7 @@ end
 -- Dissect runtime sized field: Product Name Data
 ice_icefutures_bgw_sbe_v7_0.product_name_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.product_name_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name_data, range, value, display)
@@ -5724,7 +5724,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.put_or_call, range, value, display)
@@ -5796,7 +5796,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.quote_cancel_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_type, range, value, display)
@@ -5875,7 +5875,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_entry_reject_reason, range, value, display)
@@ -6003,7 +6003,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_reject_reason, range, value, display)
@@ -6171,7 +6171,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reject_reason, range, value, display)
@@ -6204,7 +6204,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.reject_response_to.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.reject_response_to.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.reject_response_to.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reject_response_to, range, value, display)
@@ -6243,7 +6243,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.rfc_status.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.rfc_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.rfc_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.rfc_status, range, value, display)
@@ -6273,7 +6273,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.rfq_futures_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.rfq_futures_allowed, range, value, display)
@@ -6303,7 +6303,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.rfq_options_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.rfq_options_allowed, range, value, display)
@@ -6379,7 +6379,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.risk_protection_reset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.risk_protection_reset, range, value, display)
@@ -6572,7 +6572,7 @@ end
 -- Dissect runtime sized field: Security Desc Data
 ice_icefutures_bgw_sbe_v7_0.security_desc_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.security_desc_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc_data, range, value, display)
@@ -6614,7 +6614,7 @@ end
 -- Dissect runtime sized field: Security Exchange Data
 ice_icefutures_bgw_sbe_v7_0.security_exchange_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.security_exchange_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_exchange_data, range, value, display)
@@ -6656,7 +6656,7 @@ end
 -- Dissect runtime sized field: Security Id Data
 ice_icefutures_bgw_sbe_v7_0.security_id_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.security_id_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_id_data, range, value, display)
@@ -6747,7 +6747,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.security_request_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.security_request_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.security_request_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_request_type, range, value, display)
@@ -6806,7 +6806,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.security_response_type.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.security_response_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.security_response_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_response_type, range, value, display)
@@ -6900,7 +6900,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_trading_status, range, value, display)
@@ -6936,7 +6936,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_type_security_type_enum, range, value, display)
@@ -6972,7 +6972,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.security_type_security_type_enum_null.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_type_security_type_enum_null, range, value, display)
@@ -7002,7 +7002,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.self_block_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.self_block_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.self_block_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.self_block_allowed, range, value, display)
@@ -7200,7 +7200,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.severity_level.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.severity_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.severity_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.severity_level, range, value, display)
@@ -7230,7 +7230,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.side_side_enum.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.side_side_enum.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.side_side_enum.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.side_side_enum, range, value, display)
@@ -7260,7 +7260,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.side_side_enum_null.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.side_side_enum_null, range, value, display)
@@ -7316,7 +7316,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.status.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.status, range, value, display)
@@ -7369,7 +7369,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.stops_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.stops_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.stops_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.stops_allowed, range, value, display)
@@ -7388,7 +7388,7 @@ end
 -- Dissect runtime sized field: Strategy Security Id Data
 ice_icefutures_bgw_sbe_v7_0.strategy_security_id_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.strategy_security_id_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.strategy_security_id_data, range, value, display)
@@ -7444,7 +7444,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.strike_exercise_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.strike_exercise_style, range, value, display)
@@ -7509,7 +7509,7 @@ end
 -- Dissect runtime sized field: Strip Name Data
 ice_icefutures_bgw_sbe_v7_0.strip_name_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.strip_name_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_name_data, range, value, display)
@@ -7585,7 +7585,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.success.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.success.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.success.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.success, range, value, display)
@@ -7896,7 +7896,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator_boolean_enum, range, value, display)
@@ -7926,7 +7926,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.test_market_indicator_boolean_enum_null.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator_boolean_enum_null, range, value, display)
@@ -7984,7 +7984,7 @@ end
 -- Dissect runtime sized field: Text Data
 ice_icefutures_bgw_sbe_v7_0.text_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.text_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.text_data, range, value, display)
@@ -8069,7 +8069,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_time_in_force_enum, range, value, display)
@@ -8108,7 +8108,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.time_in_force_time_in_force_enum_null.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_time_in_force_enum_null, range, value, display)
@@ -8203,7 +8203,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.trading_capacity.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.trading_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.trading_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trading_capacity, range, value, display)
@@ -8318,7 +8318,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.uds_futures_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.uds_futures_allowed, range, value, display)
@@ -8348,7 +8348,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.uds_options_allowed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.uds_options_allowed, range, value, display)
@@ -8482,7 +8482,7 @@ end
 -- Dissect runtime sized field: Unit Of Measure Data
 ice_icefutures_bgw_sbe_v7_0.unit_of_measure_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:string()
   local display = ice_icefutures_bgw_sbe_v7_0.unit_of_measure_data.display(value, packet, parent, size)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure_data, range, value, display)
@@ -8604,7 +8604,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.waiver_indicator.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.waiver_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = ice_icefutures_bgw_sbe_v7_0.waiver_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.waiver_indicator, range, value, display)

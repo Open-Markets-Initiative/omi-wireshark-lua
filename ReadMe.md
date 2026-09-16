@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 946 | 6,662,008 |
+| 950 | 6,677,191 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -87,7 +87,7 @@ The Open Markets Initiative provides protocol definitions in several formats:
 - [DFDL Definitions][Dfdl.Definitions.Repository] — declarative DFDL schemas for cross language parsing
 - [P4 Definitions][P4.Definitions.Repository] — P4 programs for software and hardware data planes
 - [Spicy Definitions][Spicy.Definitions.Repository] — declarative Spicy grammars for the spicy toolchain and the zeek network security monitor
-- [Lean Protocols][Lean.Protocols.Repository] — Lean 4 message definitions whose encode and decode agree by machine checked proof
+- [Lean Definitions][Lean.Definitions.Repository] — Lean 4 definitions with machine checked encode and decode proofs
 - [FIX Dictionaries][Fix.Dictionaries.Repository] — QuickFIX format xml data dictionaries, one per FIX version
 - [Xml Specifications][Xml.Specifications.Repository] — the exchange protocol specification xmls, matching the original files
 ## Disclaimer
@@ -135,9 +135,9 @@ Enjoy.
 [Omi.Encoding.Snap]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Snap.md "Snap Encoding"
 [Omi.Encoding.Flex]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Flex.md "Flex Encoding"
 [Omi.Encoding.Mitch]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Mitch.md "Mitch Encoding"
+[Omi.Encoding.Ntgi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Ntgi.md "Ntgi Encoding"
 [Omi.Encoding.Exture]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Exture.md "Exture Encoding"
 [Omi.Encoding.Gtp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Gtp.md "Gtp Encoding"
-[Omi.Encoding.Ntgi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Ntgi.md "Ntgi Encoding"
 [Omi.Encoding.Mach]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Mach.md "Mach Encoding"
 [Omi.Encoding.ESesM]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/ESesM.md "ESesM Encoding"
 [Omi.Encoding.Meo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Meo.md "Meo Encoding"
@@ -356,6 +356,10 @@ Enjoy.
 [Jpx.SseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jpx/Protocols/SseEquities/MarketByOrder.md "Market By Order"
 [Jpx.TseEquities.MarketByOrder]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jpx/Protocols/TseEquities/MarketByOrder.md "Market By Order"
 [Jse.Itac.MarketData]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jse/Protocols/Itac/MarketData.md "Market Data"
+[Jse.Itac.EnhancedNativeTrading]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jse/Protocols/Itac/EnhancedNativeTrading.md "Enhanced Native Trading Gateway"
+[Jse.Itac.EnhancedNativeTradingRecovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jse/Protocols/Itac/EnhancedNativeTradingRecovery.md "Enhanced Native Trading Recovery"
+[Jse.Itac.BasicNativeTrading]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jse/Protocols/Itac/BasicNativeTrading.md "Basic Native Trading Gateway"
+[Jse.Itac.BasicNativeTradingRecovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Jse/Protocols/Itac/BasicNativeTradingRecovery.md "Basic Native Trading Recovery"
 [Koscom.MdcsRealtime.BondA]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/BondA.md "MDCS Realtime Bond A"
 [Koscom.MdcsRealtime.Commodities]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/Commodities.md "MDCS Realtime Commodities"
 [Koscom.MdcsRealtime.DerivativesA]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Koscom/Protocols/MdcsRealtime/DerivativesA.md "MDCS Realtime Derivatives A"
@@ -773,6 +777,6 @@ Enjoy.
 [Dfdl.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-dfdl-definitions "Omi DFDL Definitions"
 [P4.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-p4-definitions "Omi P4 Definitions"
 [Spicy.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-spicy-definitions "Omi Spicy Definitions"
-[Lean.Protocols.Repository]: https://github.com/Open-Markets-Initiative/omi-lean-protocols "Omi Lean Protocols"
+[Lean.Definitions.Repository]: https://github.com/Open-Markets-Initiative/omi-lean-definitions "Omi Lean Definitions"
 [Fix.Dictionaries.Repository]: https://github.com/Open-Markets-Initiative/omi-fix-dictionaries "Omi FIX Dictionaries"
 [Xml.Specifications.Repository]: https://github.com/Open-Markets-Initiative/omi-xml-specifications "Omi Xml Specifications"

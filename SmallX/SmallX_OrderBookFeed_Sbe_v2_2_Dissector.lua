@@ -1477,7 +1477,7 @@ end
 smallx_orderbookfeed_sbe_v2_2.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = smallx_orderbookfeed_sbe_v2_2.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = smallx_orderbookfeed_sbe_v2_2.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.num_in_group, range, value, display)
@@ -2346,7 +2346,7 @@ end
 smallx_orderbookfeed_sbe_v2_2.strategy_type.dissect = function(buffer, offset, packet, parent)
   local length = smallx_orderbookfeed_sbe_v2_2.strategy_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = smallx_orderbookfeed_sbe_v2_2.strategy_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.strategy_type, range, value, display)
@@ -2975,7 +2975,7 @@ smallx_orderbookfeed_sbe_v2_2.legs_groups.size = function(buffer, offset)
   index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + legs_group_count * 46
 
   return index
@@ -2994,7 +2994,7 @@ smallx_orderbookfeed_sbe_v2_2.legs_groups.fields = function(buffer, offset, pack
   index, group_dimension = smallx_orderbookfeed_sbe_v2_2.group_dimension.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Legs Group
   for legs_group_index = 1, num_in_group do
@@ -3112,7 +3112,7 @@ smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect = function(b
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.display(range, value, packet, parent)
-  local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_message_instructions, range, display)
+  local element = parent:add_le(omi_smallx_orderbookfeed_sbe_v2_2.fields.snapshot_message_instructions, range, display)
 
   if show.structs then
     smallx_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits(range, value, packet, element)
@@ -3490,7 +3490,7 @@ smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.dissect = functio
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.display(range, value, packet, parent)
-  local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_message_instructions, range, display)
+  local element = parent:add_le(omi_smallx_orderbookfeed_sbe_v2_2.fields.incremental_message_instructions, range, display)
 
   if show.structs then
     smallx_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits(range, value, packet, element)
@@ -4013,7 +4013,7 @@ smallx_orderbookfeed_sbe_v2_2.order_attributes.dissect = function(buffer, offset
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = smallx_orderbookfeed_sbe_v2_2.order_attributes.display(range, value, packet, parent)
-  local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_attributes, range, display)
+  local element = parent:add_le(omi_smallx_orderbookfeed_sbe_v2_2.fields.order_attributes, range, display)
 
   if show.structs then
     smallx_orderbookfeed_sbe_v2_2.order_attributes.bits(range, value, packet, element)
@@ -4102,7 +4102,7 @@ smallx_orderbookfeed_sbe_v2_2.snaphot_orders_groups.size = function(buffer, offs
   index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
-  local snaphot_orders_group_count = buffer(offset + index - 1, 1):le_uint()
+  local snaphot_orders_group_count = buffer(offset + index - 1, 1):uint()
   index = index + snaphot_orders_group_count * 43
 
   return index
@@ -4121,7 +4121,7 @@ smallx_orderbookfeed_sbe_v2_2.snaphot_orders_groups.fields = function(buffer, of
   index, group_dimension = smallx_orderbookfeed_sbe_v2_2.group_dimension.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Snaphot Orders Group
   for snaphot_orders_group_index = 1, num_in_group do
@@ -4410,7 +4410,7 @@ smallx_orderbookfeed_sbe_v2_2.incremetal_orders_groups.size = function(buffer, o
   index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
-  local incremetal_orders_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremetal_orders_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremetal_orders_group_count * 44
 
   return index
@@ -4429,7 +4429,7 @@ smallx_orderbookfeed_sbe_v2_2.incremetal_orders_groups.fields = function(buffer,
   index, group_dimension = smallx_orderbookfeed_sbe_v2_2.group_dimension.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremetal Orders Group
   for incremetal_orders_group_index = 1, num_in_group do
@@ -4573,7 +4573,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_conditions.dissect = function(buffer, offset
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = smallx_orderbookfeed_sbe_v2_2.trade_conditions.display(range, value, packet, parent)
-  local element = parent:add(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_conditions, range, display)
+  local element = parent:add_le(omi_smallx_orderbookfeed_sbe_v2_2.fields.trade_conditions, range, display)
 
   if show.structs then
     smallx_orderbookfeed_sbe_v2_2.trade_conditions.bits(range, value, packet, element)
@@ -4666,7 +4666,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_bust_groups.size = function(buffer, offset)
   index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
-  local trade_bust_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_bust_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_bust_group_count * 51
 
   return index
@@ -4685,7 +4685,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_bust_groups.fields = function(buffer, offset
   index, group_dimension = smallx_orderbookfeed_sbe_v2_2.group_dimension.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Bust Group
   for trade_bust_group_index = 1, num_in_group do
@@ -4896,7 +4896,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_correct_groups.size = function(buffer, offse
   index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
-  local trade_correct_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_correct_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_correct_group_count * 52
 
   return index
@@ -4915,7 +4915,7 @@ smallx_orderbookfeed_sbe_v2_2.trade_correct_groups.fields = function(buffer, off
   index, group_dimension = smallx_orderbookfeed_sbe_v2_2.group_dimension.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Correct Group
   for trade_correct_group_index = 1, num_in_group do
@@ -5118,7 +5118,7 @@ smallx_orderbookfeed_sbe_v2_2.incremental_trade_groups.size = function(buffer, o
   index = index + smallx_orderbookfeed_sbe_v2_2.group_dimension.size
 
   -- Calculate field size from count
-  local incremental_trade_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_trade_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_trade_group_count * 43
 
   return index
@@ -5137,7 +5137,7 @@ smallx_orderbookfeed_sbe_v2_2.incremental_trade_groups.fields = function(buffer,
   index, group_dimension = smallx_orderbookfeed_sbe_v2_2.group_dimension.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Trade Group
   for incremental_trade_group_index = 1, num_in_group do

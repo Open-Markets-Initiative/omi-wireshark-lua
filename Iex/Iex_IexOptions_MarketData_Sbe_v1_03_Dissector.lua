@@ -276,7 +276,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.auction_summary_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.auction_summary_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.auction_summary_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.auction_summary_type, range, value, display)
@@ -420,7 +420,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.block_length_short.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.block_length_short.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_marketdata_sbe_v1_03.block_length_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.block_length_short, range, value, display)
@@ -465,7 +465,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.capacity.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.capacity.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.capacity, range, value, display)
@@ -518,7 +518,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.close_indicator.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.close_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.close_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.close_indicator, range, value, display)
@@ -548,7 +548,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.closing_only_series.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.closing_only_series.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_marketdata_sbe_v1_03.closing_only_series.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.closing_only_series, range, value, display)
@@ -624,7 +624,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.customer_indicator.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.customer_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.customer_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.customer_indicator, range, value, display)
@@ -782,7 +782,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.feed.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.feed.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.feed.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.feed, range, value, display)
@@ -832,7 +832,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.liquidity_event_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.liquidity_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.liquidity_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.liquidity_event_type, range, value, display)
@@ -940,7 +940,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.mod_flag.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.mod_flag.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.mod_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.mod_flag, range, value, display)
@@ -973,7 +973,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.mpv_group.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.mpv_group.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.mpv_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.mpv_group, range, value, display)
@@ -996,7 +996,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_marketdata_sbe_v1_03.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.num_in_group, range, value, display)
@@ -1026,7 +1026,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.option_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.option_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.option_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.option_type, range, value, display)
@@ -1102,7 +1102,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.orp_enablement.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.orp_enablement.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.orp_enablement.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.orp_enablement, range, value, display)
@@ -1255,7 +1255,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.quote_relief_multiplier.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.quote_relief_multiplier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_marketdata_sbe_v1_03.quote_relief_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.quote_relief_multiplier, range, value, display)
@@ -1381,7 +1381,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.side.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.side.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.side, range, value, display)
@@ -1467,7 +1467,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.status_retransmission_status_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.status_retransmission_status_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_marketdata_sbe_v1_03.status_retransmission_status_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.status_retransmission_status_type, range, value, display)
@@ -1497,7 +1497,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.status_status_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.status_status_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.status_status_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.status_status_type, range, value, display)
@@ -1762,7 +1762,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.trading_ring.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.trading_ring.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.trading_ring.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.trading_ring, range, value, display)
@@ -1807,7 +1807,7 @@ end
 iex_iexoptions_marketdata_sbe_v1_03.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_03.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_marketdata_sbe_v1_03.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.trading_status, range, value, display)
@@ -2209,7 +2209,7 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.siz
   index = index + iex_iexoptions_marketdata_sbe_v1_03.message_list_group_encoding.size
 
   -- Calculate field size from count
-  local sequenced_packet_message_messages_group_count = buffer(offset + index - 1, 1):le_uint()
+  local sequenced_packet_message_messages_group_count = buffer(offset + index - 1, 1):uint()
   index = index + sequenced_packet_message_messages_group_count * 0
 
   return index
@@ -2228,7 +2228,7 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.fie
   index, message_list_group_encoding = iex_iexoptions_marketdata_sbe_v1_03.message_list_group_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Sequenced Packet Message messages Group
   for sequenced_packet_message_messages_group_index = 1, num_in_group do

@@ -965,7 +965,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.message_count_short.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.message_count_short.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.message_count_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.message_count_short, range, value, display)
@@ -1278,7 +1278,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.quantity_exponent.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.quantity_exponent.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.quantity_exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.quantity_exponent, range, value, display)
@@ -1324,7 +1324,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.ratio.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.ratio.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.ratio.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.ratio, range, value, display)
@@ -1360,7 +1360,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.reason.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reason, range, value, display)
@@ -1560,7 +1560,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.status.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.status, range, value, display)
@@ -1872,7 +1872,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.trading_status, range, value, display)
@@ -1947,7 +1947,7 @@ end
 coinbase_deribit_marketdataapi_sbe_v1_0.type.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v1_0.type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.type, range, value, display)
@@ -2268,7 +2268,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.dissect = function(buffer, o
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.display(range, value, packet, parent)
-  local element = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.taker_flags, range, display)
+  local element = parent:add_le(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.taker_flags, range, display)
 
   if show.structs then
     coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.bits(range, value, packet, element)
@@ -2398,7 +2398,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.dissect = function(buffer, o
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.display(range, value, packet, parent)
-  local element = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.maker_flags, range, display)
+  local element = parent:add_le(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.maker_flags, range, display)
 
   if show.structs then
     coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.bits(range, value, packet, element)

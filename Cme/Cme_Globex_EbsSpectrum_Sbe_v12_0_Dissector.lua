@@ -154,7 +154,7 @@ end
 cme_globex_ebsspectrum_sbe_v12_0.aggressor_side.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ebsspectrum_sbe_v12_0.aggressor_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ebsspectrum_sbe_v12_0.aggressor_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.aggressor_side, range, value, display)
@@ -545,7 +545,7 @@ end
 cme_globex_ebsspectrum_sbe_v12_0.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ebsspectrum_sbe_v12_0.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ebsspectrum_sbe_v12_0.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.num_in_group, range, value, display)
@@ -575,7 +575,7 @@ end
 cme_globex_ebsspectrum_sbe_v12_0.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ebsspectrum_sbe_v12_0.open_close_settl_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ebsspectrum_sbe_v12_0.open_close_settl_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.open_close_settl_flag, range, value, display)
@@ -675,7 +675,7 @@ end
 cme_globex_ebsspectrum_sbe_v12_0.security_trading_event.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ebsspectrum_sbe_v12_0.security_trading_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ebsspectrum_sbe_v12_0.security_trading_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.security_trading_event, range, value, display)
@@ -874,7 +874,7 @@ end
 cme_globex_ebsspectrum_sbe_v12_0.trading_session_id.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_ebsspectrum_sbe_v12_0.trading_session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_ebsspectrum_sbe_v12_0.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0.fields.trading_session_id, range, value, display)
@@ -1109,7 +1109,7 @@ cme_globex_ebsspectrum_sbe_v12_0.snapshot_refresh_ticker_groups.size = function(
   index = index + cme_globex_ebsspectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local snapshot_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
+  local snapshot_refresh_ticker_group_count = buffer(offset + index - 1, 1):uint()
   index = index + snapshot_refresh_ticker_group_count * 28
 
   return index
@@ -1128,7 +1128,7 @@ cme_globex_ebsspectrum_sbe_v12_0.snapshot_refresh_ticker_groups.fields = functio
   index, group_size = cme_globex_ebsspectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Snapshot Refresh Ticker Group
   for snapshot_refresh_ticker_group_index = 1, num_in_group do
@@ -1388,7 +1388,7 @@ cme_globex_ebsspectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.size = functio
   index = index + cme_globex_ebsspectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local snapshot_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
+  local snapshot_refresh_spectrum_group_count = buffer(offset + index - 1, 1):uint()
   index = index + snapshot_refresh_spectrum_group_count * 25
 
   return index
@@ -1407,7 +1407,7 @@ cme_globex_ebsspectrum_sbe_v12_0.snapshot_refresh_spectrum_groups.fields = funct
   index, group_size = cme_globex_ebsspectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Snapshot Refresh Spectrum Group
   for snapshot_refresh_spectrum_group_index = 1, num_in_group do
@@ -1606,7 +1606,7 @@ cme_globex_ebsspectrum_sbe_v12_0.incremental_refresh_ticker_groups.size = functi
   index = index + cme_globex_ebsspectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_ticker_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_ticker_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_ticker_group_count * 95
 
   return index
@@ -1625,7 +1625,7 @@ cme_globex_ebsspectrum_sbe_v12_0.incremental_refresh_ticker_groups.fields = func
   index, group_size = cme_globex_ebsspectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh Ticker Group
   for incremental_refresh_ticker_group_index = 1, num_in_group do
@@ -1792,7 +1792,7 @@ cme_globex_ebsspectrum_sbe_v12_0.incremental_refresh_spectrum_groups.size = func
   index = index + cme_globex_ebsspectrum_sbe_v12_0.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_spectrum_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_spectrum_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_spectrum_group_count * 92
 
   return index
@@ -1811,7 +1811,7 @@ cme_globex_ebsspectrum_sbe_v12_0.incremental_refresh_spectrum_groups.fields = fu
   index, group_size = cme_globex_ebsspectrum_sbe_v12_0.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh Spectrum Group
   for incremental_refresh_spectrum_group_index = 1, num_in_group do

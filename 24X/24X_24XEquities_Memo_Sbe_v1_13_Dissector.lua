@@ -5000,7 +5000,7 @@ end
 n24x_24xequities_memo_sbe_v1_13.exec_inst.dissect = function(buffer, offset, packet, parent)
   local size = n24x_24xequities_memo_sbe_v1_13.exec_inst.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = n24x_24xequities_memo_sbe_v1_13.exec_inst.display(range, value, packet, parent)
   local element = parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.exec_inst, range, display)
 

@@ -407,7 +407,7 @@ end
 cme_globex_streamlined_sbe_v5_8.aggressor_side.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.aggressor_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.aggressor_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.aggressor_side, range, value, display)
@@ -615,7 +615,7 @@ end
 cme_globex_streamlined_sbe_v5_8.day.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.day.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.day, range, value, display)
@@ -698,7 +698,7 @@ end
 cme_globex_streamlined_sbe_v5_8.event_type_optional.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.event_type_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.event_type_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.event_type_optional, range, value, display)
@@ -726,7 +726,7 @@ end
 cme_globex_streamlined_sbe_v5_8.exponent.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.exponent.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_streamlined_sbe_v5_8.exponent.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.exponent, range, value, display)
@@ -816,7 +816,7 @@ end
 cme_globex_streamlined_sbe_v5_8.heart_bt_int.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.heart_bt_int.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_streamlined_sbe_v5_8.heart_bt_int.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.heart_bt_int, range, value, display)
@@ -839,7 +839,7 @@ end
 cme_globex_streamlined_sbe_v5_8.inst_attrib_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.inst_attrib_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.inst_attrib_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.inst_attrib_type, range, value, display)
@@ -1023,7 +1023,7 @@ end
 cme_globex_streamlined_sbe_v5_8.leg_date_offset.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.leg_date_offset.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_streamlined_sbe_v5_8.leg_date_offset.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.leg_date_offset, range, value, display)
@@ -1157,7 +1157,7 @@ end
 cme_globex_streamlined_sbe_v5_8.leg_put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.leg_put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.leg_put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.leg_put_or_call, range, value, display)
@@ -1464,7 +1464,7 @@ end
 cme_globex_streamlined_sbe_v5_8.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.leg_side, range, value, display)
@@ -1743,7 +1743,7 @@ end
 cme_globex_streamlined_sbe_v5_8.market_depth.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.market_depth.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.market_depth.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.market_depth, range, value, display)
@@ -1852,7 +1852,7 @@ end
 cme_globex_streamlined_sbe_v5_8.md_entry_code.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.md_entry_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.md_entry_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.md_entry_code, range, value, display)
@@ -2251,7 +2251,7 @@ end
 cme_globex_streamlined_sbe_v5_8.md_quote_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.md_quote_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.md_quote_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.md_quote_type, range, value, display)
@@ -2293,7 +2293,7 @@ end
 cme_globex_streamlined_sbe_v5_8.md_update_action.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.md_update_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.md_update_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.md_update_action, range, value, display)
@@ -2403,7 +2403,7 @@ end
 cme_globex_streamlined_sbe_v5_8.month.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.month.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.month, range, value, display)
@@ -2572,7 +2572,7 @@ end
 cme_globex_streamlined_sbe_v5_8.num_in_group_8.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.num_in_group_8.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.num_in_group_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.num_in_group_8, range, value, display)
@@ -2628,7 +2628,7 @@ end
 cme_globex_streamlined_sbe_v5_8.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.open_close_settl_flag.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_streamlined_sbe_v5_8.open_close_settl_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.open_close_settl_flag, range, value, display)
@@ -2863,7 +2863,7 @@ end
 cme_globex_streamlined_sbe_v5_8.product.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.product.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = cme_globex_streamlined_sbe_v5_8.product.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.product, range, value, display)
@@ -2930,7 +2930,7 @@ end
 cme_globex_streamlined_sbe_v5_8.product_optional.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.product_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.product_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.product_optional, range, value, display)
@@ -2958,7 +2958,7 @@ end
 cme_globex_streamlined_sbe_v5_8.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.put_or_call, range, value, display)
@@ -3061,7 +3061,7 @@ end
 cme_globex_streamlined_sbe_v5_8.quote_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.quote_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.quote_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.quote_type, range, value, display)
@@ -3245,7 +3245,7 @@ end
 cme_globex_streamlined_sbe_v5_8.related_instrument_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.related_instrument_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.related_instrument_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.related_instrument_type, range, value, display)
@@ -4588,7 +4588,7 @@ end
 cme_globex_streamlined_sbe_v5_8.trd_type.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.trd_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.trd_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.trd_type, range, value, display)
@@ -5019,7 +5019,7 @@ end
 cme_globex_streamlined_sbe_v5_8.week.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_8.week.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_8.week.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_8.fields.week, range, value, display)
@@ -5203,7 +5203,7 @@ cme_globex_streamlined_sbe_v5_8.eris_security_alt_id_groups.size = function(buff
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local eris_security_alt_id_group_count = buffer(offset + index - 1, 1):le_uint()
+  local eris_security_alt_id_group_count = buffer(offset + index - 1, 1):uint()
   index = index + eris_security_alt_id_group_count * 27
 
   return index
@@ -5222,7 +5222,7 @@ cme_globex_streamlined_sbe_v5_8.eris_security_alt_id_groups.fields = function(bu
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Eris Security Alt Id Group
   for eris_security_alt_id_group_index = 1, num_in_group_8 do
@@ -5484,7 +5484,7 @@ cme_globex_streamlined_sbe_v5_8.eris_legs_groups.size = function(buffer, offset)
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local eris_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local eris_legs_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, eris_legs_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.eris_legs_group.size(buffer, offset + index)
   end
@@ -5504,7 +5504,7 @@ cme_globex_streamlined_sbe_v5_8.eris_legs_groups.fields = function(buffer, offse
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Eris Legs Group
   for eris_legs_group_index = 1, num_in_group_8 do
@@ -5592,7 +5592,7 @@ cme_globex_streamlined_sbe_v5_8.events_groups.size = function(buffer, offset)
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local events_group_count = buffer(offset + index - 1, 1):uint()
   index = index + events_group_count * 9
 
   return index
@@ -5611,7 +5611,7 @@ cme_globex_streamlined_sbe_v5_8.events_groups.fields = function(buffer, offset, 
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Events Group
   for events_group_index = 1, num_in_group_8 do
@@ -5699,7 +5699,7 @@ cme_globex_streamlined_sbe_v5_8.eris_feed_types_groups.size = function(buffer, o
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local eris_feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
+  local eris_feed_types_group_count = buffer(offset + index - 1, 1):uint()
   index = index + eris_feed_types_group_count * 4
 
   return index
@@ -5718,7 +5718,7 @@ cme_globex_streamlined_sbe_v5_8.eris_feed_types_groups.fields = function(buffer,
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Eris Feed Types Group
   for eris_feed_types_group_index = 1, num_in_group_8 do
@@ -5985,7 +5985,7 @@ cme_globex_streamlined_sbe_v5_8.otc_security_alt_id_groups.size = function(buffe
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local otc_security_alt_id_group_count = buffer(offset + index - 1, 1):le_uint()
+  local otc_security_alt_id_group_count = buffer(offset + index - 1, 1):uint()
   index = index + otc_security_alt_id_group_count * 51
 
   return index
@@ -6004,7 +6004,7 @@ cme_globex_streamlined_sbe_v5_8.otc_security_alt_id_groups.fields = function(buf
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Otc Security Alt Id Group
   for otc_security_alt_id_group_index = 1, num_in_group_8 do
@@ -6152,7 +6152,7 @@ cme_globex_streamlined_sbe_v5_8.otc_underlyings_groups.size = function(buffer, o
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local otc_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
+  local otc_underlyings_group_count = buffer(offset + index - 1, 1):uint()
   index = index + otc_underlyings_group_count * 68
 
   return index
@@ -6171,7 +6171,7 @@ cme_globex_streamlined_sbe_v5_8.otc_underlyings_groups.fields = function(buffer,
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Otc Underlyings Group
   for otc_underlyings_group_index = 1, num_in_group_8 do
@@ -6639,7 +6639,7 @@ cme_globex_streamlined_sbe_v5_8.otc_original_groups.size = function(buffer, offs
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local otc_original_group_count = buffer(offset + index - 1, 1):le_uint()
+  local otc_original_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, otc_original_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.otc_original_group.size(buffer, offset + index)
   end
@@ -6659,7 +6659,7 @@ cme_globex_streamlined_sbe_v5_8.otc_original_groups.fields = function(buffer, of
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Otc Original Group
   for otc_original_group_index = 1, num_in_group_8 do
@@ -7105,7 +7105,7 @@ cme_globex_streamlined_sbe_v5_8.eris_groups.size = function(buffer, offset)
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local eris_group_count = buffer(offset + index - 1, 1):le_uint()
+  local eris_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, eris_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.eris_group.size(buffer, offset + index)
   end
@@ -7125,7 +7125,7 @@ cme_globex_streamlined_sbe_v5_8.eris_groups.fields = function(buffer, offset, pa
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Eris Group
   for eris_group_index = 1, num_in_group_8 do
@@ -7364,7 +7364,7 @@ cme_globex_streamlined_sbe_v5_8.eris_original_groups.size = function(buffer, off
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local eris_original_group_count = buffer(offset + index - 1, 1):le_uint()
+  local eris_original_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, eris_original_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.eris_original_group.size(buffer, offset + index)
   end
@@ -7384,7 +7384,7 @@ cme_globex_streamlined_sbe_v5_8.eris_original_groups.fields = function(buffer, o
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Eris Original Group
   for eris_original_group_index = 1, num_in_group_8 do
@@ -7636,7 +7636,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_original_legs_groups.size = functio
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local trade_blocks_original_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_blocks_original_legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_blocks_original_legs_group_count * 135
 
   return index
@@ -7655,7 +7655,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_original_legs_groups.fields = funct
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Blocks Original Legs Group
   for trade_blocks_original_legs_group_index = 1, num_in_group_8 do
@@ -7743,7 +7743,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_party_ids_groups.size = function(bu
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local trade_blocks_party_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_blocks_party_ids_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_blocks_party_ids_group_count * 52
 
   return index
@@ -7762,7 +7762,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_party_ids_groups.fields = function(
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Blocks Party Ids Group
   for trade_blocks_party_ids_group_index = 1, num_in_group_8 do
@@ -7858,7 +7858,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_underlyings_groups.size = function(
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local trade_blocks_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_blocks_underlyings_group_count = buffer(offset + index - 1, 1):uint()
   index = index + trade_blocks_underlyings_group_count * 68
 
   return index
@@ -7877,7 +7877,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_underlyings_groups.fields = functio
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Blocks Underlyings Group
   for trade_blocks_underlyings_group_index = 1, num_in_group_8 do
@@ -8121,7 +8121,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_legacy_groups.size = function(buffe
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local trade_blocks_legacy_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_blocks_legacy_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, trade_blocks_legacy_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.trade_blocks_legacy_group.size(buffer, offset + index)
   end
@@ -8141,7 +8141,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_legacy_groups.fields = function(buf
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Blocks Legacy Group
   for trade_blocks_legacy_group_index = 1, num_in_group_8 do
@@ -8562,7 +8562,7 @@ cme_globex_streamlined_sbe_v5_8.incremental_refresh_indices_groups.size = functi
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_indices_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_indices_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_indices_group_count * 176
 
   return index
@@ -8581,7 +8581,7 @@ cme_globex_streamlined_sbe_v5_8.incremental_refresh_indices_groups.fields = func
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh Indices Group
   for incremental_refresh_indices_group_index = 1, num_in_group_8 do
@@ -9016,7 +9016,7 @@ cme_globex_streamlined_sbe_v5_8.quote_request_related_sym_groups.size = function
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local quote_request_related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_request_related_sym_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, quote_request_related_sym_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.quote_request_related_sym_group.size(buffer, offset + index)
   end
@@ -9036,7 +9036,7 @@ cme_globex_streamlined_sbe_v5_8.quote_request_related_sym_groups.fields = functi
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Quote Request Related Sym Group
   for quote_request_related_sym_group_index = 1, num_in_group_8 do
@@ -9340,7 +9340,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_original_groups.size = function(buf
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local trade_blocks_original_group_count = buffer(offset + index - 1, 1):le_uint()
+  local trade_blocks_original_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, trade_blocks_original_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.trade_blocks_original_group.size(buffer, offset + index)
   end
@@ -9360,7 +9360,7 @@ cme_globex_streamlined_sbe_v5_8.trade_blocks_original_groups.fields = function(b
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Trade Blocks Original Group
   for trade_blocks_original_group_index = 1, num_in_group_8 do
@@ -9504,7 +9504,7 @@ cme_globex_streamlined_sbe_v5_8.lines_of_text_groups.size = function(buffer, off
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local lines_of_text_group_count = buffer(offset + index - 1, 1):le_uint()
+  local lines_of_text_group_count = buffer(offset + index - 1, 1):uint()
   index = index + lines_of_text_group_count * 500
 
   return index
@@ -9523,7 +9523,7 @@ cme_globex_streamlined_sbe_v5_8.lines_of_text_groups.fields = function(buffer, o
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Lines Of Text Group
   for lines_of_text_group_index = 1, num_in_group_8 do
@@ -9607,7 +9607,7 @@ cme_globex_streamlined_sbe_v5_8.news_indices_related_sym_groups.size = function(
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local news_indices_related_sym_group_count = buffer(offset + index - 1, 1):le_uint()
+  local news_indices_related_sym_group_count = buffer(offset + index - 1, 1):uint()
   index = index + news_indices_related_sym_group_count * 50
 
   return index
@@ -9626,7 +9626,7 @@ cme_globex_streamlined_sbe_v5_8.news_indices_related_sym_groups.fields = functio
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: News Indices Related Sym Group
   for news_indices_related_sym_group_index = 1, num_in_group_8 do
@@ -9783,7 +9783,7 @@ cme_globex_streamlined_sbe_v5_8.incremental_refresh_eris_related_instruments_gro
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local incremental_refresh_eris_related_instruments_group_count = buffer(offset + index - 1, 1):le_uint()
+  local incremental_refresh_eris_related_instruments_group_count = buffer(offset + index - 1, 1):uint()
   index = index + incremental_refresh_eris_related_instruments_group_count * 77
 
   return index
@@ -9802,7 +9802,7 @@ cme_globex_streamlined_sbe_v5_8.incremental_refresh_eris_related_instruments_gro
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Incremental Refresh Eris Related Instruments Group
   for incremental_refresh_eris_related_instruments_group_index = 1, num_in_group_8 do
@@ -11457,7 +11457,7 @@ cme_globex_streamlined_sbe_v5_8.eris_reference_data_groups.size = function(buffe
   index = index + cme_globex_streamlined_sbe_v5_8.group_size.size
 
   -- Calculate field size from count
-  local eris_reference_data_group_count = buffer(offset + index - 1, 1):le_uint()
+  local eris_reference_data_group_count = buffer(offset + index - 1, 1):uint()
   for i = 1, eris_reference_data_group_count do
     index = index + cme_globex_streamlined_sbe_v5_8.eris_reference_data_group.size(buffer, offset + index)
   end
@@ -11477,7 +11477,7 @@ cme_globex_streamlined_sbe_v5_8.eris_reference_data_groups.fields = function(buf
   index, group_size = cme_globex_streamlined_sbe_v5_8.group_size.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group 8
-  local num_in_group_8 = buffer(index - 1, 1):le_uint()
+  local num_in_group_8 = buffer(index - 1, 1):uint()
 
   -- Repeating: Eris Reference Data Group
   for eris_reference_data_group_index = 1, num_in_group_8 do

@@ -49,7 +49,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.framing_header = ProtoField.new(
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.governance_indicator = ProtoField.new("Governance Indicator", "b3.b3derivatives.binaryumdf.sbe.v1.8.governanceindicator", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.b3derivatives.binaryumdf.sbe.v1.8.groupsizeencoding", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline = ProtoField.new("Headline", "b3.b3derivatives.binaryumdf.sbe.v1.8.headline", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline_data = ProtoField.new("Headline Data", "b3.b3derivatives.binaryumdf.sbe.v1.8.headlinedata", ftypes.UINT8)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline_data = ProtoField.new("Headline Data", "b3.b3derivatives.binaryumdf.sbe.v1.8.headlinedata", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline_length = ProtoField.new("Headline Length", "b3.b3derivatives.binaryumdf.sbe.v1.8.headlinelength", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.high_limit_price = ProtoField.new("High Limit Price", "b3.b3derivatives.binaryumdf.sbe.v1.8.highlimitprice", ftypes.DOUBLE)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.imbalance_condition = ProtoField.new("Imbalance Condition", "b3.b3derivatives.binaryumdf.sbe.v1.8.imbalancecondition", ftypes.STRING)
@@ -188,7 +188,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.strike_price = ProtoField.new("S
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.symbol = ProtoField.new("Symbol", "b3.b3derivatives.binaryumdf.sbe.v1.8.symbol", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.template_id = ProtoField.new("Template Id", "b3.b3derivatives.binaryumdf.sbe.v1.8.templateid", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.text = ProtoField.new("Text", "b3.b3derivatives.binaryumdf.sbe.v1.8.text", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.text_data = ProtoField.new("Text Data", "b3.b3derivatives.binaryumdf.sbe.v1.8.textdata", ftypes.UINT8)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.text_data = ProtoField.new("Text Data", "b3.b3derivatives.binaryumdf.sbe.v1.8.textdata", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.text_length = ProtoField.new("Text Length", "b3.b3derivatives.binaryumdf.sbe.v1.8.textlength", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.tick_size_denominator = ProtoField.new("Tick Size Denominator", "b3.b3derivatives.binaryumdf.sbe.v1.8.ticksizedenominator", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.b3derivatives.binaryumdf.sbe.v1.8.totnorelatedsym", ftypes.UINT32)
@@ -232,7 +232,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.unused_trade_condition_7 = Proto
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.unused_trade_condition_8 = ProtoField.new("Unused Trade Condition 8", "b3.b3derivatives.binaryumdf.sbe.v1.8.unusedtradecondition8", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.unused_trade_condition_9 = ProtoField.new("Unused Trade Condition 9", "b3.b3derivatives.binaryumdf.sbe.v1.8.unusedtradecondition9", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.url_link = ProtoField.new("Url Link", "b3.b3derivatives.binaryumdf.sbe.v1.8.urllink", ftypes.STRING)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.url_link_data = ProtoField.new("Url Link Data", "b3.b3derivatives.binaryumdf.sbe.v1.8.urllinkdata", ftypes.UINT8)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.url_link_data = ProtoField.new("Url Link Data", "b3.b3derivatives.binaryumdf.sbe.v1.8.urllinkdata", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.url_link_length = ProtoField.new("Url Link Length", "b3.b3derivatives.binaryumdf.sbe.v1.8.urllinklength", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.version = ProtoField.new("Version", "b3.b3derivatives.binaryumdf.sbe.v1.8.version", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.vwap_px = ProtoField.new("Vwap Px", "b3.b3derivatives.binaryumdf.sbe.v1.8.vwappx", ftypes.DOUBLE)
@@ -358,7 +358,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.aggressor_side.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.aggressor_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.aggressor_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.aggressor_side, range, value, display)
@@ -795,7 +795,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.day.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.day.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.day, range, value, display)
@@ -907,7 +907,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.exercise_style.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.exercise_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.exercise_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.exercise_style, range, value, display)
@@ -978,7 +978,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.governance_indicator.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.governance_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.governance_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.governance_indicator, range, value, display)
@@ -997,7 +997,7 @@ end
 -- Dissect runtime sized field: Headline Data
 b3_b3derivatives_binaryumdf_sbe_v1_8.headline_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:string()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.headline_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline_data, range, value, display)
@@ -1167,7 +1167,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attrib_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attrib_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attrib_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.instr_attrib_type, range, value, display)
@@ -1206,7 +1206,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attrib_value.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attrib_value.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attrib_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.instr_attrib_value, range, value, display)
@@ -1340,7 +1340,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.last_fragment.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.last_fragment.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.last_fragment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.last_fragment, range, value, display)
@@ -1585,7 +1585,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.leg_security_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.leg_security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.leg_security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.leg_security_type, range, value, display)
@@ -1615,7 +1615,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.leg_side, range, value, display)
@@ -1690,7 +1690,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.lot_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.lot_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.lot_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.lot_type, range, value, display)
@@ -1757,7 +1757,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.market_segment_id.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.market_segment_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.market_segment_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.market_segment_id, range, value, display)
@@ -2315,7 +2315,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.md_update_action.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.md_update_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.md_update_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.md_update_action, range, value, display)
@@ -2551,7 +2551,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.month.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.month.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.month.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.month, range, value, display)
@@ -2584,7 +2584,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.multi_leg_model.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.multi_leg_model.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.multi_leg_model.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.multi_leg_model, range, value, display)
@@ -2629,7 +2629,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.multi_leg_price_method.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.multi_leg_price_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.multi_leg_price_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.multi_leg_price_method, range, value, display)
@@ -2765,7 +2765,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.news_source.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.news_source.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.news_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.news_source, range, value, display)
@@ -2839,7 +2839,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.num_in_group, range, value, display)
@@ -3154,7 +3154,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.open_close_settl_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.open_close_settl_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.open_close_settl_flag, range, value, display)
@@ -3338,7 +3338,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.price_band_midpoint_price_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.price_band_midpoint_price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.price_band_midpoint_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.price_band_midpoint_price_type, range, value, display)
@@ -3377,7 +3377,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.price_band_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.price_band_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.price_band_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.price_band_type, range, value, display)
@@ -3452,7 +3452,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.price_limit_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.price_limit_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.price_limit_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.price_limit_type, range, value, display)
@@ -3485,7 +3485,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.price_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.price_type, range, value, display)
@@ -3521,7 +3521,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.price_type_optional.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.price_type_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.price_type_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.price_type_optional, range, value, display)
@@ -3569,7 +3569,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.product.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.product.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.product.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.product, range, value, display)
@@ -3602,7 +3602,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.put_or_call, range, value, display)
@@ -3745,7 +3745,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.security_desc_length.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.security_desc_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.security_desc_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_desc_length, range, value, display)
@@ -3947,7 +3947,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.security_match_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.security_match_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.security_match_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_match_type, range, value, display)
@@ -4045,7 +4045,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.security_trading_event.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.security_trading_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.security_trading_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_trading_event, range, value, display)
@@ -4090,7 +4090,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_trading_status, range, value, display)
@@ -4165,7 +4165,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.security_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.security_type, range, value, display)
@@ -4440,7 +4440,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.settl_price_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.settl_price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.settl_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.settl_price_type, range, value, display)
@@ -4749,7 +4749,7 @@ end
 -- Dissect runtime sized field: Text Data
 b3_b3derivatives_binaryumdf_sbe_v1_8.text_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:string()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.text_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.text_data, range, value, display)
@@ -4800,7 +4800,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.tick_size_denominator.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.tick_size_denominator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.tick_size_denominator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.tick_size_denominator, range, value, display)
@@ -5176,7 +5176,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.trading_session_id.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.trading_session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trading_session_id, range, value, display)
@@ -5221,7 +5221,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trading_session_sub_id, range, value, display)
@@ -5303,7 +5303,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.trd_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.trd_sub_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.trd_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trd_sub_type, range, value, display)
@@ -5384,7 +5384,7 @@ end
 -- Dissect runtime sized field: Url Link Data
 b3_b3derivatives_binaryumdf_sbe_v1_8.url_link_data.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:string()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.url_link_data.display(value, packet, parent, size)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.url_link_data, range, value, display)
@@ -5496,7 +5496,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.week.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.week.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.week.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.week, range, value, display)
@@ -5656,7 +5656,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.size
 
   -- Calculate field size from count
-  local snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_count = buffer(offset + index - 1, 1):le_uint()
+  local snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_count = buffer(offset + index - 1, 1):uint()
   index = index + snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_count * 41
 
   return index
@@ -5675,7 +5675,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   index, group_size_encoding = b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
   for snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = 1, num_in_group do
@@ -6214,7 +6214,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.trade_condition.dissect = function(buffer, 
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.trade_condition.display(range, value, packet, parent)
-  local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trade_condition, range, display)
+  local element = parent:add_le(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trade_condition, range, display)
 
   if show.structs then
     b3_b3derivatives_binaryumdf_sbe_v1_8.trade_condition.bits(range, value, packet, element)
@@ -7400,7 +7400,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.imbalance_condition.dissect = function(buff
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = b3_b3derivatives_binaryumdf_sbe_v1_8.imbalance_condition.display(range, value, packet, parent)
-  local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.imbalance_condition, range, display)
+  local element = parent:add_le(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.imbalance_condition, range, display)
 
   if show.structs then
     b3_b3derivatives_binaryumdf_sbe_v1_8.imbalance_condition.bits(range, value, packet, element)
@@ -7714,8 +7714,12 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.size = function(buffer, offset)
 end
 
 -- Display: Url Link
-b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Url Link
@@ -7736,7 +7740,10 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.fields = function(buffer, offset, 
     index, url_link_data = b3_b3derivatives_binaryumdf_sbe_v1_8.url_link_data.dissect(buffer, index, packet, parent, url_link_length)
   end
 
-  return index
+  -- Composite value
+  local url_link = url_link_data
+
+  return index, url_link
 end
 
 -- Dissect: Url Link
@@ -7744,13 +7751,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.dissect = function(buffer, offset,
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.url_link, buffer(offset, 0))
-    local index = b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.fields(buffer, offset, packet, parent)
+    local index, value = b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.display(packet, parent, length)
+    local display = b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.display(packet, parent, value, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return b3_b3derivatives_binaryumdf_sbe_v1_8.url_link.fields(buffer, offset, packet, parent)
@@ -7778,8 +7785,12 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.text.size = function(buffer, offset)
 end
 
 -- Display: Text
-b3_b3derivatives_binaryumdf_sbe_v1_8.text.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+b3_b3derivatives_binaryumdf_sbe_v1_8.text.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Text
@@ -7800,7 +7811,10 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.text.fields = function(buffer, offset, pack
     index, text_data = b3_b3derivatives_binaryumdf_sbe_v1_8.text_data.dissect(buffer, index, packet, parent, text_length)
   end
 
-  return index
+  -- Composite value
+  local text = text_data
+
+  return index, text
 end
 
 -- Dissect: Text
@@ -7808,13 +7822,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.text.dissect = function(buffer, offset, pac
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.text, buffer(offset, 0))
-    local index = b3_b3derivatives_binaryumdf_sbe_v1_8.text.fields(buffer, offset, packet, parent)
+    local index, value = b3_b3derivatives_binaryumdf_sbe_v1_8.text.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_b3derivatives_binaryumdf_sbe_v1_8.text.display(packet, parent, length)
+    local display = b3_b3derivatives_binaryumdf_sbe_v1_8.text.display(packet, parent, value, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return b3_b3derivatives_binaryumdf_sbe_v1_8.text.fields(buffer, offset, packet, parent)
@@ -7842,8 +7856,12 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.headline.size = function(buffer, offset)
 end
 
 -- Display: Headline
-b3_b3derivatives_binaryumdf_sbe_v1_8.headline.display = function(buffer, offset, value, packet, parent)
-  return ""..value
+b3_b3derivatives_binaryumdf_sbe_v1_8.headline.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return value
 end
 
 -- Dissect Fields: Headline
@@ -7864,7 +7882,10 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.headline.fields = function(buffer, offset, 
     index, headline_data = b3_b3derivatives_binaryumdf_sbe_v1_8.headline_data.dissect(buffer, index, packet, parent, headline_length)
   end
 
-  return index
+  -- Composite value
+  local headline = headline_data
+
+  return index, headline
 end
 
 -- Dissect: Headline
@@ -7872,13 +7893,13 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.headline.dissect = function(buffer, offset,
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.headline, buffer(offset, 0))
-    local index = b3_b3derivatives_binaryumdf_sbe_v1_8.headline.fields(buffer, offset, packet, parent)
+    local index, value = b3_b3derivatives_binaryumdf_sbe_v1_8.headline.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = b3_b3derivatives_binaryumdf_sbe_v1_8.headline.display(packet, parent, length)
+    local display = b3_b3derivatives_binaryumdf_sbe_v1_8.headline.display(packet, parent, value, length)
     parent:append_text(display)
 
-    return index, value
+    return index, parent
   else
     -- Skip element, add fields directly
     return b3_b3derivatives_binaryumdf_sbe_v1_8.headline.fields(buffer, offset, packet, parent)
@@ -7994,11 +8015,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.security_desc.size = function(buffer, offse
 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.security_desc_length.size
 
-  local security_desc_length = buffer(offset + 0, 1):le_uint()
+  local security_desc_length = buffer(offset + 0, 1):uint()
 
   if security_desc_length > 0 then
     -- Parse runtime size of: Security Desc Data
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 
@@ -8116,7 +8137,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attribs_groups.size = function(buffer
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.size
 
   -- Calculate field size from count
-  local instr_attribs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local instr_attribs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + instr_attribs_group_count * 2
 
   return index
@@ -8135,7 +8156,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.instr_attribs_groups.fields = function(buff
   index, group_size_encoding = b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Instr Attribs Group
   for instr_attribs_group_index = 1, num_in_group do
@@ -8235,7 +8256,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.legs_groups.size = function(buffer, offset)
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.size
 
   -- Calculate field size from count
-  local legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + legs_group_count * 38
 
   return index
@@ -8254,7 +8275,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.legs_groups.fields = function(buffer, offse
   index, group_size_encoding = b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Legs Group
   for legs_group_index = 1, num_in_group do
@@ -8342,7 +8363,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.underlyings_groups.size = function(buffer, 
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.size
 
   -- Calculate field size from count
-  local underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
+  local underlyings_group_count = buffer(offset + index - 1, 1):uint()
   index = index + underlyings_group_count * 28
 
   return index
@@ -8361,7 +8382,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.underlyings_groups.fields = function(buffer
   index, group_size_encoding = b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Underlyings Group
   for underlyings_group_index = 1, num_in_group do
@@ -8868,7 +8889,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_instr_attribs_groups.size = func
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.size
 
   -- Calculate field size from count
-  local deprecated_instr_attribs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local deprecated_instr_attribs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + deprecated_instr_attribs_group_count * 2
 
   return index
@@ -8887,7 +8908,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_instr_attribs_groups.fields = fu
   index, group_size_encoding = b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Deprecated Instr Attribs Group
   for deprecated_instr_attribs_group_index = 1, num_in_group do
@@ -8987,7 +9008,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_legs_groups.size = function(buff
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.size
 
   -- Calculate field size from count
-  local deprecated_legs_group_count = buffer(offset + index - 1, 1):le_uint()
+  local deprecated_legs_group_count = buffer(offset + index - 1, 1):uint()
   index = index + deprecated_legs_group_count * 38
 
   return index
@@ -9006,7 +9027,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_legs_groups.fields = function(bu
   index, group_size_encoding = b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Deprecated Legs Group
   for deprecated_legs_group_index = 1, num_in_group do
@@ -9102,7 +9123,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_underlyings_groups.size = functi
   index = index + b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.size
 
   -- Calculate field size from count
-  local deprecated_underlyings_group_count = buffer(offset + index - 1, 1):le_uint()
+  local deprecated_underlyings_group_count = buffer(offset + index - 1, 1):uint()
   index = index + deprecated_underlyings_group_count * 44
 
   return index
@@ -9121,7 +9142,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.deprecated_underlyings_groups.fields = func
   index, group_size_encoding = b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Deprecated Underlyings Group
   for deprecated_underlyings_group_index = 1, num_in_group do

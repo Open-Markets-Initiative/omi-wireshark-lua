@@ -373,7 +373,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.ack_style_mass_cancel_ack_style.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.ack_style_mass_cancel_ack_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.ack_style_mass_cancel_ack_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ack_style_mass_cancel_ack_style, range, value, display)
@@ -403,7 +403,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.ack_style_purge_request_ack_style.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.ack_style_purge_request_ack_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.ack_style_purge_request_ack_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ack_style_purge_request_ack_style, range, value, display)
@@ -457,7 +457,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ack_type, range, value, display)
@@ -568,7 +568,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.allow_iso_day.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.allow_iso_day.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.allow_iso_day.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.allow_iso_day, range, value, display)
@@ -601,7 +601,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.allow_isoioc.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.allow_isoioc.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.allow_isoioc.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.allow_isoioc, range, value, display)
@@ -634,7 +634,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.allow_market_orders.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.allow_market_orders.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.allow_market_orders.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.allow_market_orders, range, value, display)
@@ -664,7 +664,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.appointment_status, range, value, display)
@@ -697,7 +697,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.appointment_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.appointment_type, range, value, display)
@@ -736,7 +736,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.attributed_quote.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.attributed_quote.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.attributed_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.attributed_quote, range, value, display)
@@ -805,7 +805,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.block_length_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length_short, range, value, display)
@@ -838,7 +838,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.blocked_by_breach_indicator.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.blocked_by_breach_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.blocked_by_breach_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.blocked_by_breach_indicator, range, value, display)
@@ -871,7 +871,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_action.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_action, range, value, display)
@@ -901,7 +901,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.bust_or_correction.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.bust_or_correction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.bust_or_correction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bust_or_correction, range, value, display)
@@ -954,7 +954,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide, range, value, display)
@@ -987,7 +987,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_instead_of_slide_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide_optional, range, value, display)
@@ -1020,7 +1020,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_on_disconnect.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_on_disconnect.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cancel_on_disconnect.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_on_disconnect, range, value, display)
@@ -1135,7 +1135,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.closing_only.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.closing_only.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.closing_only.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.closing_only, range, value, display)
@@ -1239,7 +1239,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.contra_customer_or_firm.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.contra_customer_or_firm.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.contra_customer_or_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.contra_customer_or_firm, range, value, display)
@@ -1350,7 +1350,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.contra_open_close.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.contra_open_close.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.contra_open_close.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.contra_open_close, range, value, display)
@@ -1424,7 +1424,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight, range, value, display)
@@ -1452,7 +1452,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.cust_capacity_weight_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cust_capacity_weight_optional, range, value, display)
@@ -1545,7 +1545,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.customer_or_firm.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.customer_or_firm.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.customer_or_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.customer_or_firm, range, value, display)
@@ -1626,7 +1626,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.default_attributed_quote.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.default_attributed_quote.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.default_attributed_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.default_attributed_quote, range, value, display)
@@ -1659,7 +1659,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.default_cancel_instead_of_slide.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.default_cancel_instead_of_slide.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.default_cancel_instead_of_slide.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.default_cancel_instead_of_slide, range, value, display)
@@ -1826,7 +1826,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.display_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.display_inst, range, value, display)
@@ -1980,7 +1980,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.exec_inst.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.exec_inst.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.exec_inst, range, value, display)
@@ -2075,7 +2075,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.ioc_attribution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ioc_attribution, range, value, display)
@@ -2105,7 +2105,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.joined.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.joined.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.joined.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.joined, range, value, display)
@@ -2135,7 +2135,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.keep_alive.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.keep_alive, range, value, display)
@@ -2581,7 +2581,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_filter.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_filter.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_filter.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpid_filter, range, value, display)
@@ -2611,7 +2611,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.mpid_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpid_status, range, value, display)
@@ -2644,7 +2644,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.mpv_group.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.mpv_group.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.mpv_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpv_group, range, value, display)
@@ -2697,7 +2697,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.notification_reason.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.notification_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.notification_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.notification_reason, range, value, display)
@@ -2720,7 +2720,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.num_in_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.num_in_group, range, value, display)
@@ -2792,7 +2792,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.open_close.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.open_close.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.open_close.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.open_close, range, value, display)
@@ -2822,7 +2822,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.option_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.option_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.option_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.option_type, range, value, display)
@@ -2891,7 +2891,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.ord_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.ord_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.ord_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ord_type, range, value, display)
@@ -2995,7 +2995,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.order_unsolicited_ack_subscription.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.order_unsolicited_ack_subscription.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.order_unsolicited_ack_subscription.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_unsolicited_ack_subscription, range, value, display)
@@ -3048,7 +3048,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.orp_enabled.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.orp_enabled.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.orp_enabled.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.orp_enabled, range, value, display)
@@ -3296,7 +3296,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.quote_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.quote_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.quote_type, range, value, display)
@@ -3326,7 +3326,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.quote_unsolicited_ack_subscription.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.quote_unsolicited_ack_subscription.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.quote_unsolicited_ack_subscription.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.quote_unsolicited_ack_subscription, range, value, display)
@@ -3404,7 +3404,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.reason.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.reason, range, value, display)
@@ -3755,7 +3755,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.reason_code, range, value, display)
@@ -3806,7 +3806,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.reject_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.reject_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.reject_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.reject_type, range, value, display)
@@ -3829,7 +3829,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.reserved.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.reserved.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.reserved.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.reserved, range, value, display)
@@ -3868,7 +3868,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.restatement_reason, range, value, display)
@@ -3898,7 +3898,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_ack_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_ack_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_ack_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_ack_type, range, value, display)
@@ -3928,7 +3928,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_action, range, value, display)
@@ -3970,7 +3970,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control, range, value, display)
@@ -4015,7 +4015,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_optional, range, value, display)
@@ -4045,7 +4045,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status, range, value, display)
@@ -4078,7 +4078,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.risk_control_status_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_optional, range, value, display)
@@ -4223,7 +4223,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.side.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.side.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.side, range, value, display)
@@ -4324,7 +4324,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.status, range, value, display)
@@ -4409,7 +4409,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.subsession_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.subsession_type, range, value, display)
@@ -4616,7 +4616,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.throttle_indicator, range, value, display)
@@ -4646,7 +4646,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.time_in_force, range, value, display)
@@ -4807,7 +4807,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.trade_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.trade_liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.trade_liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trade_liquidity_indicator, range, value, display)
@@ -4853,7 +4853,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.trading_ring.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.trading_ring.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.trading_ring.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trading_ring, range, value, display)
@@ -4996,7 +4996,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.user_session_status.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.user_session_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.user_session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_status, range, value, display)
@@ -5029,7 +5029,7 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.user_session_type.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.user_session_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = iex_iexoptions_binaryorderentry_sbe_v1_02.user_session_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.user_session_type, range, value, display)
@@ -6173,7 +6173,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding.size
 
   -- Calculate field size from count
-  local purge_ack_message_custom_group_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  local purge_ack_message_custom_group_ids_group_count = buffer(offset + index - 1, 1):uint()
   index = index + purge_ack_message_custom_group_ids_group_count * 2
 
   return index
@@ -6192,7 +6192,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
   index, custom_group_ids_group_encoding = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Purge Ack Message custom Group Ids Group
   for purge_ack_message_custom_group_ids_group_index = 1, num_in_group do
@@ -6665,7 +6665,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.quote_acks_group_encoding.size
 
   -- Calculate field size from count
-  local bulk_quote_ack_message_quote_acks_group_count = buffer(offset + index - 1, 1):le_uint()
+  local bulk_quote_ack_message_quote_acks_group_count = buffer(offset + index - 1, 1):uint()
   index = index + bulk_quote_ack_message_quote_acks_group_count * 23
 
   return index
@@ -6684,7 +6684,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   index, quote_acks_group_encoding = iex_iexoptions_binaryorderentry_sbe_v1_02.quote_acks_group_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Bulk Quote Ack Message quote Acks Group
   for bulk_quote_ack_message_quote_acks_group_index = 1, num_in_group do
@@ -7252,7 +7252,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding.size
 
   -- Calculate field size from count
-  local purge_request_message_custom_group_ids_group_count = buffer(offset + index - 1, 1):le_uint()
+  local purge_request_message_custom_group_ids_group_count = buffer(offset + index - 1, 1):uint()
   index = index + purge_request_message_custom_group_ids_group_count * 2
 
   return index
@@ -7271,7 +7271,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
   index, custom_group_ids_group_encoding = iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Purge Request Message custom Group Ids Group
   for purge_request_message_custom_group_ids_group_index = 1, num_in_group do
@@ -7558,7 +7558,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.quote_updates_group_encoding.size
 
   -- Calculate field size from count
-  local new_bulk_quote_message_quote_updates_group_count = buffer(offset + index - 1, 1):le_uint()
+  local new_bulk_quote_message_quote_updates_group_count = buffer(offset + index - 1, 1):uint()
   index = index + new_bulk_quote_message_quote_updates_group_count * 15
 
   return index
@@ -7577,7 +7577,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   index, quote_updates_group_encoding = iex_iexoptions_binaryorderentry_sbe_v1_02.quote_updates_group_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: New Bulk Quote Message quote Updates Group
   for new_bulk_quote_message_quote_updates_group_index = 1, num_in_group do
@@ -8572,7 +8572,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.size = function(bu
   index = index + iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.size
 
   -- Calculate field size from count
-  local sub_sessions_group_count = buffer(offset + index - 1, 1):le_uint()
+  local sub_sessions_group_count = buffer(offset + index - 1, 1):uint()
   index = index + sub_sessions_group_count * 14
 
   return index
@@ -8591,7 +8591,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.sub_sessions_groups.fields = function(
   index, session_info_group_encoding = iex_iexoptions_binaryorderentry_sbe_v1_02.session_info_group_encoding.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  local num_in_group = buffer(index - 1, 1):uint()
 
   -- Repeating: Sub Sessions Group
   for sub_sessions_group_index = 1, num_in_group do

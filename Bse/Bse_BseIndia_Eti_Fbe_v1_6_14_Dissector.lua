@@ -532,7 +532,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.account_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.account_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.account_type, range, value, display)
@@ -637,7 +637,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.aggressor_indicator.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.aggressor_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.aggressor_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.aggressor_indicator, range, value, display)
@@ -891,7 +891,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.appl_id.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.appl_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.appl_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_id, range, value, display)
@@ -977,7 +977,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.appl_resend_flag.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.appl_resend_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.appl_resend_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_resend_flag, range, value, display)
@@ -1010,7 +1010,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.appl_seq_indicator.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.appl_seq_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.appl_seq_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_seq_indicator, range, value, display)
@@ -1071,7 +1071,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.appl_seq_status.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.appl_seq_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.appl_seq_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_seq_status, range, value, display)
@@ -1857,7 +1857,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.days_left_for_passwd_expiry.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.days_left_for_passwd_expiry.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.days_left_for_passwd_expiry.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.days_left_for_passwd_expiry, range, value, display)
@@ -1968,7 +1968,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.duration.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.duration.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.duration.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.duration, range, value, display)
@@ -2071,7 +2071,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.exec_inst.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.exec_inst.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.exec_inst, range, value, display)
@@ -2461,7 +2461,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.fill_liquidity_ind.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.fill_liquidity_ind.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.fill_liquidity_ind.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.fill_liquidity_ind, range, value, display)
@@ -2939,7 +2939,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.grace_logins_left.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.grace_logins_left.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.grace_logins_left.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.grace_logins_left, range, value, display)
@@ -3070,7 +3070,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.increment_decrement_status.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.increment_decrement_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = bse_bseindia_eti_fbe_v1_6_14.increment_decrement_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.increment_decrement_status, range, value, display)
@@ -3131,7 +3131,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.last_fragment.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.last_fragment.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.last_fragment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.last_fragment, range, value, display)
@@ -3507,7 +3507,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.leg_side, range, value, display)
@@ -3698,7 +3698,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.mass_action_reason.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.mass_action_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.mass_action_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.mass_action_reason, range, value, display)
@@ -3792,7 +3792,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.match_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.match_sub_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.match_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.match_sub_type, range, value, display)
@@ -3828,7 +3828,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.match_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.match_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.match_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.match_type, range, value, display)
@@ -3861,7 +3861,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.matching_engine_status.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.matching_engine_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.matching_engine_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.matching_engine_status, range, value, display)
@@ -3992,7 +3992,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.member_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.member_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.member_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.member_type, range, value, display)
@@ -4081,7 +4081,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.multi_leg_reporting_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.multi_leg_reporting_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.multi_leg_reporting_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.multi_leg_reporting_type, range, value, display)
@@ -4176,7 +4176,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_fills.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_fills.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_fills.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_fills, range, value, display)
@@ -4204,7 +4204,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_fills_index.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_fills_index.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_fills_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_fills_index, range, value, display)
@@ -4260,7 +4260,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_legs.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_legs, range, value, display)
@@ -4344,7 +4344,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_of_multi_leg.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_of_multi_leg.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_of_multi_leg.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_of_multi_leg, range, value, display)
@@ -4372,7 +4372,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_of_multi_leg_execs.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_of_multi_leg_execs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_of_multi_leg_execs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_of_multi_leg_execs, range, value, display)
@@ -4400,7 +4400,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_of_partition.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_of_partition.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_of_partition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_of_partition, range, value, display)
@@ -4428,7 +4428,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_quote_entries.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_quote_entries.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_quote_entries.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_quote_entries, range, value, display)
@@ -4456,7 +4456,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_quote_events.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_quote_events.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_quote_events.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_quote_events, range, value, display)
@@ -4484,7 +4484,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.no_quote_events_index.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.no_quote_events_index.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.no_quote_events_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.no_quote_events_index, range, value, display)
@@ -4791,7 +4791,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.ord_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.ord_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.ord_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.ord_type, range, value, display)
@@ -4975,7 +4975,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.order_side.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.order_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.order_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.order_side, range, value, display)
@@ -5365,7 +5365,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.party_id_entering_firm.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.party_id_entering_firm.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.party_id_entering_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.party_id_entering_firm, range, value, display)
@@ -5772,7 +5772,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.price_validity_check_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.price_validity_check_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.price_validity_check_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.price_validity_check_type, range, value, display)
@@ -5836,7 +5836,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.product_complex.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.product_complex.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.product_complex.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.product_complex, range, value, display)
@@ -6037,7 +6037,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_entry_status.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_entry_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.quote_entry_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_entry_status, range, value, display)
@@ -6098,7 +6098,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_event_liquidity_ind.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_event_liquidity_ind.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.quote_event_liquidity_ind.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_event_liquidity_ind, range, value, display)
@@ -6241,7 +6241,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_event_reason.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_event_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.quote_event_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_event_reason, range, value, display)
@@ -6274,7 +6274,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_event_side.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_event_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.quote_event_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_event_side, range, value, display)
@@ -6310,7 +6310,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_event_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.quote_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_event_type, range, value, display)
@@ -6432,7 +6432,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_size_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.quote_size_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.quote_size_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_size_type, range, value, display)
@@ -6483,7 +6483,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.ref_appl_id.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.ref_appl_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.ref_appl_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.ref_appl_id, range, value, display)
@@ -6651,7 +6651,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.related_product_complex.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.related_product_complex.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.related_product_complex.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.related_product_complex, range, value, display)
@@ -6928,7 +6928,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.risk_limit_action.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.risk_limit_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.risk_limit_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.risk_limit_action, range, value, display)
@@ -6961,7 +6961,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.risk_mode_status.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.risk_mode_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.risk_mode_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.risk_mode_status, range, value, display)
@@ -6989,7 +6989,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.rollover_flag.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.rollover_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.rollover_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.rollover_flag, range, value, display)
@@ -7333,7 +7333,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.rrm_state.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.rrm_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.rrm_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.rrm_state, range, value, display)
@@ -7387,7 +7387,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.scope_identifier.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.scope_identifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.scope_identifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.scope_identifier, range, value, display)
@@ -7574,7 +7574,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.segment_indicator.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.segment_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.segment_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.segment_indicator, range, value, display)
@@ -7724,7 +7724,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.session_mode.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.session_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.session_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.session_mode, range, value, display)
@@ -7853,7 +7853,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.session_status.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.session_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.session_status, range, value, display)
@@ -7889,7 +7889,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.session_sub_mode.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.session_sub_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.session_sub_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.session_sub_mode, range, value, display)
@@ -7956,7 +7956,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.side.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.side, range, value, display)
@@ -8194,7 +8194,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.stpc_flag.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.stpc_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.stpc_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.stpc_flag, range, value, display)
@@ -8715,7 +8715,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.time_in_force, range, value, display)
@@ -8810,7 +8810,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trad_ses_event.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trad_ses_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.trad_ses_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trad_ses_event, range, value, display)
@@ -8852,7 +8852,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trad_ses_mode.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trad_ses_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.trad_ses_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trad_ses_mode, range, value, display)
@@ -8941,7 +8941,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trade_manager_status.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trade_manager_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.trade_manager_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trade_manager_status, range, value, display)
@@ -8997,7 +8997,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trade_report_type.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trade_report_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.trade_report_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trade_report_type, range, value, display)
@@ -9025,7 +9025,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trading_capacity.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trading_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.trading_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trading_capacity, range, value, display)
@@ -9053,7 +9053,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.trading_session_sub_id, range, value, display)
@@ -9119,7 +9119,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.transfer_reason.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.transfer_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.transfer_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.transfer_reason, range, value, display)
@@ -9315,7 +9315,7 @@ end
 bse_bseindia_eti_fbe_v1_6_14.triggered.dissect = function(buffer, offset, packet, parent)
   local length = bse_bseindia_eti_fbe_v1_6_14.triggered.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bse_bseindia_eti_fbe_v1_6_14.triggered.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.triggered, range, value, display)

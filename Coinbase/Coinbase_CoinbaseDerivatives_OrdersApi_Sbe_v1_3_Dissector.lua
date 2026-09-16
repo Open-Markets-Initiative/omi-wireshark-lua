@@ -354,7 +354,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.cancel_order_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.cancel_order_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.cancel_order_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.cancel_order_reject_reason, range, value, display)
@@ -405,7 +405,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.cancel_reason.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.cancel_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.cancel_reason, range, value, display)
@@ -504,7 +504,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.current_session_only.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.current_session_only.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.current_session_only.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.current_session_only, range, value, display)
@@ -527,7 +527,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.data_length.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.data_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.data_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.data_length, range, value, display)
@@ -873,7 +873,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.instrument_status.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.instrument_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.instrument_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.instrument_status, range, value, display)
@@ -903,7 +903,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.is_aggressor.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.is_aggressor.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.is_aggressor.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_aggressor, range, value, display)
@@ -933,7 +933,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.is_last_message.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.is_last_message.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.is_last_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.is_last_message, range, value, display)
@@ -1254,7 +1254,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.only_current_session.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.only_current_session.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.only_current_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.only_current_session, range, value, display)
@@ -1383,7 +1383,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.order_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.order_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.order_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.order_reject_reason, range, value, display)
@@ -1610,7 +1610,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.request_trading_lock.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.request_trading_lock.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.request_trading_lock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.request_trading_lock, range, value, display)
@@ -1649,7 +1649,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.resend_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.resend_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.resend_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.resend_reject_reason, range, value, display)
@@ -1718,7 +1718,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reserved_byte.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reserved_byte.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reserved_byte.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reserved_byte, range, value, display)
@@ -1748,7 +1748,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reset_seq_num.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reset_seq_num.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reset_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reset_seq_num, range, value, display)
@@ -1808,7 +1808,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.security_type.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.security_type, range, value, display)
@@ -1915,7 +1915,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.side.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.side.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.side, range, value, display)
@@ -2234,7 +2234,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.trading_instrument_status.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.trading_instrument_status.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.trading_instrument_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.trading_instrument_status, range, value, display)
@@ -2264,7 +2264,7 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.trading_lock_applied.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.trading_lock_applied.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.trading_lock_applied.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.trading_lock_applied, range, value, display)
@@ -3856,11 +3856,11 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.data.size = function(buffer, off
 
   index = index + coinbase_coinbasederivatives_ordersapi_sbe_v1_3.data_length.size
 
-  local data_length = buffer(offset + 0, 1):le_uint()
+  local data_length = buffer(offset + 0, 1):uint()
 
   if data_length > 0 then
     -- Parse runtime size of: Data Value
-    index = index + buffer(offset + index - 1, 1):le_uint()
+    index = index + buffer(offset + index - 1, 1):uint()
 
   end
 

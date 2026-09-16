@@ -1095,7 +1095,7 @@ end
 eurex_t7_eti_fbe_v11_0.appl_id.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.appl_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.appl_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.appl_id, range, value, display)
@@ -1181,7 +1181,7 @@ end
 eurex_t7_eti_fbe_v11_0.appl_resend_flag.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.appl_resend_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.appl_resend_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.appl_resend_flag, range, value, display)
@@ -1214,7 +1214,7 @@ end
 eurex_t7_eti_fbe_v11_0.appl_seq_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.appl_seq_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.appl_seq_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.appl_seq_indicator, range, value, display)
@@ -1275,7 +1275,7 @@ end
 eurex_t7_eti_fbe_v11_0.appl_seq_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.appl_seq_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.appl_seq_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.appl_seq_status, range, value, display)
@@ -1778,7 +1778,7 @@ end
 eurex_t7_eti_fbe_v11_0.basket_trade_report_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.basket_trade_report_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.basket_trade_report_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.basket_trade_report_type, range, value, display)
@@ -2034,7 +2034,7 @@ end
 eurex_t7_eti_fbe_v11_0.bid_px_is_locked.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.bid_px_is_locked.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.bid_px_is_locked.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.bid_px_is_locked, range, value, display)
@@ -2162,7 +2162,7 @@ end
 eurex_t7_eti_fbe_v11_0.charge_id_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.charge_id_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.charge_id_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.charge_id_disclosure_instruction, range, value, display)
@@ -2332,7 +2332,7 @@ end
 eurex_t7_eti_fbe_v11_0.compression_action.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.compression_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.compression_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.compression_action, range, value, display)
@@ -2399,7 +2399,7 @@ end
 eurex_t7_eti_fbe_v11_0.compression_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.compression_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.compression_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.compression_status, range, value, display)
@@ -2516,7 +2516,7 @@ end
 eurex_t7_eti_fbe_v11_0.crossed_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.crossed_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.crossed_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.crossed_indicator, range, value, display)
@@ -2817,7 +2817,7 @@ end
 eurex_t7_eti_fbe_v11_0.delete_reason.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.delete_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.delete_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.delete_reason, range, value, display)
@@ -2889,7 +2889,7 @@ end
 eurex_t7_eti_fbe_v11_0.effect_on_basket.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.effect_on_basket.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.effect_on_basket.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.effect_on_basket, range, value, display)
@@ -2958,7 +2958,7 @@ end
 eurex_t7_eti_fbe_v11_0.enlight_rfq_avg_resp_rate_ranking.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.enlight_rfq_avg_resp_rate_ranking.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.enlight_rfq_avg_resp_rate_ranking.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.enlight_rfq_avg_resp_rate_ranking, range, value, display)
@@ -2994,7 +2994,7 @@ end
 eurex_t7_eti_fbe_v11_0.enlight_rfq_avg_resp_time_ranking.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.enlight_rfq_avg_resp_time_ranking.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.enlight_rfq_avg_resp_time_ranking.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.enlight_rfq_avg_resp_time_ranking, range, value, display)
@@ -3058,7 +3058,7 @@ end
 eurex_t7_eti_fbe_v11_0.eurex_volume_ranking.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.eurex_volume_ranking.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.eurex_volume_ranking.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.eurex_volume_ranking, range, value, display)
@@ -3119,7 +3119,7 @@ end
 eurex_t7_eti_fbe_v11_0.event_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.event_type, range, value, display)
@@ -3194,7 +3194,7 @@ end
 eurex_t7_eti_fbe_v11_0.exec_inst.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.exec_inst.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.exec_inst, range, value, display)
@@ -3421,7 +3421,7 @@ end
 eurex_t7_eti_fbe_v11_0.executing_trader_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.executing_trader_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.executing_trader_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.executing_trader_qualifier, range, value, display)
@@ -3454,7 +3454,7 @@ end
 eurex_t7_eti_fbe_v11_0.exercise_style.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.exercise_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.exercise_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.exercise_style, range, value, display)
@@ -3616,7 +3616,7 @@ end
 eurex_t7_eti_fbe_v11_0.fill_liquidity_ind.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.fill_liquidity_ind.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.fill_liquidity_ind.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.fill_liquidity_ind, range, value, display)
@@ -3750,7 +3750,7 @@ end
 eurex_t7_eti_fbe_v11_0.fill_ref_id.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.fill_ref_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.fill_ref_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.fill_ref_id, range, value, display)
@@ -4096,7 +4096,7 @@ end
 eurex_t7_eti_fbe_v11_0.free_text_5_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.free_text_5_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.free_text_5_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.free_text_5_disclosure_instruction, range, value, display)
@@ -4188,7 +4188,7 @@ end
 eurex_t7_eti_fbe_v11_0.hedge_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.hedge_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.hedge_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.hedge_type, range, value, display)
@@ -4218,7 +4218,7 @@ end
 eurex_t7_eti_fbe_v11_0.hedging_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.hedging_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.hedging_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.hedging_instruction, range, value, display)
@@ -4290,7 +4290,7 @@ end
 eurex_t7_eti_fbe_v11_0.implied_market_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.implied_market_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.implied_market_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.implied_market_indicator, range, value, display)
@@ -4351,7 +4351,7 @@ end
 eurex_t7_eti_fbe_v11_0.input_source.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.input_source.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.input_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.input_source, range, value, display)
@@ -4396,7 +4396,7 @@ end
 eurex_t7_eti_fbe_v11_0.instr_attrib_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.instr_attrib_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.instr_attrib_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.instr_attrib_type, range, value, display)
@@ -4452,7 +4452,7 @@ end
 eurex_t7_eti_fbe_v11_0.instrmt_match_side_id.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.instrmt_match_side_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.instrmt_match_side_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.instrmt_match_side_id, range, value, display)
@@ -4485,7 +4485,7 @@ end
 eurex_t7_eti_fbe_v11_0.inventory_check_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.inventory_check_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.inventory_check_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.inventory_check_type, range, value, display)
@@ -4541,7 +4541,7 @@ end
 eurex_t7_eti_fbe_v11_0.last_fragment.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.last_fragment.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.last_fragment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.last_fragment, range, value, display)
@@ -4613,7 +4613,7 @@ end
 eurex_t7_eti_fbe_v11_0.last_px_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.last_px_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.last_px_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.last_px_disclosure_instruction, range, value, display)
@@ -4685,7 +4685,7 @@ end
 eurex_t7_eti_fbe_v11_0.last_qty_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.last_qty_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.last_qty_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.last_qty_disclosure_instruction, range, value, display)
@@ -4790,7 +4790,7 @@ end
 eurex_t7_eti_fbe_v11_0.leaves_qty_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.leaves_qty_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.leaves_qty_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.leaves_qty_disclosure_instruction, range, value, display)
@@ -4918,7 +4918,7 @@ end
 eurex_t7_eti_fbe_v11_0.leg_input_source.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.leg_input_source.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.leg_input_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.leg_input_source, range, value, display)
@@ -5206,7 +5206,7 @@ end
 eurex_t7_eti_fbe_v11_0.leg_security_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.leg_security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.leg_security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.leg_security_type, range, value, display)
@@ -5239,7 +5239,7 @@ end
 eurex_t7_eti_fbe_v11_0.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.leg_side, range, value, display)
@@ -5485,7 +5485,7 @@ end
 eurex_t7_eti_fbe_v11_0.mass_action_reason.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.mass_action_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.mass_action_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.mass_action_reason, range, value, display)
@@ -5548,7 +5548,7 @@ end
 eurex_t7_eti_fbe_v11_0.mass_action_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.mass_action_sub_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.mass_action_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.mass_action_sub_type, range, value, display)
@@ -5581,7 +5581,7 @@ end
 eurex_t7_eti_fbe_v11_0.mass_action_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.mass_action_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.mass_action_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.mass_action_type, range, value, display)
@@ -5679,7 +5679,7 @@ end
 eurex_t7_eti_fbe_v11_0.match_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.match_sub_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.match_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.match_sub_type, range, value, display)
@@ -5724,7 +5724,7 @@ end
 eurex_t7_eti_fbe_v11_0.match_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.match_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.match_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.match_type, range, value, display)
@@ -5757,7 +5757,7 @@ end
 eurex_t7_eti_fbe_v11_0.matching_engine_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.matching_engine_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.matching_engine_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.matching_engine_status, range, value, display)
@@ -5913,7 +5913,7 @@ end
 eurex_t7_eti_fbe_v11_0.md_book_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.md_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.md_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.md_book_type, range, value, display)
@@ -5946,7 +5946,7 @@ end
 eurex_t7_eti_fbe_v11_0.md_sub_book_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.md_sub_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.md_sub_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.md_sub_book_type, range, value, display)
@@ -6089,7 +6089,7 @@ end
 eurex_t7_eti_fbe_v11_0.multi_leg_reporting_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.multi_leg_reporting_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.multi_leg_reporting_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.multi_leg_reporting_type, range, value, display)
@@ -6122,7 +6122,7 @@ end
 eurex_t7_eti_fbe_v11_0.multileg_model.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.multileg_model.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.multileg_model.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.multileg_model, range, value, display)
@@ -6155,7 +6155,7 @@ end
 eurex_t7_eti_fbe_v11_0.multileg_price_model.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.multileg_price_model.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.multileg_price_model.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.multileg_price_model, range, value, display)
@@ -6316,7 +6316,7 @@ end
 eurex_t7_eti_fbe_v11_0.news_rtm_service_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.news_rtm_service_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.news_rtm_service_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.news_rtm_service_status, range, value, display)
@@ -6372,7 +6372,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_basket_root_party_grps.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_basket_root_party_grps.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_basket_root_party_grps.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_basket_root_party_grps, range, value, display)
@@ -6400,7 +6400,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_basket_root_party_grps_bc.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_basket_root_party_grps_bc.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_basket_root_party_grps_bc.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_basket_root_party_grps_bc, range, value, display)
@@ -6456,7 +6456,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_cross_legs.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_cross_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_cross_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_cross_legs, range, value, display)
@@ -6512,7 +6512,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_events.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_events.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_events.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_events, range, value, display)
@@ -6540,7 +6540,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_fills.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_fills.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_fills.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_fills, range, value, display)
@@ -6568,7 +6568,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_instr_attrib.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_instr_attrib.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_instr_attrib.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_instr_attrib, range, value, display)
@@ -6596,7 +6596,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_instrmt_match_sides.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_instrmt_match_sides.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_instrmt_match_sides.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_instrmt_match_sides, range, value, display)
@@ -6624,7 +6624,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_leg_clearing_prices.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_leg_clearing_prices.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_leg_clearing_prices.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_leg_clearing_prices, range, value, display)
@@ -6680,7 +6680,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_leg_onbooks.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_leg_onbooks.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_leg_onbooks.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_leg_onbooks, range, value, display)
@@ -6708,7 +6708,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_legs.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_legs, range, value, display)
@@ -6736,7 +6736,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_mm_parameters.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_mm_parameters.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_mm_parameters.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_mm_parameters, range, value, display)
@@ -6820,7 +6820,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_order_book_items.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_order_book_items.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_order_book_items.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_order_book_items, range, value, display)
@@ -6848,7 +6848,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_order_events.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_order_events.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_order_events.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_order_events, range, value, display)
@@ -6904,7 +6904,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_quote_entries.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_quote_entries.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_quote_entries.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_quote_entries, range, value, display)
@@ -6932,7 +6932,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_quote_events.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_quote_events.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_quote_events.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_quote_events, range, value, display)
@@ -6960,7 +6960,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_quote_events_index.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_quote_events_index.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_quote_events_index.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_quote_events_index, range, value, display)
@@ -6988,7 +6988,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_quote_side_entries.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_quote_side_entries.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_quote_side_entries.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_quote_side_entries, range, value, display)
@@ -7016,7 +7016,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_risk_limits.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_risk_limits.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_risk_limits.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_risk_limits, range, value, display)
@@ -7044,7 +7044,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_risk_limits_qty.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_risk_limits_qty.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_risk_limits_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_risk_limits_qty, range, value, display)
@@ -7100,7 +7100,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_side_allocs.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_side_allocs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_side_allocs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_side_allocs, range, value, display)
@@ -7128,7 +7128,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_sides.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_sides.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_sides.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_sides, range, value, display)
@@ -7156,7 +7156,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_srqs_quote_grps.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_srqs_quote_grps.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_srqs_quote_grps.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_srqs_quote_grps, range, value, display)
@@ -7184,7 +7184,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_srqs_target_party_trd_grps.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_srqs_target_party_trd_grps.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_srqs_target_party_trd_grps.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_srqs_target_party_trd_grps, range, value, display)
@@ -7212,7 +7212,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_target_party_i_ds.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_target_party_i_ds.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_target_party_i_ds.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_target_party_i_ds, range, value, display)
@@ -7240,7 +7240,7 @@ end
 eurex_t7_eti_fbe_v11_0.no_underlying_stips.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.no_underlying_stips.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.no_underlying_stips.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.no_underlying_stips, range, value, display)
@@ -7390,7 +7390,7 @@ end
 eurex_t7_eti_fbe_v11_0.number_of_resp_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.number_of_resp_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.number_of_resp_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.number_of_resp_disclosure_instruction, range, value, display)
@@ -7518,7 +7518,7 @@ end
 eurex_t7_eti_fbe_v11_0.offer_px_is_locked.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.offer_px_is_locked.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.offer_px_is_locked.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.offer_px_is_locked, range, value, display)
@@ -7585,7 +7585,7 @@ end
 eurex_t7_eti_fbe_v11_0.opt_attribute.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.opt_attribute.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.opt_attribute.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.opt_attribute, range, value, display)
@@ -7679,7 +7679,7 @@ end
 eurex_t7_eti_fbe_v11_0.ord_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.ord_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.ord_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.ord_type, range, value, display)
@@ -7712,7 +7712,7 @@ end
 eurex_t7_eti_fbe_v11_0.order_attribute_liquidity_provision.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.order_attribute_liquidity_provision.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.order_attribute_liquidity_provision.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.order_attribute_liquidity_provision, range, value, display)
@@ -7745,7 +7745,7 @@ end
 eurex_t7_eti_fbe_v11_0.order_attribute_risk_reduction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.order_attribute_risk_reduction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.order_attribute_risk_reduction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.order_attribute_risk_reduction, range, value, display)
@@ -7924,7 +7924,7 @@ end
 eurex_t7_eti_fbe_v11_0.order_event_reason.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.order_event_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.order_event_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.order_event_reason, range, value, display)
@@ -7982,7 +7982,7 @@ end
 eurex_t7_eti_fbe_v11_0.order_origination.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.order_origination.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.order_origination.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.order_origination, range, value, display)
@@ -8054,7 +8054,7 @@ end
 eurex_t7_eti_fbe_v11_0.order_qty_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.order_qty_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.order_qty_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.order_qty_disclosure_instruction, range, value, display)
@@ -8087,7 +8087,7 @@ end
 eurex_t7_eti_fbe_v11_0.order_qty_is_locked.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.order_qty_is_locked.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.order_qty_is_locked.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.order_qty_is_locked, range, value, display)
@@ -8163,7 +8163,7 @@ end
 eurex_t7_eti_fbe_v11_0.order_side.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.order_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.order_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.order_side, range, value, display)
@@ -8285,7 +8285,7 @@ end
 eurex_t7_eti_fbe_v11_0.ownership_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.ownership_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.ownership_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.ownership_indicator, range, value, display)
@@ -8581,7 +8581,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_action_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_action_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_action_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_action_type, range, value, display)
@@ -8757,7 +8757,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_detail_role_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_detail_role_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_detail_role_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_detail_role_qualifier, range, value, display)
@@ -8793,7 +8793,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_detail_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_detail_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_detail_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_detail_status, range, value, display)
@@ -8826,7 +8826,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_detail_status_information.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_detail_status_information.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_detail_status_information.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_detail_status_information, range, value, display)
@@ -9027,7 +9027,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_id_entering_firm.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_id_entering_firm.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_id_entering_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_id_entering_firm, range, value, display)
@@ -9172,7 +9172,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_id_investment_decision_maker_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_id_investment_decision_maker_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_id_investment_decision_maker_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_id_investment_decision_maker_qualifier, range, value, display)
@@ -9258,7 +9258,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_id_origination_market.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_id_origination_market.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_id_origination_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_id_origination_market, range, value, display)
@@ -9353,7 +9353,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_id_settlement_location.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_id_settlement_location.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_id_settlement_location.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_id_settlement_location, range, value, display)
@@ -9414,7 +9414,7 @@ end
 eurex_t7_eti_fbe_v11_0.party_order_origination_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.party_order_origination_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.party_order_origination_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.party_order_origination_disclosure_instruction, range, value, display)
@@ -9657,7 +9657,7 @@ end
 eurex_t7_eti_fbe_v11_0.price_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.price_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.price_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.price_disclosure_instruction, range, value, display)
@@ -9693,7 +9693,7 @@ end
 eurex_t7_eti_fbe_v11_0.price_validity_check_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.price_validity_check_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.price_validity_check_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.price_validity_check_type, range, value, display)
@@ -9753,7 +9753,7 @@ end
 eurex_t7_eti_fbe_v11_0.product_complex.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.product_complex.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.product_complex.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.product_complex, range, value, display)
@@ -9786,7 +9786,7 @@ end
 eurex_t7_eti_fbe_v11_0.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.put_or_call, range, value, display)
@@ -9816,7 +9816,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_cancel_reason.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_cancel_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_cancel_reason, range, value, display)
@@ -10030,7 +10030,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_entry_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_entry_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_entry_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_entry_status, range, value, display)
@@ -10094,7 +10094,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_event_liquidity_ind.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_event_liquidity_ind.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_event_liquidity_ind.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_event_liquidity_ind, range, value, display)
@@ -10242,7 +10242,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_event_reason.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_event_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_event_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_event_reason, range, value, display)
@@ -10275,7 +10275,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_event_side.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_event_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_event_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_event_side, range, value, display)
@@ -10317,7 +10317,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_event_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_event_type, range, value, display)
@@ -10378,7 +10378,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_instruction, range, value, display)
@@ -10539,7 +10539,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_size_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_size_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_size_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_size_type, range, value, display)
@@ -10584,7 +10584,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_sub_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_sub_type, range, value, display)
@@ -10620,7 +10620,7 @@ end
 eurex_t7_eti_fbe_v11_0.quote_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quote_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quote_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quote_type, range, value, display)
@@ -10695,7 +10695,7 @@ end
 eurex_t7_eti_fbe_v11_0.quoting_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.quoting_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.quoting_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.quoting_status, range, value, display)
@@ -10752,7 +10752,7 @@ end
 eurex_t7_eti_fbe_v11_0.ref_appl_id.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.ref_appl_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.ref_appl_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.ref_appl_id, range, value, display)
@@ -10980,7 +10980,7 @@ end
 eurex_t7_eti_fbe_v11_0.related_product_complex.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.related_product_complex.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.related_product_complex.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.related_product_complex, range, value, display)
@@ -11225,7 +11225,7 @@ end
 eurex_t7_eti_fbe_v11_0.requesting_party_id_entering_firm.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.requesting_party_id_entering_firm.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.requesting_party_id_entering_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.requesting_party_id_entering_firm, range, value, display)
@@ -11358,7 +11358,7 @@ end
 eurex_t7_eti_fbe_v11_0.respondent_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.respondent_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.respondent_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.respondent_type, range, value, display)
@@ -11463,7 +11463,7 @@ end
 eurex_t7_eti_fbe_v11_0.reversal_cancellation_reason.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.reversal_cancellation_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.reversal_cancellation_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.reversal_cancellation_reason, range, value, display)
@@ -11496,7 +11496,7 @@ end
 eurex_t7_eti_fbe_v11_0.reversal_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.reversal_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.reversal_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.reversal_indicator, range, value, display)
@@ -11590,7 +11590,7 @@ end
 eurex_t7_eti_fbe_v11_0.risk_control_rtm_service_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.risk_control_rtm_service_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.risk_control_rtm_service_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.risk_control_rtm_service_status, range, value, display)
@@ -11626,7 +11626,7 @@ end
 eurex_t7_eti_fbe_v11_0.risk_limit_action.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.risk_limit_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.risk_limit_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.risk_limit_action, range, value, display)
@@ -11765,7 +11765,7 @@ end
 eurex_t7_eti_fbe_v11_0.risk_limit_platform.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.risk_limit_platform.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.risk_limit_platform.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.risk_limit_platform, range, value, display)
@@ -11868,7 +11868,7 @@ end
 eurex_t7_eti_fbe_v11_0.risk_limit_requesting_party_role.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.risk_limit_requesting_party_role.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.risk_limit_requesting_party_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.risk_limit_requesting_party_role, range, value, display)
@@ -11901,7 +11901,7 @@ end
 eurex_t7_eti_fbe_v11_0.risk_limit_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.risk_limit_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.risk_limit_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.risk_limit_type, range, value, display)
@@ -11934,7 +11934,7 @@ end
 eurex_t7_eti_fbe_v11_0.risk_limit_violation_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.risk_limit_violation_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.risk_limit_violation_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.risk_limit_violation_indicator, range, value, display)
@@ -12359,7 +12359,7 @@ end
 eurex_t7_eti_fbe_v11_0.root_party_id_investment_decision_maker_qualifier.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.root_party_id_investment_decision_maker_qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.root_party_id_investment_decision_maker_qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.root_party_id_investment_decision_maker_qualifier, range, value, display)
@@ -12685,7 +12685,7 @@ end
 eurex_t7_eti_fbe_v11_0.selective_request_for_quote_rtm_service_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.selective_request_for_quote_rtm_service_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.selective_request_for_quote_rtm_service_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.selective_request_for_quote_rtm_service_status, range, value, display)
@@ -12718,7 +12718,7 @@ end
 eurex_t7_eti_fbe_v11_0.selective_request_for_quote_service_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.selective_request_for_quote_service_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.selective_request_for_quote_service_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.selective_request_for_quote_service_status, range, value, display)
@@ -12874,7 +12874,7 @@ end
 eurex_t7_eti_fbe_v11_0.session_mode.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.session_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.session_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.session_mode, range, value, display)
@@ -13030,7 +13030,7 @@ end
 eurex_t7_eti_fbe_v11_0.session_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.session_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.session_status, range, value, display)
@@ -13063,7 +13063,7 @@ end
 eurex_t7_eti_fbe_v11_0.session_sub_mode.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.session_sub_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.session_sub_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.session_sub_mode, range, value, display)
@@ -13139,7 +13139,7 @@ end
 eurex_t7_eti_fbe_v11_0.show_last_deal_on_closure.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.show_last_deal_on_closure.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.show_last_deal_on_closure.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.show_last_deal_on_closure, range, value, display)
@@ -13172,7 +13172,7 @@ end
 eurex_t7_eti_fbe_v11_0.side.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.side, range, value, display)
@@ -13233,7 +13233,7 @@ end
 eurex_t7_eti_fbe_v11_0.side_disclosure_instruction.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.side_disclosure_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.side_disclosure_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.side_disclosure_instruction, range, value, display)
@@ -13266,7 +13266,7 @@ end
 eurex_t7_eti_fbe_v11_0.side_is_locked.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.side_is_locked.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.side_is_locked.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.side_is_locked, range, value, display)
@@ -13380,7 +13380,7 @@ end
 eurex_t7_eti_fbe_v11_0.side_liquidity_ind.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.side_liquidity_ind.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.side_liquidity_ind.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.side_liquidity_ind, range, value, display)
@@ -13530,7 +13530,7 @@ end
 eurex_t7_eti_fbe_v11_0.skip_validations.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.skip_validations.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.skip_validations.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.skip_validations, range, value, display)
@@ -13725,7 +13725,7 @@ end
 eurex_t7_eti_fbe_v11_0.swap_clearer.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.swap_clearer.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.swap_clearer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.swap_clearer, range, value, display)
@@ -13758,7 +13758,7 @@ end
 eurex_t7_eti_fbe_v11_0.t_7_entry_service_rtm_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.t_7_entry_service_rtm_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.t_7_entry_service_rtm_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.t_7_entry_service_rtm_status, range, value, display)
@@ -13819,7 +13819,7 @@ end
 eurex_t7_eti_fbe_v11_0.t_7_entry_service_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.t_7_entry_service_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.t_7_entry_service_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.t_7_entry_service_status, range, value, display)
@@ -14662,7 +14662,7 @@ end
 eurex_t7_eti_fbe_v11_0.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.time_in_force, range, value, display)
@@ -14732,7 +14732,7 @@ end
 eurex_t7_eti_fbe_v11_0.trad_ses_event.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trad_ses_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trad_ses_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trad_ses_event, range, value, display)
@@ -14774,7 +14774,7 @@ end
 eurex_t7_eti_fbe_v11_0.trad_ses_mode.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trad_ses_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trad_ses_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trad_ses_mode, range, value, display)
@@ -14804,7 +14804,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_aggregation_trans_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_aggregation_trans_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_aggregation_trans_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_aggregation_trans_type, range, value, display)
@@ -14861,7 +14861,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_alloc_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_alloc_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_alloc_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_alloc_status, range, value, display)
@@ -14950,7 +14950,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_manager_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_manager_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_manager_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_manager_status, range, value, display)
@@ -15011,7 +15011,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_platform.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_platform.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_platform.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_platform, range, value, display)
@@ -15050,7 +15050,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_publish_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_publish_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_publish_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_publish_indicator, range, value, display)
@@ -15160,7 +15160,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_report_type.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_report_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_report_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_report_type, range, value, display)
@@ -15196,7 +15196,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_request_result.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_request_result.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_request_result.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_request_result, range, value, display)
@@ -15299,7 +15299,7 @@ end
 eurex_t7_eti_fbe_v11_0.trade_to_quote_ratio_ranking.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trade_to_quote_ratio_ranking.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trade_to_quote_ratio_ranking.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trade_to_quote_ratio_ranking, range, value, display)
@@ -15374,7 +15374,7 @@ end
 eurex_t7_eti_fbe_v11_0.trading_capacity.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trading_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trading_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trading_capacity, range, value, display)
@@ -15410,7 +15410,7 @@ end
 eurex_t7_eti_fbe_v11_0.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trading_session_sub_id, range, value, display)
@@ -15509,7 +15509,7 @@ end
 eurex_t7_eti_fbe_v11_0.transaction_delay_indicator.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.transaction_delay_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.transaction_delay_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.transaction_delay_indicator, range, value, display)
@@ -15542,7 +15542,7 @@ end
 eurex_t7_eti_fbe_v11_0.transfer_reason.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.transfer_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.transfer_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.transfer_reason, range, value, display)
@@ -15783,7 +15783,7 @@ end
 eurex_t7_eti_fbe_v11_0.trd_rpt_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.trd_rpt_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.trd_rpt_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.trd_rpt_status, range, value, display)
@@ -15879,7 +15879,7 @@ end
 eurex_t7_eti_fbe_v11_0.triggered.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.triggered.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.triggered.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.triggered, range, value, display)
@@ -16333,7 +16333,7 @@ end
 eurex_t7_eti_fbe_v11_0.user_status.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.user_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.user_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.user_status, range, value, display)
@@ -16427,7 +16427,7 @@ end
 eurex_t7_eti_fbe_v11_0.value_check_type_min_lot_size.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.value_check_type_min_lot_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.value_check_type_min_lot_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.value_check_type_min_lot_size, range, value, display)
@@ -16460,7 +16460,7 @@ end
 eurex_t7_eti_fbe_v11_0.value_check_type_value.dissect = function(buffer, offset, packet, parent)
   local length = eurex_t7_eti_fbe_v11_0.value_check_type_value.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = eurex_t7_eti_fbe_v11_0.value_check_type_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v11_0.fields.value_check_type_value, range, value, display)
