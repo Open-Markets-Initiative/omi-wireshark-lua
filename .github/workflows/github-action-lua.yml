@@ -43,8 +43,8 @@ jobs:
       - name: Run BlueOceanAts BlueEquities MemoirLastSale Sbe 1.3 Dissector Tests
         run: bash -x .github/tests/BlueOceanAts-BlueEquities-MemoirLastSale-Sbe-v1-3-Test.sh
 
-      - name: Run Box BoxOptions Sola Multicast Hsvf 1.8 Dissector Tests
-        run: bash -x .github/tests/Box-BoxOptions-Sola-Multicast-Hsvf-v1-8-Test.sh
+      - name: Run Box BoxOptions SolaMulticast Hsvf 1.8 Dissector Tests
+        run: bash -x .github/tests/Box-BoxOptions-SolaMulticast-Hsvf-v1-8-Test.sh
 
       - name: Run Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-ByxEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
@@ -325,8 +325,8 @@ jobs:
       - name: Run Siac Cts Output Cta 2.9 Dissector Tests
         run: bash -x .github/tests/Siac-Cts-Output-Cta-v2-9-Test.sh
 
-      - name: Run Tmx Mx Sola Multicast Hsvf 1.14 Dissector Tests
-        run: bash -x .github/tests/Tmx-Mx-Sola-Multicast-Hsvf-v1-14-Test.sh
+      - name: Run Tmx Mx SolaMulticast Hsvf 1.14 Dissector Tests
+        run: bash -x .github/tests/Tmx-Mx-SolaMulticast-Hsvf-v1-14-Test.sh
 
       - name: Run Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Dissector Tests
         run: bash -x .github/tests/Tmx-Tsx-QuantumFeedLevel2-Xmt-v2-1-Test.sh
