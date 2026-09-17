@@ -55,7 +55,6 @@ omi_eurex_t7_eobi_fbe_v5_0.fields.offer_size = ProtoField.new("Offer Size", "eur
 omi_eurex_t7_eobi_fbe_v5_0.fields.ord_type = ProtoField.new("Ord Type", "eurex.t7.eobi.fbe.v5.0.ordtype", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v5_0.fields.order_details_comp = ProtoField.new("Order Details Comp", "eurex.t7.eobi.fbe.v5.0.orderdetailscomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v5_0.fields.pad_1 = ProtoField.new("Pad 1", "eurex.t7.eobi.fbe.v5.0.pad1", ftypes.BYTES)
-omi_eurex_t7_eobi_fbe_v5_0.fields.pad1 = ProtoField.new("Pad1", "eurex.t7.eobi.fbe.v5.0.pad1", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v5_0.fields.pad2 = ProtoField.new("Pad2", "eurex.t7.eobi.fbe.v5.0.pad2", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v5_0.fields.pad3 = ProtoField.new("Pad3", "eurex.t7.eobi.fbe.v5.0.pad3", ftypes.BYTES)
 omi_eurex_t7_eobi_fbe_v5_0.fields.pad4 = ProtoField.new("Pad4", "eurex.t7.eobi.fbe.v5.0.pad4", ftypes.BYTES)
@@ -1245,29 +1244,6 @@ eurex_t7_eobi_fbe_v5_0.pad_1.dissect = function(buffer, offset, packet, parent)
   local display = eurex_t7_eobi_fbe_v5_0.pad_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eobi_fbe_v5_0.fields.pad_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Pad1
-eurex_t7_eobi_fbe_v5_0.pad1 = {}
-
--- Size: Pad1
-eurex_t7_eobi_fbe_v5_0.pad1.size = 1
-
--- Display: Pad1
-eurex_t7_eobi_fbe_v5_0.pad1.display = function(value)
-  return "Pad1: "..value
-end
-
--- Dissect: Pad1
-eurex_t7_eobi_fbe_v5_0.pad1.dissect = function(buffer, offset, packet, parent)
-  local length = eurex_t7_eobi_fbe_v5_0.pad1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_eobi_fbe_v5_0.pad1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_eurex_t7_eobi_fbe_v5_0.fields.pad1, range, value, display)
 
   return offset + length, value
 end
@@ -3367,7 +3343,7 @@ eurex_t7_eobi_fbe_v5_0.instrument_summary.size = function(buffer, offset)
 
   index = index + eurex_t7_eobi_fbe_v5_0.no_md_entries.size
 
-  index = index + eurex_t7_eobi_fbe_v5_0.pad1.size
+  index = index + eurex_t7_eobi_fbe_v5_0.pad_1.size
 
   -- Calculate field size from count
   local md_instrument_entry_grp_comp_count = buffer(offset + index - 2, 1):uint()
@@ -3412,8 +3388,8 @@ eurex_t7_eobi_fbe_v5_0.instrument_summary.fields = function(buffer, offset, pack
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_md_entries = eurex_t7_eobi_fbe_v5_0.no_md_entries.dissect(buffer, index, packet, parent)
 
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eobi_fbe_v5_0.pad1.dissect(buffer, index, packet, parent)
+  -- Pad 1: 1 Byte
+  index, pad_1 = eurex_t7_eobi_fbe_v5_0.pad_1.dissect(buffer, index, packet, parent)
 
   -- Repeating: Md Instrument Entry Grp Comp
   for md_instrument_entry_grp_comp_index = 1, no_md_entries do
@@ -3974,7 +3950,7 @@ eurex_t7_eobi_fbe_v5_0.add_complex_instrument.size = function(buffer, offset)
 
   index = index + eurex_t7_eobi_fbe_v5_0.no_legs.size
 
-  index = index + eurex_t7_eobi_fbe_v5_0.pad1.size
+  index = index + eurex_t7_eobi_fbe_v5_0.pad_1.size
 
   -- Calculate field size from count
   local instrmt_leg_grp_comp_count = buffer(offset + index - 2, 1):uint()
@@ -4010,8 +3986,8 @@ eurex_t7_eobi_fbe_v5_0.add_complex_instrument.fields = function(buffer, offset, 
   -- No Legs: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_legs = eurex_t7_eobi_fbe_v5_0.no_legs.dissect(buffer, index, packet, parent)
 
-  -- Pad1: 1 Byte
-  index, pad1 = eurex_t7_eobi_fbe_v5_0.pad1.dissect(buffer, index, packet, parent)
+  -- Pad 1: 1 Byte
+  index, pad_1 = eurex_t7_eobi_fbe_v5_0.pad_1.dissect(buffer, index, packet, parent)
 
   -- Repeating: Instrmt Leg Grp Comp
   for instrmt_leg_grp_comp_index = 1, no_legs do

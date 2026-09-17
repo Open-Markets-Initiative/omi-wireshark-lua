@@ -133,11 +133,11 @@ jobs:
       - name: Run Eurex T7 Eobi Fbe 6.0 Dissector Tests
         run: bash -x .github/tests/Eurex-T7-Eobi-Fbe-v6-0-Test.sh
 
+      - name: Run Eurex T7 Eti Fbe 10.0 Dissector Tests
+        run: bash -x .github/tests/Eurex-T7-Eti-Fbe-v10-0-Test.sh
+
       - name: Run Eurex T7 Eti Fbe 6.1 Dissector Tests
         run: bash -x .github/tests/Eurex-T7-Eti-Fbe-v6-1-Test.sh
-
-      - name: Run Eurex T7 Xti Fbe 10.0 Dissector Tests
-        run: bash -x .github/tests/Eurex-T7-Xti-Fbe-v10-0-Test.sh
 
       - name: Run Ice IceFutures Mdf iMpact 1.1.24 Dissector Tests
         run: bash -x .github/tests/Ice-IceFutures-Mdf-iMpact-v1-1-24-Test.sh
@@ -252,6 +252,9 @@ jobs:
 
       - name: Run Nyse ArcaEquities IntegratedFeed Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaEquities-IntegratedFeed-Pillar-v2-5-g-Test.sh
+
+      - name: Run Nyse ArcaEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 
       - name: Run Nyse ArcaOptions TopFeed Pillar 1.2.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaOptions-TopFeed-Pillar-v1-2-c-Test.sh
