@@ -6,7 +6,7 @@ chown -R tester:tester .
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Xti.Fbe.v10.0/OrderExecResponse.pcap" \
   --disable-protocol eti \
-  -X "lua_script:Eurex/Xti/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
+  -X "lua_script:Eurex/T7/Xti/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json 2> Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json.stderr \
   || { echo "--- tshark FAILED (OrderExecResponse) ---"; cat Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json.stderr; exit 1; }
@@ -49,7 +49,7 @@ grep "eurex.t7.xti.fbe.v10.0.pad5" Eurex.T7.Xti.Fbe.v10.0.OrderExecResponse.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Xti.Fbe.v10.0/Reassembly.pcap" \
   --disable-protocol eti \
-  -X "lua_script:Eurex/Xti/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
+  -X "lua_script:Eurex/T7/Xti/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Xti.Fbe.v10.0.Reassembly.json 2> Eurex.T7.Xti.Fbe.v10.0.Reassembly.json.stderr \
   || { echo "--- tshark FAILED (Reassembly) ---"; cat Eurex.T7.Xti.Fbe.v10.0.Reassembly.json.stderr; exit 1; }
@@ -59,7 +59,7 @@ grep "eurex.t7.xti.fbe.v10.0." Eurex.T7.Xti.Fbe.v10.0.Reassembly.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Xti.Fbe.v10.0/Reassembly.pcap" \
   --disable-protocol eti \
-  -X "lua_script:Eurex/Xti/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
+  -X "lua_script:Eurex/T7/Xti/Eurex_T7_Xti_Fbe_v10_0_Dissector.lua" \
   -Y "tcp.segments" \
   | grep . \
   || { echo "--- no reassembly (Reassembly) ---"; exit 1; }

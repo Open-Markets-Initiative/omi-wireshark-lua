@@ -1984,7 +1984,7 @@ end
 jpx_osederivatives_geniuminet_itch_v5_0_6.order_attributes.dissect = function(buffer, offset, packet, parent)
   local size = jpx_osederivatives_geniuminet_itch_v5_0_6.order_attributes.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jpx_osederivatives_geniuminet_itch_v5_0_6.order_attributes.display(range, value, packet, parent)
   local element = parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.order_attributes, range, display)
 

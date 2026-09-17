@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Imperative/IntelligentCross.DepthOfBook.Aspen.v1.11/OrderExecutedMessage.pcap" \
-  -X "lua_script:Imperative/DepthOfBook/Imperative_IntelligentCross_DepthOfBook_Aspen_v1_11_Dissector.lua" \
+  -X "lua_script:Imperative/IntelligentCross/DepthOfBook/Imperative_IntelligentCross_DepthOfBook_Aspen_v1_11_Dissector.lua" \
   -T json \
   > Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.OrderExecutedMessage.json 2> Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.OrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.OrderExecutedMessage.json.stderr; exit 1; }
@@ -19,7 +19,7 @@ grep "imperative.intelligentcross.depthofbook.aspen.v1.11.reserved1" Imperative.
 grep "imperative.intelligentcross.depthofbook.aspen.v1.11.price" Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.OrderExecutedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Imperative/IntelligentCross.DepthOfBook.Aspen.v1.11/TradeMessage.pcap" \
-  -X "lua_script:Imperative/DepthOfBook/Imperative_IntelligentCross_DepthOfBook_Aspen_v1_11_Dissector.lua" \
+  -X "lua_script:Imperative/IntelligentCross/DepthOfBook/Imperative_IntelligentCross_DepthOfBook_Aspen_v1_11_Dissector.lua" \
   -T json \
   > Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.TradeMessage.json 2> Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.TradeMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeMessage) ---"; cat Imperative.IntelligentCross.DepthOfBook.Aspen.v1.11.TradeMessage.json.stderr; exit 1; }
