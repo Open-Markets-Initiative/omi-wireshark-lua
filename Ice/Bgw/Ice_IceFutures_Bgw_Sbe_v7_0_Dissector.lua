@@ -15913,7 +15913,7 @@ ice_icefutures_bgw_sbe_v7_0.header_flags.dissect = function(buffer, offset, pack
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = ice_icefutures_bgw_sbe_v7_0.header_flags.display(range, value, packet, parent)
-  local element = parent:add_le(omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags, range, display)
+  local element = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.header_flags, range, display)
 
   if show.structs then
     ice_icefutures_bgw_sbe_v7_0.header_flags.bits(range, value, packet, element)

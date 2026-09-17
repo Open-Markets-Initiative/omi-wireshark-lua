@@ -8629,7 +8629,7 @@ coinbase_deribit_ordersapi_sbe_v1_3.session_flags.dissect = function(buffer, off
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = coinbase_deribit_ordersapi_sbe_v1_3.session_flags.display(range, value, packet, parent)
-  local element = parent:add_le(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.session_flags, range, display)
+  local element = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.session_flags, range, display)
 
   if show.structs then
     coinbase_deribit_ordersapi_sbe_v1_3.session_flags.bits(range, value, packet, element)

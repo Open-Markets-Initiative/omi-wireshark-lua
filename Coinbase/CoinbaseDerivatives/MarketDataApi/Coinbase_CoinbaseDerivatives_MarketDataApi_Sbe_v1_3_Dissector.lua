@@ -4893,7 +4893,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.packet_flags.dissect = funct
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.packet_flags.display(range, value, packet, parent)
-  local element = parent:add_le(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.packet_flags, range, display)
+  local element = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.packet_flags, range, display)
 
   if show.structs then
     coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.packet_flags.bits(range, value, packet, element)
