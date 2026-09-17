@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/LineIntegrityMessage.pcap" \
-  -X "lua_script:siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -X "lua_script:Siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json 2> Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr \
   || { echo "--- tshark FAILED (LineIntegrityMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json.stderr; exit 1; }
@@ -18,7 +18,7 @@ grep "siac.cts.output.cta.v2.9.transactionid" Siac.Cts.Output.Cta.v2.9.LineInteg
 grep "siac.cts.output.cta.v2.9.participantreferencenumber" Siac.Cts.Output.Cta.v2.9.LineIntegrityMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/LongTradeMessage.pcap" \
-  -X "lua_script:siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -X "lua_script:Siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json 2> Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (LongTradeMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json.stderr; exit 1; }
@@ -51,7 +51,7 @@ grep "siac.cts.output.cta.v2.9.consolidatedhighlowlastindicator" Siac.Cts.Output
 grep "siac.cts.output.cta.v2.9.participantopenhighlowlastindicator" Siac.Cts.Output.Cta.v2.9.LongTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/TradingStatusMessage.pcap" \
-  -X "lua_script:siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -X "lua_script:Siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json 2> Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (TradingStatusMessage) ---"; cat Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json.stderr; exit 1; }
@@ -77,7 +77,7 @@ grep "siac.cts.output.cta.v2.9.financialstatusindicator" Siac.Cts.Output.Cta.v2.
 grep "siac.cts.output.cta.v2.9.limituplimitdownindicator" Siac.Cts.Output.Cta.v2.9.TradingStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Output.Cta.v2.9/MultipleMessages.pcap" \
-  -X "lua_script:siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
+  -X "lua_script:Siac/Cts/Output/Siac_Cts_Output_Cta_v2_9_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.9.Multiplemessages.json 2> Siac.Cts.Output.Cta.v2.9.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Siac.Cts.Output.Cta.v2.9.Multiplemessages.json.stderr; exit 1; }

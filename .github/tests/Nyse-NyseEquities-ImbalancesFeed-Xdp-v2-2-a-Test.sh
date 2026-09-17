@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.Xdp.v2.2.a/ImbalanceMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/ImbalancesFeed/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/ImbalancesFeed/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json.stderr; exit 1; }
@@ -35,7 +35,7 @@ grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.unpairedside" Nyse.NyseEquitie
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.significantimbalance" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.ImbalanceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.Xdp.v2.2.a/SecurityStatusMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/ImbalancesFeed/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/ImbalancesFeed/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json.stderr; exit 1; }
@@ -57,7 +57,7 @@ grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.marketstate" Nyse.NyseEquities
 grep "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sessionstate" Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.ImbalancesFeed.Xdp.v2.2.a/SymbolIndexMappingMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/ImbalancesFeed/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/ImbalancesFeed/Nyse_NyseEquities_ImbalancesFeed_Xdp_v2_2_a_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SymbolIndexMappingMessage.json 2> Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SymbolIndexMappingMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.NyseEquities.ImbalancesFeed.Xdp.v2.2.a.SymbolIndexMappingMessage.json.stderr; exit 1; }

@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cqs.Output.Cta.v1.91/LongQuoteMessage.pcap" \
-  -X "lua_script:siac/Cqs/Output/Siac_Cqs_Output_Cta_v1_91_Dissector.lua" \
+  -X "lua_script:Siac/Cqs/Output/Siac_Cqs_Output_Cta_v1_91_Dissector.lua" \
   -T json \
   > Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json 2> Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (LongQuoteMessage) ---"; cat Siac.Cqs.Output.Cta.v1.91.LongQuoteMessage.json.stderr; exit 1; }

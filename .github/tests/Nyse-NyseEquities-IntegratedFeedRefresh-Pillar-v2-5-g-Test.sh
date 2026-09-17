@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g/AddOrderRefreshMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json 2> Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderRefreshMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json.stderr; exit 1; }
@@ -22,7 +22,7 @@ grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.firmid" Nyse.NyseEqu
 grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.AddOrderRefreshMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g/ImbalanceMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json 2> Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json.stderr; exit 1; }
@@ -52,7 +52,7 @@ grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.unpairedside" Nyse.N
 grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.ImbalanceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g/RefreshHeaderMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json 2> Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshHeaderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json.stderr; exit 1; }
@@ -63,7 +63,7 @@ grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.lastseqnum" Nyse.Nys
 grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.lastsymbolseqnum" Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.RefreshHeaderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SecurityStatusMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json 2> Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json.stderr; exit 1; }
@@ -85,7 +85,7 @@ grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.marketstate" Nyse.Ny
 grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.sessionstate" Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g/SymbolIndexMappingMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json 2> Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json.stderr; exit 1; }
@@ -109,7 +109,7 @@ grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.latecloseeligible" N
 grep "nyse.nyseequities.integratedfeedrefresh.pillar.v2.5.g.etheligible" Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g/MultipleMessages.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRefresh/Nyse_NyseEquities_IntegratedFeedRefresh_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.Multiplemessages.json 2> Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.NyseEquities.IntegratedFeedRefresh.Pillar.v2.5.g.Multiplemessages.json.stderr; exit 1; }

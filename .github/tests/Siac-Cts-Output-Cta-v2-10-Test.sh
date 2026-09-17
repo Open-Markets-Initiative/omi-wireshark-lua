@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Siac/Cts.Output.Cta.v2.10/TradeCorrectionMessage.pcap" \
-  -X "lua_script:siac/Cts/Output/Siac_Cts_Output_Cta_v2_10_Dissector.lua" \
+  -X "lua_script:Siac/Cts/Output/Siac_Cts_Output_Cta_v2_10_Dissector.lua" \
   -T json \
   > Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json 2> Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeCorrectionMessage) ---"; cat Siac.Cts.Output.Cta.v2.10.TradeCorrectionMessage.json.stderr; exit 1; }

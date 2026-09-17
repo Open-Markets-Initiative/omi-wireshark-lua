@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderDeletedMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.OrderDeletedMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.OrderDeletedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderDeletedMessage) ---"; cat Jnx.JnxEquities.Pts.Itch.v1.6.OrderDeletedMessage.json.stderr; exit 1; }
@@ -14,7 +14,7 @@ grep "jnx.jnxequities.pts.itch.v1.6.nanoseconds" Jnx.JnxEquities.Pts.Itch.v1.6.O
 grep "jnx.jnxequities.pts.itch.v1.6.ordernumber" Jnx.JnxEquities.Pts.Itch.v1.6.OrderDeletedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderExecutedMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.OrderExecutedMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.OrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Jnx.JnxEquities.Pts.Itch.v1.6.OrderExecutedMessage.json.stderr; exit 1; }
@@ -25,7 +25,7 @@ grep "jnx.jnxequities.pts.itch.v1.6.executedquantity" Jnx.JnxEquities.Pts.Itch.v
 grep "jnx.jnxequities.pts.itch.v1.6.matchnumber" Jnx.JnxEquities.Pts.Itch.v1.6.OrderExecutedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/OrderReplacedMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.OrderReplacedMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.OrderReplacedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderReplacedMessage) ---"; cat Jnx.JnxEquities.Pts.Itch.v1.6.OrderReplacedMessage.json.stderr; exit 1; }
@@ -37,7 +37,7 @@ grep "jnx.jnxequities.pts.itch.v1.6.quantity" Jnx.JnxEquities.Pts.Itch.v1.6.Orde
 grep "jnx.jnxequities.pts.itch.v1.6.price" Jnx.JnxEquities.Pts.Itch.v1.6.OrderReplacedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Itch.v1.6/ShortSellingPriceRestrictionStateMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Itch_v1_6_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Itch.v1.6.ShortSellingPriceRestrictionStateMessage.json 2> Jnx.JnxEquities.Pts.Itch.v1.6.ShortSellingPriceRestrictionStateMessage.json.stderr \
   || { echo "--- tshark FAILED (ShortSellingPriceRestrictionStateMessage) ---"; cat Jnx.JnxEquities.Pts.Itch.v1.6.ShortSellingPriceRestrictionStateMessage.json.stderr; exit 1; }

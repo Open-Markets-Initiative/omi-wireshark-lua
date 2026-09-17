@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdIncrementalRefreshBook.pcap" \
-  -X "lua_script:cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
+  -X "lua_script:Cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshBook) ---"; cat Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json.stderr; exit 1; }
@@ -17,7 +17,7 @@ grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrement
 grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshBook.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdIncrementalRefreshSessionStatistics.pcap" \
-  -X "lua_script:cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
+  -X "lua_script:Cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshSessionStatistics) ---"; cat Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json.stderr; exit 1; }
@@ -29,7 +29,7 @@ grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrement
 grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshSessionStatistics.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdIncrementalRefreshTradeSummary.pcap" \
-  -X "lua_script:cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
+  -X "lua_script:Cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshTradeSummary) ---"; cat Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json.stderr; exit 1; }
@@ -44,7 +44,7 @@ grep "cme.globex.mdp3.sbe.v1.5.padding5" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalR
 grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshTradeSummary.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdIncrementalRefreshVolume.pcap" \
-  -X "lua_script:cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
+  -X "lua_script:Cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json.stderr \
   || { echo "--- tshark FAILED (MdIncrementalRefreshVolume) ---"; cat Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json.stderr; exit 1; }
@@ -56,7 +56,7 @@ grep "cme.globex.mdp3.sbe.v1.5.blocklength" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrement
 grep "cme.globex.mdp3.sbe.v1.5.numingroup" Cme.Globex.Mdp3.Sbe.v1.5.MdIncrementalRefreshVolume.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cme/Globex.Mdp3.Sbe.v1.5/MdInstrumentDefinitionSpread.pcap" \
-  -X "lua_script:cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
+  -X "lua_script:Cme/Globex/Mdp3/Cme_Globex_Mdp3_Sbe_v1_5_Dissector.lua" \
   -T json \
   > Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json 2> Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json.stderr \
   || { echo "--- tshark FAILED (MdInstrumentDefinitionSpread) ---"; cat Cme.Globex.Mdp3.Sbe.v1.5.MdInstrumentDefinitionSpread.json.stderr; exit 1; }

@@ -6,7 +6,7 @@ chown -R tester:tester .
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/FullOrderExecution.pcap" \
   --disable-protocol eobi \
-  -X "lua_script:eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
+  -X "lua_script:Eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json 2> Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json.stderr \
   || { echo "--- tshark FAILED (FullOrderExecution) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.json.stderr; exit 1; }
@@ -24,7 +24,7 @@ grep "eurex.t7.eobi.fbe.v6.0.lastpx" Eurex.T7.Eobi.Fbe.v6.0.FullOrderExecution.j
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/Heartbeat.pcap" \
   --disable-protocol eobi \
-  -X "lua_script:eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
+  -X "lua_script:Eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json 2> Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json.stderr \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json.stderr; exit 1; }
@@ -34,7 +34,7 @@ grep "eurex.t7.eobi.fbe.v6.0.pad4" Eurex.T7.Eobi.Fbe.v6.0.Heartbeat.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/InstrumentSummary.pcap" \
   --disable-protocol eobi \
-  -X "lua_script:eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
+  -X "lua_script:Eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Eobi.Fbe.v6.0.InstrumentSummary.json 2> Eurex.T7.Eobi.Fbe.v6.0.InstrumentSummary.json.stderr \
   || { echo "--- tshark FAILED (InstrumentSummary) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.InstrumentSummary.json.stderr; exit 1; }
@@ -52,7 +52,7 @@ grep "eurex.t7.eobi.fbe.v6.0.nomdentries" Eurex.T7.Eobi.Fbe.v6.0.InstrumentSumma
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/OrderAdd.pcap" \
   --disable-protocol eobi \
-  -X "lua_script:eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
+  -X "lua_script:Eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json 2> Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json.stderr \
   || { echo "--- tshark FAILED (OrderAdd) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json.stderr; exit 1; }
@@ -68,7 +68,7 @@ grep "eurex.t7.eobi.fbe.v6.0.price" Eurex.T7.Eobi.Fbe.v6.0.OrderAdd.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/OrderModify.pcap" \
   --disable-protocol eobi \
-  -X "lua_script:eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
+  -X "lua_script:Eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json 2> Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json.stderr \
   || { echo "--- tshark FAILED (OrderModify) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json.stderr; exit 1; }
@@ -88,7 +88,7 @@ grep "eurex.t7.eobi.fbe.v6.0.price" Eurex.T7.Eobi.Fbe.v6.0.OrderModify.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/ProductSummary.pcap" \
   --disable-protocol eobi \
-  -X "lua_script:eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
+  -X "lua_script:Eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json 2> Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json.stderr \
   || { echo "--- tshark FAILED (ProductSummary) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json.stderr; exit 1; }
@@ -103,7 +103,7 @@ grep "eurex.t7.eobi.fbe.v6.0.pad7" Eurex.T7.Eobi.Fbe.v6.0.ProductSummary.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v6.0/SnapshotOrder.pcap" \
   --disable-protocol eobi \
-  -X "lua_script:eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
+  -X "lua_script:Eurex/Eobi/Eurex_T7_Eobi_Fbe_v6_0_Dissector.lua" \
   -T json \
   > Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json 2> Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json.stderr \
   || { echo "--- tshark FAILED (SnapshotOrder) ---"; cat Eurex.T7.Eobi.Fbe.v6.0.SnapshotOrder.json.stderr; exit 1; }

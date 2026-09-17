@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Box/Options.Sola.Multicast.Hsvf.v1.8/OptionQuoteMessage.pcap" \
-  -X "lua_script:box/Multicast/Box_Options_Sola_Multicast_Hsvf_v1_8_Dissector.lua" \
+  -X "lua_script:Box/Multicast/Box_Options_Sola_Multicast_Hsvf_v1_8_Dissector.lua" \
   -T json \
   > Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json 2> Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (OptionQuoteMessage) ---"; cat Box.Options.Sola.Multicast.Hsvf.v1.8.OptionQuoteMessage.json.stderr; exit 1; }

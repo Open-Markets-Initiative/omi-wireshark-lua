@@ -32,10 +32,10 @@
 [Bse.BseIndia.Eobi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Protocols/BseIndia/Eobi.md "Enhanced Order Book Interface"
 [Bse.BseIndia.Eti]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Protocols/BseIndia/Eti.md "Enhanced Trading Interface"
 
-[Bse.BseIndia.Eobi.Fbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/bse/Eobi/Bse_BseIndia_Eobi_Fbe_v1_4_Dissector.lua "Bse BseIndia Eobi Fbe v1.4 Wireshark Dissector"
+[Bse.BseIndia.Eobi.Fbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Bse/Eobi/Bse_BseIndia_Eobi_Fbe_v1_4_Dissector.lua "Bse BseIndia Eobi Fbe v1.4 Wireshark Dissector"
 [Bse.BseIndia.Eobi.Fbe.v1.4.Url]: https://www.bseindia.com/nta "BSE Limited 1.4 Url"
 [Bse.BseIndia.Eobi.Fbe.v1.4.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Specifications/Eobi/Bse.BseIndia.Eobi.Fbe.v1.4.pdf "BSE Limited 1.4 Pdf"
-[Bse.BseIndia.Eti.Fbe.v1.6.14.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/bse/Eti/Bse_BseIndia_Eti_Fbe_v1_6_14_Dissector.lua "Bse BseIndia Eti Fbe v1.6.14 Wireshark Dissector"
+[Bse.BseIndia.Eti.Fbe.v1.6.14.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Bse/Eti/Bse_BseIndia_Eti_Fbe_v1_6_14_Dissector.lua "Bse BseIndia Eti Fbe v1.6.14 Wireshark Dissector"
 [Bse.BseIndia.Eti.Fbe.v1.6.14.Url]: https://www.bseindia.com/nta "BSE Limited 1.6.14 Url"
 [Bse.BseIndia.Eti.Fbe.v1.6.14.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Specifications/Eti/Bse.BseIndia.Eti.Fbe.v1.6.14.pdf "BSE Limited 1.6.14 Pdf"
 [Bse.BseIndia.Eti.Fbe.v1.6.14.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bse/Specifications/Eti/Bse.BseIndia.Eti.Fbe.v1.6.14.xml "BSE Limited 1.6.14 Xml"

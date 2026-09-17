@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/CancelOrderMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.CancelOrderMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.CancelOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (CancelOrderMessage) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.CancelOrderMessage.json.stderr; exit 1; }
@@ -14,7 +14,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.ordertoken" Jnx.JnxEquities.Pts.Ouch.v1.11.
 grep "jnx.jnxequities.pts.ouch.v1.11.quantity" Jnx.JnxEquities.Pts.Ouch.v1.11.CancelOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/EnterOrderMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.EnterOrderMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.EnterOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (EnterOrderMessage) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.EnterOrderMessage.json.stderr; exit 1; }
@@ -35,7 +35,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.orderclassification" Jnx.JnxEquities.Pts.Ou
 grep "jnx.jnxequities.pts.ouch.v1.11.cashmargintype" Jnx.JnxEquities.Pts.Ouch.v1.11.EnterOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/LoginAcceptedPacket.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json.stderr \
   || { echo "--- tshark FAILED (LoginAcceptedPacket) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json.stderr; exit 1; }
@@ -44,7 +44,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.session" Jnx.JnxEquities.Pts.Ouch.v1.11.Log
 grep "jnx.jnxequities.pts.ouch.v1.11.sequencenumber" Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/LoginRequestPacket.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.LoginRequestPacket.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.LoginRequestPacket.json.stderr \
   || { echo "--- tshark FAILED (LoginRequestPacket) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.LoginRequestPacket.json.stderr; exit 1; }
@@ -55,7 +55,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.requestedsession" Jnx.JnxEquities.Pts.Ouch.
 grep "jnx.jnxequities.pts.ouch.v1.11.requestedsequencenumber" Jnx.JnxEquities.Pts.Ouch.v1.11.LoginRequestPacket.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/OrderAcceptedMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.OrderAcceptedMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.OrderAcceptedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderAcceptedMessage) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.OrderAcceptedMessage.json.stderr; exit 1; }
@@ -79,7 +79,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.orderclassification" Jnx.JnxEquities.Pts.Ou
 grep "jnx.jnxequities.pts.ouch.v1.11.cashmargintype" Jnx.JnxEquities.Pts.Ouch.v1.11.OrderAcceptedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/OrderCanceledMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.OrderCanceledMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.OrderCanceledMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderCanceledMessage) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.OrderCanceledMessage.json.stderr; exit 1; }
@@ -90,7 +90,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.decrementquantity" Jnx.JnxEquities.Pts.Ouch
 grep "jnx.jnxequities.pts.ouch.v1.11.ordercanceledreason" Jnx.JnxEquities.Pts.Ouch.v1.11.OrderCanceledMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/OrderExecutedMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.OrderExecutedMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.OrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.OrderExecutedMessage.json.stderr; exit 1; }
@@ -103,7 +103,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.liquidityindicator" Jnx.JnxEquities.Pts.Ouc
 grep "jnx.jnxequities.pts.ouch.v1.11.matchnumber" Jnx.JnxEquities.Pts.Ouch.v1.11.OrderExecutedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/OrderRejectedMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.OrderRejectedMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.OrderRejectedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderRejectedMessage) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.OrderRejectedMessage.json.stderr; exit 1; }
@@ -113,7 +113,7 @@ grep "jnx.jnxequities.pts.ouch.v1.11.ordertoken" Jnx.JnxEquities.Pts.Ouch.v1.11.
 grep "jnx.jnxequities.pts.ouch.v1.11.orderrejectedreason" Jnx.JnxEquities.Pts.Ouch.v1.11.OrderRejectedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/ReplaceOrderMessage.pcap" \
-  -X "lua_script:jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
+  -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \
   -T json \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.ReplaceOrderMessage.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.ReplaceOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.ReplaceOrderMessage.json.stderr; exit 1; }

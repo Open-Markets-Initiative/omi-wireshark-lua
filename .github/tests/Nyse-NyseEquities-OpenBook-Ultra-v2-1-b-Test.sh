@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.OpenBook.Ultra.v2.1.b/DeltaUpdateMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (DeltaUpdateMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json.stderr; exit 1; }
@@ -21,7 +21,7 @@ grep "nyse.nyseequities.openbook.ultra.v2.1.b.tradingstatus" Nyse.NyseEquities.O
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.pricescalecode" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.DeltaUpdateMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.OpenBook.Ultra.v2.1.b/FullUpdateMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (FullUpdateMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json.stderr; exit 1; }
@@ -40,14 +40,14 @@ grep "nyse.nyseequities.openbook.ultra.v2.1.b.reserved1" Nyse.NyseEquities.OpenB
 grep "nyse.nyseequities.openbook.ultra.v2.1.b.mpv" Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.FullUpdateMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.OpenBook.Ultra.v2.1.b/HeartbeatMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json.stderr \
   || { echo "--- tshark FAILED (HeartbeatMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.HeartbeatMessage.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.OpenBook.Ultra.v2.1.b/SequenceNumberResetMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/OpenBook/Nyse_NyseEquities_OpenBook_Ultra_v2_1_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json 2> Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.NyseEquities.OpenBook.Ultra.v2.1.b.SequenceNumberResetMessage.json.stderr; exit 1; }

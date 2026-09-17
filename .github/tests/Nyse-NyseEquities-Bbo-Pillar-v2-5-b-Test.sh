@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.Bbo.Pillar.v2.5.b/QuoteMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json.stderr; exit 1; }
@@ -21,7 +21,7 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.quotecondition" Nyse.NyseEquities.Bbo.
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.rpiindicator" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.QuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.Bbo.Pillar.v2.5.b/RefreshHeaderMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshHeaderMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json.stderr; exit 1; }
@@ -32,7 +32,7 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.lastseqnum" Nyse.NyseEquities.Bbo.Pill
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.lastsymbolseqnum" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.RefreshHeaderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.Bbo.Pillar.v2.5.b/SecurityStatusMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json.stderr; exit 1; }
@@ -54,7 +54,7 @@ grep "nyse.nyseequities.bbo.pillar.v2.5.b.marketstate" Nyse.NyseEquities.Bbo.Pil
 grep "nyse.nyseequities.bbo.pillar.v2.5.b.sessionstate" Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.Bbo.Pillar.v2.5.b/SourceTimeReferenceMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/Bbo/Nyse_NyseEquities_Bbo_Pillar_v2_5_b_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.Bbo.Pillar.v2.5.b.SourceTimeReferenceMessage.json.stderr; exit 1; }

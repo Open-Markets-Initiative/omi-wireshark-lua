@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.Bbo.Xdp.v2.4.c/QuoteMessage.pcap" \
-  -X "lua_script:nyse/ArcaEquities/Bbo/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
+  -X "lua_script:Nyse/ArcaEquities/Bbo/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteMessage) ---"; cat Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json.stderr; exit 1; }
@@ -22,7 +22,7 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.rpiindicator" Nyse.ArcaEquities.Bbo.Xdp.v
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.reserved4" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.QuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.Bbo.Xdp.v2.4.c/SequenceNumberResetMessage.pcap" \
-  -X "lua_script:nyse/ArcaEquities/Bbo/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
+  -X "lua_script:Nyse/ArcaEquities/Bbo/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json.stderr; exit 1; }
@@ -33,7 +33,7 @@ grep "nyse.arcaequities.bbo.xdp.v2.4.c.productid" Nyse.ArcaEquities.Bbo.Xdp.v2.4
 grep "nyse.arcaequities.bbo.xdp.v2.4.c.channelid" Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SequenceNumberResetMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaEquities.Bbo.Xdp.v2.4.c/SymbolIndexMappingMessage.pcap" \
-  -X "lua_script:nyse/ArcaEquities/Bbo/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
+  -X "lua_script:Nyse/ArcaEquities/Bbo/Nyse_ArcaEquities_Bbo_Xdp_v2_4_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json 2> Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.ArcaEquities.Bbo.Xdp.v2.4.c.SymbolIndexMappingMessage.json.stderr; exit 1; }

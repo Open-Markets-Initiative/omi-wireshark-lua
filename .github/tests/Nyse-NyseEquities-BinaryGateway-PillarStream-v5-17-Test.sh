@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.BinaryGateway.PillarStream.v5.17/NewOrderSingleAndCancelReplaceRequestMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/BinaryGateway/Nyse_NyseEquities_BinaryGateway_PillarStream_v5_17_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/BinaryGateway/Nyse_NyseEquities_BinaryGateway_PillarStream_v5_17_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.BinaryGateway.PillarStream.v5.17.NewOrderSingleAndCancelReplaceRequestMessage.json 2> Nyse.NyseEquities.BinaryGateway.PillarStream.v5.17.NewOrderSingleAndCancelReplaceRequestMessage.json.stderr \
   || { echo "--- tshark FAILED (NewOrderSingleAndCancelReplaceRequestMessage) ---"; cat Nyse.NyseEquities.BinaryGateway.PillarStream.v5.17.NewOrderSingleAndCancelReplaceRequestMessage.json.stderr; exit 1; }

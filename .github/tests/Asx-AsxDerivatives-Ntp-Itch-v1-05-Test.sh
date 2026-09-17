@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/AddOrderMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.AddOrderMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.AddOrderMessage.json.stderr; exit 1; }
@@ -20,7 +20,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.quantity" Asx.AsxDerivatives.Ntp.Itch.v1
 grep "asx.asxderivatives.ntp.itch.v1.05.price" Asx.AsxDerivatives.Ntp.Itch.v1.05.AddOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/AnomalousOrderThresholdPublishMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr \
   || { echo "--- tshark FAILED (AnomalousOrderThresholdPublishMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json.stderr; exit 1; }
@@ -36,7 +36,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.etrupperprice" Asx.AsxDerivatives.Ntp.It
 grep "asx.asxderivatives.ntp.itch.v1.05.etrlowerprice" Asx.AsxDerivatives.Ntp.Itch.v1.05.AnomalousOrderThresholdPublishMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/AuctionOrderExecutedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (AuctionOrderExecutedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json.stderr; exit 1; }
@@ -54,7 +54,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.tradeprice" Asx.AsxDerivatives.Ntp.Itch.
 grep "asx.asxderivatives.ntp.itch.v1.05.oppositeorderid" Asx.AsxDerivatives.Ntp.Itch.v1.05.AuctionOrderExecutedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/CombinationOrderExecutedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (CombinationOrderExecutedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json.stderr; exit 1; }
@@ -75,7 +75,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.oppositeorderid" Asx.AsxDerivatives.Ntp.
 grep "asx.asxderivatives.ntp.itch.v1.05.combinationtradeid" Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationOrderExecutedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/CombinationSymbolDirectoryMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (CombinationSymbolDirectoryMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json.stderr; exit 1; }
@@ -93,7 +93,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.priceminimumtick" Asx.AsxDerivatives.Ntp
 grep "asx.asxderivatives.ntp.itch.v1.05.legs" Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationSymbolDirectoryMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/CombinationTradeExecutedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (CombinationTradeExecutedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json.stderr; exit 1; }
@@ -117,7 +117,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.sellercombinationtradeid" Asx.AsxDerivat
 grep "asx.asxderivatives.ntp.itch.v1.05.sellerparticipantid" Asx.AsxDerivatives.Ntp.Itch.v1.05.CombinationTradeExecutedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/EquilibriumPriceMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.EquilibriumPriceMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr \
   || { echo "--- tshark FAILED (EquilibriumPriceMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.EquilibriumPriceMessage.json.stderr; exit 1; }
@@ -131,7 +131,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.bidquantity" Asx.AsxDerivatives.Ntp.Itch
 grep "asx.asxderivatives.ntp.itch.v1.05.askquantity" Asx.AsxDerivatives.Ntp.Itch.v1.05.EquilibriumPriceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/FutureSymbolDirectoryMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (FutureSymbolDirectoryMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json.stderr; exit 1; }
@@ -161,14 +161,14 @@ grep "asx.asxderivatives.ntp.itch.v1.05.blocklotsize" Asx.AsxDerivatives.Ntp.Itc
 grep "asx.asxderivatives.ntp.itch.v1.05.expirydate" Asx.AsxDerivatives.Ntp.Itch.v1.05.FutureSymbolDirectoryMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/Heartbeat.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.Heartbeat.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.Heartbeat.json.stderr \
   || { echo "--- tshark FAILED (Heartbeat) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.Heartbeat.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/ImpliedOrderAddedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr \
   || { echo "--- tshark FAILED (ImpliedOrderAddedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json.stderr; exit 1; }
@@ -183,7 +183,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.quantity" Asx.AsxDerivatives.Ntp.Itch.v1
 grep "asx.asxderivatives.ntp.itch.v1.05.price" Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderAddedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/ImpliedOrderDeletedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr \
   || { echo "--- tshark FAILED (ImpliedOrderDeletedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json.stderr; exit 1; }
@@ -195,7 +195,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.side" Asx.AsxDerivatives.Ntp.Itch.v1.05.
 grep "asx.asxderivatives.ntp.itch.v1.05.orderid" Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderDeletedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/ImpliedOrderReplacedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr \
   || { echo "--- tshark FAILED (ImpliedOrderReplacedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json.stderr; exit 1; }
@@ -210,7 +210,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.quantity" Asx.AsxDerivatives.Ntp.Itch.v1
 grep "asx.asxderivatives.ntp.itch.v1.05.price" Asx.AsxDerivatives.Ntp.Itch.v1.05.ImpliedOrderReplacedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/OpenHighLowLastTradeAdjustmentMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr \
   || { echo "--- tshark FAILED (OpenHighLowLastTradeAdjustmentMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json.stderr; exit 1; }
@@ -226,7 +226,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.lastvolume" Asx.AsxDerivatives.Ntp.Itch.
 grep "asx.asxderivatives.ntp.itch.v1.05.totaltradedvolume" Asx.AsxDerivatives.Ntp.Itch.v1.05.OpenHighLowLastTradeAdjustmentMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/OptionsSymbolDirectoryMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (OptionsSymbolDirectoryMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json.stderr; exit 1; }
@@ -264,7 +264,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.expirydate" Asx.AsxDerivatives.Ntp.Itch.
 grep "asx.asxderivatives.ntp.itch.v1.05.basisofquotation" Asx.AsxDerivatives.Ntp.Itch.v1.05.OptionsSymbolDirectoryMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/OrderBookStateMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderBookStateMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderBookStateMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderBookStateMessage.json.stderr; exit 1; }
@@ -275,7 +275,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.tradeableinstrumentid" Asx.AsxDerivative
 grep "asx.asxderivatives.ntp.itch.v1.05.sessionstate" Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderBookStateMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/OrderDeletedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderDeletedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderDeletedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderDeletedMessage.json.stderr; exit 1; }
@@ -287,7 +287,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.side" Asx.AsxDerivatives.Ntp.Itch.v1.05.
 grep "asx.asxderivatives.ntp.itch.v1.05.orderid" Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderDeletedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/OrderExecutedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderExecutedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderExecutedMessage.json.stderr; exit 1; }
@@ -306,7 +306,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.combinationtradeid" Asx.AsxDerivatives.N
 grep "asx.asxderivatives.ntp.itch.v1.05.counterpartyid" Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderExecutedMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/OrderVolumeCancelledMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderVolumeCancelledMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json.stderr; exit 1; }
@@ -319,7 +319,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.orderid" Asx.AsxDerivatives.Ntp.Itch.v1.
 grep "asx.asxderivatives.ntp.itch.v1.05.quantity" Asx.AsxDerivatives.Ntp.Itch.v1.05.OrderVolumeCancelledMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/TextMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.TextMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.TextMessage.json.stderr \
   || { echo "--- tshark FAILED (TextMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.TextMessage.json.stderr; exit 1; }
@@ -330,7 +330,7 @@ grep "asx.asxderivatives.ntp.itch.v1.05.sourceid" Asx.AsxDerivatives.Ntp.Itch.v1
 grep "asx.asxderivatives.ntp.itch.v1.05.text" Asx.AsxDerivatives.Ntp.Itch.v1.05.TextMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Asx/AsxDerivatives.Ntp.Itch.v1.05/TradeExecutedMessage.pcap" \
-  -X "lua_script:asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
+  -X "lua_script:Asx/AsxDerivatives/Ntp/Asx_AsxDerivatives_Ntp_Itch_v1_05_Dissector.lua" \
   -T json \
   > Asx.AsxDerivatives.Ntp.Itch.v1.05.TradeExecutedMessage.json 2> Asx.AsxDerivatives.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr \
   || { echo "--- tshark FAILED (TradeExecutedMessage) ---"; cat Asx.AsxDerivatives.Ntp.Itch.v1.05.TradeExecutedMessage.json.stderr; exit 1; }

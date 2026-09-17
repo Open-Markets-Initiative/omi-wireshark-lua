@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.DeepFeed.Xdp.v1.3.a/OutrightMarketDepthBuyMessage.pcap" \
-  -X "lua_script:nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:Nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthBuyMessage.json 2> Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthBuyMessage.json.stderr \
   || { echo "--- tshark FAILED (OutrightMarketDepthBuyMessage) ---"; cat Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthBuyMessage.json.stderr; exit 1; }
@@ -28,7 +28,7 @@ grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.thirdlevelcustomervolume" Nyse.AmexOp
 grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthBuyMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.DeepFeed.Xdp.v1.3.a/OutrightMarketDepthSellMessage.pcap" \
-  -X "lua_script:nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:Nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthSellMessage.json 2> Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthSellMessage.json.stderr \
   || { echo "--- tshark FAILED (OutrightMarketDepthSellMessage) ---"; cat Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthSellMessage.json.stderr; exit 1; }
@@ -51,7 +51,7 @@ grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.thirdlevelcustomervolume" Nyse.AmexOp
 grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.OutrightMarketDepthSellMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.DeepFeed.Xdp.v1.3.a/RefreshOutrightMarketDepthBuyMessage.pcap" \
-  -X "lua_script:nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:Nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthBuyMessage.json 2> Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthBuyMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshOutrightMarketDepthBuyMessage) ---"; cat Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthBuyMessage.json.stderr; exit 1; }
@@ -74,7 +74,7 @@ grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.thirdlevelcustomervolume" Nyse.AmexOp
 grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthBuyMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.DeepFeed.Xdp.v1.3.a/RefreshOutrightMarketDepthSellMessage.pcap" \
-  -X "lua_script:nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:Nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthSellMessage.json 2> Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthSellMessage.json.stderr \
   || { echo "--- tshark FAILED (RefreshOutrightMarketDepthSellMessage) ---"; cat Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthSellMessage.json.stderr; exit 1; }
@@ -97,7 +97,7 @@ grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.thirdlevelcustomervolume" Nyse.AmexOp
 grep "nyse.amexoptions.deepfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.RefreshOutrightMarketDepthSellMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.DeepFeed.Xdp.v1.3.a/StreamIdMessage.pcap" \
-  -X "lua_script:nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
+  -X "lua_script:Nyse/AmexOptions/DeepFeed/Nyse_AmexOptions_DeepFeed_Xdp_v1_3_a_Dissector.lua" \
   -T json \
   > Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.StreamIdMessage.json 2> Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.StreamIdMessage.json.stderr \
   || { echo "--- tshark FAILED (StreamIdMessage) ---"; cat Nyse.AmexOptions.DeepFeed.Xdp.v1.3.a.StreamIdMessage.json.stderr; exit 1; }

@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/LimitUpLimitDownPriceBandMessage.pcap" \
-  -X "lua_script:nasdaq/Uqdf/Output/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
+  -X "lua_script:Nasdaq/Uqdf/Output/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json.stderr \
   || { echo "--- tshark FAILED (LimitUpLimitDownPriceBandMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json.stderr; exit 1; }
@@ -22,7 +22,7 @@ grep "nasdaq.uqdf.output.utp.v1.5.limitdownprice" Nasdaq.Uqdf.Output.Utp.v1.5.Li
 grep "nasdaq.uqdf.output.utp.v1.5.limitupprice" Nasdaq.Uqdf.Output.Utp.v1.5.LimitUpLimitDownPriceBandMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteLongFormMessage.pcap" \
-  -X "lua_script:nasdaq/Uqdf/Output/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
+  -X "lua_script:Nasdaq/Uqdf/Output/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteLongFormMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json.stderr; exit 1; }
@@ -47,7 +47,7 @@ grep "nasdaq.uqdf.output.utp.v1.5.luldnationalbboindicator" Nasdaq.Uqdf.Output.U
 grep "nasdaq.uqdf.output.utp.v1.5.finraadfmpidappendageindicator" Nasdaq.Uqdf.Output.Utp.v1.5.QuoteLongFormMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/Uqdf.Output.Utp.v1.5/QuoteShortFormMessage.pcap" \
-  -X "lua_script:nasdaq/Uqdf/Output/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
+  -X "lua_script:Nasdaq/Uqdf/Output/Nasdaq_Uqdf_Output_Utp_v1_5_Dissector.lua" \
   -T json \
   > Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json 2> Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json.stderr \
   || { echo "--- tshark FAILED (QuoteShortFormMessage) ---"; cat Nasdaq.Uqdf.Output.Utp.v1.5.QuoteShortFormMessage.json.stderr; exit 1; }

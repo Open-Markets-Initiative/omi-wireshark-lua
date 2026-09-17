@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/AddOrderMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.AddOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.AddOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.AddOrderMessage.json.stderr; exit 1; }
@@ -21,7 +21,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.firmid" Nyse.
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.AddOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/CrossTradeMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.CrossTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.CrossTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (CrossTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.CrossTradeMessage.json.stderr; exit 1; }
@@ -35,7 +35,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.volume" Nyse.
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.crosstype" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.CrossTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/DeleteOrderMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.DeleteOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.DeleteOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (DeleteOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.DeleteOrderMessage.json.stderr; exit 1; }
@@ -47,7 +47,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.orderid" Nyse
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.DeleteOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/ImbalanceMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ImbalanceMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ImbalanceMessage.json.stderr \
   || { echo "--- tshark FAILED (ImbalanceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ImbalanceMessage.json.stderr; exit 1; }
@@ -77,7 +77,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.unpairedside"
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ImbalanceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/MessageUnavailableMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.MessageUnavailableMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.MessageUnavailableMessage.json.stderr \
   || { echo "--- tshark FAILED (MessageUnavailableMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.MessageUnavailableMessage.json.stderr; exit 1; }
@@ -88,7 +88,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.productid" Ny
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.channelid" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.MessageUnavailableMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/ModifyOrderMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ModifyOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ModifyOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ModifyOrderMessage.json.stderr; exit 1; }
@@ -104,7 +104,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.side" Nyse.Ny
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ModifyOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/NonDisplayedTradeMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.NonDisplayedTradeMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.NonDisplayedTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (NonDisplayedTradeMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.NonDisplayedTradeMessage.json.stderr; exit 1; }
@@ -122,7 +122,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.tradecond3" N
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.tradecond4" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.NonDisplayedTradeMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/OrderExecutionMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.OrderExecutionMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.OrderExecutionMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutionMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.OrderExecutionMessage.json.stderr; exit 1; }
@@ -142,7 +142,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.tradecond3" N
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.tradecond4" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.OrderExecutionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/ReplaceOrderMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ReplaceOrderMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ReplaceOrderMessage.json.stderr \
   || { echo "--- tshark FAILED (ReplaceOrderMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ReplaceOrderMessage.json.stderr; exit 1; }
@@ -158,7 +158,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.side" Nyse.Ny
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.reserved1" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.ReplaceOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/RetailPriceImprovementMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.RetailPriceImprovementMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.RetailPriceImprovementMessage.json.stderr \
   || { echo "--- tshark FAILED (RetailPriceImprovementMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.RetailPriceImprovementMessage.json.stderr; exit 1; }
@@ -169,7 +169,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.symbolseqnum"
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.rpiindicator" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.RetailPriceImprovementMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/SecurityStatusMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SecurityStatusMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SecurityStatusMessage.json.stderr \
   || { echo "--- tshark FAILED (SecurityStatusMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SecurityStatusMessage.json.stderr; exit 1; }
@@ -191,7 +191,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.marketstate" 
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.sessionstate" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SecurityStatusMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/SequenceNumberResetMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SequenceNumberResetMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SequenceNumberResetMessage.json.stderr; exit 1; }
@@ -202,7 +202,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.productid" Ny
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.channelid" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SequenceNumberResetMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/SourceTimeReferenceMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SourceTimeReferenceMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SourceTimeReferenceMessage.json.stderr \
   || { echo "--- tshark FAILED (SourceTimeReferenceMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SourceTimeReferenceMessage.json.stderr; exit 1; }
@@ -212,7 +212,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.symbolseqnum"
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.sourcetime" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SourceTimeReferenceMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/SymbolClearMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolClearMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolClearMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolClearMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolClearMessage.json.stderr; exit 1; }
@@ -223,7 +223,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.symbolindex" 
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.nextsourceseqnum" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolClearMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/SymbolIndexMappingMessage.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolIndexMappingMessage.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolIndexMappingMessage.json.stderr \
   || { echo "--- tshark FAILED (SymbolIndexMappingMessage) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolIndexMappingMessage.json.stderr; exit 1; }
@@ -247,7 +247,7 @@ grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.latecloseelig
 grep "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.etheligible" Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.SymbolIndexMappingMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g/MultipleMessages.pcap" \
-  -X "lua_script:nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
+  -X "lua_script:Nyse/NyseEquities/IntegratedFeedRetransmission/Nyse_NyseEquities_IntegratedFeedRetransmission_Pillar_v2_5_g_Dissector.lua" \
   -T json \
   > Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json 2> Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Nyse.NyseEquities.IntegratedFeedRetransmission.Pillar.v2.5.g.Multiplemessages.json.stderr; exit 1; }

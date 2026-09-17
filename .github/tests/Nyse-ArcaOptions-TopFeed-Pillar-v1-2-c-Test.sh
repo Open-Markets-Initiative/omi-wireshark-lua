@@ -5,14 +5,14 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaOptions.TopFeed.Pillar.v1.2.c/HeartBeat.pcap" \
-  -X "lua_script:nyse/ArcaOptions/TopFeed/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
+  -X "lua_script:Nyse/ArcaOptions/TopFeed/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.Heartbeat.json 2> Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.Heartbeat.json.stderr \
   || { echo "--- tshark FAILED (HeartBeat) ---"; cat Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.Heartbeat.json.stderr; exit 1; }
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaOptions.TopFeed.Pillar.v1.2.c/OptionsQuoteMessage.pcap" \
-  -X "lua_script:nyse/ArcaOptions/TopFeed/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
+  -X "lua_script:Nyse/ArcaOptions/TopFeed/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json 2> Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json.stderr \
   || { echo "--- tshark FAILED (OptionsQuoteMessage) ---"; cat Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json.stderr; exit 1; }
@@ -30,7 +30,7 @@ grep "nyse.arcaoptions.topfeed.pillar.v1.2.c.askcustomervolume" Nyse.ArcaOptions
 grep "nyse.arcaoptions.topfeed.pillar.v1.2.c.bidcustomervolume" Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.OptionsQuoteMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/ArcaOptions.TopFeed.Pillar.v1.2.c/SequenceNumberResetMessage.pcap" \
-  -X "lua_script:nyse/ArcaOptions/TopFeed/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
+  -X "lua_script:Nyse/ArcaOptions/TopFeed/Nyse_ArcaOptions_TopFeed_Pillar_v1_2_c_Dissector.lua" \
   -T json \
   > Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json 2> Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json.stderr \
   || { echo "--- tshark FAILED (SequenceNumberResetMessage) ---"; cat Nyse.ArcaOptions.TopFeed.Pillar.v1.2.c.SequenceNumberResetMessage.json.stderr; exit 1; }

@@ -5,7 +5,7 @@ chown -R tester:tester .
 
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29/AddOrderShortMessage.pcap" \
-  -X "lua_script:cboe/ByxEquities/MulticastDepthOfBook/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
+  -X "lua_script:Cboe/ByxEquities/MulticastDepthOfBook/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
   -T json \
   > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr \
   || { echo "--- tshark FAILED (AddOrderShortMessage) ---"; cat Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json.stderr; exit 1; }
@@ -19,7 +19,7 @@ grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.priceshort" Cboe.ByxE
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.addorderflags" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.AddOrderShortMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29/ModifyOrderShortMessage.pcap" \
-  -X "lua_script:cboe/ByxEquities/MulticastDepthOfBook/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
+  -X "lua_script:Cboe/ByxEquities/MulticastDepthOfBook/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
   -T json \
   > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr \
   || { echo "--- tshark FAILED (ModifyOrderShortMessage) ---"; cat Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json.stderr; exit 1; }
@@ -31,7 +31,7 @@ grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.priceshort" Cboe.ByxE
 grep "cboe.byxequities.multicastdepthofbook.pitch.v2.41.29.modifyorderflags" Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.ModifyOrderShortMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29/MultipleMessages.pcap" \
-  -X "lua_script:cboe/ByxEquities/MulticastDepthOfBook/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
+  -X "lua_script:Cboe/ByxEquities/MulticastDepthOfBook/Cboe_ByxEquities_MulticastDepthOfBook_Pitch_v2_41_29_Dissector.lua" \
   -T json \
   > Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json 2> Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json.stderr \
   || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Cboe.ByxEquities.MulticastDepthOfBook.Pitch.v2.41.29.Multiplemessages.json.stderr; exit 1; }
