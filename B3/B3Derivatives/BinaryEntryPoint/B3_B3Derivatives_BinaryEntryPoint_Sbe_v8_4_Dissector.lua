@@ -146,10 +146,11 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_146_padding_3 = Pro
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_152_padding_3 = ProtoField.new("Offset 152 Padding 3", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset152padding3", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_159_padding_1 = ProtoField.new("Offset 159 Padding 1", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset159padding1", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_164_padding_3 = ProtoField.new("Offset 164 Padding 3", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset164padding3", ftypes.BYTES)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_165_padding_3 = ProtoField.new("Offset 165 Padding 3", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset165padding3", ftypes.BYTES)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_167_padding_1 = ProtoField.new("Offset 167 Padding 1", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset167padding1", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_168_padding_3 = ProtoField.new("Offset 168 Padding 3", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset168padding3", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_18_padding_2 = ProtoField.new("Offset 18 Padding 2", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset18padding2", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_19_padding_1 = ProtoField.new("Offset 19 Padding 1", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset19padding1", ftypes.BYTES)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_2_padding_2 = ProtoField.new("Offset 2 Padding 2", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset2padding2", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_21_padding_1 = ProtoField.new("Offset 21 Padding 1", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset21padding1", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_25_padding_3 = ProtoField.new("Offset 25 Padding 3", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset25padding3", ftypes.BYTES)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_31_padding_1 = ProtoField.new("Offset 31 Padding 1", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.offset31padding1", ftypes.BYTES)
@@ -3689,25 +3690,25 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_164_padding_3.dissect = functi
   return offset + length, value
 end
 
--- Offset 165 Padding 3
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3 = {}
+-- Offset 167 Padding 1
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1 = {}
 
--- Size: Offset 165 Padding 3
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3.size = 3
+-- Size: Offset 167 Padding 1
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1.size = 1
 
--- Display: Offset 165 Padding 3
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3.display = function(value)
-  return "Offset 165 Padding 3: "..value
+-- Display: Offset 167 Padding 1
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1.display = function(value)
+  return "Offset 167 Padding 1: "..value
 end
 
--- Dissect: Offset 165 Padding 3
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3.size
+-- Dissect: Offset 167 Padding 1
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_165_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_167_padding_1, range, value, display)
 
   return offset + length, value
 end
@@ -3777,6 +3778,29 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_19_padding_1.dissect = functio
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_19_padding_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_19_padding_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offset 2 Padding 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2 = {}
+
+-- Size: Offset 2 Padding 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2.size = 2
+
+-- Display: Offset 2 Padding 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2.display = function(value)
+  return "Offset 2 Padding 2: "..value
+end
+
+-- Dissect: Offset 2 Padding 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.offset_2_padding_2, range, value, display)
 
   return offset + length, value
 end
@@ -8846,6 +8870,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id = {}
 -- Size: Investor Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.size =
   b3_b3derivatives_binaryentrypoint_sbe_v8_4.prefix.size + 
+  b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_4.document.size
 
 -- Display: Investor Id
@@ -8859,6 +8884,9 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.fields = function(buffer,
 
   -- Prefix: uint16
   index, prefix = b3_b3derivatives_binaryentrypoint_sbe_v8_4.prefix.dissect(buffer, index, packet, parent)
+
+  -- Offset 2 Padding 2: 2 Byte
+  index, offset_2_padding_2 = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_2_padding_2.dissect(buffer, index, packet, parent)
 
   -- Document: uint32
   index, document = b3_b3derivatives_binaryentrypoint_sbe_v8_4.document.dissect(buffer, index, packet, parent)
@@ -9033,7 +9061,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.order_mass_action_report_message.fiel
   -- Security Id Optional: SecurityIDOptional
   index, security_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_4.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Text: Struct of 2 fields
@@ -9172,7 +9200,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.order_mass_action_request_message.fie
   -- Security Id Optional: SecurityIDOptional
   index, security_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_4.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -11546,7 +11574,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.execution_report_reject_message.field
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_4.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: StrategyIDOptional
@@ -12038,7 +12066,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.execution_report_cancel_message.field
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_4.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: StrategyIDOptional
@@ -12252,7 +12280,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.execution_report_modify_message.field
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_4.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Mm Protection Reset Optional: Boolean
@@ -12363,7 +12391,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.execution_report_new_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_4.mm_protection_reset_optional.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_4.strategy_id.size
 
@@ -12466,7 +12494,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.execution_report_new_message.fields =
   -- OrdTagId: OrdTagID
   index, ordtagid = b3_b3derivatives_binaryentrypoint_sbe_v8_4.ordtagid.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Cross Type: CrossType
@@ -12478,8 +12506,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.execution_report_new_message.fields =
   -- Mm Protection Reset Optional: Boolean
   index, mm_protection_reset_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_4.mm_protection_reset_optional.dissect(buffer, index, packet, parent)
 
-  -- Offset 165 Padding 3: 3 Byte
-  index, offset_165_padding_3 = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_165_padding_3.dissect(buffer, index, packet, parent)
+  -- Offset 167 Padding 1: 1 Byte
+  index, offset_167_padding_1 = b3_b3derivatives_binaryentrypoint_sbe_v8_4.offset_167_padding_1.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: StrategyIDOptional
   index, strategy_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.strategy_id.dissect(buffer, index, packet, parent)
@@ -13069,7 +13097,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.order_cancel_replace_request_message.
   -- Custodian Info: Struct of 3 fields
   index, custodian_info = b3_b3derivatives_binaryentrypoint_sbe_v8_4.custodian_info.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: StrategyIDOptional
@@ -13239,7 +13267,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.new_order_single_message.fields = fun
   -- Custodian Info: Struct of 3 fields
   index, custodian_info = b3_b3derivatives_binaryentrypoint_sbe_v8_4.custodian_info.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: StrategyIDOptional
@@ -13383,7 +13411,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.simple_modify_order_message.fields = 
   -- OrigClOrdId: ClOrdIDOptional
   index, origclordid = b3_b3derivatives_binaryentrypoint_sbe_v8_4.origclordid.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Memo: Struct of 2 fields
@@ -13508,7 +13536,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.simple_new_order_message.fields = fun
   -- Price Optional: PriceOptional
   index, price_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_4.price_optional.dissect(buffer, index, packet, parent)
 
-  -- Investor Id: Struct of 2 fields
+  -- Investor Id: Struct of 3 fields
   index, investor_id = b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect(buffer, index, packet, parent)
 
   -- Memo: Struct of 2 fields
