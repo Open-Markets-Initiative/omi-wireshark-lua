@@ -4,7 +4,7 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.4/CurrentMarketRefreshMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/CurrentMarketRefreshMessage.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketRefreshMessage.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketRefreshMessage.json.stderr \
@@ -17,7 +17,7 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.pricetype" Cboe.C1Options.MarketD
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.applseqnum" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketRefreshMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketRefreshMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.4/CurrentMarketUpdateMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/CurrentMarketUpdateMessage.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketUpdateMessage.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketUpdateMessage.json.stderr \
@@ -29,7 +29,7 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.securitytradingstatus" Cboe.C1Opt
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.pricetype" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketUpdateMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.CurrentMarketUpdateMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.4/MarketDataRefreshMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/MarketDataRefreshMessage.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json.stderr \
@@ -45,7 +45,7 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.prevclosepxmantissa" Cboe.C1Optio
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.tradevolume" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.MarketDataRefreshMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.4/RecapUpdateMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/RecapUpdateMessage.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.RecapUpdateMessage.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.RecapUpdateMessage.json.stderr \
@@ -59,7 +59,7 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.prevclosepxmantissa" Cboe.C1Optio
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.tradevolume" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.RecapUpdateMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.RecapUpdateMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.4/SecurityDefinitionMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/SecurityDefinitionMessage.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.SecurityDefinitionMessage.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.SecurityDefinitionMessage.json.stderr \
@@ -99,7 +99,7 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.underlyingtypetext" Cboe.C1Option
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.contractsize" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.SecurityDefinitionMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.nolegs" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.SecurityDefinitionMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.4/TickerMessage.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/TickerMessage.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.TickerMessage.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.TickerMessage.json.stderr \
@@ -110,7 +110,7 @@ grep "cboe.c1options.marketdatafeed.csm.v1.4.2.securityid" Cboe.C1Options.Market
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.pricetype" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.TickerMessage.json
 grep "cboe.c1options.marketdatafeed.csm.v1.4.2.noentries" Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.TickerMessage.json
 runuser -u tester -- tshark \
-  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.4/MultipleMessages.pcap" \
+  -r "omi-data-packets/Cboe/C1Options.MarketDataFeed.Csm.v1.4.2/MultipleMessages.pcap" \
   -X "lua_script:Cboe/C1Options/MarketDataFeed/Cboe_C1Options_MarketDataFeed_Csm_v1_4_2_Dissector.lua" \
   -T json \
   > Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.Multiplemessages.json 2> Cboe.C1Options.MarketDataFeed.Csm.v1.4.2.Multiplemessages.json.stderr \
