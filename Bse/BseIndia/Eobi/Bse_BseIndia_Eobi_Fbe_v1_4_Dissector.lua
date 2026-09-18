@@ -2142,30 +2142,16 @@ end
 -- Add Complex Instrument Message
 bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message = {}
 
--- Calculate size of: Add Complex Instrument Message
-bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.security_id.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.transact_time.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.security_sub_type.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.product_complex.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.no_legs.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.pad_1.size
-
-  -- Calculate field size from count
-  local instrmt_leg_grp_count = buffer(offset + index - 2, 1):le_uint()
-  index = index + instrmt_leg_grp_count * 16
-
-  return index
-end
+-- Size: Add Complex Instrument Message
+bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.size =
+  bse_bseindia_eobi_fbe_v1_4.security_id.size + 
+  bse_bseindia_eobi_fbe_v1_4.transact_time.size + 
+  bse_bseindia_eobi_fbe_v1_4.security_sub_type.size + 
+  bse_bseindia_eobi_fbe_v1_4.product_complex.size + 
+  bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.size + 
+  bse_bseindia_eobi_fbe_v1_4.no_legs.size + 
+  bse_bseindia_eobi_fbe_v1_4.pad_1.size + 
+  bse_bseindia_eobi_fbe_v1_4.instrmt_leg_grp.size
 
 -- Display: Add Complex Instrument Message
 bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.display = function(packet, parent, length)
@@ -2197,8 +2183,8 @@ bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.fields = function(buff
   -- Pad 1: Fixed String
   index, pad_1 = bse_bseindia_eobi_fbe_v1_4.pad_1.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Instrmt Leg Grp
-  for instrmt_leg_grp_index = 1, no_legs do
+  -- Array Of: Instrmt Leg Grp
+  for instrmt_leg_grp_index = 1, 5 do
     index, instrmt_leg_grp = bse_bseindia_eobi_fbe_v1_4.instrmt_leg_grp.dissect(buffer, index, packet, parent, instrmt_leg_grp_index)
   end
 
@@ -2580,34 +2566,18 @@ end
 -- Trade Reversal Message
 bse_bseindia_eobi_fbe_v1_4.trade_reversal_message = {}
 
--- Calculate size of: Trade Reversal Message
-bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.security_id.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.transact_time.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.trd_match_id.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.last_qty.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.last_px.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.trd_reg_ts_execution_time.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.no_md_entries.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.pad_7.size
-
-  -- Calculate field size from count
-  local md_trade_entry_grp_count = buffer(offset + index - 8, 1):le_uint()
-  index = index + md_trade_entry_grp_count * 24
-
-  return index
-end
+-- Size: Trade Reversal Message
+bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.size =
+  bse_bseindia_eobi_fbe_v1_4.security_id.size + 
+  bse_bseindia_eobi_fbe_v1_4.transact_time.size + 
+  bse_bseindia_eobi_fbe_v1_4.trd_match_id.size + 
+  bse_bseindia_eobi_fbe_v1_4.pad_4.size + 
+  bse_bseindia_eobi_fbe_v1_4.last_qty.size + 
+  bse_bseindia_eobi_fbe_v1_4.last_px.size + 
+  bse_bseindia_eobi_fbe_v1_4.trd_reg_ts_execution_time.size + 
+  bse_bseindia_eobi_fbe_v1_4.no_md_entries.size + 
+  bse_bseindia_eobi_fbe_v1_4.pad_7.size + 
+  bse_bseindia_eobi_fbe_v1_4.md_trade_entry_grp.size
 
 -- Display: Trade Reversal Message
 bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.display = function(packet, parent, length)
@@ -2645,8 +2615,8 @@ bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.fields = function(buffer, offs
   -- Pad 7: Fixed String
   index, pad_7 = bse_bseindia_eobi_fbe_v1_4.pad_7.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Md Trade Entry Grp
-  for md_trade_entry_grp_index = 1, no_md_entries do
+  -- Array Of: Md Trade Entry Grp
+  for md_trade_entry_grp_index = 1, 15 do
     index, md_trade_entry_grp = bse_bseindia_eobi_fbe_v1_4.md_trade_entry_grp.dissect(buffer, index, packet, parent, md_trade_entry_grp_index)
   end
 
@@ -3348,38 +3318,20 @@ end
 -- Instrument Summary Message
 bse_bseindia_eobi_fbe_v1_4.instrument_summary_message = {}
 
--- Calculate size of: Instrument Summary Message
-bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.security_id.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.last_update_time.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.trd_reg_ts_execution_time.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.tot_no_orders.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.security_status.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.security_trading_status.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.no_md_entries.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.trade_volume.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.no_of_trades.size
-
-  index = index + bse_bseindia_eobi_fbe_v1_4.pad_4.size
-
-  -- Calculate field size from count
-  local md_instrument_entry_grp_count = buffer(offset + index - 17, 1):le_uint()
-  index = index + md_instrument_entry_grp_count * 24
-
-  return index
-end
+-- Size: Instrument Summary Message
+bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.size =
+  bse_bseindia_eobi_fbe_v1_4.security_id.size + 
+  bse_bseindia_eobi_fbe_v1_4.last_update_time.size + 
+  bse_bseindia_eobi_fbe_v1_4.trd_reg_ts_execution_time.size + 
+  bse_bseindia_eobi_fbe_v1_4.tot_no_orders.size + 
+  bse_bseindia_eobi_fbe_v1_4.security_status.size + 
+  bse_bseindia_eobi_fbe_v1_4.security_trading_status.size + 
+  bse_bseindia_eobi_fbe_v1_4.fast_market_indicator.size + 
+  bse_bseindia_eobi_fbe_v1_4.no_md_entries.size + 
+  bse_bseindia_eobi_fbe_v1_4.trade_volume.size + 
+  bse_bseindia_eobi_fbe_v1_4.no_of_trades.size + 
+  bse_bseindia_eobi_fbe_v1_4.pad_4.size + 
+  bse_bseindia_eobi_fbe_v1_4.md_instrument_entry_grp.size
 
 -- Display: Instrument Summary Message
 bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.display = function(packet, parent, length)
@@ -3423,8 +3375,8 @@ bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.fields = function(buffer, 
   -- Pad 4: Fixed String
   index, pad_4 = bse_bseindia_eobi_fbe_v1_4.pad_4.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Md Instrument Entry Grp
-  for md_instrument_entry_grp_index = 1, no_md_entries do
+  -- Array Of: Md Instrument Entry Grp
+  for md_instrument_entry_grp_index = 1, 15 do
     index, md_instrument_entry_grp = bse_bseindia_eobi_fbe_v1_4.md_instrument_entry_grp.dissect(buffer, index, packet, parent, md_instrument_entry_grp_index)
   end
 

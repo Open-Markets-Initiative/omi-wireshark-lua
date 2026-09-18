@@ -22,6 +22,58 @@ grep "eurex.t7.eobi.fbe.v13.0.nolegs" Eurex.T7.Eobi.Fbe.v13.0.AddComplexInstrume
 grep "eurex.t7.eobi.fbe.v13.0.pad2" Eurex.T7.Eobi.Fbe.v13.0.AddComplexInstrument.json
 grep "eurex.t7.eobi.fbe.v13.0.lastfragment" Eurex.T7.Eobi.Fbe.v13.0.AddComplexInstrument.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/AddFlexibleInstrument.pcap" \
+  -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
+  -T json \
+  > Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json 2> Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json.stderr \
+  || { echo "--- tshark FAILED (AddFlexibleInstrument) ---"; cat Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json.stderr; exit 1; }
+
+grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.securitydesc" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.securitytype" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.putorcall" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.exercisestyle" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.settlmethod" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.maturitydate" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.strikeprice" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.optattribute" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.contractdate" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.securityreferencedatasupplement" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+grep "eurex.t7.eobi.fbe.v13.0.pad4" Eurex.T7.Eobi.Fbe.v13.0.AddFlexibleInstrument.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/AuctionBbo.pcap" \
+  -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
+  -T json \
+  > Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json 2> Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json.stderr \
+  || { echo "--- tshark FAILED (AuctionBbo) ---"; cat Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json.stderr; exit 1; }
+
+grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.bidpx" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.offerpx" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.bidsize" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.offersize" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.potentialsecuritytradingevent" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.bidordtype" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.offerordtype" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+grep "eurex.t7.eobi.fbe.v13.0.pad5" Eurex.T7.Eobi.Fbe.v13.0.AuctionBbo.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/AuctionClearingPrice.pcap" \
+  -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
+  -T json \
+  > Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json 2> Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json.stderr \
+  || { echo "--- tshark FAILED (AuctionClearingPrice) ---"; cat Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json.stderr; exit 1; }
+
+grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+grep "eurex.t7.eobi.fbe.v13.0.lastpx" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+grep "eurex.t7.eobi.fbe.v13.0.lastqty" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+grep "eurex.t7.eobi.fbe.v13.0.imbalanceqty" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+grep "eurex.t7.eobi.fbe.v13.0.securitytradingstatus" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+grep "eurex.t7.eobi.fbe.v13.0.potentialsecuritytradingevent" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+grep "eurex.t7.eobi.fbe.v13.0.pad6" Eurex.T7.Eobi.Fbe.v13.0.AuctionClearingPrice.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/CrossRequest.pcap" \
   -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
   -T json \
@@ -181,6 +233,15 @@ grep "eurex.t7.eobi.fbe.v13.0.hhiindicator" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.
 grep "eurex.t7.eobi.fbe.v13.0.pad5" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
 grep "eurex.t7.eobi.fbe.v13.0.price" Eurex.T7.Eobi.Fbe.v13.0.OrderDelete.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/OrderMassDelete.pcap" \
+  -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
+  -T json \
+  > Eurex.T7.Eobi.Fbe.v13.0.OrderMassDelete.json 2> Eurex.T7.Eobi.Fbe.v13.0.OrderMassDelete.json.stderr \
+  || { echo "--- tshark FAILED (OrderMassDelete) ---"; cat Eurex.T7.Eobi.Fbe.v13.0.OrderMassDelete.json.stderr; exit 1; }
+
+grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.OrderMassDelete.json
+grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.OrderMassDelete.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/OrderModify.pcap" \
   -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
   -T json \
@@ -315,6 +376,22 @@ grep "eurex.t7.eobi.fbe.v13.0.numberofbuysides" Eurex.T7.Eobi.Fbe.v13.0.TesTrade
 grep "eurex.t7.eobi.fbe.v13.0.numberofsellsides" Eurex.T7.Eobi.Fbe.v13.0.TesTradeReport.json
 grep "eurex.t7.eobi.fbe.v13.0.pad4" Eurex.T7.Eobi.Fbe.v13.0.TesTradeReport.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/TopOfBook.pcap" \
+  -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
+  -T json \
+  > Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json 2> Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json.stderr \
+  || { echo "--- tshark FAILED (TopOfBook) ---"; cat Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json.stderr; exit 1; }
+
+grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.bidpx" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.offerpx" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.bidsize" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.offersize" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.numberofbuyorders" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.numberofsellorders" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+grep "eurex.t7.eobi.fbe.v13.0.pad4" Eurex.T7.Eobi.Fbe.v13.0.TopOfBook.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/TradeReport.pcap" \
   -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
   -T json \
@@ -332,3 +409,19 @@ grep "eurex.t7.eobi.fbe.v13.0.algorithmictradeindicator" Eurex.T7.Eobi.Fbe.v13.0
 grep "eurex.t7.eobi.fbe.v13.0.pad1" Eurex.T7.Eobi.Fbe.v13.0.TradeReport.json
 grep "eurex.t7.eobi.fbe.v13.0.tradecondition" Eurex.T7.Eobi.Fbe.v13.0.TradeReport.json
 grep "eurex.t7.eobi.fbe.v13.0.pad6" Eurex.T7.Eobi.Fbe.v13.0.TradeReport.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Eurex/T7.Eobi.Fbe.v13.0/TradeReversal.pcap" \
+  -X "lua_script:Eurex/T7/Eobi/Eurex_T7_Eobi_Fbe_v13_0_Dissector.lua" \
+  -T json \
+  > Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json 2> Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json.stderr \
+  || { echo "--- tshark FAILED (TradeReversal) ---"; cat Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json.stderr; exit 1; }
+
+grep "eurex.t7.eobi.fbe.v13.0.securityid" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.transacttime" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.lastqty" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.lastpx" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.trdregtsexecutiontime" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.trdmatchid" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.tradecondition" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.mdorigintype" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json
+grep "eurex.t7.eobi.fbe.v13.0.nomdentries" Eurex.T7.Eobi.Fbe.v13.0.TradeReversal.json

@@ -947,20 +947,24 @@ end
 -- Alignment Padding
 eurex_t7_eti_fbe_v14_1.alignment_padding = {}
 
+-- Size: Alignment Padding
+eurex_t7_eti_fbe_v14_1.alignment_padding.size = 0
+
 -- Display: Alignment Padding
 eurex_t7_eti_fbe_v14_1.alignment_padding.display = function(value)
   return "Alignment Padding: "..value
 end
 
--- Dissect runtime sized field: Alignment Padding
-eurex_t7_eti_fbe_v14_1.alignment_padding.dissect = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
+-- Dissect: Alignment Padding
+eurex_t7_eti_fbe_v14_1.alignment_padding.dissect = function(buffer, offset, packet, parent)
+  local length = eurex_t7_eti_fbe_v14_1.alignment_padding.size
+  local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = eurex_t7_eti_fbe_v14_1.alignment_padding.display(value, packet, parent, size)
+  local display = eurex_t7_eti_fbe_v14_1.alignment_padding.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_eurex_t7_eti_fbe_v14_1.fields.alignment_padding, range, value, display)
 
-  return offset + size, value
+  return offset + length, value
 end
 
 -- Alloc Id
@@ -20374,18 +20378,15 @@ eurex_t7_eti_fbe_v14_1.tes_broadcast.fields = function(buffer, offset, packet, p
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -20647,18 +20648,15 @@ eurex_t7_eti_fbe_v14_1.tes_approve_broadcast.fields = function(buffer, offset, p
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -23402,18 +23400,15 @@ eurex_t7_eti_fbe_v14_1.reject.fields = function(buffer, offset, packet, parent, 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -25187,18 +25182,15 @@ eurex_t7_eti_fbe_v14_1.news_broadcast.fields = function(buffer, offset, packet, 
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -26039,18 +26031,15 @@ eurex_t7_eti_fbe_v14_1.logon_response.fields = function(buffer, offset, packet, 
   -- Runtime Size Of: Public Key
   index, public_key = eurex_t7_eti_fbe_v14_1.public_key.dissect(buffer, index, packet, parent, public_key_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -26121,18 +26110,15 @@ eurex_t7_eti_fbe_v14_1.legal_notification_broadcast.fields = function(buffer, of
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -26887,18 +26873,15 @@ eurex_t7_eti_fbe_v14_1.forced_user_logout_notification.fields = function(buffer,
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -26963,18 +26946,15 @@ eurex_t7_eti_fbe_v14_1.forced_logout_notification.fields = function(buffer, offs
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
@@ -28310,18 +28290,15 @@ eurex_t7_eti_fbe_v14_1.broadcast_error_notification.fields = function(buffer, of
   -- Runtime Size Of: Var Text
   index, var_text = eurex_t7_eti_fbe_v14_1.var_text.dissect(buffer, index, packet, parent, var_text_len)
 
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
   -- Runtime optional field: Alignment Padding
   local alignment_padding = nil
 
-  local alignment_padding_exists = body_len ~= index
+  local alignment_padding_exists = (index % 8 ~= 0)
 
   if alignment_padding_exists then
 
     -- Runtime Size Of: Alignment Padding
-    local size_of_alignment_padding = body_len - index
+    local size_of_alignment_padding = ((8 - index % 8) % 8)
 
     -- Alignment Padding: 0 Byte
     index, alignment_padding = eurex_t7_eti_fbe_v14_1.alignment_padding.dissect(buffer, index, packet, parent, size_of_alignment_padding)
