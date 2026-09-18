@@ -1968,7 +1968,7 @@ end
 nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.dissect = function(buffer, offset, packet, parent)
   local size = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.st_order_flags.display(range, value, packet, parent)
   local element = parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.st_order_flags, range, display)
 

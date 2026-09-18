@@ -3936,7 +3936,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.execution_order_instructions.dissect
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = miax_pearlequities_expressorders_meo_v2_7_b.execution_order_instructions.display(range, value, packet, parent)
-  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.execution_order_instructions, range, display)
+  local element = parent:add_le(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.execution_order_instructions, range, display)
 
   if show.structs then
     miax_pearlequities_expressorders_meo_v2_7_b.execution_order_instructions.bits(range, value, packet, element)
@@ -5139,7 +5139,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_instructions.dissect = fun
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = miax_pearlequities_expressorders_meo_v2_7_b.new_order_instructions.display(range, value, packet, parent)
-  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.new_order_instructions, range, display)
+  local element = parent:add_le(omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.new_order_instructions, range, display)
 
   if show.structs then
     miax_pearlequities_expressorders_meo_v2_7_b.new_order_instructions.bits(range, value, packet, element)

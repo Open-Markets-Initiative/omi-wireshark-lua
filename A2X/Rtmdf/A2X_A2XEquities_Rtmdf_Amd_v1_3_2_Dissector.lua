@@ -1126,7 +1126,7 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.dissect = function(buffer, offse
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.display(range, value, packet, parent)
-  local element = parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_flags, range, display)
+  local element = parent:add_le(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.security_flags, range, display)
 
   if show.structs then
     a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.bits(range, value, packet, element)

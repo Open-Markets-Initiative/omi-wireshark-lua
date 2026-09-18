@@ -6357,7 +6357,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_bit_fields.dissect = function(
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_rejected_bit_fields.bits(range, value, packet, element)
@@ -6449,7 +6449,7 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.dissect = functi
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.bits(range, value, packet, element)
@@ -6703,7 +6703,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_bit_fields.dissect = function(bu
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.order_replaced_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.order_replaced_bit_fields.bits(range, value, packet, element)
@@ -6809,7 +6809,7 @@ txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.dissect = function
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.bits(range, value, packet, element)
@@ -7600,7 +7600,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_bit_fields.dissect = func
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_rejected_bit_fields.bits(range, value, packet, element)
@@ -7678,7 +7678,7 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.dissect = f
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.bits(range, value, packet, element)
@@ -7890,7 +7890,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_bit_fields.dissect = func
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_accepted_bit_fields.bits(range, value, packet, element)
@@ -7968,7 +7968,7 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.dissect = f
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.bits(range, value, packet, element)
@@ -8208,7 +8208,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_bit_fields.dissect = funct
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_rejected_bit_fields.bits(range, value, packet, element)
@@ -8335,7 +8335,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.dissect = fu
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.bits(range, value, packet, element)
@@ -8692,7 +8692,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_bit_fields.dissect = funct
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_accepted_bit_fields.bits(range, value, packet, element)
@@ -8833,7 +8833,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_presence_bits.dissect = fu
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_accepted_presence_bits.bits(range, value, packet, element)
@@ -10093,7 +10093,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_bit_fields.dissect = function(buf
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.replace_order_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_order_bit_fields.bits(range, value, packet, element)
@@ -10185,7 +10185,7 @@ txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.dissect = function(
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.bits(range, value, packet, element)
@@ -10649,7 +10649,7 @@ txse_txseequities_seed_rake_v1_0.market_order_bit_fields.dissect = function(buff
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.market_order_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_bit_fields.bits(range, value, packet, element)
@@ -10727,7 +10727,7 @@ txse_txseequities_seed_rake_v1_0.market_order_presence_bits.dissect = function(b
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.market_order_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.market_order_presence_bits.bits(range, value, packet, element)
@@ -10957,7 +10957,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_bit_fields.dissect = function(buffe
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_bit_fields.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_bit_fields, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_bit_fields, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_bit_fields.bits(range, value, packet, element)
@@ -11084,7 +11084,7 @@ txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.dissect = function(bu
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.display(range, value, packet, parent)
-  local element = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_presence_bits, range, display)
+  local element = parent:add_le(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_presence_bits, range, display)
 
   if show.structs then
     txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.bits(range, value, packet, element)

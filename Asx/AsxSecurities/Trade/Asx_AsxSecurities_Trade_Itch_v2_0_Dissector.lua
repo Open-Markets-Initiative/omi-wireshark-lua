@@ -2057,7 +2057,7 @@ end
 asx_asxsecurities_trade_itch_v2_0.exchange_order_type.dissect = function(buffer, offset, packet, parent)
   local size = asx_asxsecurities_trade_itch_v2_0.exchange_order_type.size
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asx_asxsecurities_trade_itch_v2_0.exchange_order_type.display(range, value, packet, parent)
   local element = parent:add(omi_asx_asxsecurities_trade_itch_v2_0.fields.exchange_order_type, range, display)
 
