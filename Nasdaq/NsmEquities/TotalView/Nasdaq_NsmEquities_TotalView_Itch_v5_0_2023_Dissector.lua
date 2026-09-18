@@ -940,9 +940,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2023.ipo_flag.display = function(value)
   if value == "N" then
     return "Ipo Flag: Not Set Up For Ipo Release (N)"
   end
-  if value == "Z" then
-    return "Ipo Flag: Non Ipo New Listed Security (Z)"
-  end
   if value == " " then
     return "Ipo Flag: Not Available (<whitespace>)"
   end
@@ -1621,9 +1618,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2023.market_category.display = function(v
   if value == "P" then
     return "Market Category: Nyse Arca (P)"
   end
-  if value == "M" then
-    return "Market Category: Nyse Texas (M)"
-  end
   if value == "Z" then
     return "Market Category: Bats Z (Z)"
   end
@@ -1661,7 +1655,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2023.market_code.display = function(value
     return "Market Code: Nasdaq (Q)"
   end
   if value == "B" then
-    return "Market Code: Nasdaq Texas (B)"
+    return "Market Code: Bx (B)"
   end
   if value == "X" then
     return "Market Code: Psx (X)"
