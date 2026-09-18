@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Euronext Optiq MarketDataPacket Udp 1. Protocol
-local omi_euronext_optiq_marketdatapacket_udp_v1 = Proto("Omi.Euronext.Optiq.MarketDataPacket.Udp.v1", "Euronext Optiq MarketDataPacket Udp 1.")
+-- Euronext Optiq MarketDataPacket Udp 1 Protocol
+local omi_euronext_optiq_marketdatapacket_udp_v1 = Proto("Omi.Euronext.Optiq.MarketDataPacket.Udp.v1", "Euronext Optiq MarketDataPacket Udp 1")
 
 -- Protocol table
 local euronext_optiq_marketdatapacket_udp_v1 = {}
@@ -14,7 +14,7 @@ local euronext_optiq_marketdatapacket_udp_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Euronext Optiq MarketDataPacket Udp 1. Fields
+-- Euronext Optiq MarketDataPacket Udp 1 Fields
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.block_length = ProtoField.new("Block Length", "euronext.optiq.marketdatapacket.udp.v1.blocklength", ftypes.UINT16)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.channel_id = ProtoField.new("Channel Id", "euronext.optiq.marketdatapacket.udp.v1.channelid", ftypes.UINT16)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.compression = ProtoField.new("Compression", "euronext.optiq.marketdatapacket.udp.v1.compression", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
@@ -33,7 +33,7 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.schema_id = ProtoField.new("Sc
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.template_id = ProtoField.new("Template Id", "euronext.optiq.marketdatapacket.udp.v1.templateid", ftypes.UINT16)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatapacket.udp.v1.version", ftypes.UINT16)
 
--- Euronext Optiq MarketDataPacket Udp 1. Framing
+-- Euronext Optiq MarketDataPacket Udp 1 Framing
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "euronext.optiq.marketdatapacket.udp.v1.marketdatapacketheader", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.message_header = ProtoField.new("Message Header", "euronext.optiq.marketdatapacket.udp.v1.messageheader", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatapacket.udp.v1.optiqmessage", ftypes.STRING)
@@ -45,11 +45,11 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet = ProtoField.new("Packe
 
 local show = {}
 
--- Euronext Optiq MarketDataPacket Udp 1. Element Dissection Options
+-- Euronext Optiq MarketDataPacket Udp 1 Element Dissection Options
 show.headers = true
 show.structs = true
 
--- Register Euronext Optiq MarketDataPacket Udp 1. Show Options
+-- Register Euronext Optiq MarketDataPacket Udp 1 Show Options
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
@@ -140,7 +140,7 @@ local function lz4_decompress(input, decompressed_size)
   return output
 end
 -----------------------------------------------------------------------
--- Euronext Optiq MarketDataPacket Udp 1. Fields
+-- Euronext Optiq MarketDataPacket Udp 1 Fields
 -----------------------------------------------------------------------
 
 -- Block Length
@@ -356,7 +356,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Euronext Optiq MarketDataPacket Udp 1.
+-- Dissect Euronext Optiq MarketDataPacket Udp 1
 -----------------------------------------------------------------------
 
 -- Message Header
@@ -631,7 +631,7 @@ end
 function omi_euronext_optiq_marketdatapacket_udp_v1.init()
 end
 
--- Dissector for Euronext Optiq MarketDataPacket Udp 1.
+-- Dissector for Euronext Optiq MarketDataPacket Udp 1
 function omi_euronext_optiq_marketdatapacket_udp_v1.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -647,7 +647,7 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Euronext Optiq MarketDataPacket Udp 1. (Udp)
+-- Dissector Heuristic for Euronext Optiq MarketDataPacket Udp 1 (Udp)
 local function omi_euronext_optiq_marketdatapacket_udp_v1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not euronext_optiq_marketdatapacket_udp_v1.packet.requiredsize(buffer) then return false end
@@ -659,10 +659,10 @@ local function omi_euronext_optiq_marketdatapacket_udp_v1_udp_heuristic(buffer, 
   return true
 end
 
--- Register Heuristic for Euronext Optiq MarketDataPacket Udp 1.
+-- Register Heuristic for Euronext Optiq MarketDataPacket Udp 1
 omi_euronext_optiq_marketdatapacket_udp_v1:register_heuristic("udp", omi_euronext_optiq_marketdatapacket_udp_v1_udp_heuristic)
 
--- Register Euronext Optiq MarketDataPacket Udp 1. for Decode As
+-- Register Euronext Optiq MarketDataPacket Udp 1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_euronext_optiq_marketdatapacket_udp_v1)
 

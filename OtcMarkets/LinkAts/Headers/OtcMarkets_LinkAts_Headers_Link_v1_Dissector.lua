@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- OtcMarkets LinkAts Headers Link 1. Protocol
-local omi_otcmarkets_linkats_headers_link_v1 = Proto("Omi.OtcMarkets.LinkAts.Headers.Link.v1", "OtcMarkets LinkAts Headers Link 1.")
+-- OtcMarkets LinkAts Headers Link 1 Protocol
+local omi_otcmarkets_linkats_headers_link_v1 = Proto("Omi.OtcMarkets.LinkAts.Headers.Link.v1", "OtcMarkets LinkAts Headers Link 1")
 
 -- Protocol table
 local otcmarkets_linkats_headers_link_v1 = {}
@@ -14,7 +14,7 @@ local otcmarkets_linkats_headers_link_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- OtcMarkets LinkAts Headers Link 1. Fields
+-- OtcMarkets LinkAts Headers Link 1 Fields
 omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.headers.link.v1.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_otcmarkets_linkats_headers_link_v1.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.headers.link.v1.messagesize", ftypes.UINT16)
 omi_otcmarkets_linkats_headers_link_v1.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.headers.link.v1.messagetype", ftypes.UINT8)
@@ -29,16 +29,16 @@ omi_otcmarkets_linkats_headers_link_v1.fields.seq_num = ProtoField.new("Seq Num"
 omi_otcmarkets_linkats_headers_link_v1.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otcmarkets.linkats.headers.link.v1.seqnumreset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_otcmarkets_linkats_headers_link_v1.fields.test = ProtoField.new("Test", "otcmarkets.linkats.headers.link.v1.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 
--- OtcMarkets LinkAts Headers Link 1. Framing
+-- OtcMarkets LinkAts Headers Link 1 Framing
 omi_otcmarkets_linkats_headers_link_v1.fields.message = ProtoField.new("Message", "otcmarkets.linkats.headers.link.v1.message", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.message_header = ProtoField.new("Message Header", "otcmarkets.linkats.headers.link.v1.messageheader", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet = ProtoField.new("Packet", "otcmarkets.linkats.headers.link.v1.packet", ftypes.STRING)
 omi_otcmarkets_linkats_headers_link_v1.fields.packet_header = ProtoField.new("Packet Header", "otcmarkets.linkats.headers.link.v1.packetheader", ftypes.STRING)
 
--- OtcMarkets LinkAts Headers 1. Session Messages
+-- OtcMarkets LinkAts Headers 1 Session Messages
 omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.headers.link.v1.heartbeatpacket", ftypes.BYTES)
 
--- OtcMarkets LinkAts Headers Link 1. generated fields
+-- OtcMarkets LinkAts Headers Link 1 generated fields
 omi_otcmarkets_linkats_headers_link_v1.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.headers.link.v1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -47,12 +47,12 @@ omi_otcmarkets_linkats_headers_link_v1.fields.message_index = ProtoField.new("Me
 
 local show = {}
 
--- OtcMarkets LinkAts Headers Link 1. Element Dissection Options
+-- OtcMarkets LinkAts Headers Link 1 Element Dissection Options
 show.structs = true
 show.headers = true
 show.indexes = true
 
--- Register OtcMarkets LinkAts Headers Link 1. Show Options
+-- Register OtcMarkets LinkAts Headers Link 1 Show Options
 omi_otcmarkets_linkats_headers_link_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_linkats_headers_link_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_linkats_headers_link_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -74,7 +74,7 @@ end
 
 
 -----------------------------------------------------------------------
--- OtcMarkets LinkAts Headers Link 1. Fields
+-- OtcMarkets LinkAts Headers Link 1 Fields
 -----------------------------------------------------------------------
 
 -- Message Size
@@ -260,7 +260,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect OtcMarkets LinkAts Headers Link 1.
+-- Dissect OtcMarkets LinkAts Headers Link 1
 -----------------------------------------------------------------------
 
 -- Message Header
@@ -555,7 +555,7 @@ end
 function omi_otcmarkets_linkats_headers_link_v1.init()
 end
 
--- Dissector for OtcMarkets LinkAts Headers Link 1.
+-- Dissector for OtcMarkets LinkAts Headers Link 1
 function omi_otcmarkets_linkats_headers_link_v1.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -571,7 +571,7 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for OtcMarkets LinkAts Headers Link 1. (Udp)
+-- Dissector Heuristic for OtcMarkets LinkAts Headers Link 1 (Udp)
 local function omi_otcmarkets_linkats_headers_link_v1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not otcmarkets_linkats_headers_link_v1.packet.requiredsize(buffer) then return false end
@@ -583,10 +583,10 @@ local function omi_otcmarkets_linkats_headers_link_v1_udp_heuristic(buffer, pack
   return true
 end
 
--- Register Heuristic for OtcMarkets LinkAts Headers Link 1.
+-- Register Heuristic for OtcMarkets LinkAts Headers Link 1
 omi_otcmarkets_linkats_headers_link_v1:register_heuristic("udp", omi_otcmarkets_linkats_headers_link_v1_udp_heuristic)
 
--- Register OtcMarkets LinkAts Headers Link 1. for Decode As
+-- Register OtcMarkets LinkAts Headers Link 1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_otcmarkets_linkats_headers_link_v1)
 

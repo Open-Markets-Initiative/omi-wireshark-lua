@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Cme Common Mdp Udp 1. Protocol
-local omi_cme_common_mdp_udp_v1 = Proto("Omi.Cme.Common.Mdp.Udp.v1", "Cme Common Mdp Udp 1.")
+-- Cme Common Mdp Udp 1 Protocol
+local omi_cme_common_mdp_udp_v1 = Proto("Omi.Cme.Common.Mdp.Udp.v1", "Cme Common Mdp Udp 1")
 
 -- Protocol table
 local cme_common_mdp_udp_v1 = {}
@@ -14,7 +14,7 @@ local cme_common_mdp_udp_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cme Common Mdp Udp 1. Fields
+-- Cme Common Mdp Udp 1 Fields
 omi_cme_common_mdp_udp_v1.fields.block_length = ProtoField.new("Block Length", "cme.common.mdp.udp.v1.blocklength", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.message_size = ProtoField.new("Message Size", "cme.common.mdp.udp.v1.messagesize", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.common.mdp.udp.v1.packetsequencenumber", ftypes.UINT32)
@@ -24,7 +24,7 @@ omi_cme_common_mdp_udp_v1.fields.sending_time = ProtoField.new("Sending Time", "
 omi_cme_common_mdp_udp_v1.fields.template_id = ProtoField.new("Template Id", "cme.common.mdp.udp.v1.templateid", ftypes.UINT16)
 omi_cme_common_mdp_udp_v1.fields.version = ProtoField.new("Version", "cme.common.mdp.udp.v1.version", ftypes.UINT16)
 
--- Cme Common Mdp Udp 1. Framing
+-- Cme Common Mdp Udp 1 Framing
 omi_cme_common_mdp_udp_v1.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.common.mdp.udp.v1.binarypacketheader", ftypes.STRING)
 omi_cme_common_mdp_udp_v1.fields.message = ProtoField.new("Message", "cme.common.mdp.udp.v1.message", ftypes.STRING)
 omi_cme_common_mdp_udp_v1.fields.message_header = ProtoField.new("Message Header", "cme.common.mdp.udp.v1.messageheader", ftypes.STRING)
@@ -36,11 +36,11 @@ omi_cme_common_mdp_udp_v1.fields.udp_packet = ProtoField.new("Udp Packet", "cme.
 
 local show = {}
 
--- Cme Common Mdp Udp 1. Element Dissection Options
+-- Cme Common Mdp Udp 1 Element Dissection Options
 show.headers = true
 show.structs = true
 
--- Register Cme Common Mdp Udp 1. Show Options
+-- Register Cme Common Mdp Udp 1 Show Options
 omi_cme_common_mdp_udp_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cme_common_mdp_udp_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
@@ -58,7 +58,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Cme Common Mdp Udp 1. Fields
+-- Cme Common Mdp Udp 1 Fields
 -----------------------------------------------------------------------
 
 -- Block Length
@@ -247,7 +247,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cme Common Mdp Udp 1.
+-- Dissect Cme Common Mdp Udp 1
 -----------------------------------------------------------------------
 
 -- Message Header
@@ -436,7 +436,7 @@ end
 function omi_cme_common_mdp_udp_v1.init()
 end
 
--- Dissector for Cme Common Mdp Udp 1.
+-- Dissector for Cme Common Mdp Udp 1
 function omi_cme_common_mdp_udp_v1.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -452,7 +452,7 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Cme Common Mdp Udp 1. (Udp)
+-- Dissector Heuristic for Cme Common Mdp Udp 1 (Udp)
 local function omi_cme_common_mdp_udp_v1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cme_common_mdp_udp_v1.udp_packet.requiredsize(buffer) then return false end
@@ -464,10 +464,10 @@ local function omi_cme_common_mdp_udp_v1_udp_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Heuristic for Cme Common Mdp Udp 1.
+-- Register Heuristic for Cme Common Mdp Udp 1
 omi_cme_common_mdp_udp_v1:register_heuristic("udp", omi_cme_common_mdp_udp_v1_udp_heuristic)
 
--- Register Cme Common Mdp Udp 1. for Decode As
+-- Register Cme Common Mdp Udp 1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_cme_common_mdp_udp_v1)
 

@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex OrderService Cbp 26. Protocol
-local omi_currenex_currenexforex_orderservice_cbp_v26 = Proto("Omi.Currenex.CurrenexForex.OrderService.Cbp.v26", "Currenex CurrenexForex OrderService Cbp 26.")
+-- Currenex CurrenexForex OrderService Cbp 26 Protocol
+local omi_currenex_currenexforex_orderservice_cbp_v26 = Proto("Omi.Currenex.CurrenexForex.OrderService.Cbp.v26", "Currenex CurrenexForex OrderService Cbp 26")
 
 -- Protocol table
 local currenex_currenexforex_orderservice_cbp_v26 = {}
@@ -14,7 +14,7 @@ local currenex_currenexforex_orderservice_cbp_v26 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex OrderService Cbp 26. Fields
+-- Currenex CurrenexForex OrderService Cbp 26 Fields
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.ack_status = ProtoField.new("Ack Status", "currenex.currenexforex.orderservice.cbp.v26.ackstatus", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.aggressor_flag = ProtoField.new("Aggressor Flag", "currenex.currenexforex.orderservice.cbp.v26.aggressorflag", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.begin_seq_no = ProtoField.new("Begin Seq No", "currenex.currenexforex.orderservice.cbp.v26.beginseqno", ftypes.INT32)
@@ -59,11 +59,11 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.transact_time = ProtoFiel
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.type = ProtoField.new("Type", "currenex.currenexforex.orderservice.cbp.v26.type", ftypes.INT16)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.orderservice.cbp.v26.userid", ftypes.STRING)
 
--- Currenex CurrenexForex OrderService Cbp 26. Framing
+-- Currenex CurrenexForex OrderService Cbp 26 Framing
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.orderservice.cbp.v26.messageheader", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.orderservice.cbp.v26.packet", ftypes.STRING)
 
--- Currenex CurrenexForex OrderService 26. Application Messages
+-- Currenex CurrenexForex OrderService 26 Application Messages
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.gap_fill = ProtoField.new("Gap Fill", "currenex.currenexforex.orderservice.cbp.v26.gapfill", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.heartbeat = ProtoField.new("Heartbeat", "currenex.currenexforex.orderservice.cbp.v26.heartbeat", ftypes.STRING)
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.currenexforex.orderservice.cbp.v26.instrumentinfo", ftypes.STRING)
@@ -89,12 +89,12 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.trade_pending = ProtoFiel
 
 local show = {}
 
--- Currenex CurrenexForex OrderService Cbp 26. Element Dissection Options
+-- Currenex CurrenexForex OrderService Cbp 26 Element Dissection Options
 show.application_messages = true
 show.headers = true
 show.structs = true
 
--- Register Currenex CurrenexForex OrderService Cbp 26. Show Options
+-- Register Currenex CurrenexForex OrderService Cbp 26 Show Options
 omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_currenex_currenexforex_orderservice_cbp_v26.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
@@ -132,7 +132,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Currenex CurrenexForex OrderService Cbp 26. Fields
+-- Currenex CurrenexForex OrderService Cbp 26 Fields
 -----------------------------------------------------------------------
 
 -- Ack Status
@@ -1378,7 +1378,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Currenex CurrenexForex OrderService Cbp 26.
+-- Dissect Currenex CurrenexForex OrderService Cbp 26
 -----------------------------------------------------------------------
 
 -- Gap Fill
@@ -2515,7 +2515,7 @@ end
 function omi_currenex_currenexforex_orderservice_cbp_v26.init()
 end
 
--- Dissector for Currenex CurrenexForex OrderService Cbp 26.
+-- Dissector for Currenex CurrenexForex OrderService Cbp 26
 function omi_currenex_currenexforex_orderservice_cbp_v26.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -2543,7 +2543,7 @@ currenex_currenexforex_orderservice_cbp_v26.soh.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Currenex CurrenexForex OrderService Cbp 26. (Tcp)
+-- Dissector Heuristic for Currenex CurrenexForex OrderService Cbp 26 (Tcp)
 local function omi_currenex_currenexforex_orderservice_cbp_v26_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not currenex_currenexforex_orderservice_cbp_v26.packet.requiredsize(buffer) then return false end
@@ -2558,10 +2558,10 @@ local function omi_currenex_currenexforex_orderservice_cbp_v26_tcp_heuristic(buf
   return true
 end
 
--- Register Heuristic for Currenex CurrenexForex OrderService Cbp 26.
+-- Register Heuristic for Currenex CurrenexForex OrderService Cbp 26
 omi_currenex_currenexforex_orderservice_cbp_v26:register_heuristic("tcp", omi_currenex_currenexforex_orderservice_cbp_v26_tcp_heuristic)
 
--- Register Currenex CurrenexForex OrderService Cbp 26. for Decode As
+-- Register Currenex CurrenexForex OrderService Cbp 26 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_currenex_currenexforex_orderservice_cbp_v26)
 

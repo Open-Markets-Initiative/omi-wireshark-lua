@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- A2X A2XEquities UdpHeader Amd 1. Protocol
-local omi_a2x_a2xequities_udpheader_amd_v1 = Proto("Omi.A2X.A2XEquities.UdpHeader.Amd.v1", "A2X A2XEquities UdpHeader Amd 1.")
+-- A2X A2XEquities UdpHeader Amd 1 Protocol
+local omi_a2x_a2xequities_udpheader_amd_v1 = Proto("Omi.A2X.A2XEquities.UdpHeader.Amd.v1", "A2X A2XEquities UdpHeader Amd 1")
 
 -- Protocol table
 local a2x_a2xequities_udpheader_amd_v1 = {}
@@ -14,19 +14,19 @@ local a2x_a2xequities_udpheader_amd_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- A2X A2XEquities UdpHeader Amd 1. Fields
+-- A2X A2XEquities UdpHeader Amd 1 Fields
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_count = ProtoField.new("Message Count", "a2x.a2xequities.udpheader.amd.v1.messagecount", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.msg_length = ProtoField.new("Msg Length", "a2x.a2xequities.udpheader.amd.v1.msglength", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.udpheader.amd.v1.msgtype", ftypes.UINT8)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.payload = ProtoField.new("Payload", "a2x.a2xequities.udpheader.amd.v1.payload", ftypes.BYTES)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.udpheader.amd.v1.seqno", ftypes.UINT32)
 
--- A2X A2XEquities UdpHeader Amd 1. Framing
+-- A2X A2XEquities UdpHeader Amd 1 Framing
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message = ProtoField.new("Message", "a2x.a2xequities.udpheader.amd.v1.message", ftypes.STRING)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.udpheader.amd.v1.messageheader", ftypes.STRING)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.udpheader.amd.v1.packet", ftypes.STRING)
 
--- A2X A2XEquities UdpHeader Amd 1. generated fields
+-- A2X A2XEquities UdpHeader Amd 1 generated fields
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.udpheader.amd.v1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -35,12 +35,12 @@ omi_a2x_a2xequities_udpheader_amd_v1.fields.message_index = ProtoField.new("Mess
 
 local show = {}
 
--- A2X A2XEquities UdpHeader Amd 1. Element Dissection Options
+-- A2X A2XEquities UdpHeader Amd 1 Element Dissection Options
 show.structs = true
 show.headers = true
 show.indexes = true
 
--- Register A2X A2XEquities UdpHeader Amd 1. Show Options
+-- Register A2X A2XEquities UdpHeader Amd 1 Show Options
 omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_udpheader_amd_v1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -62,7 +62,7 @@ end
 
 
 -----------------------------------------------------------------------
--- A2X A2XEquities UdpHeader Amd 1. Fields
+-- A2X A2XEquities UdpHeader Amd 1 Fields
 -----------------------------------------------------------------------
 
 -- Message Count
@@ -182,7 +182,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect A2X A2XEquities UdpHeader Amd 1.
+-- Dissect A2X A2XEquities UdpHeader Amd 1
 -----------------------------------------------------------------------
 
 -- Message Header
@@ -318,7 +318,7 @@ end
 function omi_a2x_a2xequities_udpheader_amd_v1.init()
 end
 
--- Dissector for A2X A2XEquities UdpHeader Amd 1.
+-- Dissector for A2X A2XEquities UdpHeader Amd 1
 function omi_a2x_a2xequities_udpheader_amd_v1.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -334,7 +334,7 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for A2X A2XEquities UdpHeader Amd 1. (Udp)
+-- Dissector Heuristic for A2X A2XEquities UdpHeader Amd 1 (Udp)
 local function omi_a2x_a2xequities_udpheader_amd_v1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not a2x_a2xequities_udpheader_amd_v1.packet.requiredsize(buffer) then return false end
@@ -346,10 +346,10 @@ local function omi_a2x_a2xequities_udpheader_amd_v1_udp_heuristic(buffer, packet
   return true
 end
 
--- Register Heuristic for A2X A2XEquities UdpHeader Amd 1.
+-- Register Heuristic for A2X A2XEquities UdpHeader Amd 1
 omi_a2x_a2xequities_udpheader_amd_v1:register_heuristic("udp", omi_a2x_a2xequities_udpheader_amd_v1_udp_heuristic)
 
--- Register A2X A2XEquities UdpHeader Amd 1. for Decode As
+-- Register A2X A2XEquities UdpHeader Amd 1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_a2x_a2xequities_udpheader_amd_v1)
 

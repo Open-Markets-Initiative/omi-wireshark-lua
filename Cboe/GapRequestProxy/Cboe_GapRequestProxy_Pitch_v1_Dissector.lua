@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Cboe GapRequestProxy Pitch 1. Protocol
-local omi_cboe_gaprequestproxy_pitch_v1 = Proto("Omi.Cboe.GapRequestProxy.Pitch.v1", "Cboe GapRequestProxy Pitch 1.")
+-- Cboe GapRequestProxy Pitch 1 Protocol
+local omi_cboe_gaprequestproxy_pitch_v1 = Proto("Omi.Cboe.GapRequestProxy.Pitch.v1", "Cboe GapRequestProxy Pitch 1")
 
 -- Protocol table
 local cboe_gaprequestproxy_pitch_v1 = {}
@@ -14,7 +14,7 @@ local cboe_gaprequestproxy_pitch_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe GapRequestProxy Pitch 1. Fields
+-- Cboe GapRequestProxy Pitch 1 Fields
 omi_cboe_gaprequestproxy_pitch_v1.fields.count = ProtoField.new("Count", "cboe.gaprequestproxy.pitch.v1.count", ftypes.UINT16)
 omi_cboe_gaprequestproxy_pitch_v1.fields.filler = ProtoField.new("Filler", "cboe.gaprequestproxy.pitch.v1.filler", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_status = ProtoField.new("Gap Response Status", "cboe.gaprequestproxy.pitch.v1.gapresponsestatus", ftypes.STRING)
@@ -28,19 +28,19 @@ omi_cboe_gaprequestproxy_pitch_v1.fields.session_sub_id = ProtoField.new("Sessio
 omi_cboe_gaprequestproxy_pitch_v1.fields.unit = ProtoField.new("Unit", "cboe.gaprequestproxy.pitch.v1.unit", ftypes.UINT8)
 omi_cboe_gaprequestproxy_pitch_v1.fields.username = ProtoField.new("Username", "cboe.gaprequestproxy.pitch.v1.username", ftypes.STRING)
 
--- Cboe GapRequestProxy Pitch 1. Framing
+-- Cboe GapRequestProxy Pitch 1 Framing
 omi_cboe_gaprequestproxy_pitch_v1.fields.message = ProtoField.new("Message", "cboe.gaprequestproxy.pitch.v1.message", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_header = ProtoField.new("Message Header", "cboe.gaprequestproxy.pitch.v1.messageheader", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.packet = ProtoField.new("Packet", "cboe.gaprequestproxy.pitch.v1.packet", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.packet_header = ProtoField.new("Packet Header", "cboe.gaprequestproxy.pitch.v1.packetheader", ftypes.STRING)
 
--- Cboe GapRequestProxy 1. Application Messages
+-- Cboe GapRequestProxy 1 Application Messages
 omi_cboe_gaprequestproxy_pitch_v1.fields.gap_request_message = ProtoField.new("Gap Request Message", "cboe.gaprequestproxy.pitch.v1.gaprequestmessage", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_message = ProtoField.new("Gap Response Message", "cboe.gaprequestproxy.pitch.v1.gapresponsemessage", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.login_message = ProtoField.new("Login Message", "cboe.gaprequestproxy.pitch.v1.loginmessage", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.gaprequestproxy.pitch.v1.loginresponsemessage", ftypes.STRING)
 
--- Cboe GapRequestProxy Pitch 1. generated fields
+-- Cboe GapRequestProxy Pitch 1 generated fields
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_index = ProtoField.new("Message Index", "cboe.gaprequestproxy.pitch.v1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -49,13 +49,13 @@ omi_cboe_gaprequestproxy_pitch_v1.fields.message_index = ProtoField.new("Message
 
 local show = {}
 
--- Cboe GapRequestProxy Pitch 1. Element Dissection Options
+-- Cboe GapRequestProxy Pitch 1 Element Dissection Options
 show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
 
--- Register Cboe GapRequestProxy Pitch 1. Show Options
+-- Register Cboe GapRequestProxy Pitch 1 Show Options
 omi_cboe_gaprequestproxy_pitch_v1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_gaprequestproxy_pitch_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_gaprequestproxy_pitch_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
@@ -97,7 +97,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Cboe GapRequestProxy Pitch 1. Fields
+-- Cboe GapRequestProxy Pitch 1 Fields
 -----------------------------------------------------------------------
 
 -- Count
@@ -429,7 +429,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe GapRequestProxy Pitch 1.
+-- Dissect Cboe GapRequestProxy Pitch 1
 -----------------------------------------------------------------------
 
 -- Gap Response Message
@@ -879,7 +879,7 @@ end
 function omi_cboe_gaprequestproxy_pitch_v1.init()
 end
 
--- Dissector for Cboe GapRequestProxy Pitch 1.
+-- Dissector for Cboe GapRequestProxy Pitch 1
 function omi_cboe_gaprequestproxy_pitch_v1.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -895,7 +895,7 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Cboe GapRequestProxy Pitch 1. (Tcp)
+-- Dissector Heuristic for Cboe GapRequestProxy Pitch 1 (Tcp)
 local function omi_cboe_gaprequestproxy_pitch_v1_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not cboe_gaprequestproxy_pitch_v1.packet.requiredsize(buffer) then return false end
@@ -907,10 +907,10 @@ local function omi_cboe_gaprequestproxy_pitch_v1_tcp_heuristic(buffer, packet, p
   return true
 end
 
--- Register Heuristic for Cboe GapRequestProxy Pitch 1.
+-- Register Heuristic for Cboe GapRequestProxy Pitch 1
 omi_cboe_gaprequestproxy_pitch_v1:register_heuristic("tcp", omi_cboe_gaprequestproxy_pitch_v1_tcp_heuristic)
 
--- Register Cboe GapRequestProxy Pitch 1. for Decode As
+-- Register Cboe GapRequestProxy Pitch 1 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_cboe_gaprequestproxy_pitch_v1)
 

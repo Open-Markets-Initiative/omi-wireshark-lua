@@ -4219,34 +4219,18 @@ end
 -- Trade Reversal
 eurex_t7_eobi_fbe_v12_1.trade_reversal = {}
 
--- Calculate size of: Trade Reversal
-eurex_t7_eobi_fbe_v12_1.trade_reversal.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_id.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.transact_time.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.last_qty.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.last_px.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.trd_reg_ts_execution_time.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.trd_match_id.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.trade_condition.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.md_origin_type.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.no_md_entries.size
-
-  -- Calculate field size from count
-  local md_trade_entry_grp_comp_count = buffer(offset + index - 1, 1):uint()
-  index = index + md_trade_entry_grp_comp_count * 24
-
-  return index
-end
+-- Size: Trade Reversal
+eurex_t7_eobi_fbe_v12_1.trade_reversal.size =
+  eurex_t7_eobi_fbe_v12_1.security_id.size + 
+  eurex_t7_eobi_fbe_v12_1.transact_time.size + 
+  eurex_t7_eobi_fbe_v12_1.last_qty.size + 
+  eurex_t7_eobi_fbe_v12_1.last_px.size + 
+  eurex_t7_eobi_fbe_v12_1.trd_reg_ts_execution_time.size + 
+  eurex_t7_eobi_fbe_v12_1.trd_match_id.size + 
+  eurex_t7_eobi_fbe_v12_1.trade_condition.size + 
+  eurex_t7_eobi_fbe_v12_1.md_origin_type.size + 
+  eurex_t7_eobi_fbe_v12_1.no_md_entries.size + 
+  eurex_t7_eobi_fbe_v12_1.md_trade_entry_grp_comp.size
 
 -- Display: Trade Reversal
 eurex_t7_eobi_fbe_v12_1.trade_reversal.display = function(packet, parent, length)
@@ -4284,8 +4268,8 @@ eurex_t7_eobi_fbe_v12_1.trade_reversal.fields = function(buffer, offset, packet,
   -- No Md Entries: 1 Byte Unsigned Fixed Width Integer Nullable
   index, no_md_entries = eurex_t7_eobi_fbe_v12_1.no_md_entries.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Md Trade Entry Grp Comp
-  for md_trade_entry_grp_comp_index = 1, no_md_entries do
+  -- Array Of: Md Trade Entry Grp Comp
+  for md_trade_entry_grp_comp_index = 1, 15 do
     index, md_trade_entry_grp_comp = eurex_t7_eobi_fbe_v12_1.md_trade_entry_grp_comp.dissect(buffer, index, packet, parent, md_trade_entry_grp_comp_index)
   end
 
@@ -5267,40 +5251,21 @@ end
 -- Mass Instrument State Change
 eurex_t7_eobi_fbe_v12_1.mass_instrument_state_change = {}
 
--- Calculate size of: Mass Instrument State Change
-eurex_t7_eobi_fbe_v12_1.mass_instrument_state_change.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_t7_eobi_fbe_v12_1.instrument_scope_product_complex.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_mass_status.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_mass_trading_status.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.mass_market_condition.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.fast_market_indicator.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_mass_trading_event.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.mass_sold_out_indicator.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.tes_security_mass_status.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.transact_time.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.last_fragment.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.no_related_sym.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.pad6.size
-
-  -- Calculate field size from count
-  local sec_mass_stat_grp_comp_count = buffer(offset + index - 7, 1):uint()
-  index = index + sec_mass_stat_grp_comp_count * 32
-
-  return index
-end
+-- Size: Mass Instrument State Change
+eurex_t7_eobi_fbe_v12_1.mass_instrument_state_change.size =
+  eurex_t7_eobi_fbe_v12_1.instrument_scope_product_complex.size + 
+  eurex_t7_eobi_fbe_v12_1.security_mass_status.size + 
+  eurex_t7_eobi_fbe_v12_1.security_mass_trading_status.size + 
+  eurex_t7_eobi_fbe_v12_1.mass_market_condition.size + 
+  eurex_t7_eobi_fbe_v12_1.fast_market_indicator.size + 
+  eurex_t7_eobi_fbe_v12_1.security_mass_trading_event.size + 
+  eurex_t7_eobi_fbe_v12_1.mass_sold_out_indicator.size + 
+  eurex_t7_eobi_fbe_v12_1.tes_security_mass_status.size + 
+  eurex_t7_eobi_fbe_v12_1.transact_time.size + 
+  eurex_t7_eobi_fbe_v12_1.last_fragment.size + 
+  eurex_t7_eobi_fbe_v12_1.no_related_sym.size + 
+  eurex_t7_eobi_fbe_v12_1.pad6.size + 
+  eurex_t7_eobi_fbe_v12_1.sec_mass_stat_grp_comp.size
 
 -- Display: Mass Instrument State Change
 eurex_t7_eobi_fbe_v12_1.mass_instrument_state_change.display = function(packet, parent, length)
@@ -5347,8 +5312,8 @@ eurex_t7_eobi_fbe_v12_1.mass_instrument_state_change.fields = function(buffer, o
   -- Pad6: 6 Byte
   index, pad6 = eurex_t7_eobi_fbe_v12_1.pad6.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Sec Mass Stat Grp Comp
-  for sec_mass_stat_grp_comp_index = 1, no_related_sym do
+  -- Array Of: Sec Mass Stat Grp Comp
+  for sec_mass_stat_grp_comp_index = 1, 24 do
     index, sec_mass_stat_grp_comp = eurex_t7_eobi_fbe_v12_1.sec_mass_stat_grp_comp.dissect(buffer, index, packet, parent, sec_mass_stat_grp_comp_index)
   end
 
@@ -5454,48 +5419,25 @@ end
 -- Instrument Summary
 eurex_t7_eobi_fbe_v12_1.instrument_summary = {}
 
--- Calculate size of: Instrument Summary
-eurex_t7_eobi_fbe_v12_1.instrument_summary.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_id.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.last_update_time.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.trd_reg_ts_execution_time.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.tot_no_orders.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_status.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_trading_status.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.market_condition.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.fast_market_indicator.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_trading_event.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.sold_out_indicator.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.high_px.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.low_px.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.product_complex.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.no_md_entries.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.tes_security_status.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.pad5.size
-
-  -- Calculate field size from count
-  local md_instrument_entry_grp_comp_count = buffer(offset + index - 7, 1):uint()
-  index = index + md_instrument_entry_grp_comp_count * 32
-
-  return index
-end
+-- Size: Instrument Summary
+eurex_t7_eobi_fbe_v12_1.instrument_summary.size =
+  eurex_t7_eobi_fbe_v12_1.security_id.size + 
+  eurex_t7_eobi_fbe_v12_1.last_update_time.size + 
+  eurex_t7_eobi_fbe_v12_1.trd_reg_ts_execution_time.size + 
+  eurex_t7_eobi_fbe_v12_1.tot_no_orders.size + 
+  eurex_t7_eobi_fbe_v12_1.security_status.size + 
+  eurex_t7_eobi_fbe_v12_1.security_trading_status.size + 
+  eurex_t7_eobi_fbe_v12_1.market_condition.size + 
+  eurex_t7_eobi_fbe_v12_1.fast_market_indicator.size + 
+  eurex_t7_eobi_fbe_v12_1.security_trading_event.size + 
+  eurex_t7_eobi_fbe_v12_1.sold_out_indicator.size + 
+  eurex_t7_eobi_fbe_v12_1.high_px.size + 
+  eurex_t7_eobi_fbe_v12_1.low_px.size + 
+  eurex_t7_eobi_fbe_v12_1.product_complex.size + 
+  eurex_t7_eobi_fbe_v12_1.no_md_entries.size + 
+  eurex_t7_eobi_fbe_v12_1.tes_security_status.size + 
+  eurex_t7_eobi_fbe_v12_1.pad5.size + 
+  eurex_t7_eobi_fbe_v12_1.md_instrument_entry_grp_comp.size
 
 -- Display: Instrument Summary
 eurex_t7_eobi_fbe_v12_1.instrument_summary.display = function(packet, parent, length)
@@ -5554,8 +5496,8 @@ eurex_t7_eobi_fbe_v12_1.instrument_summary.fields = function(buffer, offset, pac
   -- Pad5: 5 Byte
   index, pad5 = eurex_t7_eobi_fbe_v12_1.pad5.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Md Instrument Entry Grp Comp
-  for md_instrument_entry_grp_comp_index = 1, no_md_entries do
+  -- Array Of: Md Instrument Entry Grp Comp
+  for md_instrument_entry_grp_comp_index = 1, 15 do
     index, md_instrument_entry_grp_comp = eurex_t7_eobi_fbe_v12_1.md_instrument_entry_grp_comp.dissect(buffer, index, packet, parent, md_instrument_entry_grp_comp_index)
   end
 
@@ -6405,38 +6347,20 @@ end
 -- Add Complex Instrument
 eurex_t7_eobi_fbe_v12_1.add_complex_instrument = {}
 
--- Calculate size of: Add Complex Instrument
-eurex_t7_eobi_fbe_v12_1.add_complex_instrument.size = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_id.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.transact_time.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_desc.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.security_sub_type.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.product_complex.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.implied_market_indicator.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.quantity_scaling_factor.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.leg_ratio_multiplier.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.no_legs.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.pad2.size
-
-  index = index + eurex_t7_eobi_fbe_v12_1.last_fragment.size
-
-  -- Calculate field size from count
-  local instrmt_leg_grp_comp_count = buffer(offset + index - 4, 1):uint()
-  index = index + instrmt_leg_grp_comp_count * 32
-
-  return index
-end
+-- Size: Add Complex Instrument
+eurex_t7_eobi_fbe_v12_1.add_complex_instrument.size =
+  eurex_t7_eobi_fbe_v12_1.security_id.size + 
+  eurex_t7_eobi_fbe_v12_1.transact_time.size + 
+  eurex_t7_eobi_fbe_v12_1.security_desc.size + 
+  eurex_t7_eobi_fbe_v12_1.security_sub_type.size + 
+  eurex_t7_eobi_fbe_v12_1.product_complex.size + 
+  eurex_t7_eobi_fbe_v12_1.implied_market_indicator.size + 
+  eurex_t7_eobi_fbe_v12_1.quantity_scaling_factor.size + 
+  eurex_t7_eobi_fbe_v12_1.leg_ratio_multiplier.size + 
+  eurex_t7_eobi_fbe_v12_1.no_legs.size + 
+  eurex_t7_eobi_fbe_v12_1.pad2.size + 
+  eurex_t7_eobi_fbe_v12_1.last_fragment.size + 
+  eurex_t7_eobi_fbe_v12_1.instrmt_leg_grp_comp.size
 
 -- Display: Add Complex Instrument
 eurex_t7_eobi_fbe_v12_1.add_complex_instrument.display = function(packet, parent, length)
@@ -6480,8 +6404,8 @@ eurex_t7_eobi_fbe_v12_1.add_complex_instrument.fields = function(buffer, offset,
   -- Last Fragment: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, last_fragment = eurex_t7_eobi_fbe_v12_1.last_fragment.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Instrmt Leg Grp Comp
-  for instrmt_leg_grp_comp_index = 1, no_legs do
+  -- Array Of: Instrmt Leg Grp Comp
+  for instrmt_leg_grp_comp_index = 1, 20 do
     index, instrmt_leg_grp_comp = eurex_t7_eobi_fbe_v12_1.instrmt_leg_grp_comp.dissect(buffer, index, packet, parent, instrmt_leg_grp_comp_index)
   end
 

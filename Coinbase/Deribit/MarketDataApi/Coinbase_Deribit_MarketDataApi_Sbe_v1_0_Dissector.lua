@@ -69,6 +69,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.number_of_legs = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.order_id = ProtoField.new("Order Id", "coinbase.deribit.marketdataapi.sbe.v1.0.orderid", ftypes.INT64)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.packet_reserved_bits = ProtoField.new("Packet Reserved Bits", "coinbase.deribit.marketdataapi.sbe.v1.0.packetreservedbits", ftypes.UINT16, nil, base.DEC, 0xFFF8)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v1.0.packettype", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding = ProtoField.new("Padding", "coinbase.deribit.marketdataapi.sbe.v1.0.padding", ftypes.BYTES)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.price = ProtoField.new("Price", "coinbase.deribit.marketdataapi.sbe.v1.0.price", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.price_asset = ProtoField.new("Price Asset", "coinbase.deribit.marketdataapi.sbe.v1.0.priceasset", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.quantity_asset = ProtoField.new("Quantity Asset", "coinbase.deribit.marketdataapi.sbe.v1.0.quantityasset", ftypes.STRING)
@@ -1154,6 +1155,25 @@ coinbase_deribit_marketdataapi_sbe_v1_0.order_id.dissect = function(buffer, offs
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.order_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Padding
+coinbase_deribit_marketdataapi_sbe_v1_0.padding = {}
+
+-- Display: Padding
+coinbase_deribit_marketdataapi_sbe_v1_0.padding.display = function(value)
+  return "Padding: "..value
+end
+
+-- Dissect runtime sized field: Padding
+coinbase_deribit_marketdataapi_sbe_v1_0.padding.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = coinbase_deribit_marketdataapi_sbe_v1_0.padding.display(value, packet, parent, size)
+
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding, range, value, display)
+
+  return offset + size, value
 end
 
 -- Price
@@ -3698,6 +3718,20 @@ coinbase_deribit_marketdataapi_sbe_v1_0.md_message.fields = function(buffer, off
   -- Payload: Runtime Type with 19 branches
   index = coinbase_deribit_marketdataapi_sbe_v1_0.payload.dissect(buffer, index, packet, parent, template_id)
 
+  -- Runtime optional field: Padding
+  local padding = nil
+
+  local padding_exists = message_length - (index - offset) > 0
+
+  if padding_exists then
+
+    -- Runtime Size Of: Padding
+    local size_of_padding = message_length - (index - offset)
+
+    -- Padding: 0 Byte
+    index, padding = coinbase_deribit_marketdataapi_sbe_v1_0.padding.dissect(buffer, index, packet, parent, size_of_padding)
+  end
+
   return index
 end
 
@@ -3755,7 +3789,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.md_messages.dissect = function(buffer, o
     -- Dependency element: Message Length
     local message_length = buffer(offset, 2):le_uint()
 
-    -- Md Message: Struct of 2 fields
+    -- Md Message: Struct of 3 fields
     offset = coinbase_deribit_marketdataapi_sbe_v1_0.md_message.dissect(buffer, offset, packet, parent, size_of_md_message, md_message_index)
   end
 

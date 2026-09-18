@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.Cboe.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Cboe.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-|  | [GapRequestProxy][Cboe.GapRequestProxy] | [Pitch][Omi.Encoding.Pitch] | [1.][Cboe.GapRequestProxy.Pitch.v1.Dissector] | 4/1/2026 | 946 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cboe.GapRequestProxy.Pitch.v1.Url] |
+|  | [GapRequestProxy][Cboe.GapRequestProxy] | [Pitch][Omi.Encoding.Pitch] | [1][Cboe.GapRequestProxy.Pitch.v1.Dissector] | 4/1/2026 | 946 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cboe.GapRequestProxy.Pitch.v1.Url] |
 | [BxeEquities][BxeEquities.Exchange] | [LastSale][Cboe.BxeEquities.LastSale] | [Apf][Omi.Encoding.Apf] | [1.7][Cboe.BxeEquities.LastSale.Apf.v1.7.Dissector] | 10/2/2023 | 2102 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Cboe.BxeEquities.LastSale.Apf.v1.7.Url] - [pdf][Cboe.BxeEquities.LastSale.Apf.v1.7.Pdf] |
 | [BxeEquities][BxeEquities.Exchange] | [LastSale][Cboe.BxeEquities.LastSale] | [Apf][Omi.Encoding.Apf] | [1.3][Cboe.BxeEquities.LastSale.Apf.v1.3.Dissector] | 10/2/2023 | 1453 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Cboe.BxeEquities.LastSale.Apf.v1.3.Url] - [pdf][Cboe.BxeEquities.LastSale.Apf.v1.3.Pdf] |
 | [BxeEquities][BxeEquities.Exchange] | [AuctionFeed][Cboe.BxeEquities.AuctionFeed] | [AsciiPitch][Omi.Encoding.AsciiPitch] | [1.4][Cboe.BxeEquities.AuctionFeed.AsciiPitch.v1.4.Dissector] | 2/6/2025 | 1378 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cboe.BxeEquities.AuctionFeed.AsciiPitch.v1.4.Url] - [pdf][Cboe.BxeEquities.AuctionFeed.AsciiPitch.v1.4.Pdf] |
@@ -253,7 +253,7 @@
 [Cboe.EdgxOptions.ComplexAuction]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxOptions/ComplexAuction.md "Complex Auction"
 
 [Cboe.GapRequestProxy.Pitch.v1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Cboe/GapRequestProxy/Cboe_GapRequestProxy_Pitch_v1_Dissector.lua "Cboe GapRequestProxy Pitch v1 Wireshark Dissector"
-[Cboe.GapRequestProxy.Pitch.v1.Url]: http://markets.cboe.com/us/options/support/technical/ "Chicago Board Options Exchange 1. Url"
+[Cboe.GapRequestProxy.Pitch.v1.Url]: http://markets.cboe.com/us/options/support/technical/ "Chicago Board Options Exchange 1 Url"
 [Cboe.BzxEquities.AuctionFeed.AsciiPitch.v1.3.8.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Cboe/BzxEquities/AuctionFeed/Cboe_BzxEquities_AuctionFeed_AsciiPitch_v1_3_8_Dissector.lua "Cboe BzxEquities AuctionFeed AsciiPitch v1.3.8 Wireshark Dissector"
 [Cboe.BzxEquities.AuctionFeed.AsciiPitch.v1.3.8.Url]: http://markets.cboe.com/us/equities/support/technical "Chicago Board Options Exchange 1.3.8 Url"
 [Cboe.BzxEquities.AuctionFeed.AsciiPitch.v1.3.8.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Specifications/Cboe_US_Equities_Auction_Feed_Specification.pdf "Chicago Board Options Exchange 1.3.8 Pdf"

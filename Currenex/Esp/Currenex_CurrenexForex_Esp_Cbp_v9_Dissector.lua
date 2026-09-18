@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex Esp Cbp 9. Protocol
-local omi_currenex_currenexforex_esp_cbp_v9 = Proto("Omi.Currenex.CurrenexForex.Esp.Cbp.v9", "Currenex CurrenexForex Esp Cbp 9.")
+-- Currenex CurrenexForex Esp Cbp 9 Protocol
+local omi_currenex_currenexforex_esp_cbp_v9 = Proto("Omi.Currenex.CurrenexForex.Esp.Cbp.v9", "Currenex CurrenexForex Esp Cbp 9")
 
 -- Protocol table
 local currenex_currenexforex_esp_cbp_v9 = {}
@@ -14,7 +14,7 @@ local currenex_currenexforex_esp_cbp_v9 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex Esp Cbp 9. Fields
+-- Currenex CurrenexForex Esp Cbp 9 Fields
 omi_currenex_currenexforex_esp_cbp_v9.fields.attributed = ProtoField.new("Attributed", "currenex.currenexforex.esp.cbp.v9.attributed", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_id = ProtoField.new("Instrument Id", "currenex.currenexforex.esp.cbp.v9.instrumentid", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_index = ProtoField.new("Instrument Index", "currenex.currenexforex.esp.cbp.v9.instrumentindex", ftypes.INT16)
@@ -44,11 +44,11 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.timestamp = ProtoField.new("Timesta
 omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.esp.cbp.v9.transacttime", ftypes.INT64)
 omi_currenex_currenexforex_esp_cbp_v9.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.esp.cbp.v9.userid", ftypes.STRING)
 
--- Currenex CurrenexForex Esp Cbp 9. Framing
+-- Currenex CurrenexForex Esp Cbp 9 Framing
 omi_currenex_currenexforex_esp_cbp_v9.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.esp.cbp.v9.messageheader", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.esp.cbp.v9.packet", ftypes.STRING)
 
--- Currenex CurrenexForex Esp 9. Application Messages
+-- Currenex CurrenexForex Esp 9 Application Messages
 omi_currenex_currenexforex_esp_cbp_v9.fields.heartbeat = ProtoField.new("Heartbeat", "currenex.currenexforex.esp.cbp.v9.heartbeat", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.currenexforex.esp.cbp.v9.instrumentinfo", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.instrument_info_ack = ProtoField.new("Instrument Info Ack", "currenex.currenexforex.esp.cbp.v9.instrumentinfoack", ftypes.STRING)
@@ -67,12 +67,12 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.trade_ticker_message = ProtoField.n
 
 local show = {}
 
--- Currenex CurrenexForex Esp Cbp 9. Element Dissection Options
+-- Currenex CurrenexForex Esp Cbp 9 Element Dissection Options
 show.application_messages = true
 show.headers = true
 show.structs = true
 
--- Register Currenex CurrenexForex Esp Cbp 9. Show Options
+-- Register Currenex CurrenexForex Esp Cbp 9 Show Options
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
@@ -110,7 +110,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Currenex CurrenexForex Esp Cbp 9. Fields
+-- Currenex CurrenexForex Esp Cbp 9 Fields
 -----------------------------------------------------------------------
 
 -- Attributed
@@ -953,7 +953,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Currenex CurrenexForex Esp Cbp 9.
+-- Dissect Currenex CurrenexForex Esp Cbp 9
 -----------------------------------------------------------------------
 
 -- Reject Message
@@ -1654,7 +1654,7 @@ end
 function omi_currenex_currenexforex_esp_cbp_v9.init()
 end
 
--- Dissector for Currenex CurrenexForex Esp Cbp 9.
+-- Dissector for Currenex CurrenexForex Esp Cbp 9
 function omi_currenex_currenexforex_esp_cbp_v9.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -1682,7 +1682,7 @@ currenex_currenexforex_esp_cbp_v9.itch_soh.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Currenex CurrenexForex Esp Cbp 9. (Udp)
+-- Dissector Heuristic for Currenex CurrenexForex Esp Cbp 9 (Udp)
 local function omi_currenex_currenexforex_esp_cbp_v9_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not currenex_currenexforex_esp_cbp_v9.packet.requiredsize(buffer) then return false end
@@ -1697,10 +1697,10 @@ local function omi_currenex_currenexforex_esp_cbp_v9_udp_heuristic(buffer, packe
   return true
 end
 
--- Register Heuristic for Currenex CurrenexForex Esp Cbp 9.
+-- Register Heuristic for Currenex CurrenexForex Esp Cbp 9
 omi_currenex_currenexforex_esp_cbp_v9:register_heuristic("udp", omi_currenex_currenexforex_esp_cbp_v9_udp_heuristic)
 
--- Register Currenex CurrenexForex Esp Cbp 9. for Decode As
+-- Register Currenex CurrenexForex Esp Cbp 9 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_currenex_currenexforex_esp_cbp_v9)
 

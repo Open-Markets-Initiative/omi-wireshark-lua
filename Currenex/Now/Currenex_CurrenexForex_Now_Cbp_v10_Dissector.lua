@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex Now Cbp 10. Protocol
-local omi_currenex_currenexforex_now_cbp_v10 = Proto("Omi.Currenex.CurrenexForex.Now.Cbp.v10", "Currenex CurrenexForex Now Cbp 10.")
+-- Currenex CurrenexForex Now Cbp 10 Protocol
+local omi_currenex_currenexforex_now_cbp_v10 = Proto("Omi.Currenex.CurrenexForex.Now.Cbp.v10", "Currenex CurrenexForex Now Cbp 10")
 
 -- Protocol table
 local currenex_currenexforex_now_cbp_v10 = {}
@@ -14,7 +14,7 @@ local currenex_currenexforex_now_cbp_v10 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Currenex CurrenexForex Now Cbp 10. Fields
+-- Currenex CurrenexForex Now Cbp 10 Fields
 omi_currenex_currenexforex_now_cbp_v10.fields.activity_indicator = ProtoField.new("Activity Indicator", "currenex.currenexforex.now.cbp.v10.activityindicator", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.amount = ProtoField.new("Amount", "currenex.currenexforex.now.cbp.v10.amount", ftypes.INT64)
 omi_currenex_currenexforex_now_cbp_v10.fields.bid = ProtoField.new("Bid", "currenex.currenexforex.now.cbp.v10.bid", ftypes.STRING)
@@ -52,11 +52,11 @@ omi_currenex_currenexforex_now_cbp_v10.fields.transact_time = ProtoField.new("Tr
 omi_currenex_currenexforex_now_cbp_v10.fields.type = ProtoField.new("Type", "currenex.currenexforex.now.cbp.v10.type", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.now.cbp.v10.userid", ftypes.STRING)
 
--- Currenex CurrenexForex Now Cbp 10. Framing
+-- Currenex CurrenexForex Now Cbp 10 Framing
 omi_currenex_currenexforex_now_cbp_v10.fields.message_header = ProtoField.new("Message Header", "currenex.currenexforex.now.cbp.v10.messageheader", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.packet = ProtoField.new("Packet", "currenex.currenexforex.now.cbp.v10.packet", ftypes.STRING)
 
--- Currenex CurrenexForex Now 10. Application Messages
+-- Currenex CurrenexForex Now 10 Application Messages
 omi_currenex_currenexforex_now_cbp_v10.fields.depth_of_book_message = ProtoField.new("Depth Of Book Message", "currenex.currenexforex.now.cbp.v10.depthofbookmessage", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "currenex.currenexforex.now.cbp.v10.heartbeatmessage", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.instrument_info = ProtoField.new("Instrument Info", "currenex.currenexforex.now.cbp.v10.instrumentinfo", ftypes.STRING)
@@ -72,7 +72,7 @@ omi_currenex_currenexforex_now_cbp_v10.fields.subscription_reply_message = Proto
 omi_currenex_currenexforex_now_cbp_v10.fields.subscription_request_message = ProtoField.new("Subscription Request Message", "currenex.currenexforex.now.cbp.v10.subscriptionrequestmessage", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.wamr_with_confidence_factor_message = ProtoField.new("Wamr With Confidence Factor Message", "currenex.currenexforex.now.cbp.v10.wamrwithconfidencefactormessage", ftypes.STRING)
 
--- Currenex CurrenexForex Now Cbp 10. generated fields
+-- Currenex CurrenexForex Now Cbp 10 generated fields
 omi_currenex_currenexforex_now_cbp_v10.fields.level_index = ProtoField.new("Level Index", "currenex.currenexforex.now.cbp.v10.levelindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -81,13 +81,13 @@ omi_currenex_currenexforex_now_cbp_v10.fields.level_index = ProtoField.new("Leve
 
 local show = {}
 
--- Currenex CurrenexForex Now Cbp 10. Element Dissection Options
+-- Currenex CurrenexForex Now Cbp 10 Element Dissection Options
 show.structs = true
 show.application_messages = true
 show.headers = true
 show.indexes = true
 
--- Register Currenex CurrenexForex Now Cbp 10. Show Options
+-- Register Currenex CurrenexForex Now Cbp 10 Show Options
 omi_currenex_currenexforex_now_cbp_v10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_currenex_currenexforex_now_cbp_v10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_currenex_currenexforex_now_cbp_v10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
@@ -129,7 +129,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Currenex CurrenexForex Now Cbp 10. Fields
+-- Currenex CurrenexForex Now Cbp 10 Fields
 -----------------------------------------------------------------------
 
 -- Activity Indicator
@@ -1049,7 +1049,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Currenex CurrenexForex Now Cbp 10.
+-- Dissect Currenex CurrenexForex Now Cbp 10
 -----------------------------------------------------------------------
 
 -- Reject Message
@@ -2194,7 +2194,7 @@ end
 function omi_currenex_currenexforex_now_cbp_v10.init()
 end
 
--- Dissector for Currenex CurrenexForex Now Cbp 10.
+-- Dissector for Currenex CurrenexForex Now Cbp 10
 function omi_currenex_currenexforex_now_cbp_v10.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -2222,7 +2222,7 @@ currenex_currenexforex_now_cbp_v10.itch_soh.verify = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Currenex CurrenexForex Now Cbp 10. (Udp)
+-- Dissector Heuristic for Currenex CurrenexForex Now Cbp 10 (Udp)
 local function omi_currenex_currenexforex_now_cbp_v10_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not currenex_currenexforex_now_cbp_v10.packet.requiredsize(buffer) then return false end
@@ -2237,10 +2237,10 @@ local function omi_currenex_currenexforex_now_cbp_v10_udp_heuristic(buffer, pack
   return true
 end
 
--- Register Heuristic for Currenex CurrenexForex Now Cbp 10.
+-- Register Heuristic for Currenex CurrenexForex Now Cbp 10
 omi_currenex_currenexforex_now_cbp_v10:register_heuristic("udp", omi_currenex_currenexforex_now_cbp_v10_udp_heuristic)
 
--- Register Currenex CurrenexForex Now Cbp 10. for Decode As
+-- Register Currenex CurrenexForex Now Cbp 10 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_currenex_currenexforex_now_cbp_v10)
 

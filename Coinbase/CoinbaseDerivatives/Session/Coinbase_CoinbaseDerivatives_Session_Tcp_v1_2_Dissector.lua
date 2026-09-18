@@ -20,12 +20,13 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.correlation_id = ProtoF
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.details = ProtoField.new("Details", "coinbase.coinbasederivatives.session.tcp.v1.2.details", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.flags", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.fromsequencenumber", ftypes.UINT32)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.coinbasederivatives.session.tcp.v1.2.gapfillpadding", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.coinbasederivatives.session.tcp.v1.2.heartbeatintervalseconds", ftypes.INT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.session.tcp.v1.2.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.coinbasederivatives.session.tcp.v1.2.lastprocessedseqno", ftypes.UINT32)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.session.tcp.v1.2.messagelength", ftypes.UINT16)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.newsequencenumber", ftypes.UINT32)
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.session.tcp.v1.2.padding", ftypes.UINT32)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.session.tcp.v1.2.padding", ftypes.BYTES)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.session.tcp.v1.2.password", ftypes.STRING)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.coinbasederivatives.session.tcp.v1.2.protocolid", ftypes.UINT8)
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_reject_reason = ProtoField.new("Reason Reject Reason", "coinbase.coinbasederivatives.session.tcp.v1.2.reasonrejectreason", ftypes.INT32)
@@ -202,6 +203,29 @@ coinbase_coinbasederivatives_session_tcp_v1_2.from_sequence_number.dissect = fun
   return offset + length, value
 end
 
+-- Gap Fill Padding
+coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding = {}
+
+-- Size: Gap Fill Padding
+coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding.size = 4
+
+-- Display: Gap Fill Padding
+coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding.display = function(value)
+  return "Gap Fill Padding: "..value
+end
+
+-- Dissect: Gap Fill Padding
+coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.gap_fill_padding, range, value, display)
+
+  return offset + length, value
+end
+
 -- Heartbeat Interval Seconds
 coinbase_coinbasederivatives_session_tcp_v1_2.heartbeat_interval_seconds = {}
 
@@ -305,7 +329,7 @@ end
 -- Dissect runtime sized field: Padding
 coinbase_coinbasederivatives_session_tcp_v1_2.padding.dissect = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.padding.display(value, packet, parent, size)
 
   parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding, range, value, display)
@@ -799,22 +823,10 @@ end
 -- Gap Fill Message
 coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message = {}
 
--- Calculate size of: Gap Fill Message
-coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + coinbase_coinbasederivatives_session_tcp_v1_2.new_sequence_number.size
-
-  local message_length = buffer(offset - 30, 2):le_uint()
-
-  if message_length - (index - offset) > 0 then
-    -- Parse runtime size of: Padding
-    index = index + buffer(offset + index - 34, 2):le_uint()
-
-  end
-
-  return index
-end
+-- Size: Gap Fill Message
+coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message.size =
+  coinbase_coinbasederivatives_session_tcp_v1_2.new_sequence_number.size + 
+  coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding.size
 
 -- Display: Gap Fill Message
 coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message.display = function(packet, parent, length)
@@ -828,22 +840,8 @@ coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_message.fields = function
   -- New Sequence Number: uint32
   index, new_sequence_number = coinbase_coinbasederivatives_session_tcp_v1_2.new_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 30, 2):le_uint()
-
-  -- Runtime optional field: Padding
-  local padding = nil
-
-  local padding_exists = message_length - (index - offset) > 0
-
-  if padding_exists then
-
-    -- Runtime Size Of: Padding
-    local size_of_padding = message_length - (index - offset)
-
-    -- Padding: uint32
-    index, padding = coinbase_coinbasederivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
-  end
+  -- Gap Fill Padding: uint32
+  index, gap_fill_padding = coinbase_coinbasederivatives_session_tcp_v1_2.gap_fill_padding.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1360,7 +1358,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields = function(buff
     -- Runtime Size Of: Padding
     local size_of_padding = message_length - (index - offset)
 
-    -- Padding: uint32
+    -- Padding: 0 Byte
     index, padding = coinbase_coinbasederivatives_session_tcp_v1_2.padding.dissect(buffer, index, packet, parent, size_of_padding)
   end
 

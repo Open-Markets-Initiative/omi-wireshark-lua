@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Eurex T7 Edci Fbe 1. Protocol
-local omi_eurex_t7_edci_fbe_v1 = Proto("Omi.Eurex.T7.Edci.Fbe.v1", "Eurex T7 Edci Fbe 1.")
+-- Eurex T7 Edci Fbe 1 Protocol
+local omi_eurex_t7_edci_fbe_v1 = Proto("Omi.Eurex.T7.Edci.Fbe.v1", "Eurex T7 Edci Fbe 1")
 
 -- Protocol table
 local eurex_t7_edci_fbe_v1 = {}
@@ -14,11 +14,11 @@ local eurex_t7_edci_fbe_v1 = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Eurex T7 Edci Fbe 1. Fields
+-- Eurex T7 Edci Fbe 1 Fields
 omi_eurex_t7_edci_fbe_v1.fields.body_len = ProtoField.new("Body Len", "eurex.t7.edci.fbe.v1.bodylen", ftypes.UINT32)
 omi_eurex_t7_edci_fbe_v1.fields.template_id = ProtoField.new("Template Id", "eurex.t7.edci.fbe.v1.templateid", ftypes.UINT16)
 
--- Eurex T7 Edci Fbe 1. Framing
+-- Eurex T7 Edci Fbe 1 Framing
 omi_eurex_t7_edci_fbe_v1.fields.client_message = ProtoField.new("Client Message", "eurex.t7.edci.fbe.v1.clientmessage", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v1.fields.client_packet = ProtoField.new("Client Packet", "eurex.t7.edci.fbe.v1.clientpacket", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v1.fields.message_header = ProtoField.new("Message Header", "eurex.t7.edci.fbe.v1.messageheader", ftypes.STRING)
@@ -31,11 +31,11 @@ omi_eurex_t7_edci_fbe_v1.fields.server_packet = ProtoField.new("Server Packet", 
 
 local show = {}
 
--- Eurex T7 Edci Fbe 1. Element Dissection Options
+-- Eurex T7 Edci Fbe 1 Element Dissection Options
 show.structs = true
 show.headers = true
 
--- Register Eurex T7 Edci Fbe 1. Show Options
+-- Register Eurex T7 Edci Fbe 1 Show Options
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
   { 2, "Initiator", 1 },
@@ -61,7 +61,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Eurex T7 Edci Fbe 1. Fields
+-- Eurex T7 Edci Fbe 1 Fields
 -----------------------------------------------------------------------
 
 -- Body Len
@@ -112,7 +112,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Eurex T7 Edci Fbe 1.
+-- Dissect Eurex T7 Edci Fbe 1
 -----------------------------------------------------------------------
 
 -- Message Header
@@ -364,7 +364,7 @@ end
 function omi_eurex_t7_edci_fbe_v1.init()
 end
 
--- Connection roles for Eurex T7 Edci Fbe 1.: Client is the initiator, Server is the acceptor
+-- Connection roles for Eurex T7 Edci Fbe 1: Client is the initiator, Server is the acceptor
 -- Initiator endpoint of each conversation, recorded from its first frame
 local initiators = {}
 
@@ -429,7 +429,7 @@ eurex_t7_edci_fbe_v1.swap = function(packet)
 end
 
 
--- Dissector for Eurex T7 Edci Fbe 1.
+-- Dissector for Eurex T7 Edci Fbe 1
 function omi_eurex_t7_edci_fbe_v1.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -449,7 +449,7 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
--- Dissector Heuristic for Eurex T7 Edci Fbe 1. (Tcp)
+-- Dissector Heuristic for Eurex T7 Edci Fbe 1 (Tcp)
 local function omi_eurex_t7_edci_fbe_v1_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not eurex_t7_edci_fbe_v1.client_packet.requiredsize(buffer) then return false end
@@ -461,7 +461,7 @@ local function omi_eurex_t7_edci_fbe_v1_tcp_initiator_heuristic(buffer, packet, 
   return true
 end
 
--- Dissector Heuristic for Eurex T7 Edci Fbe 1. (Tcp)
+-- Dissector Heuristic for Eurex T7 Edci Fbe 1 (Tcp)
 local function omi_eurex_t7_edci_fbe_v1_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not eurex_t7_edci_fbe_v1.server_packet.requiredsize(buffer) then return false end
@@ -473,7 +473,7 @@ local function omi_eurex_t7_edci_fbe_v1_tcp_acceptor_heuristic(buffer, packet, p
   return true
 end
 
--- Dissector Heuristic for Eurex T7 Edci Fbe 1. (Tcp): apply the heuristic of the sender's connection role
+-- Dissector Heuristic for Eurex T7 Edci Fbe 1 (Tcp): apply the heuristic of the sender's connection role
 local function omi_eurex_t7_edci_fbe_v1_tcp_heuristic(buffer, packet, parent)
   local role = eurex_t7_edci_fbe_v1.role(packet)
   local first, second = omi_eurex_t7_edci_fbe_v1_tcp_initiator_heuristic, omi_eurex_t7_edci_fbe_v1_tcp_acceptor_heuristic
@@ -494,9 +494,9 @@ local function omi_eurex_t7_edci_fbe_v1_tcp_heuristic(buffer, packet, parent)
   return false
 end
 
--- Register Heuristics for Eurex T7 Edci Fbe 1.
+-- Register Heuristics for Eurex T7 Edci Fbe 1
 omi_eurex_t7_edci_fbe_v1:register_heuristic("tcp", omi_eurex_t7_edci_fbe_v1_tcp_heuristic)
--- Register Eurex T7 Edci Fbe 1. for Decode As
+-- Register Eurex T7 Edci Fbe 1 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_eurex_t7_edci_fbe_v1)
 
