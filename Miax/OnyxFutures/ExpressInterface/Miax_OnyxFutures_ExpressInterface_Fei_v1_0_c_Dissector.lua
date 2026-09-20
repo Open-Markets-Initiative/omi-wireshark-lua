@@ -3275,10 +3275,10 @@ end
 -- Dissect Bit Fields: Self Trade Protection
 miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.bits = function(range, value, packet, parent)
 
-  -- Self Trade Protection Level: 3 Bit
+  -- Self Trade Protection Level: 3 Bit Unsigned Fixed Width Integer
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level, range, value)
 
-  -- Self Trade Protection Instruction: 3 Bit
+  -- Self Trade Protection Instruction: 3 Bit Unsigned Fixed Width Integer
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction, range, value)
 
   -- Unused 2: 2 Bit

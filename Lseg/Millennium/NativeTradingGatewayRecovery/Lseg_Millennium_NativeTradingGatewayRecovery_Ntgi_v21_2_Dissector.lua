@@ -3728,13 +3728,13 @@ end
 -- Dissect Bit Fields: Party Role Qualifiers
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.party_role_qualifiers.bits = function(range, value, packet, parent)
 
-  -- Client Id Qualifier: 2 Bit Enum with 3 values
+  -- Client Id Qualifier: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.client_id_qualifier, range, value)
 
-  -- Investor Information Qualifier: 2 Bit Enum with 3 values
+  -- Investor Information Qualifier: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.investor_information_qualifier, range, value)
 
-  -- Executing Trader Qualifier: 2 Bit Enum with 3 values
+  -- Executing Trader Qualifier: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.executing_trader_qualifier, range, value)
 
   -- Reserved 67: 2 Bit

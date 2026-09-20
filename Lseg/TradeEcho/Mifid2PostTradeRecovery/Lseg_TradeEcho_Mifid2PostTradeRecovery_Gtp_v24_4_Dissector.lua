@@ -5124,7 +5124,7 @@ lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.allowed_book_types.bits = funct
   -- Off Book: 1 Bit
   parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.off_book, range, value)
 
-  -- Unused 5: 5 Bit
+  -- Unused 5: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_tradeecho_mifid2posttraderecovery_gtp_v24_4.fields.unused_5, range, value)
 end
 

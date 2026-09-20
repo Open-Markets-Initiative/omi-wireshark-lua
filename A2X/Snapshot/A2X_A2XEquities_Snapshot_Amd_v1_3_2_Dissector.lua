@@ -615,7 +615,7 @@ end
 -- Dissect Bit Fields: Market Flags
 a2x_a2xequities_snapshot_amd_v1_3_2.market_flags.bits = function(range, value, packet, parent)
 
-  -- Unused: 5 Bit
+  -- Unused: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.unused, range, value)
 
   -- Mac Run: 1 Bit

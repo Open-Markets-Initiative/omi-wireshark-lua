@@ -3685,7 +3685,7 @@ end
 -- Dissect Bit Fields: Additional Liquidity Indicator
 miax_pearlequities_expressorders_meo_v2_6.additional_liquidity_indicator.bits = function(range, value, packet, parent)
 
-  -- Nbbo Setter Joiner: 3 Bit
+  -- Nbbo Setter Joiner: 3 Bit Unsigned Fixed Width Integer
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.nbbo_setter_joiner, range, value)
 
   -- Unused 5: 5 Bit
@@ -4403,7 +4403,7 @@ end
 -- Dissect Bit Fields: Modify Order Instructions
 miax_pearlequities_expressorders_meo_v2_6.modify_order_instructions.bits = function(range, value, packet, parent)
 
-  -- Short Sale Indicator: 2 Bit Enum with 4 values
+  -- Short Sale Indicator: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator, range, value)
 
   -- Locate Required: 1 Bit Enum with 2 values
@@ -4601,10 +4601,10 @@ end
 -- Dissect Bit Fields: Routing
 miax_pearlequities_expressorders_meo_v2_6.routing.bits = function(range, value, packet, parent)
 
-  -- Routing Instruction: 3 Bit Enum with 3 values
+  -- Routing Instruction: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing_instruction, range, value)
 
-  -- Routing Strategy: 3 Bit Enum with 3 values
+  -- Routing Strategy: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.routing_strategy, range, value)
 
   -- Unused 2: 2 Bit
@@ -4643,10 +4643,10 @@ end
 -- Dissect Bit Fields: Self Trade Protection
 miax_pearlequities_expressorders_meo_v2_6.self_trade_protection.bits = function(range, value, packet, parent)
 
-  -- Self Trade Protection Level: 3 Bit Enum with 4 values
+  -- Self Trade Protection Level: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_level, range, value)
 
-  -- Self Trade Protection Instruction: 3 Bit Enum with 5 values
+  -- Self Trade Protection Instruction: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.self_trade_protection_instruction, range, value)
 
   -- Unused 2: 2 Bit
@@ -4716,7 +4716,7 @@ miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.bits = function
   -- Side: 1 Bit Enum with 2 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.side, range, value)
 
-  -- Short Sale Indicator: 2 Bit Enum with 4 values
+  -- Short Sale Indicator: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.short_sale_indicator, range, value)
 
   -- Displayed: 1 Bit Enum with 2 values
@@ -4734,10 +4734,10 @@ miax_pearlequities_expressorders_meo_v2_6.new_order_instructions.bits = function
   -- Retail Order: 1 Bit Enum with 2 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.retail_order, range, value)
 
-  -- Attributable Order: 2 Bit Enum with 3 values
+  -- Attributable Order: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.attributable_order, range, value)
 
-  -- Min Qty Exec Type: 2 Bit Enum with 3 values
+  -- Min Qty Exec Type: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.min_qty_exec_type, range, value)
 
   -- Cancel Order If Not A Nbbo Setter: 1 Bit Enum with 2 values

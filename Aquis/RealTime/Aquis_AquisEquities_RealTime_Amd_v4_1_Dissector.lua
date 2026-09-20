@@ -1458,40 +1458,40 @@ end
 -- Dissect Bit Fields: Binary Mmt
 aquis_aquisequities_realtime_amd_v4_1.binary_mmt.bits = function(range, value, packet, parent)
 
-  -- Market Mechanism: 3 Bit Enum with 7 values
+  -- Market Mechanism: 3 Bit Unsigned Fixed Width Integer Enum with 7 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.market_mechanism, range, value)
 
-  -- Trading Mode: 4 Bit Enum with 11 values
+  -- Trading Mode: 4 Bit Unsigned Fixed Width Integer Enum with 11 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.trading_mode, range, value)
 
-  -- Transaction Category: 3 Bit Enum with 5 values
+  -- Transaction Category: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.transaction_category, range, value)
 
-  -- Negotiation Indicator Or Pre Trade Transparency Waiver: 3 Bit Enum with 8 values
+  -- Negotiation Indicator Or Pre Trade Transparency Waiver: 3 Bit Unsigned Fixed Width Integer Enum with 8 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.negotiation_indicator_or_pre_trade_transparency_waiver, range, value)
 
   -- Crossing Trade: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.crossing_trade, range, value)
 
-  -- Modification Indicator: 2 Bit Enum with 3 values
+  -- Modification Indicator: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.modification_indicator, range, value)
 
-  -- Benchmark Reference Price Indicator: 2 Bit Enum with 3 values
+  -- Benchmark Reference Price Indicator: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.benchmark_reference_price_indicator, range, value)
 
   -- Dividend: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.dividend, range, value)
 
-  -- Off Book Automation: 2 Bit Enum with 3 values
+  -- Off Book Automation: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.off_book_automation, range, value)
 
-  -- Price Formation Discovery Process: 3 Bit Enum with 4 values
+  -- Price Formation Discovery Process: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.price_formation_discovery_process, range, value)
 
   -- Algorithmic Indicator: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.algorithmic_indicator, range, value)
 
-  -- Publication Mode Post Trade Deferral: 3 Bit Enum with 7 values
+  -- Publication Mode Post Trade Deferral: 3 Bit Unsigned Fixed Width Integer Enum with 7 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.publication_mode_post_trade_deferral, range, value)
 
   -- Deferral Type: 1 Bit
@@ -1500,7 +1500,7 @@ aquis_aquisequities_realtime_amd_v4_1.binary_mmt.bits = function(range, value, p
   -- Duplicative Indicator: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.duplicative_indicator, range, value)
 
-  -- Spare: 2 Bit
+  -- Spare: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_1.fields.spare, range, value)
 end
 

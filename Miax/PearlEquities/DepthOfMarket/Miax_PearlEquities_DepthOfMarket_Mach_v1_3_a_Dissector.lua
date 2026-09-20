@@ -1142,7 +1142,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.trade_flags.bits = function(range, 
   -- Reportable: 1 Bit
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, range, value)
 
-  -- Unused: 7 Bit
+  -- Unused: 7 Bit Unsigned Fixed Width Integer
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused, range, value)
 end
 
@@ -1249,7 +1249,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.order_execution_flags.bits = functi
   -- Reportable: 1 Bit
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.reportable, range, value)
 
-  -- Unused: 7 Bit
+  -- Unused: 7 Bit Unsigned Fixed Width Integer
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused, range, value)
 end
 
@@ -1404,7 +1404,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.modify_order_flags.bits = function(
   -- Order Position: 1 Bit
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.order_position, range, value)
 
-  -- Unused: 7 Bit
+  -- Unused: 7 Bit Unsigned Fixed Width Integer
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.unused, range, value)
 end
 

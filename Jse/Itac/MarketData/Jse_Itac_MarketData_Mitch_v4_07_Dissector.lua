@@ -139,7 +139,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.unused_2 = ProtoField.new("Unused 2",
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_3 = ProtoField.new("Unused 3", "jse.itac.marketdata.mitch.v4.07.unused3", ftypes.UINT8, nil, base.DEC, 0x1C)
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_4 = ProtoField.new("Unused 4", "jse.itac.marketdata.mitch.v4.07.unused4", ftypes.UINT8, nil, base.DEC, 0x0F)
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_5 = ProtoField.new("Unused 5", "jse.itac.marketdata.mitch.v4.07.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
-omi_jse_itac_marketdata_mitch_v4_07.fields.unused_6 = ProtoField.new("Unused 6", "jse.itac.marketdata.mitch.v4.07.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_jse_itac_marketdata_mitch_v4_07.fields.unused_6 = ProtoField.new("Unused 6", "jse.itac.marketdata.mitch.v4.07.unused6", ftypes.UINT64, nil, base.DEC, 0xFC)
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_7 = ProtoField.new("Unused 7", "jse.itac.marketdata.mitch.v4.07.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_jse_itac_marketdata_mitch_v4_07.fields.unused_8 = ProtoField.new("Unused 8", "jse.itac.marketdata.mitch.v4.07.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 omi_jse_itac_marketdata_mitch_v4_07.fields.urgency = ProtoField.new("Urgency", "jse.itac.marketdata.mitch.v4.07.urgency", ftypes.STRING)
@@ -3297,7 +3297,7 @@ jse_itac_marketdata_mitch_v4_07.sub_book_flags.bits = function(range, value, pac
   -- Off Book: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.off_book, range, value)
 
-  -- Unused 3: 3 Bit
+  -- Unused 3: 3 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_3, range, value)
 
   -- Bulletin Board: 1 Bit
@@ -3756,7 +3756,7 @@ jse_itac_marketdata_mitch_v4_07.recovery_trade_flags.bits = function(range, valu
   -- Crossed Order: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.crossed_order, range, value)
 
-  -- Unused 6: 6 Bit
+  -- Unused 6: 6 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_6, range, value)
 end
 
@@ -4113,7 +4113,7 @@ jse_itac_marketdata_mitch_v4_07.trade_flags.bits = function(range, value, packet
   -- Fx Auction Trade: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.fx_auction_trade, range, value)
 
-  -- Unused 5: 5 Bit
+  -- Unused 5: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_5, range, value)
 end
 
@@ -4456,7 +4456,7 @@ jse_itac_marketdata_mitch_v4_07.order_modified_flags.bits = function(range, valu
   -- Priority Flag: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.priority_flag, range, value)
 
-  -- Unused 7: 7 Bit
+  -- Unused 7: 7 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_7, range, value)
 end
 
@@ -4603,13 +4603,13 @@ jse_itac_marketdata_mitch_v4_07.add_attributed_order_flags.bits = function(range
   -- Regular: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.regular, range, value)
 
-  -- Unused 4: 4 Bit
+  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_4, range, value)
 
   -- Bulletin Board: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.bulletin_board, range, value)
 
-  -- Unused 2: 2 Bit
+  -- Unused 2: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_2, range, value)
 end
 
@@ -4721,7 +4721,7 @@ end
 -- Dissect Bit Fields: Add Order Flags
 jse_itac_marketdata_mitch_v4_07.add_order_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 4: 4 Bit
+  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_4, range, value)
 
   -- Market Order: 1 Bit
@@ -4730,7 +4730,7 @@ jse_itac_marketdata_mitch_v4_07.add_order_flags.bits = function(range, value, pa
   -- Bulletin Board: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.bulletin_board, range, value)
 
-  -- Unused 2: 2 Bit
+  -- Unused 2: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_2, range, value)
 end
 
@@ -4842,7 +4842,7 @@ end
 -- Dissect Bit Fields: Symbol Status Flags
 jse_itac_marketdata_mitch_v4_07.symbol_status_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 8: 8 Bit
+  -- Unused 8: 8 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_8, range, value)
 end
 
@@ -4961,7 +4961,7 @@ jse_itac_marketdata_mitch_v4_07.symbol_directory_flags.bits = function(range, va
   -- Inverse Order Book: 1 Bit
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.inverse_order_book, range, value)
 
-  -- Unused 7: 7 Bit
+  -- Unused 7: 7 Bit Unsigned Fixed Width Integer
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.unused_7, range, value)
 end
 

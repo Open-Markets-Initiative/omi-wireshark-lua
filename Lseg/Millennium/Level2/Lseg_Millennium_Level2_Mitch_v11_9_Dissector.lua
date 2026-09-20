@@ -84,7 +84,7 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.unused_1 = ProtoField.new("Unused 
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_2 = ProtoField.new("Unused 2", "lseg.millennium.level2.mitch.v11.9.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_4 = ProtoField.new("Unused 4", "lseg.millennium.level2.mitch.v11.9.unused4", ftypes.UINT8, nil, base.DEC, 0x0F)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5 = ProtoField.new("Unused 5", "lseg.millennium.level2.mitch.v11.9.unused5", ftypes.UINT8, nil, base.DEC, 0x1F)
-omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6 = ProtoField.new("Unused 6", "lseg.millennium.level2.mitch.v11.9.unused6", ftypes.UINT64, nil, base.DEC, 0xFC)
 omi_lseg_millennium_level2_mitch_v11_9.fields.unused_8 = ProtoField.new("Unused 8", "lseg.millennium.level2.mitch.v11.9.unused8", ftypes.UINT8, nil, base.DEC, 0xFF)
 
 -- Lseg Millennium Level2 Mitch 11.9 Framing
@@ -1633,7 +1633,7 @@ end
 -- Dissect Bit Fields: Statistics Reserved
 lseg_millennium_level2_mitch_v11_9.statistics_reserved.bits = function(range, value, packet, parent)
 
-  -- Unused 8: 8 Bit
+  -- Unused 8: 8 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_8, range, value)
 end
 
@@ -1823,7 +1823,7 @@ lseg_millennium_level2_mitch_v11_9.pt_mod_flags.bits = function(range, value, pa
   -- Amnd: 1 Bit
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.amnd, range, value)
 
-  -- Unused 6: 6 Bit
+  -- Unused 6: 6 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_6, range, value)
 end
 
@@ -2135,7 +2135,7 @@ end
 -- Dissect Bit Fields: Order Book Clear Flags
 lseg_millennium_level2_mitch_v11_9.order_book_clear_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 5: 5 Bit
+  -- Unused 5: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5, range, value)
 
   -- Firm Quote: 1 Bit
@@ -2247,13 +2247,13 @@ lseg_millennium_level2_mitch_v11_9.order_modified_flags.bits = function(range, v
   -- Priority Flag: 1 Bit
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.priority_flag, range, value)
 
-  -- Unused 4: 4 Bit
+  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_4, range, value)
 
   -- Firm Quote: 1 Bit
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.firm_quote, range, value)
 
-  -- Unused 2: 2 Bit
+  -- Unused 2: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_2, range, value)
 end
 
@@ -2349,13 +2349,13 @@ end
 -- Dissect Bit Fields: Order Deleted Flags
 lseg_millennium_level2_mitch_v11_9.order_deleted_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 5: 5 Bit
+  -- Unused 5: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5, range, value)
 
   -- Firm Quote: 1 Bit
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.firm_quote, range, value)
 
-  -- Unused 2: 2 Bit
+  -- Unused 2: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_2, range, value)
 end
 
@@ -2451,7 +2451,7 @@ end
 -- Dissect Bit Fields: Add Attributed Order Flags
 lseg_millennium_level2_mitch_v11_9.add_attributed_order_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 4: 4 Bit
+  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_4, range, value)
 
   -- Named Market Order: 1 Bit
@@ -2460,7 +2460,7 @@ lseg_millennium_level2_mitch_v11_9.add_attributed_order_flags.bits = function(ra
   -- Firm Quote: 1 Bit
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.firm_quote, range, value)
 
-  -- Unused 2: 2 Bit
+  -- Unused 2: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_2, range, value)
 end
 
@@ -2588,7 +2588,7 @@ end
 -- Dissect Bit Fields: Add Order Flags
 lseg_millennium_level2_mitch_v11_9.add_order_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 4: 4 Bit
+  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_4, range, value)
 
   -- Market Order: 1 Bit
@@ -2716,13 +2716,13 @@ end
 -- Dissect Bit Fields: Symbol Status Flags
 lseg_millennium_level2_mitch_v11_9.symbol_status_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 5: 5 Bit
+  -- Unused 5: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_5, range, value)
 
   -- Firm Quote: 1 Bit
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.firm_quote, range, value)
 
-  -- Unused 2: 2 Bit
+  -- Unused 2: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_lseg_millennium_level2_mitch_v11_9.fields.unused_2, range, value)
 end
 

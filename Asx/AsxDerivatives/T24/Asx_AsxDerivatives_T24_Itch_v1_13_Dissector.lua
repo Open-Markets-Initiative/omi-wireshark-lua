@@ -3240,7 +3240,7 @@ asx_asxderivatives_t24_itch_v1_13.market_updates.bits = function(range, value, p
   -- Last Traded Volume: 1 Bit
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.last_traded_volume, range, value)
 
-  -- All Fields: 2 Bit
+  -- All Fields: 2 Bit Unsigned Fixed Width Integer
   parent:add(omi_asx_asxderivatives_t24_itch_v1_13.fields.all_fields, range, value)
 end
 

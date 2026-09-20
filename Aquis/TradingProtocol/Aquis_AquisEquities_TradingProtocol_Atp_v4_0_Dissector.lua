@@ -1717,10 +1717,10 @@ end
 -- Dissect Bit Fields: Table Select 3
 aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_3.bits = function(range, value, packet, parent)
 
-  -- Party Role: 4 Bit Enum with 4 values
+  -- Party Role: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role, range, value)
 
-  -- Party Role Qualifier: 4 Bit Enum with 4 values
+  -- Party Role Qualifier: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role_qualifier, range, value)
 end
 
@@ -1756,10 +1756,10 @@ end
 -- Dissect Bit Fields: Table Select 2
 aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_2.bits = function(range, value, packet, parent)
 
-  -- Party Role: 4 Bit Enum with 4 values
+  -- Party Role: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role, range, value)
 
-  -- Party Role Qualifier: 4 Bit Enum with 4 values
+  -- Party Role Qualifier: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role_qualifier, range, value)
 end
 
@@ -1795,10 +1795,10 @@ end
 -- Dissect Bit Fields: Table Select 1
 aquis_aquisequities_tradingprotocol_atp_v4_0.table_select_1.bits = function(range, value, packet, parent)
 
-  -- Party Role: 4 Bit Enum with 4 values
+  -- Party Role: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role, range, value)
 
-  -- Party Role Qualifier: 4 Bit Enum with 4 values
+  -- Party Role Qualifier: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.party_role_qualifier, range, value)
 end
 
@@ -2197,10 +2197,10 @@ end
 -- Dissect Bit Fields: Status
 aquis_aquisequities_tradingprotocol_atp_v4_0.status.bits = function(range, value, packet, parent)
 
-  -- Reason Code: 5 Bit
+  -- Reason Code: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reason_code, range, value)
 
-  -- Order Status: 3 Bit Enum with 6 values
+  -- Order Status: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.order_status, range, value)
 end
 
@@ -2957,7 +2957,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.extended_order_flags.bits = functio
   -- Routetolit: 1 Bit
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.routetolit, range, value)
 
-  -- Routing: 3 Bit Enum with 5 values
+  -- Routing: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.routing, range, value)
 
   -- Reserved 2: 2 Bit

@@ -1856,7 +1856,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.modify_flags.bits = function(range, v
   -- Order Position: 1 Bit
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position, range, value)
 
-  -- Unused: 7 Bit
+  -- Unused: 7 Bit Unsigned Fixed Width Integer
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.unused, range, value)
 end
 

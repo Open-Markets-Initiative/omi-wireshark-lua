@@ -5064,7 +5064,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_02_6.liquidity_attributes.bits = functi
   -- Reserved 13: 3 Bit
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.reserved_13, range, value)
 
-  -- Liquidity Indicator: 2 Bit Enum with 4 values
+  -- Liquidity Indicator: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.liquidity_indicator, range, value)
 
   -- Liquidity Internalized: 1 Bit Enum with 2 values
@@ -5433,13 +5433,13 @@ end
 -- Dissect Bit Fields: Party Role Qualifier
 nasdaq_nordicequities_orderentry_ouch_v5_02_6.party_role_qualifier.bits = function(range, value, packet, parent)
 
-  -- Client Identification: 2 Bit Enum with 3 values
+  -- Client Identification: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.client_identification, range, value)
 
-  -- Investment Decision Within Firm: 2 Bit Enum with 3 values
+  -- Investment Decision Within Firm: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.investment_decision_within_firm, range, value)
 
-  -- Execution Decision Within Firm: 2 Bit Enum with 3 values
+  -- Execution Decision Within Firm: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6.fields.execution_decision_within_firm, range, value)
 
   -- Reserved 78: 2 Bit
