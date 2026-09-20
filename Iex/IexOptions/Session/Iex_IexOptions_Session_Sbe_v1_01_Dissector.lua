@@ -41,8 +41,9 @@ omi_iex_iexoptions_session_sbe_v1_01.fields.token = ProtoField.new("Token", "iex
 omi_iex_iexoptions_session_sbe_v1_01.fields.version = ProtoField.new("Version", "iex.iexoptions.session.sbe.v1.01.version", ftypes.UINT16)
 
 -- Iex IexOptions Session Sbe 1.01 Framing
+omi_iex_iexoptions_session_sbe_v1_01.fields.client_packet = ProtoField.new("Client Packet", "iex.iexoptions.session.sbe.v1.01.clientpacket", ftypes.STRING)
 omi_iex_iexoptions_session_sbe_v1_01.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.session.sbe.v1.01.messageheader", ftypes.STRING)
-omi_iex_iexoptions_session_sbe_v1_01.fields.packet = ProtoField.new("Packet", "iex.iexoptions.session.sbe.v1.01.packet", ftypes.STRING)
+omi_iex_iexoptions_session_sbe_v1_01.fields.server_packet = ProtoField.new("Server Packet", "iex.iexoptions.session.sbe.v1.01.serverpacket", ftypes.STRING)
 
 -- Iex IexOptions Session 1.01 Application Messages
 omi_iex_iexoptions_session_sbe_v1_01.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.session.sbe.v1.01.clientheartbeatmessage", ftypes.BYTES)
@@ -67,16 +68,24 @@ omi_iex_iexoptions_session_sbe_v1_01.fields.sub_sessions_group_index = ProtoFiel
 local show = {}
 
 -- Iex IexOptions Session Sbe 1.01 Element Dissection Options
+show.structs = true
 show.application_messages = true
 show.headers = true
-show.structs = true
 show.repeating_groups = true
 show.indexes = true
 
 -- Register Iex IexOptions Session Sbe 1.01 Show Options
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+omi_iex_iexoptions_session_sbe_v1_01.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_iex_iexoptions_session_sbe_v1_01.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_iex_iexoptions_session_sbe_v1_01.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_iex_iexoptions_session_sbe_v1_01.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
-omi_iex_iexoptions_session_sbe_v1_01.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_iex_iexoptions_session_sbe_v1_01.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -1548,16 +1557,51 @@ local sbe_message_bytes_remaining = function(buffer, index, available)
   return remaining, current
 end
 
--- Packet
-iex_iexoptions_session_sbe_v1_01.packet = {}
+-- Server Packet
+iex_iexoptions_session_sbe_v1_01.server_packet = {}
 
 -- Verify required size of Tcp packet
-iex_iexoptions_session_sbe_v1_01.packet.requiredsize = function(buffer)
+iex_iexoptions_session_sbe_v1_01.server_packet.requiredsize = function(buffer)
   return buffer:len() >= iex_iexoptions_session_sbe_v1_01.packet_length.size + iex_iexoptions_session_sbe_v1_01.message_header.size
 end
 
--- Dissect Packet
-iex_iexoptions_session_sbe_v1_01.packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+iex_iexoptions_session_sbe_v1_01.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Sbe Message
+  local end_of_payload = buffer:len()
+
+  -- Sbe Message: Struct of 3 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_sbe_message = sbe_message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = iex_iexoptions_session_sbe_v1_01.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
+end
+
+-- Client Packet
+iex_iexoptions_session_sbe_v1_01.client_packet = {}
+
+-- Verify required size of Tcp packet
+iex_iexoptions_session_sbe_v1_01.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= iex_iexoptions_session_sbe_v1_01.packet_length.size + iex_iexoptions_session_sbe_v1_01.message_header.size
+end
+
+-- Dissect Client Packet
+iex_iexoptions_session_sbe_v1_01.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Sbe Message
@@ -1592,6 +1636,71 @@ end
 function omi_iex_iexoptions_session_sbe_v1_01.init()
 end
 
+-- Connection roles for Iex IexOptions Session Sbe 1.01: Client is the initiator, Exchange is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local a = endpoint(packet.src, packet.src_port)
+  local b = endpoint(packet.dst, packet.dst_port)
+  if a < b then
+    return a.." "..b
+  end
+  return b.." "..a
+end
+
+
+-- Connection role of the frame's sender
+iex_iexoptions_session_sbe_v1_01.role = function(packet)
+  if omi_iex_iexoptions_session_sbe_v1_01.prefs.assume_role == 1 then
+    return "initiator"
+  end
+  if omi_iex_iexoptions_session_sbe_v1_01.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+  local port = omi_iex_iexoptions_session_sbe_v1_01.prefs.acceptor_port
+  if port ~= 0 and packet.dst_port == port then
+    return "initiator"
+  end
+  if port ~= 0 and packet.src_port == port then
+    return "acceptor"
+  end
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+  local first = initiators[key] == sender
+  if omi_iex_iexoptions_session_sbe_v1_01.prefs.swap_sides then
+    first = not first
+  end
+  if swapped[key] then
+    first = not first
+  end
+  if first then
+    return "initiator"
+  end
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+iex_iexoptions_session_sbe_v1_01.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Iex IexOptions Session Sbe 1.01
 function omi_iex_iexoptions_session_sbe_v1_01.dissector(buffer, packet, parent)
 
@@ -1600,8 +1709,149 @@ function omi_iex_iexoptions_session_sbe_v1_01.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(omi_iex_iexoptions_session_sbe_v1_01, buffer(), omi_iex_iexoptions_session_sbe_v1_01.description, "("..buffer:len().." Bytes)")
-  return iex_iexoptions_session_sbe_v1_01.packet.dissect(buffer, packet, protocol)
+  local role = iex_iexoptions_session_sbe_v1_01.role(packet)
+  if role == "initiator" then
+    return iex_iexoptions_session_sbe_v1_01.client_packet.dissect(buffer, packet, protocol)
+  end
+  return iex_iexoptions_session_sbe_v1_01.server_packet.dissect(buffer, packet, protocol)
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+iex_iexoptions_session_sbe_v1_01.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Login Request Message
+  if template_id == 1 then
+    return true
+  end
+
+  -- Login Response Message
+  if template_id == 2 then
+    return true
+  end
+
+  -- Gateway Heartbeat Message
+  if template_id == 3 then
+    return true
+  end
+
+  -- Client Heartbeat Message
+  if template_id == 4 then
+    return true
+  end
+
+  -- Logout Request Message
+  if template_id == 5 then
+    return true
+  end
+
+  -- Terminate Message
+  if template_id == 6 then
+    return true
+  end
+
+  -- Sequenced Message Header Message
+  if template_id == 7 then
+    return true
+  end
+
+  -- Subsession Join Message
+  if template_id == 8 then
+    return true
+  end
+
+  -- Subsession Join Response Message
+  if template_id == 9 then
+    return true
+  end
+
+  -- Subsession Leave Message
+  if template_id == 10 then
+    return true
+  end
+
+  -- Subsession Leave Response Message
+  if template_id == 11 then
+    return true
+  end
+
+  return false
+end
+
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+iex_iexoptions_session_sbe_v1_01.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 6 then
+    return false
+  end
+  local template_id = buffer(4, 2):le_uint()
+
+  -- Login Request Message
+  if template_id == 1 then
+    return true
+  end
+
+  -- Login Response Message
+  if template_id == 2 then
+    return true
+  end
+
+  -- Gateway Heartbeat Message
+  if template_id == 3 then
+    return true
+  end
+
+  -- Client Heartbeat Message
+  if template_id == 4 then
+    return true
+  end
+
+  -- Logout Request Message
+  if template_id == 5 then
+    return true
+  end
+
+  -- Terminate Message
+  if template_id == 6 then
+    return true
+  end
+
+  -- Sequenced Message Header Message
+  if template_id == 7 then
+    return true
+  end
+
+  -- Subsession Join Message
+  if template_id == 8 then
+    return true
+  end
+
+  -- Subsession Join Response Message
+  if template_id == 9 then
+    return true
+  end
+
+  -- Subsession Leave Message
+  if template_id == 10 then
+    return true
+  end
+
+  -- Subsession Leave Response Message
+  if template_id == 11 then
+    return true
+  end
+
+  return false
+end
+
 
 
 -----------------------------------------------------------------------
@@ -1609,7 +1859,7 @@ end
 -----------------------------------------------------------------------
 
 -- Verify Schema Id Field
-iex_iexoptions_session_sbe_v1_01.schema_id.verify = function(buffer)
+iex_iexoptions_session_sbe_v1_01.schema_id.client_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(6, 2):le_uint()
 
@@ -1621,7 +1871,31 @@ iex_iexoptions_session_sbe_v1_01.schema_id.verify = function(buffer)
 end
 
 -- Verify Version Field
-iex_iexoptions_session_sbe_v1_01.version.verify = function(buffer)
+iex_iexoptions_session_sbe_v1_01.version.client_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(8, 2):le_uint()
+
+  if value == 0 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Schema Id Field
+iex_iexoptions_session_sbe_v1_01.schema_id.server_packet_verify = function(buffer)
+  -- Attempt to read field
+  local value = buffer(6, 2):le_uint()
+
+  if value == 20000 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Version Field
+iex_iexoptions_session_sbe_v1_01.version.server_packet_verify = function(buffer)
   -- Attempt to read field
   local value = buffer(8, 2):le_uint()
 
@@ -1633,15 +1907,18 @@ iex_iexoptions_session_sbe_v1_01.version.verify = function(buffer)
 end
 
 -- Dissector Heuristic for Iex IexOptions Session Sbe 1.01 (Tcp)
-local function omi_iex_iexoptions_session_sbe_v1_01_tcp_heuristic(buffer, packet, parent)
+local function omi_iex_iexoptions_session_sbe_v1_01_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not iex_iexoptions_session_sbe_v1_01.packet.requiredsize(buffer) then return false end
+  if not iex_iexoptions_session_sbe_v1_01.client_packet.requiredsize(buffer) then return false end
 
   -- Verify Schema Id
-  if not iex_iexoptions_session_sbe_v1_01.schema_id.verify(buffer) then return false end
+  if not iex_iexoptions_session_sbe_v1_01.schema_id.client_packet_verify(buffer) then return false end
 
   -- Verify Version
-  if not iex_iexoptions_session_sbe_v1_01.version.verify(buffer) then return false end
+  if not iex_iexoptions_session_sbe_v1_01.version.client_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not iex_iexoptions_session_sbe_v1_01.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_iex_iexoptions_session_sbe_v1_01
@@ -1650,9 +1927,50 @@ local function omi_iex_iexoptions_session_sbe_v1_01_tcp_heuristic(buffer, packet
   return true
 end
 
--- Register Heuristic for Iex IexOptions Session Sbe 1.01
-omi_iex_iexoptions_session_sbe_v1_01:register_heuristic("tcp", omi_iex_iexoptions_session_sbe_v1_01_tcp_heuristic)
+-- Dissector Heuristic for Iex IexOptions Session Sbe 1.01 (Tcp)
+local function omi_iex_iexoptions_session_sbe_v1_01_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not iex_iexoptions_session_sbe_v1_01.server_packet.requiredsize(buffer) then return false end
 
+  -- Verify Schema Id
+  if not iex_iexoptions_session_sbe_v1_01.schema_id.server_packet_verify(buffer) then return false end
+
+  -- Verify Version
+  if not iex_iexoptions_session_sbe_v1_01.version.server_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not iex_iexoptions_session_sbe_v1_01.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_iex_iexoptions_session_sbe_v1_01
+  omi_iex_iexoptions_session_sbe_v1_01.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Iex IexOptions Session Sbe 1.01 (Tcp): apply the heuristic of the sender's connection role
+local function omi_iex_iexoptions_session_sbe_v1_01_tcp_heuristic(buffer, packet, parent)
+  local role = iex_iexoptions_session_sbe_v1_01.role(packet)
+  local first, second = omi_iex_iexoptions_session_sbe_v1_01_tcp_initiator_heuristic, omi_iex_iexoptions_session_sbe_v1_01_tcp_acceptor_heuristic
+  if role == "acceptor" then
+    first, second = second, first
+  end
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  iex_iexoptions_session_sbe_v1_01.swap(packet)
+  if second(buffer, packet, parent) then
+    return true
+  end
+  iex_iexoptions_session_sbe_v1_01.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Iex IexOptions Session Sbe 1.01
+omi_iex_iexoptions_session_sbe_v1_01:register_heuristic("tcp", omi_iex_iexoptions_session_sbe_v1_01_tcp_heuristic)
 -- Register Iex IexOptions Session Sbe 1.01 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_iex_iexoptions_session_sbe_v1_01)

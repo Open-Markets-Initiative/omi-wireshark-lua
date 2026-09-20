@@ -69,8 +69,8 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.futures_contract_symbol = ProtoFiel
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.gbp_price = ProtoField.new("Gbp Price", "ice.icefutures.mdf.impact.v1.1.51.gbpprice", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.icefutures.mdf.impact.v1.1.51.gtallowed", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.guaranteed_cross_supported = ProtoField.new("Guaranteed Cross Supported", "ice.icefutures.mdf.impact.v1.1.51.guaranteedcrosssupported", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_originator = ProtoField.new("Has No Direct Outright Originator", "ice.icefutures.mdf.impact.v1.1.51.hasnodirectoutrightoriginator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_taker = ProtoField.new("Has No Direct Outright Taker", "ice.icefutures.mdf.impact.v1.1.51.hasnodirectoutrighttaker", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_originator = ProtoField.new("Has No Direct Outright Originator", "ice.icefutures.mdf.impact.v1.1.51.hasnodirectoutrightoriginator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_taker = ProtoField.new("Has No Direct Outright Taker", "ice.icefutures.mdf.impact.v1.1.51.hasnodirectoutrighttaker", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_pre_open_volume = ProtoField.new("Has Pre Open Volume", "ice.icefutures.mdf.impact.v1.1.51.haspreopenvolume", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_previous_day_settlement_price = ProtoField.new("Has Previous Day Settlement Price", "ice.icefutures.mdf.impact.v1.1.51.haspreviousdaysettlementprice", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.hedge_body_length = ProtoField.new("Hedge Body Length", "ice.icefutures.mdf.impact.v1.1.51.hedgebodylength", ftypes.INT8)
@@ -106,18 +106,18 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_block_only = ProtoField.new("Is 
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_final = ProtoField.new("Is Final", "ice.icefutures.mdf.impact.v1.1.51.isfinal", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_implied = ProtoField.new("Is Implied", "ice.icefutures.mdf.impact.v1.1.51.isimplied", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_implied_spread_at_market_open = ProtoField.new("Is Implied Spread At Market Open", "ice.icefutures.mdf.impact.v1.1.51.isimpliedspreadatmarketopen", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_leg_deal_outside_ipl = ProtoField.new("Is Leg Deal Outside Ipl", "ice.icefutures.mdf.impact.v1.1.51.islegdealoutsideipl", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_modify_order = ProtoField.new("Is Modify Order", "ice.icefutures.mdf.impact.v1.1.51.ismodifyorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_leg_deal_outside_ipl = ProtoField.new("Is Leg Deal Outside Ipl", "ice.icefutures.mdf.impact.v1.1.51.islegdealoutsideipl", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_modify_order = ProtoField.new("Is Modify Order", "ice.icefutures.mdf.impact.v1.1.51.ismodifyorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_official = ProtoField.new("Is Official", "ice.icefutures.mdf.impact.v1.1.51.isofficial", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_option_strategy_hedge = ProtoField.new("Is Option Strategy Hedge", "ice.icefutures.mdf.impact.v1.1.51.isoptionstrategyhedge", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_rfc_crossing = ProtoField.new("Is Rfc Crossing", "ice.icefutures.mdf.impact.v1.1.51.isrfccrossing", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_option_strategy_hedge = ProtoField.new("Is Option Strategy Hedge", "ice.icefutures.mdf.impact.v1.1.51.isoptionstrategyhedge", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_rfc_crossing = ProtoField.new("Is Rfc Crossing", "ice.icefutures.mdf.impact.v1.1.51.isrfccrossing", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_rfq = ProtoField.new("Is Rfq", "ice.icefutures.mdf.impact.v1.1.51.isrfq", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_settle_price_official = ProtoField.new("Is Settle Price Official", "ice.icefutures.mdf.impact.v1.1.51.issettlepriceofficial", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_system_priced_leg = ProtoField.new("Is System Priced Leg", "ice.icefutures.mdf.impact.v1.1.51.issystempricedleg", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_tradable = ProtoField.new("Is Tradable", "ice.icefutures.mdf.impact.v1.1.51.istradable", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_transaction_end = ProtoField.new("Is Transaction End", "ice.icefutures.mdf.impact.v1.1.51.istransactionend", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_up = ProtoField.new("Is Up", "ice.icefutures.mdf.impact.v1.1.51.isup", ftypes.STRING)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_vertical_split = ProtoField.new("Is Vertical Split", "ice.icefutures.mdf.impact.v1.1.51.isverticalsplit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_vertical_split = ProtoField.new("Is Vertical Split", "ice.icefutures.mdf.impact.v1.1.51.isverticalsplit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence Id", "ice.icefutures.mdf.impact.v1.1.51.lastmessagesequenceid", ftypes.INT32)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "ice.icefutures.mdf.impact.v1.1.51.lasttradedatetime", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.last_trade_price = ProtoField.new("Last Trade Price", "ice.icefutures.mdf.impact.v1.1.51.lasttradeprice", ftypes.INT64)
@@ -257,8 +257,8 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.underlying_market_id = ProtoField.n
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.icefutures.mdf.impact.v1.1.51.unitofmeasure", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.unit_qty_denominator = ProtoField.new("Unit Qty Denominator", "ice.icefutures.mdf.impact.v1.1.51.unitqtydenominator", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.unit_quantity = ProtoField.new("Unit Quantity", "ice.icefutures.mdf.impact.v1.1.51.unitquantity", ftypes.INT32)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_2 = ProtoField.new("Unused 2", "ice.icefutures.mdf.impact.v1.1.51.unused2", ftypes.UINT8, nil, base.DEC, 0x03)
-omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_7 = ProtoField.new("Unused 7", "ice.icefutures.mdf.impact.v1.1.51.unused7", ftypes.UINT8, nil, base.DEC, 0x7F)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_2 = ProtoField.new("Unused 2", "ice.icefutures.mdf.impact.v1.1.51.unused2", ftypes.UINT8, nil, base.DEC, 0xC0)
+omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_7 = ProtoField.new("Unused 7", "ice.icefutures.mdf.impact.v1.1.51.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.usd_price = ProtoField.new("Usd Price", "ice.icefutures.mdf.impact.v1.1.51.usdprice", ftypes.INT64)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.valuation_date_applying_date = ProtoField.new("Valuation Date Applying Date", "ice.icefutures.mdf.impact.v1.1.51.valuationdateapplyingdate", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.valuation_date_time = ProtoField.new("Valuation Date Time", "ice.icefutures.mdf.impact.v1.1.51.valuationdatetime", ftypes.INT64)
@@ -8774,7 +8774,7 @@ ice_icefutures_mdf_impact_v1_1_51.modify_flags.display = function(range, value, 
   local flags = {}
 
   -- Is Is Modify Order flag set?
-  if bit.band(value, 0x80) ~= 0 then
+  if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Is Modify Order"
   end
 
@@ -8784,11 +8784,11 @@ end
 -- Dissect Bit Fields: Modify Flags
 ice_icefutures_mdf_impact_v1_1_51.modify_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 7: 7 Bit
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_7, range, value)
-
   -- Is Modify Order: 1 Bit
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_modify_order, range, value)
+
+  -- Unused 7: 7 Bit
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_7, range, value)
 end
 
 -- Dissect: Modify Flags
@@ -11665,29 +11665,29 @@ ice_icefutures_mdf_impact_v1_1_51.trade_flags.size = 1
 ice_icefutures_mdf_impact_v1_1_51.trade_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Is Option Strategy Hedge flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Is Option Strategy Hedge"
-  end
-  -- Is Has No Direct Outright Taker flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Has No Direct Outright Taker"
-  end
-  -- Is Is Vertical Split flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Is Vertical Split"
-  end
-  -- Is Has No Direct Outright Originator flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Has No Direct Outright Originator"
+  -- Is Is Rfc Crossing flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Is Rfc Crossing"
   end
   -- Is Is Leg Deal Outside Ipl flag set?
-  if bit.band(value, 0x40) ~= 0 then
+  if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Is Leg Deal Outside Ipl"
   end
-  -- Is Is Rfc Crossing flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Is Rfc Crossing"
+  -- Is Has No Direct Outright Originator flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Has No Direct Outright Originator"
+  end
+  -- Is Is Vertical Split flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Is Vertical Split"
+  end
+  -- Is Has No Direct Outright Taker flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Has No Direct Outright Taker"
+  end
+  -- Is Is Option Strategy Hedge flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Is Option Strategy Hedge"
   end
 
   return table.concat(flags, "|")
@@ -11696,26 +11696,26 @@ end
 -- Dissect Bit Fields: Trade Flags
 ice_icefutures_mdf_impact_v1_1_51.trade_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 2: 2 Bit
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_2, range, value)
-
-  -- Is Option Strategy Hedge: 1 Bit
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_option_strategy_hedge, range, value)
-
-  -- Has No Direct Outright Taker: 1 Bit
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_taker, range, value)
-
-  -- Is Vertical Split: 1 Bit
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_vertical_split, range, value)
-
-  -- Has No Direct Outright Originator: 1 Bit
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_originator, range, value)
+  -- Is Rfc Crossing: 1 Bit
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_rfc_crossing, range, value)
 
   -- Is Leg Deal Outside Ipl: 1 Bit
   parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_leg_deal_outside_ipl, range, value)
 
-  -- Is Rfc Crossing: 1 Bit
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_rfc_crossing, range, value)
+  -- Has No Direct Outright Originator: 1 Bit
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_originator, range, value)
+
+  -- Is Vertical Split: 1 Bit
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_vertical_split, range, value)
+
+  -- Has No Direct Outright Taker: 1 Bit
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.has_no_direct_outright_taker, range, value)
+
+  -- Is Option Strategy Hedge: 1 Bit
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.is_option_strategy_hedge, range, value)
+
+  -- Unused 2: 2 Bit
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.unused_2, range, value)
 end
 
 -- Dissect: Trade Flags
