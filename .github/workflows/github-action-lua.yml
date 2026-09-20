@@ -154,8 +154,8 @@ jobs:
       - name: Run Iex IexEquities DeepPlus IexTp 1.01 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-DeepPlus-IexTp-v1-01-Test.sh
 
-      - name: Run Iex IexEquities DeepPlus IexTp 1.04 Dissector Tests
-        run: bash -x .github/tests/Iex-IexEquities-DeepPlus-IexTp-v1-04-Test.sh
+      - name: Run Iex IexEquities DeepPlus IexTp 1.05 Dissector Tests
+        run: bash -x .github/tests/Iex-IexEquities-DeepPlus-IexTp-v1-05-Test.sh
 
       - name: Run Iex IexEquities Tops IexTp 1.56 Dissector Tests
         run: bash -x .github/tests/Iex-IexEquities-Tops-IexTp-v1-56-Test.sh
