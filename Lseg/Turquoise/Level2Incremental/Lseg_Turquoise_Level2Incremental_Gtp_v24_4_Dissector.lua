@@ -2482,7 +2482,7 @@ lseg_turquoise_level2incremental_gtp_v24_4.trade_flags.bits = function(range, va
   -- Trade Cancellation: 1 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.trade_cancellation, range, value)
 
-  -- Unused 7: 7 Bit Unsigned Fixed Width Integer
+  -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_7, range, value)
 end
 
@@ -2817,7 +2817,7 @@ lseg_turquoise_level2incremental_gtp_v24_4.order_modify_flags.bits = function(ra
   -- Priority: 1 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.priority, range, value)
 
-  -- Unused 7: 7 Bit Unsigned Fixed Width Integer
+  -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_7, range, value)
 end
 
@@ -3093,13 +3093,13 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_turquoise_level2incremental_gtp_v24_4.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Unused 3: 3 Bit Unsigned Fixed Width Integer
+  -- Unused 3: 3 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_3, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.electronic_order_book, range, value)
 
-  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
+  -- Unused 4: 4 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_4, range, value)
 end
 

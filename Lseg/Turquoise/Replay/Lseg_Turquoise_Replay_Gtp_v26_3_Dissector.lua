@@ -110,9 +110,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.quantity = ProtoField.new("Quantity",
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.turquoise.replay.gtp.v26.3.referencepriceindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.replay_status = ProtoField.new("Replay Status", "lseg.turquoise.replay.gtp.v26.3.replaystatus", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.request_id = ProtoField.new("Request Id", "lseg.turquoise.replay.gtp.v26.3.requestid", ftypes.UINT32)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved = ProtoField.new("Reserved", "lseg.turquoise.replay.gtp.v26.3.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.turquoise.replay.gtp.v26.3.reserved1", ftypes.BYTES)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_17 = ProtoField.new("Reserved 17", "lseg.turquoise.replay.gtp.v26.3.reserved17", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_20 = ProtoField.new("Reserved 20", "lseg.turquoise.replay.gtp.v26.3.reserved20", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.replay.gtp.v26.3.reserved23", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_3 = ProtoField.new("Reserved 3", "lseg.turquoise.replay.gtp.v26.3.reserved3", ftypes.BYTES)
@@ -162,6 +160,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.turnover = ProtoField.new("Turnover",
 omi_lseg_turquoise_replay_gtp_v26_3.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.turquoise.replay.gtp.v26.3.turnoveronbookonly", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.replay.gtp.v26.3.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.replay.gtp.v26.3.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.replay.gtp.v26.3.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_7 = ProtoField.new("Unused 7", "lseg.turquoise.replay.gtp.v26.3.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.update_date_and_time = ProtoField.new("Update Date And Time", "lseg.turquoise.replay.gtp.v26.3.updatedateandtime", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.username = ProtoField.new("Username", "lseg.turquoise.replay.gtp.v26.3.username", ftypes.STRING)
@@ -4652,8 +4651,8 @@ lseg_turquoise_replay_gtp_v26_3.order_book_update.bits = function(range, value, 
   -- Last Price Level: 1 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.last_price_level, range, value)
 
-  -- Reserved 17: 7 Bit
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_17, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_7, range, value)
 end
 
 -- Dissect: Order Book Update
@@ -5555,7 +5554,7 @@ lseg_turquoise_replay_gtp_v26_3.trade_flags.bits = function(range, value, packet
   -- Trade Cancellation: 1 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.trade_cancellation, range, value)
 
-  -- Unused 7: 7 Bit Unsigned Fixed Width Integer
+  -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_7, range, value)
 end
 
@@ -5832,8 +5831,8 @@ lseg_turquoise_replay_gtp_v26_3.top_of_book_flags.bits = function(range, value, 
   -- Retail Lp: 1 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.retail_lp, range, value)
 
-  -- Reserved: 5 Bit
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved, range, value)
+  -- Unused 5: 5 Bit
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_5, range, value)
 end
 
 -- Dissect: Top Of Book Flags
@@ -6035,7 +6034,7 @@ lseg_turquoise_replay_gtp_v26_3.order_modify_flags.bits = function(range, value,
   -- Priority: 1 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.priority, range, value)
 
-  -- Unused 7: 7 Bit Unsigned Fixed Width Integer
+  -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_7, range, value)
 end
 
@@ -6311,13 +6310,13 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_turquoise_replay_gtp_v26_3.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Unused 3: 3 Bit Unsigned Fixed Width Integer
+  -- Unused 3: 3 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_3, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.electronic_order_book, range, value)
 
-  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
+  -- Unused 4: 4 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_4, range, value)
 end
 

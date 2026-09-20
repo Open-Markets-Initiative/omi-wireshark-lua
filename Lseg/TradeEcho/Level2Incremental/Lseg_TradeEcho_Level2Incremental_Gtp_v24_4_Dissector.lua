@@ -1542,7 +1542,7 @@ lseg_tradeecho_level2incremental_gtp_v24_4.allowed_book_types.bits = function(ra
   -- Off Book: 1 Bit
   parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.off_book, range, value)
 
-  -- Unused 5: 5 Bit Unsigned Fixed Width Integer
+  -- Unused 5: 5 Bit
   parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.unused_5, range, value)
 end
 

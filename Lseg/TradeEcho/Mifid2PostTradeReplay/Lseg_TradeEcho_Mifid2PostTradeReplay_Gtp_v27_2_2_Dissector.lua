@@ -97,11 +97,9 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reference_price_indi
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reference_price_transaction_flag = ProtoField.new("Reference Price Transaction Flag", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.referencepricetransactionflag", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.replay_status = ProtoField.new("Replay Status", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.replaystatus", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.request_id = ProtoField.new("Request Id", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.requestid", ftypes.UINT32)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_01 = ProtoField.new("Reserved 01", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved01", ftypes.UINT8, nil, base.DEC, 0x03)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved1", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved12", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved25", ftypes.BYTES)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_37 = ProtoField.new("Reserved 37", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved37", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved5", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved8", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.security_exchange = ProtoField.new("Security Exchange", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.securityexchange", ftypes.STRING)
@@ -126,6 +124,8 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.transaction_identifi
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.transactiontobecleared", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.turnover = ProtoField.new("Turnover", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.turnover", ftypes.DOUBLE)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.turnoveronbookonly", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unused_2 = ProtoField.new("Unused 2", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.unused2", ftypes.UINT8, nil, base.DEC, 0x03)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unused_5 = ProtoField.new("Unused 5", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.upfront_payment = ProtoField.new("Upfront Payment", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.upfrontpayment", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.username = ProtoField.new("Username", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.username", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.venue_book_definition_id = ProtoField.new("Venue Book Definition Id", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.venuebookdefinitionid", ftypes.UINT8)
@@ -4717,14 +4717,14 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Reserved 01: 2 Bit
-  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_01, range, value)
+  -- Unused 2: 2 Bit
+  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unused_2, range, value)
 
   -- Offbook: 1 Bit
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.offbook, range, value)
 
-  -- Reserved 37: 5 Bit
-  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_37, range, value)
+  -- Unused 5: 5 Bit
+  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.unused_5, range, value)
 end
 
 -- Dissect: Allowed Book Types

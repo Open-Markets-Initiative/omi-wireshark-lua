@@ -59,15 +59,9 @@ omi_lseg_lse_level2incremental_gtp_v26_2.fields.previous_quantity = ProtoField.n
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.price = ProtoField.new("Price", "lseg.lse.level2incremental.gtp.v26.2.price", ftypes.DOUBLE)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.priority_flag = ProtoField.new("Priority Flag", "lseg.lse.level2incremental.gtp.v26.2.priorityflag", ftypes.UINT8, {[0]="Priority Lost", [1]="Priority Retained"}, base.DEC, 0x01)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.lse.level2incremental.gtp.v26.2.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_0 = ProtoField.new("Reserved 0", "lseg.lse.level2incremental.gtp.v26.2.reserved0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_07 = ProtoField.new("Reserved 07", "lseg.lse.level2incremental.gtp.v26.2.reserved07", ftypes.UINT8, nil, base.DEC, 0xFF)
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.lse.level2incremental.gtp.v26.2.reserved1", ftypes.STRING)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_11 = ProtoField.new("Reserved 11", "lseg.lse.level2incremental.gtp.v26.2.reserved11", ftypes.BYTES)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.lse.level2incremental.gtp.v26.2.reserved12", ftypes.BYTES)
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_17 = ProtoField.new("Reserved 17", "lseg.lse.level2incremental.gtp.v26.2.reserved17", ftypes.UINT8, nil, base.DEC, 0xFE)
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_27 = ProtoField.new("Reserved 27", "lseg.lse.level2incremental.gtp.v26.2.reserved27", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.lse.level2incremental.gtp.v26.2.reserved4", ftypes.BYTES)
-omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_57 = ProtoField.new("Reserved 57", "lseg.lse.level2incremental.gtp.v26.2.reserved57", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.lse.level2incremental.gtp.v26.2.reserved8", ftypes.BYTES)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.rfq_id = ProtoField.new("Rfq Id", "lseg.lse.level2incremental.gtp.v26.2.rfqid", ftypes.STRING)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.lse.level2incremental.gtp.v26.2.secondreserved8", ftypes.BYTES)
@@ -97,6 +91,10 @@ omi_lseg_lse_level2incremental_gtp_v26_2.fields.trading_status = ProtoField.new(
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level2incremental.gtp.v26.2.transactiontime", ftypes.UINT64)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.level2incremental.gtp.v26.2.turnover", ftypes.DOUBLE)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.lse.level2incremental.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE)
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.level2incremental.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse.level2incremental.gtp.v26.2.unused3", ftypes.UINT8, nil, base.DEC, 0xE0)
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_6 = ProtoField.new("Unused 6", "lseg.lse.level2incremental.gtp.v26.2.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_7 = ProtoField.new("Unused 7", "lseg.lse.level2incremental.gtp.v26.2.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.level2incremental.gtp.v26.2.venueinstrumentid", ftypes.STRING)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.volume = ProtoField.new("Volume", "lseg.lse.level2incremental.gtp.v26.2.volume", ftypes.DOUBLE)
 omi_lseg_lse_level2incremental_gtp_v26_2.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.lse.level2incremental.gtp.v26.2.volumeonbookonly", ftypes.DOUBLE)
@@ -2745,8 +2743,8 @@ lseg_lse_level2incremental_gtp_v26_2.trade_flags.bits = function(range, value, p
   -- Trade Correction: 1 Bit
   parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.trade_correction, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_6, range, value)
 end
 
 -- Dissect: Trade Flags
@@ -3000,8 +2998,8 @@ lseg_lse_level2incremental_gtp_v26_2.order_modify_flags.bits = function(range, v
   -- Priority Flag: 1 Bit Enum with 2 values
   parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.priority_flag, range, value)
 
-  -- Reserved 17: 7 Bit
-  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_17, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_7, range, value)
 end
 
 -- Dissect: Order Modify Flags
@@ -3255,42 +3253,6 @@ lseg_lse_level2incremental_gtp_v26_2.instrument_status_message.dissect = functio
   end
 end
 
--- Reserved 1
-lseg_lse_level2incremental_gtp_v26_2.reserved_1 = {}
-
--- Size: Reserved 1
-lseg_lse_level2incremental_gtp_v26_2.reserved_1.size = 1
-
--- Display: Reserved 1
-lseg_lse_level2incremental_gtp_v26_2.reserved_1.display = function(range, value, packet, parent)
-  local flags = {}
-
-
-  return table.concat(flags, "|")
-end
-
--- Dissect Bit Fields: Reserved 1
-lseg_lse_level2incremental_gtp_v26_2.reserved_1.bits = function(range, value, packet, parent)
-
-  -- Reserved 07: 8 Bit
-  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_07, range, value)
-end
-
--- Dissect: Reserved 1
-lseg_lse_level2incremental_gtp_v26_2.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local size = lseg_lse_level2incremental_gtp_v26_2.reserved_1.size
-  local range = buffer(offset, size)
-  local value = range:le_uint()
-  local display = lseg_lse_level2incremental_gtp_v26_2.reserved_1.display(range, value, packet, parent)
-  local element = parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_1, range, display)
-
-  if show.structs then
-    lseg_lse_level2incremental_gtp_v26_2.reserved_1.bits(range, value, packet, element)
-  end
-
-  return offset + size, value
-end
-
 -- Allowed Book Types
 lseg_lse_level2incremental_gtp_v26_2.allowed_book_types = {}
 
@@ -3301,9 +3263,9 @@ lseg_lse_level2incremental_gtp_v26_2.allowed_book_types.size = 1
 lseg_lse_level2incremental_gtp_v26_2.allowed_book_types.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Reserved 0 flag set?
+  -- Is Unused 1 flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Reserved 0"
+    flags[#flags + 1] = "Unused 1"
   end
   -- Is Firm Quote Book flag set?
   if bit.band(value, 0x02) ~= 0 then
@@ -3328,8 +3290,8 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_lse_level2incremental_gtp_v26_2.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Reserved 0: 1 Bit
-  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_1, range, value)
 
   -- Firm Quote Book: 1 Bit
   parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.firm_quote_book, range, value)
@@ -3343,8 +3305,8 @@ lseg_lse_level2incremental_gtp_v26_2.allowed_book_types.bits = function(range, v
   -- Private Rfq: 1 Bit
   parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.private_rfq, range, value)
 
-  -- Reserved 57: 3 Bit
-  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.reserved_57, range, value)
+  -- Unused 3: 3 Bit
+  parent:add(omi_lseg_lse_level2incremental_gtp_v26_2.fields.unused_3, range, value)
 end
 
 -- Dissect: Allowed Book Types
@@ -3452,7 +3414,7 @@ lseg_lse_level2incremental_gtp_v26_2.instrument_directory_message.fields = funct
   -- Second Reserved 8: Price
   index, second_reserved_8 = lseg_lse_level2incremental_gtp_v26_2.second_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Struct of 1 fields
+  -- Reserved 1
   index, reserved_1 = lseg_lse_level2incremental_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 8: Price

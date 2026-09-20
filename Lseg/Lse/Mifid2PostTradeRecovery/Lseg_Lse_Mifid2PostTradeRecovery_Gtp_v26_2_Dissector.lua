@@ -42,7 +42,7 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.fifth_reserved_8 = ProtoFi
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.fifty_two_week_trade_high = ProtoField.new("Fifty Two Week Trade High", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.fiftytwoweektradehigh", ftypes.DOUBLE)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.fifty_two_week_trade_low = ProtoField.new("Fifty Two Week Trade Low", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.fiftytwoweektradelow", ftypes.DOUBLE)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.firm_quote_book = ProtoField.new("Firm Quote Book", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.firmquotebook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.fourthreserved1", ftypes.BYTES)
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.first_reserved_1 = ProtoField.new("First Reserved 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.firstreserved1", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.fourthreserved8", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.group_id = ProtoField.new("Group Id", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.groupid", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.iau_paired_size = ProtoField.new("Iau Paired Size", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.iaupairedsize", ftypes.DOUBLE)
@@ -104,15 +104,12 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reference_price_indicator 
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.request_id = ProtoField.new("Request Id", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.requestid", ftypes.UINT32)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.request_level = ProtoField.new("Request Level", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.requestlevel", ftypes.UINT8)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.request_order_book_type = ProtoField.new("Request Order Book Type", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.requestorderbooktype", ftypes.UINT8)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_0 = ProtoField.new("Reserved 0", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_07 = ProtoField.new("Reserved 07", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved07", ftypes.UINT8, nil, base.DEC, 0xFF)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved1", ftypes.STRING)
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved1", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved12", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_2 = ProtoField.new("Reserved 2", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved2", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_20 = ProtoField.new("Reserved 20", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved20", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_3 = ProtoField.new("Reserved 3", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved3", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved4", ftypes.BYTES)
-omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_57 = ProtoField.new("Reserved 57", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved57", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.reserved8", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.secondreserved1", ftypes.BYTES)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.secondreserved4", ftypes.BYTES)
@@ -148,6 +145,8 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.transaction_category = Pro
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.transactionidentificationcode", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.turnover", ftypes.DOUBLE)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE)
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.unused3", ftypes.UINT8, nil, base.DEC, 0xE0)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.username = ProtoField.new("Username", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.username", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.venueinstrumentid", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.venueofexecution", ftypes.STRING)
@@ -1028,25 +1027,25 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.fifty_two_week_trade_low.dissect = fu
   return offset + length, value
 end
 
--- Fourth Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1 = {}
+-- First Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1 = {}
 
--- Size: Fourth Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1.size = 1
+-- Size: First Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1.size = 1
 
--- Display: Fourth Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1.display = function(value)
-  return "Fourth Reserved 1: "..value
+-- Display: First Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1.display = function(value)
+  return "First Reserved 1: "..value
 end
 
--- Dissect: Fourth Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1.size
+-- Dissect: First Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1.display(value, buffer, offset, packet, parent)
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.fourth_reserved_1, range, value, display)
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.first_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -2983,6 +2982,29 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.request_order_book_type.dissect = fun
   return offset + length, value
 end
 
+-- Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1 = {}
+
+-- Size: Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.size = 1
+
+-- Display: Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved 12
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_12 = {}
 
@@ -4643,42 +4665,6 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.statistics_snapshot_message.dissect =
   end
 end
 
--- Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1 = {}
-
--- Size: Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.size = 1
-
--- Display: Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.display = function(range, value, packet, parent)
-  local flags = {}
-
-
-  return table.concat(flags, "|")
-end
-
--- Dissect Bit Fields: Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.bits = function(range, value, packet, parent)
-
-  -- Reserved 07: 8 Bit
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_07, range, value)
-end
-
--- Dissect: Reserved 1
-lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.dissect = function(buffer, offset, packet, parent)
-  local size = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.size
-  local range = buffer(offset, size)
-  local value = range:le_uint()
-  local display = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.display(range, value, packet, parent)
-  local element = parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_1, range, display)
-
-  if show.structs then
-    lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.bits(range, value, packet, element)
-  end
-
-  return offset + size, value
-end
-
 -- Allowed Book Types
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.allowed_book_types = {}
 
@@ -4689,9 +4675,9 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.allowed_book_types.size = 1
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.allowed_book_types.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Reserved 0 flag set?
+  -- Is Unused 1 flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Reserved 0"
+    flags[#flags + 1] = "Unused 1"
   end
   -- Is Firm Quote Book flag set?
   if bit.band(value, 0x02) ~= 0 then
@@ -4716,8 +4702,8 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_lse_mifid2posttraderecovery_gtp_v26_2.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Reserved 0: 1 Bit
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unused_1, range, value)
 
   -- Firm Quote Book: 1 Bit
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.firm_quote_book, range, value)
@@ -4731,8 +4717,8 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.allowed_book_types.bits = function(ra
   -- Private Rfq: 1 Bit
   parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.private_rfq, range, value)
 
-  -- Reserved 57: 3 Bit
-  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.reserved_57, range, value)
+  -- Unused 3: 3 Bit
+  parent:add(omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.unused_3, range, value)
 end
 
 -- Dissect: Allowed Book Types
@@ -4769,7 +4755,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_directory_equities_message
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_8.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.dynamic_circuit_breaker_tolerances.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.static_circuit_breaker_tolerances.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.second_reserved_1.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.expiration_date.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.listing_start_date.size + 
@@ -4790,7 +4776,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_directory_equities_message
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.strike_price.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.security_exchange.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_12.size + 
-  lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1.size + 
+  lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_8.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.fifth_reserved_8.size + 
   lseg_lse_mifid2posttraderecovery_gtp_v26_2.partition_id.size + 
@@ -4852,8 +4838,8 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_directory_equities_message
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_lse_mifid2posttraderecovery_gtp_v26_2.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Struct of 1 fields
-  index, reserved_1 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
+  -- First Reserved 1: Byte
+  index, first_reserved_1 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.first_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: Byte
   index, second_reserved_1 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.second_reserved_1.dissect(buffer, index, packet, parent)
@@ -4915,8 +4901,8 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.instrument_directory_equities_message
   -- Reserved 12: Alpha
   index, reserved_12 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_12.dissect(buffer, index, packet, parent)
 
-  -- Fourth Reserved 1: Byte
-  index, fourth_reserved_1 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Byte
+  index, reserved_1 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 8: Price
   index, fourth_reserved_8 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.fourth_reserved_8.dissect(buffer, index, packet, parent)
@@ -5092,7 +5078,7 @@ lseg_lse_mifid2posttraderecovery_gtp_v26_2.mifid_ii_trade_message.fields = funct
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_lse_mifid2posttraderecovery_gtp_v26_2.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Struct of 1 fields
+  -- Reserved 1: Byte
   index, reserved_1 = lseg_lse_mifid2posttraderecovery_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha

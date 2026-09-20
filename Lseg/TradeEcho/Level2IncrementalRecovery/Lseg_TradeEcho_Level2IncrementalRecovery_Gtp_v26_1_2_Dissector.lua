@@ -42,11 +42,9 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_status 
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.recovery_type = ProtoField.new("Recovery Type", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.recoverytype", ftypes.UINT8)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.request_id = ProtoField.new("Request Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.requestid", ftypes.UINT32)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.request_level = ProtoField.new("Request Level", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.requestlevel", ftypes.UINT8)
-omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_0 = ProtoField.new("Reserved 0", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved10", ftypes.BYTES)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved12", ftypes.BYTES)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved25", ftypes.BYTES)
-omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_27 = ProtoField.new("Reserved 27", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved27", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.reserved5", ftypes.BYTES)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.security_exchange = ProtoField.new("Security Exchange", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.securityexchange", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.segment", ftypes.STRING)
@@ -60,6 +58,8 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.static_circuit_b
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.tickid", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.timestamp", ftypes.UINT64)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.tradingstatus", ftypes.STRING)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.unused_6 = ProtoField.new("Unused 6", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.username = ProtoField.new("Username", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.username", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v26.1.2.venueinstrumentid", ftypes.STRING)
 
@@ -1655,9 +1655,9 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.size = 1
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Reserved 0 flag set?
+  -- Is Unused 1 flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Reserved 0"
+    flags[#flags + 1] = "Unused 1"
   end
   -- Is Si Quote Book flag set?
   if bit.band(value, 0x02) ~= 0 then
@@ -1670,14 +1670,14 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Reserved 0: 1 Bit
-  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.unused_1, range, value)
 
   -- Si Quote Book: 1 Bit
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.si_quote_book, range, value)
 
-  -- Reserved 27: 6 Bit
-  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.reserved_27, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v26_1_2.fields.unused_6, range, value)
 end
 
 -- Dissect: Allowed Book Types

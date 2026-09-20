@@ -45,10 +45,10 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.ex_marker_code = ProtoField.new("Ex
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.exchange_market_size = ProtoField.new("Exchange Market Size", "lseg.turquoise.recovery.gtp.v24.4.exchangemarketsize", ftypes.UINT64)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.executed_size = ProtoField.new("Executed Size", "lseg.turquoise.recovery.gtp.v24.4.executedsize", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.expiration_date = ProtoField.new("Expiration Date", "lseg.turquoise.recovery.gtp.v24.4.expirationdate", ftypes.STRING)
-omi_lseg_turquoise_recovery_gtp_v24_4.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "lseg.turquoise.recovery.gtp.v24.4.fifthreserved1", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.fifth_reserved_8 = ProtoField.new("Fifth Reserved 8", "lseg.turquoise.recovery.gtp.v24.4.fifthreserved8", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.fifty_two_week_trade_high = ProtoField.new("Fifty Two Week Trade High", "lseg.turquoise.recovery.gtp.v24.4.fiftytwoweektradehigh", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.fifty_two_week_trade_low = ProtoField.new("Fifty Two Week Trade Low", "lseg.turquoise.recovery.gtp.v24.4.fiftytwoweektradelow", ftypes.DOUBLE)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.first_reserved_1 = ProtoField.new("First Reserved 1", "lseg.turquoise.recovery.gtp.v24.4.firstreserved1", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "lseg.turquoise.recovery.gtp.v24.4.fourthreserved1", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.turquoise.recovery.gtp.v24.4.fourthreserved8", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.group_id = ProtoField.new("Group Id", "lseg.turquoise.recovery.gtp.v24.4.groupid", ftypes.STRING)
@@ -117,7 +117,6 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.reference_price_indicator = ProtoFi
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.request_id = ProtoField.new("Request Id", "lseg.turquoise.recovery.gtp.v24.4.requestid", ftypes.UINT32)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.request_level = ProtoField.new("Request Level", "lseg.turquoise.recovery.gtp.v24.4.requestlevel", ftypes.UINT8)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.request_order_book_type = ProtoField.new("Request Order Book Type", "lseg.turquoise.recovery.gtp.v24.4.requestorderbooktype", ftypes.UINT8)
-omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved = ProtoField.new("Reserved", "lseg.turquoise.recovery.gtp.v24.4.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.turquoise.recovery.gtp.v24.4.reserved1", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.turquoise.recovery.gtp.v24.4.reserved12", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_2 = ProtoField.new("Reserved 2", "lseg.turquoise.recovery.gtp.v24.4.reserved2", ftypes.BYTES)
@@ -170,6 +169,7 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.turnover = ProtoField.new("Turnover
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.turnover_onbook_only = ProtoField.new("Turnover Onbook Only", "lseg.turquoise.recovery.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.recovery.gtp.v24.4.unused3", ftypes.UINT8, nil, base.DEC, 0x07)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.recovery.gtp.v24.4.unused4", ftypes.UINT8, nil, base.DEC, 0xF0)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.turquoise.recovery.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_7 = ProtoField.new("Unused 7", "lseg.turquoise.recovery.gtp.v24.4.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.username = ProtoField.new("Username", "lseg.turquoise.recovery.gtp.v24.4.username", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.recovery.gtp.v24.4.venueinstrumentid", ftypes.STRING)
@@ -1109,29 +1109,6 @@ lseg_turquoise_recovery_gtp_v24_4.expiration_date.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Fifth Reserved 1
-lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1 = {}
-
--- Size: Fifth Reserved 1
-lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1.size = 1
-
--- Display: Fifth Reserved 1
-lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1.display = function(value)
-  return "Fifth Reserved 1: "..value
-end
-
--- Dissect: Fifth Reserved 1
-lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.fifth_reserved_1, range, value, display)
-
-  return offset + length, value
-end
-
 -- Fifth Reserved 8
 lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_8 = {}
 
@@ -1209,6 +1186,29 @@ lseg_turquoise_recovery_gtp_v24_4.fifty_two_week_trade_low.dissect = function(bu
   local display = lseg_turquoise_recovery_gtp_v24_4.fifty_two_week_trade_low.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.fifty_two_week_trade_low, range, value, display)
+
+  return offset + length, value
+end
+
+-- First Reserved 1
+lseg_turquoise_recovery_gtp_v24_4.first_reserved_1 = {}
+
+-- Size: First Reserved 1
+lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.size = 1
+
+-- Display: First Reserved 1
+lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.display = function(value)
+  return "First Reserved 1: "..value
+end
+
+-- Dissect: First Reserved 1
+lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.first_reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -5090,13 +5090,13 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_turquoise_recovery_gtp_v24_4.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Unused 3: 3 Bit Unsigned Fixed Width Integer
+  -- Unused 3: 3 Bit
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_3, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.electronic_order_book, range, value)
 
-  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
+  -- Unused 4: 4 Bit
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_4, range, value)
 end
 
@@ -5134,7 +5134,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.size =
   lseg_turquoise_recovery_gtp_v24_4.reserved_8.size + 
   lseg_turquoise_recovery_gtp_v24_4.dynamic_circuit_breaker_tolerances.size + 
   lseg_turquoise_recovery_gtp_v24_4.static_circuit_breaker_tolerances.size + 
-  lseg_turquoise_recovery_gtp_v24_4.reserved_1.size + 
+  lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.size + 
   lseg_turquoise_recovery_gtp_v24_4.second_reserved_1.size + 
   lseg_turquoise_recovery_gtp_v24_4.expiration_date.size + 
   lseg_turquoise_recovery_gtp_v24_4.listing_start_date.size + 
@@ -5158,7 +5158,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.size =
   lseg_turquoise_recovery_gtp_v24_4.fourth_reserved_1.size + 
   lseg_turquoise_recovery_gtp_v24_4.fourth_reserved_8.size + 
   lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_8.size + 
-  lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1.size + 
+  lseg_turquoise_recovery_gtp_v24_4.reserved_1.size + 
   lseg_turquoise_recovery_gtp_v24_4.sixth_reserved_8.size + 
   lseg_turquoise_recovery_gtp_v24_4.seventh_reserved_8.size + 
   lseg_turquoise_recovery_gtp_v24_4.reserved_4.size + 
@@ -5217,8 +5217,8 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_turquoise_recovery_gtp_v24_4.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: UInt8
-  index, reserved_1 = lseg_turquoise_recovery_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+  -- First Reserved 1: UInt8
+  index, first_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: UInt8
   index, second_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.second_reserved_1.dissect(buffer, index, packet, parent)
@@ -5289,8 +5289,8 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Fifth Reserved 8: Price
   index, fifth_reserved_8 = lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Fifth Reserved 1: UInt8
-  index, fifth_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_1.dissect(buffer, index, packet, parent)
+  -- Reserved 1: UInt8
+  index, reserved_1 = lseg_turquoise_recovery_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 8: Price
   index, sixth_reserved_8 = lseg_turquoise_recovery_gtp_v24_4.sixth_reserved_8.dissect(buffer, index, packet, parent)
@@ -5735,7 +5735,7 @@ lseg_turquoise_recovery_gtp_v24_4.trade_flags.bits = function(range, value, pack
   -- Trade Cancellation: 1 Bit
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.trade_cancellation, range, value)
 
-  -- Unused 7: 7 Bit Unsigned Fixed Width Integer
+  -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_7, range, value)
 end
 
@@ -6012,8 +6012,8 @@ lseg_turquoise_recovery_gtp_v24_4.top_of_book_flags.bits = function(range, value
   -- Retail Lp: 1 Bit
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.retail_lp, range, value)
 
-  -- Reserved: 5 Bit
-  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved, range, value)
+  -- Unused 5: 5 Bit
+  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.unused_5, range, value)
 end
 
 -- Dissect: Top Of Book Flags

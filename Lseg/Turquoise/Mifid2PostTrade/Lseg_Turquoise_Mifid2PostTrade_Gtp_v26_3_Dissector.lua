@@ -2813,13 +2813,13 @@ end
 -- Dissect Bit Fields: Allowed Book Types
 lseg_turquoise_mifid2posttrade_gtp_v26_3.allowed_book_types.bits = function(range, value, packet, parent)
 
-  -- Unused 3: 3 Bit Unsigned Fixed Width Integer
+  -- Unused 3: 3 Bit
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.unused_3, range, value)
 
   -- Electronic Order Book: 1 Bit
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.electronic_order_book, range, value)
 
-  -- Unused 4: 4 Bit Unsigned Fixed Width Integer
+  -- Unused 4: 4 Bit
   parent:add(omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.unused_4, range, value)
 end
 
