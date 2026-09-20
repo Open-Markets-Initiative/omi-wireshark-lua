@@ -69,7 +69,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.price_long = ProtoField.new
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.printable = ProtoField.new("Printable", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.printable", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.referencenumberdelta", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.reference_number_deltan = ProtoField.new("Reference Number Deltan", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.referencenumberdeltan", ftypes.UINT32)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.reserved = ProtoField.new("Reserved", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.reserved", ftypes.BYTES)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.reserved3", ftypes.BYTES)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.second = ProtoField.new("Second", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.second", ftypes.UINT32)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.securitysymbol", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.sequencenumber", ftypes.UINT64)
@@ -1751,25 +1751,25 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.reference_number_deltan.dissect = func
   return offset + length, value
 end
 
--- Reserved
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved = {}
+-- Reserved 3
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3 = {}
 
--- Size: Reserved
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved.size = 3
+-- Size: Reserved 3
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3.size = 3
 
--- Display: Reserved
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 3
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3.display = function(value)
+  return "Reserved 3: "..value
 end
 
--- Dissect: Reserved
-nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved.size
+-- Dissect: Reserved 3
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.reserved_3, range, value, display)
 
   return offset + length, value
 end
@@ -2115,7 +2115,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.
   nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_price.size + 
   nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_volume.size + 
   nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.size + 
-  nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved.size
+  nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3.size
 
 -- Display: Net Order Imbalance Indicator Message
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.display = function(packet, parent, length)
@@ -2126,35 +2126,35 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.net_order_imbalance_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Integer
   index, auction_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: Alpha
   index, auction_type = nasdaq_ntxoptions_depthofmarket_itch_v1_3.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Paired Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Paired Contracts: Integer
   index, paired_contracts = nasdaq_ntxoptions_depthofmarket_itch_v1_3.paired_contracts.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Direction: 1 Byte Ascii String Enum with 2 values
+  -- Imbalance Direction: Alpha
   index, imbalance_direction = nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Price: 4 Byte Signed Fixed Width Integer
+  -- Imbalance Price: Integer
   index, imbalance_price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_price.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Volume: Integer
   index, imbalance_volume = nasdaq_ntxoptions_depthofmarket_itch_v1_3.imbalance_volume.dissect(buffer, index, packet, parent)
 
-  -- Customer Firm Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Customer Firm Indicator: Alpha
   index, customer_firm_indicator = nasdaq_ntxoptions_depthofmarket_itch_v1_3.customer_firm_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 3 Byte Unsigned Fixed Width Integer
-  index, reserved = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 3: N/A
+  index, reserved_3 = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2195,13 +2195,13 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.broken_trade_or_order_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2247,25 +2247,25 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.match_number.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 2 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  -- Volume Long: Integer
   index, volume_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -2311,25 +2311,25 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.non_auction_options_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = nasdaq_ntxoptions_depthofmarket_itch_v1_3.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.match_number.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  -- Volume Long: Integer
   index, volume_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -2371,13 +2371,13 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.block_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Total Number Of Reference Number Deltas: 2 Byte Unsigned Fixed Width Integer
+  -- Total Number Of Reference Number Deltas: Integer
   index, total_number_of_reference_number_deltas = nasdaq_ntxoptions_depthofmarket_itch_v1_3.total_number_of_reference_number_deltas.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Deltan: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Deltan: Integer
   index, reference_number_deltan = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reference_number_deltan.dissect(buffer, index, packet, parent)
 
   return index
@@ -2419,13 +2419,13 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   return index
@@ -2473,31 +2473,31 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_replace_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Bid Reference Number Delta: Integer
   index, original_bid_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Original Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Ask Reference Number Delta: Integer
   index, original_ask_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Delta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Delta Number: Integer
   index, ask_reference_delta_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Long: 4 Byte Signed Fixed Width Integer
+  -- Bid Price Long: Integer
   index, bid_price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size Long: Integer
   index, bid_size_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Long: 4 Byte Signed Fixed Width Integer
+  -- Ask Price Long: Integer
   index, ask_price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size Long: Integer
   index, ask_size_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_size_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -2545,31 +2545,31 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.quote_replace_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Bid Reference Number Delta: Integer
   index, original_bid_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.original_bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Original Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Ask Reference Number Delta: Integer
   index, original_ask_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.original_ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Delta Number: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Delta Number: Integer
   index, ask_reference_delta_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_reference_delta_number.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Signed Fixed Width Integer
+  -- Bid Price: Integer
   index, bid_price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Integer
   index, bid_size = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Signed Fixed Width Integer
+  -- Ask Price: Integer
   index, ask_price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Integer
   index, ask_size = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -2613,19 +2613,19 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Change Reason: 1 Byte Ascii String Enum with 3 values
+  -- Change Reason: Alpha
   index, change_reason = nasdaq_ntxoptions_depthofmarket_itch_v1_3.change_reason.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  -- Volume Long: Integer
   index, volume_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -2666,10 +2666,10 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reference_number_delta.dissect(buffer, index, packet, parent)
 
   return index
@@ -2713,19 +2713,19 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_replace_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Reference Number Delta: Integer
   index, original_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- New Reference Number Delta: Integer
   index, new_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  -- Volume Long: Integer
   index, volume_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -2769,19 +2769,19 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_replace_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Reference Number Delta: Integer
   index, original_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- New Reference Number Delta: Integer
   index, new_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2823,13 +2823,13 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.order_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number Delta: Integer
   index, order_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Cancelled Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Cancelled Contracts: Integer
   index, cancelled_contracts = nasdaq_ntxoptions_depthofmarket_itch_v1_3.cancelled_contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -2875,25 +2875,25 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.match_number.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = nasdaq_ntxoptions_depthofmarket_itch_v1_3.printable.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  -- Volume Long: Integer
   index, volume_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -2937,19 +2937,19 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.single_side_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Executed Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Contracts: Integer
   index, executed_contracts = nasdaq_ntxoptions_depthofmarket_itch_v1_3.executed_contracts.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2996,28 +2996,28 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_quote_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Bid: 4 Byte Unsigned Fixed Width Integer
+  -- Bid: Integer
   index, bid = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size Long: Integer
   index, bid_size_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask: 4 Byte Unsigned Fixed Width Integer
+  -- Ask: Integer
   index, ask = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size Long: Integer
   index, ask_size_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_size_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -3064,28 +3064,28 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_quote_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Signed Fixed Width Integer
+  -- Bid Price: Integer
   index, bid_price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Integer
   index, bid_size = nasdaq_ntxoptions_depthofmarket_itch_v1_3.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Signed Fixed Width Integer
+  -- Ask Price: Integer
   index, ask_price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Integer
   index, ask_size = nasdaq_ntxoptions_depthofmarket_itch_v1_3.ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -3130,22 +3130,22 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_order_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number Delta: Integer
   index, order_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Market Side: 1 Byte Ascii String Enum with 2 values
+  -- Market Side: Alpha
   index, market_side = nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  -- Volume Long: Integer
   index, volume_long = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -3190,22 +3190,22 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.add_order_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number Delta: Integer
   index, order_reference_number_delta = nasdaq_ntxoptions_depthofmarket_itch_v1_3.order_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Market Side: 1 Byte Ascii String Enum with 2 values
+  -- Market Side: Alpha
   index, market_side = nasdaq_ntxoptions_depthofmarket_itch_v1_3.market_side.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_ntxoptions_depthofmarket_itch_v1_3.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -3247,13 +3247,13 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_open_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Ascii String
+  -- Open State: Alphabetic
   index, open_state = nasdaq_ntxoptions_depthofmarket_itch_v1_3.open_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -3295,13 +3295,13 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 6 values
+  -- Current Trading State: Alphabetic
   index, current_trading_state = nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -3353,43 +3353,43 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 6 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_ntxoptions_depthofmarket_itch_v1_3.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Year: Integer
   index, expiration_year = nasdaq_ntxoptions_depthofmarket_itch_v1_3.expiration_year.dissect(buffer, index, packet, parent)
 
-  -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Month: Integer
   index, expiration_month = nasdaq_ntxoptions_depthofmarket_itch_v1_3.expiration_month.dissect(buffer, index, packet, parent)
 
-  -- Expiration Date: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Date: Integer
   index, expiration_date = nasdaq_ntxoptions_depthofmarket_itch_v1_3.expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_ntxoptions_depthofmarket_itch_v1_3.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_ntxoptions_depthofmarket_itch_v1_3.option_type.dissect(buffer, index, packet, parent)
 
-  -- Source: 1 Byte Unsigned Fixed Width Integer
+  -- Source: Integer
   index, source = nasdaq_ntxoptions_depthofmarket_itch_v1_3.source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = nasdaq_ntxoptions_depthofmarket_itch_v1_3.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Options Closing Type: 1 Byte Ascii String Enum with 2 values
+  -- Options Closing Type: Alphabetic
   index, options_closing_type = nasdaq_ntxoptions_depthofmarket_itch_v1_3.options_closing_type.dissect(buffer, index, packet, parent)
 
-  -- Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Tradable: Alpha
   index, tradable = nasdaq_ntxoptions_depthofmarket_itch_v1_3.tradable.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 1 Byte Ascii String Enum with 3 values
+  -- Mpv: Alpha
   index, mpv = nasdaq_ntxoptions_depthofmarket_itch_v1_3.mpv.dissect(buffer, index, packet, parent)
 
   return index
@@ -3430,10 +3430,10 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.base_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Base Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Base Reference Number: Long Integer
   index, base_reference_number = nasdaq_ntxoptions_depthofmarket_itch_v1_3.base_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3474,10 +3474,10 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_depthofmarket_itch_v1_3.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 6 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -3517,7 +3517,7 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Second: 4 Byte Unsigned Fixed Width Integer
+  -- Second: Integer
   index, second = nasdaq_ntxoptions_depthofmarket_itch_v1_3.second.dissect(buffer, index, packet, parent)
 
   -- Store Second Value

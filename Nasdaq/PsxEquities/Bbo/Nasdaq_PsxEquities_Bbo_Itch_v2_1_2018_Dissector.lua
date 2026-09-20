@@ -1381,19 +1381,19 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_quotation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Next Shares Symbol: 8 Byte Ascii String
+  -- Next Shares Symbol: Alpha
   index, next_shares_symbol = nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 7 values
+  -- Security Class: Alpha
   index, security_class = nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Nasdaq Best Bid: 4 Byte Unsigned Fixed Width Integer
+  -- Nasdaq Best Bid: Price (4)
   index, nasdaq_best_bid = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.dissect(buffer, index, packet, parent)
 
   return index
@@ -1440,28 +1440,28 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.quotation_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_bbo_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 7 values
+  -- Security Class: Alpha
   index, security_class = nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Psx Best Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Psx Best Bid Price: Price (4)
   index, psx_best_bid_price = nasdaq_psxequities_bbo_itch_v2_1_2018.psx_best_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Psx Best Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Psx Best Bid Size: Integer
   index, psx_best_bid_size = nasdaq_psxequities_bbo_itch_v2_1_2018.psx_best_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Psx Best Offer Price: 4 Byte Unsigned Fixed Width Integer
+  -- Psx Best Offer Price: Price (4)
   index, psx_best_offer_price = nasdaq_psxequities_bbo_itch_v2_1_2018.psx_best_offer_price.dissect(buffer, index, packet, parent)
 
-  -- Psx Best Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Psx Best Offer Size: Integer
   index, psx_best_offer_size = nasdaq_psxequities_bbo_itch_v2_1_2018.psx_best_offer_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1505,19 +1505,19 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.operational_halt_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_bbo_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Code: 1 Byte Ascii String Enum with 3 values
+  -- Market Code: Alpha
   index, market_code = nasdaq_psxequities_bbo_itch_v2_1_2018.market_code.dissect(buffer, index, packet, parent)
 
-  -- Operational Halt Action: 1 Byte Ascii String Enum with 2 values
+  -- Operational Halt Action: Alpha
   index, operational_halt_action = nasdaq_psxequities_bbo_itch_v2_1_2018.operational_halt_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -1559,13 +1559,13 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.mwcb_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Breached Level: 1 Byte Ascii String Enum with 3 values
+  -- Breached Level: Alpha
   index, breached_level = nasdaq_psxequities_bbo_itch_v2_1_2018.breached_level.dissect(buffer, index, packet, parent)
 
   return index
@@ -1609,19 +1609,19 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.mwcb_decline_level_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Level 1: 8 Byte Unsigned Fixed Width Integer
+  -- Level 1: Price (8)
   index, level_1 = nasdaq_psxequities_bbo_itch_v2_1_2018.level_1.dissect(buffer, index, packet, parent)
 
-  -- Level 2: 8 Byte Unsigned Fixed Width Integer
+  -- Level 2: Price (8)
   index, level_2 = nasdaq_psxequities_bbo_itch_v2_1_2018.level_2.dissect(buffer, index, packet, parent)
 
-  -- Level 3: 8 Byte Unsigned Fixed Width Integer
+  -- Level 3: Price (8)
   index, level_3 = nasdaq_psxequities_bbo_itch_v2_1_2018.level_3.dissect(buffer, index, packet, parent)
 
   return index
@@ -1664,16 +1664,16 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_bbo_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
+  -- Reg Sho Action: Alpha
   index, reg_sho_action = nasdaq_psxequities_bbo_itch_v2_1_2018.reg_sho_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -1718,22 +1718,22 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_bbo_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 7 values
+  -- Security Class: Alpha
   index, security_class = nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 4 values
+  -- Current Trading State: Alpha
   index, current_trading_state = nasdaq_psxequities_bbo_itch_v2_1_2018.current_trading_state.dissect(buffer, index, packet, parent)
 
-  -- Reason: 4 Byte Ascii String
+  -- Reason: Alpha
   index, reason = nasdaq_psxequities_bbo_itch_v2_1_2018.reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1788,52 +1788,52 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_bbo_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Category: 1 Byte Ascii String Enum with 9 values
+  -- Market Category: Alpha
   index, market_category = nasdaq_psxequities_bbo_itch_v2_1_2018.market_category.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Alpha
   index, financial_status_indicator = nasdaq_psxequities_bbo_itch_v2_1_2018.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Integer
   index, round_lot_size = nasdaq_psxequities_bbo_itch_v2_1_2018.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Round Lots Only: 1 Byte Ascii String Enum with 2 values
+  -- Round Lots Only: Alpha
   index, round_lots_only = nasdaq_psxequities_bbo_itch_v2_1_2018.round_lots_only.dissect(buffer, index, packet, parent)
 
-  -- Issue Classification: 1 Byte Ascii String
+  -- Issue Classification: Alpha
   index, issue_classification = nasdaq_psxequities_bbo_itch_v2_1_2018.issue_classification.dissect(buffer, index, packet, parent)
 
-  -- Issue Sub Type: 2 Byte Ascii String
+  -- Issue Sub Type: Alpha
   index, issue_sub_type = nasdaq_psxequities_bbo_itch_v2_1_2018.issue_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Authenticity: 1 Byte Ascii String Enum with 2 values
+  -- Authenticity: Alpha
   index, authenticity = nasdaq_psxequities_bbo_itch_v2_1_2018.authenticity.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Short Sale Threshold Indicator: Alpha
   index, short_sale_threshold_indicator = nasdaq_psxequities_bbo_itch_v2_1_2018.short_sale_threshold_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ipo Flag: 1 Byte Ascii String Enum with 3 values
+  -- Ipo Flag: Alpha
   index, ipo_flag = nasdaq_psxequities_bbo_itch_v2_1_2018.ipo_flag.dissect(buffer, index, packet, parent)
 
-  -- Luld Reference Price Tier: 1 Byte Ascii String Enum with 3 values
+  -- Luld Reference Price Tier: Alpha
   index, luld_reference_price_tier = nasdaq_psxequities_bbo_itch_v2_1_2018.luld_reference_price_tier.dissect(buffer, index, packet, parent)
 
-  -- Etp Flag: 1 Byte Ascii String Enum with 3 values
+  -- Etp Flag: Alpha
   index, etp_flag = nasdaq_psxequities_bbo_itch_v2_1_2018.etp_flag.dissect(buffer, index, packet, parent)
 
-  -- Etp Leverage Factor: 4 Byte Unsigned Fixed Width Integer
+  -- Etp Leverage Factor: Integer
   index, etp_leverage_factor = nasdaq_psxequities_bbo_itch_v2_1_2018.etp_leverage_factor.dissect(buffer, index, packet, parent)
 
-  -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Inverse Indicator: Alpha
   index, inverse_indicator = nasdaq_psxequities_bbo_itch_v2_1_2018.inverse_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -1875,13 +1875,13 @@ end
 nasdaq_psxequities_bbo_itch_v2_1_2018.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_bbo_itch_v2_1_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 6 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_psxequities_bbo_itch_v2_1_2018.event_code.dissect(buffer, index, packet, parent)
 
   return index

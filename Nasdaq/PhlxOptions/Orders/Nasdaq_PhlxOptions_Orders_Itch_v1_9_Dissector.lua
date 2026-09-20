@@ -53,7 +53,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.order_type = ProtoField.new("Orde
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.original_order_volume = ProtoField.new("Original Order Volume", "nasdaq.phlxoptions.orders.itch.v1.9.originalordervolume", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlxoptions.orders.itch.v1.9.phlxtradable", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.orders.itch.v1.9.price", ftypes.DOUBLE)
-omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlxoptions.orders.itch.v1.9.reserved", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved_4 = ProtoField.new("Reserved 4", "nasdaq.phlxoptions.orders.itch.v1.9.reserved4", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlxoptions.orders.itch.v1.9.seconds", ftypes.UINT32)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.orders.itch.v1.9.securitysymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlxoptions.orders.itch.v1.9.sequence", ftypes.UINT32)
@@ -132,12 +132,14 @@ local show = {}
 
 -- Nasdaq PhlxOptions Orders Itch 1.9 Element Dissection Options
 show.application_messages = true
+show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
 
 -- Register Nasdaq PhlxOptions Orders Itch 1.9 Show Options
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -155,6 +157,9 @@ function omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_headers then
     show.headers = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_repeating_groups
   end
   if show.structs ~= omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_structs then
     show.structs = omi_nasdaq_phlxoptions_orders_itch_v1_9.prefs.show_structs
@@ -1199,25 +1204,25 @@ nasdaq_phlxoptions_orders_itch_v1_9.price.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved = {}
+-- Reserved 4
+nasdaq_phlxoptions_orders_itch_v1_9.reserved_4 = {}
 
--- Size: Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved.size = 4
+-- Size: Reserved 4
+nasdaq_phlxoptions_orders_itch_v1_9.reserved_4.size = 4
 
--- Display: Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 4
+nasdaq_phlxoptions_orders_itch_v1_9.reserved_4.display = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved
-nasdaq_phlxoptions_orders_itch_v1_9.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_orders_itch_v1_9.reserved.size
+-- Dissect: Reserved 4
+nasdaq_phlxoptions_orders_itch_v1_9.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_9.reserved_4.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_phlxoptions_orders_itch_v1_9.reserved.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_9.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -1527,10 +1532,10 @@ end
 nasdaq_phlxoptions_orders_itch_v1_9.timestamp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  -- Seconds: Integer
   index, seconds = nasdaq_phlxoptions_orders_itch_v1_9.seconds.dissect(buffer, index, packet, parent)
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_9.nanoseconds.dissect(buffer, index, packet, parent)
 
   -- Composite value
@@ -1587,25 +1592,25 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_auction_notification_message.fields 
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Integer
   index, auction_id = nasdaq_phlxoptions_orders_itch_v1_9.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 6 values
+  -- Auction Type: Alpha
   index, auction_type = nasdaq_phlxoptions_orders_itch_v1_9.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_orders_itch_v1_9.price.dissect(buffer, index, packet, parent)
 
-  -- Auction Side: 1 Byte Ascii String Enum with 3 values
+  -- Auction Side: Alpha
   index, auction_side = nasdaq_phlxoptions_orders_itch_v1_9.auction_side.dissect(buffer, index, packet, parent)
 
-  -- Debit Or Credit: 1 Byte Ascii String Enum with 4 values
+  -- Debit Or Credit: Alpha
   index, debit_or_credit = nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_orders_itch_v1_9.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -1646,13 +1651,13 @@ end
 -- Dissect Bit Fields: Expiration
 nasdaq_phlxoptions_orders_itch_v1_9.expiration.bits = function(range, value, packet, parent)
 
-  -- Day: 5 Bit
+  -- Day: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.day, range, value)
 
-  -- Month: 4 Bit
+  -- Month: 4 Bit Unsigned Fixed Width Integer
   parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.month, range, value)
 
-  -- Year: 7 Bit
+  -- Year: 7 Bit Unsigned Fixed Width Integer
   parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.year, range, value)
 end
 
@@ -1688,7 +1693,7 @@ nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.size =
   nasdaq_phlxoptions_orders_itch_v1_9.auction_side.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.size + 
   nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.size + 
-  nasdaq_phlxoptions_orders_itch_v1_9.reserved.size
+  nasdaq_phlxoptions_orders_itch_v1_9.reserved_4.size
 
 -- Display: Auction Notification Message
 nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.display = function(packet, parent, length)
@@ -1702,41 +1707,41 @@ nasdaq_phlxoptions_orders_itch_v1_9.auction_notification_message.fields = functi
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Integer
   index, auction_id = nasdaq_phlxoptions_orders_itch_v1_9.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 6 values
+  -- Auction Type: Alpha
   index, auction_type = nasdaq_phlxoptions_orders_itch_v1_9.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_orders_itch_v1_9.price.dissect(buffer, index, packet, parent)
 
-  -- Auction Side: 1 Byte Ascii String Enum with 3 values
+  -- Auction Side: Alpha
   index, auction_side = nasdaq_phlxoptions_orders_itch_v1_9.auction_side.dissect(buffer, index, packet, parent)
 
-  -- Matched Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Matched Volume: Integer
   index, matched_volume = nasdaq_phlxoptions_orders_itch_v1_9.matched_volume.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Volume: Integer
   index, imbalance_volume = nasdaq_phlxoptions_orders_itch_v1_9.imbalance_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 4 Byte Unsigned Fixed Width Integer
-  index, reserved = nasdaq_phlxoptions_orders_itch_v1_9.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 4: N/A
+  index, reserved_4 = nasdaq_phlxoptions_orders_itch_v1_9.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1788,28 +1793,28 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Leg Open Close Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Leg Open Close Indicator: Alpha
   index, leg_open_close_indicator = nasdaq_phlxoptions_orders_itch_v1_9.leg_open_close_indicator.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = nasdaq_phlxoptions_orders_itch_v1_9.side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: Integer
   index, leg_ratio = nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.dissect(buffer, index, packet, parent)
 
   return index
@@ -1817,7 +1822,7 @@ end
 
 -- Dissect: Complex Order Leg
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.dissect = function(buffer, offset, packet, parent, complex_order_leg_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.complex_order_leg.fields(buffer, offset, packet, parent, complex_order_leg_index)
@@ -1889,46 +1894,46 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_message.fields = function(buff
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = nasdaq_phlxoptions_orders_itch_v1_9.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = nasdaq_phlxoptions_orders_itch_v1_9.side.dissect(buffer, index, packet, parent)
 
-  -- Original Order Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Original Order Volume: Integer
   index, original_order_volume = nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.dissect(buffer, index, packet, parent)
 
-  -- Executable Order Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Executable Order Volume: Integer
   index, executable_order_volume = nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.dissect(buffer, index, packet, parent)
 
-  -- Order Status: 1 Byte Ascii String Enum with 4 values
+  -- Order Status: Alpha
   index, order_status = nasdaq_phlxoptions_orders_itch_v1_9.order_status.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 3 values
+  -- Order Type: Alpha
   index, order_type = nasdaq_phlxoptions_orders_itch_v1_9.order_type.dissect(buffer, index, packet, parent)
 
-  -- Limit Price: 4 Byte Signed Fixed Width Integer
+  -- Limit Price: Integer
   index, limit_price = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.dissect(buffer, index, packet, parent)
 
-  -- Debit Or Credit: 1 Byte Ascii String Enum with 4 values
+  -- Debit Or Credit: Alpha
   index, debit_or_credit = nasdaq_phlxoptions_orders_itch_v1_9.debit_or_credit.dissect(buffer, index, packet, parent)
 
-  -- All Or None: 1 Byte Ascii String Enum with 2 values
+  -- All Or None: Alpha
   index, all_or_none = nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 3 values
+  -- Time In Force: Alpha
   index, time_in_force = nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Customer Firm Indicator: 1 Byte Ascii String Enum with 6 values
+  -- Customer Firm Indicator: Alpha
   index, customer_firm_indicator = nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Legs: Integer
   index, number_of_legs = nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Complex Order Leg
@@ -1993,55 +1998,55 @@ nasdaq_phlxoptions_orders_itch_v1_9.simple_order_message.fields = function(buffe
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = nasdaq_phlxoptions_orders_itch_v1_9.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = nasdaq_phlxoptions_orders_itch_v1_9.side.dissect(buffer, index, packet, parent)
 
-  -- Original Order Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Original Order Volume: Integer
   index, original_order_volume = nasdaq_phlxoptions_orders_itch_v1_9.original_order_volume.dissect(buffer, index, packet, parent)
 
-  -- Executable Order Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Executable Order Volume: Integer
   index, executable_order_volume = nasdaq_phlxoptions_orders_itch_v1_9.executable_order_volume.dissect(buffer, index, packet, parent)
 
-  -- Order Status: 1 Byte Ascii String Enum with 4 values
+  -- Order Status: Alpha
   index, order_status = nasdaq_phlxoptions_orders_itch_v1_9.order_status.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 3 values
+  -- Order Type: Alpha
   index, order_type = nasdaq_phlxoptions_orders_itch_v1_9.order_type.dissect(buffer, index, packet, parent)
 
-  -- Market Qualifier: 1 Byte Ascii String Enum with 3 values
+  -- Market Qualifier: Alpha
   index, market_qualifier = nasdaq_phlxoptions_orders_itch_v1_9.market_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Limit Price: 4 Byte Signed Fixed Width Integer
+  -- Limit Price: Integer
   index, limit_price = nasdaq_phlxoptions_orders_itch_v1_9.limit_price.dissect(buffer, index, packet, parent)
 
-  -- All Or None: 1 Byte Ascii String Enum with 2 values
+  -- All Or None: Alpha
   index, all_or_none = nasdaq_phlxoptions_orders_itch_v1_9.all_or_none.dissect(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Ascii String Enum with 3 values
+  -- Time In Force: Alpha
   index, time_in_force = nasdaq_phlxoptions_orders_itch_v1_9.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Customer Firm Indicator: 1 Byte Ascii String Enum with 6 values
+  -- Customer Firm Indicator: Alpha
   index, customer_firm_indicator = nasdaq_phlxoptions_orders_itch_v1_9.customer_firm_indicator.dissect(buffer, index, packet, parent)
 
-  -- Open Close Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Open Close Indicator: Alpha
   index, open_close_indicator = nasdaq_phlxoptions_orders_itch_v1_9.open_close_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2086,10 +2091,10 @@ nasdaq_phlxoptions_orders_itch_v1_9.strategy_open_closed_message.fields = functi
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Ascii String Enum with 2 values
+  -- Open State: Alpha
   index, open_state = nasdaq_phlxoptions_orders_itch_v1_9.open_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2138,22 +2143,22 @@ nasdaq_phlxoptions_orders_itch_v1_9.security_open_closed_message.fields = functi
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Ascii String Enum with 2 values
+  -- Open State: Alpha
   index, open_state = nasdaq_phlxoptions_orders_itch_v1_9.open_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2198,10 +2203,10 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_trading_action_message.fields = func
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
+  -- Current Trading State: Alpha
   index, current_trading_state = nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2250,22 +2255,22 @@ nasdaq_phlxoptions_orders_itch_v1_9.security_trading_action_message.fields = fun
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
+  -- Current Trading State: Alpha
   index, current_trading_state = nasdaq_phlxoptions_orders_itch_v1_9.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2317,25 +2322,25 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.fields = function
     iteration:set_generated()
   end
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = nasdaq_phlxoptions_orders_itch_v1_9.side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: Integer
   index, leg_ratio = nasdaq_phlxoptions_orders_itch_v1_9.leg_ratio.dissect(buffer, index, packet, parent)
 
   return index
@@ -2343,7 +2348,7 @@ end
 
 -- Dissect: Complex Order Strategy Leg
 nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.dissect = function(buffer, offset, packet, parent, complex_order_strategy_leg_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg, buffer(offset, 0))
     local index = nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_leg.fields(buffer, offset, packet, parent, complex_order_strategy_leg_index)
@@ -2397,19 +2402,19 @@ nasdaq_phlxoptions_orders_itch_v1_9.complex_order_strategy_message.fields = func
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_9.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Source: 1 Byte Unsigned Fixed Width Integer
+  -- Source: Integer
   index, source = nasdaq_phlxoptions_orders_itch_v1_9.source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Action: 1 Byte Ascii String Enum with 2 values
+  -- Action: Alphanumeric
   index, action = nasdaq_phlxoptions_orders_itch_v1_9.action.dissect(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Legs: Integer
   index, number_of_legs = nasdaq_phlxoptions_orders_itch_v1_9.number_of_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Complex Order Strategy Leg
@@ -2466,31 +2471,31 @@ nasdaq_phlxoptions_orders_itch_v1_9.options_directory_message.fields = function(
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_orders_itch_v1_9.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 5 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_9.security_symbol.dissect(buffer, index, packet, parent)
 
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlxoptions_orders_itch_v1_9.expiration.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_9.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_phlxoptions_orders_itch_v1_9.option_type.dissect(buffer, index, packet, parent)
 
-  -- Source: 1 Byte Unsigned Fixed Width Integer
+  -- Source: Integer
   index, source = nasdaq_phlxoptions_orders_itch_v1_9.source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = nasdaq_phlxoptions_orders_itch_v1_9.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Option Closing Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Closing Type: Alpha
   index, option_closing_type = nasdaq_phlxoptions_orders_itch_v1_9.option_closing_type.dissect(buffer, index, packet, parent)
 
-  -- Phlx Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Phlx Tradable: Alpha
   index, phlx_tradable = nasdaq_phlxoptions_orders_itch_v1_9.phlx_tradable.dissect(buffer, index, packet, parent)
 
   return index
@@ -2535,10 +2540,10 @@ nasdaq_phlxoptions_orders_itch_v1_9.system_event_message.fields = function(buffe
   -- Timestamp: Struct of 2 fields
   index, timestamp = nasdaq_phlxoptions_orders_itch_v1_9.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 8 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_phlxoptions_orders_itch_v1_9.event_code.dissect(buffer, index, packet, parent)
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: Integer
   index, version = nasdaq_phlxoptions_orders_itch_v1_9.version.dissect(buffer, index, packet, parent)
 
   return index

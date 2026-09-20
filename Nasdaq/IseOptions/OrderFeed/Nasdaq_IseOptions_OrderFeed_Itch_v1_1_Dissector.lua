@@ -114,6 +114,7 @@ local show = {}
 
 -- Nasdaq IseOptions OrderFeed Itch 1.1 Element Dissection Options
 show.application_messages = true
+show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
@@ -121,6 +122,7 @@ show.sequences = true
 
 -- Register Nasdaq IseOptions OrderFeed Itch 1.1 Show Options
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -138,6 +140,9 @@ function omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_repeating_groups
   end
   if show.structs ~= omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_structs then
     show.structs = omi_nasdaq_iseoptions_orderfeed_itch_v1_1.prefs.show_structs
@@ -1527,10 +1532,10 @@ nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Response Price: 4 Byte Signed Fixed Width Integer
+  -- Response Price: Integer
   index, response_price = nasdaq_iseoptions_orderfeed_itch_v1_1.response_price.dissect(buffer, index, packet, parent)
 
-  -- Response Size: 4 Byte Unsigned Fixed Width Integer
+  -- Response Size: Integer
   index, response_size = nasdaq_iseoptions_orderfeed_itch_v1_1.response_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1538,7 +1543,7 @@ end
 
 -- Dissect: Auction Response
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.dissect = function(buffer, offset, packet, parent, auction_response_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_orderfeed_itch_v1_1.fields.auction_response, buffer(offset, 0))
     local index = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_response.fields(buffer, offset, packet, parent, auction_response_index)
@@ -1605,46 +1610,46 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.auction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Integer
   index, auction_id = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 2 values
+  -- Order Type: Alpha
   index, order_type = nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = nasdaq_iseoptions_orderfeed_itch_v1_1.side.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_iseoptions_orderfeed_itch_v1_1.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = nasdaq_iseoptions_orderfeed_itch_v1_1.size.dissect(buffer, index, packet, parent)
 
-  -- Exec Flag: 1 Byte Ascii String Enum with 3 values
+  -- Exec Flag: Alpha
   index, exec_flag = nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Order Capacity: Alpha
   index, order_capacity = nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Owner Id: 6 Byte Ascii String
+  -- Owner Id: Alpha
   index, owner_id = nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.dissect(buffer, index, packet, parent)
 
-  -- Giveup: 6 Byte Ascii String
+  -- Giveup: Alpha
   index, giveup = nasdaq_iseoptions_orderfeed_itch_v1_1.giveup.dissect(buffer, index, packet, parent)
 
-  -- Cmta: 6 Byte Ascii String
+  -- Cmta: Alpha
   index, cmta = nasdaq_iseoptions_orderfeed_itch_v1_1.cmta.dissect(buffer, index, packet, parent)
 
-  -- Auction Event: 1 Byte Ascii String Enum with 3 values
+  -- Auction Event: Alpha
   index, auction_event = nasdaq_iseoptions_orderfeed_itch_v1_1.auction_event.dissect(buffer, index, packet, parent)
 
-  -- Number Of Responses: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Responses: Integer
   index, number_of_responses = nasdaq_iseoptions_orderfeed_itch_v1_1.number_of_responses.dissect(buffer, index, packet, parent)
 
   -- Repeating: Auction Response
@@ -1699,37 +1704,37 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.order_on_book_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect(buffer, index, packet, parent)
 
-  -- Order Type: 1 Byte Ascii String Enum with 2 values
+  -- Order Type: Alpha
   index, order_type = nasdaq_iseoptions_orderfeed_itch_v1_1.order_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = nasdaq_iseoptions_orderfeed_itch_v1_1.side.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_iseoptions_orderfeed_itch_v1_1.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = nasdaq_iseoptions_orderfeed_itch_v1_1.size.dissect(buffer, index, packet, parent)
 
-  -- Exec Flag: 1 Byte Ascii String Enum with 3 values
+  -- Exec Flag: Alpha
   index, exec_flag = nasdaq_iseoptions_orderfeed_itch_v1_1.exec_flag.dissect(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Ascii String Enum with 8 values
+  -- Order Capacity: Alpha
   index, order_capacity = nasdaq_iseoptions_orderfeed_itch_v1_1.order_capacity.dissect(buffer, index, packet, parent)
 
-  -- Owner Id: 6 Byte Ascii String
+  -- Owner Id: Alpha
   index, owner_id = nasdaq_iseoptions_orderfeed_itch_v1_1.owner_id.dissect(buffer, index, packet, parent)
 
-  -- Giveup: 6 Byte Ascii String
+  -- Giveup: Alpha
   index, giveup = nasdaq_iseoptions_orderfeed_itch_v1_1.giveup.dissect(buffer, index, packet, parent)
 
-  -- Cmta: 6 Byte Ascii String
+  -- Cmta: Alpha
   index, cmta = nasdaq_iseoptions_orderfeed_itch_v1_1.cmta.dissect(buffer, index, packet, parent)
 
   return index
@@ -1774,22 +1779,22 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.opening_imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect(buffer, index, packet, parent)
 
-  -- Paired Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Paired Contracts: Integer
   index, paired_contracts = nasdaq_iseoptions_orderfeed_itch_v1_1.paired_contracts.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Direction: 1 Byte Ascii String Enum with 2 values
+  -- Imbalance Direction: Alpha
   index, imbalance_direction = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Price: 4 Byte Signed Fixed Width Integer
+  -- Imbalance Price: Integer
   index, imbalance_price = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_price.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Volume: Integer
   index, imbalance_volume = nasdaq_iseoptions_orderfeed_itch_v1_1.imbalance_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -1831,13 +1836,13 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.security_open_closed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Ascii String Enum with 2 values
+  -- Open State: Alpha
   index, open_state = nasdaq_iseoptions_orderfeed_itch_v1_1.open_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -1879,13 +1884,13 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
+  -- Current Trading State: Alpha
   index, current_trading_state = nasdaq_iseoptions_orderfeed_itch_v1_1.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -1940,52 +1945,52 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.option_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_iseoptions_orderfeed_itch_v1_1.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 6 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_iseoptions_orderfeed_itch_v1_1.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Year: Integer
   index, expiration_year = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_year.dissect(buffer, index, packet, parent)
 
-  -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Month: Integer
   index, expiration_month = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_month.dissect(buffer, index, packet, parent)
 
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Day: Integer
   index, expiration_day = nasdaq_iseoptions_orderfeed_itch_v1_1.expiration_day.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Strike Price: Integer
   index, strike_price = nasdaq_iseoptions_orderfeed_itch_v1_1.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_iseoptions_orderfeed_itch_v1_1.option_type.dissect(buffer, index, packet, parent)
 
-  -- Source: 1 Byte Unsigned Fixed Width Integer
+  -- Source: Integer
   index, source = nasdaq_iseoptions_orderfeed_itch_v1_1.source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alpha
   index, underlying_symbol = nasdaq_iseoptions_orderfeed_itch_v1_1.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Trading Type: 1 Byte Ascii String Enum with 4 values
+  -- Trading Type: Alpha
   index, trading_type = nasdaq_iseoptions_orderfeed_itch_v1_1.trading_type.dissect(buffer, index, packet, parent)
 
-  -- Contract Size: 2 Byte Unsigned Fixed Width Integer
+  -- Contract Size: Integer
   index, contract_size = nasdaq_iseoptions_orderfeed_itch_v1_1.contract_size.dissect(buffer, index, packet, parent)
 
-  -- Option Closing Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Closing Type: Alpha
   index, option_closing_type = nasdaq_iseoptions_orderfeed_itch_v1_1.option_closing_type.dissect(buffer, index, packet, parent)
 
-  -- Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Tradable: Alpha
   index, tradable = nasdaq_iseoptions_orderfeed_itch_v1_1.tradable.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 1 Byte Ascii String Enum with 3 values
+  -- Mpv: Alpha
   index, mpv = nasdaq_iseoptions_orderfeed_itch_v1_1.mpv.dissect(buffer, index, packet, parent)
 
-  -- Closing Only: 1 Byte Ascii String Enum with 2 values
+  -- Closing Only: Alpha
   index, closing_only = nasdaq_iseoptions_orderfeed_itch_v1_1.closing_only.dissect(buffer, index, packet, parent)
 
   return index
@@ -2031,25 +2036,25 @@ end
 nasdaq_iseoptions_orderfeed_itch_v1_1.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_orderfeed_itch_v1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 8 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_iseoptions_orderfeed_itch_v1_1.event_code.dissect(buffer, index, packet, parent)
 
-  -- Current Year: 2 Byte Unsigned Fixed Width Integer
+  -- Current Year: Integer
   index, current_year = nasdaq_iseoptions_orderfeed_itch_v1_1.current_year.dissect(buffer, index, packet, parent)
 
-  -- Current Month: 1 Byte Unsigned Fixed Width Integer
+  -- Current Month: Integer
   index, current_month = nasdaq_iseoptions_orderfeed_itch_v1_1.current_month.dissect(buffer, index, packet, parent)
 
-  -- Current Day: 1 Byte Unsigned Fixed Width Integer
+  -- Current Day: Integer
   index, current_day = nasdaq_iseoptions_orderfeed_itch_v1_1.current_day.dissect(buffer, index, packet, parent)
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: Integer
   index, version = nasdaq_iseoptions_orderfeed_itch_v1_1.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: 1 Byte Unsigned Fixed Width Integer
+  -- Subversion: Integer
   index, subversion = nasdaq_iseoptions_orderfeed_itch_v1_1.subversion.dissect(buffer, index, packet, parent)
 
   return index

@@ -1525,13 +1525,13 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.retail_price_improvement_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Interest Flag: 1 Byte Ascii String Enum with 4 values
+  -- Interest Flag: Alpha
   index, interest_flag = nasdaq_nsmequities_totalview_itch_v4_1.interest_flag.dissect(buffer, index, packet, parent)
 
   return index
@@ -1580,34 +1580,34 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.net_order_imbalance_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Paired Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Paired Shares: Integer
   index, paired_shares = nasdaq_nsmequities_totalview_itch_v4_1.paired_shares.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Imbalance Shares: Integer
   index, imbalance_shares = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_shares.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Direction: 1 Byte Ascii String Enum with 4 values
+  -- Imbalance Direction: Alpha
   index, imbalance_direction = nasdaq_nsmequities_totalview_itch_v4_1.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Far Price: 4 Byte Unsigned Fixed Width Integer
+  -- Far Price: Price (4)
   index, far_price = nasdaq_nsmequities_totalview_itch_v4_1.far_price.dissect(buffer, index, packet, parent)
 
-  -- Near Price: 4 Byte Unsigned Fixed Width Integer
+  -- Near Price: Price (4)
   index, near_price = nasdaq_nsmequities_totalview_itch_v4_1.near_price.dissect(buffer, index, packet, parent)
 
-  -- Current Reference Price: 4 Byte Unsigned Fixed Width Integer
+  -- Current Reference Price: Price (4)
   index, current_reference_price = nasdaq_nsmequities_totalview_itch_v4_1.current_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 4 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_nsmequities_totalview_itch_v4_1.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Price Variation Indicator: 1 Byte Ascii String Enum with 14 values
+  -- Price Variation Indicator: Alpha
   index, price_variation_indicator = nasdaq_nsmequities_totalview_itch_v4_1.price_variation_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -1648,10 +1648,10 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.broken_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -1696,22 +1696,22 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Cross Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Cross Shares: Integer
   index, cross_shares = nasdaq_nsmequities_totalview_itch_v4_1.cross_shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Cross Price: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Price: Price (4)
   index, cross_price = nasdaq_nsmequities_totalview_itch_v4_1.cross_price.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 4 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_nsmequities_totalview_itch_v4_1.cross_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1757,25 +1757,25 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_totalview_itch_v4_1.side.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -1819,19 +1819,19 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.order_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Original Order Reference Number: Integer
   index, original_order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.original_order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- New Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- New Order Reference Number: Integer
   index, new_order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.new_order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1872,10 +1872,10 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.order_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -1917,13 +1917,13 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.order_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Canceled Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Canceled Shares: Integer
   index, canceled_shares = nasdaq_nsmequities_totalview_itch_v4_1.canceled_shares.dissect(buffer, index, packet, parent)
 
   return index
@@ -1968,22 +1968,22 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Shares: Integer
   index, executed_shares = nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = nasdaq_nsmequities_totalview_itch_v4_1.printable.dissect(buffer, index, packet, parent)
 
-  -- Execution Price: 4 Byte Unsigned Fixed Width Integer
+  -- Execution Price: Price (4)
   index, execution_price = nasdaq_nsmequities_totalview_itch_v4_1.execution_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2026,16 +2026,16 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Shares: Integer
   index, executed_shares = nasdaq_nsmequities_totalview_itch_v4_1.executed_shares.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_nsmequities_totalview_itch_v4_1.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2081,25 +2081,25 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.add_order_with_mpid_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_totalview_itch_v4_1.side.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
-  -- Attribution: 4 Byte Ascii String
+  -- Attribution: Alpha
   index, attribution = nasdaq_nsmequities_totalview_itch_v4_1.attribution.dissect(buffer, index, packet, parent)
 
   return index
@@ -2144,22 +2144,22 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_nsmequities_totalview_itch_v4_1.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alpha
   index, side = nasdaq_nsmequities_totalview_itch_v4_1.side.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_nsmequities_totalview_itch_v4_1.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_nsmequities_totalview_itch_v4_1.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2204,22 +2204,22 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.market_participant_position_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alphabetic
   index, mpid = nasdaq_nsmequities_totalview_itch_v4_1.mpid.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Primary Market Maker: 1 Byte Ascii String Enum with 2 values
+  -- Primary Market Maker: Alphanumeric
   index, primary_market_maker = nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.dissect(buffer, index, packet, parent)
 
-  -- Market Maker Mode: 1 Byte Ascii String Enum with 4 values
+  -- Market Maker Mode: Alphanumeric
   index, market_maker_mode = nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.dissect(buffer, index, packet, parent)
 
-  -- Market Participant State: 1 Byte Ascii String Enum with 5 values
+  -- Market Participant State: Alphanumeric
   index, market_participant_state = nasdaq_nsmequities_totalview_itch_v4_1.market_participant_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2261,13 +2261,13 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
+  -- Reg Sho Action: Alpha
   index, reg_sho_action = nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -2310,16 +2310,16 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Category: 1 Byte Ascii String Enum with 7 values
+  -- Market Category: Alpha
   index, market_category = nasdaq_nsmequities_totalview_itch_v4_1.market_category.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 8 values
+  -- Financial Status Indicator: Alpha
   index, financial_status_indicator = nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2360,10 +2360,10 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 9 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_nsmequities_totalview_itch_v4_1.event_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2403,7 +2403,7 @@ end
 nasdaq_nsmequities_totalview_itch_v4_1.timestamp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Second: 4 Byte Unsigned Fixed Width Integer
+  -- Second: Integer
   index, second = nasdaq_nsmequities_totalview_itch_v4_1.second.dissect(buffer, index, packet, parent)
 
   -- Store Second Value

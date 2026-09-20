@@ -125,6 +125,7 @@ local show = {}
 
 -- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Element Dissection Options
 show.application_messages = true
+show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
@@ -132,6 +133,7 @@ show.sequences = true
 
 -- Register Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Show Options
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -149,6 +151,9 @@ function omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs_changed()
   end
   if show.headers ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_headers then
     show.headers = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_repeating_groups
   end
   if show.structs ~= omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_structs then
     show.structs = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.prefs.show_structs
@@ -1713,31 +1718,31 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_ticker_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Signed Fixed Width Integer
+  -- Last Price: Integer
   index, last_price = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.last_price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.volume.dissect(buffer, index, packet, parent)
 
-  -- High: 8 Byte Unsigned Fixed Width Integer
+  -- High: Integer
   index, high = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.high.dissect(buffer, index, packet, parent)
 
-  -- Low: 8 Byte Unsigned Fixed Width Integer
+  -- Low: Integer
   index, low = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.low.dissect(buffer, index, packet, parent)
 
-  -- First: 8 Byte Unsigned Fixed Width Integer
+  -- First: Integer
   index, first = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.first.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String
+  -- Trade Condition: Alpha
   index, trade_condition = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -1786,34 +1791,34 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_ask_update.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.dissect(buffer, index, packet, parent)
 
-  -- Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Cust Size: Integer
   index, cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.dissect(buffer, index, packet, parent)
 
-  -- Pro Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Pro Cust Size: Integer
   index, pro_cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.dissect(buffer, index, packet, parent)
 
-  -- Ntt Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ntt Size: Integer
   index, ntt_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.dissect(buffer, index, packet, parent)
 
-  -- Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Market Size: Integer
   index, market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.dissect(buffer, index, packet, parent)
 
-  -- Ntt Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ntt Market Size: Integer
   index, ntt_market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1862,34 +1867,34 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_update.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 4 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.size.dissect(buffer, index, packet, parent)
 
-  -- Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Cust Size: Integer
   index, cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.cust_size.dissect(buffer, index, packet, parent)
 
-  -- Pro Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Pro Cust Size: Integer
   index, pro_cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.pro_cust_size.dissect(buffer, index, packet, parent)
 
-  -- Ntt Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ntt Size: Integer
   index, ntt_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_size.dissect(buffer, index, packet, parent)
 
-  -- Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Market Size: Integer
   index, market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.market_size.dissect(buffer, index, packet, parent)
 
-  -- Ntt Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ntt Market Size: Integer
   index, ntt_market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ntt_market_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1945,55 +1950,55 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_best_bid_and_ask_update.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: Integer
   index, bid_price = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Integer
   index, bid_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Cust Size: Integer
   index, bid_cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_cust_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Pro Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Pro Cust Size: Integer
   index, bid_pro_cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_pro_cust_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Ntt Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Ntt Size: Integer
   index, bid_ntt_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Market Size: Integer
   index, bid_market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_market_size.dissect(buffer, index, packet, parent)
 
-  -- Bid Ntt Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Ntt Market Size: Integer
   index, bid_ntt_market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.bid_ntt_market_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Ask Price: Integer
   index, ask_price = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Integer
   index, ask_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Cust Size: Integer
   index, ask_cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_cust_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Pro Cust Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Pro Cust Size: Integer
   index, ask_pro_cust_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_pro_cust_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Ntt Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Ntt Size: Integer
   index, ask_ntt_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Market Size: Integer
   index, ask_market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_market_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Ntt Market Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Ntt Market Size: Integer
   index, ask_ntt_market_size = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.ask_ntt_market_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -2035,13 +2040,13 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
+  -- Current Trading State: Alpha
   index, current_trading_state = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2083,13 +2088,13 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_open_closed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Ascii String Enum with 2 values
+  -- Open State: Alpha
   index, open_state = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.open_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2144,34 +2149,34 @@ nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information.fields = function(
     iteration:set_generated()
   end
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 6 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Id: 1 Byte Unsigned Fixed Width Integer
+  -- Leg Id: Integer
   index, leg_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_id.dissect(buffer, index, packet, parent)
 
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Year: Integer
   index, expiration_year = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_year.dissect(buffer, index, packet, parent)
 
-  -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Month: Integer
   index, expiration_month = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_month.dissect(buffer, index, packet, parent)
 
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Day: Integer
   index, expiration_day = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.expiration_day.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 3 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.option_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 3 values
+  -- Side: Alpha
   index, side = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: Integer
   index, leg_ratio = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_ratio.dissect(buffer, index, packet, parent)
 
   return index
@@ -2179,7 +2184,7 @@ end
 
 -- Dissect: Leg Information
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information.dissect = function(buffer, offset, packet, parent, leg_information_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_information, buffer(offset, 0))
     local index = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.leg_information.fields(buffer, offset, packet, parent, leg_information_index)
@@ -2230,22 +2235,22 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.complex_strategy_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
+  -- Strategy Id: Integer
   index, strategy_id = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_id.dissect(buffer, index, packet, parent)
 
-  -- Strategy Type: 1 Byte Ascii String Enum with 9 values
+  -- Strategy Type: Alpha
   index, strategy_type = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.strategy_type.dissect(buffer, index, packet, parent)
 
-  -- Source: 1 Byte Unsigned Fixed Width Integer
+  -- Source: Integer
   index, source = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of Legs: Integer
   index, number_of_legs = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.number_of_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Leg Information
@@ -2296,25 +2301,25 @@ end
 nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 8 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.event_code.dissect(buffer, index, packet, parent)
 
-  -- Current Year: 2 Byte Unsigned Fixed Width Integer
+  -- Current Year: Integer
   index, current_year = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_year.dissect(buffer, index, packet, parent)
 
-  -- Current Month: 1 Byte Unsigned Fixed Width Integer
+  -- Current Month: Integer
   index, current_month = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_month.dissect(buffer, index, packet, parent)
 
-  -- Current Day: 1 Byte Unsigned Fixed Width Integer
+  -- Current Day: Integer
   index, current_day = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.current_day.dissect(buffer, index, packet, parent)
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: Integer
   index, version = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: 1 Byte Unsigned Fixed Width Integer
+  -- Subversion: Integer
   index, subversion = nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.subversion.dissect(buffer, index, packet, parent)
 
   return index

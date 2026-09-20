@@ -1413,22 +1413,22 @@ end
 nasdaq_nsmequities_noiview_itch_v3_0_2017.ipo_quoting_period_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2017.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2017.stock.dissect(buffer, index, packet, parent)
 
-  -- Ipo Quotation Release Time: 4 Byte Unsigned Fixed Width Integer
+  -- Ipo Quotation Release Time: Integer
   index, ipo_quotation_release_time = nasdaq_nsmequities_noiview_itch_v3_0_2017.ipo_quotation_release_time.dissect(buffer, index, packet, parent)
 
-  -- Ipo Quotation Release Qualifier: 1 Byte Ascii String Enum with 2 values
+  -- Ipo Quotation Release Qualifier: Alphanumeric
   index, ipo_quotation_release_qualifier = nasdaq_nsmequities_noiview_itch_v3_0_2017.ipo_quotation_release_qualifier.dissect(buffer, index, packet, parent)
 
-  -- Ipo Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ipo Price: Price (4)
   index, ipo_price = nasdaq_nsmequities_noiview_itch_v3_0_2017.ipo_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1474,25 +1474,25 @@ end
 nasdaq_nsmequities_noiview_itch_v3_0_2017.cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2017.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_nsmequities_noiview_itch_v3_0_2017.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2017.stock.dissect(buffer, index, packet, parent)
 
-  -- Cross Price: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Price: Price (4)
   index, cross_price = nasdaq_nsmequities_noiview_itch_v3_0_2017.cross_price.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.match_number.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 3 values
+  -- Cross Type: Alphanumeric
   index, cross_type = nasdaq_nsmequities_noiview_itch_v3_0_2017.cross_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -1542,37 +1542,37 @@ end
 nasdaq_nsmequities_noiview_itch_v3_0_2017.noii_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2017.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Paired Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Paired Shares: Integer
   index, paired_shares = nasdaq_nsmequities_noiview_itch_v3_0_2017.paired_shares.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Imbalance Shares: Integer
   index, imbalance_shares = nasdaq_nsmequities_noiview_itch_v3_0_2017.imbalance_shares.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Direction: 1 Byte Ascii String Enum with 4 values
+  -- Imbalance Direction: Alphanumeric
   index, imbalance_direction = nasdaq_nsmequities_noiview_itch_v3_0_2017.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2017.stock.dissect(buffer, index, packet, parent)
 
-  -- Far Price: 4 Byte Unsigned Fixed Width Integer
+  -- Far Price: Price (4)
   index, far_price = nasdaq_nsmequities_noiview_itch_v3_0_2017.far_price.dissect(buffer, index, packet, parent)
 
-  -- Near Price: 4 Byte Unsigned Fixed Width Integer
+  -- Near Price: Price (4)
   index, near_price = nasdaq_nsmequities_noiview_itch_v3_0_2017.near_price.dissect(buffer, index, packet, parent)
 
-  -- Current Reference Price: 4 Byte Unsigned Fixed Width Integer
+  -- Current Reference Price: Price (4)
   index, current_reference_price = nasdaq_nsmequities_noiview_itch_v3_0_2017.current_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 3 values
+  -- Cross Type: Alphanumeric
   index, cross_type = nasdaq_nsmequities_noiview_itch_v3_0_2017.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Price Variation Indicator: 1 Byte Ascii String Enum with 13 values
+  -- Price Variation Indicator: Alphanumeric
   index, price_variation_indicator = nasdaq_nsmequities_noiview_itch_v3_0_2017.price_variation_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -1615,16 +1615,16 @@ end
 nasdaq_nsmequities_noiview_itch_v3_0_2017.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2017.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2017.stock.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
+  -- Reg Sho Action: Alphanumeric
   index, reg_sho_action = nasdaq_nsmequities_noiview_itch_v3_0_2017.reg_sho_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -1668,19 +1668,19 @@ end
 nasdaq_nsmequities_noiview_itch_v3_0_2017.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2017.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2017.stock.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 3 values
+  -- Current Trading State: Alphanumeric
   index, current_trading_state = nasdaq_nsmequities_noiview_itch_v3_0_2017.current_trading_state.dissect(buffer, index, packet, parent)
 
-  -- Reason: 4 Byte Ascii String
+  -- Reason: Alphanumeric
   index, reason = nasdaq_nsmequities_noiview_itch_v3_0_2017.reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -1735,52 +1735,52 @@ end
 nasdaq_nsmequities_noiview_itch_v3_0_2017.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2017.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_noiview_itch_v3_0_2017.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Category: 1 Byte Ascii String Enum with 9 values
+  -- Market Category: Alphanumeric
   index, market_category = nasdaq_nsmequities_noiview_itch_v3_0_2017.market_category.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Alphanumeric
   index, financial_status_indicator = nasdaq_nsmequities_noiview_itch_v3_0_2017.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Integer
   index, round_lot_size = nasdaq_nsmequities_noiview_itch_v3_0_2017.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Round Lots Only: 1 Byte Ascii String Enum with 2 values
+  -- Round Lots Only: Alphanumeric
   index, round_lots_only = nasdaq_nsmequities_noiview_itch_v3_0_2017.round_lots_only.dissect(buffer, index, packet, parent)
 
-  -- Issue Classification: 1 Byte Ascii String
+  -- Issue Classification: Alphanumeric
   index, issue_classification = nasdaq_nsmequities_noiview_itch_v3_0_2017.issue_classification.dissect(buffer, index, packet, parent)
 
-  -- Issue Sub Type: 2 Byte Ascii String
+  -- Issue Sub Type: Alphanumeric
   index, issue_sub_type = nasdaq_nsmequities_noiview_itch_v3_0_2017.issue_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Authenticity: 1 Byte Ascii String Enum with 2 values
+  -- Authenticity: Alphanumeric
   index, authenticity = nasdaq_nsmequities_noiview_itch_v3_0_2017.authenticity.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Short Sale Threshold Indicator: Alphanumeric
   index, short_sale_threshold_indicator = nasdaq_nsmequities_noiview_itch_v3_0_2017.short_sale_threshold_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ipo Flag: 1 Byte Ascii String Enum with 3 values
+  -- Ipo Flag: Alphanumeric
   index, ipo_flag = nasdaq_nsmequities_noiview_itch_v3_0_2017.ipo_flag.dissect(buffer, index, packet, parent)
 
-  -- Luld Reference Price Tier: 1 Byte Ascii String Enum with 3 values
+  -- Luld Reference Price Tier: Alphanumeric
   index, luld_reference_price_tier = nasdaq_nsmequities_noiview_itch_v3_0_2017.luld_reference_price_tier.dissect(buffer, index, packet, parent)
 
-  -- Etp Flag: 1 Byte Ascii String Enum with 3 values
+  -- Etp Flag: Alphanumeric
   index, etp_flag = nasdaq_nsmequities_noiview_itch_v3_0_2017.etp_flag.dissect(buffer, index, packet, parent)
 
-  -- Etp Leverage Factor: 4 Byte Unsigned Fixed Width Integer
+  -- Etp Leverage Factor: Integer
   index, etp_leverage_factor = nasdaq_nsmequities_noiview_itch_v3_0_2017.etp_leverage_factor.dissect(buffer, index, packet, parent)
 
-  -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Inverse Indicator: Alphanumeric
   index, inverse_indicator = nasdaq_nsmequities_noiview_itch_v3_0_2017.inverse_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -1822,13 +1822,13 @@ end
 nasdaq_nsmequities_noiview_itch_v3_0_2017.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_nsmequities_noiview_itch_v3_0_2017.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_noiview_itch_v3_0_2017.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 7 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_nsmequities_noiview_itch_v3_0_2017.event_code.dissect(buffer, index, packet, parent)
 
   return index

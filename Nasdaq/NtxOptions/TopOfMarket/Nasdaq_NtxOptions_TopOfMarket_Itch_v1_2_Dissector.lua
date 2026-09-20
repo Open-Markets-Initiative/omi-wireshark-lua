@@ -1475,19 +1475,19 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.broken_trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Original Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Original Cross Id: Integer
   index, original_cross_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.original_cross_id.dissect(buffer, index, packet, parent)
 
-  -- Original Price: 4 Byte Signed Fixed Width Integer
+  -- Original Price: Integer
   index, original_price = nasdaq_ntxoptions_topofmarket_itch_v1_2.original_price.dissect(buffer, index, packet, parent)
 
-  -- Original Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Original Volume: Integer
   index, original_volume = nasdaq_ntxoptions_topofmarket_itch_v1_2.original_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -1532,22 +1532,22 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Id: Integer
   index, cross_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.cross_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String
+  -- Trade Condition: Alpha
   index, trade_condition = nasdaq_ntxoptions_topofmarket_itch_v1_2.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.price_long.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_ntxoptions_topofmarket_itch_v1_2.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -1591,19 +1591,19 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.best_ask_update_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.price_long.dissect(buffer, index, packet, parent)
 
-  -- Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Size Long: Integer
   index, size_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.size_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -1647,19 +1647,19 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.best_bid_update_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Signed Fixed Width Integer
+  -- Price Long: Integer
   index, price_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.price_long.dissect(buffer, index, packet, parent)
 
-  -- Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Size Long: Integer
   index, size_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.size_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -1703,19 +1703,19 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.best_ask_update_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_ntxoptions_topofmarket_itch_v1_2.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 2 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = nasdaq_ntxoptions_topofmarket_itch_v1_2.size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1759,19 +1759,19 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.best_bid_update_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_ntxoptions_topofmarket_itch_v1_2.price.dissect(buffer, index, packet, parent)
 
-  -- Size: 2 Byte Unsigned Fixed Width Integer
+  -- Size: Integer
   index, size = nasdaq_ntxoptions_topofmarket_itch_v1_2.size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1817,25 +1817,25 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Long: 4 Byte Signed Fixed Width Integer
+  -- Bid Price Long: Integer
   index, bid_price_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.bid_price_long.dissect(buffer, index, packet, parent)
 
-  -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size Long: Integer
   index, bid_size_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.bid_size_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Price Long: 4 Byte Signed Fixed Width Integer
+  -- Ask Price Long: Integer
   index, ask_price_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.ask_price_long.dissect(buffer, index, packet, parent)
 
-  -- Ask Size Long: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size Long: Integer
   index, ask_size_long = nasdaq_ntxoptions_topofmarket_itch_v1_2.ask_size_long.dissect(buffer, index, packet, parent)
 
   return index
@@ -1881,25 +1881,25 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.best_bid_and_ask_update_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: Alpha
   index, quote_condition = nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Signed Fixed Width Integer
+  -- Bid Price: Integer
   index, bid_price = nasdaq_ntxoptions_topofmarket_itch_v1_2.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Integer
   index, bid_size = nasdaq_ntxoptions_topofmarket_itch_v1_2.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Signed Fixed Width Integer
+  -- Ask Price: Integer
   index, ask_price = nasdaq_ntxoptions_topofmarket_itch_v1_2.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Integer
   index, ask_size = nasdaq_ntxoptions_topofmarket_itch_v1_2.ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -1941,13 +1941,13 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.security_open_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Ascii String Enum with 2 values
+  -- Open State: Alpha
   index, open_state = nasdaq_ntxoptions_topofmarket_itch_v1_2.open_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -1989,13 +1989,13 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
+  -- Current Trading State: Alpha
   index, current_trading_state = nasdaq_ntxoptions_topofmarket_itch_v1_2.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2047,43 +2047,43 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.options_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 6 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_ntxoptions_topofmarket_itch_v1_2.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Year: Integer
   index, expiration_year = nasdaq_ntxoptions_topofmarket_itch_v1_2.expiration_year.dissect(buffer, index, packet, parent)
 
-  -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Month: Integer
   index, expiration_month = nasdaq_ntxoptions_topofmarket_itch_v1_2.expiration_month.dissect(buffer, index, packet, parent)
 
-  -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Day: Integer
   index, expiration_day = nasdaq_ntxoptions_topofmarket_itch_v1_2.expiration_day.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Strike Price: Integer
   index, strike_price = nasdaq_ntxoptions_topofmarket_itch_v1_2.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: Alpha
   index, option_type = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_type.dissect(buffer, index, packet, parent)
 
-  -- Source: 1 Byte Unsigned Fixed Width Integer
+  -- Source: Integer
   index, source = nasdaq_ntxoptions_topofmarket_itch_v1_2.source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alpha
   index, underlying_symbol = nasdaq_ntxoptions_topofmarket_itch_v1_2.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Option Closing Type: 1 Byte Ascii String
+  -- Option Closing Type: Alpha
   index, option_closing_type = nasdaq_ntxoptions_topofmarket_itch_v1_2.option_closing_type.dissect(buffer, index, packet, parent)
 
-  -- Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Tradable: Alpha
   index, tradable = nasdaq_ntxoptions_topofmarket_itch_v1_2.tradable.dissect(buffer, index, packet, parent)
 
-  -- Minimum Price Variation: 1 Byte Ascii String Enum with 3 values
+  -- Minimum Price Variation: Alpha
   index, minimum_price_variation = nasdaq_ntxoptions_topofmarket_itch_v1_2.minimum_price_variation.dissect(buffer, index, packet, parent)
 
   return index
@@ -2126,16 +2126,16 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 6 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_ntxoptions_topofmarket_itch_v1_2.event_code.dissect(buffer, index, packet, parent)
 
-  -- Version: 1 Byte Unsigned Fixed Width Integer
+  -- Version: Integer
   index, version = nasdaq_ntxoptions_topofmarket_itch_v1_2.version.dissect(buffer, index, packet, parent)
 
-  -- Subversion: 1 Byte Unsigned Fixed Width Integer
+  -- Subversion: Integer
   index, subversion = nasdaq_ntxoptions_topofmarket_itch_v1_2.subversion.dissect(buffer, index, packet, parent)
 
   return index
@@ -2175,7 +2175,7 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v1_2.timestamp_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Second: 4 Byte Unsigned Fixed Width Integer
+  -- Second: Integer
   index, second = nasdaq_ntxoptions_topofmarket_itch_v1_2.second.dissect(buffer, index, packet, parent)
 
   -- Store Second Value

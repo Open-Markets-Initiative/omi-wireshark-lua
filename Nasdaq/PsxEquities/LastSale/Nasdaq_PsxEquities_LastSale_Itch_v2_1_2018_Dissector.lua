@@ -2216,13 +2216,13 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.operational_halt_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_lastsale_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Code: 1 Byte Ascii String Enum with 3 values
+  -- Market Code: Alpha
   index, market_code = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_code.dissect(buffer, index, packet, parent)
 
-  -- Operational Halt Action: 1 Byte Ascii String Enum with 2 values
+  -- Operational Halt Action: Alpha
   index, operational_halt_action = nasdaq_psxequities_lastsale_itch_v2_1_2018.operational_halt_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -2262,7 +2262,7 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.mwcb_breach_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Breached Level: 1 Byte Ascii String Enum with 3 values
+  -- Breached Level: Alphanumeric
   index, breached_level = nasdaq_psxequities_lastsale_itch_v2_1_2018.breached_level.dissect(buffer, index, packet, parent)
 
   return index
@@ -2304,13 +2304,13 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.mwcb_decline_level_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Level 1: 8 Byte Unsigned Fixed Width Integer
+  -- Level 1: Price (8)
   index, level_1 = nasdaq_psxequities_lastsale_itch_v2_1_2018.level_1.dissect(buffer, index, packet, parent)
 
-  -- Level 2: 8 Byte Unsigned Fixed Width Integer
+  -- Level 2: Price (8)
   index, level_2 = nasdaq_psxequities_lastsale_itch_v2_1_2018.level_2.dissect(buffer, index, packet, parent)
 
-  -- Level 3: 8 Byte Unsigned Fixed Width Integer
+  -- Level 3: Price (8)
   index, level_3 = nasdaq_psxequities_lastsale_itch_v2_1_2018.level_3.dissect(buffer, index, packet, parent)
 
   return index
@@ -2363,46 +2363,46 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_lastsale_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Category: 1 Byte Ascii String Enum with 9 values
+  -- Market Category: Alphanumeric
   index, market_category = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_category.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Alphanumeric
   index, financial_status_indicator = nasdaq_psxequities_lastsale_itch_v2_1_2018.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Integer
   index, round_lot_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Round Lots Only: 1 Byte Ascii String Enum with 2 values
+  -- Round Lots Only: Alphanumeric
   index, round_lots_only = nasdaq_psxequities_lastsale_itch_v2_1_2018.round_lots_only.dissect(buffer, index, packet, parent)
 
-  -- Issue Classification: 1 Byte Ascii String Enum with 16 values
+  -- Issue Classification: Alphanumeric
   index, issue_classification = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_classification.dissect(buffer, index, packet, parent)
 
-  -- Issue Sub Type: 2 Byte Ascii String Enum with 58 values
+  -- Issue Sub Type: Alphanumeric
   index, issue_sub_type = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Authenticity: 1 Byte Ascii String Enum with 2 values
+  -- Authenticity: Alphanumeric
   index, authenticity = nasdaq_psxequities_lastsale_itch_v2_1_2018.authenticity.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Short Sale Threshold Indicator: Alphanumeric
   index, short_sale_threshold_indicator = nasdaq_psxequities_lastsale_itch_v2_1_2018.short_sale_threshold_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ipo Flag: 1 Byte Ascii String Enum with 3 values
+  -- Ipo Flag: Alphanumeric
   index, ipo_flag = nasdaq_psxequities_lastsale_itch_v2_1_2018.ipo_flag.dissect(buffer, index, packet, parent)
 
-  -- Luld Reference Price Tier: 1 Byte Ascii String Enum with 3 values
+  -- Luld Reference Price Tier: Alphanumeric
   index, luld_reference_price_tier = nasdaq_psxequities_lastsale_itch_v2_1_2018.luld_reference_price_tier.dissect(buffer, index, packet, parent)
 
-  -- Etp Flag: 1 Byte Ascii String Enum with 3 values
+  -- Etp Flag: Alphanumeric
   index, etp_flag = nasdaq_psxequities_lastsale_itch_v2_1_2018.etp_flag.dissect(buffer, index, packet, parent)
 
-  -- Etp Leverage Factor: 4 Byte Unsigned Fixed Width Integer
+  -- Etp Leverage Factor: Integer
   index, etp_leverage_factor = nasdaq_psxequities_lastsale_itch_v2_1_2018.etp_leverage_factor.dissect(buffer, index, packet, parent)
 
-  -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Inverse Indicator: Alphanumeric
   index, inverse_indicator = nasdaq_psxequities_lastsale_itch_v2_1_2018.inverse_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2443,10 +2443,10 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_lastsale_itch_v2_1_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
+  -- Reg Sho Action: Alphanumeric
   index, reg_sho_action = nasdaq_psxequities_lastsale_itch_v2_1_2018.reg_sho_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -2489,16 +2489,16 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Issue Symbol: 8 Byte Ascii String
+  -- Issue Symbol: Alphanumeric
   index, issue_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 6 values
+  -- Security Class: Alphanumeric
   index, security_class = nasdaq_psxequities_lastsale_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 3 values
+  -- Current Trading State: Alphanumeric
   index, current_trading_state = nasdaq_psxequities_lastsale_itch_v2_1_2018.current_trading_state.dissect(buffer, index, packet, parent)
 
-  -- Trading Action Reason: 4 Byte Ascii String Enum with 34 values
+  -- Trading Action Reason: Alphanumeric
   index, trading_action_reason = nasdaq_psxequities_lastsale_itch_v2_1_2018.trading_action_reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -2550,43 +2550,43 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_correction_for_next_shares_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Center Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Market Center Identifier: Alphanumeric
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_center_identifier.dissect(buffer, index, packet, parent)
 
-  -- Issue Symbol: 8 Byte Ascii String
+  -- Issue Symbol: Alphanumeric
   index, issue_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 6 values
+  -- Security Class: Alphanumeric
   index, security_class = nasdaq_psxequities_lastsale_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Control Number: 10 Byte Ascii String
+  -- Original Trade Control Number: Alphanumeric
   index, original_trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Price: Price (4)
   index, original_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Original Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
+  -- Original Nav Premium Discount Amount: Price (4)
   index, original_nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Size: Integer
   index, original_trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition Modifier: 4 Byte Ascii String
+  -- Original Sale Condition Modifier: Alphanumeric
   index, original_sale_condition_modifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_sale_condition_modifier.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Control Number: 10 Byte Ascii String
+  -- Corrected Trade Control Number: Alphanumeric
   index, corrected_trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Trade Price: Price (4)
   index, corrected_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Corrected Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Nav Premium Discount Amount: Price (4)
   index, corrected_nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Trade Size: Integer
   index, corrected_trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Corrected Sale Condition Modifier: 4 Byte Ascii String
+  -- Corrected Sale Condition Modifier: Alphanumeric
   index, corrected_sale_condition_modifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_sale_condition_modifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -2636,37 +2636,37 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Center Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Market Center Identifier: Alphanumeric
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_center_identifier.dissect(buffer, index, packet, parent)
 
-  -- Issue Symbol: 8 Byte Ascii String
+  -- Issue Symbol: Alphanumeric
   index, issue_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 6 values
+  -- Security Class: Alphanumeric
   index, security_class = nasdaq_psxequities_lastsale_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Control Number: 10 Byte Ascii String
+  -- Original Trade Control Number: Alphanumeric
   index, original_trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Price: Price (4)
   index, original_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Size: Integer
   index, original_trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition Modifier: 4 Byte Ascii String
+  -- Original Sale Condition Modifier: Alphanumeric
   index, original_sale_condition_modifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_sale_condition_modifier.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Control Number: 10 Byte Ascii String
+  -- Corrected Trade Control Number: Alphanumeric
   index, corrected_trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Trade Price: Price (4)
   index, corrected_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Corrected Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Corrected Trade Size: Integer
   index, corrected_trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Corrected Sale Condition Modifier: 4 Byte Ascii String
+  -- Corrected Sale Condition Modifier: Alphanumeric
   index, corrected_sale_condition_modifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.corrected_sale_condition_modifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -2713,28 +2713,28 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_cancel_error_for_next_shares_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Center Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Market Center Identifier: Alphanumeric
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_center_identifier.dissect(buffer, index, packet, parent)
 
-  -- Issue Symbol: 8 Byte Ascii String
+  -- Issue Symbol: Alphanumeric
   index, issue_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 6 values
+  -- Security Class: Alphanumeric
   index, security_class = nasdaq_psxequities_lastsale_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Control Number: 10 Byte Ascii String
+  -- Original Trade Control Number: Alphanumeric
   index, original_trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Price: Price (4)
   index, original_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Original Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
+  -- Original Nav Premium Discount Amount: Price (4)
   index, original_nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Size: Integer
   index, original_trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition Modifier: 4 Byte Ascii String
+  -- Original Sale Condition Modifier: Alphanumeric
   index, original_sale_condition_modifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_sale_condition_modifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -2780,25 +2780,25 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_cancel_error_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Center Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Market Center Identifier: Alphanumeric
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_center_identifier.dissect(buffer, index, packet, parent)
 
-  -- Issue Symbol: 8 Byte Ascii String
+  -- Issue Symbol: Alphanumeric
   index, issue_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 6 values
+  -- Security Class: Alphanumeric
   index, security_class = nasdaq_psxequities_lastsale_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Control Number: 10 Byte Ascii String
+  -- Original Trade Control Number: Alphanumeric
   index, original_trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Price: Price (4)
   index, original_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Size: Integer
   index, original_trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Original Sale Condition Modifier: 4 Byte Ascii String
+  -- Original Sale Condition Modifier: Alphanumeric
   index, original_sale_condition_modifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.original_sale_condition_modifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -2848,37 +2848,37 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.next_shares_trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Center Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Market Center Identifier: Alphanumeric
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_center_identifier.dissect(buffer, index, packet, parent)
 
-  -- Next Shares Symbol: 8 Byte Ascii String
+  -- Next Shares Symbol: Alphanumeric
   index, next_shares_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2018.next_shares_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 6 values
+  -- Security Class: Alphanumeric
   index, security_class = nasdaq_psxequities_lastsale_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Trade Control Number: 10 Byte Ascii String
+  -- Trade Control Number: Alphanumeric
   index, trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Proxy Price: 4 Byte Unsigned Fixed Width Integer
+  -- Proxy Price: Price (4)
   index, proxy_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.proxy_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Size: Integer
   index, trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_size.dissect(buffer, index, packet, parent)
 
-  -- Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
+  -- Nav Premium Discount Amount: Price (4)
   index, nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2018.nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 1: 1 Byte Ascii String Enum with 5 values
+  -- Sale Condition Modifier Level 1: Alphanumeric
   index, sale_condition_modifier_level_1 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_1.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 2: 1 Byte Ascii String Enum with 6 values
+  -- Sale Condition Modifier Level 2: Alphanumeric
   index, sale_condition_modifier_level_2 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_2.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 3: 1 Byte Ascii String Enum with 5 values
+  -- Sale Condition Modifier Level 3: Alphanumeric
   index, sale_condition_modifier_level_3 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_3.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 4: 1 Byte Ascii String Enum with 13 values
+  -- Sale Condition Modifier Level 4: Alphanumeric
   index, sale_condition_modifier_level_4 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -2927,34 +2927,34 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_report_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Market Center Identifier: 1 Byte Ascii String Enum with 2 values
+  -- Market Center Identifier: Alphanumeric
   index, market_center_identifier = nasdaq_psxequities_lastsale_itch_v2_1_2018.market_center_identifier.dissect(buffer, index, packet, parent)
 
-  -- Issue Symbol: 8 Byte Ascii String
+  -- Issue Symbol: Alphanumeric
   index, issue_symbol = nasdaq_psxequities_lastsale_itch_v2_1_2018.issue_symbol.dissect(buffer, index, packet, parent)
 
-  -- Security Class: 1 Byte Ascii String Enum with 6 values
+  -- Security Class: Alphanumeric
   index, security_class = nasdaq_psxequities_lastsale_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Trade Control Number: 10 Byte Ascii String
+  -- Trade Control Number: Alphanumeric
   index, trade_control_number = nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_control_number.dissect(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Price: Price (4)
   index, trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_price.dissect(buffer, index, packet, parent)
 
-  -- Trade Size: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Size: Integer
   index, trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2018.trade_size.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 1: 1 Byte Ascii String Enum with 5 values
+  -- Sale Condition Modifier Level 1: Alphanumeric
   index, sale_condition_modifier_level_1 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_1.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 2: 1 Byte Ascii String Enum with 6 values
+  -- Sale Condition Modifier Level 2: Alphanumeric
   index, sale_condition_modifier_level_2 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_2.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 3: 1 Byte Ascii String Enum with 5 values
+  -- Sale Condition Modifier Level 3: Alphanumeric
   index, sale_condition_modifier_level_3 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_3.dissect(buffer, index, packet, parent)
 
-  -- Sale Condition Modifier Level 4: 1 Byte Ascii String Enum with 13 values
+  -- Sale Condition Modifier Level 4: Alphanumeric
   index, sale_condition_modifier_level_4 = nasdaq_psxequities_lastsale_itch_v2_1_2018.sale_condition_modifier_level_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -2994,7 +2994,7 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2018.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Event Code: 1 Byte Ascii String Enum with 6 values
+  -- Event Code: Alphanumeric
   index, event_code = nasdaq_psxequities_lastsale_itch_v2_1_2018.event_code.dissect(buffer, index, packet, parent)
 
   return index

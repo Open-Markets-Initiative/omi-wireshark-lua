@@ -2192,40 +2192,40 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.net_order_imbalance_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Paired Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Paired Shares: Integer
   index, paired_shares = nasdaq_psxequities_totalview_itch_v5_0_2018.paired_shares.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Imbalance Shares: Integer
   index, imbalance_shares = nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_shares.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Direction: 1 Byte Ascii String Enum with 4 values
+  -- Imbalance Direction: Alpha
   index, imbalance_direction = nasdaq_psxequities_totalview_itch_v5_0_2018.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Far Price: 4 Byte Unsigned Fixed Width Integer
+  -- Far Price: Price (4)
   index, far_price = nasdaq_psxequities_totalview_itch_v5_0_2018.far_price.dissect(buffer, index, packet, parent)
 
-  -- Near Price: 4 Byte Unsigned Fixed Width Integer
+  -- Near Price: Price (4)
   index, near_price = nasdaq_psxequities_totalview_itch_v5_0_2018.near_price.dissect(buffer, index, packet, parent)
 
-  -- Current Reference Price: 4 Byte Unsigned Fixed Width Integer
+  -- Current Reference Price: Price (4)
   index, current_reference_price = nasdaq_psxequities_totalview_itch_v5_0_2018.current_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 4 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Price Variation Indicator: 1 Byte Ascii String Enum with 14 values
+  -- Price Variation Indicator: Alpha
   index, price_variation_indicator = nasdaq_psxequities_totalview_itch_v5_0_2018.price_variation_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -2268,16 +2268,16 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.broken_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_psxequities_totalview_itch_v5_0_2018.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2324,28 +2324,28 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Cross Shares: 8 Byte Unsigned Fixed Width Integer
+  -- Cross Shares: Integer
   index, cross_shares = nasdaq_psxequities_totalview_itch_v5_0_2018.cross_shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Cross Price: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Price: Price (4)
   index, cross_price = nasdaq_psxequities_totalview_itch_v5_0_2018.cross_price.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_psxequities_totalview_itch_v5_0_2018.match_number.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 4 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_psxequities_totalview_itch_v5_0_2018.cross_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2393,31 +2393,31 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.trade_message_non_cross.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_psxequities_totalview_itch_v5_0_2018.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_psxequities_totalview_itch_v5_0_2018.price.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_psxequities_totalview_itch_v5_0_2018.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2463,25 +2463,25 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.order_replace_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Original Order Reference Number: Integer
   index, original_order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.original_order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- New Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- New Order Reference Number: Integer
   index, new_order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.new_order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_psxequities_totalview_itch_v5_0_2018.shares.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_psxequities_totalview_itch_v5_0_2018.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2524,16 +2524,16 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.order_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.order_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2577,19 +2577,19 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.order_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Canceled Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Canceled Shares: Integer
   index, canceled_shares = nasdaq_psxequities_totalview_itch_v5_0_2018.canceled_shares.dissect(buffer, index, packet, parent)
 
   return index
@@ -2636,28 +2636,28 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.order_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Shares: Integer
   index, executed_shares = nasdaq_psxequities_totalview_itch_v5_0_2018.executed_shares.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_psxequities_totalview_itch_v5_0_2018.match_number.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = nasdaq_psxequities_totalview_itch_v5_0_2018.printable.dissect(buffer, index, packet, parent)
 
-  -- Execution Price: 4 Byte Unsigned Fixed Width Integer
+  -- Execution Price: Price (4)
   index, execution_price = nasdaq_psxequities_totalview_itch_v5_0_2018.execution_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2702,22 +2702,22 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Executed Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Shares: Integer
   index, executed_shares = nasdaq_psxequities_totalview_itch_v5_0_2018.executed_shares.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 8 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_psxequities_totalview_itch_v5_0_2018.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2765,31 +2765,31 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.add_order_with_mpid_attribution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_psxequities_totalview_itch_v5_0_2018.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_psxequities_totalview_itch_v5_0_2018.price.dissect(buffer, index, packet, parent)
 
-  -- Attribution: 4 Byte Ascii String
+  -- Attribution: Alpha
   index, attribution = nasdaq_psxequities_totalview_itch_v5_0_2018.attribution.dissect(buffer, index, packet, parent)
 
   return index
@@ -2836,28 +2836,28 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.add_order_no_mpid_attribution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number: Integer
   index, order_reference_number = nasdaq_psxequities_totalview_itch_v5_0_2018.order_reference_number.dissect(buffer, index, packet, parent)
 
-  -- Buy Sell Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Buy Sell Indicator: Alpha
   index, buy_sell_indicator = nasdaq_psxequities_totalview_itch_v5_0_2018.buy_sell_indicator.dissect(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
+  -- Shares: Integer
   index, shares = nasdaq_psxequities_totalview_itch_v5_0_2018.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Price (4)
   index, price = nasdaq_psxequities_totalview_itch_v5_0_2018.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2902,22 +2902,22 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Code: 1 Byte Ascii String Enum with 3 values
+  -- Market Code: Alpha
   index, market_code = nasdaq_psxequities_totalview_itch_v5_0_2018.market_code.dissect(buffer, index, packet, parent)
 
-  -- Operational Halt Action: 1 Byte Ascii String Enum with 2 values
+  -- Operational Halt Action: Alpha
   index, operational_halt_action = nasdaq_psxequities_totalview_itch_v5_0_2018.operational_halt_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -2964,28 +2964,28 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.luld_auction_collar_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Reference Price: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Collar Reference Price: Price (4)
   index, auction_collar_reference_price = nasdaq_psxequities_totalview_itch_v5_0_2018.auction_collar_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Upper Auction Collar Price: 4 Byte Unsigned Fixed Width Integer
+  -- Upper Auction Collar Price: Price (4)
   index, upper_auction_collar_price = nasdaq_psxequities_totalview_itch_v5_0_2018.upper_auction_collar_price.dissect(buffer, index, packet, parent)
 
-  -- Lower Auction Collar Price: 4 Byte Unsigned Fixed Width Integer
+  -- Lower Auction Collar Price: Price (4)
   index, lower_auction_collar_price = nasdaq_psxequities_totalview_itch_v5_0_2018.lower_auction_collar_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Collar Extension: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Collar Extension: Integer
   index, auction_collar_extension = nasdaq_psxequities_totalview_itch_v5_0_2018.auction_collar_extension.dissect(buffer, index, packet, parent)
 
   return index
@@ -3028,16 +3028,16 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.mwcb_status_level_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Breached Level: 1 Byte Ascii String Enum with 3 values
+  -- Breached Level: Alpha
   index, breached_level = nasdaq_psxequities_totalview_itch_v5_0_2018.breached_level.dissect(buffer, index, packet, parent)
 
   return index
@@ -3082,22 +3082,22 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.mwcb_decline_level_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Level 1: 8 Byte Unsigned Fixed Width Integer
+  -- Level 1: Price (8)
   index, level_1 = nasdaq_psxequities_totalview_itch_v5_0_2018.level_1.dissect(buffer, index, packet, parent)
 
-  -- Level 2: 8 Byte Unsigned Fixed Width Integer
+  -- Level 2: Price (8)
   index, level_2 = nasdaq_psxequities_totalview_itch_v5_0_2018.level_2.dissect(buffer, index, packet, parent)
 
-  -- Level 3: 8 Byte Unsigned Fixed Width Integer
+  -- Level 3: Price (8)
   index, level_3 = nasdaq_psxequities_totalview_itch_v5_0_2018.level_3.dissect(buffer, index, packet, parent)
 
   return index
@@ -3144,28 +3144,28 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_position_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: Alpha
   index, mpid = nasdaq_psxequities_totalview_itch_v5_0_2018.mpid.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Primary Market Maker: 1 Byte Ascii String Enum with 2 values
+  -- Primary Market Maker: Alpha
   index, primary_market_maker = nasdaq_psxequities_totalview_itch_v5_0_2018.primary_market_maker.dissect(buffer, index, packet, parent)
 
-  -- Market Maker Mode: 1 Byte Ascii String Enum with 5 values
+  -- Market Maker Mode: Alpha
   index, market_maker_mode = nasdaq_psxequities_totalview_itch_v5_0_2018.market_maker_mode.dissect(buffer, index, packet, parent)
 
-  -- Market Participant State: 1 Byte Ascii String Enum with 5 values
+  -- Market Participant State: Alpha
   index, market_participant_state = nasdaq_psxequities_totalview_itch_v5_0_2018.market_participant_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -3209,19 +3209,19 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_short_sale_price_test_restricted_indicator_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Locate Code: 2 Byte Unsigned Fixed Width Integer
+  -- Locate Code: Integer
   index, locate_code = nasdaq_psxequities_totalview_itch_v5_0_2018.locate_code.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
+  -- Reg Sho Action: Alpha
   index, reg_sho_action = nasdaq_psxequities_totalview_itch_v5_0_2018.reg_sho_action.dissect(buffer, index, packet, parent)
 
   return index
@@ -3267,25 +3267,25 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Trading State: 1 Byte Ascii String Enum with 4 values
+  -- Trading State: Alpha
   index, trading_state = nasdaq_psxequities_totalview_itch_v5_0_2018.trading_state.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Ascii String
+  -- Reserved: Alpha
   index, reserved = nasdaq_psxequities_totalview_itch_v5_0_2018.reserved.dissect(buffer, index, packet, parent)
 
-  -- Reason: 4 Byte Ascii String
+  -- Reason: Alpha
   index, reason = nasdaq_psxequities_totalview_itch_v5_0_2018.reason.dissect(buffer, index, packet, parent)
 
   return index
@@ -3341,55 +3341,55 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: 8 Byte Ascii String
+  -- Stock: Alpha
   index, stock = nasdaq_psxequities_totalview_itch_v5_0_2018.stock.dissect(buffer, index, packet, parent)
 
-  -- Market Category: 1 Byte Ascii String Enum with 9 values
+  -- Market Category: Alpha
   index, market_category = nasdaq_psxequities_totalview_itch_v5_0_2018.market_category.dissect(buffer, index, packet, parent)
 
-  -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
+  -- Financial Status Indicator: Alpha
   index, financial_status_indicator = nasdaq_psxequities_totalview_itch_v5_0_2018.financial_status_indicator.dissect(buffer, index, packet, parent)
 
-  -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
+  -- Round Lot Size: Integer
   index, round_lot_size = nasdaq_psxequities_totalview_itch_v5_0_2018.round_lot_size.dissect(buffer, index, packet, parent)
 
-  -- Round Lots Only: 1 Byte Ascii String Enum with 2 values
+  -- Round Lots Only: Alpha
   index, round_lots_only = nasdaq_psxequities_totalview_itch_v5_0_2018.round_lots_only.dissect(buffer, index, packet, parent)
 
-  -- Issue Classification: 1 Byte Ascii String
+  -- Issue Classification: Alpha
   index, issue_classification = nasdaq_psxequities_totalview_itch_v5_0_2018.issue_classification.dissect(buffer, index, packet, parent)
 
-  -- Issue Sub Type: 2 Byte Ascii String
+  -- Issue Sub Type: Alpha
   index, issue_sub_type = nasdaq_psxequities_totalview_itch_v5_0_2018.issue_sub_type.dissect(buffer, index, packet, parent)
 
-  -- Authenticity: 1 Byte Ascii String Enum with 2 values
+  -- Authenticity: Alpha
   index, authenticity = nasdaq_psxequities_totalview_itch_v5_0_2018.authenticity.dissect(buffer, index, packet, parent)
 
-  -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Short Sale Threshold Indicator: Alpha
   index, short_sale_threshold_indicator = nasdaq_psxequities_totalview_itch_v5_0_2018.short_sale_threshold_indicator.dissect(buffer, index, packet, parent)
 
-  -- Ipo Flag: 1 Byte Ascii String Enum with 3 values
+  -- Ipo Flag: Alpha
   index, ipo_flag = nasdaq_psxequities_totalview_itch_v5_0_2018.ipo_flag.dissect(buffer, index, packet, parent)
 
-  -- Luld Reference Price Tier: 1 Byte Ascii String Enum with 3 values
+  -- Luld Reference Price Tier: Alpha
   index, luld_reference_price_tier = nasdaq_psxequities_totalview_itch_v5_0_2018.luld_reference_price_tier.dissect(buffer, index, packet, parent)
 
-  -- Etp Flag: 1 Byte Ascii String Enum with 3 values
+  -- Etp Flag: Alpha
   index, etp_flag = nasdaq_psxequities_totalview_itch_v5_0_2018.etp_flag.dissect(buffer, index, packet, parent)
 
-  -- Etp Leverage Factor: 4 Byte Unsigned Fixed Width Integer
+  -- Etp Leverage Factor: Integer
   index, etp_leverage_factor = nasdaq_psxequities_totalview_itch_v5_0_2018.etp_leverage_factor.dissect(buffer, index, packet, parent)
 
-  -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Inverse Indicator: Alpha
   index, inverse_indicator = nasdaq_psxequities_totalview_itch_v5_0_2018.inverse_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3432,16 +3432,16 @@ end
 nasdaq_psxequities_totalview_itch_v5_0_2018.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  -- Stock Locate: Integer
   index, stock_locate = nasdaq_psxequities_totalview_itch_v5_0_2018.stock_locate.dissect(buffer, index, packet, parent)
 
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  -- Tracking Number: Integer
   index, tracking_number = nasdaq_psxequities_totalview_itch_v5_0_2018.tracking_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Integer
   index, timestamp = nasdaq_psxequities_totalview_itch_v5_0_2018.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String Enum with 6 values
+  -- Event Code: Alpha
   index, event_code = nasdaq_psxequities_totalview_itch_v5_0_2018.event_code.dissect(buffer, index, packet, parent)
 
   return index

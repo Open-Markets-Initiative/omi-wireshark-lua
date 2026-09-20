@@ -64,7 +64,7 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.paired_contracts = ProtoFi
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.price", ftypes.DOUBLE)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.printable = ProtoField.new("Printable", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.printable", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.reference_number_delta = ProtoField.new("Reference Number Delta", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.referencenumberdelta", ftypes.UINT32)
-omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.reserved", ftypes.BYTES)
+omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.reserved3", ftypes.BYTES)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.second = ProtoField.new("Second", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.second", ftypes.UINT32)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.securitysymbol", ftypes.STRING)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.5.sequencenumber", ftypes.UINT64)
@@ -1612,25 +1612,25 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_5.reference_number_delta.dissect = func
   return offset + length, value
 end
 
--- Reserved
-nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved = {}
+-- Reserved 3
+nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3 = {}
 
--- Size: Reserved
-nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved.size = 3
+-- Size: Reserved 3
+nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3.size = 3
 
--- Display: Reserved
-nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 3
+nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3.display = function(value)
+  return "Reserved 3: "..value
 end
 
--- Dissect: Reserved
-nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved.size
+-- Dissect: Reserved 3
+nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v1_5.fields.reserved_3, range, value, display)
 
   return offset + length, value
 end
@@ -2061,7 +2061,7 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_5.auction_notification_message.size =
   nasdaq_phlxoptions_depthofmarket_itch_v1_5.imbalance_price.size + 
   nasdaq_phlxoptions_depthofmarket_itch_v1_5.imbalance_volume.size + 
   nasdaq_phlxoptions_depthofmarket_itch_v1_5.customer_indicator.size + 
-  nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved.size
+  nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3.size
 
 -- Display: Auction Notification Message
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.auction_notification_message.display = function(packet, parent, length)
@@ -2072,35 +2072,35 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Integer
   index, auction_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 3 values
+  -- Auction Type: Alpha
   index, auction_type = nasdaq_phlxoptions_depthofmarket_itch_v1_5.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Paired Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Paired Contracts: Integer
   index, paired_contracts = nasdaq_phlxoptions_depthofmarket_itch_v1_5.paired_contracts.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Direction: 1 Byte Ascii String Enum with 2 values
+  -- Imbalance Direction: Alpha
   index, imbalance_direction = nasdaq_phlxoptions_depthofmarket_itch_v1_5.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Price: 4 Byte Signed Fixed Width Integer
+  -- Imbalance Price: Integer
   index, imbalance_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.imbalance_price.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Volume: Integer
   index, imbalance_volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.imbalance_volume.dissect(buffer, index, packet, parent)
 
-  -- Customer Indicator: 1 Byte Ascii String Enum with 5 values
+  -- Customer Indicator: Alpha
   index, customer_indicator = nasdaq_phlxoptions_depthofmarket_itch_v1_5.customer_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 3 Byte Unsigned Fixed Width Integer
-  index, reserved = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 3: Integer
+  index, reserved_3 = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2141,13 +2141,13 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.broken_trade_order_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -2193,25 +2193,25 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.options_cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 1 values
+  -- Cross Type: Alpha
   index, cross_type = nasdaq_phlxoptions_depthofmarket_itch_v1_5.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2257,25 +2257,25 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.non_auction_options_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Indicator: 1 Byte Ascii String Enum with 3 values
+  -- Trade Indicator: Alpha
   index, trade_indicator = nasdaq_phlxoptions_depthofmarket_itch_v1_5.trade_indicator.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2326,10 +2326,10 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.block_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Number Of Reference Number Deltas: 2 Byte Unsigned Fixed Width Integer
+  -- Number Of Reference Number Deltas: Integer
   index, number_of_reference_number_deltas = nasdaq_phlxoptions_depthofmarket_itch_v1_5.number_of_reference_number_deltas.dissect(buffer, index, packet, parent)
 
   -- Repeating: Cancelled Reference Number Delta
@@ -2376,13 +2376,13 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.quote_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
   return index
@@ -2430,31 +2430,31 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.quote_replace_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Bid Reference Number Delta: Integer
   index, original_bid_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Original Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Ask Reference Number Delta: Integer
   index, original_ask_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Bid: 4 Byte Unsigned Fixed Width Integer
+  -- Bid: Integer
   index, bid = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Integer
   index, bid_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask: 4 Byte Unsigned Fixed Width Integer
+  -- Ask: Integer
   index, ask = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Integer
   index, ask_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -2502,31 +2502,31 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.quote_replace_short_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Bid Reference Number Delta: Integer
   index, original_bid_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Original Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Ask Reference Number Delta: Integer
   index, original_ask_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Signed Fixed Width Integer
+  -- Bid Price: Integer
   index, bid_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Short Bid Size: Integer
   index, short_bid_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Signed Fixed Width Integer
+  -- Ask Price: Integer
   index, ask_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
+  -- Short Ask Size: Integer
   index, short_ask_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -2570,19 +2570,19 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Change Reason: 1 Byte Ascii String Enum with 4 values
+  -- Change Reason: Alpha
   index, change_reason = nasdaq_phlxoptions_depthofmarket_itch_v1_5.change_reason.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2623,10 +2623,10 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_delete_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
   return index
@@ -2671,22 +2671,22 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_replace_long_form_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Reference Number Delta: Integer
   index, original_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- New Reference Number Delta: Integer
   index, new_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2731,22 +2731,22 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.order_replace_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Reference Number Delta: Integer
   index, original_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- New Reference Number Delta: Integer
   index, new_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Short Price: 2 Byte Signed Fixed Width Integer
+  -- Short Price: Integer
   index, short_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_price.dissect(buffer, index, packet, parent)
 
-  -- Short Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Short Volume: Integer
   index, short_volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_volume.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2790,19 +2790,19 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_replace_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Reference Number Delta: Integer
   index, original_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- New Reference Number Delta: Integer
   index, new_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2846,19 +2846,19 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_replace_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Original Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Original Reference Number Delta: Integer
   index, original_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.original_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- New Reference Number Delta: Integer
   index, new_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.new_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Short Price: 2 Byte Signed Fixed Width Integer
+  -- Short Price: Integer
   index, short_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_price.dissect(buffer, index, packet, parent)
 
-  -- Short Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Short Volume: Integer
   index, short_volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2900,13 +2900,13 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Cancelled Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Cancelled Contracts: Integer
   index, cancelled_contracts = nasdaq_phlxoptions_depthofmarket_itch_v1_5.cancelled_contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -2952,25 +2952,25 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_executed_with_price_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
-  -- Printable: 1 Byte Ascii String Enum with 2 values
+  -- Printable: Alpha
   index, printable = nasdaq_phlxoptions_depthofmarket_itch_v1_5.printable.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -3014,19 +3014,19 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.single_side_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Number Delta: Integer
   index, reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Executed Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Contracts: Integer
   index, executed_contracts = nasdaq_phlxoptions_depthofmarket_itch_v1_5.executed_contracts.dissect(buffer, index, packet, parent)
 
-  -- Cross Number: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Number: Integer
   index, cross_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.cross_number.dissect(buffer, index, packet, parent)
 
-  -- Match Number: 4 Byte Unsigned Fixed Width Integer
+  -- Match Number: Integer
   index, match_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.match_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3073,28 +3073,28 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.add_quote_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Bid: 4 Byte Unsigned Fixed Width Integer
+  -- Bid: Integer
   index, bid = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid.dissect(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Size: Integer
   index, bid_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask: 4 Byte Unsigned Fixed Width Integer
+  -- Ask: Integer
   index, ask = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask.dissect(buffer, index, packet, parent)
 
-  -- Ask Size: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Size: Integer
   index, ask_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -3141,28 +3141,28 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.add_quote_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Bid Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Reference Number Delta: Integer
   index, bid_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Reference Number Delta: Integer
   index, ask_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Signed Fixed Width Integer
+  -- Bid Price: Integer
   index, bid_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
+  -- Short Bid Size: Integer
   index, short_bid_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Signed Fixed Width Integer
+  -- Ask Price: Integer
   index, ask_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
+  -- Short Ask Size: Integer
   index, short_ask_size = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_ask_size.dissect(buffer, index, packet, parent)
 
   return index
@@ -3208,25 +3208,25 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.add_order_message_long_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number Delta: Integer
   index, order_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.order_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Market Side: 1 Byte Ascii String Enum with 6 values
+  -- Market Side: Alpha
   index, market_side = nasdaq_phlxoptions_depthofmarket_itch_v1_5.market_side.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Integer
   index, price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Integer
   index, volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.volume.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3272,25 +3272,25 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.add_order_message_short_form.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
+  -- Order Reference Number Delta: Integer
   index, order_reference_number_delta = nasdaq_phlxoptions_depthofmarket_itch_v1_5.order_reference_number_delta.dissect(buffer, index, packet, parent)
 
-  -- Market Side: 1 Byte Ascii String Enum with 6 values
+  -- Market Side: Alpha
   index, market_side = nasdaq_phlxoptions_depthofmarket_itch_v1_5.market_side.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Short Price: 2 Byte Signed Fixed Width Integer
+  -- Short Price: Integer
   index, short_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_price.dissect(buffer, index, packet, parent)
 
-  -- Short Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Short Volume: Integer
   index, short_volume = nasdaq_phlxoptions_depthofmarket_itch_v1_5.short_volume.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 4 Byte Unsigned Fixed Width Integer
+  -- Order Id: Integer
   index, order_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3332,13 +3332,13 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.security_open_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Ascii String Enum with 2 values
+  -- Open State: Alphabetic
   index, open_state = nasdaq_phlxoptions_depthofmarket_itch_v1_5.open_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -3380,13 +3380,13 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Ascii String Enum with 4 values
+  -- Current Trading State: Alphanumeric
   index, current_trading_state = nasdaq_phlxoptions_depthofmarket_itch_v1_5.current_trading_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -3438,43 +3438,43 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Option Id: 4 Byte Unsigned Fixed Width Integer
+  -- Option Id: Integer
   index, option_id = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_id.dissect(buffer, index, packet, parent)
 
-  -- Security Symbol: 6 Byte Ascii String
+  -- Security Symbol: Alphanumeric
   index, security_symbol = nasdaq_phlxoptions_depthofmarket_itch_v1_5.security_symbol.dissect(buffer, index, packet, parent)
 
-  -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Year: Integer
   index, expiration_year = nasdaq_phlxoptions_depthofmarket_itch_v1_5.expiration_year.dissect(buffer, index, packet, parent)
 
-  -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Month: Integer
   index, expiration_month = nasdaq_phlxoptions_depthofmarket_itch_v1_5.expiration_month.dissect(buffer, index, packet, parent)
 
-  -- Expiration Date: 1 Byte Unsigned Fixed Width Integer
+  -- Expiration Date: Integer
   index, expiration_date = nasdaq_phlxoptions_depthofmarket_itch_v1_5.expiration_date.dissect(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
+  -- Explicit Strike Price: Integer
   index, explicit_strike_price = nasdaq_phlxoptions_depthofmarket_itch_v1_5.explicit_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Ascii String Enum with 2 values
+  -- Option Type: Alphanumeric
   index, option_type = nasdaq_phlxoptions_depthofmarket_itch_v1_5.option_type.dissect(buffer, index, packet, parent)
 
-  -- Source: 1 Byte Unsigned Fixed Width Integer
+  -- Source: Integer
   index, source = nasdaq_phlxoptions_depthofmarket_itch_v1_5.source.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 13 Byte Ascii String
+  -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = nasdaq_phlxoptions_depthofmarket_itch_v1_5.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Options Closing Type: 1 Byte Ascii String Enum with 3 values
+  -- Options Closing Type: Alphanumeric
   index, options_closing_type = nasdaq_phlxoptions_depthofmarket_itch_v1_5.options_closing_type.dissect(buffer, index, packet, parent)
 
-  -- Tradable: 1 Byte Ascii String Enum with 2 values
+  -- Tradable: Alpha
   index, tradable = nasdaq_phlxoptions_depthofmarket_itch_v1_5.tradable.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 1 Byte Ascii String Enum with 3 values
+  -- Mpv: Alpha
   index, mpv = nasdaq_phlxoptions_depthofmarket_itch_v1_5.mpv.dissect(buffer, index, packet, parent)
 
   return index
@@ -3515,10 +3515,10 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.base_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Base Reference Number: 8 Byte Unsigned Fixed Width Integer
+  -- Base Reference Number: Integer
   index, base_reference_number = nasdaq_phlxoptions_depthofmarket_itch_v1_5.base_reference_number.dissect(buffer, index, packet, parent)
 
   return index
@@ -3559,10 +3559,10 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.system_event_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  -- Nanoseconds: Integer
   index, nanoseconds = nasdaq_phlxoptions_depthofmarket_itch_v1_5.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Ascii String
+  -- Event Code: Alpha
   index, event_code = nasdaq_phlxoptions_depthofmarket_itch_v1_5.event_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -3602,7 +3602,7 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v1_5.seconds_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Second: 4 Byte Unsigned Fixed Width Integer
+  -- Second: Integer
   index, second = nasdaq_phlxoptions_depthofmarket_itch_v1_5.second.dissect(buffer, index, packet, parent)
 
   -- Store Second Value
