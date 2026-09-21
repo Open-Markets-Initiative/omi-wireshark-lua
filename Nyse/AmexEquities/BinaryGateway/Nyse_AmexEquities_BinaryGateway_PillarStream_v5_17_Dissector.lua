@@ -64,7 +64,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.liquidity_indicato
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.listed_mic = ProtoField.new("Listed Mic", "nyse.amexequities.binarygateway.pillarstream.v5.17.listedmic", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.lmocp = ProtoField.new("Lmocp", "nyse.amexequities.binarygateway.pillarstream.v5.17.lmocp", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.locate_broker = ProtoField.new("Locate Broker", "nyse.amexequities.binarygateway.pillarstream.v5.17.locatebroker", ftypes.STRING)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.locate_reqd = ProtoField.new("Locate Reqd", "nyse.amexequities.binarygateway.pillarstream.v5.17.locatereqd", ftypes.UINT64, {[0]="No Locate Reqd", [1]="Locate Reqd For Ssh Orders"}, base.DEC, 0x0000000000020000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.locate_reqd_1 = ProtoField.new("Locate Reqd 1", "nyse.amexequities.binarygateway.pillarstream.v5.17.locatereqd1", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000020000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.locate_reqd_u_81 = ProtoField.new("Locate Reqd U 81", "nyse.amexequities.binarygateway.pillarstream.v5.17.locatereqdu81", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.amexequities.binarygateway.pillarstream.v5.17.luldmpv", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.manual_action_id = ProtoField.new("Manual Action Id", "nyse.amexequities.binarygateway.pillarstream.v5.17.manualactionid", ftypes.STRING)
@@ -148,7 +148,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.routing_inst = Pro
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.routing_strategy = ProtoField.new("Routing Strategy", "nyse.amexequities.binarygateway.pillarstream.v5.17.routingstrategy", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.amexequities.binarygateway.pillarstream.v5.17.rpimpv", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradeprevention", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradetype", ftypes.UINT64, {[0]="Default Cancel Newest", [1]="No Self Trade Prevention", [2]="Cancel Newest", [3]="Cancel Oldest", [4]="Cancel Both", [5]="Cancel Decrement"}, base.DEC, 0x00000000000000E0)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type_3 = ProtoField.new("Self Trade Type 3", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradetype3", ftypes.UINT64, nil, base.DEC, 0x00000000000000E0)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type_bits = ProtoField.new("Self Trade Type Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.selftradetypebits", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sell_dmm_available_qty = ProtoField.new("Sell Dmm Available Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.selldmmavailableqty", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sell_indicator = ProtoField.new("Sell Indicator", "nyse.amexequities.binarygateway.pillarstream.v5.17.sellindicator", ftypes.UINT8)
@@ -158,7 +158,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_length = P
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.seqmsgtype", ftypes.UINT16)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sess = ProtoField.new("Sess", "nyse.amexequities.binarygateway.pillarstream.v5.17.sess", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side = ProtoField.new("Side", "nyse.amexequities.binarygateway.pillarstream.v5.17.side", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.sidebits", ftypes.UINT64, nil, base.DEC, 0x00000000F0000000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.sidebits", ftypes.UINT64, {[0]="No Change In Side", [1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0x00000000F0000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.sideofunpairedqty", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.specialordtype", ftypes.UINT64, {[0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Preauction", [3]="Dmm Afterauction", [4]="Qct", [8]="Reserved"}, base.DEC, 0x000000000001E000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.binarygateway.pillarstream.v5.17.ssrfilingprice", ftypes.DOUBLE)
@@ -1580,7 +1580,14 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.locate_reqd_u_81.size = 1
 
 -- Display: Locate Reqd U 81
 nyse_amexequities_binarygateway_pillarstream_v5_17.locate_reqd_u_81.display = function(value)
-  return "Locate Reqd U 81: "..value
+  if value == 0 then
+    return "Locate Reqd U 81: No Locate Reqd (0)"
+  end
+  if value == 1 then
+    return "Locate Reqd U 81: Locate Reqd For Ssh Orders (1)"
+  end
+
+  return "Locate Reqd U 81: Unknown("..value..")"
 end
 
 -- Dissect: Locate Reqd U 81
@@ -4666,7 +4673,26 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.self_trade_type_bits.size = 1
 
 -- Display: Self Trade Type Bits
 nyse_amexequities_binarygateway_pillarstream_v5_17.self_trade_type_bits.display = function(value)
-  return "Self Trade Type Bits: "..value
+  if value == 0 then
+    return "Self Trade Type Bits: Default Cancel Newest (0)"
+  end
+  if value == 1 then
+    return "Self Trade Type Bits: No Self Trade Prevention (1)"
+  end
+  if value == 2 then
+    return "Self Trade Type Bits: Cancel Newest (2)"
+  end
+  if value == 3 then
+    return "Self Trade Type Bits: Cancel Oldest (3)"
+  end
+  if value == 4 then
+    return "Self Trade Type Bits: Cancel Both (4)"
+  end
+  if value == 5 then
+    return "Self Trade Type Bits: Cancel Decrement (5)"
+  end
+
+  return "Self Trade Type Bits: Unknown("..value..")"
 end
 
 -- Dissect: Self Trade Type Bits
@@ -7261,7 +7287,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.disse
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.display(range, value, packet, parent)
-  local element = parent:add_le(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.bitfield_flow_indicator, range, display)
+  local element = parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.bitfield_flow_indicator, range, display)
 
   if show.structs then
     nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_flow_indicator.bits(range, value, packet, element)
@@ -7376,9 +7402,9 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.d
   if value:band(0x0000000000001000) ~= UInt64(0) then
     flags[#flags + 1] = "Sub Id Indicator"
   end
-  -- Is Locate Reqd flag set?
+  -- Is Locate Reqd 1 flag set?
   if value:band(0x0000000000020000) ~= UInt64(0) then
-    flags[#flags + 1] = "Locate Reqd"
+    flags[#flags + 1] = "Locate Reqd 1"
   end
   -- Is Retail Indicator flag set?
   if value:band(0x0000000000040000) ~= UInt64(0) then
@@ -7400,8 +7426,8 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.b
   -- Special Ord Type: 4 Bit Unsigned Fixed Width Integer Enum with 6 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.special_ord_type, range, value)
 
-  -- Locate Reqd: 1 Bit Enum with 2 values
-  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.locate_reqd, range, value)
+  -- Locate Reqd 1: 1 Bit
+  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.locate_reqd_1, range, value)
 
   -- Retail Indicator: 1 Bit Enum with 2 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.retail_indicator, range, value)
@@ -7424,8 +7450,8 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.b
   -- Proactive If Locked: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.proactive_if_locked, range, value)
 
-  -- Self Trade Type: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
-  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type, range, value)
+  -- Self Trade Type 3: 3 Bit Unsigned Fixed Width Integer
+  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.self_trade_type_3, range, value)
 
   -- Cancel Instead Of Reprice: 4 Bit Unsigned Fixed Width Integer Enum with 3 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.cancel_instead_of_reprice, range, value)
@@ -7442,7 +7468,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.b
   -- Ord Type: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ord_type, range, value)
 
-  -- Side Bits: 4 Bit Unsigned Fixed Width Integer
+  -- Side Bits: 4 Bit Unsigned Fixed Width Integer Enum with 8 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits, range, value)
 end
 

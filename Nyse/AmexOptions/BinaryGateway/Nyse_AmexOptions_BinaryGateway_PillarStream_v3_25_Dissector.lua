@@ -2077,7 +2077,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.size = 1
 
 -- Display: Locate Reqd U 81
 nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.display = function(value)
-  return "Locate Reqd U 81: "..value
+  if value == 0 then
+    return "Locate Reqd U 81: No Locate Reqd (0)"
+  end
+
+  return "Locate Reqd U 81: Unknown("..value..")"
 end
 
 -- Dissect: Locate Reqd U 81
@@ -2767,7 +2771,17 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81.size = 1
 
 -- Display: Open Close U 81
 nyse_amexoptions_binarygateway_pillarstream_v3_25.open_close_u_81.display = function(value)
-  return "Open Close U 81: "..value
+  if value == 0 then
+    return "Open Close U 81: Not Applicable (0)"
+  end
+  if value == 1 then
+    return "Open Close U 81: Open (1)"
+  end
+  if value == 2 then
+    return "Open Close U 81: Close (2)"
+  end
+
+  return "Open Close U 81: Unknown("..value..")"
 end
 
 -- Dissect: Open Close U 81
@@ -4947,7 +4961,23 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81.size = 1
 
 -- Display: Self Trade Type U 81
 nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_type_u_81.display = function(value)
-  return "Self Trade Type U 81: "..value
+  if value == 0 then
+    return "Self Trade Type U 81: Use Session Configuration (0)"
+  end
+  if value == 1 then
+    return "Self Trade Type U 81: No Self Trade Prevention (1)"
+  end
+  if value == 2 then
+    return "Self Trade Type U 81: Cancel Newest (2)"
+  end
+  if value == 3 then
+    return "Self Trade Type U 81: Cancel Oldest (3)"
+  end
+  if value == 4 then
+    return "Self Trade Type U 81: Cancel Both (4)"
+  end
+
+  return "Self Trade Type U 81: Unknown("..value..")"
 end
 
 -- Dissect: Self Trade Type U 81
@@ -5206,7 +5236,17 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81.size = 1
 
 -- Display: Side U 81
 nyse_amexoptions_binarygateway_pillarstream_v3_25.side_u_81.display = function(value)
-  return "Side U 81: "..value
+  if value == 0 then
+    return "Side U 81: No Change In Side (0)"
+  end
+  if value == 1 then
+    return "Side U 81: Buy (1)"
+  end
+  if value == 2 then
+    return "Side U 81: Sell (2)"
+  end
+
+  return "Side U 81: Unknown("..value..")"
 end
 
 -- Dissect: Side U 81
@@ -7254,7 +7294,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.bitfield_flow_indicator.dissec
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.bitfield_flow_indicator.display(range, value, packet, parent)
-  local element = parent:add_le(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.bitfield_flow_indicator, range, display)
+  local element = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.bitfield_flow_indicator, range, display)
 
   if show.structs then
     nyse_amexoptions_binarygateway_pillarstream_v3_25.bitfield_flow_indicator.bits(range, value, packet, element)

@@ -42,6 +42,7 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.offbook = ProtoField.new("Offbook", "lse
 omi_lseg_lse_analytics_gtp_v26_2.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.analytics.gtp.v26.2.orderbooktype", ftypes.UINT8)
 omi_lseg_lse_analytics_gtp_v26_2.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.analytics.gtp.v26.2.partitionid", ftypes.STRING)
 omi_lseg_lse_analytics_gtp_v26_2.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.lse.analytics.gtp.v26.2.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_lseg_lse_analytics_gtp_v26_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.lse.analytics.gtp.v26.2.reserved1", ftypes.BYTES)
 omi_lseg_lse_analytics_gtp_v26_2.fields.reserved_11 = ProtoField.new("Reserved 11", "lseg.lse.analytics.gtp.v26.2.reserved11", ftypes.BYTES)
 omi_lseg_lse_analytics_gtp_v26_2.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.lse.analytics.gtp.v26.2.reserved12", ftypes.BYTES)
 omi_lseg_lse_analytics_gtp_v26_2.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.lse.analytics.gtp.v26.2.reserved4", ftypes.BYTES)
@@ -748,6 +749,29 @@ lseg_lse_analytics_gtp_v26_2.partition_id.dissect = function(buffer, offset, pac
   local display = lseg_lse_analytics_gtp_v26_2.partition_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_analytics_gtp_v26_2.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+lseg_lse_analytics_gtp_v26_2.reserved_1 = {}
+
+-- Size: Reserved 1
+lseg_lse_analytics_gtp_v26_2.reserved_1.size = 1
+
+-- Display: Reserved 1
+lseg_lse_analytics_gtp_v26_2.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+lseg_lse_analytics_gtp_v26_2.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_analytics_gtp_v26_2.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_analytics_gtp_v26_2.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_analytics_gtp_v26_2.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1772,7 +1796,7 @@ lseg_lse_analytics_gtp_v26_2.instrument_directory_message.fields = function(buff
   -- Second Reserved 8: Price
   index, second_reserved_8 = lseg_lse_analytics_gtp_v26_2.second_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1
+  -- Reserved 1: Bit Field
   index, reserved_1 = lseg_lse_analytics_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 8: Price

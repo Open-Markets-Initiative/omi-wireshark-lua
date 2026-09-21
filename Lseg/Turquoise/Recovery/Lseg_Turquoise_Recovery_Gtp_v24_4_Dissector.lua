@@ -5217,10 +5217,10 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_turquoise_recovery_gtp_v24_4.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- First Reserved 1: UInt8
+  -- First Reserved 1: Bit Field
   index, first_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Second Reserved 1: UInt8
+  -- Second Reserved 1: Bit Field
   index, second_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Date
@@ -5241,7 +5241,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Last Price In Preceding Session Date: Date
   index, last_price_in_preceding_session_date = lseg_turquoise_recovery_gtp_v24_4.last_price_in_preceding_session_date.dissect(buffer, index, packet, parent)
 
-  -- Third Reserved 1: UInt8
+  -- Third Reserved 1: Bit Field
   index, third_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
@@ -5280,7 +5280,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Reserved 12: Alpha
   index, reserved_12 = lseg_turquoise_recovery_gtp_v24_4.reserved_12.dissect(buffer, index, packet, parent)
 
-  -- Fourth Reserved 1: UInt8
+  -- Fourth Reserved 1: Bit Field
   index, fourth_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.fourth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 8: Price
@@ -5289,7 +5289,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Fifth Reserved 8: Price
   index, fifth_reserved_8 = lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: UInt8
+  -- Reserved 1: Bit Field
   index, reserved_1 = lseg_turquoise_recovery_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 8: Price

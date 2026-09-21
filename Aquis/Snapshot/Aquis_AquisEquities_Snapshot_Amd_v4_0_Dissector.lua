@@ -676,7 +676,7 @@ aquis_aquisequities_snapshot_amd_v4_0.market_flags.bits = function(range, value,
   -- Mac Run: 1 Bit
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_0.fields.mac_run, range, value)
 
-  -- Reserved: 5 Bit
+  -- Reserved: 5 Bit Unsigned Fixed Width Integer
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_0.fields.reserved, range, value)
 end
 

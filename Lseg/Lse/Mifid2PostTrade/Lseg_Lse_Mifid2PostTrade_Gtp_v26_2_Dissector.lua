@@ -2509,7 +2509,7 @@ lseg_lse_mifid2posttrade_gtp_v26_2.mifid_ii_trade_message.fields = function(buff
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_lse_mifid2posttrade_gtp_v26_2.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
+  -- Reserved 1: Bit Field
   index, reserved_1 = lseg_lse_mifid2posttrade_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
@@ -2812,7 +2812,7 @@ lseg_lse_mifid2posttrade_gtp_v26_2.instrument_directory_message.fields = functio
   -- Second Reserved 8: Price
   index, second_reserved_8 = lseg_lse_mifid2posttrade_gtp_v26_2.second_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
+  -- Reserved 1: Bit Field
   index, reserved_1 = lseg_lse_mifid2posttrade_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 8: Price

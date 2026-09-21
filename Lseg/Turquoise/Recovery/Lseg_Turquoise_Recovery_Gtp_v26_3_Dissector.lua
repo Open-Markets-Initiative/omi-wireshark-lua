@@ -5484,7 +5484,7 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.fields = function
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: UInt8
+  -- Reserved 1: Bit Field
   index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
@@ -5685,7 +5685,7 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_message.fields = function(buffe
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: UInt8
+  -- Reserved 1: Bit Field
   index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
@@ -6659,10 +6659,10 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_turquoise_recovery_gtp_v26_3.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- First Reserved 1: UInt8
+  -- First Reserved 1: Bit Field
   index, first_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.first_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Second Reserved 1: UInt8
+  -- Second Reserved 1: Bit Field
   index, second_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Date
@@ -6683,7 +6683,7 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Last Price In Preceding Session Date: Date
   index, last_price_in_preceding_session_date = lseg_turquoise_recovery_gtp_v26_3.last_price_in_preceding_session_date.dissect(buffer, index, packet, parent)
 
-  -- Third Reserved 1: UInt8
+  -- Third Reserved 1: Bit Field
   index, third_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
@@ -6722,7 +6722,7 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Reserved 12: Alpha
   index, reserved_12 = lseg_turquoise_recovery_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
 
-  -- Fourth Reserved 1: UInt8
+  -- Fourth Reserved 1: Bit Field
   index, fourth_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 8: Price
@@ -6731,7 +6731,7 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Fifth Reserved 8: Price
   index, fifth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fifth_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: UInt8
+  -- Reserved 1: Bit Field
   index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 8: Price

@@ -151,7 +151,6 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.put_or_call = ProtoField.new("Pu
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.b3derivatives.binaryumdf.sbe.v1.8.recoverymsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.regular_trade = ProtoField.new("Regular Trade", "b3.b3derivatives.binaryumdf.sbe.v1.8.regulartrade", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.reserved = ProtoField.new("Reserved", "b3.b3derivatives.binaryumdf.sbe.v1.8.reserved", ftypes.UINT8)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.reserved_1 = ProtoField.new("Reserved 1", "b3.b3derivatives.binaryumdf.sbe.v1.8.reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.reserved_6 = ProtoField.new("Reserved 6", "b3.b3derivatives.binaryumdf.sbe.v1.8.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.rpt_seq = ProtoField.new("Rpt Seq", "b3.b3derivatives.binaryumdf.sbe.v1.8.rptseq", ftypes.UINT32)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.schema_id = ProtoField.new("Schema Id", "b3.b3derivatives.binaryumdf.sbe.v1.8.schemaid", ftypes.UINT16)
@@ -3610,29 +3609,6 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.put_or_call.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_8.reserved = {}
-
--- Size: Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_8.reserved.size = 1
-
--- Display: Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_8.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_8.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v1_8.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_8.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.reserved, range, value, display)
-
-  return offset + length, value
-end
-
 -- Rpt Seq
 b3_b3derivatives_binaryumdf_sbe_v1_8.rpt_seq = {}
 
@@ -5787,9 +5763,9 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.match_event_indicator.display = function(ra
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Recovery Msg"
   end
-  -- Is Reserved 1 flag set?
+  -- Is Reserved flag set?
   if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
+    flags[#flags + 1] = "Reserved"
   end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
@@ -5820,8 +5796,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.match_event_indicator.bits = function(range
   -- Recovery Msg: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.recovery_msg, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.reserved_1, range, value)
+  -- Reserved: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.reserved, range, value)
 
   -- End Of Event: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.end_of_event, range, value)
@@ -10075,56 +10051,52 @@ end
 b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header = {}
 
 -- Size: Packet Header
-b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.size =
-  b3_b3derivatives_binaryumdf_sbe_v1_8.channel_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_8.reserved.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_8.sequence_version.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_8.sequence_number.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_8.sending_time.size
+b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.size = 16
 
 -- Display: Packet Header
-b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.display = function(packet, parent, length)
-  return ""
+b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Reserved flag set?
+  if value:band(0x00000000000000000000000000000100) ~= UInt64(0) then
+    flags[#flags + 1] = "Reserved"
+  end
+
+  return table.concat(flags, "|")
 end
 
--- Dissect Fields: Packet Header
-b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.fields = function(buffer, offset, packet, parent)
-  local index = offset
+-- Dissect Bit Fields: Packet Header
+b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.bits = function(range, value, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = b3_b3derivatives_binaryumdf_sbe_v1_8.channel_id.dissect(buffer, index, packet, parent)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.channel_id, range, value)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = b3_b3derivatives_binaryumdf_sbe_v1_8.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.reserved, range, value)
 
   -- Sequence Version: 2 Byte Unsigned Fixed Width Integer
-  index, sequence_version = b3_b3derivatives_binaryumdf_sbe_v1_8.sequence_version.dissect(buffer, index, packet, parent)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.sequence_version, range, value)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = b3_b3derivatives_binaryumdf_sbe_v1_8.sequence_number.dissect(buffer, index, packet, parent)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.sequence_number, range, value)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index, sending_time = b3_b3derivatives_binaryumdf_sbe_v1_8.sending_time.dissect(buffer, index, packet, parent)
-
-  return index
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.sending_time, range, value)
 end
 
 -- Dissect: Packet Header
 b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.dissect = function(buffer, offset, packet, parent)
-  if show.headers then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet_header, buffer(offset, 0))
-    local index = b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.display(packet, parent, length)
-    parent:append_text(display)
+  local size = b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.size
+  local range = buffer(offset, size)
+  local value = range:le_uint64()
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.display(range, value, packet, parent)
+  local element = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.packet_header, range, display)
 
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.fields(buffer, offset, packet, parent)
+  if show.headers then
+    b3_b3derivatives_binaryumdf_sbe_v1_8.packet_header.bits(range, value, packet, element)
   end
+
+  return offset + size, value
 end
 
 -- Packet
@@ -10188,7 +10160,7 @@ end
 -- Verify Schema Id Field
 b3_b3derivatives_binaryumdf_sbe_v1_8.schema_id.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(24, 2):le_uint()
+  local value = buffer(39, 2):le_uint()
 
   if value == 2 then
     return true
@@ -10200,7 +10172,7 @@ end
 -- Verify Version Field
 b3_b3derivatives_binaryumdf_sbe_v1_8.version.verify = function(buffer)
   -- Attempt to read field
-  local value = buffer(26, 2):le_uint()
+  local value = buffer(41, 2):le_uint()
 
   if value == 9 then
     return true

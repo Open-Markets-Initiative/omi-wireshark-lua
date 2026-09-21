@@ -988,7 +988,7 @@ end
 -- Dissect Bit Fields: Market Flags
 a2x_a2xequities_rtmdf_amd_v1_3_2.market_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 5: 5 Bit Unsigned Fixed Width Integer
+  -- Unused 5: 5 Bit
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_5, range, value)
 
   -- Mac Run: 1 Bit
@@ -1101,7 +1101,7 @@ end
 -- Dissect Bit Fields: Security Flags
 a2x_a2xequities_rtmdf_amd_v1_3_2.security_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 10: 10 Bit Unsigned Fixed Width Integer
+  -- Unused 10: 10 Bit
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.unused_10, range, value)
 
   -- Aod Enabled: 1 Bit
