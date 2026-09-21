@@ -52,17 +52,11 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.price = ProtoField.new("Price",
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "aquis.aquisequities.realtime.amd.v4.0.priceformationdiscoveryprocess", ftypes.UINT32, {[1]="Plain Vanilla", [2]="Non Price Forming", [3]="Trade Not Contributing To Price Discovery", [4]="Price Not Currently Available But Pending"}, base.DEC, 0x00E00000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.publication_mode_post_trade_deferral = ProtoField.new("Publication Mode Post Trade Deferral", "aquis.aquisequities.realtime.amd.v4.0.publicationmodeposttradedeferral", ftypes.UINT32, {[1]="Immediate Publication", [2]="Non Immediate Publication", [3]="Lrgs", [4]="Ilqd", [5]="Size", [6]="Ilqd And Size", [7]="Ilqd And Lrgs"}, base.DEC, 0x0E000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.0.quantity", ftypes.UINT32)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_1 = ProtoField.new("Reserved 1", "aquis.aquisequities.realtime.amd.v4.0.reserved1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_2 = ProtoField.new("Reserved 2", "aquis.aquisequities.realtime.amd.v4.0.reserved2", ftypes.UINT16, nil, base.DEC, 0x0060)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_20 = ProtoField.new("Reserved 20", "aquis.aquisequities.realtime.amd.v4.0.reserved20", ftypes.STRING)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_5 = ProtoField.new("Reserved 5", "aquis.aquisequities.realtime.amd.v4.0.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_7 = ProtoField.new("Reserved 7", "aquis.aquisequities.realtime.amd.v4.0.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_8 = ProtoField.new("Reserved 8", "aquis.aquisequities.realtime.amd.v4.0.reserved8", ftypes.UINT16, nil, base.DEC, 0xFF00)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.security_definition_flags = ProtoField.new("Security Definition Flags", "aquis.aquisequities.realtime.amd.v4.0.securitydefinitionflags", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.realtime.amd.v4.0.securityid", ftypes.UINT16)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.realtime.amd.v4.0.seqno", ftypes.UINT32)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.side = ProtoField.new("Side", "aquis.aquisequities.realtime.amd.v4.0.side", ftypes.UINT8)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.spare = ProtoField.new("Spare", "aquis.aquisequities.realtime.amd.v4.0.spare", ftypes.UINT32, nil, base.DEC, 0xC0000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.test_stock = ProtoField.new("Test Stock", "aquis.aquisequities.realtime.amd.v4.0.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.threshold = ProtoField.new("Threshold", "aquis.aquisequities.realtime.amd.v4.0.threshold", ftypes.UINT64)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.tick_size = ProtoField.new("Tick Size", "aquis.aquisequities.realtime.amd.v4.0.ticksize", ftypes.UINT64)
@@ -77,6 +71,11 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.trading_status = ProtoField.new
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.transaction_category = ProtoField.new("Transaction Category", "aquis.aquisequities.realtime.amd.v4.0.transactioncategory", ftypes.UINT32, {[1]="Dark Trade", [2]="Trade That Has Received Price Improvement", [3]="Package Trade", [4]="Exchange For Physicals", [5]="None Apply"}, base.DEC, 0x00000380)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.umtf = ProtoField.new("Umtf", "aquis.aquisequities.realtime.amd.v4.0.umtf", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.unrestricted_liquidity_indicator = ProtoField.new("Unrestricted Liquidity Indicator", "aquis.aquisequities.realtime.amd.v4.0.unrestrictedliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_1 = ProtoField.new("Unused 1", "aquis.aquisequities.realtime.amd.v4.0.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_2 = ProtoField.new("Unused 2", "aquis.aquisequities.realtime.amd.v4.0.unused2", ftypes.UINT32, nil, base.DEC, 0xC0000000)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_5 = ProtoField.new("Unused 5", "aquis.aquisequities.realtime.amd.v4.0.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_7 = ProtoField.new("Unused 7", "aquis.aquisequities.realtime.amd.v4.0.unused7", ftypes.UINT8, nil, base.DEC, 0xFE)
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_8 = ProtoField.new("Unused 8", "aquis.aquisequities.realtime.amd.v4.0.unused8", ftypes.UINT16, nil, base.DEC, 0xFF00)
 
 -- Aquis AquisEquities RealTime Amd 4.0 Framing
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message = ProtoField.new("Message", "aquis.aquisequities.realtime.amd.v4.0.message", ftypes.STRING)
@@ -1137,8 +1136,8 @@ aquis_aquisequities_realtime_amd_v4_0.market_flags.bits = function(range, value,
   -- Mac Run: 1 Bit
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_run, range, value)
 
-  -- Reserved 5: 5 Bit Unsigned Fixed Width Integer
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_5, range, value)
+  -- Unused 5: 5 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_5, range, value)
 end
 
 -- Dissect: Market Flags
@@ -1234,9 +1233,9 @@ aquis_aquisequities_realtime_amd_v4_0.security_definition_flags.display = functi
   if bit.band(value, 0x0004) ~= 0 then
     flags[#flags + 1] = "Illiquid"
   end
-  -- Is Reserved 1 flag set?
+  -- Is Unused 1 flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    flags[#flags + 1] = "Reserved 1"
+    flags[#flags + 1] = "Unused 1"
   end
   -- Is Aod Enabled flag set?
   if bit.band(value, 0x0010) ~= 0 then
@@ -1262,20 +1261,20 @@ aquis_aquisequities_realtime_amd_v4_0.security_definition_flags.bits = function(
   -- Illiquid: 1 Bit
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.illiquid, range, value)
 
-  -- Reserved 1: 1 Bit
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_1, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_1, range, value)
 
   -- Aod Enabled: 1 Bit
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.aod_enabled, range, value)
 
-  -- Reserved 2: 2 Bit Unsigned Fixed Width Integer
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_2, range, value)
+  -- Unused 2: 2 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_2, range, value)
 
   -- Avx Enabled: 1 Bit
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.avx_enabled, range, value)
 
-  -- Reserved 8: 8 Bit Unsigned Fixed Width Integer
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_8, range, value)
+  -- Unused 8: 8 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_8, range, value)
 end
 
 -- Dissect: Security Definition Flags
@@ -1500,8 +1499,8 @@ aquis_aquisequities_realtime_amd_v4_0.binary_mmt.bits = function(range, value, p
   -- Duplicative Indicator: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.duplicative_indicator, range, value)
 
-  -- Spare: 2 Bit Unsigned Fixed Width Integer
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.spare, range, value)
+  -- Unused 2: 2 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_2, range, value)
 end
 
 -- Dissect: Binary Mmt
@@ -1603,8 +1602,8 @@ aquis_aquisequities_realtime_amd_v4_0.md_flags.bits = function(range, value, pac
   -- Unrestricted Liquidity Indicator: 1 Bit
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unrestricted_liquidity_indicator, range, value)
 
-  -- Reserved 7: 7 Bit Unsigned Fixed Width Integer
-  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_7, range, value)
+  -- Unused 7: 7 Bit
+  parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_7, range, value)
 end
 
 -- Dissect: Md Flags

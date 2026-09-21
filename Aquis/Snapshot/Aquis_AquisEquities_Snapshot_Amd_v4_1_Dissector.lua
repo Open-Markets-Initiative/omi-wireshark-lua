@@ -28,7 +28,6 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.msg_type = ProtoField.new("Msg 
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.order_ref = ProtoField.new("Order Ref", "aquis.aquisequities.snapshot.amd.v4.1.orderref", ftypes.UINT32)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.price = ProtoField.new("Price", "aquis.aquisequities.snapshot.amd.v4.1.price", ftypes.UINT64)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.quantity = ProtoField.new("Quantity", "aquis.aquisequities.snapshot.amd.v4.1.quantity", ftypes.UINT32)
-omi_aquis_aquisequities_snapshot_amd_v4_1.fields.reserved = ProtoField.new("Reserved", "aquis.aquisequities.snapshot.amd.v4.1.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.security_count = ProtoField.new("Security Count", "aquis.aquisequities.snapshot.amd.v4.1.securitycount", ftypes.UINT16)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.snapshot.amd.v4.1.securityid", ftypes.UINT16)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.snapshot.amd.v4.1.seqno", ftypes.UINT32)
@@ -37,6 +36,7 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.stream_seq_no = ProtoField.new(
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.snapshot.amd.v4.1.timestamp", ftypes.UINT64)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading = ProtoField.new("Trading", "aquis.aquisequities.snapshot.amd.v4.1.trading", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.trading_status = ProtoField.new("Trading Status", "aquis.aquisequities.snapshot.amd.v4.1.tradingstatus", ftypes.UINT8)
+omi_aquis_aquisequities_snapshot_amd_v4_1.fields.unused_5 = ProtoField.new("Unused 5", "aquis.aquisequities.snapshot.amd.v4.1.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 
 -- Aquis AquisEquities Snapshot Amd 4.1 Framing
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message = ProtoField.new("Message", "aquis.aquisequities.snapshot.amd.v4.1.message", ftypes.STRING)
@@ -676,8 +676,8 @@ aquis_aquisequities_snapshot_amd_v4_1.market_flags.bits = function(range, value,
   -- Mac Run: 1 Bit
   parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.mac_run, range, value)
 
-  -- Reserved: 5 Bit Unsigned Fixed Width Integer
-  parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.reserved, range, value)
+  -- Unused 5: 5 Bit
+  parent:add(omi_aquis_aquisequities_snapshot_amd_v4_1.fields.unused_5, range, value)
 end
 
 -- Dissect: Market Flags
