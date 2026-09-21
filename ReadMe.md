@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1029 | 7,039,772 |
+| 1037 | 7,068,863 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -201,6 +201,10 @@ Enjoy.
 [Cboe.BzxEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/BzxEquities/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.EdgaEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgaEquities/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.EdgxEquities.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxEquities/MulticastDepthOfBook.md "Multicast Depth Of Book"
+[Cboe.BzxOptions.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/BzxOptions/MulticastDepthOfBook.md "Multicast Depth Of Book"
+[Cboe.C1Options.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C1Options/MulticastDepthOfBook.md "Multicast Depth Of Book"
+[Cboe.C2Options.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C2Options/MulticastDepthOfBook.md "Multicast Depth Of Book"
+[Cboe.EdgxOptions.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxOptions/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.ByxEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/ByxEquities/TcpDepthOfBook.md "Tcp Depth Of Book"
 [Cboe.BzxEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/BzxEquities/TcpDepthOfBook.md "Tcp Depth Of Book"
 [Cboe.EdgaEquities.TcpDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgaEquities/TcpDepthOfBook.md "Tcp Depth Of Book"
@@ -221,17 +225,13 @@ Enjoy.
 [Cboe.EdgxEquities.Top]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxEquities/Top.md "Top"
 [Cboe.BzxEquities.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/BzxEquities/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.EdgxEquities.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxEquities/BinaryOrderEntry.md "Binary Order Entry"
-[Cboe.C1Options.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C1Options/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.C1Options.AuctionFeed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C1Options/AuctionFeed.md "Auction Feed"
 [Cboe.C1Options.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C1Options/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.C1Options.Complex]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C1Options/Complex.md "Complex"
 [Cboe.EdgxOptions.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxOptions/BinaryOrderEntry.md "Binary Order Entry"
-[Cboe.C2Options.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C2Options/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.C2Options.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/C2Options/BinaryOrderEntry.md "Binary Order Entry"
 [Cboe.BzxOptions.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/BzxOptions/BinaryOrderEntry.md "Binary Order Entry"
-[Cboe.BzxOptions.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/BzxOptions/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.EdgxOptions.AuctionFeed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxOptions/AuctionFeed.md "Auction Feed"
-[Cboe.EdgxOptions.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/EdgxOptions/MulticastDepthOfBook.md "Multicast Depth Of Book"
 [Cboe.CfeFutures.MulticastDepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CfeFutures/MulticastDepthOfBook.md "Futures Multicast Depth Of Book"
 [Cboe.CfeFutures.MulticastTop]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CfeFutures/MulticastTop.md "Futures Multicast Top"
 [Cboe.CfeFutures.BinaryOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Cboe/Protocols/CfeFutures/BinaryOrderEntry.md "Futures Binary Order Entry"

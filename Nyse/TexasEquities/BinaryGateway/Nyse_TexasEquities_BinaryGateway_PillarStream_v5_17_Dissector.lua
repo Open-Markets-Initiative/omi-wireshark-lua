@@ -97,6 +97,7 @@ omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.offset_price = Pr
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.open_on_trade_max_qty = ProtoField.new("Open On Trade Max Qty", "nyse.texasequities.binarygateway.pillarstream.v5.17.openontrademaxqty", ftypes.UINT64)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.texasequities.binarygateway.pillarstream.v5.17.optionalorderaddon", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_routing_strategy_add_on = ProtoField.new("Optional Routing Strategy Add On", "nyse.texasequities.binarygateway.pillarstream.v5.17.optionalroutingstrategyaddon", ftypes.STRING)
+omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_settlement_type_add_on = ProtoField.new("Optional Settlement Type Add On", "nyse.texasequities.binarygateway.pillarstream.v5.17.optionalsettlementtypeaddon", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.ord_type = ProtoField.new("Ord Type", "nyse.texasequities.binarygateway.pillarstream.v5.17.ordtype", ftypes.UINT64, {[1]="Market", [2]="Limit", [3]="Inside Limit", [4]="Pegged"}, base.DEC, 0x000000000F000000)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.texasequities.binarygateway.pillarstream.v5.17.ordercapacity", ftypes.UINT64, {[1]="Agency", [2]="Principal", [3]="Riskless Principal", [4]="Error Account"}, base.DEC, 0x0000000001C00000)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.order_id = ProtoField.new("Order Id", "nyse.texasequities.binarygateway.pillarstream.v5.17.orderid", ftypes.UINT64)
@@ -157,6 +158,7 @@ omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_id = Prot
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_length = ProtoField.new("Seq Msg Length", "nyse.texasequities.binarygateway.pillarstream.v5.17.seqmsglength", ftypes.UINT16)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.texasequities.binarygateway.pillarstream.v5.17.seqmsgtype", ftypes.UINT16)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.sess = ProtoField.new("Sess", "nyse.texasequities.binarygateway.pillarstream.v5.17.sess", ftypes.UINT32)
+omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.settlement_type = ProtoField.new("Settlement Type", "nyse.texasequities.binarygateway.pillarstream.v5.17.settlementtype", ftypes.STRING)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.side = ProtoField.new("Side", "nyse.texasequities.binarygateway.pillarstream.v5.17.side", ftypes.UINT8)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.side_bits = ProtoField.new("Side Bits", "nyse.texasequities.binarygateway.pillarstream.v5.17.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0x00000000F0000000)
 omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.texasequities.binarygateway.pillarstream.v5.17.sideofunpairedqty", ftypes.UINT8)
@@ -4950,6 +4952,49 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.sess.dissect = function(buff
   return offset + length, value
 end
 
+-- Settlement Type
+nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type = {}
+
+-- Size: Settlement Type
+nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type.size = 1
+
+-- Display: Settlement Type
+nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Settlement Type: No Value"
+  end
+
+  if value == "0" then
+    return "Settlement Type: Regular Way (0)"
+  end
+  if value == "1" then
+    return "Settlement Type: Cash (1)"
+  end
+
+  return "Settlement Type: Unknown("..value..")"
+end
+
+-- Dissect: Settlement Type
+nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.settlement_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Side
 nyse_texasequities_binarygateway_pillarstream_v5_17.side = {}
 
@@ -6914,115 +6959,47 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect = fun
   end
 end
 
--- Optional Routing Strategy Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on = {}
+-- Optional Settlement Type Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on = {}
 
--- Size: Optional Routing Strategy Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.size =
+-- Size: Optional Settlement Type Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.size =
   nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.routing_strategy.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_27.size
+  nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type.size
 
--- Display: Optional Routing Strategy Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.display = function(packet, parent, length)
+-- Display: Optional Settlement Type Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Optional Routing Strategy Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Optional Settlement Type Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sub Msg Header: Struct of 2 fields
   index, sub_msg_header = nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect(buffer, index, packet, parent)
 
-  -- Routing Strategy: u8
-  index, routing_strategy = nyse_texasequities_binarygateway_pillarstream_v5_17.routing_strategy.dissect(buffer, index, packet, parent)
-
-  -- Reserved 27: char(27)
-  index, reserved_27 = nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_27.dissect(buffer, index, packet, parent)
+  -- Settlement Type: zchar(1)
+  index, settlement_type = nyse_texasequities_binarygateway_pillarstream_v5_17.settlement_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Optional Routing Strategy Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Optional Settlement Type Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_routing_strategy_add_on, buffer(offset, 0))
-    local index = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_settlement_type_add_on, buffer(offset, 0))
+    local index = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.display(packet, parent, length)
+    local display = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Optional Order Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on = {}
-
--- Size: Optional Order Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.size =
-  nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.deliver_to_comp_id.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.max_floor.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.locate_broker.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_8.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.offset_price.size + 
-  nyse_texasequities_binarygateway_pillarstream_v5_17.effective_time.size
-
--- Display: Optional Order Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Optional Order Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sub Msg Header: Struct of 2 fields
-  index, sub_msg_header = nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect(buffer, index, packet, parent)
-
-  -- Deliver To Comp Id: zchar(5)
-  index, deliver_to_comp_id = nyse_texasequities_binarygateway_pillarstream_v5_17.deliver_to_comp_id.dissect(buffer, index, packet, parent)
-
-  -- Max Floor: u32
-  index, max_floor = nyse_texasequities_binarygateway_pillarstream_v5_17.max_floor.dissect(buffer, index, packet, parent)
-
-  -- Locate Broker: zchar(4)
-  index, locate_broker = nyse_texasequities_binarygateway_pillarstream_v5_17.locate_broker.dissect(buffer, index, packet, parent)
-
-  -- Reserved 8: char(8)
-  index, reserved_8 = nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_8.dissect(buffer, index, packet, parent)
-
-  -- Offset Price: Price
-  index, offset_price = nyse_texasequities_binarygateway_pillarstream_v5_17.offset_price.dissect(buffer, index, packet, parent)
-
-  -- Effective Time: Timestamp
-  index, effective_time = nyse_texasequities_binarygateway_pillarstream_v5_17.effective_time.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Optional Order Add On
-nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_order_add_on, buffer(offset, 0))
-    local index = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields(buffer, offset, packet, parent)
+    return nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7105,22 +7082,13 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.execution_report_message.fie
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
-  -- Runtime optional field: Optional Order Add On
-  local optional_order_add_on = nil
+  -- Runtime optional field: Optional Settlement Type Add On
+  local optional_settlement_type_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139 or seq_msg_length == 121
+  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
 
-  if optional_order_add_on_exists then
-    index, optional_order_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect(buffer, index, packet, parent)
-  end
-
-  -- Runtime optional field: Optional Routing Strategy Add On
-  local optional_routing_strategy_add_on = nil
-
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130 or seq_msg_length == 112
-
-  if optional_routing_strategy_add_on_exists then
-    index, optional_routing_strategy_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
+  if optional_settlement_type_add_on_exists then
+    index, optional_settlement_type_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -7363,6 +7331,118 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.order_modify_cancel_request_
   end
 end
 
+-- Optional Routing Strategy Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on = {}
+
+-- Size: Optional Routing Strategy Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.size =
+  nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.routing_strategy.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_27.size
+
+-- Display: Optional Routing Strategy Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Optional Routing Strategy Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sub Msg Header: Struct of 2 fields
+  index, sub_msg_header = nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect(buffer, index, packet, parent)
+
+  -- Routing Strategy: u8
+  index, routing_strategy = nyse_texasequities_binarygateway_pillarstream_v5_17.routing_strategy.dissect(buffer, index, packet, parent)
+
+  -- Reserved 27: char(27)
+  index, reserved_27 = nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_27.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Optional Routing Strategy Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_routing_strategy_add_on, buffer(offset, 0))
+    local index = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Optional Order Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on = {}
+
+-- Size: Optional Order Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.size =
+  nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.deliver_to_comp_id.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.max_floor.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.locate_broker.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_8.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.offset_price.size + 
+  nyse_texasequities_binarygateway_pillarstream_v5_17.effective_time.size
+
+-- Display: Optional Order Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Optional Order Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sub Msg Header: Struct of 2 fields
+  index, sub_msg_header = nyse_texasequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect(buffer, index, packet, parent)
+
+  -- Deliver To Comp Id: zchar(5)
+  index, deliver_to_comp_id = nyse_texasequities_binarygateway_pillarstream_v5_17.deliver_to_comp_id.dissect(buffer, index, packet, parent)
+
+  -- Max Floor: u32
+  index, max_floor = nyse_texasequities_binarygateway_pillarstream_v5_17.max_floor.dissect(buffer, index, packet, parent)
+
+  -- Locate Broker: zchar(4)
+  index, locate_broker = nyse_texasequities_binarygateway_pillarstream_v5_17.locate_broker.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: char(8)
+  index, reserved_8 = nyse_texasequities_binarygateway_pillarstream_v5_17.reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Offset Price: Price
+  index, offset_price = nyse_texasequities_binarygateway_pillarstream_v5_17.offset_price.dissect(buffer, index, packet, parent)
+
+  -- Effective Time: Timestamp
+  index, effective_time = nyse_texasequities_binarygateway_pillarstream_v5_17.effective_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Optional Order Add On
+nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_texasequities_binarygateway_pillarstream_v5_17.fields.optional_order_add_on, buffer(offset, 0))
+    local index = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Bitfield Order Instructions
 nyse_texasequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions = {}
 
@@ -7550,16 +7630,31 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.order_and_cancel_replace_ack
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
-
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139 or seq_msg_length == 121
+  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Optional Routing Strategy Add On
+  local optional_routing_strategy_add_on = nil
+
+  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130
+
+  if optional_routing_strategy_add_on_exists then
+    index, optional_routing_strategy_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Optional Settlement Type Add On
+  local optional_settlement_type_add_on = nil
+
+  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+
+  if optional_settlement_type_add_on_exists then
+    index, optional_settlement_type_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -8772,13 +8867,10 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
-
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
-  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139 or seq_msg_length == 121
+  local optional_order_add_on_exists = seq_msg_length == 102 or seq_msg_length == 139
 
   if optional_order_add_on_exists then
     index, optional_order_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_order_add_on.dissect(buffer, index, packet, parent)
@@ -8787,10 +8879,19 @@ nyse_texasequities_binarygateway_pillarstream_v5_17.new_order_single_and_cancel_
   -- Runtime optional field: Optional Routing Strategy Add On
   local optional_routing_strategy_add_on = nil
 
-  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130 or seq_msg_length == 112
+  local optional_routing_strategy_add_on_exists = seq_msg_length == 93 or seq_msg_length == 130
 
   if optional_routing_strategy_add_on_exists then
     index, optional_routing_strategy_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_routing_strategy_add_on.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Optional Settlement Type Add On
+  local optional_settlement_type_add_on = nil
+
+  local optional_settlement_type_add_on_exists = seq_msg_length == 66 or seq_msg_length == 103 or seq_msg_length == 85
+
+  if optional_settlement_type_add_on_exists then
+    index, optional_settlement_type_add_on = nyse_texasequities_binarygateway_pillarstream_v5_17.optional_settlement_type_add_on.dissect(buffer, index, packet, parent)
   end
 
   return index

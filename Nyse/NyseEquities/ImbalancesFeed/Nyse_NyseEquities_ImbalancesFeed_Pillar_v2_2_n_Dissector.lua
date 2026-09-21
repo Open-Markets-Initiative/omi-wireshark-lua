@@ -3821,6 +3821,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_n)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.2.n
+--   Since: 2.2.l
 --   Date: Thursday, October 23, 2025
 --   Specification: NYSE_Pillar_Order_Imbalances_Client_Specification.pdf
 --
