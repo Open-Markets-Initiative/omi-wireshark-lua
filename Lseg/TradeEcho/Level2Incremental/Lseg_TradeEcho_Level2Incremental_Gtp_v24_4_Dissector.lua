@@ -37,10 +37,14 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.previous_price = ProtoFiel
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.tradeecho.level2incremental.gtp.v24.4.previousquantity", ftypes.DOUBLE)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.price = ProtoField.new("Price", "lseg.tradeecho.level2incremental.gtp.v24.4.price", ftypes.DOUBLE)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.tradeecho.level2incremental.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved1", ftypes.BYTES)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved10", ftypes.BYTES)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved23", ftypes.BYTES)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved25", ftypes.BYTES)
-omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved5", ftypes.BYTES)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_11 = ProtoField.new("Reserved 11", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved11", ftypes.BYTES)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved12", ftypes.BYTES)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved4", ftypes.BYTES)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.tradeecho.level2incremental.gtp.v24.4.reserved8", ftypes.BYTES)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "lseg.tradeecho.level2incremental.gtp.v24.4.secondreserved1", ftypes.BYTES)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.tradeecho.level2incremental.gtp.v24.4.secondreserved8", ftypes.BYTES)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.level2incremental.gtp.v24.4.segment", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.tradeecho.level2incremental.gtp.v24.4.sequencenumber", ftypes.UINT32)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.tradeecho.level2incremental.gtp.v24.4.sessionchangereason", ftypes.UINT8)
@@ -49,6 +53,7 @@ omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.side = ProtoField.new("Sid
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.size = ProtoField.new("Size", "lseg.tradeecho.level2incremental.gtp.v24.4.size", ftypes.DOUBLE)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.level2incremental.gtp.v24.4.sourcevenue", ftypes.UINT16)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.level2incremental.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.level2incremental.gtp.v24.4.thirdreserved8", ftypes.BYTES)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2incremental.gtp.v24.4.tickid", ftypes.STRING)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incremental.gtp.v24.4.timestamp", ftypes.UINT64)
 omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incremental.gtp.v24.4.tradingstatus", ftypes.STRING)
@@ -703,6 +708,29 @@ lseg_tradeecho_level2incremental_gtp_v24_4.price_band_tolerances.dissect = funct
   return offset + length, value
 end
 
+-- Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1 = {}
+
+-- Size: Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1.size = 1
+
+-- Display: Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved 10
 lseg_tradeecho_level2incremental_gtp_v24_4.reserved_10 = {}
 
@@ -726,71 +754,140 @@ lseg_tradeecho_level2incremental_gtp_v24_4.reserved_10.dissect = function(buffer
   return offset + length, value
 end
 
--- Reserved 23
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23 = {}
+-- Reserved 11
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11 = {}
 
--- Size: Reserved 23
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23.size = 23
+-- Size: Reserved 11
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11.size = 11
 
--- Display: Reserved 23
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23.display = function(value)
-  return "Reserved 23: "..value
+-- Display: Reserved 11
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11.display = function(value)
+  return "Reserved 11: "..value
 end
 
--- Dissect: Reserved 23
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23.size
+-- Dissect: Reserved 11
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23.display(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_23, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_11, range, value, display)
 
   return offset + length, value
 end
 
--- Reserved 25
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25 = {}
+-- Reserved 12
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12 = {}
 
--- Size: Reserved 25
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25.size = 25
+-- Size: Reserved 12
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12.size = 12
 
--- Display: Reserved 25
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25.display = function(value)
-  return "Reserved 25: "..value
+-- Display: Reserved 12
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12.display = function(value)
+  return "Reserved 12: "..value
 end
 
--- Dissect: Reserved 25
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25.size
+-- Dissect: Reserved 12
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25.display(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_25, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_12, range, value, display)
 
   return offset + length, value
 end
 
--- Reserved 5
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5 = {}
+-- Reserved 4
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4 = {}
 
--- Size: Reserved 5
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5.size = 5
+-- Size: Reserved 4
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4.size = 4
 
--- Display: Reserved 5
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5.display = function(value)
-  return "Reserved 5: "..value
+-- Display: Reserved 4
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4.display = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved 5
-lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5.size
+-- Dissect: Reserved 4
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5.display(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_5, range, value, display)
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8 = {}
+
+-- Size: Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8.size = 8
+
+-- Display: Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8.display = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8 = {}
+
+-- Size: Second Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8.size = 8
+
+-- Display: Second Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8.display = function(value)
+  return "Second Reserved 8: "..value
+end
+
+-- Dissect: Second Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.second_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -997,6 +1094,29 @@ lseg_tradeecho_level2incremental_gtp_v24_4.static_circuit_breaker_tolerances.dis
   local display = lseg_tradeecho_level2incremental_gtp_v24_4.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.static_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8 = {}
+
+-- Size: Third Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8.size = 8
+
+-- Display: Third Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8.display = function(value)
+  return "Third Reserved 8: "..value
+end
+
+-- Dissect: Third Reserved 8
+lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_level2incremental_gtp_v24_4.fields.third_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -1577,11 +1697,16 @@ lseg_tradeecho_level2incremental_gtp_v24_4.instrument_directory_message.size =
   lseg_tradeecho_level2incremental_gtp_v24_4.dynamic_circuit_breaker_tolerances.size + 
   lseg_tradeecho_level2incremental_gtp_v24_4.static_circuit_breaker_tolerances.size + 
   lseg_tradeecho_level2incremental_gtp_v24_4.segment.size + 
-  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23.size + 
+  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12.size + 
+  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11.size + 
   lseg_tradeecho_level2incremental_gtp_v24_4.currency.size + 
-  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5.size + 
+  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1.size + 
+  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4.size + 
   lseg_tradeecho_level2incremental_gtp_v24_4.average_daily_turnover.size + 
-  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25.size
+  lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8.size + 
+  lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1.size + 
+  lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8.size + 
+  lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8.size
 
 -- Display: Instrument Directory Message
 lseg_tradeecho_level2incremental_gtp_v24_4.instrument_directory_message.display = function(packet, parent, length)
@@ -1625,20 +1750,35 @@ lseg_tradeecho_level2incremental_gtp_v24_4.instrument_directory_message.fields =
   -- Segment: Alpha
   index, segment = lseg_tradeecho_level2incremental_gtp_v24_4.segment.dissect(buffer, index, packet, parent)
 
-  -- Reserved 23: Alpha
-  index, reserved_23 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_23.dissect(buffer, index, packet, parent)
+  -- Reserved 12: Alpha
+  index, reserved_12 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_12.dissect(buffer, index, packet, parent)
+
+  -- Reserved 11: Alpha
+  index, reserved_11 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_11.dissect(buffer, index, packet, parent)
 
   -- Currency: Alpha
   index, currency = lseg_tradeecho_level2incremental_gtp_v24_4.currency.dissect(buffer, index, packet, parent)
 
-  -- Reserved 5: Alpha
-  index, reserved_5 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_5.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Byte
+  index, reserved_1 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Alpha
+  index, reserved_4 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Average Daily Turnover: Price4
   index, average_daily_turnover = lseg_tradeecho_level2incremental_gtp_v24_4.average_daily_turnover.dissect(buffer, index, packet, parent)
 
-  -- Reserved 25: Alpha
-  index, reserved_25 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_25.dissect(buffer, index, packet, parent)
+  -- Reserved 8: Alpha
+  index, reserved_8 = lseg_tradeecho_level2incremental_gtp_v24_4.reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 1: Byte
+  index, second_reserved_1 = lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 8: Alpha
+  index, second_reserved_8 = lseg_tradeecho_level2incremental_gtp_v24_4.second_reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 8: Alpha
+  index, third_reserved_8 = lseg_tradeecho_level2incremental_gtp_v24_4.third_reserved_8.dissect(buffer, index, packet, parent)
 
   return index
 end

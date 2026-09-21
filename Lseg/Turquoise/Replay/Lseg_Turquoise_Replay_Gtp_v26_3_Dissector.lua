@@ -21,6 +21,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.algorithmic_indicator = ProtoField.ne
 omi_lseg_turquoise_replay_gtp_v26_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.replay.gtp.v26.3.allowedbooktypes", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.auction_info = ProtoField.new("Auction Info", "lseg.turquoise.replay.gtp.v26.3.auctioninfo", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.auction_type = ProtoField.new("Auction Type", "lseg.turquoise.replay.gtp.v26.3.auctiontype", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.turquoise.replay.gtp.v26.3.averagedailyturnoveradt", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.best_bid_price = ProtoField.new("Best Bid Price", "lseg.turquoise.replay.gtp.v26.3.bestbidprice", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.best_bid_size = ProtoField.new("Best Bid Size", "lseg.turquoise.replay.gtp.v26.3.bestbidsize", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.best_offer_price = ProtoField.new("Best Offer Price", "lseg.turquoise.replay.gtp.v26.3.bestofferprice", ftypes.DOUBLE)
@@ -49,6 +50,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.event_code = ProtoField.new("Event Co
 omi_lseg_turquoise_replay_gtp_v26_3.fields.executed_size = ProtoField.new("Executed Size", "lseg.turquoise.replay.gtp.v26.3.executedsize", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.far_price = ProtoField.new("Far Price", "lseg.turquoise.replay.gtp.v26.3.farprice", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.first_message = ProtoField.new("First Message", "lseg.turquoise.replay.gtp.v26.3.firstmessage", ftypes.UINT32)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.turquoise.replay.gtp.v26.3.fourthreserved8", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.hidden_execution_indicator = ProtoField.new("Hidden Execution Indicator", "lseg.turquoise.replay.gtp.v26.3.hiddenexecutionindicator", ftypes.UINT8)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.imbalance_quantity = ProtoField.new("Imbalance Quantity", "lseg.turquoise.replay.gtp.v26.3.imbalancequantity", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.replay.gtp.v26.3.instrument", ftypes.UINT64)
@@ -90,10 +92,10 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.order_id = ProtoField.new("Order Id",
 omi_lseg_turquoise_replay_gtp_v26_3.fields.order_modify_flags = ProtoField.new("Order Modify Flags", "lseg.turquoise.replay.gtp.v26.3.ordermodifyflags", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.order_type = ProtoField.new("Order Type", "lseg.turquoise.replay.gtp.v26.3.ordertype", ftypes.UINT8)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.participant = ProtoField.new("Participant", "lseg.turquoise.replay.gtp.v26.3.participant", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.partition_id = ProtoField.new("Partition Id", "lseg.turquoise.replay.gtp.v26.3.partitionid", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.turquoise.replay.gtp.v26.3.posttradedeferralreason", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.previous_price = ProtoField.new("Previous Price", "lseg.turquoise.replay.gtp.v26.3.previousprice", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.turquoise.replay.gtp.v26.3.previousquantity", ftypes.DOUBLE)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.replay.gtp.v26.3.pricebandtolerances", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.price_currency = ProtoField.new("Price Currency", "lseg.turquoise.replay.gtp.v26.3.pricecurrency", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.turquoise.replay.gtp.v26.3.priceformationindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.price_major_currency = ProtoField.new("Price Major Currency", "lseg.turquoise.replay.gtp.v26.3.pricemajorcurrency", ftypes.STRING)
@@ -111,16 +113,17 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.reference_price_indicator = ProtoFiel
 omi_lseg_turquoise_replay_gtp_v26_3.fields.replay_status = ProtoField.new("Replay Status", "lseg.turquoise.replay.gtp.v26.3.replaystatus", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.request_id = ProtoField.new("Request Id", "lseg.turquoise.replay.gtp.v26.3.requestid", ftypes.UINT32)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.turquoise.replay.gtp.v26.3.reserved1", ftypes.BYTES)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.turquoise.replay.gtp.v26.3.reserved12", ftypes.BYTES)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_2 = ProtoField.new("Reserved 2", "lseg.turquoise.replay.gtp.v26.3.reserved2", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_20 = ProtoField.new("Reserved 20", "lseg.turquoise.replay.gtp.v26.3.reserved20", ftypes.BYTES)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.replay.gtp.v26.3.reserved23", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_3 = ProtoField.new("Reserved 3", "lseg.turquoise.replay.gtp.v26.3.reserved3", ftypes.BYTES)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.replay.gtp.v26.3.reserved38", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.turquoise.replay.gtp.v26.3.reserved4", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.turquoise.replay.gtp.v26.3.reserved8", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.retail_lp = ProtoField.new("Retail Lp", "lseg.turquoise.replay.gtp.v26.3.retaillp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.rfq_id = ProtoField.new("Rfq Id", "lseg.turquoise.replay.gtp.v26.3.rfqid", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "lseg.turquoise.replay.gtp.v26.3.secondreserved4", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.turquoise.replay.gtp.v26.3.secondreserved8", ftypes.BYTES)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.security_exchange = ProtoField.new("Security Exchange", "lseg.turquoise.replay.gtp.v26.3.securityexchange", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.segment = ProtoField.new("Segment", "lseg.turquoise.replay.gtp.v26.3.segment", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.sell_limit_order_cancellations = ProtoField.new("Sell Limit Order Cancellations", "lseg.turquoise.replay.gtp.v26.3.selllimitordercancellations", ftypes.UINT32)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.sell_market_order_cancellations = ProtoField.new("Sell Market Order Cancellations", "lseg.turquoise.replay.gtp.v26.3.sellmarketordercancellations", ftypes.UINT32)
@@ -138,6 +141,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.static_circuit_breaker_tolerances = P
 omi_lseg_turquoise_replay_gtp_v26_3.fields.statistic_price = ProtoField.new("Statistic Price", "lseg.turquoise.replay.gtp.v26.3.statisticprice", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.statistic_size = ProtoField.new("Statistic Size", "lseg.turquoise.replay.gtp.v26.3.statisticsize", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.turquoise.replay.gtp.v26.3.statistictype", ftypes.UINT16)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.replay.gtp.v26.3.thirdreserved8", ftypes.BYTES)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.replay.gtp.v26.3.tickid", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.replay.gtp.v26.3.timestamp", ftypes.UINT64)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.top_of_book_flags = ProtoField.new("Top Of Book Flags", "lseg.turquoise.replay.gtp.v26.3.topofbookflags", ftypes.STRING)
@@ -166,7 +170,8 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.update_date_and_time = ProtoField.new
 omi_lseg_turquoise_replay_gtp_v26_3.fields.username = ProtoField.new("Username", "lseg.turquoise.replay.gtp.v26.3.username", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.venue = ProtoField.new("Venue", "lseg.turquoise.replay.gtp.v26.3.venue", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.replay.gtp.v26.3.venueinstrumentid", ftypes.STRING)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.replay.gtp.v26.3.venueofexecution", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.venue_of_execution_alpha_4 = ProtoField.new("Venue Of Execution Alpha 4", "lseg.turquoise.replay.gtp.v26.3.venueofexecutionalpha4", ftypes.STRING)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.venue_of_execution_u_int_81 = ProtoField.new("Venue Of Execution U Int 81", "lseg.turquoise.replay.gtp.v26.3.venueofexecutionuint81", ftypes.UINT8)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.volume = ProtoField.new("Volume", "lseg.turquoise.replay.gtp.v26.3.volume", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.turquoise.replay.gtp.v26.3.volumeonbookonly", ftypes.DOUBLE)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.replay.gtp.v26.3.vwap", ftypes.DOUBLE)
@@ -451,6 +456,35 @@ lseg_turquoise_replay_gtp_v26_3.auction_type.dissect = function(buffer, offset, 
   local display = lseg_turquoise_replay_gtp_v26_3.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Average Daily Turnover Adt
+lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt = {}
+
+-- Size: Average Daily Turnover Adt
+lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.size = 8
+
+-- Display: Average Daily Turnover Adt
+lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.display = function(value)
+  return "Average Daily Turnover Adt: "..value
+end
+
+-- Translate: Average Daily Turnover Adt
+lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Average Daily Turnover Adt
+lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.translate(raw)
+  local display = lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.average_daily_turnover_adt, range, value, display)
 
   return offset + length, value
 end
@@ -1198,6 +1232,29 @@ lseg_turquoise_replay_gtp_v26_3.first_message.dissect = function(buffer, offset,
   local display = lseg_turquoise_replay_gtp_v26_3.first_message.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.first_message, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fourth Reserved 8
+lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8 = {}
+
+-- Size: Fourth Reserved 8
+lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8.size = 8
+
+-- Display: Fourth Reserved 8
+lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8.display = function(value)
+  return "Fourth Reserved 8: "..value
+end
+
+-- Dissect: Fourth Reserved 8
+lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.fourth_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -2367,6 +2424,42 @@ lseg_turquoise_replay_gtp_v26_3.participant.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Partition Id
+lseg_turquoise_replay_gtp_v26_3.partition_id = {}
+
+-- Size: Partition Id
+lseg_turquoise_replay_gtp_v26_3.partition_id.size = 1
+
+-- Display: Partition Id
+lseg_turquoise_replay_gtp_v26_3.partition_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Partition Id: No Value"
+  end
+
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+lseg_turquoise_replay_gtp_v26_3.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.partition_id.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = lseg_turquoise_replay_gtp_v26_3.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Post Trade Deferral Reason
 lseg_turquoise_replay_gtp_v26_3.post_trade_deferral_reason = {}
 
@@ -2461,35 +2554,6 @@ lseg_turquoise_replay_gtp_v26_3.previous_quantity.dissect = function(buffer, off
   local display = lseg_turquoise_replay_gtp_v26_3.previous_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.previous_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Band Tolerances
-lseg_turquoise_replay_gtp_v26_3.price_band_tolerances = {}
-
--- Size: Price Band Tolerances
-lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.size = 8
-
--- Display: Price Band Tolerances
-lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.display = function(value)
-  return "Price Band Tolerances: "..value
-end
-
--- Translate: Price Band Tolerances
-lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price Band Tolerances
-lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.translate(raw)
-  local display = lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.price_band_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -2989,6 +3053,52 @@ lseg_turquoise_replay_gtp_v26_3.reserved_1.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Reserved 12
+lseg_turquoise_replay_gtp_v26_3.reserved_12 = {}
+
+-- Size: Reserved 12
+lseg_turquoise_replay_gtp_v26_3.reserved_12.size = 12
+
+-- Display: Reserved 12
+lseg_turquoise_replay_gtp_v26_3.reserved_12.display = function(value)
+  return "Reserved 12: "..value
+end
+
+-- Dissect: Reserved 12
+lseg_turquoise_replay_gtp_v26_3.reserved_12.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.reserved_12.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_replay_gtp_v26_3.reserved_12.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_12, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+lseg_turquoise_replay_gtp_v26_3.reserved_2 = {}
+
+-- Size: Reserved 2
+lseg_turquoise_replay_gtp_v26_3.reserved_2.size = 2
+
+-- Display: Reserved 2
+lseg_turquoise_replay_gtp_v26_3.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+lseg_turquoise_replay_gtp_v26_3.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_replay_gtp_v26_3.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reserved 20
 lseg_turquoise_replay_gtp_v26_3.reserved_20 = {}
 
@@ -3012,29 +3122,6 @@ lseg_turquoise_replay_gtp_v26_3.reserved_20.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Reserved 23
-lseg_turquoise_replay_gtp_v26_3.reserved_23 = {}
-
--- Size: Reserved 23
-lseg_turquoise_replay_gtp_v26_3.reserved_23.size = 23
-
--- Display: Reserved 23
-lseg_turquoise_replay_gtp_v26_3.reserved_23.display = function(value)
-  return "Reserved 23: "..value
-end
-
--- Dissect: Reserved 23
-lseg_turquoise_replay_gtp_v26_3.reserved_23.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_replay_gtp_v26_3.reserved_23.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_replay_gtp_v26_3.reserved_23.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_23, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reserved 3
 lseg_turquoise_replay_gtp_v26_3.reserved_3 = {}
 
@@ -3054,29 +3141,6 @@ lseg_turquoise_replay_gtp_v26_3.reserved_3.dissect = function(buffer, offset, pa
   local display = lseg_turquoise_replay_gtp_v26_3.reserved_3.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_3, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 38
-lseg_turquoise_replay_gtp_v26_3.reserved_38 = {}
-
--- Size: Reserved 38
-lseg_turquoise_replay_gtp_v26_3.reserved_38.size = 38
-
--- Display: Reserved 38
-lseg_turquoise_replay_gtp_v26_3.reserved_38.display = function(value)
-  return "Reserved 38: "..value
-end
-
--- Dissect: Reserved 38
-lseg_turquoise_replay_gtp_v26_3.reserved_38.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_replay_gtp_v26_3.reserved_38.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_replay_gtp_v26_3.reserved_38.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.reserved_38, range, value, display)
 
   return offset + length, value
 end
@@ -3197,6 +3261,34 @@ lseg_turquoise_replay_gtp_v26_3.second_reserved_8.dissect = function(buffer, off
   local display = lseg_turquoise_replay_gtp_v26_3.second_reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.second_reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Exchange
+lseg_turquoise_replay_gtp_v26_3.security_exchange = {}
+
+-- Size: Security Exchange
+lseg_turquoise_replay_gtp_v26_3.security_exchange.size = 11
+
+-- Display: Security Exchange
+lseg_turquoise_replay_gtp_v26_3.security_exchange.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
+  return "Security Exchange: "..value
+end
+
+-- Dissect: Security Exchange
+lseg_turquoise_replay_gtp_v26_3.security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.security_exchange.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_turquoise_replay_gtp_v26_3.security_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.security_exchange, range, value, display)
 
   return offset + length, value
 end
@@ -3720,6 +3812,29 @@ lseg_turquoise_replay_gtp_v26_3.statistic_type.dissect = function(buffer, offset
   local display = lseg_turquoise_replay_gtp_v26_3.statistic_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.statistic_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 8
+lseg_turquoise_replay_gtp_v26_3.third_reserved_8 = {}
+
+-- Size: Third Reserved 8
+lseg_turquoise_replay_gtp_v26_3.third_reserved_8.size = 8
+
+-- Display: Third Reserved 8
+lseg_turquoise_replay_gtp_v26_3.third_reserved_8.display = function(value)
+  return "Third Reserved 8: "..value
+end
+
+-- Dissect: Third Reserved 8
+lseg_turquoise_replay_gtp_v26_3.third_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.third_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_replay_gtp_v26_3.third_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.third_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -4420,30 +4535,53 @@ lseg_turquoise_replay_gtp_v26_3.venue_instrument_id.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Venue Of Execution
-lseg_turquoise_replay_gtp_v26_3.venue_of_execution = {}
+-- Venue Of Execution Alpha 4
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4 = {}
 
--- Size: Venue Of Execution
-lseg_turquoise_replay_gtp_v26_3.venue_of_execution.size = 4
+-- Size: Venue Of Execution Alpha 4
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.size = 4
 
--- Display: Venue Of Execution
-lseg_turquoise_replay_gtp_v26_3.venue_of_execution.display = function(value)
+-- Display: Venue Of Execution Alpha 4
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Venue Of Execution: No Value"
+    return "Venue Of Execution Alpha 4: No Value"
   end
 
-  return "Venue Of Execution: "..value
+  return "Venue Of Execution Alpha 4: "..value
 end
 
--- Dissect: Venue Of Execution
-lseg_turquoise_replay_gtp_v26_3.venue_of_execution.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_replay_gtp_v26_3.venue_of_execution.size
+-- Dissect: Venue Of Execution Alpha 4
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_turquoise_replay_gtp_v26_3.venue_of_execution.display(value, buffer, offset, packet, parent)
+  local display = lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.venue_of_execution, range, value, display)
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.venue_of_execution_alpha_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Venue Of Execution U Int 81
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81 = {}
+
+-- Size: Venue Of Execution U Int 81
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81.size = 1
+
+-- Display: Venue Of Execution U Int 81
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81.display = function(value)
+  return "Venue Of Execution U Int 81: "..value
+end
+
+-- Dissect: Venue Of Execution U Int 81
+lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.venue_of_execution_u_int_81, range, value, display)
 
   return offset + length, value
 end
@@ -4990,7 +5128,7 @@ lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_cross_message.size =
   lseg_turquoise_replay_gtp_v26_3.price_major_currency.size + 
   lseg_turquoise_replay_gtp_v26_3.notional_amount.size + 
   lseg_turquoise_replay_gtp_v26_3.notional_currency.size + 
-  lseg_turquoise_replay_gtp_v26_3.venue_of_execution.size + 
+  lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.size + 
   lseg_turquoise_replay_gtp_v26_3.publication_date_and_time.size + 
   lseg_turquoise_replay_gtp_v26_3.reserved_4.size + 
   lseg_turquoise_replay_gtp_v26_3.nt_pre_trade_waiver_flag.size + 
@@ -5071,8 +5209,8 @@ lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_cross_message.fields = function(b
   -- Notional Currency: Alpha
   index, notional_currency = lseg_turquoise_replay_gtp_v26_3.notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Venue Of Execution: Alpha
-  index, venue_of_execution = lseg_turquoise_replay_gtp_v26_3.venue_of_execution.dissect(buffer, index, packet, parent)
+  -- Venue Of Execution Alpha 4: Alpha
+  index, venue_of_execution_alpha_4 = lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.dissect(buffer, index, packet, parent)
 
   -- Publication Date And Time: MiFID Date and Time
   index, publication_date_and_time = lseg_turquoise_replay_gtp_v26_3.publication_date_and_time.dissect(buffer, index, packet, parent)
@@ -5095,7 +5233,7 @@ lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_cross_message.fields = function(b
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_replay_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
+  -- Reserved 1: UInt8
   index, reserved_1 = lseg_turquoise_replay_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
@@ -5190,7 +5328,7 @@ lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_message.size =
   lseg_turquoise_replay_gtp_v26_3.price_major_currency.size + 
   lseg_turquoise_replay_gtp_v26_3.notional_amount.size + 
   lseg_turquoise_replay_gtp_v26_3.notional_currency.size + 
-  lseg_turquoise_replay_gtp_v26_3.venue_of_execution.size + 
+  lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.size + 
   lseg_turquoise_replay_gtp_v26_3.publication_date_and_time.size + 
   lseg_turquoise_replay_gtp_v26_3.pt_ref_price_waiver_flag.size + 
   lseg_turquoise_replay_gtp_v26_3.trading_system.size + 
@@ -5272,8 +5410,8 @@ lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_message.fields = function(buffer,
   -- Notional Currency: Alpha
   index, notional_currency = lseg_turquoise_replay_gtp_v26_3.notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Venue Of Execution: Alpha
-  index, venue_of_execution = lseg_turquoise_replay_gtp_v26_3.venue_of_execution.dissect(buffer, index, packet, parent)
+  -- Venue Of Execution Alpha 4: Alpha
+  index, venue_of_execution_alpha_4 = lseg_turquoise_replay_gtp_v26_3.venue_of_execution_alpha_4.dissect(buffer, index, packet, parent)
 
   -- Publication Date And Time: MiFID Date and Time
   index, publication_date_and_time = lseg_turquoise_replay_gtp_v26_3.publication_date_and_time.dissect(buffer, index, packet, parent)
@@ -5296,7 +5434,7 @@ lseg_turquoise_replay_gtp_v26_3.mifid_ii_trade_message.fields = function(buffer,
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_replay_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Byte
+  -- Reserved 1: UInt8
   index, reserved_1 = lseg_turquoise_replay_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
@@ -5664,7 +5802,10 @@ lseg_turquoise_replay_gtp_v26_3.trade_message.size =
   lseg_turquoise_replay_gtp_v26_3.executed_size.size + 
   lseg_turquoise_replay_gtp_v26_3.instrument.size + 
   lseg_turquoise_replay_gtp_v26_3.price_price_8.size + 
-  lseg_turquoise_replay_gtp_v26_3.reserved_8.size + 
+  lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81.size + 
+  lseg_turquoise_replay_gtp_v26_3.reserved_1.size + 
+  lseg_turquoise_replay_gtp_v26_3.reserved_2.size + 
+  lseg_turquoise_replay_gtp_v26_3.reserved_4.size + 
   lseg_turquoise_replay_gtp_v26_3.trade_id.size + 
   lseg_turquoise_replay_gtp_v26_3.trade_type.size + 
   lseg_turquoise_replay_gtp_v26_3.auction_type.size + 
@@ -5699,8 +5840,17 @@ lseg_turquoise_replay_gtp_v26_3.trade_message.fields = function(buffer, offset, 
   -- Price Price 8: Price
   index, price_price_8 = lseg_turquoise_replay_gtp_v26_3.price_price_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_replay_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  -- Venue Of Execution U Int 81: UInt8
+  index, venue_of_execution_u_int_81 = lseg_turquoise_replay_gtp_v26_3.venue_of_execution_u_int_81.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: UInt8
+  index, reserved_1 = lseg_turquoise_replay_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: UInt16
+  index, reserved_2 = lseg_turquoise_replay_gtp_v26_3.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Alpha
+  index, reserved_4 = lseg_turquoise_replay_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Trade Id: UInt64
   index, trade_id = lseg_turquoise_replay_gtp_v26_3.trade_id.dissect(buffer, index, packet, parent)
@@ -6347,13 +6497,20 @@ lseg_turquoise_replay_gtp_v26_3.instrument_directory_message.size =
   lseg_turquoise_replay_gtp_v26_3.source_venue.size + 
   lseg_turquoise_replay_gtp_v26_3.venue_instrument_id.size + 
   lseg_turquoise_replay_gtp_v26_3.tick_id.size + 
-  lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.size + 
+  lseg_turquoise_replay_gtp_v26_3.reserved_8.size + 
   lseg_turquoise_replay_gtp_v26_3.dynamic_circuit_breaker_tolerances.size + 
   lseg_turquoise_replay_gtp_v26_3.static_circuit_breaker_tolerances.size + 
   lseg_turquoise_replay_gtp_v26_3.segment.size + 
-  lseg_turquoise_replay_gtp_v26_3.reserved_23.size + 
+  lseg_turquoise_replay_gtp_v26_3.reserved_12.size + 
+  lseg_turquoise_replay_gtp_v26_3.security_exchange.size + 
   lseg_turquoise_replay_gtp_v26_3.currency.size + 
-  lseg_turquoise_replay_gtp_v26_3.reserved_38.size
+  lseg_turquoise_replay_gtp_v26_3.partition_id.size + 
+  lseg_turquoise_replay_gtp_v26_3.reserved_4.size + 
+  lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.size + 
+  lseg_turquoise_replay_gtp_v26_3.second_reserved_8.size + 
+  lseg_turquoise_replay_gtp_v26_3.reserved_1.size + 
+  lseg_turquoise_replay_gtp_v26_3.third_reserved_8.size + 
+  lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8.size
 
 -- Display: Instrument Directory Message
 lseg_turquoise_replay_gtp_v26_3.instrument_directory_message.display = function(packet, parent, length)
@@ -6385,8 +6542,8 @@ lseg_turquoise_replay_gtp_v26_3.instrument_directory_message.fields = function(b
   -- Tick Id: Alpha
   index, tick_id = lseg_turquoise_replay_gtp_v26_3.tick_id.dissect(buffer, index, packet, parent)
 
-  -- Price Band Tolerances: Price
-  index, price_band_tolerances = lseg_turquoise_replay_gtp_v26_3.price_band_tolerances.dissect(buffer, index, packet, parent)
+  -- Reserved 8: Price
+  index, reserved_8 = lseg_turquoise_replay_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Dynamic Circuit Breaker Tolerances: Price
   index, dynamic_circuit_breaker_tolerances = lseg_turquoise_replay_gtp_v26_3.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
@@ -6397,14 +6554,35 @@ lseg_turquoise_replay_gtp_v26_3.instrument_directory_message.fields = function(b
   -- Segment: Alpha
   index, segment = lseg_turquoise_replay_gtp_v26_3.segment.dissect(buffer, index, packet, parent)
 
-  -- Reserved 23: Alpha
-  index, reserved_23 = lseg_turquoise_replay_gtp_v26_3.reserved_23.dissect(buffer, index, packet, parent)
+  -- Reserved 12: Alpha
+  index, reserved_12 = lseg_turquoise_replay_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
+
+  -- Security Exchange: Alpha
+  index, security_exchange = lseg_turquoise_replay_gtp_v26_3.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Currency: Alpha
   index, currency = lseg_turquoise_replay_gtp_v26_3.currency.dissect(buffer, index, packet, parent)
 
-  -- Reserved 38: Byte
-  index, reserved_38 = lseg_turquoise_replay_gtp_v26_3.reserved_38.dissect(buffer, index, packet, parent)
+  -- Partition Id: Byte
+  index, partition_id = lseg_turquoise_replay_gtp_v26_3.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Alpha
+  index, reserved_4 = lseg_turquoise_replay_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+
+  -- Average Daily Turnover Adt: Price4
+  index, average_daily_turnover_adt = lseg_turquoise_replay_gtp_v26_3.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 8: Price
+  index, second_reserved_8 = lseg_turquoise_replay_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: UInt8
+  index, reserved_1 = lseg_turquoise_replay_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 8: Price
+  index, third_reserved_8 = lseg_turquoise_replay_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Fourth Reserved 8: Price
+  index, fourth_reserved_8 = lseg_turquoise_replay_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
 
   return index
 end

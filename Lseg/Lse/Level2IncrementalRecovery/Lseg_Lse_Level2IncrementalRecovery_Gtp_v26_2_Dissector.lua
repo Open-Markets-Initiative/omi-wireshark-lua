@@ -4023,10 +4023,10 @@ lseg_lse_level2incrementalrecovery_gtp_v26_2.instrument_directory_equities_messa
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_lse_level2incrementalrecovery_gtp_v26_2.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- First Reserved 1: Bit Field
+  -- First Reserved 1: UInt8
   index, first_reserved_1 = lseg_lse_level2incrementalrecovery_gtp_v26_2.first_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Second Reserved 1: Bit Field
+  -- Second Reserved 1: UInt8
   index, second_reserved_1 = lseg_lse_level2incrementalrecovery_gtp_v26_2.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Date
@@ -4047,7 +4047,7 @@ lseg_lse_level2incrementalrecovery_gtp_v26_2.instrument_directory_equities_messa
   -- Last Price In Preceding Session Date: Date
   index, last_price_in_preceding_session_date = lseg_lse_level2incrementalrecovery_gtp_v26_2.last_price_in_preceding_session_date.dissect(buffer, index, packet, parent)
 
-  -- Third Reserved 1: Bit Field
+  -- Third Reserved 1: UInt8
   index, third_reserved_1 = lseg_lse_level2incrementalrecovery_gtp_v26_2.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
@@ -4086,7 +4086,7 @@ lseg_lse_level2incrementalrecovery_gtp_v26_2.instrument_directory_equities_messa
   -- Reserved 12: Alpha
   index, reserved_12 = lseg_lse_level2incrementalrecovery_gtp_v26_2.reserved_12.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Bit Field
+  -- Reserved 1: UInt8
   index, reserved_1 = lseg_lse_level2incrementalrecovery_gtp_v26_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 8: Price

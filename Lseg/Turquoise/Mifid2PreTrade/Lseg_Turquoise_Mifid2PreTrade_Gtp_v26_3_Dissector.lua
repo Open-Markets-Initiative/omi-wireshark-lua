@@ -17,6 +17,7 @@ local lseg_turquoise_mifid2pretrade_gtp_v26_3 = {}
 -- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Fields
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes = ProtoField.new("Aggregated No Of Orders And Quotes", "lseg.turquoise.mifid2pretrade.gtp.v26.3.aggregatednoofordersandquotes", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.turquoise.mifid2pretrade.gtp.v26.3.allowedbooktypes", ftypes.STRING)
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.turquoise.mifid2pretrade.gtp.v26.3.averagedailyturnoveradt", ftypes.DOUBLE)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.clearing_type = ProtoField.new("Clearing Type", "lseg.turquoise.mifid2pretrade.gtp.v26.3.clearingtype", ftypes.UINT8)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.country_of_register = ProtoField.new("Country Of Register", "lseg.turquoise.mifid2pretrade.gtp.v26.3.countryofregister", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.currency = ProtoField.new("Currency", "lseg.turquoise.mifid2pretrade.gtp.v26.3.currency", ftypes.STRING)
@@ -51,9 +52,9 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.new_end_time = ProtoField.new
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_side = ProtoField.new("Order Book Side", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbookside", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbooktype", ftypes.UINT8)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_update = ProtoField.new("Order Book Update", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbookupdate", ftypes.STRING)
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.partition_id = ProtoField.new("Partition Id", "lseg.turquoise.mifid2pretrade.gtp.v26.3.partitionid", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.previous_days_closing_price = ProtoField.new("Previous Days Closing Price", "lseg.turquoise.mifid2pretrade.gtp.v26.3.previousdaysclosingprice", ftypes.DOUBLE)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price = ProtoField.new("Price", "lseg.turquoise.mifid2pretrade.gtp.v26.3.price", ftypes.STRING)
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.mifid2pretrade.gtp.v26.3.pricebandtolerances", ftypes.DOUBLE)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_currency = ProtoField.new("Price Currency", "lseg.turquoise.mifid2pretrade.gtp.v26.3.pricecurrency", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_notation = ProtoField.new("Price Notation", "lseg.turquoise.mifid2pretrade.gtp.v26.3.pricenotation", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.turquoise.mifid2pretrade.gtp.v26.3.publicationdateandtime", ftypes.STRING)
@@ -61,8 +62,6 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.quantity = ProtoField.new("Qu
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved1", ftypes.BYTES)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved12", ftypes.BYTES)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_2 = ProtoField.new("Reserved 2", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved2", ftypes.BYTES)
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_23 = ProtoField.new("Reserved 23", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved23", ftypes.BYTES)
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_38 = ProtoField.new("Reserved 38", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved38", ftypes.BYTES)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved4", ftypes.BYTES)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.turquoise.mifid2pretrade.gtp.v26.3.reserved8", ftypes.BYTES)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "lseg.turquoise.mifid2pretrade.gtp.v26.3.secondreserved1", ftypes.BYTES)
@@ -192,6 +191,35 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.disse
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.aggregated_no_of_orders_and_quotes.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.aggregated_no_of_orders_and_quotes, range, value, display)
+
+  return offset + length, value
+end
+
+-- Average Daily Turnover Adt
+lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt = {}
+
+-- Size: Average Daily Turnover Adt
+lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.size = 8
+
+-- Display: Average Daily Turnover Adt
+lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.display = function(value)
+  return "Average Daily Turnover Adt: "..value
+end
+
+-- Translate: Average Daily Turnover Adt
+lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Average Daily Turnover Adt
+lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.translate(raw)
+  local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.average_daily_turnover_adt, range, value, display)
 
   return offset + length, value
 end
@@ -1065,6 +1093,42 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.order_book_type.dissect = function(buffe
   return offset + length, value
 end
 
+-- Partition Id
+lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id = {}
+
+-- Size: Partition Id
+lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.size = 1
+
+-- Display: Partition Id
+lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Partition Id: No Value"
+  end
+
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Previous Days Closing Price
 lseg_turquoise_mifid2pretrade_gtp_v26_3.previous_days_closing_price = {}
 
@@ -1118,35 +1182,6 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.price.dissect = function(buffer, offset,
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Band Tolerances
-lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances = {}
-
--- Size: Price Band Tolerances
-lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.size = 8
-
--- Display: Price Band Tolerances
-lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.display = function(value)
-  return "Price Band Tolerances: "..value
-end
-
--- Translate: Price Band Tolerances
-lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Price Band Tolerances
-lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.translate(raw)
-  local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.price_band_tolerances, range, value, display)
 
   return offset + length, value
 end
@@ -1327,52 +1362,6 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_2.dissect = function(buffer, of
   local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 23
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23 = {}
-
--- Size: Reserved 23
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23.size = 23
-
--- Display: Reserved 23
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23.display = function(value)
-  return "Reserved 23: "..value
-end
-
--- Dissect: Reserved 23
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_23, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 38
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38 = {}
-
--- Size: Reserved 38
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38.size = 38
-
--- Display: Reserved 38
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38.display = function(value)
-  return "Reserved 38: "..value
-end
-
--- Dissect: Reserved 38
-lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.reserved_38, range, value, display)
 
   return offset + length, value
 end
@@ -2513,7 +2502,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_extended_message.si
   lseg_turquoise_mifid2pretrade_gtp_v26_3.fourth_reserved_1.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.fourth_reserved_8.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.fifth_reserved_8.size + 
-  lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_1.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.sixth_reserved_8.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.seventh_reserved_8.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_4.size + 
@@ -2572,10 +2561,10 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_extended_message.fi
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_turquoise_mifid2pretrade_gtp_v26_3.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- First Reserved 1: Bit Field
+  -- First Reserved 1: UInt8
   index, first_reserved_1 = lseg_turquoise_mifid2pretrade_gtp_v26_3.first_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Second Reserved 1: Bit Field
+  -- Second Reserved 1: UInt8
   index, second_reserved_1 = lseg_turquoise_mifid2pretrade_gtp_v26_3.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Date
@@ -2596,7 +2585,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_extended_message.fi
   -- Last Price In Preceding Session Date: Date
   index, last_price_in_preceding_session_date = lseg_turquoise_mifid2pretrade_gtp_v26_3.last_price_in_preceding_session_date.dissect(buffer, index, packet, parent)
 
-  -- Third Reserved 1: Bit Field
+  -- Third Reserved 1: UInt8
   index, third_reserved_1 = lseg_turquoise_mifid2pretrade_gtp_v26_3.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
@@ -2635,7 +2624,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_extended_message.fi
   -- Reserved 12: Alpha
   index, reserved_12 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
 
-  -- Fourth Reserved 1: Bit Field
+  -- Fourth Reserved 1: UInt8
   index, fourth_reserved_1 = lseg_turquoise_mifid2pretrade_gtp_v26_3.fourth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 8: Price
@@ -2644,8 +2633,8 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_extended_message.fi
   -- Fifth Reserved 8: Price
   index, fifth_reserved_8 = lseg_turquoise_mifid2pretrade_gtp_v26_3.fifth_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Bit Field
-  index, reserved_1 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  -- Partition Id: Byte
+  index, partition_id = lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 8: Price
   index, sixth_reserved_8 = lseg_turquoise_mifid2pretrade_gtp_v26_3.sixth_reserved_8.dissect(buffer, index, packet, parent)
@@ -2653,7 +2642,7 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_extended_message.fi
   -- Seventh Reserved 8: Price
   index, seventh_reserved_8 = lseg_turquoise_mifid2pretrade_gtp_v26_3.seventh_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: UInt32
+  -- Reserved 4: Alpha
   index, reserved_4 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: UInt16
@@ -2698,13 +2687,20 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_message.size =
   lseg_turquoise_mifid2pretrade_gtp_v26_3.source_venue.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.venue_instrument_id.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.tick_id.size + 
-  lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_8.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.dynamic_circuit_breaker_tolerances.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.static_circuit_breaker_tolerances.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.segment.size + 
-  lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_12.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.security_exchange.size + 
   lseg_turquoise_mifid2pretrade_gtp_v26_3.currency.size + 
-  lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38.size
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_4.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.second_reserved_8.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_1.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.third_reserved_8.size + 
+  lseg_turquoise_mifid2pretrade_gtp_v26_3.fourth_reserved_8.size
 
 -- Display: Instrument Directory Message
 lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_message.display = function(packet, parent, length)
@@ -2736,8 +2732,8 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_message.fields = fu
   -- Tick Id: Alpha
   index, tick_id = lseg_turquoise_mifid2pretrade_gtp_v26_3.tick_id.dissect(buffer, index, packet, parent)
 
-  -- Price Band Tolerances: Price
-  index, price_band_tolerances = lseg_turquoise_mifid2pretrade_gtp_v26_3.price_band_tolerances.dissect(buffer, index, packet, parent)
+  -- Reserved 8: Price
+  index, reserved_8 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Dynamic Circuit Breaker Tolerances: Price
   index, dynamic_circuit_breaker_tolerances = lseg_turquoise_mifid2pretrade_gtp_v26_3.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
@@ -2748,14 +2744,35 @@ lseg_turquoise_mifid2pretrade_gtp_v26_3.instrument_directory_message.fields = fu
   -- Segment: Alpha
   index, segment = lseg_turquoise_mifid2pretrade_gtp_v26_3.segment.dissect(buffer, index, packet, parent)
 
-  -- Reserved 23: Alpha
-  index, reserved_23 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_23.dissect(buffer, index, packet, parent)
+  -- Reserved 12: Alpha
+  index, reserved_12 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
+
+  -- Security Exchange: Alpha
+  index, security_exchange = lseg_turquoise_mifid2pretrade_gtp_v26_3.security_exchange.dissect(buffer, index, packet, parent)
 
   -- Currency: Alpha
   index, currency = lseg_turquoise_mifid2pretrade_gtp_v26_3.currency.dissect(buffer, index, packet, parent)
 
-  -- Reserved 38: Byte
-  index, reserved_38 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_38.dissect(buffer, index, packet, parent)
+  -- Partition Id: Byte
+  index, partition_id = lseg_turquoise_mifid2pretrade_gtp_v26_3.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Alpha
+  index, reserved_4 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
+
+  -- Average Daily Turnover Adt: Price4
+  index, average_daily_turnover_adt = lseg_turquoise_mifid2pretrade_gtp_v26_3.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 8: Price
+  index, second_reserved_8 = lseg_turquoise_mifid2pretrade_gtp_v26_3.second_reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: UInt8
+  index, reserved_1 = lseg_turquoise_mifid2pretrade_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 8: Price
+  index, third_reserved_8 = lseg_turquoise_mifid2pretrade_gtp_v26_3.third_reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Fourth Reserved 8: Price
+  index, fourth_reserved_8 = lseg_turquoise_mifid2pretrade_gtp_v26_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
 
   return index
 end

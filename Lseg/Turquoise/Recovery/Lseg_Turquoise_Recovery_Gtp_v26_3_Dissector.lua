@@ -105,6 +105,7 @@ omi_lseg_turquoise_recovery_gtp_v26_3.fields.order_book_update = ProtoField.new(
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.order_id = ProtoField.new("Order Id", "lseg.turquoise.recovery.gtp.v26.3.orderid", ftypes.UINT64)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.order_type = ProtoField.new("Order Type", "lseg.turquoise.recovery.gtp.v26.3.ordertype", ftypes.UINT8)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.participant = ProtoField.new("Participant", "lseg.turquoise.recovery.gtp.v26.3.participant", ftypes.STRING)
+omi_lseg_turquoise_recovery_gtp_v26_3.fields.partition_id = ProtoField.new("Partition Id", "lseg.turquoise.recovery.gtp.v26.3.partitionid", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.turquoise.recovery.gtp.v26.3.posttradedeferralreason", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.previous_days_closing_price = ProtoField.new("Previous Days Closing Price", "lseg.turquoise.recovery.gtp.v26.3.previousdaysclosingprice", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.price_currency = ProtoField.new("Price Currency", "lseg.turquoise.recovery.gtp.v26.3.pricecurrency", ftypes.STRING)
@@ -186,7 +187,8 @@ omi_lseg_turquoise_recovery_gtp_v26_3.fields.update_date_and_time = ProtoField.n
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.username = ProtoField.new("Username", "lseg.turquoise.recovery.gtp.v26.3.username", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue = ProtoField.new("Venue", "lseg.turquoise.recovery.gtp.v26.3.venue", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.turquoise.recovery.gtp.v26.3.venueinstrumentid", ftypes.STRING)
-omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.turquoise.recovery.gtp.v26.3.venueofexecution", ftypes.STRING)
+omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue_of_execution_alpha_4 = ProtoField.new("Venue Of Execution Alpha 4", "lseg.turquoise.recovery.gtp.v26.3.venueofexecutionalpha4", ftypes.STRING)
+omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue_of_execution_u_int_81 = ProtoField.new("Venue Of Execution U Int 81", "lseg.turquoise.recovery.gtp.v26.3.venueofexecutionuint81", ftypes.UINT8)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.volume = ProtoField.new("Volume", "lseg.turquoise.recovery.gtp.v26.3.volume", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.volume_onbook_only = ProtoField.new("Volume Onbook Only", "lseg.turquoise.recovery.gtp.v26.3.volumeonbookonly", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.vwap = ProtoField.new("Vwap", "lseg.turquoise.recovery.gtp.v26.3.vwap", ftypes.DOUBLE)
@@ -2841,6 +2843,42 @@ lseg_turquoise_recovery_gtp_v26_3.participant.dissect = function(buffer, offset,
   return offset + length, value
 end
 
+-- Partition Id
+lseg_turquoise_recovery_gtp_v26_3.partition_id = {}
+
+-- Size: Partition Id
+lseg_turquoise_recovery_gtp_v26_3.partition_id.size = 1
+
+-- Display: Partition Id
+lseg_turquoise_recovery_gtp_v26_3.partition_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Partition Id: No Value"
+  end
+
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+lseg_turquoise_recovery_gtp_v26_3.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_recovery_gtp_v26_3.partition_id.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = lseg_turquoise_recovery_gtp_v26_3.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_recovery_gtp_v26_3.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Post Trade Deferral Reason
 lseg_turquoise_recovery_gtp_v26_3.post_trade_deferral_reason = {}
 
@@ -5063,30 +5101,53 @@ lseg_turquoise_recovery_gtp_v26_3.venue_instrument_id.dissect = function(buffer,
   return offset + length, value
 end
 
--- Venue Of Execution
-lseg_turquoise_recovery_gtp_v26_3.venue_of_execution = {}
+-- Venue Of Execution Alpha 4
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4 = {}
 
--- Size: Venue Of Execution
-lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.size = 4
+-- Size: Venue Of Execution Alpha 4
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.size = 4
 
--- Display: Venue Of Execution
-lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.display = function(value)
+-- Display: Venue Of Execution Alpha 4
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Venue Of Execution: No Value"
+    return "Venue Of Execution Alpha 4: No Value"
   end
 
-  return "Venue Of Execution: "..value
+  return "Venue Of Execution Alpha 4: "..value
 end
 
--- Dissect: Venue Of Execution
-lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.size
+-- Dissect: Venue Of Execution Alpha 4
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.display(value, buffer, offset, packet, parent)
+  local display = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue_of_execution, range, value, display)
+  parent:add(omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue_of_execution_alpha_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Venue Of Execution U Int 81
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81 = {}
+
+-- Size: Venue Of Execution U Int 81
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.size = 1
+
+-- Display: Venue Of Execution U Int 81
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.display = function(value)
+  return "Venue Of Execution U Int 81: "..value
+end
+
+-- Dissect: Venue Of Execution U Int 81
+lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_recovery_gtp_v26_3.fields.venue_of_execution_u_int_81, range, value, display)
 
   return offset + length, value
 end
@@ -5379,7 +5440,7 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.size =
   lseg_turquoise_recovery_gtp_v26_3.price_major_currency.size + 
   lseg_turquoise_recovery_gtp_v26_3.notional_amount.size + 
   lseg_turquoise_recovery_gtp_v26_3.notional_currency.size + 
-  lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.size + 
+  lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.size + 
   lseg_turquoise_recovery_gtp_v26_3.publication_date_and_time.size + 
   lseg_turquoise_recovery_gtp_v26_3.reserved_4.size + 
   lseg_turquoise_recovery_gtp_v26_3.nt_pre_trade_waiver_flag.size + 
@@ -5460,8 +5521,8 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.fields = function
   -- Notional Currency: Alpha
   index, notional_currency = lseg_turquoise_recovery_gtp_v26_3.notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Venue Of Execution: Alpha
-  index, venue_of_execution = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.dissect(buffer, index, packet, parent)
+  -- Venue Of Execution Alpha 4: Alpha
+  index, venue_of_execution_alpha_4 = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.dissect(buffer, index, packet, parent)
 
   -- Publication Date And Time: MiFID Date and Time
   index, publication_date_and_time = lseg_turquoise_recovery_gtp_v26_3.publication_date_and_time.dissect(buffer, index, packet, parent)
@@ -5484,7 +5545,7 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_cross_message.fields = function
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Bit Field
+  -- Reserved 1: UInt8
   index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
@@ -5579,7 +5640,7 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_message.size =
   lseg_turquoise_recovery_gtp_v26_3.price_major_currency.size + 
   lseg_turquoise_recovery_gtp_v26_3.notional_amount.size + 
   lseg_turquoise_recovery_gtp_v26_3.notional_currency.size + 
-  lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.size + 
+  lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.size + 
   lseg_turquoise_recovery_gtp_v26_3.publication_date_and_time.size + 
   lseg_turquoise_recovery_gtp_v26_3.pt_ref_price_waiver_flag.size + 
   lseg_turquoise_recovery_gtp_v26_3.trading_system.size + 
@@ -5661,8 +5722,8 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_message.fields = function(buffe
   -- Notional Currency: Alpha
   index, notional_currency = lseg_turquoise_recovery_gtp_v26_3.notional_currency.dissect(buffer, index, packet, parent)
 
-  -- Venue Of Execution: Alpha
-  index, venue_of_execution = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution.dissect(buffer, index, packet, parent)
+  -- Venue Of Execution Alpha 4: Alpha
+  index, venue_of_execution_alpha_4 = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_alpha_4.dissect(buffer, index, packet, parent)
 
   -- Publication Date And Time: MiFID Date and Time
   index, publication_date_and_time = lseg_turquoise_recovery_gtp_v26_3.publication_date_and_time.dissect(buffer, index, packet, parent)
@@ -5685,7 +5746,7 @@ lseg_turquoise_recovery_gtp_v26_3.mifid_ii_trade_message.fields = function(buffe
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v26_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Bit Field
+  -- Reserved 1: UInt8
   index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Alpha
@@ -6089,7 +6150,10 @@ lseg_turquoise_recovery_gtp_v26_3.trade_message.size =
   lseg_turquoise_recovery_gtp_v26_3.executed_size.size + 
   lseg_turquoise_recovery_gtp_v26_3.instrument.size + 
   lseg_turquoise_recovery_gtp_v26_3.price_price_8.size + 
-  lseg_turquoise_recovery_gtp_v26_3.reserved_8.size + 
+  lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.size + 
+  lseg_turquoise_recovery_gtp_v26_3.reserved_1.size + 
+  lseg_turquoise_recovery_gtp_v26_3.reserved_2.size + 
+  lseg_turquoise_recovery_gtp_v26_3.reserved_4.size + 
   lseg_turquoise_recovery_gtp_v26_3.trade_id.size + 
   lseg_turquoise_recovery_gtp_v26_3.trade_type.size + 
   lseg_turquoise_recovery_gtp_v26_3.auction_type.size + 
@@ -6124,8 +6188,17 @@ lseg_turquoise_recovery_gtp_v26_3.trade_message.fields = function(buffer, offset
   -- Price Price 8: Price
   index, price_price_8 = lseg_turquoise_recovery_gtp_v26_3.price_price_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8: Price
-  index, reserved_8 = lseg_turquoise_recovery_gtp_v26_3.reserved_8.dissect(buffer, index, packet, parent)
+  -- Venue Of Execution U Int 81: UInt8
+  index, venue_of_execution_u_int_81 = lseg_turquoise_recovery_gtp_v26_3.venue_of_execution_u_int_81.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: UInt8
+  index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: UInt16
+  index, reserved_2 = lseg_turquoise_recovery_gtp_v26_3.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: UInt32
+  index, reserved_4 = lseg_turquoise_recovery_gtp_v26_3.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Trade Id: UInt64
   index, trade_id = lseg_turquoise_recovery_gtp_v26_3.trade_id.dissect(buffer, index, packet, parent)
@@ -6600,7 +6673,7 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.size =
   lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_1.size + 
   lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_8.size + 
   lseg_turquoise_recovery_gtp_v26_3.fifth_reserved_8.size + 
-  lseg_turquoise_recovery_gtp_v26_3.reserved_1.size + 
+  lseg_turquoise_recovery_gtp_v26_3.partition_id.size + 
   lseg_turquoise_recovery_gtp_v26_3.sixth_reserved_8.size + 
   lseg_turquoise_recovery_gtp_v26_3.seventh_reserved_8.size + 
   lseg_turquoise_recovery_gtp_v26_3.reserved_4.size + 
@@ -6659,10 +6732,10 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_turquoise_recovery_gtp_v26_3.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- First Reserved 1: Bit Field
+  -- First Reserved 1: UInt8
   index, first_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.first_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Second Reserved 1: Bit Field
+  -- Second Reserved 1: UInt8
   index, second_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Date
@@ -6683,7 +6756,7 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Last Price In Preceding Session Date: Date
   index, last_price_in_preceding_session_date = lseg_turquoise_recovery_gtp_v26_3.last_price_in_preceding_session_date.dissect(buffer, index, packet, parent)
 
-  -- Third Reserved 1: Bit Field
+  -- Third Reserved 1: UInt8
   index, third_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
@@ -6722,7 +6795,7 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Reserved 12: Alpha
   index, reserved_12 = lseg_turquoise_recovery_gtp_v26_3.reserved_12.dissect(buffer, index, packet, parent)
 
-  -- Fourth Reserved 1: Bit Field
+  -- Fourth Reserved 1: UInt8
   index, fourth_reserved_1 = lseg_turquoise_recovery_gtp_v26_3.fourth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 8: Price
@@ -6731,8 +6804,8 @@ lseg_turquoise_recovery_gtp_v26_3.instrument_directory_extended_message.fields =
   -- Fifth Reserved 8: Price
   index, fifth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.fifth_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Bit Field
-  index, reserved_1 = lseg_turquoise_recovery_gtp_v26_3.reserved_1.dissect(buffer, index, packet, parent)
+  -- Partition Id: Byte
+  index, partition_id = lseg_turquoise_recovery_gtp_v26_3.partition_id.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 8: Price
   index, sixth_reserved_8 = lseg_turquoise_recovery_gtp_v26_3.sixth_reserved_8.dissect(buffer, index, packet, parent)

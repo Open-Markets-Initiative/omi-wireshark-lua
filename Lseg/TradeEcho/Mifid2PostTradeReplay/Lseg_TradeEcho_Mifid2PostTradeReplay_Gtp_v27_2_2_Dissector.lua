@@ -99,9 +99,10 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.replay_status = Prot
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.request_id = ProtoField.new("Request Id", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.requestid", ftypes.UINT32)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved1", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved12", ftypes.BYTES)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_25 = ProtoField.new("Reserved 25", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved25", ftypes.BYTES)
-omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_5 = ProtoField.new("Reserved 5", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved5", ftypes.BYTES)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved4", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.reserved8", ftypes.BYTES)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.secondreserved1", ftypes.BYTES)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.secondreserved8", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.security_exchange = ProtoField.new("Security Exchange", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.securityexchange", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.segment = ProtoField.new("Segment", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.segment", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.sequencenumber", ftypes.UINT32)
@@ -111,6 +112,7 @@ omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.special_dividend_fla
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.specialdividendindicator", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.spread = ProtoField.new("Spread", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.spread", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.thirdreserved8", ftypes.BYTES)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.thirdcountry_trading_venue_of_execution = ProtoField.new("Thirdcountry Trading Venue Of Execution", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.thirdcountrytradingvenueofexecution", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.tickid", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttradereplay.gtp.v27.2.2.timestamp", ftypes.UINT64)
@@ -2961,48 +2963,25 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_12.dissect = function(
   return offset + length, value
 end
 
--- Reserved 25
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25 = {}
+-- Reserved 4
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4 = {}
 
--- Size: Reserved 25
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25.size = 25
+-- Size: Reserved 4
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.size = 4
 
--- Display: Reserved 25
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25.display = function(value)
-  return "Reserved 25: "..value
+-- Display: Reserved 4
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.display = function(value)
+  return "Reserved 4: "..value
 end
 
--- Dissect: Reserved 25
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25.size
+-- Dissect: Reserved 4
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25.display(value, buffer, offset, packet, parent)
+  local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_25, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved 5
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5 = {}
-
--- Size: Reserved 5
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5.size = 5
-
--- Display: Reserved 5
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5.display = function(value)
-  return "Reserved 5: "..value
-end
-
--- Dissect: Reserved 5
-lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_5, range, value, display)
+  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -3026,6 +3005,52 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.dissect = function(b
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 1
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1 = {}
+
+-- Size: Second Reserved 1
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.size = 1
+
+-- Display: Second Reserved 1
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.display = function(value)
+  return "Second Reserved 1: "..value
+end
+
+-- Dissect: Second Reserved 1
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.second_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8 = {}
+
+-- Size: Second Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.size = 8
+
+-- Display: Second Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.display = function(value)
+  return "Second Reserved 8: "..value
+end
+
+-- Dissect: Second Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.second_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -3287,6 +3312,29 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.static_circuit_breaker_toleranc
   local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.static_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8 = {}
+
+-- Size: Third Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.size = 8
+
+-- Display: Third Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.display = function(value)
+  return "Third Reserved 8: "..value
+end
+
+-- Dissect: Third Reserved 8
+lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.fields.third_reserved_8, range, value, display)
 
   return offset + length, value
 end
@@ -4294,7 +4342,7 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.mifid_ii_trade_report_message.f
   -- Total Number Of Transactions: UInt32
   index, total_number_of_transactions = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.total_number_of_transactions.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8: Price
+  -- Reserved 8: Alpha
   index, reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.dissect(buffer, index, packet, parent)
 
   -- Source Venue: UInt16
@@ -4414,7 +4462,7 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.mifid_ii_trade_report_message.f
   -- Consecutive Aggregation Flag: Alpha
   index, consecutive_aggregation_flag = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.consecutive_aggregation_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: UInt8
+  -- Reserved 1: Byte
   index, reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Venue Type: UInt8
@@ -4761,9 +4809,13 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_directory_message.si
   lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_12.size + 
   lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.security_exchange.size + 
   lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.currency.size + 
-  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5.size + 
+  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.size + 
+  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.size + 
   lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.average_daily_turnover_adt.size + 
-  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25.size
+  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.size + 
+  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.size + 
+  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.size + 
+  lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.size
 
 -- Display: Instrument Directory Message
 lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_directory_message.display = function(packet, parent, length)
@@ -4816,14 +4868,26 @@ lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.instrument_directory_message.fi
   -- Currency: Alpha
   index, currency = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.currency.dissect(buffer, index, packet, parent)
 
-  -- Reserved 5: Alpha
-  index, reserved_5 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_5.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Byte
+  index, reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Alpha
+  index, reserved_4 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Average Daily Turnover Adt: Price4
   index, average_daily_turnover_adt = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
 
-  -- Reserved 25: Alpha
-  index, reserved_25 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_25.dissect(buffer, index, packet, parent)
+  -- Reserved 8: Alpha
+  index, reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 1: Byte
+  index, second_reserved_1 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 8: Alpha
+  index, second_reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.second_reserved_8.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 8: Alpha
+  index, third_reserved_8 = lseg_tradeecho_mifid2posttradereplay_gtp_v27_2_2.third_reserved_8.dissect(buffer, index, packet, parent)
 
   return index
 end

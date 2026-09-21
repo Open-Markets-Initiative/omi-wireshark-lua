@@ -120,7 +120,8 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.request_order_book_type = ProtoFiel
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.turquoise.recovery.gtp.v24.4.reserved1", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.turquoise.recovery.gtp.v24.4.reserved12", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_2 = ProtoField.new("Reserved 2", "lseg.turquoise.recovery.gtp.v24.4.reserved2", ftypes.BYTES)
-omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_28 = ProtoField.new("Reserved 28", "lseg.turquoise.recovery.gtp.v24.4.reserved28", ftypes.BYTES)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_20 = ProtoField.new("Reserved 20", "lseg.turquoise.recovery.gtp.v24.4.reserved20", ftypes.BYTES)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_3 = ProtoField.new("Reserved 3", "lseg.turquoise.recovery.gtp.v24.4.reserved3", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.turquoise.recovery.gtp.v24.4.reserved4", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.turquoise.recovery.gtp.v24.4.reserved8", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.retail_lp = ProtoField.new("Retail Lp", "lseg.turquoise.recovery.gtp.v24.4.retaillp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
@@ -146,6 +147,7 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.static_reference_price = ProtoField
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.strike_price = ProtoField.new("Strike Price", "lseg.turquoise.recovery.gtp.v24.4.strikeprice", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.symbol = ProtoField.new("Symbol", "lseg.turquoise.recovery.gtp.v24.4.symbol", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "lseg.turquoise.recovery.gtp.v24.4.thirdreserved1", ftypes.BYTES)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_4 = ProtoField.new("Third Reserved 4", "lseg.turquoise.recovery.gtp.v24.4.thirdreserved4", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.recovery.gtp.v24.4.thirdreserved8", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.recovery.gtp.v24.4.tickid", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.recovery.gtp.v24.4.timestamp", ftypes.UINT64)
@@ -3381,25 +3383,48 @@ lseg_turquoise_recovery_gtp_v24_4.reserved_2.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Reserved 28
-lseg_turquoise_recovery_gtp_v24_4.reserved_28 = {}
+-- Reserved 20
+lseg_turquoise_recovery_gtp_v24_4.reserved_20 = {}
 
--- Size: Reserved 28
-lseg_turquoise_recovery_gtp_v24_4.reserved_28.size = 28
+-- Size: Reserved 20
+lseg_turquoise_recovery_gtp_v24_4.reserved_20.size = 20
 
--- Display: Reserved 28
-lseg_turquoise_recovery_gtp_v24_4.reserved_28.display = function(value)
-  return "Reserved 28: "..value
+-- Display: Reserved 20
+lseg_turquoise_recovery_gtp_v24_4.reserved_20.display = function(value)
+  return "Reserved 20: "..value
 end
 
--- Dissect: Reserved 28
-lseg_turquoise_recovery_gtp_v24_4.reserved_28.dissect = function(buffer, offset, packet, parent)
-  local length = lseg_turquoise_recovery_gtp_v24_4.reserved_28.size
+-- Dissect: Reserved 20
+lseg_turquoise_recovery_gtp_v24_4.reserved_20.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_recovery_gtp_v24_4.reserved_20.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = lseg_turquoise_recovery_gtp_v24_4.reserved_28.display(value, buffer, offset, packet, parent)
+  local display = lseg_turquoise_recovery_gtp_v24_4.reserved_20.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_28, range, value, display)
+  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_20, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 3
+lseg_turquoise_recovery_gtp_v24_4.reserved_3 = {}
+
+-- Size: Reserved 3
+lseg_turquoise_recovery_gtp_v24_4.reserved_3.size = 3
+
+-- Display: Reserved 3
+lseg_turquoise_recovery_gtp_v24_4.reserved_3.display = function(value)
+  return "Reserved 3: "..value
+end
+
+-- Dissect: Reserved 3
+lseg_turquoise_recovery_gtp_v24_4.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_recovery_gtp_v24_4.reserved_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_recovery_gtp_v24_4.reserved_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.reserved_3, range, value, display)
 
   return offset + length, value
 end
@@ -4078,6 +4103,29 @@ lseg_turquoise_recovery_gtp_v24_4.third_reserved_1.dissect = function(buffer, of
   local display = lseg_turquoise_recovery_gtp_v24_4.third_reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 4
+lseg_turquoise_recovery_gtp_v24_4.third_reserved_4 = {}
+
+-- Size: Third Reserved 4
+lseg_turquoise_recovery_gtp_v24_4.third_reserved_4.size = 4
+
+-- Display: Third Reserved 4
+lseg_turquoise_recovery_gtp_v24_4.third_reserved_4.display = function(value)
+  return "Third Reserved 4: "..value
+end
+
+-- Dissect: Third Reserved 4
+lseg_turquoise_recovery_gtp_v24_4.third_reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_recovery_gtp_v24_4.third_reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_turquoise_recovery_gtp_v24_4.third_reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_4, range, value, display)
 
   return offset + length, value
 end
@@ -5217,10 +5265,10 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Static Circuit Breaker Tolerances: Price
   index, static_circuit_breaker_tolerances = lseg_turquoise_recovery_gtp_v24_4.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
 
-  -- First Reserved 1: Bit Field
+  -- First Reserved 1: Byte
   index, first_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.first_reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Second Reserved 1: Bit Field
+  -- Second Reserved 1: Byte
   index, second_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.second_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Expiration Date: Date
@@ -5241,7 +5289,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Last Price In Preceding Session Date: Date
   index, last_price_in_preceding_session_date = lseg_turquoise_recovery_gtp_v24_4.last_price_in_preceding_session_date.dissect(buffer, index, packet, parent)
 
-  -- Third Reserved 1: Bit Field
+  -- Third Reserved 1: Byte
   index, third_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.third_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 8: Price
@@ -5280,7 +5328,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Reserved 12: Alpha
   index, reserved_12 = lseg_turquoise_recovery_gtp_v24_4.reserved_12.dissect(buffer, index, packet, parent)
 
-  -- Fourth Reserved 1: Bit Field
+  -- Fourth Reserved 1: Byte
   index, fourth_reserved_1 = lseg_turquoise_recovery_gtp_v24_4.fourth_reserved_1.dissect(buffer, index, packet, parent)
 
   -- Fourth Reserved 8: Price
@@ -5289,7 +5337,7 @@ lseg_turquoise_recovery_gtp_v24_4.instrument_directory_equities_message.fields =
   -- Fifth Reserved 8: Price
   index, fifth_reserved_8 = lseg_turquoise_recovery_gtp_v24_4.fifth_reserved_8.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Bit Field
+  -- Reserved 1: Byte
   index, reserved_1 = lseg_turquoise_recovery_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
 
   -- Sixth Reserved 8: Price
@@ -5359,7 +5407,10 @@ lseg_turquoise_recovery_gtp_v24_4.mi_fid_ii_trade_cross_message.size =
   lseg_turquoise_recovery_gtp_v24_4.second_reserved_4.size + 
   lseg_turquoise_recovery_gtp_v24_4.pt_cancellation_flag.size + 
   lseg_turquoise_recovery_gtp_v24_4.pt_amendment_flag.size + 
-  lseg_turquoise_recovery_gtp_v24_4.reserved_28.size + 
+  lseg_turquoise_recovery_gtp_v24_4.reserved_1.size + 
+  lseg_turquoise_recovery_gtp_v24_4.reserved_3.size + 
+  lseg_turquoise_recovery_gtp_v24_4.reserved_20.size + 
+  lseg_turquoise_recovery_gtp_v24_4.third_reserved_4.size + 
   lseg_turquoise_recovery_gtp_v24_4.market_mechanism.size + 
   lseg_turquoise_recovery_gtp_v24_4.trading_mode.size + 
   lseg_turquoise_recovery_gtp_v24_4.transaction_category.size + 
@@ -5453,8 +5504,17 @@ lseg_turquoise_recovery_gtp_v24_4.mi_fid_ii_trade_cross_message.fields = functio
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v24_4.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 28: Alpha
-  index, reserved_28 = lseg_turquoise_recovery_gtp_v24_4.reserved_28.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Byte
+  index, reserved_1 = lseg_turquoise_recovery_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reserved 3: Alpha
+  index, reserved_3 = lseg_turquoise_recovery_gtp_v24_4.reserved_3.dissect(buffer, index, packet, parent)
+
+  -- Reserved 20: MiFID Decimal
+  index, reserved_20 = lseg_turquoise_recovery_gtp_v24_4.reserved_20.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 4: Alpha
+  index, third_reserved_4 = lseg_turquoise_recovery_gtp_v24_4.third_reserved_4.dissect(buffer, index, packet, parent)
 
   -- Market Mechanism: Byte
   index, market_mechanism = lseg_turquoise_recovery_gtp_v24_4.market_mechanism.dissect(buffer, index, packet, parent)
@@ -5547,7 +5607,10 @@ lseg_turquoise_recovery_gtp_v24_4.mifid_ii_trade_message.size =
   lseg_turquoise_recovery_gtp_v24_4.pt_algo_trade.size + 
   lseg_turquoise_recovery_gtp_v24_4.pt_cancellation_flag.size + 
   lseg_turquoise_recovery_gtp_v24_4.pt_amendment_flag.size + 
-  lseg_turquoise_recovery_gtp_v24_4.reserved_28.size + 
+  lseg_turquoise_recovery_gtp_v24_4.reserved_1.size + 
+  lseg_turquoise_recovery_gtp_v24_4.reserved_3.size + 
+  lseg_turquoise_recovery_gtp_v24_4.reserved_20.size + 
+  lseg_turquoise_recovery_gtp_v24_4.second_reserved_4.size + 
   lseg_turquoise_recovery_gtp_v24_4.trade_qualifier.size + 
   lseg_turquoise_recovery_gtp_v24_4.market_mechanism.size + 
   lseg_turquoise_recovery_gtp_v24_4.trading_mode.size + 
@@ -5642,8 +5705,17 @@ lseg_turquoise_recovery_gtp_v24_4.mifid_ii_trade_message.fields = function(buffe
   -- Pt Amendment Flag: Alpha
   index, pt_amendment_flag = lseg_turquoise_recovery_gtp_v24_4.pt_amendment_flag.dissect(buffer, index, packet, parent)
 
-  -- Reserved 28: Alpha
-  index, reserved_28 = lseg_turquoise_recovery_gtp_v24_4.reserved_28.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Byte
+  index, reserved_1 = lseg_turquoise_recovery_gtp_v24_4.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Reserved 3: Alpha
+  index, reserved_3 = lseg_turquoise_recovery_gtp_v24_4.reserved_3.dissect(buffer, index, packet, parent)
+
+  -- Reserved 20: MiFID Decimal
+  index, reserved_20 = lseg_turquoise_recovery_gtp_v24_4.reserved_20.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 4: Alpha
+  index, second_reserved_4 = lseg_turquoise_recovery_gtp_v24_4.second_reserved_4.dissect(buffer, index, packet, parent)
 
   -- Trade Qualifier: Byte
   index, trade_qualifier = lseg_turquoise_recovery_gtp_v24_4.trade_qualifier.dissect(buffer, index, packet, parent)
