@@ -2560,6 +2560,7 @@ tcp_table:add_for_decode_as(omi_iex_iexequities_deepplus_snap_v1_06)
 -- Protocol:
 --   Organization: Investors Exchange
 --   Version: 1.06
+--   Since: 1.00
 --   Date: Friday, August 21, 2026
 --   Specification: IEX DEEP+ SNAP Specification.pdf
 --

@@ -2374,6 +2374,7 @@ udp_table:add_for_decode_as(omi_iex_iexequities_deepplus_iextp_v1_05)
 -- Protocol:
 --   Organization: Investors Exchange
 --   Version: 1.05
+--   Since: 1.02
 --   Date: Friday, August 21, 2026
 --   Specification: IEX DEEP+ Specification v1.05.pdf
 --

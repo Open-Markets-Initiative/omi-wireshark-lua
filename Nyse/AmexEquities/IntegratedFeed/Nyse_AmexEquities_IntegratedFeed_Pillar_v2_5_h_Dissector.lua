@@ -4701,6 +4701,7 @@ udp_table:add_for_decode_as(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.5.h
+--   Since: 2.5.d
 --   Date: Thursday, July 30, 2026
 --   Specification: NYSE_Pillar_Integrated_Feed_Client_Specification.pdf
 --

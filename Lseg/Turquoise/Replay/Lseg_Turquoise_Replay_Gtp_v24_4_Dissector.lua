@@ -94,7 +94,7 @@ omi_lseg_turquoise_replay_gtp_v24_4.fields.price_band_tolerances = ProtoField.ne
 omi_lseg_turquoise_replay_gtp_v24_4.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.turquoise.replay.gtp.v24.4.priceformationindicator", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.price_major_currency = ProtoField.new("Price Major Currency", "lseg.turquoise.replay.gtp.v24.4.pricemajorcurrency", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.price_notation = ProtoField.new("Price Notation", "lseg.turquoise.replay.gtp.v24.4.pricenotation", ftypes.STRING)
-omi_lseg_turquoise_replay_gtp_v24_4.fields.priority = ProtoField.new("Priority", "lseg.turquoise.replay.gtp.v24.4.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_lseg_turquoise_replay_gtp_v24_4.fields.priority_flag = ProtoField.new("Priority Flag", "lseg.turquoise.replay.gtp.v24.4.priorityflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.pt_algo_trade = ProtoField.new("Pt Algo Trade", "lseg.turquoise.replay.gtp.v24.4.ptalgotrade", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.pt_amendment_flag = ProtoField.new("Pt Amendment Flag", "lseg.turquoise.replay.gtp.v24.4.ptamendmentflag", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v24_4.fields.pt_cancellation_flag = ProtoField.new("Pt Cancellation Flag", "lseg.turquoise.replay.gtp.v24.4.ptcancellationflag", ftypes.STRING)
@@ -5664,9 +5664,9 @@ lseg_turquoise_replay_gtp_v24_4.order_modify_flags.size = 1
 lseg_turquoise_replay_gtp_v24_4.order_modify_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Priority flag set?
+  -- Is Priority Flag flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Priority"
+    flags[#flags + 1] = "Priority Flag"
   end
 
   return table.concat(flags, "|")
@@ -5675,8 +5675,8 @@ end
 -- Dissect Bit Fields: Order Modify Flags
 lseg_turquoise_replay_gtp_v24_4.order_modify_flags.bits = function(range, value, packet, parent)
 
-  -- Priority: 1 Bit
-  parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.priority, range, value)
+  -- Priority Flag: 1 Bit
+  parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.priority_flag, range, value)
 
   -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v24_4.fields.unused_7, range, value)

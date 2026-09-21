@@ -3602,6 +3602,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_depthfeedrefresh_pillar_v1_7)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 1.7
+--   Since: 1.5
 --   Date: Thursday, July 30, 2026
 --   Specification: NYSE_Pillar_Depth_Client_Specification.pdf
 --

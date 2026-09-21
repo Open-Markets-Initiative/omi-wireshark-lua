@@ -56,7 +56,7 @@ omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.previous_price = ProtoFiel
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.previous_quantity = ProtoField.new("Previous Quantity", "lseg.turquoise.level2incremental.gtp.v24.4.previousquantity", ftypes.DOUBLE)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.price = ProtoField.new("Price", "lseg.turquoise.level2incremental.gtp.v24.4.price", ftypes.DOUBLE)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.price_band_tolerances = ProtoField.new("Price Band Tolerances", "lseg.turquoise.level2incremental.gtp.v24.4.pricebandtolerances", ftypes.DOUBLE)
-omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.priority = ProtoField.new("Priority", "lseg.turquoise.level2incremental.gtp.v24.4.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.priority_flag = ProtoField.new("Priority Flag", "lseg.turquoise.level2incremental.gtp.v24.4.priorityflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.turquoise.level2incremental.gtp.v24.4.reserved1", ftypes.BYTES)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.reserved_11 = ProtoField.new("Reserved 11", "lseg.turquoise.level2incremental.gtp.v24.4.reserved11", ftypes.BYTES)
 omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.turquoise.level2incremental.gtp.v24.4.reserved12", ftypes.BYTES)
@@ -2953,9 +2953,9 @@ lseg_turquoise_level2incremental_gtp_v24_4.order_modify_flags.size = 1
 lseg_turquoise_level2incremental_gtp_v24_4.order_modify_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Priority flag set?
+  -- Is Priority Flag flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Priority"
+    flags[#flags + 1] = "Priority Flag"
   end
 
   return table.concat(flags, "|")
@@ -2964,8 +2964,8 @@ end
 -- Dissect Bit Fields: Order Modify Flags
 lseg_turquoise_level2incremental_gtp_v24_4.order_modify_flags.bits = function(range, value, packet, parent)
 
-  -- Priority: 1 Bit
-  parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.priority, range, value)
+  -- Priority Flag: 1 Bit
+  parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.priority_flag, range, value)
 
   -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v24_4.fields.unused_7, range, value)

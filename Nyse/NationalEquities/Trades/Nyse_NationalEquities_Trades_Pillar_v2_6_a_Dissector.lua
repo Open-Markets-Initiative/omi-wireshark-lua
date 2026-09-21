@@ -4377,6 +4377,7 @@ udp_table:add_for_decode_as(omi_nyse_nationalequities_trades_pillar_v2_6_a)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.6.a
+--   Since: 2.6
 --   Date: Wednesday, May 13, 2026
 --   Specification: NYSE_Pillar_Trades_Client_Specification.pdf
 --

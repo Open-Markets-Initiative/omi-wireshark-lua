@@ -5701,6 +5701,7 @@ udp_table:add_for_decode_as(omi_nyse_nyseequities_bqt_xdp_v2_4_b)
 -- Protocol:
 --   Organization: New York Stock Exchange
 --   Version: 2.4.b
+--   Since: 2.4.a
 --   Date: Thursday, July 30, 2026
 --   Specification: NYSE_BQT_Client_Specification.pdf
 --

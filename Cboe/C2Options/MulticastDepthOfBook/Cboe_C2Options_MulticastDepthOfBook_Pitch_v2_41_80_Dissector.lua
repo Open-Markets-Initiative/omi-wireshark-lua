@@ -4044,6 +4044,7 @@ udp_table:add_for_decode_as(omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_
 -- Protocol:
 --   Organization: Chicago Board Options Exchange
 --   Version: 2.41.80
+--   Since: 2.41.79
 --   Date: Thursday, September 17, 2026
 --
 -- Script:

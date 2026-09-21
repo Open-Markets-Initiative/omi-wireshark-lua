@@ -102,7 +102,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.price_major_currency = ProtoField.new
 omi_lseg_turquoise_replay_gtp_v26_3.fields.price_mi_fid_decimal_20 = ProtoField.new("Price Mi Fid Decimal 20", "lseg.turquoise.replay.gtp.v26.3.pricemifiddecimal20", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.price_notation = ProtoField.new("Price Notation", "lseg.turquoise.replay.gtp.v26.3.pricenotation", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.price_price_8 = ProtoField.new("Price Price 8", "lseg.turquoise.replay.gtp.v26.3.priceprice8", ftypes.DOUBLE)
-omi_lseg_turquoise_replay_gtp_v26_3.fields.priority = ProtoField.new("Priority", "lseg.turquoise.replay.gtp.v26.3.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_lseg_turquoise_replay_gtp_v26_3.fields.priority_flag = ProtoField.new("Priority Flag", "lseg.turquoise.replay.gtp.v26.3.priorityflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.pt_algo_trade = ProtoField.new("Pt Algo Trade", "lseg.turquoise.replay.gtp.v26.3.ptalgotrade", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.pt_amendment_flag = ProtoField.new("Pt Amendment Flag", "lseg.turquoise.replay.gtp.v26.3.ptamendmentflag", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.pt_cancellation_flag = ProtoField.new("Pt Cancellation Flag", "lseg.turquoise.replay.gtp.v26.3.ptcancellationflag", ftypes.STRING)
@@ -6170,9 +6170,9 @@ lseg_turquoise_replay_gtp_v26_3.order_modify_flags.size = 1
 lseg_turquoise_replay_gtp_v26_3.order_modify_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Priority flag set?
+  -- Is Priority Flag flag set?
   if bit.band(value, 0x01) ~= 0 then
-    flags[#flags + 1] = "Priority"
+    flags[#flags + 1] = "Priority Flag"
   end
 
   return table.concat(flags, "|")
@@ -6181,8 +6181,8 @@ end
 -- Dissect Bit Fields: Order Modify Flags
 lseg_turquoise_replay_gtp_v26_3.order_modify_flags.bits = function(range, value, packet, parent)
 
-  -- Priority: 1 Bit
-  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.priority, range, value)
+  -- Priority Flag: 1 Bit
+  parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.priority_flag, range, value)
 
   -- Unused 7: 7 Bit
   parent:add(omi_lseg_turquoise_replay_gtp_v26_3.fields.unused_7, range, value)
