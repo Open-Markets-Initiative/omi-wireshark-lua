@@ -124,6 +124,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.open_close_settl_flag = ProtoFie
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.opening_price = ProtoField.new("Opening Price", "b3.b3derivatives.binaryumdf.sbe.v1.9.openingprice", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v1.9.origtime", ftypes.UINT64)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.b3derivatives.binaryumdf.sbe.v1.9.outofsequence", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.packet_reserved = ProtoField.new("Packet Reserved", "b3.b3derivatives.binaryumdf.sbe.v1.9.packetreserved", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.padding_1 = ProtoField.new("Padding 1", "b3.b3derivatives.binaryumdf.sbe.v1.9.padding1", ftypes.BYTES)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.padding_2 = ProtoField.new("Padding 2", "b3.b3derivatives.binaryumdf.sbe.v1.9.padding2", ftypes.BYTES)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.padding_3 = ProtoField.new("Padding 3", "b3.b3derivatives.binaryumdf.sbe.v1.9.padding3", ftypes.BYTES)
@@ -139,7 +140,6 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.product = ProtoField.new("Produc
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.put_or_call = ProtoField.new("Put Or Call", "b3.b3derivatives.binaryumdf.sbe.v1.9.putorcall", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.b3derivatives.binaryumdf.sbe.v1.9.recoverymsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.regular_trade = ProtoField.new("Regular Trade", "b3.b3derivatives.binaryumdf.sbe.v1.9.regulartrade", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.reserved = ProtoField.new("Reserved", "b3.b3derivatives.binaryumdf.sbe.v1.9.reserved", ftypes.UINT8)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.reserved_6 = ProtoField.new("Reserved 6", "b3.b3derivatives.binaryumdf.sbe.v1.9.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.rpt_seq = ProtoField.new("Rpt Seq", "b3.b3derivatives.binaryumdf.sbe.v1.9.rptseq", ftypes.UINT32)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.schema_id = ProtoField.new("Schema Id", "b3.b3derivatives.binaryumdf.sbe.v1.9.schemaid", ftypes.UINT16)
@@ -3098,6 +3098,29 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.orig_time.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Packet Reserved
+b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved = {}
+
+-- Size: Packet Reserved
+b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved.size = 1
+
+-- Display: Packet Reserved
+b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved.display = function(value)
+  return "Packet Reserved: "..value
+end
+
+-- Dissect: Packet Reserved
+b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.packet_reserved, range, value, display)
+
+  return offset + length, value
+end
+
 -- Padding 1
 b3_b3derivatives_binaryumdf_sbe_v1_9.padding_1 = {}
 
@@ -3509,29 +3532,6 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.put_or_call.dissect = function(buffer, offs
   local display = b3_b3derivatives_binaryumdf_sbe_v1_9.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.put_or_call, range, value, display)
-
-  return offset + length, value
-end
-
--- Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_9.reserved = {}
-
--- Size: Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_9.reserved.size = 1
-
--- Display: Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_9.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-b3_b3derivatives_binaryumdf_sbe_v1_9.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v1_9.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_9.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -9293,7 +9293,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.packet_header = {}
 -- Size: Packet Header
 b3_b3derivatives_binaryumdf_sbe_v1_9.packet_header.size =
   b3_b3derivatives_binaryumdf_sbe_v1_9.channel_id.size + 
-  b3_b3derivatives_binaryumdf_sbe_v1_9.reserved.size + 
+  b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_version.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_number.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_9.sending_time.size
@@ -9310,8 +9310,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_9.packet_header.fields = function(buffer, off
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index, channel_id = b3_b3derivatives_binaryumdf_sbe_v1_9.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = b3_b3derivatives_binaryumdf_sbe_v1_9.reserved.dissect(buffer, index, packet, parent)
+  -- Packet Reserved: 1 Byte Unsigned Fixed Width Integer
+  index, packet_reserved = b3_b3derivatives_binaryumdf_sbe_v1_9.packet_reserved.dissect(buffer, index, packet, parent)
 
   -- Sequence Version: 2 Byte Unsigned Fixed Width Integer
   index, sequence_version = b3_b3derivatives_binaryumdf_sbe_v1_9.sequence_version.dissect(buffer, index, packet, parent)

@@ -20,8 +20,8 @@ omi_b3_common_binarypacketheader_udp_v1_0.fields.channel_id = ProtoField.new("Ch
 omi_b3_common_binarypacketheader_udp_v1_0.fields.encoding_type = ProtoField.new("Encoding Type", "b3.common.binarypacketheader.udp.v1.0.encodingtype", ftypes.UINT16)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.framing_header = ProtoField.new("Framing Header", "b3.common.binarypacketheader.udp.v1.0.framingheader", ftypes.STRING)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.message_length = ProtoField.new("Message Length", "b3.common.binarypacketheader.udp.v1.0.messagelength", ftypes.UINT16)
+omi_b3_common_binarypacketheader_udp_v1_0.fields.packet_reserved = ProtoField.new("Packet Reserved", "b3.common.binarypacketheader.udp.v1.0.packetreserved", ftypes.UINT8)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.payload = ProtoField.new("Payload", "b3.common.binarypacketheader.udp.v1.0.payload", ftypes.BYTES)
-omi_b3_common_binarypacketheader_udp_v1_0.fields.reserved = ProtoField.new("Reserved", "b3.common.binarypacketheader.udp.v1.0.reserved", ftypes.UINT8)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.schema_id = ProtoField.new("Schema Id", "b3.common.binarypacketheader.udp.v1.0.schemaid", ftypes.UINT16)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.sending_time = ProtoField.new("Sending Time", "b3.common.binarypacketheader.udp.v1.0.sendingtime", ftypes.UINT64)
 omi_b3_common_binarypacketheader_udp_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "b3.common.binarypacketheader.udp.v1.0.sequencenumber", ftypes.UINT32)
@@ -158,6 +158,29 @@ b3_common_binarypacketheader_udp_v1_0.message_length.dissect = function(buffer, 
   return offset + length, value
 end
 
+-- Packet Reserved
+b3_common_binarypacketheader_udp_v1_0.packet_reserved = {}
+
+-- Size: Packet Reserved
+b3_common_binarypacketheader_udp_v1_0.packet_reserved.size = 1
+
+-- Display: Packet Reserved
+b3_common_binarypacketheader_udp_v1_0.packet_reserved.display = function(value)
+  return "Packet Reserved: "..value
+end
+
+-- Dissect: Packet Reserved
+b3_common_binarypacketheader_udp_v1_0.packet_reserved.dissect = function(buffer, offset, packet, parent)
+  local length = b3_common_binarypacketheader_udp_v1_0.packet_reserved.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = b3_common_binarypacketheader_udp_v1_0.packet_reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_common_binarypacketheader_udp_v1_0.fields.packet_reserved, range, value, display)
+
+  return offset + length, value
+end
+
 -- Payload
 b3_common_binarypacketheader_udp_v1_0.payload = {}
 
@@ -175,29 +198,6 @@ b3_common_binarypacketheader_udp_v1_0.payload.dissect = function(buffer, offset,
   parent:add(omi_b3_common_binarypacketheader_udp_v1_0.fields.payload, range, value, display)
 
   return offset + size, value
-end
-
--- Reserved
-b3_common_binarypacketheader_udp_v1_0.reserved = {}
-
--- Size: Reserved
-b3_common_binarypacketheader_udp_v1_0.reserved.size = 1
-
--- Display: Reserved
-b3_common_binarypacketheader_udp_v1_0.reserved.display = function(value)
-  return "Reserved: "..value
-end
-
--- Dissect: Reserved
-b3_common_binarypacketheader_udp_v1_0.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = b3_common_binarypacketheader_udp_v1_0.reserved.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = b3_common_binarypacketheader_udp_v1_0.reserved.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_common_binarypacketheader_udp_v1_0.fields.reserved, range, value, display)
-
-  return offset + length, value
 end
 
 -- Schema Id
@@ -500,7 +500,7 @@ b3_common_binarypacketheader_udp_v1_0.packet_header = {}
 -- Size: Packet Header
 b3_common_binarypacketheader_udp_v1_0.packet_header.size =
   b3_common_binarypacketheader_udp_v1_0.channel_id.size + 
-  b3_common_binarypacketheader_udp_v1_0.reserved.size + 
+  b3_common_binarypacketheader_udp_v1_0.packet_reserved.size + 
   b3_common_binarypacketheader_udp_v1_0.sequence_version.size + 
   b3_common_binarypacketheader_udp_v1_0.sequence_number.size + 
   b3_common_binarypacketheader_udp_v1_0.sending_time.size
@@ -517,8 +517,8 @@ b3_common_binarypacketheader_udp_v1_0.packet_header.fields = function(buffer, of
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index, channel_id = b3_common_binarypacketheader_udp_v1_0.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = b3_common_binarypacketheader_udp_v1_0.reserved.dissect(buffer, index, packet, parent)
+  -- Packet Reserved: 1 Byte Unsigned Fixed Width Integer
+  index, packet_reserved = b3_common_binarypacketheader_udp_v1_0.packet_reserved.dissect(buffer, index, packet, parent)
 
   -- Sequence Version: 2 Byte Unsigned Fixed Width Integer
   index, sequence_version = b3_common_binarypacketheader_udp_v1_0.sequence_version.dissect(buffer, index, packet, parent)
