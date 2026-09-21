@@ -53,7 +53,7 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.exec_inst = ProtoF
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.amexequities.binarygateway.pillarstream.v5.17.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, 0x00000000000F0000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexequities.binarygateway.pillarstream.v5.17.imbalanceside", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.amexequities.binarygateway.pillarstream.v5.17.imbalancevolume", ftypes.UINT32)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.interest_type = ProtoField.new("Interest Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.interesttype", ftypes.UINT64, {[0]="No Interest Type", [5]="Cco", [6]="Cco Partial Fill Contraside"}, base.DEC, 0x000000000E000000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.interest_type = ProtoField.new("Interest Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.interesttype", ftypes.UINT64, {[0]="No Interest Type", [4]="Q Order", [5]="Cco", [6]="Cco Partial Fill Contraside"}, base.DEC, 0x000000000E000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.intraday_sell_short_qty = ProtoField.new("Intraday Sell Short Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.intradaysellshortqty", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.introducing_badge_id = ProtoField.new("Introducing Badge Id", "nyse.amexequities.binarygateway.pillarstream.v5.17.introducingbadgeid", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.amexequities.binarygateway.pillarstream.v5.17.iocattribution", ftypes.UINT8)
@@ -158,13 +158,12 @@ omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_length = P
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.seqmsgtype", ftypes.UINT16)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sess = ProtoField.new("Sess", "nyse.amexequities.binarygateway.pillarstream.v5.17.sess", ftypes.UINT32)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side = ProtoField.new("Side", "nyse.amexequities.binarygateway.pillarstream.v5.17.side", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.sidebits", ftypes.UINT64, {[0]="No Change In Side", [1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0x00000000F0000000)
+omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits = ProtoField.new("Side Bits", "nyse.amexequities.binarygateway.pillarstream.v5.17.sidebits", ftypes.UINT64, {[1]="Buy", [2]="Sell", [3]="Sell Short", [4]="Sell Short Exempt", [5]="Cross", [6]="Cross Short", [7]="Cross Short Exempt"}, base.DEC, 0x00000000F0000000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_of_unpaired_qty = ProtoField.new("Side Of Unpaired Qty", "nyse.amexequities.binarygateway.pillarstream.v5.17.sideofunpairedqty", ftypes.UINT8)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amexequities.binarygateway.pillarstream.v5.17.specialordtype", ftypes.UINT64, {[0]="No Special Ord Type", [1]="Dmm Auction Aoc", [2]="Dmm Preauction", [3]="Dmm Afterauction", [4]="Qct", [8]="Reserved"}, base.DEC, 0x000000000001E000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.binarygateway.pillarstream.v5.17.ssrfilingprice", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.start_seq = ProtoField.new("Start Seq", "nyse.amexequities.binarygateway.pillarstream.v5.17.startseq", ftypes.UINT64)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.status = ProtoField.new("Status", "nyse.amexequities.binarygateway.pillarstream.v5.17.status", ftypes.UINT8)
-omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.stop_px = ProtoField.new("Stop Px", "nyse.amexequities.binarygateway.pillarstream.v5.17.stoppx", ftypes.DOUBLE)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.stream_id = ProtoField.new("Stream Id", "nyse.amexequities.binarygateway.pillarstream.v5.17.streamid", ftypes.STRING)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.amexequities.binarygateway.pillarstream.v5.17.subidindicator", ftypes.UINT64, {[0]="Use Mp Sub Id", [1]="Ignore On Behalf Of Sub Id"}, base.DEC, 0x0000000000001000)
 omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.sub_msg_length = ProtoField.new("Sub Msg Length", "nyse.amexequities.binarygateway.pillarstream.v5.17.submsglength", ftypes.UINT16)
@@ -2723,6 +2722,12 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.pre_liquidity_indicator.displ
   if value == "1" then
     return "Pre Liquidity Indicator: Candidate For Display (1)"
   end
+  if value == "4" then
+    return "Pre Liquidity Indicator: Join Nbbo Candidate (4)"
+  end
+  if value == "5" then
+    return "Pre Liquidity Indicator: Set Nbbo Candidate (5)"
+  end
 
   return "Pre Liquidity Indicator: Unknown("..value..")"
 end
@@ -5150,35 +5155,6 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.status.dissect = function(buf
   return offset + length, value
 end
 
--- Stop Px
-nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px = {}
-
--- Size: Stop Px
-nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.size = 8
-
--- Display: Stop Px
-nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.display = function(value)
-  return "Stop Px: "..value
-end
-
--- Translate: Stop Px
-nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Stop Px
-nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.dissect = function(buffer, offset, packet, parent)
-  local length = nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.translate(raw)
-  local display = nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sub Msg Length
 nyse_amexequities_binarygateway_pillarstream_v5_17.sub_msg_length = {}
 
@@ -5986,6 +5962,9 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.risk_control_alert_message.fi
 
   -- MPSubID 4: zchar(4)
   index, mpsubid_4 = nyse_amexequities_binarygateway_pillarstream_v5_17.mpsubid_4.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_amexequities_binarygateway_pillarstream_v5_17.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amexequities_binarygateway_pillarstream_v5_17.clearing_number.dissect(buffer, index, packet, parent)
@@ -6989,7 +6968,6 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.optional_order_add_on = {}
 -- Size: Optional Order Add On
 nyse_amexequities_binarygateway_pillarstream_v5_17.optional_order_add_on.size =
   nyse_amexequities_binarygateway_pillarstream_v5_17.sub_msg_header.size + 
-  nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.size + 
   nyse_amexequities_binarygateway_pillarstream_v5_17.deliver_to_comp_id.size + 
   nyse_amexequities_binarygateway_pillarstream_v5_17.max_floor.size + 
   nyse_amexequities_binarygateway_pillarstream_v5_17.locate_broker.size + 
@@ -7008,9 +6986,6 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.optional_order_add_on.fields 
 
   -- Sub Msg Header: Struct of 2 fields
   index, sub_msg_header = nyse_amexequities_binarygateway_pillarstream_v5_17.sub_msg_header.dissect(buffer, index, packet, parent)
-
-  -- Stop Px: Price
-  index, stop_px = nyse_amexequities_binarygateway_pillarstream_v5_17.stop_px.dissect(buffer, index, packet, parent)
 
   -- Deliver To Comp Id: zchar(5)
   index, deliver_to_comp_id = nyse_amexequities_binarygateway_pillarstream_v5_17.deliver_to_comp_id.dissect(buffer, index, packet, parent)
@@ -7438,7 +7413,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.b
   -- Order Capacity: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.order_capacity, range, value)
 
-  -- Interest Type: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
+  -- Interest Type: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.interest_type, range, value)
 
   -- Trading Session Id: 3 Bit Unsigned Fixed Width Integer Enum with 6 values
@@ -7468,7 +7443,7 @@ nyse_amexequities_binarygateway_pillarstream_v5_17.bitfield_order_instructions.b
   -- Ord Type: 4 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.ord_type, range, value)
 
-  -- Side Bits: 4 Bit Unsigned Fixed Width Integer Enum with 8 values
+  -- Side Bits: 4 Bit Unsigned Fixed Width Integer Enum with 7 values
   parent:add(omi_nyse_amexequities_binarygateway_pillarstream_v5_17.fields.side_bits, range, value)
 end
 

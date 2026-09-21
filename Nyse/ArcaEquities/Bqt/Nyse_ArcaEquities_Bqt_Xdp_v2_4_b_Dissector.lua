@@ -1,0 +1,5726 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Nyse ArcaEquities Bqt Xdp 2.4.b Protocol
+local omi_nyse_arcaequities_bqt_xdp_v2_4_b = Proto("Omi.Nyse.ArcaEquities.Bqt.Xdp.v2.4.b", "Nyse ArcaEquities Bqt Xdp 2.4.b")
+
+-- Protocol table
+local nyse_arcaequities_bqt_xdp_v2_4_b = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Nyse ArcaEquities Bqt Xdp 2.4.b Fields
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_price = ProtoField.new("Ask Price", "nyse.arcaequities.bqt.xdp.v2.4.b.askprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_quote_condition = ProtoField.new("Ask Quote Condition", "nyse.arcaequities.bqt.xdp.v2.4.b.askquotecondition", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_volume = ProtoField.new("Ask Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.askvolume", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.arcaequities.bqt.xdp.v2.4.b.beginseqnum", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_price = ProtoField.new("Bid Price", "nyse.arcaequities.bqt.xdp.v2.4.b.bidprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_quote_condition = ProtoField.new("Bid Quote Condition", "nyse.arcaequities.bqt.xdp.v2.4.b.bidquotecondition", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.bidvolume", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.channel_id = ProtoField.new("Channel Id", "nyse.arcaequities.bqt.xdp.v2.4.b.channelid", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.complete = ProtoField.new("Complete", "nyse.arcaequities.bqt.xdp.v2.4.b.complete", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_first_price = ProtoField.new("Consolidated First Price", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedfirstprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedhighprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_last_price = ProtoField.new("Consolidated Last Price", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedlastprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedlowprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.arcaequities.bqt.xdp.v2.4.b.currentrefreshpkt", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arcaequities.bqt.xdp.v2.4.b.deliveryflag", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arcaequities.bqt.xdp.v2.4.b.endseqnum", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.arcaequities.bqt.xdp.v2.4.b.exchangecode", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.exec_day_time = ProtoField.new("Exec Day Time", "nyse.arcaequities.bqt.xdp.v2.4.b.execdaytime", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.exec_day_time_ns = ProtoField.new("Exec Day Time Ns", "nyse.arcaequities.bqt.xdp.v2.4.b.execdaytimens", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.fractional_consolidated_volume = ProtoField.new("Fractional Consolidated Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.fractionalconsolidatedvolume", ftypes.UINT64)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.fractional_nyse_group_volume = ProtoField.new("Fractional Nyse Group Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.fractionalnysegroupvolume", ftypes.UINT64)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.fractional_volume = ProtoField.new("Fractional Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.fractionalvolume", ftypes.UINT64)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arcaequities.bqt.xdp.v2.4.b.haltcondition", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.id = ProtoField.new("Id", "nyse.arcaequities.bqt.xdp.v2.4.b.id", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.arcaequities.bqt.xdp.v2.4.b.lastseqnum", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.arcaequities.bqt.xdp.v2.4.b.lastsymbolseqnum", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.lot_size = ProtoField.new("Lot Size", "nyse.arcaequities.bqt.xdp.v2.4.b.lotsize", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id = ProtoField.new("Market Id", "nyse.arcaequities.bqt.xdp.v2.4.b.marketid", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id_of_best_ask = ProtoField.new("Market Id Of Best Ask", "nyse.arcaequities.bqt.xdp.v2.4.b.marketidofbestask", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id_of_best_bid = ProtoField.new("Market Id Of Best Bid", "nyse.arcaequities.bqt.xdp.v2.4.b.marketidofbestbid", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id_of_open_price = ProtoField.new("Market Id Of Open Price", "nyse.arcaequities.bqt.xdp.v2.4.b.marketidofopenprice", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_state = ProtoField.new("Market State", "nyse.arcaequities.bqt.xdp.v2.4.b.marketstate", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_count = ProtoField.new("Message Count", "nyse.arcaequities.bqt.xdp.v2.4.b.messagecount", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.bqt.xdp.v2.4.b.messagesize", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.bqt.xdp.v2.4.b.messagetype", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.mpv = ProtoField.new("Mpv", "nyse.arcaequities.bqt.xdp.v2.4.b.mpv", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaequities.bqt.xdp.v2.4.b.nanoseconds", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.arcaequities.bqt.xdp.v2.4.b.nextsourceseqnum", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.num_close_prices = ProtoField.new("Num Close Prices", "nyse.arcaequities.bqt.xdp.v2.4.b.numcloseprices", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_high_price = ProtoField.new("Nyse Group High Price", "nyse.arcaequities.bqt.xdp.v2.4.b.nysegrouphighprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_low_price = ProtoField.new("Nyse Group Low Price", "nyse.arcaequities.bqt.xdp.v2.4.b.nysegrouplowprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_market_id_of_high_price = ProtoField.new("Nyse Group Market Id Of High Price", "nyse.arcaequities.bqt.xdp.v2.4.b.nysegroupmarketidofhighprice", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_market_id_of_low_price = ProtoField.new("Nyse Group Market Id Of Low Price", "nyse.arcaequities.bqt.xdp.v2.4.b.nysegroupmarketidoflowprice", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_market_id_of_the_close = ProtoField.new("Nyse Group Market Id Of The Close", "nyse.arcaequities.bqt.xdp.v2.4.b.nysegroupmarketidoftheclose", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.arcaequities.bqt.xdp.v2.4.b.originaltradeid", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.packet_size = ProtoField.new("Packet Size", "nyse.arcaequities.bqt.xdp.v2.4.b.packetsize", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prev_close_price = ProtoField.new("Prev Close Price", "nyse.arcaequities.bqt.xdp.v2.4.b.prevcloseprice", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prev_close_volume = ProtoField.new("Prev Close Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.prevclosevolume", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price = ProtoField.new("Price", "nyse.arcaequities.bqt.xdp.v2.4.b.price", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_1 = ProtoField.new("Price 1", "nyse.arcaequities.bqt.xdp.v2.4.b.price1", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_2 = ProtoField.new("Price 2", "nyse.arcaequities.bqt.xdp.v2.4.b.price2", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.arcaequities.bqt.xdp.v2.4.b.priceresolution", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaequities.bqt.xdp.v2.4.b.pricescalecode", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_close_price = ProtoField.new("Primary Listing Market Official Close Price", "nyse.arcaequities.bqt.xdp.v2.4.b.primarylistingmarketofficialcloseprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_open_price = ProtoField.new("Primary Listing Market Official Open Price", "nyse.arcaequities.bqt.xdp.v2.4.b.primarylistingmarketofficialopenprice", ftypes.INT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prior_day_time = ProtoField.new("Prior Day Time", "nyse.arcaequities.bqt.xdp.v2.4.b.priordaytime", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prior_day_time_ns = ProtoField.new("Prior Day Time Ns", "nyse.arcaequities.bqt.xdp.v2.4.b.priordaytimens", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.product_id = ProtoField.new("Product Id", "nyse.arcaequities.bqt.xdp.v2.4.b.productid", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.arcaequities.bqt.xdp.v2.4.b.quotecondition", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reason = ProtoField.new("Reason", "nyse.arcaequities.bqt.xdp.v2.4.b.reason", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arcaequities.bqt.xdp.v2.4.b.requestseqnum", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reserved = ProtoField.new("Reserved", "nyse.arcaequities.bqt.xdp.v2.4.b.reserved", ftypes.UINT8, nil, base.DEC, 0xFC)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.bqt.xdp.v2.4.b.reserved1", ftypes.BYTES)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.bqt.xdp.v2.4.b.reserved2", ftypes.BYTES)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retail_interest_on_the_ask_side = ProtoField.new("Retail Interest On The Ask Side", "nyse.arcaequities.bqt.xdp.v2.4.b.retailinterestontheaskside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retail_interest_on_the_bid_side = ProtoField.new("Retail Interest On The Bid Side", "nyse.arcaequities.bqt.xdp.v2.4.b.retailinterestonthebidside", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retail_pricing_indicator = ProtoField.new("Retail Pricing Indicator", "nyse.arcaequities.bqt.xdp.v2.4.b.retailpricingindicator", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaequities.bqt.xdp.v2.4.b.retransmitmethod", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaequities.bqt.xdp.v2.4.b.roundlot", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.bqt.xdp.v2.4.b.seconds", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.bqt.xdp.v2.4.b.securitystatus", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.security_type = ProtoField.new("Security Type", "nyse.arcaequities.bqt.xdp.v2.4.b.securitytype", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.bqt.xdp.v2.4.b.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.bqt.xdp.v2.4.b.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arcaequities.bqt.xdp.v2.4.b.sequencenumber", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.session_state = ProtoField.new("Session State", "nyse.arcaequities.bqt.xdp.v2.4.b.sessionstate", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.side = ProtoField.new("Side", "nyse.arcaequities.bqt.xdp.v2.4.b.side", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_id = ProtoField.new("Source Id", "nyse.arcaequities.bqt.xdp.v2.4.b.sourceid", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.bqt.xdp.v2.4.b.sourcetime", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.bqt.xdp.v2.4.b.sourcetimens", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arcaequities.bqt.xdp.v2.4.b.ssrstate", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arcaequities.bqt.xdp.v2.4.b.ssrtriggeringexchangeid", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.ssrtriggeringvolume", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.status = ProtoField.new("Status", "nyse.arcaequities.bqt.xdp.v2.4.b.status", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol = ProtoField.new("Symbol", "nyse.arcaequities.bqt.xdp.v2.4.b.symbol", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaequities.bqt.xdp.v2.4.b.symbolindex", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arcaequities.bqt.xdp.v2.4.b.symbolseqnum", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_seq_number = ProtoField.new("Symbol Seq Number", "nyse.arcaequities.bqt.xdp.v2.4.b.symbolseqnumber", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.system_id = ProtoField.new("System Id", "nyse.arcaequities.bqt.xdp.v2.4.b.systemid", ftypes.UINT8)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.time = ProtoField.new("Time", "nyse.arcaequities.bqt.xdp.v2.4.b.time", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.arcaequities.bqt.xdp.v2.4.b.totalrefreshpkts", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_1 = ProtoField.new("Trade Cond 1", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecond1", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecond2", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_3 = ProtoField.new("Trade Cond 3", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecond3", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_4 = ProtoField.new("Trade Cond 4", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecond4", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_1 = ProtoField.new("Trade Condition 1", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecondition1", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_2 = ProtoField.new("Trade Condition 2", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecondition2", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_3 = ProtoField.new("Trade Condition 3", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecondition3", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_4 = ProtoField.new("Trade Condition 4", "nyse.arcaequities.bqt.xdp.v2.4.b.tradecondition4", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_id = ProtoField.new("Trade Id", "nyse.arcaequities.bqt.xdp.v2.4.b.tradeid", ftypes.UINT32)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.arcaequities.bqt.xdp.v2.4.b.unitoftrade", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.volume = ProtoField.new("Volume", "nyse.arcaequities.bqt.xdp.v2.4.b.volume", ftypes.UINT32)
+
+-- Nyse ArcaEquities Bqt Xdp 2.4.b Framing
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message = ProtoField.new("Message", "nyse.arcaequities.bqt.xdp.v2.4.b.message", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.bqt.xdp.v2.4.b.messageheader", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.bqt.xdp.v2.4.b.packet", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.bqt.xdp.v2.4.b.packetheader", ftypes.STRING)
+
+-- Nyse ArcaEquities Bqt 2.4.b Application Messages
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.best_quotes_message = ProtoField.new("Best Quotes Message", "nyse.arcaequities.bqt.xdp.v2.4.b.bestquotesmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_fractional_stock_summary_message = ProtoField.new("Consolidated Fractional Stock Summary Message", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedfractionalstocksummarymessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_fractional_volume_message = ProtoField.new("Consolidated Fractional Volume Message", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedfractionalvolumemessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_single_sided_quote_message = ProtoField.new("Consolidated Single Sided Quote Message", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedsinglesidedquotemessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_trade_cancel_message = ProtoField.new("Consolidated Trade Cancel Message", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedtradecancelmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_trade_correction_message = ProtoField.new("Consolidated Trade Correction Message", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedtradecorrectionmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_trade_message = ProtoField.new("Consolidated Trade Message", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedtrademessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.bqt.xdp.v2.4.b.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaequities.bqt.xdp.v2.4.b.messageunavailablemessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arcaequities.bqt.xdp.v2.4.b.refreshheadermessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arcaequities.bqt.xdp.v2.4.b.refreshrequestmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arcaequities.bqt.xdp.v2.4.b.requestresponsemessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arcaequities.bqt.xdp.v2.4.b.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.arcaequities.bqt.xdp.v2.4.b.securitystatusmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaequities.bqt.xdp.v2.4.b.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.arcaequities.bqt.xdp.v2.4.b.sourcetimereferencemessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.arcaequities.bqt.xdp.v2.4.b.symbolclearmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arcaequities.bqt.xdp.v2.4.b.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaequities.bqt.xdp.v2.4.b.symbolindexmappingrequestmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_prior_day_trade_cancel_message = ProtoField.new("Trf Fractional Prior Day Trade Cancel Message", "nyse.arcaequities.bqt.xdp.v2.4.b.trffractionalpriordaytradecancelmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_prior_day_trade_message = ProtoField.new("Trf Fractional Prior Day Trade Message", "nyse.arcaequities.bqt.xdp.v2.4.b.trffractionalpriordaytrademessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_trade_correction_message = ProtoField.new("Trf Fractional Trade Correction Message", "nyse.arcaequities.bqt.xdp.v2.4.b.trffractionaltradecorrectionmessage", ftypes.STRING)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_trade_message = ProtoField.new("Trf Fractional Trade Message", "nyse.arcaequities.bqt.xdp.v2.4.b.trffractionaltrademessage", ftypes.STRING)
+
+-- Nyse ArcaEquities Bqt Xdp 2.4.b generated fields
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.bqt.xdp.v2.4.b.messageindex", ftypes.UINT16)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.askpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_price_calculate = ProtoField.new("Bid Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.bidpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_first_price_calculate = ProtoField.new("Consolidated First Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedfirstpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_high_price_calculate = ProtoField.new("Consolidated High Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedhighpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_last_price_calculate = ProtoField.new("Consolidated Last Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedlastpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_low_price_calculate = ProtoField.new("Consolidated Low Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.consolidatedlowpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_high_price_calculate = ProtoField.new("NYSE Group High Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.nysegrouphighpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_low_price_calculate = ProtoField.new("NYSE Group Low Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.nysegrouplowpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.pricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_close_price_calculate = ProtoField.new("Primary Listing Market Official Close Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.primarylistingmarketofficialclosepricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_open_price_calculate = ProtoField.new("Primary Listing Market Official Open Price Calculate", "nyse.arcaequities.bqt.xdp.v2.4.b.primarylistingmarketofficialopenpricecalculate", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nyse ArcaEquities Bqt Xdp 2.4.b Formatting
+-----------------------------------------------------------------------
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nyse_arcaequities_bqt_xdp_v2_4_b.absolute_time_base = 0
+
+-- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals = true
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Nyse ArcaEquities Bqt Xdp 2.4.b Element Dissection Options
+show.records = true
+show.application_messages = true
+show.structs = true
+show.headers = true
+show.indexes = true
+
+-- Register Nyse ArcaEquities Bqt Xdp 2.4.b Show Options
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
+
+omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
+-- Handle changed preferences
+function omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.records ~= omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.resolve_records then
+    show.records = omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.resolve_records
+  end
+  if show.application_messages ~= omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_application_messages then
+    show.application_messages = omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_headers then
+    show.headers = omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_headers
+  end
+  if show.structs ~= omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_structs then
+    show.structs = omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_structs
+  end
+  if show.indexes ~= omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_indexes then
+    show.indexes = omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.show_indexes
+  end
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals ~= omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.format_decimals then
+    nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals = omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.format_decimals
+  end
+  if nyse_arcaequities_bqt_xdp_v2_4_b.absolute_time_base ~= omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.absolute_time_base then
+    nyse_arcaequities_bqt_xdp_v2_4_b.absolute_time_base = omi_nyse_arcaequities_bqt_xdp_v2_4_b.prefs.absolute_time_base
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_arcaequities_bqt_xdp_v2_4_b.conversation = {}
+nyse_arcaequities_bqt_xdp_v2_4_b.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_arcaequities_bqt_xdp_v2_4_b.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_arcaequities_bqt_xdp_v2_4_b.conversation.data = function(packet)
+  local key = nyse_arcaequities_bqt_xdp_v2_4_b.conversation.key(packet)
+  local data = nyse_arcaequities_bqt_xdp_v2_4_b.conversation.flows[key]
+  if data == nil then
+    data = { symbol_index_mapping_message = {} }
+    nyse_arcaequities_bqt_xdp_v2_4_b.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_arcaequities_bqt_xdp_v2_4_b.conversation.current = nil
+
+
+-----------------------------------------------------------------------
+-- Nyse ArcaEquities Bqt Xdp 2.4.b Fields
+-----------------------------------------------------------------------
+
+-- Ask Price
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price = {}
+
+-- Size: Ask Price
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.size = 4
+
+-- Display: Ask Price
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.display = function(value)
+  return "Ask Price: "..value
+end
+
+-- Dissect: Ask Price
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition = {}
+
+-- Size: Ask Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition.size = 1
+
+-- Display: Ask Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition.display = function(value)
+  if value == "C" then
+    return "Ask Quote Condition: Closing (C)"
+  end
+  if value == "O" then
+    return "Ask Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "Ask Quote Condition: Regular Quote (R)"
+  end
+  if value == "W" then
+    return "Ask Quote Condition: Slow On The Bid And Ask Due To Set Slow List (W)"
+  end
+
+  return "Ask Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Ask Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume = {}
+
+-- Size: Ask Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume.size = 4
+
+-- Display: Ask Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume.display = function(value)
+  return "Ask Volume: "..value
+end
+
+-- Dissect: Ask Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Begin Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num = {}
+
+-- Size: Begin Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.size = 4
+
+-- Display: Begin Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.display = function(value)
+  return "Begin Seq Num: "..value
+end
+
+-- Dissect: Begin Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.begin_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price = {}
+
+-- Size: Bid Price
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.size = 4
+
+-- Display: Bid Price
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Dissect: Bid Price
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition = {}
+
+-- Size: Bid Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition.size = 1
+
+-- Display: Bid Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition.display = function(value)
+  if value == "C" then
+    return "Bid Quote Condition: Closing (C)"
+  end
+  if value == "O" then
+    return "Bid Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "Bid Quote Condition: Regular Quote (R)"
+  end
+  if value == "W" then
+    return "Bid Quote Condition: Slow On The Bid And Ask Due To Set Slow List (W)"
+  end
+
+  return "Bid Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Bid Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume = {}
+
+-- Size: Bid Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume.size = 4
+
+-- Display: Bid Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume.display = function(value)
+  return "Bid Volume: "..value
+end
+
+-- Dissect: Bid Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+nyse_arcaequities_bqt_xdp_v2_4_b.channel_id = {}
+
+-- Size: Channel Id
+nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size = 1
+
+-- Display: Channel Id
+nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Complete
+nyse_arcaequities_bqt_xdp_v2_4_b.complete = {}
+
+-- Size: Complete
+nyse_arcaequities_bqt_xdp_v2_4_b.complete.size = 1
+
+-- Display: Complete
+nyse_arcaequities_bqt_xdp_v2_4_b.complete.display = function(value)
+  if value == 0 then
+    return "Complete: Normal Data Is Complete (0)"
+  end
+  if value == 1 then
+    return "Complete: An Unrecoverable Gap Was Experienced In The Input Stream So Data May Not Be Complete (1)"
+  end
+
+  return "Complete: Unknown("..value..")"
+end
+
+-- Dissect: Complete
+nyse_arcaequities_bqt_xdp_v2_4_b.complete.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.complete.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.complete.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.complete, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated First Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price = {}
+
+-- Size: Consolidated First Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.size = 4
+
+-- Display: Consolidated First Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.display = function(value)
+  return "Consolidated First Price: "..value
+end
+
+-- Dissect: Consolidated First Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_first_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price = {}
+
+-- Size: Consolidated High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.size = 4
+
+-- Display: Consolidated High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.display = function(value)
+  return "Consolidated High Price: "..value
+end
+
+-- Dissect: Consolidated High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Last Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price = {}
+
+-- Size: Consolidated Last Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.size = 4
+
+-- Display: Consolidated Last Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.display = function(value)
+  return "Consolidated Last Price: "..value
+end
+
+-- Dissect: Consolidated Last Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Consolidated Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price = {}
+
+-- Size: Consolidated Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.size = 4
+
+-- Display: Consolidated Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.display = function(value)
+  return "Consolidated Low Price: "..value
+end
+
+-- Dissect: Consolidated Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Refresh Pkt
+nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt = {}
+
+-- Size: Current Refresh Pkt
+nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt.size = 2
+
+-- Display: Current Refresh Pkt
+nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt.display = function(value)
+  return "Current Refresh Pkt: "..value
+end
+
+-- Dissect: Current Refresh Pkt
+nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.current_refresh_pkt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Flag
+nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag = {}
+
+-- Size: Delivery Flag
+nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag.size = 1
+
+-- Display: Delivery Flag
+nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag.display = function(value)
+  if value == 1 then
+    return "Delivery Flag: Heartbeat (1)"
+  end
+  if value == 10 then
+    return "Delivery Flag: Xdp Failover (10)"
+  end
+  if value == 11 then
+    return "Delivery Flag: Original Message (11)"
+  end
+  if value == 12 then
+    return "Delivery Flag: Sequence Number Reset Message (12)"
+  end
+  if value == 13 then
+    return "Delivery Flag: One Retransmission Packet (13)"
+  end
+  if value == 15 then
+    return "Delivery Flag: Retransmission Sequence Message (15)"
+  end
+  if value == 17 then
+    return "Delivery Flag: One Refresh Packet (17)"
+  end
+  if value == 18 then
+    return "Delivery Flag: Refresh Sequence Start (18)"
+  end
+  if value == 19 then
+    return "Delivery Flag: Refresh Sequence Message (19)"
+  end
+  if value == 20 then
+    return "Delivery Flag: Refresh Sequence End (20)"
+  end
+  if value == 21 then
+    return "Delivery Flag: Message Unavailable (21)"
+  end
+
+  return "Delivery Flag: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Flag
+nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.delivery_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num = {}
+
+-- Size: End Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.size = 4
+
+-- Display: End Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.display = function(value)
+  return "End Seq Num: "..value
+end
+
+-- Dissect: End Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.end_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Code
+nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code = {}
+
+-- Size: Exchange Code
+nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code.size = 1
+
+-- Display: Exchange Code
+nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code.display = function(value)
+  if value == "A" then
+    return "Exchange Code: Nyse American (A)"
+  end
+  if value == "L" then
+    return "Exchange Code: Ltse (L)"
+  end
+  if value == "M" then
+    return "Exchange Code: Nyse Texas (M)"
+  end
+  if value == "N" then
+    return "Exchange Code: Nyse (N)"
+  end
+  if value == "P" then
+    return "Exchange Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Exchange Code: Nasdaq (Q)"
+  end
+  if value == "V" then
+    return "Exchange Code: Iex (V)"
+  end
+  if value == "Z" then
+    return "Exchange Code: Cboe (Z)"
+  end
+
+  return "Exchange Code: Unknown("..value..")"
+end
+
+-- Dissect: Exchange Code
+nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.exchange_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time = {}
+
+-- Size: Exec Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.size = 4
+
+-- Display: Exec Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.display = function(value)
+  return "Exec Day Time: "..value
+end
+
+-- Dissect: Exec Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.exec_day_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns = {}
+
+-- Size: Exec Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.size = 4
+
+-- Display: Exec Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.display = function(value)
+  return "Exec Day Time Ns: "..value
+end
+
+-- Dissect: Exec Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.exec_day_time_ns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fractional Consolidated Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume = {}
+
+-- Size: Fractional Consolidated Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume.size = 8
+
+-- Display: Fractional Consolidated Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume.display = function(value)
+  return "Fractional Consolidated Volume: "..value
+end
+
+-- Dissect: Fractional Consolidated Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.fractional_consolidated_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fractional Nyse Group Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume = {}
+
+-- Size: Fractional Nyse Group Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume.size = 8
+
+-- Display: Fractional Nyse Group Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume.display = function(value)
+  return "Fractional Nyse Group Volume: "..value
+end
+
+-- Dissect: Fractional Nyse Group Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.fractional_nyse_group_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fractional Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume = {}
+
+-- Size: Fractional Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.size = 8
+
+-- Display: Fractional Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.display = function(value)
+  return "Fractional Volume: "..value
+end
+
+-- Dissect: Fractional Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.fractional_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Halt Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition = {}
+
+-- Size: Halt Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition.size = 1
+
+-- Display: Halt Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition.display = function(value)
+  if value == "~" then
+    return "Halt Condition: Security Not Delayedhalted (~)"
+  end
+  if value == "D" then
+    return "Halt Condition: News Released News Dissemination (D)"
+  end
+  if value == "I" then
+    return "Halt Condition: Order Imbalance (I)"
+  end
+  if value == "P" then
+    return "Halt Condition: News Pending (P)"
+  end
+  if value == "M" then
+    return "Halt Condition: Luld Pause (M)"
+  end
+  if value == "X" then
+    return "Halt Condition: Equipment Changeover (X)"
+  end
+  if value == "A" then
+    return "Halt Condition: Additional Information Requested (A)"
+  end
+  if value == "C" then
+    return "Halt Condition: Regulatory Concern (C)"
+  end
+  if value == "E" then
+    return "Halt Condition: Merger Effective (E)"
+  end
+  if value == "F" then
+    return "Halt Condition: Etf Component Prices Not Available (F)"
+  end
+  if value == "N" then
+    return "Halt Condition: Corporate Action (N)"
+  end
+  if value == "O" then
+    return "Halt Condition: New Security Offering (O)"
+  end
+  if value == "V" then
+    return "Halt Condition: Intraday Indicative Value Not Available (V)"
+  end
+  if value == "6" then
+    return "Halt Condition: Suspend (6)"
+  end
+  if value == "1" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
+  end
+  if value == "2" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
+  end
+  if value == "3" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
+  end
+
+  return "Halt Condition: Unknown("..value..")"
+end
+
+-- Dissect: Halt Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.halt_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Id
+nyse_arcaequities_bqt_xdp_v2_4_b.id = {}
+
+-- Size: Id
+nyse_arcaequities_bqt_xdp_v2_4_b.id.size = 4
+
+-- Display: Id
+nyse_arcaequities_bqt_xdp_v2_4_b.id.display = function(value)
+  return "Id: "..value
+end
+
+-- Dissect: Id
+nyse_arcaequities_bqt_xdp_v2_4_b.id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num = {}
+
+-- Size: Last Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num.size = 4
+
+-- Display: Last Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num.display = function(value)
+  return "Last Seq Num: "..value
+end
+
+-- Dissect: Last Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.last_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num = {}
+
+-- Size: Last Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num.size = 4
+
+-- Display: Last Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num.display = function(value)
+  return "Last Symbol Seq Num: "..value
+end
+
+-- Dissect: Last Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.last_symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lot Size
+nyse_arcaequities_bqt_xdp_v2_4_b.lot_size = {}
+
+-- Size: Lot Size
+nyse_arcaequities_bqt_xdp_v2_4_b.lot_size.size = 2
+
+-- Display: Lot Size
+nyse_arcaequities_bqt_xdp_v2_4_b.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+nyse_arcaequities_bqt_xdp_v2_4_b.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id = {}
+
+-- Size: Market Id
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size = 2
+
+-- Display: Market Id
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id.display = function(value)
+  if value == 1 then
+    return "Market Id: Nyse (1)"
+  end
+  if value == 3 then
+    return "Market Id: Nyse Arca (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 5 then
+    return "Market Id: Nyse Bonds (5)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse American Options (8)"
+  end
+  if value == 9 then
+    return "Market Id: Nyse American (9)"
+  end
+  if value == 10 then
+    return "Market Id: Nyse National (10)"
+  end
+  if value == 11 then
+    return "Market Id: Nyse Texas (11)"
+  end
+  if value == 0 then
+    return "Market Id: Nyse Group Bqt (0)"
+  end
+  if value == 255 then
+    return "Market Id: Nyse Trf (255)"
+  end
+
+  return "Market Id: Unknown("..value..")"
+end
+
+-- Dissect: Market Id
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id Of Best Ask
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask = {}
+
+-- Size: Market Id Of Best Ask
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask.size = 2
+
+-- Display: Market Id Of Best Ask
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask.display = function(value)
+  return "Market Id Of Best Ask: "..value
+end
+
+-- Dissect: Market Id Of Best Ask
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id_of_best_ask, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id Of Best Bid
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid = {}
+
+-- Size: Market Id Of Best Bid
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid.size = 2
+
+-- Display: Market Id Of Best Bid
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid.display = function(value)
+  return "Market Id Of Best Bid: "..value
+end
+
+-- Dissect: Market Id Of Best Bid
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id_of_best_bid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Id Of Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price = {}
+
+-- Size: Market Id Of Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price.size = 2
+
+-- Display: Market Id Of Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price.display = function(value)
+  return "Market Id Of Open Price: "..value
+end
+
+-- Dissect: Market Id Of Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_id_of_open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market State
+nyse_arcaequities_bqt_xdp_v2_4_b.market_state = {}
+
+-- Size: Market State
+nyse_arcaequities_bqt_xdp_v2_4_b.market_state.size = 1
+
+-- Display: Market State
+nyse_arcaequities_bqt_xdp_v2_4_b.market_state.display = function(value)
+  if value == "P" then
+    return "Market State: Preopening (P)"
+  end
+  if value == "E" then
+    return "Market State: Early Session (E)"
+  end
+  if value == "O" then
+    return "Market State: Core Session (O)"
+  end
+  if value == "L" then
+    return "Market State: Late Session Non Nyse Only (L)"
+  end
+  if value == "X" then
+    return "Market State: Closed (X)"
+  end
+
+  return "Market State: Unknown("..value..")"
+end
+
+-- Dissect: Market State
+nyse_arcaequities_bqt_xdp_v2_4_b.market_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.market_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.market_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.market_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+nyse_arcaequities_bqt_xdp_v2_4_b.message_count = {}
+
+-- Size: Message Count
+nyse_arcaequities_bqt_xdp_v2_4_b.message_count.size = 1
+
+-- Display: Message Count
+nyse_arcaequities_bqt_xdp_v2_4_b.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+nyse_arcaequities_bqt_xdp_v2_4_b.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+nyse_arcaequities_bqt_xdp_v2_4_b.message_size = {}
+
+-- Size: Message Size
+nyse_arcaequities_bqt_xdp_v2_4_b.message_size.size = 2
+
+-- Display: Message Size
+nyse_arcaequities_bqt_xdp_v2_4_b.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+nyse_arcaequities_bqt_xdp_v2_4_b.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nyse_arcaequities_bqt_xdp_v2_4_b.message_type = {}
+
+-- Size: Message Type
+nyse_arcaequities_bqt_xdp_v2_4_b.message_type.size = 2
+
+-- Display: Message Type
+nyse_arcaequities_bqt_xdp_v2_4_b.message_type.display = function(value)
+  if value == 1 then
+    return "Message Type: Sequence Number Reset Message (1)"
+  end
+  if value == 2 then
+    return "Message Type: Source Time Reference Message (2)"
+  end
+  if value == 3 then
+    return "Message Type: Symbol Index Mapping Message (3)"
+  end
+  if value == 32 then
+    return "Message Type: Symbol Clear Message (32)"
+  end
+  if value == 34 then
+    return "Message Type: Security Status Message (34)"
+  end
+  if value == 10 then
+    return "Message Type: Retransmission Request Message (10)"
+  end
+  if value == 13 then
+    return "Message Type: Symbol Index Mapping Request Message (13)"
+  end
+  if value == 15 then
+    return "Message Type: Refresh Request Message (15)"
+  end
+  if value == 31 then
+    return "Message Type: Message Unavailable Message (31)"
+  end
+  if value == 35 then
+    return "Message Type: Refresh Header Message (35)"
+  end
+  if value == 11 then
+    return "Message Type: Request Response Message (11)"
+  end
+  if value == 12 then
+    return "Message Type: Heartbeat Response Message (12)"
+  end
+  if value == 142 then
+    return "Message Type: Best Quotes Message (142)"
+  end
+  if value == 143 then
+    return "Message Type: Consolidated Single Sided Quote Message (143)"
+  end
+  if value == 210 then
+    return "Message Type: Trf Fractional Trade Message (210)"
+  end
+  if value == 220 then
+    return "Message Type: Consolidated Trade Message (220)"
+  end
+  if value == 221 then
+    return "Message Type: Consolidated Trade Cancel Message (221)"
+  end
+  if value == 212 then
+    return "Message Type: Trf Fractional Trade Correction Message (212)"
+  end
+  if value == 222 then
+    return "Message Type: Consolidated Trade Correction Message (222)"
+  end
+  if value == 213 then
+    return "Message Type: Trf Fractional Prior Day Trade Message (213)"
+  end
+  if value == 214 then
+    return "Message Type: Trf Fractional Prior Day Trade Cancel Message (214)"
+  end
+  if value == 202 then
+    return "Message Type: Consolidated Fractional Stock Summary Message (202)"
+  end
+  if value == 201 then
+    return "Message Type: Consolidated Fractional Volume Message (201)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nyse_arcaequities_bqt_xdp_v2_4_b.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpv
+nyse_arcaequities_bqt_xdp_v2_4_b.mpv = {}
+
+-- Size: Mpv
+nyse_arcaequities_bqt_xdp_v2_4_b.mpv.size = 2
+
+-- Display: Mpv
+nyse_arcaequities_bqt_xdp_v2_4_b.mpv.display = function(value)
+  return "Mpv: "..value
+end
+
+-- Dissect: Mpv
+nyse_arcaequities_bqt_xdp_v2_4_b.mpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.mpv.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.mpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.mpv, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds = {}
+
+-- Size: Nanoseconds
+nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Next Source Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num = {}
+
+-- Size: Next Source Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num.size = 4
+
+-- Display: Next Source Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num.display = function(value)
+  return "Next Source Seq Num: "..value
+end
+
+-- Dissect: Next Source Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.next_source_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Close Prices
+nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices = {}
+
+-- Size: Num Close Prices
+nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices.size = 1
+
+-- Display: Num Close Prices
+nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices.display = function(value)
+  return "Num Close Prices: "..value
+end
+
+-- Dissect: Num Close Prices
+nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.num_close_prices, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nyse Group High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price = {}
+
+-- Size: Nyse Group High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.size = 4
+
+-- Display: Nyse Group High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.display = function(value)
+  return "Nyse Group High Price: "..value
+end
+
+-- Dissect: Nyse Group High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nyse Group Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price = {}
+
+-- Size: Nyse Group Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.size = 4
+
+-- Display: Nyse Group Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.display = function(value)
+  return "Nyse Group Low Price: "..value
+end
+
+-- Dissect: Nyse Group Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nyse Group Market Id Of High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price = {}
+
+-- Size: Nyse Group Market Id Of High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price.size = 2
+
+-- Display: Nyse Group Market Id Of High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price.display = function(value)
+  return "Nyse Group Market Id Of High Price: "..value
+end
+
+-- Dissect: Nyse Group Market Id Of High Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_market_id_of_high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nyse Group Market Id Of Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price = {}
+
+-- Size: Nyse Group Market Id Of Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price.size = 2
+
+-- Display: Nyse Group Market Id Of Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price.display = function(value)
+  return "Nyse Group Market Id Of Low Price: "..value
+end
+
+-- Dissect: Nyse Group Market Id Of Low Price
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_market_id_of_low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nyse Group Market Id Of The Close
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close = {}
+
+-- Size: Nyse Group Market Id Of The Close
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close.size = 2
+
+-- Display: Nyse Group Market Id Of The Close
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close.display = function(value)
+  return "Nyse Group Market Id Of The Close: "..value
+end
+
+-- Dissect: Nyse Group Market Id Of The Close
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_market_id_of_the_close, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id = {}
+
+-- Size: Original Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.size = 4
+
+-- Display: Original Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.display = function(value)
+  return "Original Trade Id: "..value
+end
+
+-- Dissect: Original Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.original_trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Packet Size
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_size = {}
+
+-- Size: Packet Size
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_size.size = 2
+
+-- Display: Packet Size
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_size.display = function(value)
+  return "Packet Size: "..value
+end
+
+-- Dissect: Packet Size
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.packet_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.packet_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.packet_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price = {}
+
+-- Size: Prev Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price.size = 4
+
+-- Display: Prev Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price.display = function(value)
+  return "Prev Close Price: "..value
+end
+
+-- Dissect: Prev Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prev_close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prev Close Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume = {}
+
+-- Size: Prev Close Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume.size = 4
+
+-- Display: Prev Close Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume.display = function(value)
+  return "Prev Close Volume: "..value
+end
+
+-- Dissect: Prev Close Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prev_close_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nyse_arcaequities_bqt_xdp_v2_4_b.price = {}
+
+-- Size: Price
+nyse_arcaequities_bqt_xdp_v2_4_b.price.size = 4
+
+-- Display: Price
+nyse_arcaequities_bqt_xdp_v2_4_b.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+nyse_arcaequities_bqt_xdp_v2_4_b.price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 1
+nyse_arcaequities_bqt_xdp_v2_4_b.price_1 = {}
+
+-- Size: Price 1
+nyse_arcaequities_bqt_xdp_v2_4_b.price_1.size = 4
+
+-- Display: Price 1
+nyse_arcaequities_bqt_xdp_v2_4_b.price_1.display = function(value)
+  return "Price 1: "..value
+end
+
+-- Dissect: Price 1
+nyse_arcaequities_bqt_xdp_v2_4_b.price_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.price_1.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.price_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price 2
+nyse_arcaequities_bqt_xdp_v2_4_b.price_2 = {}
+
+-- Size: Price 2
+nyse_arcaequities_bqt_xdp_v2_4_b.price_2.size = 4
+
+-- Display: Price 2
+nyse_arcaequities_bqt_xdp_v2_4_b.price_2.display = function(value)
+  return "Price 2: "..value
+end
+
+-- Dissect: Price 2
+nyse_arcaequities_bqt_xdp_v2_4_b.price_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.price_2.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.price_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Resolution
+nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution = {}
+
+-- Size: Price Resolution
+nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution.size = 1
+
+-- Display: Price Resolution
+nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution.display = function(value)
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
+end
+
+-- Dissect: Price Resolution
+nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_resolution, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Scale Code
+nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code = {}
+
+-- Size: Price Scale Code
+nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code.size = 1
+
+-- Display: Price Scale Code
+nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code.display = function(value)
+  return "Price Scale Code: "..value
+end
+
+-- Dissect: Price Scale Code
+nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_scale_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Listing Market Official Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price = {}
+
+-- Size: Primary Listing Market Official Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.size = 4
+
+-- Display: Primary Listing Market Official Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.display = function(value)
+  return "Primary Listing Market Official Close Price: "..value
+end
+
+-- Dissect: Primary Listing Market Official Close Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Listing Market Official Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price = {}
+
+-- Size: Primary Listing Market Official Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.size = 4
+
+-- Display: Primary Listing Market Official Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.display = function(value)
+  return "Primary Listing Market Official Open Price: "..value
+end
+
+-- Dissect: Primary Listing Market Official Open Price
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prior Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time = {}
+
+-- Size: Prior Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.size = 4
+
+-- Display: Prior Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.display = function(value)
+  return "Prior Day Time: "..value
+end
+
+-- Dissect: Prior Day Time
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prior_day_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prior Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns = {}
+
+-- Size: Prior Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.size = 4
+
+-- Display: Prior Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.display = function(value)
+  return "Prior Day Time Ns: "..value
+end
+
+-- Dissect: Prior Day Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.prior_day_time_ns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nyse_arcaequities_bqt_xdp_v2_4_b.product_id = {}
+
+-- Size: Product Id
+nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size = 1
+
+-- Display: Product Id
+nyse_arcaequities_bqt_xdp_v2_4_b.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+nyse_arcaequities_bqt_xdp_v2_4_b.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition = {}
+
+-- Size: Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition.size = 1
+
+-- Display: Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition.display = function(value)
+  if value == "C" then
+    return "Quote Condition: Closing (C)"
+  end
+  if value == "O" then
+    return "Quote Condition: Opening Quote (O)"
+  end
+  if value == "R" then
+    return "Quote Condition: Regular Quote (R)"
+  end
+  if value == "W" then
+    return "Quote Condition: Slow On The Bid And Ask Due To Set Slow List (W)"
+  end
+
+  return "Quote Condition: Unknown("..value..")"
+end
+
+-- Dissect: Quote Condition
+nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.quote_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+nyse_arcaequities_bqt_xdp_v2_4_b.reason = {}
+
+-- Size: Reason
+nyse_arcaequities_bqt_xdp_v2_4_b.reason.size = 1
+
+-- Display: Reason
+nyse_arcaequities_bqt_xdp_v2_4_b.reason.display = function(value)
+  if value == 0 then
+    return "Reason: New Trade (0)"
+  end
+  if value == 1 then
+    return "Reason: Trade Cancellation (1)"
+  end
+  if value == 2 then
+    return "Reason: Trade Error (2)"
+  end
+  if value == 3 then
+    return "Reason: Trade Correction (3)"
+  end
+  if value == 4 then
+    return "Reason: Closing End Trade Summary (4)"
+  end
+
+  return "Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reason
+nyse_arcaequities_bqt_xdp_v2_4_b.reason.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num = {}
+
+-- Size: Request Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num.size = 4
+
+-- Display: Request Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num.display = function(value)
+  return "Request Seq Num: "..value
+end
+
+-- Dissect: Request Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.request_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1 = {}
+
+-- Size: Reserved 1
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1.size = 1
+
+-- Display: Reserved 1
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2 = {}
+
+-- Size: Reserved 2
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.size = 2
+
+-- Display: Reserved 2
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmit Method
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method = {}
+
+-- Size: Retransmit Method
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method.size = 1
+
+-- Display: Retransmit Method
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method.display = function(value)
+  return "Retransmit Method: "..value
+end
+
+-- Dissect: Retransmit Method
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retransmit_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot
+nyse_arcaequities_bqt_xdp_v2_4_b.round_lot = {}
+
+-- Size: Round Lot
+nyse_arcaequities_bqt_xdp_v2_4_b.round_lot.size = 1
+
+-- Display: Round Lot
+nyse_arcaequities_bqt_xdp_v2_4_b.round_lot.display = function(value)
+  if value == "Y" then
+    return "Round Lot: Yes (Y)"
+  end
+  if value == "N" then
+    return "Round Lot: No (N)"
+  end
+
+  return "Round Lot: Unknown("..value..")"
+end
+
+-- Dissect: Round Lot
+nyse_arcaequities_bqt_xdp_v2_4_b.round_lot.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.round_lot.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.round_lot.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.round_lot, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nyse_arcaequities_bqt_xdp_v2_4_b.seconds = {}
+
+-- Size: Seconds
+nyse_arcaequities_bqt_xdp_v2_4_b.seconds.size = 4
+
+-- Display: Seconds
+nyse_arcaequities_bqt_xdp_v2_4_b.seconds.display = function(value)
+  -- Parse unix seconds timestamp
+  return "Seconds: "..os.date("%Y-%m-%d %H:%M:%S", value)
+end
+
+-- Dissect: Seconds
+nyse_arcaequities_bqt_xdp_v2_4_b.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Status
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status = {}
+
+-- Size: Security Status
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status.size = 1
+
+-- Display: Security Status
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status.display = function(value)
+  if value == "4" then
+    return "Security Status: Trading Halt (4)"
+  end
+  if value == "5" then
+    return "Security Status: Resume (5)"
+  end
+  if value == "6" then
+    return "Security Status: Suspend (6)"
+  end
+  if value == "A" then
+    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
+  end
+  if value == "C" then
+    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
+  end
+  if value == "D" then
+    return "Security Status: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "P" then
+    return "Security Status: Preopening (P)"
+  end
+  if value == "B" then
+    return "Security Status: Begin Accepting Orders (B)"
+  end
+  if value == "E" then
+    return "Security Status: Early Session (E)"
+  end
+  if value == "O" then
+    return "Security Status: Core Session (O)"
+  end
+  if value == "L" then
+    return "Security Status: Late Session Non Nyse Only (L)"
+  end
+  if value == "X" then
+    return "Security Status: Closed (X)"
+  end
+  if value == "I" then
+    return "Security Status: Halt Resume Price Indication (I)"
+  end
+  if value == "G" then
+    return "Security Status: Pre Opening Price Indication (G)"
+  end
+
+  return "Security Status: Unknown("..value..")"
+end
+
+-- Dissect: Security Status
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.security_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.security_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.security_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+nyse_arcaequities_bqt_xdp_v2_4_b.security_type = {}
+
+-- Size: Security Type
+nyse_arcaequities_bqt_xdp_v2_4_b.security_type.size = 1
+
+-- Display: Security Type
+nyse_arcaequities_bqt_xdp_v2_4_b.security_type.display = function(value)
+  if value == "A" then
+    return "Security Type: Adr (A)"
+  end
+  if value == "C" then
+    return "Security Type: Common Stock (C)"
+  end
+  if value == "D" then
+    return "Security Type: Debentures (D)"
+  end
+  if value == "E" then
+    return "Security Type: Etf (E)"
+  end
+  if value == "F" then
+    return "Security Type: Foreign (F)"
+  end
+  if value == "H" then
+    return "Security Type: Us Depositary Shares (H)"
+  end
+  if value == "I" then
+    return "Security Type: Units (I)"
+  end
+  if value == "L" then
+    return "Security Type: Index Linked Notes (L)"
+  end
+  if value == "M" then
+    return "Security Type: Miscliquid Trust (M)"
+  end
+  if value == "O" then
+    return "Security Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Security Type: Preferred Stock (P)"
+  end
+  if value == "R" then
+    return "Security Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Security Type: Shares Of Beneficiary Interest (S)"
+  end
+  if value == "T" then
+    return "Security Type: Test (T)"
+  end
+  if value == "U" then
+    return "Security Type: Closed End Fund (U)"
+  end
+  if value == "W" then
+    return "Security Type: Warrant (W)"
+  end
+
+  return "Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Type
+nyse_arcaequities_bqt_xdp_v2_4_b.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.security_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number = {}
+
+-- Size: Sequence Number
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number.size = 4
+
+-- Display: Sequence Number
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session State
+nyse_arcaequities_bqt_xdp_v2_4_b.session_state = {}
+
+-- Size: Session State
+nyse_arcaequities_bqt_xdp_v2_4_b.session_state.size = 1
+
+-- Display: Session State
+nyse_arcaequities_bqt_xdp_v2_4_b.session_state.display = function(value)
+  return "Session State: "..value
+end
+
+-- Dissect: Session State
+nyse_arcaequities_bqt_xdp_v2_4_b.session_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.session_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.session_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.session_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nyse_arcaequities_bqt_xdp_v2_4_b.side = {}
+
+-- Size: Side
+nyse_arcaequities_bqt_xdp_v2_4_b.side.size = 1
+
+-- Display: Side
+nyse_arcaequities_bqt_xdp_v2_4_b.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell Offer (S)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nyse_arcaequities_bqt_xdp_v2_4_b.side.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Id
+nyse_arcaequities_bqt_xdp_v2_4_b.source_id = {}
+
+-- Size: Source Id
+nyse_arcaequities_bqt_xdp_v2_4_b.source_id.size = 10
+
+-- Display: Source Id
+nyse_arcaequities_bqt_xdp_v2_4_b.source_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Source Id: No Value"
+  end
+
+  return "Source Id: "..value
+end
+
+-- Dissect: Source Id
+nyse_arcaequities_bqt_xdp_v2_4_b.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.source_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.source_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time = {}
+
+-- Size: Source Time
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size = 4
+
+-- Display: Source Time
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time.display = function(value)
+  return "Source Time: "..value
+end
+
+-- Dissect: Source Time
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns = {}
+
+-- Size: Source Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size = 4
+
+-- Display: Source Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.display = function(value)
+  return "Source Time Ns: "..value
+end
+
+-- Dissect: Source Time Ns
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_time_ns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ssr State
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state = {}
+
+-- Size: Ssr State
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state.size = 1
+
+-- Display: Ssr State
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state.display = function(value)
+  if value == "~" then
+    return "Ssr State: No Short Sale Restriction In Effect (~)"
+  end
+  if value == "E" then
+    return "Ssr State: Short Sale Restriction In Effect (E)"
+  end
+
+  return "Ssr State: Unknown("..value..")"
+end
+
+-- Dissect: Ssr State
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ssr_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ssr Triggering Exchange Id
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id = {}
+
+-- Size: Ssr Triggering Exchange Id
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id.size = 1
+
+-- Display: Ssr Triggering Exchange Id
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id.display = function(value)
+  if value == "A" then
+    return "Ssr Triggering Exchange Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
+  end
+  if value == "C" then
+    return "Ssr Triggering Exchange Id: Nyse National (C)"
+  end
+  if value == "D" then
+    return "Ssr Triggering Exchange Id: Finra (D)"
+  end
+  if value == "G" then
+    return "Ssr Triggering Exchange Id: N 24 X (G)"
+  end
+  if value == "H" then
+    return "Ssr Triggering Exchange Id: Miami Pearl (H)"
+  end
+  if value == "I" then
+    return "Ssr Triggering Exchange Id: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Ssr Triggering Exchange Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Ssr Triggering Exchange Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Ssr Triggering Exchange Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Ssr Triggering Exchange Id: Nyse Texas (M)"
+  end
+  if value == "N" then
+    return "Ssr Triggering Exchange Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
+  end
+  if value == "T" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
+  end
+  if value == "U" then
+    return "Ssr Triggering Exchange Id: Memx (U)"
+  end
+  if value == "V" then
+    return "Ssr Triggering Exchange Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Ssr Triggering Exchange Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
+  end
+  if value == "Y" then
+    return "Ssr Triggering Exchange Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
+  end
+
+  return "Ssr Triggering Exchange Id: Unknown("..value..")"
+end
+
+-- Dissect: Ssr Triggering Exchange Id
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ssr_triggering_exchange_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ssr Triggering Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume = {}
+
+-- Size: Ssr Triggering Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume.size = 4
+
+-- Display: Ssr Triggering Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume.display = function(value)
+  return "Ssr Triggering Volume: "..value
+end
+
+-- Dissect: Ssr Triggering Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ssr_triggering_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+nyse_arcaequities_bqt_xdp_v2_4_b.status = {}
+
+-- Size: Status
+nyse_arcaequities_bqt_xdp_v2_4_b.status.size = 1
+
+-- Display: Status
+nyse_arcaequities_bqt_xdp_v2_4_b.status.display = function(value)
+  if value == "0" then
+    return "Status: Message Was Accepted (0)"
+  end
+  if value == "1" then
+    return "Status: Rejected Due To An Invalid Source Id (1)"
+  end
+  if value == "3" then
+    return "Status: Rejected Due To Maximum Sequence Range See Threshold Limits (3)"
+  end
+  if value == "4" then
+    return "Status: Rejected Due To Maximum Request In A Day (4)"
+  end
+  if value == "5" then
+    return "Status: Rejected Due To Maximum Number Of Refresh Requests In A Day (5)"
+  end
+  if value == "6" then
+    return "Status: Rejected Request Message Seq Num Ttl Time To Live Is Too Old Use Refresh To Recover Current State If Necessary (6)"
+  end
+  if value == "7" then
+    return "Status: Rejected Due To An Invalid Channel Id (7)"
+  end
+  if value == "8" then
+    return "Status: Rejected Due To An Invalid Product Id (8)"
+  end
+  if value == "9" then
+    return "Status: Rejected Due To 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+nyse_arcaequities_bqt_xdp_v2_4_b.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol = {}
+
+-- Size: Symbol
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol.size = 11
+
+-- Display: Symbol
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Index
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index = {}
+
+-- Size: Symbol Index
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size = 4
+
+-- Display: Symbol Index
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.display = function(value)
+  return "Symbol Index: "..value
+end
+
+-- Dissect: Symbol Index
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.display(value, buffer, offset, packet, parent)
+
+  if not show.records then
+    parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_index, range, value, display)
+
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_arcaequities_bqt_xdp_v2_4_b.conversation.current.symbol_index_mapping_message[value]
+
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current = record
+    if record.symbol_index ~= nil then
+      local entry_symbol_index = field_tree:add("Symbol Index: " .. tostring(record.symbol_index))
+      entry_symbol_index:set_generated()
+    end
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add("Symbol: " .. tostring(record.symbol))
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
+end
+
+-- Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num = {}
+
+-- Size: Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size = 4
+
+-- Display: Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.display = function(value)
+  return "Symbol Seq Num: "..value
+end
+
+-- Dissect: Symbol Seq Num
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Seq Number
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number = {}
+
+-- Size: Symbol Seq Number
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size = 4
+
+-- Display: Symbol Seq Number
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.display = function(value)
+  return "Symbol Seq Number: "..value
+end
+
+-- Dissect: Symbol Seq Number
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_seq_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Id
+nyse_arcaequities_bqt_xdp_v2_4_b.system_id = {}
+
+-- Size: System Id
+nyse_arcaequities_bqt_xdp_v2_4_b.system_id.size = 1
+
+-- Display: System Id
+nyse_arcaequities_bqt_xdp_v2_4_b.system_id.display = function(value)
+  return "System Id: "..value
+end
+
+-- Dissect: System Id
+nyse_arcaequities_bqt_xdp_v2_4_b.system_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.system_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.system_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.system_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time
+nyse_arcaequities_bqt_xdp_v2_4_b.time = {}
+
+-- Size: Time
+nyse_arcaequities_bqt_xdp_v2_4_b.time.size = 4
+
+-- Display: Time
+nyse_arcaequities_bqt_xdp_v2_4_b.time.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local millisecond = value % 1000
+
+  return string.format("Time: %02d:%02d:%02d.%03d", hour, minute, second, millisecond)
+end
+
+-- Dissect: Time
+nyse_arcaequities_bqt_xdp_v2_4_b.time.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Refresh Pkts
+nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts = {}
+
+-- Size: Total Refresh Pkts
+nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts.size = 2
+
+-- Display: Total Refresh Pkts
+nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts.display = function(value)
+  return "Total Refresh Pkts: "..value
+end
+
+-- Dissect: Total Refresh Pkts
+nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.total_refresh_pkts, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Cond 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1 = {}
+
+-- Size: Trade Cond 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.size = 1
+
+-- Display: Trade Cond 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.display = function(value)
+  if value == "@" then
+    return "Trade Cond 1: Regular Sale (@)"
+  end
+  if value == " " then
+    return "Trade Cond 1: Regular Sale Trf Only (<whitespace>)"
+  end
+  if value == "C" then
+    return "Trade Cond 1: Cash Trf Or Texas Only (C)"
+  end
+  if value == "R" then
+    return "Trade Cond 1: Seller Trf Only (R)"
+  end
+
+  return "Trade Cond 1: Unknown("..value..")"
+end
+
+-- Dissect: Trade Cond 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Cond 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2 = {}
+
+-- Size: Trade Cond 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.size = 1
+
+-- Display: Trade Cond 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.display = function(value)
+  if value == " " then
+    return "Trade Cond 2: Na (<whitespace>)"
+  end
+  if value == "F" then
+    return "Trade Cond 2: Intermarket Sweep Order (F)"
+  end
+  if value == "O" then
+    return "Trade Cond 2: Market Center Opening Trade (O)"
+  end
+  if value == "4" then
+    return "Trade Cond 2: Derivatively Priced Trf Only (4)"
+  end
+  if value == "5" then
+    return "Trade Cond 2: Reopening Trade (5)"
+  end
+  if value == "6" then
+    return "Trade Cond 2: Market Center Closing Trade (6)"
+  end
+  if value == "7" then
+    return "Trade Cond 2: Qualified Contingent Trade Trf Or Texas Only (7)"
+  end
+  if value == "9" then
+    return "Trade Cond 2: Corrected Consolidated Close (9)"
+  end
+
+  return "Trade Cond 2: Unknown("..value..")"
+end
+
+-- Dissect: Trade Cond 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Cond 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3 = {}
+
+-- Size: Trade Cond 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.size = 1
+
+-- Display: Trade Cond 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.display = function(value)
+  if value == " " then
+    return "Trade Cond 3: Na (<whitespace>)"
+  end
+  if value == "T" then
+    return "Trade Cond 3: Extended Hours Trade (T)"
+  end
+  if value == "U" then
+    return "Trade Cond 3: Extended Hours Sold Out Of Sequence (U)"
+  end
+  if value == "Z" then
+    return "Trade Cond 3: Sold (Z)"
+  end
+
+  return "Trade Cond 3: Unknown("..value..")"
+end
+
+-- Dissect: Trade Cond 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Cond 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4 = {}
+
+-- Size: Trade Cond 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.size = 1
+
+-- Display: Trade Cond 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.display = function(value)
+  if value == " " then
+    return "Trade Cond 4: Na (<whitespace>)"
+  end
+  if value == "I" then
+    return "Trade Cond 4: Odd Lot Trade (I)"
+  end
+  if value == "M" then
+    return "Trade Cond 4: Official Closing Price (M)"
+  end
+  if value == "Q" then
+    return "Trade Cond 4: Official Open Price (Q)"
+  end
+  if value == "V" then
+    return "Trade Cond 4: Contingent Trade Trf Or Texas Only (V)"
+  end
+  if value == "P" then
+    return "Trade Cond 4: Prior Reference Price Trf Only (P)"
+  end
+  if value == "W" then
+    return "Trade Cond 4: Weighted Average Price Trf Only (W)"
+  end
+
+  return "Trade Cond 4: Unknown("..value..")"
+end
+
+-- Dissect: Trade Cond 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_cond_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1 = {}
+
+-- Size: Trade Condition 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.size = 1
+
+-- Display: Trade Condition 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.display = function(value)
+  if value == "@" then
+    return "Trade Condition 1: Regular Sale (@)"
+  end
+  if value == " " then
+    return "Trade Condition 1: Regular Sale For Trf (<whitespace>)"
+  end
+  if value == "C" then
+    return "Trade Condition 1: Cash Trf Or Texas Only (C)"
+  end
+  if value == "R" then
+    return "Trade Condition 1: Seller Trf Only (R)"
+  end
+
+  return "Trade Condition 1: Unknown("..value..")"
+end
+
+-- Dissect: Trade Condition 1
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2 = {}
+
+-- Size: Trade Condition 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.size = 1
+
+-- Display: Trade Condition 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.display = function(value)
+  if value == " " then
+    return "Trade Condition 2: Na (<whitespace>)"
+  end
+  if value == "F" then
+    return "Trade Condition 2: Intermarket Sweep Order (F)"
+  end
+  if value == "O" then
+    return "Trade Condition 2: Market Center Opening Trade (O)"
+  end
+  if value == "4" then
+    return "Trade Condition 2: Derivatively Priced Trf Only (4)"
+  end
+  if value == "5" then
+    return "Trade Condition 2: Market Center Reopening Trade (5)"
+  end
+  if value == "6" then
+    return "Trade Condition 2: Market Center Closing Trade (6)"
+  end
+  if value == "7" then
+    return "Trade Condition 2: Qualified Contingent Trade Trf Or Texas Only (7)"
+  end
+  if value == "9" then
+    return "Trade Condition 2: Corrected Last Sale Price (9)"
+  end
+
+  return "Trade Condition 2: Unknown("..value..")"
+end
+
+-- Dissect: Trade Condition 2
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3 = {}
+
+-- Size: Trade Condition 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.size = 1
+
+-- Display: Trade Condition 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.display = function(value)
+  if value == " " then
+    return "Trade Condition 3: Na (<whitespace>)"
+  end
+  if value == "T" then
+    return "Trade Condition 3: Extended Hours Trade (T)"
+  end
+  if value == "U" then
+    return "Trade Condition 3: Extended Hours Sold Out Of Sequence (U)"
+  end
+  if value == "Z" then
+    return "Trade Condition 3: Sold (Z)"
+  end
+
+  return "Trade Condition 3: Unknown("..value..")"
+end
+
+-- Dissect: Trade Condition 3
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4 = {}
+
+-- Size: Trade Condition 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.size = 1
+
+-- Display: Trade Condition 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.display = function(value)
+  if value == "@" then
+    return "Trade Condition 4: Regular Sale (@)"
+  end
+  if value == " " then
+    return "Trade Condition 4: Na (<whitespace>)"
+  end
+  if value == "I" then
+    return "Trade Condition 4: Odd Lot Trade (I)"
+  end
+  if value == "M" then
+    return "Trade Condition 4: Official Closing Price (M)"
+  end
+  if value == "Q" then
+    return "Trade Condition 4: Official Open Price (Q)"
+  end
+  if value == "V" then
+    return "Trade Condition 4: Contingent Trade Trf Or Texas Only (V)"
+  end
+  if value == "P" then
+    return "Trade Condition 4: Prior Reference Price Trf Only (P)"
+  end
+  if value == "W" then
+    return "Trade Condition 4: Weighted Average Price Trf Only (W)"
+  end
+
+  return "Trade Condition 4: Unknown("..value..")"
+end
+
+-- Dissect: Trade Condition 4
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_condition_4, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_id = {}
+
+-- Size: Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size = 4
+
+-- Display: Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Of Trade
+nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade = {}
+
+-- Size: Unit Of Trade
+nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade.size = 2
+
+-- Display: Unit Of Trade
+nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade.display = function(value)
+  return "Unit Of Trade: "..value
+end
+
+-- Dissect: Unit Of Trade
+nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.unit_of_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.volume = {}
+
+-- Size: Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.volume.size = 4
+
+-- Display: Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nyse_arcaequities_bqt_xdp_v2_4_b.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price_calculate = {}
+
+-- Display: Ask Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price_calculate.display = function(value)
+  return "Ask Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Ask Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.ask_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.ask_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Ask Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.ask_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.ask_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price_calculate = {}
+
+-- Display: Bid Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price_calculate.display = function(value)
+  return "Bid Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Bid Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.bid_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.bid_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Bid Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.bid_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.bid_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated First Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price_calculate = {}
+
+-- Display: Consolidated First Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price_calculate.display = function(value)
+  return "Consolidated First Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated First Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_first_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_first_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated First Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price_calculate = {}
+
+-- Display: Consolidated High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price_calculate.display = function(value)
+  return "Consolidated High Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_high_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_high_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated Last Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price_calculate = {}
+
+-- Display: Consolidated Last Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price_calculate.display = function(value)
+  return "Consolidated Last Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated Last Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_last_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_last_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated Last Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Consolidated Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price_calculate = {}
+
+-- Display: Consolidated Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price_calculate.display = function(value)
+  return "Consolidated Low Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Consolidated Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_low_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_low_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Consolidated Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.dissect(buffer, offset, packet, parent)
+end
+
+-- NYSE Group High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate = {}
+
+-- Display: NYSE Group High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate.display = function(value)
+  return "NYSE Group High Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: NYSE Group High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_high_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_high_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: NYSE Group High Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.dissect(buffer, offset, packet, parent)
+end
+
+-- NYSE Group Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price_calculate = {}
+
+-- Display: NYSE Group Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price_calculate.display = function(value)
+  return "NYSE Group Low Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: NYSE Group Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_low_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.nyse_group_low_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: NYSE Group Low Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate = {}
+
+-- Display: Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.display = function(value)
+  return "Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.price.dissect(buffer, offset, packet, parent)
+end
+
+-- Primary Listing Market Official Close Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price_calculate = {}
+
+-- Display: Primary Listing Market Official Close Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price_calculate.display = function(value)
+  return "Primary Listing Market Official Close Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Primary Listing Market Official Close Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_close_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_close_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Primary Listing Market Official Close Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Primary Listing Market Official Open Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price_calculate = {}
+
+-- Display: Primary Listing Market Official Open Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price_calculate.display = function(value)
+  return "Primary Listing Market Official Open Price Calculate: " .. string.format("%g", value)
+end
+
+-- Composite: Primary Listing Market Official Open Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_int()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_open_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.primary_listing_market_official_open_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Primary Listing Market Official Open Price Calculate
+nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bqt_xdp_v2_4_b.format_decimals then
+    local record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.dissect(buffer, offset, packet, parent)
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse ArcaEquities Bqt Xdp 2.4.b
+-----------------------------------------------------------------------
+
+-- Consolidated Fractional Volume Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message = {}
+
+-- Size: Consolidated Fractional Volume Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.reason.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.complete.size
+
+-- Display: Consolidated Fractional Volume Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Consolidated Fractional Volume Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Number: Binary
+  index, symbol_seq_number = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
+
+  -- Fractional Consolidated Volume: Binary
+  index, fractional_consolidated_volume = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_consolidated_volume.dissect(buffer, index, packet, parent)
+
+  -- Reason: Binary
+  index, reason = nyse_arcaequities_bqt_xdp_v2_4_b.reason.dissect(buffer, index, packet, parent)
+
+  -- Complete: Binary
+  index, complete = nyse_arcaequities_bqt_xdp_v2_4_b.complete.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Consolidated Fractional Volume Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_fractional_volume_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Consolidated Fractional Stock Summary Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message = {}
+
+-- Size: Consolidated Fractional Stock Summary Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.complete.size
+
+-- Display: Consolidated Fractional Stock Summary Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Consolidated Fractional Stock Summary Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Nyse Group High Price: Binary
+  index, nyse_group_high_price = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_high_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Nyse Group Low Price: Binary
+  index, nyse_group_low_price = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_low_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Primary Listing Market Official Open Price: Binary
+  index, primary_listing_market_official_open_price = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_open_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Fractional Nyse Group Volume: Binary
+  index, fractional_nyse_group_volume = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_nyse_group_volume.dissect(buffer, index, packet, parent)
+
+  -- Nyse Group Market Id Of High Price: Binary
+  index, nyse_group_market_id_of_high_price = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_high_price.dissect(buffer, index, packet, parent)
+
+  -- Nyse Group Market Id Of Low Price: Binary
+  index, nyse_group_market_id_of_low_price = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_low_price.dissect(buffer, index, packet, parent)
+
+  -- Market Id Of Open Price: Binary
+  index, market_id_of_open_price = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_open_price.dissect(buffer, index, packet, parent)
+
+  -- Num Close Prices: Binary
+  index, num_close_prices = nyse_arcaequities_bqt_xdp_v2_4_b.num_close_prices.dissect(buffer, index, packet, parent)
+
+  -- Nyse Group Market Id Of The Close: Binary
+  index, nyse_group_market_id_of_the_close = nyse_arcaequities_bqt_xdp_v2_4_b.nyse_group_market_id_of_the_close.dissect(buffer, index, packet, parent)
+
+  -- Primary Listing Market Official Close Price: Binary
+  index, primary_listing_market_official_close_price = nyse_arcaequities_bqt_xdp_v2_4_b.primary_listing_market_official_close_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Consolidated High Price: Binary
+  index, consolidated_high_price = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_high_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Low Price: Binary
+  index, consolidated_low_price = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_low_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Consolidated First Price: Binary
+  index, consolidated_first_price = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_first_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Consolidated Last Price: Binary
+  index, consolidated_last_price = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_last_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Complete: Binary
+  index, complete = nyse_arcaequities_bqt_xdp_v2_4_b.complete.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Consolidated Fractional Stock Summary Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_fractional_stock_summary_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Fractional Prior Day Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message = {}
+
+-- Size: Trf Fractional Prior Day Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.size
+
+-- Display: Trf Fractional Prior Day Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Prior Day Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time: Binary
+  index, prior_day_time = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time Ns: Binary
+  index, prior_day_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Prior Day Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_prior_day_trade_cancel_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Fractional Prior Day Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message = {}
+
+-- Size: Trf Fractional Prior Day Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.size
+
+-- Display: Trf Fractional Prior Day Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Prior Day Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 1: ASCII
+  index, trade_cond_1 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 2: ASCII
+  index, trade_cond_2 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 3: ASCII
+  index, trade_cond_3 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 4: ASCII
+  index, trade_cond_4 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time: Binary
+  index, prior_day_time = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time.dissect(buffer, index, packet, parent)
+
+  -- Prior Day Time Ns: Binary
+  index, prior_day_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.prior_day_time_ns.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Prior Day Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_prior_day_trade_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Consolidated Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message = {}
+
+-- Size: Consolidated Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+
+-- Display: Consolidated Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Consolidated Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Number: Binary
+  index, symbol_seq_number = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
+
+  -- Original Trade Id: Binary
+  index, original_trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Volume: Binary
+  index, volume = nyse_arcaequities_bqt_xdp_v2_4_b.volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 1: ASCII
+  index, trade_condition_1 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 2: ASCII
+  index, trade_condition_2 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 3: ASCII
+  index, trade_condition_3 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 4: ASCII
+  index, trade_condition_4 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Consolidated Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_trade_correction_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Fractional Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message = {}
+
+-- Size: Trf Fractional Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+
+-- Display: Trf Fractional Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Original Trade Id: Binary
+  index, original_trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 1: ASCII
+  index, trade_cond_1 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 2: ASCII
+  index, trade_cond_2 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 3: ASCII
+  index, trade_cond_3 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 4: ASCII
+  index, trade_cond_4 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time: Binary
+  index, exec_day_time = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time Ns: Binary
+  index, exec_day_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Trade Correction Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_trade_correction_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Consolidated Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message = {}
+
+-- Size: Consolidated Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+
+-- Display: Consolidated Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Consolidated Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Number: Binary
+  index, symbol_seq_number = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
+
+  -- Original Trade Id: Binary
+  index, original_trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.original_trade_id.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Consolidated Trade Cancel Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_trade_cancel_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Consolidated Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message = {}
+
+-- Size: Consolidated Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+
+-- Display: Consolidated Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Consolidated Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Number: Binary
+  index, symbol_seq_number = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Volume: Binary
+  index, volume = nyse_arcaequities_bqt_xdp_v2_4_b.volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 1: ASCII
+  index, trade_condition_1 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 2: ASCII
+  index, trade_condition_2 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 3: ASCII
+  index, trade_condition_3 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition 4: ASCII
+  index, trade_condition_4 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_condition_4.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Consolidated Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_trade_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trf Fractional Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message = {}
+
+-- Size: Trf Fractional Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+
+-- Display: Trf Fractional Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trf Fractional Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: Binary
+  index, trade_id = nyse_arcaequities_bqt_xdp_v2_4_b.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Fractional Volume: Binary
+  index, fractional_volume = nyse_arcaequities_bqt_xdp_v2_4_b.fractional_volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 1: ASCII
+  index, trade_cond_1 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_1.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 2: ASCII
+  index, trade_cond_2 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_2.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 3: ASCII
+  index, trade_cond_3 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_3.dissect(buffer, index, packet, parent)
+
+  -- Trade Cond 4: ASCII
+  index, trade_cond_4 = nyse_arcaequities_bqt_xdp_v2_4_b.trade_cond_4.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time: Binary
+  index, exec_day_time = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time.dissect(buffer, index, packet, parent)
+
+  -- Exec Day Time Ns: Binary
+  index, exec_day_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.exec_day_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trf Fractional Trade Message
+nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.trf_fractional_trade_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Retail Pricing Indicator
+nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator = {}
+
+-- Size: Retail Pricing Indicator
+nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.size = 1
+
+-- Display: Retail Pricing Indicator
+nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Retail Interest On The Bid Side flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Retail Interest On The Bid Side"
+  end
+  -- Is Retail Interest On The Ask Side flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Retail Interest On The Ask Side"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Retail Pricing Indicator
+nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.bits = function(range, value, packet, parent)
+
+  -- Retail Interest On The Bid Side: 1 Bit
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retail_interest_on_the_bid_side, range, value)
+
+  -- Retail Interest On The Ask Side: 1 Bit
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retail_interest_on_the_ask_side, range, value)
+
+  -- Reserved: 6 Bit
+  parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.reserved, range, value)
+end
+
+-- Dissect: Retail Pricing Indicator
+nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.dissect = function(buffer, offset, packet, parent)
+  local size = nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.display(range, value, packet, parent)
+  local element = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retail_pricing_indicator, range, display)
+
+  if show.structs then
+    nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Consolidated Single Sided Quote Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message = {}
+
+-- Size: Consolidated Single Sided Quote Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.side.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+
+-- Display: Consolidated Single Sided Quote Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Consolidated Single Sided Quote Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Number: Binary
+  index, symbol_seq_number = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
+
+  -- Side: ASCII
+  index, side = nyse_arcaequities_bqt_xdp_v2_4_b.side.dissect(buffer, index, packet, parent)
+
+  -- Price: Binary
+  index, price = nyse_arcaequities_bqt_xdp_v2_4_b.price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Volume: Binary
+  index, volume = nyse_arcaequities_bqt_xdp_v2_4_b.volume.dissect(buffer, index, packet, parent)
+
+  -- Quote Condition: ASCII
+  index, quote_condition = nyse_arcaequities_bqt_xdp_v2_4_b.quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Retail Pricing Indicator: Struct of 3 fields
+  index, retail_pricing_indicator = nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Consolidated Single Sided Quote Message
+nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.consolidated_single_sided_quote_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Best Quotes Message
+nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message = {}
+
+-- Size: Best Quotes Message
+nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.ask_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.bid_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid.size
+
+-- Display: Best Quotes Message
+nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Best Quotes Message
+nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Number: Binary
+  index, symbol_seq_number = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_number.dissect(buffer, index, packet, parent)
+
+  -- Ask Price: Binary
+  index, ask_price = nyse_arcaequities_bqt_xdp_v2_4_b.ask_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Ask Volume: Binary
+  index, ask_volume = nyse_arcaequities_bqt_xdp_v2_4_b.ask_volume.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Binary
+  index, bid_price = nyse_arcaequities_bqt_xdp_v2_4_b.bid_price_calculate.dissect(buffer, index, packet, parent)
+
+  -- Bid Volume: Binary
+  index, bid_volume = nyse_arcaequities_bqt_xdp_v2_4_b.bid_volume.dissect(buffer, index, packet, parent)
+
+  -- Ask Quote Condition: ASCII
+  index, ask_quote_condition = nyse_arcaequities_bqt_xdp_v2_4_b.ask_quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Bid Quote Condition: ASCII
+  index, bid_quote_condition = nyse_arcaequities_bqt_xdp_v2_4_b.bid_quote_condition.dissect(buffer, index, packet, parent)
+
+  -- Retail Pricing Indicator: Struct of 3 fields
+  index, retail_pricing_indicator = nyse_arcaequities_bqt_xdp_v2_4_b.retail_pricing_indicator.dissect(buffer, index, packet, parent)
+
+  -- Market Id Of Best Ask: Binary
+  index, market_id_of_best_ask = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_ask.dissect(buffer, index, packet, parent)
+
+  -- Market Id Of Best Bid: Binary
+  index, market_id_of_best_bid = nyse_arcaequities_bqt_xdp_v2_4_b.market_id_of_best_bid.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Best Quotes Message
+nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.best_quotes_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Heartbeat Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message = {}
+
+-- Size: Heartbeat Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_id.size
+
+-- Display: Heartbeat Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_bqt_xdp_v2_4_b.source_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Request Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message = {}
+
+-- Size: Request Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.status.size
+
+-- Display: Request Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Request Seq Num: Binary
+  index, request_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.request_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Begin Seq Num: Binary
+  index, begin_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.dissect(buffer, index, packet, parent)
+
+  -- End Seq Num: Binary
+  index, end_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_bqt_xdp_v2_4_b.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Status: ASCII
+  index, status = nyse_arcaequities_bqt_xdp_v2_4_b.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request Response Message
+nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Header Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message = {}
+
+-- Size: Refresh Header Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num.size
+
+-- Display: Refresh Header Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Header Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Current Refresh Pkt: Binary
+  index, current_refresh_pkt = nyse_arcaequities_bqt_xdp_v2_4_b.current_refresh_pkt.dissect(buffer, index, packet, parent)
+
+  -- Total Refresh Pkts: Binary
+  index, total_refresh_pkts = nyse_arcaequities_bqt_xdp_v2_4_b.total_refresh_pkts.dissect(buffer, index, packet, parent)
+
+  -- Last Seq Num: Binary
+  index, last_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.last_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Last Symbol Seq Num: Binary
+  index, last_symbol_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.last_symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Header Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.refresh_header_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Unavailable Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message = {}
+
+-- Size: Message Unavailable Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size
+
+-- Display: Message Unavailable Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Unavailable Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Begin Seq Num: Binary
+  index, begin_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.dissect(buffer, index, packet, parent)
+
+  -- End Seq Num: Binary
+  index, end_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Unavailable Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_unavailable_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Refresh Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message = {}
+
+-- Size: Refresh Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size
+
+-- Display: Refresh Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_bqt_xdp_v2_4_b.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Symbol Index Mapping Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message = {}
+
+-- Size: Symbol Index Mapping Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method.size
+
+-- Display: Symbol Index Mapping Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Index Mapping Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_bqt_xdp_v2_4_b.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Retransmit Method: Binary
+  index, retransmit_method = nyse_arcaequities_bqt_xdp_v2_4_b.retransmit_method.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Symbol Index Mapping Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Retransmission Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message = {}
+
+-- Size: Retransmission Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size
+
+-- Display: Retransmission Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmission Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Begin Seq Num: Binary
+  index, begin_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.begin_seq_num.dissect(buffer, index, packet, parent)
+
+  -- End Seq Num: Binary
+  index, end_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_bqt_xdp_v2_4_b.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmission Request Message
+nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Status Message
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message = {}
+
+-- Size: Security Status Message
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.security_status.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price_1.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price_2.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_state.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.session_state.size
+
+-- Display: Security Status Message
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Status Message
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Security Status: ASCII
+  index, security_status = nyse_arcaequities_bqt_xdp_v2_4_b.security_status.dissect(buffer, index, packet, parent)
+
+  -- Halt Condition: ASCII
+  index, halt_condition = nyse_arcaequities_bqt_xdp_v2_4_b.halt_condition.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: Binary
+  index, reserved_2 = nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Price 1: Binary
+  index, price_1 = nyse_arcaequities_bqt_xdp_v2_4_b.price_1.dissect(buffer, index, packet, parent)
+
+  -- Price 2: Binary
+  index, price_2 = nyse_arcaequities_bqt_xdp_v2_4_b.price_2.dissect(buffer, index, packet, parent)
+
+  -- Ssr Triggering Exchange Id: ASCII
+  index, ssr_triggering_exchange_id = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
+
+  -- Ssr Triggering Volume: Binary
+  index, ssr_triggering_volume = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_triggering_volume.dissect(buffer, index, packet, parent)
+
+  -- Time: Binary
+  index, time = nyse_arcaequities_bqt_xdp_v2_4_b.time.dissect(buffer, index, packet, parent)
+
+  -- Ssr State: ASCII
+  index, ssr_state = nyse_arcaequities_bqt_xdp_v2_4_b.ssr_state.dissect(buffer, index, packet, parent)
+
+  -- Market State: ASCII
+  index, market_state = nyse_arcaequities_bqt_xdp_v2_4_b.market_state.dissect(buffer, index, packet, parent)
+
+  -- Session State: ASCII
+  index, session_state = nyse_arcaequities_bqt_xdp_v2_4_b.session_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Status Message
+nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.security_status_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Symbol Clear Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message = {}
+
+-- Size: Symbol Clear Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size
+
+-- Display: Symbol Clear Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Clear Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Next Source Seq Num: Binary
+  index, next_source_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.next_source_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Symbol Clear Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_clear_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Symbol Index Mapping Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message = {}
+
+-- Size: Symbol Index Mapping Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.market_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.system_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.security_type.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.lot_size.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.round_lot.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.mpv.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.size
+
+-- Display: Symbol Index Mapping Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Index Mapping Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Symbol: ASCII
+  index, symbol = nyse_arcaequities_bqt_xdp_v2_4_b.symbol.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: Binary
+  index, reserved_1 = nyse_arcaequities_bqt_xdp_v2_4_b.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Market Id: Binary
+  index, market_id = nyse_arcaequities_bqt_xdp_v2_4_b.market_id.dissect(buffer, index, packet, parent)
+
+  -- System Id: Binary
+  index, system_id = nyse_arcaequities_bqt_xdp_v2_4_b.system_id.dissect(buffer, index, packet, parent)
+
+  -- Exchange Code: ASCII
+  index, exchange_code = nyse_arcaequities_bqt_xdp_v2_4_b.exchange_code.dissect(buffer, index, packet, parent)
+
+  -- Price Scale Code: Binary
+  index, price_scale_code = nyse_arcaequities_bqt_xdp_v2_4_b.price_scale_code.dissect(buffer, index, packet, parent)
+
+  -- Security Type: ASCII
+  index, security_type = nyse_arcaequities_bqt_xdp_v2_4_b.security_type.dissect(buffer, index, packet, parent)
+
+  -- Lot Size: Binary
+  index, lot_size = nyse_arcaequities_bqt_xdp_v2_4_b.lot_size.dissect(buffer, index, packet, parent)
+
+  -- Prev Close Price: Binary
+  index, prev_close_price = nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_price.dissect(buffer, index, packet, parent)
+
+  -- Prev Close Volume: Binary
+  index, prev_close_volume = nyse_arcaequities_bqt_xdp_v2_4_b.prev_close_volume.dissect(buffer, index, packet, parent)
+
+  -- Price Resolution: Binary
+  index, price_resolution = nyse_arcaequities_bqt_xdp_v2_4_b.price_resolution.dissect(buffer, index, packet, parent)
+
+  -- Round Lot: ASCII
+  index, round_lot = nyse_arcaequities_bqt_xdp_v2_4_b.round_lot.dissect(buffer, index, packet, parent)
+
+  -- Mpv: Binary
+  index, mpv = nyse_arcaequities_bqt_xdp_v2_4_b.mpv.dissect(buffer, index, packet, parent)
+
+  -- Unit Of Trade: Binary
+  index, unit_of_trade = nyse_arcaequities_bqt_xdp_v2_4_b.unit_of_trade.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: Binary
+  index, reserved_2 = nyse_arcaequities_bqt_xdp_v2_4_b.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_arcaequities_bqt_xdp_v2_4_b.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
+  end
+
+  return index
+end
+
+-- Dissect: Symbol Index Mapping Message
+nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.symbol_index_mapping_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Source Time Reference Message
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message = {}
+
+-- Size: Source Time Reference Message
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size
+
+-- Display: Source Time Reference Message
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Source Time Reference Message
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Id: Binary
+  index, id = nyse_arcaequities_bqt_xdp_v2_4_b.id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Seq Num: Binary
+  index, symbol_seq_num = nyse_arcaequities_bqt_xdp_v2_4_b.symbol_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Source Time Reference Message
+nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.source_time_reference_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequence Number Reset Message
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message = {}
+
+-- Size: Sequence Number Reset Message
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.product_id.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.size
+
+-- Display: Sequence Number Reset Message
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequence Number Reset Message
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Time: Binary
+  index, source_time = nyse_arcaequities_bqt_xdp_v2_4_b.source_time.dissect(buffer, index, packet, parent)
+
+  -- Source Time Ns: Binary
+  index, source_time_ns = nyse_arcaequities_bqt_xdp_v2_4_b.source_time_ns.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_bqt_xdp_v2_4_b.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_bqt_xdp_v2_4_b.channel_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequence Number Reset Message
+nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.sequence_number_reset_message, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+nyse_arcaequities_bqt_xdp_v2_4_b.payload = {}
+
+-- Dissect: Payload
+nyse_arcaequities_bqt_xdp_v2_4_b.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Sequence Number Reset Message
+  if message_type == 1 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number_reset_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Source Time Reference Message
+  if message_type == 2 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.source_time_reference_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Index Mapping Message
+  if message_type == 3 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Clear Message
+  if message_type == 32 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.symbol_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security Status Message
+  if message_type == 34 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.security_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Retransmission Request Message
+  if message_type == 10 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.retransmission_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Symbol Index Mapping Request Message
+  if message_type == 13 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.symbol_index_mapping_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Refresh Request Message
+  if message_type == 15 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.refresh_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Message Unavailable Message
+  if message_type == 31 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.message_unavailable_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Refresh Header Message
+  if message_type == 35 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.refresh_header_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Request Response Message
+  if message_type == 11 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.request_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat Response Message
+  if message_type == 12 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.heartbeat_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Best Quotes Message
+  if message_type == 142 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.best_quotes_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated Single Sided Quote Message
+  if message_type == 143 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_single_sided_quote_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Fractional Trade Message
+  if message_type == 210 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated Trade Message
+  if message_type == 220 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated Trade Cancel Message
+  if message_type == 221 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Fractional Trade Correction Message
+  if message_type == 212 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated Trade Correction Message
+  if message_type == 222 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_trade_correction_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Fractional Prior Day Trade Message
+  if message_type == 213 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trf Fractional Prior Day Trade Cancel Message
+  if message_type == 214 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.trf_fractional_prior_day_trade_cancel_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated Fractional Stock Summary Message
+  if message_type == 202 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_stock_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Consolidated Fractional Volume Message
+  if message_type == 201 then
+    return nyse_arcaequities_bqt_xdp_v2_4_b.consolidated_fractional_volume_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+nyse_arcaequities_bqt_xdp_v2_4_b.message_header = {}
+
+-- Size: Message Header
+nyse_arcaequities_bqt_xdp_v2_4_b.message_header.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.message_size.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.message_type.size
+
+-- Display: Message Header
+nyse_arcaequities_bqt_xdp_v2_4_b.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+nyse_arcaequities_bqt_xdp_v2_4_b.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = nyse_arcaequities_bqt_xdp_v2_4_b.message_size.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 23 values
+  index, message_type = nyse_arcaequities_bqt_xdp_v2_4_b.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+nyse_arcaequities_bqt_xdp_v2_4_b.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_header, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message = {}
+
+-- Display: Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nyse_arcaequities_bqt_xdp_v2_4_b.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 2, 2):le_uint()
+
+  -- Payload: Runtime Type with 23 branches
+  index = nyse_arcaequities_bqt_xdp_v2_4_b.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+nyse_arcaequities_bqt_xdp_v2_4_b.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.message, buffer(offset, 0))
+    local current = nyse_arcaequities_bqt_xdp_v2_4_b.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaequities_bqt_xdp_v2_4_b.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Send Time
+nyse_arcaequities_bqt_xdp_v2_4_b.send_time = {}
+
+-- Size: Send Time
+nyse_arcaequities_bqt_xdp_v2_4_b.send_time.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.seconds.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds.size
+
+-- Display: Send Time
+nyse_arcaequities_bqt_xdp_v2_4_b.send_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Send Time
+nyse_arcaequities_bqt_xdp_v2_4_b.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_arcaequities_bqt_xdp_v2_4_b.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = nyse_arcaequities_bqt_xdp_v2_4_b.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local send_time = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, send_time
+end
+
+-- Dissect: Send Time
+nyse_arcaequities_bqt_xdp_v2_4_b.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_arcaequities_bqt_xdp_v2_4_b.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.send_time
+    if nyse_arcaequities_bqt_xdp_v2_4_b.absolute_time_base == 1 then field = omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.send_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet Header
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_header = {}
+
+-- Size: Packet Header
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.size =
+  nyse_arcaequities_bqt_xdp_v2_4_b.packet_size.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.message_count.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number.size + 
+  nyse_arcaequities_bqt_xdp_v2_4_b.send_time.size
+
+-- Display: Packet Header
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Packet Size: 2 Byte Unsigned Fixed Width Integer
+  index, packet_size = nyse_arcaequities_bqt_xdp_v2_4_b.packet_size.dissect(buffer, index, packet, parent)
+
+  -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, delivery_flag = nyse_arcaequities_bqt_xdp_v2_4_b.delivery_flag.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = nyse_arcaequities_bqt_xdp_v2_4_b.message_count.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = nyse_arcaequities_bqt_xdp_v2_4_b.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_arcaequities_bqt_xdp_v2_4_b.send_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b.fields.packet_header, buffer(offset, 0))
+    local index = nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+nyse_arcaequities_bqt_xdp_v2_4_b.packet = {}
+
+-- Verify required size of Udp packet
+nyse_arcaequities_bqt_xdp_v2_4_b.packet.requiredsize = function(buffer)
+  return buffer:len() >= nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.size
+end
+
+-- Dissect Packet
+nyse_arcaequities_bqt_xdp_v2_4_b.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_arcaequities_bqt_xdp_v2_4_b.conversation.data(packet)
+  if not packet.visited then
+  end
+  nyse_arcaequities_bqt_xdp_v2_4_b.conversation.current = data
+
+  local index = 0
+
+  -- Packet Header: Struct of 5 fields
+  index, packet_header = nyse_arcaequities_bqt_xdp_v2_4_b.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = nyse_arcaequities_bqt_xdp_v2_4_b.message.dissect(buffer, index, packet, parent, message_size, message_index)
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_nyse_arcaequities_bqt_xdp_v2_4_b.init()
+end
+
+-- Dissector for Nyse ArcaEquities Bqt Xdp 2.4.b
+function omi_nyse_arcaequities_bqt_xdp_v2_4_b.dissector(buffer, packet, parent)
+
+  -- Set protocol name
+  packet.cols.protocol = omi_nyse_arcaequities_bqt_xdp_v2_4_b.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_nyse_arcaequities_bqt_xdp_v2_4_b, buffer(), omi_nyse_arcaequities_bqt_xdp_v2_4_b.description, "("..buffer:len().." Bytes)")
+  return nyse_arcaequities_bqt_xdp_v2_4_b.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Nyse ArcaEquities Bqt Xdp 2.4.b (Udp)
+local function omi_nyse_arcaequities_bqt_xdp_v2_4_b_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nyse_arcaequities_bqt_xdp_v2_4_b.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nyse_arcaequities_bqt_xdp_v2_4_b
+  omi_nyse_arcaequities_bqt_xdp_v2_4_b.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Nyse ArcaEquities Bqt Xdp 2.4.b
+omi_nyse_arcaequities_bqt_xdp_v2_4_b:register_heuristic("udp", omi_nyse_arcaequities_bqt_xdp_v2_4_b_udp_heuristic)
+
+-- Register Nyse ArcaEquities Bqt Xdp 2.4.b for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_nyse_arcaequities_bqt_xdp_v2_4_b)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: New York Stock Exchange
+--   Version: 2.4.b
+--   Date: Thursday, July 30, 2026
+--   Specification: NYSE_BQT_Client_Specification.pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

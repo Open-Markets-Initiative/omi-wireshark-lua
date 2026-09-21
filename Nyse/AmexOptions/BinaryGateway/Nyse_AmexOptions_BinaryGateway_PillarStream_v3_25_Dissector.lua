@@ -76,6 +76,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.legal_width_multipl
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "nyse.amexoptions.binarygateway.pillarstream.v3.25.liquidityindicator", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.listed_mic = ProtoField.new("Listed Mic", "nyse.amexoptions.binarygateway.pillarstream.v3.25.listedmic", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.locate_reqd_u_81 = ProtoField.new("Locate Reqd U 81", "nyse.amexoptions.binarygateway.pillarstream.v3.25.locatereqdu81", ftypes.UINT8)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.luldmpv = ProtoField.new("Luldmpv", "nyse.amexoptions.binarygateway.pillarstream.v3.25.luldmpv", ftypes.DOUBLE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.market_maker = ProtoField.new("Market Maker", "nyse.amexoptions.binarygateway.pillarstream.v3.25.marketmaker", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.maturity_date = ProtoField.new("Maturity Date", "nyse.amexoptions.binarygateway.pillarstream.v3.25.maturitydate", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.max_floor = ProtoField.new("Max Floor", "nyse.amexoptions.binarygateway.pillarstream.v3.25.maxfloor", ftypes.UINT32)
@@ -142,6 +143,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_minimum_value 
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_range_id = ProtoField.new("Risk Range Id", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskrangeid", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskusercrd", ftypes.UINT32)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.amexoptions.binarygateway.pillarstream.v3.25.riskusertype", ftypes.STRING)
+omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.amexoptions.binarygateway.pillarstream.v3.25.rpimpv", ftypes.DOUBLE)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.amexoptions.binarygateway.pillarstream.v3.25.selftradeprevention", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.self_trade_type_u_81 = ProtoField.new("Self Trade Type U 81", "nyse.amexoptions.binarygateway.pillarstream.v3.25.selftradetypeu81", ftypes.UINT8)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.seq = ProtoField.new("Seq", "nyse.amexoptions.binarygateway.pillarstream.v3.25.seq", ftypes.UINT64)
@@ -2092,6 +2094,35 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.dissect = fun
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.locate_reqd_u_81.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.locate_reqd_u_81, range, value, display)
+
+  return offset + length, value
+end
+
+-- Luldmpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv = {}
+
+-- Size: Luldmpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.size = 8
+
+-- Display: Luldmpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.display = function(value)
+  return "Luldmpv: "..value
+end
+
+-- Translate: Luldmpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Luldmpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.translate(raw)
+  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.luldmpv, range, value, display)
 
   return offset + length, value
 end
@@ -4917,6 +4948,35 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_user_type.dissect = funct
   return offset + length, value
 end
 
+-- Rpimpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv = {}
+
+-- Size: Rpimpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.size = 8
+
+-- Display: Rpimpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.display = function(value)
+  return "Rpimpv: "..value
+end
+
+-- Translate: Rpimpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Rpimpv
+nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.translate(raw)
+  local display = nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_25.fields.rpimpv, range, value, display)
+
+  return offset + length, value
+end
+
 -- Self Trade Prevention
 nyse_amexoptions_binarygateway_pillarstream_v3_25.self_trade_prevention = {}
 
@@ -6443,6 +6503,9 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.risk_control_alert_message.fie
 
   -- Mp Sub Id: zchar(4)
   index, mp_sub_id = nyse_amexoptions_binarygateway_pillarstream_v3_25.mp_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: u32
+  index, reserved_4 = nyse_amexoptions_binarygateway_pillarstream_v3_25.reserved_4.dissect(buffer, index, packet, parent)
 
   -- Clearing Number: zchar(5)
   index, clearing_number = nyse_amexoptions_binarygateway_pillarstream_v3_25.clearing_number.dissect(buffer, index, packet, parent)
@@ -8066,6 +8129,12 @@ nyse_amexoptions_binarygateway_pillarstream_v3_25.minimum_price_variant_class_re
 
   -- Mpv Class Id: u16
   index, mpv_class_id = nyse_amexoptions_binarygateway_pillarstream_v3_25.mpv_class_id.dissect(buffer, index, packet, parent)
+
+  -- Rpimpv: uPrice
+  index, rpimpv = nyse_amexoptions_binarygateway_pillarstream_v3_25.rpimpv.dissect(buffer, index, packet, parent)
+
+  -- Luldmpv: uPrice
+  index, luldmpv = nyse_amexoptions_binarygateway_pillarstream_v3_25.luldmpv.dissect(buffer, index, packet, parent)
 
   return index
 end
