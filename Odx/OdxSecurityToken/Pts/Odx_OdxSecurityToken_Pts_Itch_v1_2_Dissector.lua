@@ -3113,9 +3113,70 @@ odx_odxsecuritytoken_pts_itch_v1_2.server_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- Seconds Message
+    if sequenced_message_type == "T" then
+      return true
+    end
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Price Tick Size Message
+    if sequenced_message_type == "L" then
+      return true
+    end
+
+    -- Orderbook Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Trading State Message
+    if sequenced_message_type == "H" then
+      return true
+    end
+
+    -- Order Added Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Order Executed With Price Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Order Deleted Message
+    if sequenced_message_type == "D" then
+      return true
+    end
+
+    -- Order Replaced Message
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Order Book State Message
+    if sequenced_message_type == "O" then
+      return true
+    end
+
+    -- Equilibrium Price Update Message
+    if sequenced_message_type == "Z" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -3169,11 +3230,13 @@ end
 -- Dissector Heuristic for Odx OdxSecurityToken Pts Itch 1.2 (Tcp): apply the heuristic of the sender's connection role
 local function omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_heuristic(buffer, packet, parent)
   local role = odx_odxsecuritytoken_pts_itch_v1_2.role(packet)
-  local first = omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_initiator_heuristic
-  local second = omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_acceptor_heuristic
+  local initiator = omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_initiator_heuristic
+  local acceptor = omi_odx_odxsecuritytoken_pts_itch_v1_2_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

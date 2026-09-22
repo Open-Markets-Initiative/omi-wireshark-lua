@@ -161,6 +161,7 @@ local show = {}
 
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.d Element Dissection Options
 show.application_messages = true
+show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
@@ -168,6 +169,7 @@ show.sequences = true
 
 -- Register Nyse ArcaOptions ComplexFeed Pillar 1.0.d Show Options
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -184,6 +186,9 @@ function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
   end
   if show.headers ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_headers then
     show.headers = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_repeating_groups
   end
   if show.structs ~= omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_structs then
     show.structs = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.show_structs
@@ -2868,40 +2873,40 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_rfq_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
 
-  -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_arcaoptions_complexfeed_pillar_v1_0_d.side.dissect(buffer, index, packet, parent)
 
-  -- Type: 1 Byte Ascii String Enum with 5 values
+  -- Type: ASCII
   index, type = nyse_arcaoptions_complexfeed_pillar_v1_0_d.type.dissect(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 6 values
+  -- Capacity: ASCII
   index, capacity = nyse_arcaoptions_complexfeed_pillar_v1_0_d.capacity.dissect(buffer, index, packet, parent)
 
-  -- Total Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Total Quantity: Binary
   index, total_quantity = nyse_arcaoptions_complexfeed_pillar_v1_0_d.total_quantity.dissect(buffer, index, packet, parent)
 
-  -- Working Price: 4 Byte Signed Fixed Width Integer
+  -- Working Price: Signed Binary
   index, working_price = nyse_arcaoptions_complexfeed_pillar_v1_0_d.working_price.dissect(buffer, index, packet, parent)
 
-  -- Participant: 4 Byte Unsigned Fixed Width Integer
+  -- Participant: Binary
   index, participant = nyse_arcaoptions_complexfeed_pillar_v1_0_d.participant.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Rfq Status: 1 Byte Ascii String Enum with 2 values
+  -- Rfq Status: ASCII
   index, rfq_status = nyse_arcaoptions_complexfeed_pillar_v1_0_d.rfq_status.dissect(buffer, index, packet, parent)
 
   return index
@@ -2942,10 +2947,10 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.trade_condition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series: 1 Byte Ascii String Enum with 14 values
+  -- Series: ASCII
   index, series = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series.dissect(buffer, index, packet, parent)
 
-  -- Reserved 3: 3 Byte
+  -- Reserved 3: ASCII
   index, reserved_3 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
@@ -2992,25 +2997,25 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
 
-  -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_arcaoptions_complexfeed_pillar_v1_0_d.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_arcaoptions_complexfeed_pillar_v1_0_d.volume.dissect(buffer, index, packet, parent)
 
   -- Trade Condition: Struct of 2 fields
@@ -3063,37 +3068,37 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
 
-  -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Ask Price: Signed Binary
   index, ask_price = nyse_arcaoptions_complexfeed_pillar_v1_0_d.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_arcaoptions_complexfeed_pillar_v1_0_d.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: Signed Binary
   index, bid_price = nyse_arcaoptions_complexfeed_pillar_v1_0_d.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_arcaoptions_complexfeed_pillar_v1_0_d.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 3 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_arcaoptions_complexfeed_pillar_v1_0_d.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: Binary
   index, reserved_1 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Ask Customer Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Customer Volume: Binary
   index, ask_customer_volume = nyse_arcaoptions_complexfeed_pillar_v1_0_d.ask_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Customer Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Customer Volume: Binary
   index, bid_customer_volume = nyse_arcaoptions_complexfeed_pillar_v1_0_d.bid_customer_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -3142,16 +3147,16 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_definition.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio Qty: Binary
   index, leg_ratio_qty = nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_arcaoptions_complexfeed_pillar_v1_0_d.side.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Type: 1 Byte Ascii String
+  -- Leg Security Type: ASCII
   index, leg_security_type = nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_security_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3159,7 +3164,7 @@ end
 
 -- Dissect: Leg Definition
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.leg_definition, buffer(offset, 0))
     local index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
@@ -3206,16 +3211,16 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.complex_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Market Id: Binary
   index, market_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.system_id.dissect(buffer, index, packet, parent)
 
-  -- No Of Legs: 2 Byte Unsigned Fixed Width Integer
+  -- No Of Legs: Binary
   index, no_of_legs = nyse_arcaoptions_complexfeed_pillar_v1_0_d.no_of_legs.dissect(buffer, index, packet, parent)
 
   -- Repeating: Leg Definition
@@ -3266,25 +3271,25 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
 
-  -- Series Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Series Seq Num: Binary
   index, series_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Series Status: 1 Byte Ascii String Enum with 7 values
+  -- Series Status: ASCII
   index, series_status = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_status.dissect(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String Enum with 5 values
+  -- Market State: ASCII
   index, market_state = nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_state.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String Enum with 16 values
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_arcaoptions_complexfeed_pillar_v1_0_d.halt_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -3337,46 +3342,46 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.outright_series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
 
-  -- Series Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Series Type: Binary
   index, series_type = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_type.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Market Id: Binary
   index, market_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.system_id.dissect(buffer, index, packet, parent)
 
-  -- Option Symbol Root: 6 Byte Ascii String
+  -- Option Symbol Root: ASCII
   index, option_symbol_root = nyse_arcaoptions_complexfeed_pillar_v1_0_d.option_symbol_root.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: ASCII
   index, underlying_symbol = nyse_arcaoptions_complexfeed_pillar_v1_0_d.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Index: Binary
   index, underlying_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.underlying_index.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Contract Multiplier: 2 Byte Unsigned Fixed Width Integer
+  -- Contract Multiplier: Binary
   index, contract_multiplier = nyse_arcaoptions_complexfeed_pillar_v1_0_d.contract_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 6 Byte Ascii String
+  -- Maturity Date: ASCII
   index, maturity_date = nyse_arcaoptions_complexfeed_pillar_v1_0_d.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Put Or Call: Binary
   index, put_or_call = nyse_arcaoptions_complexfeed_pillar_v1_0_d.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 10 Byte Ascii String
+  -- Strike Price: ASCII
   index, strike_price = nyse_arcaoptions_complexfeed_pillar_v1_0_d.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Closing Only Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Closing Only Indicator: ASCII
   index, closing_only_indicator = nyse_arcaoptions_complexfeed_pillar_v1_0_d.closing_only_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: Binary
   index, reserved_1 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
@@ -3419,16 +3424,16 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.refresh_header_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
+  -- Current Refresh Pkt: Binary
   index, current_refresh_pkt = nyse_arcaoptions_complexfeed_pillar_v1_0_d.current_refresh_pkt.dissect(buffer, index, packet, parent)
 
-  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
+  -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_arcaoptions_complexfeed_pillar_v1_0_d.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Seq Num: Binary
   index, last_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.last_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Symbol Seq Num: Binary
   index, last_symbol_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.last_symbol_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -3482,49 +3487,49 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 14 values
+  -- Security Status: ASCII
   index, security_status = nyse_arcaoptions_complexfeed_pillar_v1_0_d.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String Enum with 16 values
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_arcaoptions_complexfeed_pillar_v1_0_d.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: Binary
   index, reserved_4 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.reserved_4.dissect(buffer, index, packet, parent)
 
-  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  -- Price 1: Binary
   index, price_1 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_1.dissect(buffer, index, packet, parent)
 
-  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  -- Price 2: Binary
   index, price_2 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_2.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 21 values
+  -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Triggering Volume: Binary
   index, ssr_triggering_volume = nyse_arcaoptions_complexfeed_pillar_v1_0_d.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Time: Binary
   index, time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.time.dissect(buffer, index, packet, parent)
 
-  -- Ssr State: 1 Byte Ascii String Enum with 2 values
+  -- Ssr State: ASCII
   index, ssr_state = nyse_arcaoptions_complexfeed_pillar_v1_0_d.ssr_state.dissect(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String Enum with 5 values
+  -- Market State: ASCII
   index, market_state = nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_state.dissect(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Unsigned Fixed Width Integer
+  -- Session State: Binary
   index, session_state = nyse_arcaoptions_complexfeed_pillar_v1_0_d.session_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -3567,16 +3572,16 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Next Source Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.next_source_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -3619,16 +3624,16 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.message_unavailable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3671,16 +3676,16 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3724,19 +3729,19 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Retransmit Method: 1 Byte Unsigned Fixed Width Integer
+  -- Retransmit Method: Binary
   index, retransmit_method = nyse_arcaoptions_complexfeed_pillar_v1_0_d.retransmit_method.dissect(buffer, index, packet, parent)
 
   return index
@@ -3776,7 +3781,7 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3822,25 +3827,25 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Request Seq Num: Binary
   index, request_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.request_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String Enum with 10 values
+  -- Status: ASCII
   index, status = nyse_arcaoptions_complexfeed_pillar_v1_0_d.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -3884,19 +3889,19 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.retransmission_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_arcaoptions_complexfeed_pillar_v1_0_d.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3949,46 +3954,46 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: ASCII
   index, symbol = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: Binary
   index, reserved_1 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Market Id: Binary
   index, market_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 8 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_arcaoptions_complexfeed_pillar_v1_0_d.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_arcaoptions_complexfeed_pillar_v1_0_d.security_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: 2 Byte Unsigned Fixed Width Integer
+  -- Lot Size: Binary
   index, lot_size = nyse_arcaoptions_complexfeed_pillar_v1_0_d.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Price: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Price: Binary
   index, prev_close_price = nyse_arcaoptions_complexfeed_pillar_v1_0_d.prev_close_price.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_arcaoptions_complexfeed_pillar_v1_0_d.prev_close_volume.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Resolution: Binary
   index, price_resolution = nyse_arcaoptions_complexfeed_pillar_v1_0_d.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 1 Byte Ascii String Enum with 2 values
+  -- Round Lot: ASCII
   index, round_lot = nyse_arcaoptions_complexfeed_pillar_v1_0_d.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Reserved 6: 6 Byte
+  -- Reserved 6: Binary
   index, reserved_6 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.reserved_6.dissect(buffer, index, packet, parent)
 
   return index
@@ -4030,13 +4035,13 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.time_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Id: 4 Byte Unsigned Fixed Width Integer
+  -- Id: Binary
   index, id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: Binary
   index, reserved_4 = nyse_arcaoptions_complexfeed_pillar_v1_0_d.reserved_4.dissect(buffer, index, packet, parent)
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -4079,16 +4084,16 @@ end
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.channel_id.dissect(buffer, index, packet, parent)
 
   return index

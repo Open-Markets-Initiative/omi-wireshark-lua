@@ -17951,11 +17951,13 @@ end
 -- Dissector Heuristic for Eurex T7 Eti Fbe 2.5 (Tcp): apply the heuristic of the sender's connection role
 local function omi_eurex_t7_eti_fbe_v2_5_tcp_heuristic(buffer, packet, parent)
   local role = eurex_t7_eti_fbe_v2_5.role(packet)
-  local first = omi_eurex_t7_eti_fbe_v2_5_tcp_initiator_heuristic
-  local second = omi_eurex_t7_eti_fbe_v2_5_tcp_acceptor_heuristic
+  local initiator = omi_eurex_t7_eti_fbe_v2_5_tcp_initiator_heuristic
+  local acceptor = omi_eurex_t7_eti_fbe_v2_5_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

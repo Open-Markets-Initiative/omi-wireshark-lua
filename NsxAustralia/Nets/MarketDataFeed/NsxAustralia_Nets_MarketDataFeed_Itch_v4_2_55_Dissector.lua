@@ -4623,9 +4623,110 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet.fingerprint = functi
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- Timestamp Message
+    if sequenced_message_type == "T" then
+      return true
+    end
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Price Tick Size Message
+    if sequenced_message_type == "L" then
+      return true
+    end
+
+    -- Quantity Tick Size Message
+    if sequenced_message_type == "M" then
+      return true
+    end
+
+    -- Orderbook Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Orderbook Trading Action Message
+    if sequenced_message_type == "H" then
+      return true
+    end
+
+    -- Orderbook Attribute Message
+    if sequenced_message_type == "X" then
+      return true
+    end
+
+    -- Firm Directory Message
+    if sequenced_message_type == "F" then
+      return true
+    end
+
+    -- Add Order Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Order Executed Message
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    -- Order Executed With Price Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Broken Trade Message
+    if sequenced_message_type == "B" then
+      return true
+    end
+
+    -- Order Delete Message
+    if sequenced_message_type == "D" then
+      return true
+    end
+
+    -- Order Replace Message
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Indicative Price Quantity Message
+    if sequenced_message_type == "I" then
+      return true
+    end
+
+    -- Trade Message
+    if sequenced_message_type == "P" then
+      return true
+    end
+
+    -- News Message
+    if sequenced_message_type == "N" then
+      return true
+    end
+
+    -- Index Member Directory Message
+    if sequenced_message_type == "Y" then
+      return true
+    end
+
+    -- Index Value Message
+    if sequenced_message_type == "Z" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -4679,11 +4780,13 @@ end
 -- Dissector Heuristic for NsxAustralia Nets MarketDataFeed Itch 4.2.55 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55_tcp_heuristic(buffer, packet, parent)
   local role = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.role(packet)
-  local first = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55_tcp_initiator_heuristic
-  local second = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55_tcp_acceptor_heuristic
+  local initiator = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55_tcp_initiator_heuristic
+  local acceptor = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

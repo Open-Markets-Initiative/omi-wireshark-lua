@@ -17823,11 +17823,13 @@ end
 -- Dissector Heuristic for Cme Globex iLink3 Sbe 8.5 (Tcp): apply the heuristic of the sender's connection role
 local function omi_cme_globex_ilink3_sbe_v8_5_tcp_heuristic(buffer, packet, parent)
   local role = cme_globex_ilink3_sbe_v8_5.role(packet)
-  local first = omi_cme_globex_ilink3_sbe_v8_5_tcp_initiator_heuristic
-  local second = omi_cme_globex_ilink3_sbe_v8_5_tcp_acceptor_heuristic
+  local initiator = omi_cme_globex_ilink3_sbe_v8_5_tcp_initiator_heuristic
+  local acceptor = omi_cme_globex_ilink3_sbe_v8_5_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

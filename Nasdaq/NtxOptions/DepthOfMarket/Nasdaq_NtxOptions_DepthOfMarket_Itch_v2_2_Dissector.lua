@@ -5293,9 +5293,115 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_tcp_packet.fingerprint = functi
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Derivative Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Trading Action Message
+    if sequenced_message_type == "H" then
+      return true
+    end
+
+    -- Add Order Short Form Message
+    if sequenced_message_type == "a" then
+      return true
+    end
+
+    -- Add Order Long Form Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Add Quote Short Form Message
+    if sequenced_message_type == "j" then
+      return true
+    end
+
+    -- Add Quote Long Form Message
+    if sequenced_message_type == "J" then
+      return true
+    end
+
+    -- Order Executed Message
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    -- Order Executed With Price Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Order Cancel Message
+    if sequenced_message_type == "X" then
+      return true
+    end
+
+    -- Order Replace Short Form Message
+    if sequenced_message_type == "u" then
+      return true
+    end
+
+    -- Order Replace Long Form Message
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Order Delete Message
+    if sequenced_message_type == "D" then
+      return true
+    end
+
+    -- Order Change Message
+    if sequenced_message_type == "G" then
+      return true
+    end
+
+    -- Quote Replace Short Form Message
+    if sequenced_message_type == "k" then
+      return true
+    end
+
+    -- Quote Replace Long Form Message
+    if sequenced_message_type == "K" then
+      return true
+    end
+
+    -- Quote Delete Message
+    if sequenced_message_type == "Y" then
+      return true
+    end
+
+    -- Trade Message
+    if sequenced_message_type == "Q" then
+      return true
+    end
+
+    -- Net Order Imbalance Message
+    if sequenced_message_type == "I" then
+      return true
+    end
+
+    -- End Of Replay Sequence Message
+    if sequenced_message_type == "M" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat Packet
@@ -5361,11 +5467,13 @@ end
 -- Dissector Heuristic for Nasdaq NtxOptions DepthOfMarket Itch 2.2 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_heuristic(buffer, packet, parent)
   local role = nasdaq_ntxoptions_depthofmarket_itch_v2_2.role(packet)
-  local first = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_initiator_heuristic
-  local second = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_acceptor_heuristic
+  local initiator = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

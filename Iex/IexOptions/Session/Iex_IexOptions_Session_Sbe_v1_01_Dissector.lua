@@ -1973,11 +1973,13 @@ end
 -- Dissector Heuristic for Iex IexOptions Session Sbe 1.01 (Tcp): apply the heuristic of the sender's connection role
 local function omi_iex_iexoptions_session_sbe_v1_01_tcp_heuristic(buffer, packet, parent)
   local role = iex_iexoptions_session_sbe_v1_01.role(packet)
-  local first = omi_iex_iexoptions_session_sbe_v1_01_tcp_initiator_heuristic
-  local second = omi_iex_iexoptions_session_sbe_v1_01_tcp_acceptor_heuristic
+  local initiator = omi_iex_iexoptions_session_sbe_v1_01_tcp_initiator_heuristic
+  local acceptor = omi_iex_iexoptions_session_sbe_v1_01_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

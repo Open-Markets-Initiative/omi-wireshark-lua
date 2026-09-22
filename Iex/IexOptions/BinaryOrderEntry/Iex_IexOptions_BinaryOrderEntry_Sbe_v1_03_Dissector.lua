@@ -10166,14 +10166,216 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.client_packet.fingerprint = function(b
 
   local schema_id = buffer(6, 2):le_uint()
 
-  -- Session Message
+  -- Session Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20000 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(4, 2):le_uint()
+
+    -- Login Request Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Login Response Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Gateway Heartbeat Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Client Heartbeat Message
+    if template_id == 4 then
+      return true
+    end
+
+    -- Logout Request Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Terminate Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Sequenced Message Header Message
+    if template_id == 7 then
+      return true
+    end
+
+    -- Subsession Join Message
+    if template_id == 8 then
+      return true
+    end
+
+    -- Subsession Join Response Message
+    if template_id == 9 then
+      return true
+    end
+
+    -- Subsession Leave Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Subsession Leave Response Message
+    if template_id == 11 then
+      return true
+    end
+
+    return false
   end
 
-  -- Business Message
+  -- Business Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20001 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(4, 2):le_uint()
+
+    -- New Order Single Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Order Cancel Replace Request Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Order Cancel Request Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- New Bulk Quote Message
+    if template_id == 4 then
+      return true
+    end
+
+    -- Mass Cancel Request Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Purge Request Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Order Ack Message
+    if template_id == 101 then
+      return true
+    end
+
+    -- Unsolicited Modify Ack Message
+    if template_id == 102 then
+      return true
+    end
+
+    -- Order Cancel Ack Message
+    if template_id == 103 then
+      return true
+    end
+
+    -- Mass Cancel Ack Message
+    if template_id == 104 then
+      return true
+    end
+
+    -- Bulk Quote Ack Message
+    if template_id == 105 then
+      return true
+    end
+
+    -- New Ioc Quote Ack Message
+    if template_id == 106 then
+      return true
+    end
+
+    -- Quote Restated Message
+    if template_id == 107 then
+      return true
+    end
+
+    -- Quote Canceled Message
+    if template_id == 108 then
+      return true
+    end
+
+    -- Purge Ack Message
+    if template_id == 109 then
+      return true
+    end
+
+    -- Execution Report Message
+    if template_id == 110 then
+      return true
+    end
+
+    -- Trade Bust Correct Message
+    if template_id == 111 then
+      return true
+    end
+
+    -- Application Layer Reject Message
+    if template_id == 112 then
+      return true
+    end
+
+    -- Risk Limit Update Request Message
+    if template_id == 51 then
+      return true
+    end
+
+    -- Risk Action Request Message
+    if template_id == 52 then
+      return true
+    end
+
+    -- Underlying Ref Data Message
+    if template_id == 151 then
+      return true
+    end
+
+    -- Instrument Ref Data Message
+    if template_id == 152 then
+      return true
+    end
+
+    -- Mpid Configuration Acknowledgement Message
+    if template_id == 153 then
+      return true
+    end
+
+    -- Market Maker Symbol Appointment Message
+    if template_id == 154 then
+      return true
+    end
+
+    -- Session Configuration Acknowledgement Message
+    if template_id == 155 then
+      return true
+    end
+
+    -- Risk Control Acknowledgment Message
+    if template_id == 156 then
+      return true
+    end
+
+    -- Risk Control Alert Message
+    if template_id == 157 then
+      return true
+    end
+
+    return false
   end
 
   return false
@@ -10187,14 +10389,216 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.server_packet.fingerprint = function(b
 
   local schema_id = buffer(6, 2):le_uint()
 
-  -- Session Message
+  -- Session Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20000 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(4, 2):le_uint()
+
+    -- Login Request Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Login Response Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Gateway Heartbeat Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Client Heartbeat Message
+    if template_id == 4 then
+      return true
+    end
+
+    -- Logout Request Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Terminate Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Sequenced Message Header Message
+    if template_id == 7 then
+      return true
+    end
+
+    -- Subsession Join Message
+    if template_id == 8 then
+      return true
+    end
+
+    -- Subsession Join Response Message
+    if template_id == 9 then
+      return true
+    end
+
+    -- Subsession Leave Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Subsession Leave Response Message
+    if template_id == 11 then
+      return true
+    end
+
+    return false
   end
 
-  -- Business Message
+  -- Business Message: carries the application messages, which tell this protocol from others sharing the session framing
   if schema_id == 20001 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(4, 2):le_uint()
+
+    -- New Order Single Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Order Cancel Replace Request Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Order Cancel Request Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- New Bulk Quote Message
+    if template_id == 4 then
+      return true
+    end
+
+    -- Mass Cancel Request Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Purge Request Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Order Ack Message
+    if template_id == 101 then
+      return true
+    end
+
+    -- Unsolicited Modify Ack Message
+    if template_id == 102 then
+      return true
+    end
+
+    -- Order Cancel Ack Message
+    if template_id == 103 then
+      return true
+    end
+
+    -- Mass Cancel Ack Message
+    if template_id == 104 then
+      return true
+    end
+
+    -- Bulk Quote Ack Message
+    if template_id == 105 then
+      return true
+    end
+
+    -- New Ioc Quote Ack Message
+    if template_id == 106 then
+      return true
+    end
+
+    -- Quote Restated Message
+    if template_id == 107 then
+      return true
+    end
+
+    -- Quote Canceled Message
+    if template_id == 108 then
+      return true
+    end
+
+    -- Purge Ack Message
+    if template_id == 109 then
+      return true
+    end
+
+    -- Execution Report Message
+    if template_id == 110 then
+      return true
+    end
+
+    -- Trade Bust Correct Message
+    if template_id == 111 then
+      return true
+    end
+
+    -- Application Layer Reject Message
+    if template_id == 112 then
+      return true
+    end
+
+    -- Risk Limit Update Request Message
+    if template_id == 51 then
+      return true
+    end
+
+    -- Risk Action Request Message
+    if template_id == 52 then
+      return true
+    end
+
+    -- Underlying Ref Data Message
+    if template_id == 151 then
+      return true
+    end
+
+    -- Instrument Ref Data Message
+    if template_id == 152 then
+      return true
+    end
+
+    -- Mpid Configuration Acknowledgement Message
+    if template_id == 153 then
+      return true
+    end
+
+    -- Market Maker Symbol Appointment Message
+    if template_id == 154 then
+      return true
+    end
+
+    -- Session Configuration Acknowledgement Message
+    if template_id == 155 then
+      return true
+    end
+
+    -- Risk Control Acknowledgment Message
+    if template_id == 156 then
+      return true
+    end
+
+    -- Risk Control Alert Message
+    if template_id == 157 then
+      return true
+    end
+
+    return false
   end
 
   return false
@@ -10268,11 +10672,13 @@ end
 -- Dissector Heuristic for Iex IexOptions BinaryOrderEntry Sbe 1.03 (Tcp): apply the heuristic of the sender's connection role
 local function omi_iex_iexoptions_binaryorderentry_sbe_v1_03_tcp_heuristic(buffer, packet, parent)
   local role = iex_iexoptions_binaryorderentry_sbe_v1_03.role(packet)
-  local first = omi_iex_iexoptions_binaryorderentry_sbe_v1_03_tcp_initiator_heuristic
-  local second = omi_iex_iexoptions_binaryorderentry_sbe_v1_03_tcp_acceptor_heuristic
+  local initiator = omi_iex_iexoptions_binaryorderentry_sbe_v1_03_tcp_initiator_heuristic
+  local acceptor = omi_iex_iexoptions_binaryorderentry_sbe_v1_03_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

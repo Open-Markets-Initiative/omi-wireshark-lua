@@ -2736,9 +2736,60 @@ odx_odxequities_pts_glimpse_v2_0.server_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- Seconds Message
+    if sequenced_message_type == "T" then
+      return true
+    end
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Price Tick Size Message
+    if sequenced_message_type == "L" then
+      return true
+    end
+
+    -- Orderbook Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Trading State Message
+    if sequenced_message_type == "H" then
+      return true
+    end
+
+    -- Short Selling Price Restriction State Message
+    if sequenced_message_type == "Y" then
+      return true
+    end
+
+    -- Order Added Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Order Added With Attributes Message
+    if sequenced_message_type == "F" then
+      return true
+    end
+
+    -- End Of Snapshot Message
+    if sequenced_message_type == "G" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -2792,11 +2843,13 @@ end
 -- Dissector Heuristic for Odx OdxEquities Pts Glimpse 2.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_odx_odxequities_pts_glimpse_v2_0_tcp_heuristic(buffer, packet, parent)
   local role = odx_odxequities_pts_glimpse_v2_0.role(packet)
-  local first = omi_odx_odxequities_pts_glimpse_v2_0_tcp_initiator_heuristic
-  local second = omi_odx_odxequities_pts_glimpse_v2_0_tcp_acceptor_heuristic
+  local initiator = omi_odx_odxequities_pts_glimpse_v2_0_tcp_initiator_heuristic
+  local acceptor = omi_odx_odxequities_pts_glimpse_v2_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

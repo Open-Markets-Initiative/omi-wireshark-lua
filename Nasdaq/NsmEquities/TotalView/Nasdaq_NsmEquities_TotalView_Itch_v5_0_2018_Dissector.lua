@@ -506,6 +506,9 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.cross_type.display = function(value)
   if value == "H" then
     return "Cross Type: Halted Or Paused (H)"
   end
+  if value == "I" then
+    return "Cross Type: Intraday Cross And Post Close Cross (I)"
+  end
 
   return "Cross Type: Unknown("..value..")"
 end
@@ -1570,7 +1573,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2018.market_category.display = function(v
     return "Market Category: Nyse (N)"
   end
   if value == "A" then
-    return "Market Category: Nyse American (A)"
+    return "Market Category: Nyse Mkt (A)"
   end
   if value == "P" then
     return "Market Category: Nyse Arca (P)"

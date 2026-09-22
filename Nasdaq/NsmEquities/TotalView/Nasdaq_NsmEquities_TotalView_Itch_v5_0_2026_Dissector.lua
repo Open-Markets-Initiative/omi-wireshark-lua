@@ -6378,9 +6378,130 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.server_tcp_packet.fingerprint = func
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Stock Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Stock Trading Action Message
+    if sequenced_message_type == "H" then
+      return true
+    end
+
+    -- Reg Sho Short Sale Price Test Restricted Indicator Message
+    if sequenced_message_type == "Y" then
+      return true
+    end
+
+    -- Market Participant Position Message
+    if sequenced_message_type == "L" then
+      return true
+    end
+
+    -- Mwcb Decline Level Message
+    if sequenced_message_type == "V" then
+      return true
+    end
+
+    -- Mwcb Status Level Message
+    if sequenced_message_type == "W" then
+      return true
+    end
+
+    -- Ipo Quoting Period Update
+    if sequenced_message_type == "K" then
+      return true
+    end
+
+    -- Luld Auction Collar Message
+    if sequenced_message_type == "J" then
+      return true
+    end
+
+    -- Operational Halt Message
+    if sequenced_message_type == "h" then
+      return true
+    end
+
+    -- Add Order No Mpid Attribution Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Add Order With Mpid Attribution Message
+    if sequenced_message_type == "F" then
+      return true
+    end
+
+    -- Order Executed Message
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    -- Order Executed With Price Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Order Cancel Message
+    if sequenced_message_type == "X" then
+      return true
+    end
+
+    -- Order Delete Message
+    if sequenced_message_type == "D" then
+      return true
+    end
+
+    -- Order Replace Message
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Non Cross Trade Message
+    if sequenced_message_type == "P" then
+      return true
+    end
+
+    -- Cross Trade Message
+    if sequenced_message_type == "Q" then
+      return true
+    end
+
+    -- Broken Trade Message
+    if sequenced_message_type == "B" then
+      return true
+    end
+
+    -- Net Order Imbalance Indicator Message
+    if sequenced_message_type == "I" then
+      return true
+    end
+
+    -- Retail Price Improvement Indicator Message
+    if sequenced_message_type == "N" then
+      return true
+    end
+
+    -- Direct Listing With Capital Raise Price Discovery Message
+    if sequenced_message_type == "O" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat Packet
@@ -6446,11 +6567,13 @@ end
 -- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 5.0.2026 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_heuristic(buffer, packet, parent)
   local role = nasdaq_nsmequities_totalview_itch_v5_0_2026.role(packet)
-  local first = omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_initiator_heuristic
-  local second = omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_acceptor_heuristic
+  local initiator = omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_nsmequities_totalview_itch_v5_0_2026_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

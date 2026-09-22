@@ -5456,9 +5456,30 @@ nasdaq_utp_snapshot_utp_v3_0.server_packet.fingerprint = function(buffer)
 
   local server_packet_type = buffer(2, 1):string()
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 5 then
+      return false
+    end
+
+    local message_category = buffer(4, 1):string()
+
+    -- Administrative Message
+    if message_category == "A" then
+      return true
+    end
+
+    -- Control Message
+    if message_category == "C" then
+      return true
+    end
+
+    -- Quote Message
+    if message_category == "Q" then
+      return true
+    end
+
+    return false
   end
 
   -- Debug Packet
@@ -5527,11 +5548,13 @@ end
 -- Dissector Heuristic for Nasdaq Utp Snapshot Utp 3.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nasdaq_utp_snapshot_utp_v3_0_tcp_heuristic(buffer, packet, parent)
   local role = nasdaq_utp_snapshot_utp_v3_0.role(packet)
-  local first = omi_nasdaq_utp_snapshot_utp_v3_0_tcp_initiator_heuristic
-  local second = omi_nasdaq_utp_snapshot_utp_v3_0_tcp_acceptor_heuristic
+  local initiator = omi_nasdaq_utp_snapshot_utp_v3_0_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_utp_snapshot_utp_v3_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

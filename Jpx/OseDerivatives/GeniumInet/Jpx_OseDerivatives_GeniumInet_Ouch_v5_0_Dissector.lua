@@ -3525,9 +3525,45 @@ jpx_osederivatives_geniuminet_ouch_v5_0.client_packet.fingerprint = function(buf
     return true
   end
 
-  -- Unsequenced Data Packet
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if client_packet_type == "U" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 1):string()
+
+    -- Enter Order
+    if unsequenced_message_type == "O" then
+      return true
+    end
+
+    -- Enter Mm Order
+    if unsequenced_message_type == "P" then
+      return true
+    end
+
+    -- Replace Order
+    if unsequenced_message_type == "U" then
+      return true
+    end
+
+    -- Cancel Order
+    if unsequenced_message_type == "X" then
+      return true
+    end
+
+    -- Cancel By Order Id
+    if unsequenced_message_type == "Y" then
+      return true
+    end
+
+    -- Mass Cancel
+    if unsequenced_message_type == "M" then
+      return true
+    end
+
+    return false
   end
 
   -- Client Heartbeat
@@ -3566,9 +3602,45 @@ jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.fingerprint = function(buf
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- Order Accepted
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Mass Cancel Accepted
+    if sequenced_message_type == "M" then
+      return true
+    end
+
+    -- Order Rejected
+    if sequenced_message_type == "J" then
+      return true
+    end
+
+    -- Order Replaced
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Order Canceled
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Order Executed
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -3622,11 +3694,13 @@ end
 -- Dissector Heuristic for Jpx OseDerivatives GeniumInet Ouch 5.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_heuristic(buffer, packet, parent)
   local role = jpx_osederivatives_geniuminet_ouch_v5_0.role(packet)
-  local first = omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_initiator_heuristic
-  local second = omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_acceptor_heuristic
+  local initiator = omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_initiator_heuristic
+  local acceptor = omi_jpx_osederivatives_geniuminet_ouch_v5_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

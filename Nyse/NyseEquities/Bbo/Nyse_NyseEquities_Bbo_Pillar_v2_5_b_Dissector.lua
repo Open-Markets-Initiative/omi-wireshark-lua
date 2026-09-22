@@ -1226,7 +1226,7 @@ nyse_nyseequities_bbo_pillar_v2_5_b.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
 nyse_nyseequities_bbo_pillar_v2_5_b.rpi_indicator.display = function(value)
-  if value == "  " then
+  if value == " " then
     return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
   if value == "A" then
@@ -1916,31 +1916,31 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_bbo_pillar_v2_5_b.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price: Binary
   index, ask_price = nyse_nyseequities_bbo_pillar_v2_5_b.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_nyseequities_bbo_pillar_v2_5_b.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price: Binary
   index, bid_price = nyse_nyseequities_bbo_pillar_v2_5_b.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_nyseequities_bbo_pillar_v2_5_b.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 2 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_nyseequities_bbo_pillar_v2_5_b.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Rpi Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Rpi Indicator: ASCII
   index, rpi_indicator = nyse_nyseequities_bbo_pillar_v2_5_b.rpi_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -1983,16 +1983,16 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.refresh_header_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
+  -- Current Refresh Pkt: Binary
   index, current_refresh_pkt = nyse_nyseequities_bbo_pillar_v2_5_b.current_refresh_pkt.dissect(buffer, index, packet, parent)
 
-  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
+  -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_nyseequities_bbo_pillar_v2_5_b.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Seq Num: Binary
   index, last_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.last_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Symbol Seq Num: Binary
   index, last_symbol_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.last_symbol_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2046,49 +2046,49 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_bbo_pillar_v2_5_b.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_bbo_pillar_v2_5_b.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 16 values
+  -- Security Status: ASCII
   index, security_status = nyse_nyseequities_bbo_pillar_v2_5_b.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String Enum with 12 values
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_nyseequities_bbo_pillar_v2_5_b.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: Binary
   index, reserved_4 = nyse_nyseequities_bbo_pillar_v2_5_b.reserved_4.dissect(buffer, index, packet, parent)
 
-  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  -- Price 1: Binary
   index, price_1 = nyse_nyseequities_bbo_pillar_v2_5_b.price_1.dissect(buffer, index, packet, parent)
 
-  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  -- Price 2: Binary
   index, price_2 = nyse_nyseequities_bbo_pillar_v2_5_b.price_2.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
+  -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_nyseequities_bbo_pillar_v2_5_b.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Triggering Volume: Binary
   index, ssr_triggering_volume = nyse_nyseequities_bbo_pillar_v2_5_b.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Time: Binary
   index, time = nyse_nyseequities_bbo_pillar_v2_5_b.time.dissect(buffer, index, packet, parent)
 
-  -- Ssr State: 1 Byte Ascii String
+  -- Ssr State: ASCII
   index, ssr_state = nyse_nyseequities_bbo_pillar_v2_5_b.ssr_state.dissect(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String
+  -- Market State: ASCII
   index, market_state = nyse_nyseequities_bbo_pillar_v2_5_b.market_state.dissect(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Ascii String
+  -- Session State: ASCII
   index, session_state = nyse_nyseequities_bbo_pillar_v2_5_b.session_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2131,16 +2131,16 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_bbo_pillar_v2_5_b.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_bbo_pillar_v2_5_b.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Next Source Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.next_source_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2183,16 +2183,16 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.message_unavailable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_bbo_pillar_v2_5_b.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_bbo_pillar_v2_5_b.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2235,16 +2235,16 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_bbo_pillar_v2_5_b.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_bbo_pillar_v2_5_b.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_bbo_pillar_v2_5_b.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2288,19 +2288,19 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_bbo_pillar_v2_5_b.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_bbo_pillar_v2_5_b.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_bbo_pillar_v2_5_b.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Retransmit Method: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Retransmit Method: Binary
   index, retransmit_method = nyse_nyseequities_bbo_pillar_v2_5_b.retransmit_method.dissect(buffer, index, packet, parent)
 
   return index
@@ -2340,7 +2340,7 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_bbo_pillar_v2_5_b.source_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2386,25 +2386,25 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Request Seq Num: Binary
   index, request_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.request_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_bbo_pillar_v2_5_b.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_bbo_pillar_v2_5_b.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_bbo_pillar_v2_5_b.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: ASCII
   index, status = nyse_nyseequities_bbo_pillar_v2_5_b.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -2448,19 +2448,19 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.retransmission_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_bbo_pillar_v2_5_b.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_bbo_pillar_v2_5_b.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_bbo_pillar_v2_5_b.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2515,52 +2515,52 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: ASCII
   index, symbol = nyse_nyseequities_bbo_pillar_v2_5_b.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: Binary
   index, reserved_1 = nyse_nyseequities_bbo_pillar_v2_5_b.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Market Id: Binary
   index, market_id = nyse_nyseequities_bbo_pillar_v2_5_b.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_nyseequities_bbo_pillar_v2_5_b.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 9 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_nyseequities_bbo_pillar_v2_5_b.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_nyseequities_bbo_pillar_v2_5_b.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_nyseequities_bbo_pillar_v2_5_b.security_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: 2 Byte Unsigned Fixed Width Integer
+  -- Lot Size: Binary
   index, lot_size = nyse_nyseequities_bbo_pillar_v2_5_b.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Price: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Price: Binary
   index, prev_close_price = nyse_nyseequities_bbo_pillar_v2_5_b.prev_close_price.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_nyseequities_bbo_pillar_v2_5_b.prev_close_volume.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer
+  -- Price Resolution: Binary
   index, price_resolution = nyse_nyseequities_bbo_pillar_v2_5_b.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 1 Byte Ascii String
+  -- Round Lot: ASCII
   index, round_lot = nyse_nyseequities_bbo_pillar_v2_5_b.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 2 Byte Unsigned Fixed Width Integer
+  -- Mpv: Binary
   index, mpv = nyse_nyseequities_bbo_pillar_v2_5_b.mpv.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Trade: 2 Byte Unsigned Fixed Width Integer
+  -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_nyseequities_bbo_pillar_v2_5_b.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: Binary
   index, reserved_2 = nyse_nyseequities_bbo_pillar_v2_5_b.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2602,13 +2602,13 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.source_time_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Id: 4 Byte Unsigned Fixed Width Integer
+  -- Id: Binary
   index, id = nyse_nyseequities_bbo_pillar_v2_5_b.id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_bbo_pillar_v2_5_b.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_bbo_pillar_v2_5_b.source_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -2651,16 +2651,16 @@ end
 nyse_nyseequities_bbo_pillar_v2_5_b.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_bbo_pillar_v2_5_b.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_bbo_pillar_v2_5_b.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_bbo_pillar_v2_5_b.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_bbo_pillar_v2_5_b.channel_id.dissect(buffer, index, packet, parent)
 
   return index

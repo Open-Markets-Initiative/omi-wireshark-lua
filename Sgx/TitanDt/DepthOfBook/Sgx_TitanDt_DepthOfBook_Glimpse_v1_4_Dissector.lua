@@ -3129,9 +3129,50 @@ sgx_titandt_depthofbook_glimpse_v1_4.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- Seconds Message
+    if sequenced_message_type == "T" then
+      return true
+    end
+
+    -- Order Book Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Combination Order Book Directory Message
+    if sequenced_message_type == "M" then
+      return true
+    end
+
+    -- Tick Size Table Entry Message
+    if sequenced_message_type == "L" then
+      return true
+    end
+
+    -- Order Book State Message
+    if sequenced_message_type == "O" then
+      return true
+    end
+
+    -- Add Order Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- End Of Snapshot Message
+    if sequenced_message_type == "G" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -3185,11 +3226,13 @@ end
 -- Dissector Heuristic for Sgx TitanDt DepthOfBook Glimpse 1.4 (Tcp): apply the heuristic of the sender's connection role
 local function omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_heuristic(buffer, packet, parent)
   local role = sgx_titandt_depthofbook_glimpse_v1_4.role(packet)
-  local first = omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_initiator_heuristic
-  local second = omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_acceptor_heuristic
+  local initiator = omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_initiator_heuristic
+  local acceptor = omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

@@ -5104,9 +5104,125 @@ nasdaq_nomoptions_itto_itch_v4_0.server_tcp_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Options Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Trading Action Message
+    if sequenced_message_type == "H" then
+      return true
+    end
+
+    -- Security Open Message
+    if sequenced_message_type == "O" then
+      return true
+    end
+
+    -- Add Order Message Short Message Form
+    if sequenced_message_type == "a" then
+      return true
+    end
+
+    -- Add Order Message Long Form Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Add Quote Message Short Form Message
+    if sequenced_message_type == "j" then
+      return true
+    end
+
+    -- Add Quote Message Long Form Message
+    if sequenced_message_type == "J" then
+      return true
+    end
+
+    -- Single Side Executed Message
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    -- Single Side Executed With Price Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Order Cancel Message
+    if sequenced_message_type == "X" then
+      return true
+    end
+
+    -- Single Side Replace Message Short Form
+    if sequenced_message_type == "u" then
+      return true
+    end
+
+    -- Single Side Replace Message Long Form
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Single Side Delete Message
+    if sequenced_message_type == "D" then
+      return true
+    end
+
+    -- Single Side Change Message
+    if sequenced_message_type == "G" then
+      return true
+    end
+
+    -- Quote Replace Message Short Form
+    if sequenced_message_type == "k" then
+      return true
+    end
+
+    -- Quote Replace Message Long Form
+    if sequenced_message_type == "K" then
+      return true
+    end
+
+    -- Quote Delete Message
+    if sequenced_message_type == "Y" then
+      return true
+    end
+
+    -- Options Trade Messages Non Auction
+    if sequenced_message_type == "P" then
+      return true
+    end
+
+    -- Options Cross Trade Message
+    if sequenced_message_type == "Q" then
+      return true
+    end
+
+    -- Broken Trade Order Executed Message
+    if sequenced_message_type == "B" then
+      return true
+    end
+
+    -- Noii Message
+    if sequenced_message_type == "I" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat Packet
@@ -5172,11 +5288,13 @@ end
 -- Dissector Heuristic for Nasdaq NomOptions Itto Itch 4.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nasdaq_nomoptions_itto_itch_v4_0_tcp_heuristic(buffer, packet, parent)
   local role = nasdaq_nomoptions_itto_itch_v4_0.role(packet)
-  local first = omi_nasdaq_nomoptions_itto_itch_v4_0_tcp_initiator_heuristic
-  local second = omi_nasdaq_nomoptions_itto_itch_v4_0_tcp_acceptor_heuristic
+  local initiator = omi_nasdaq_nomoptions_itto_itch_v4_0_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_nomoptions_itto_itch_v4_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

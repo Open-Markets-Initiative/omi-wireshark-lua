@@ -6092,9 +6092,35 @@ memx_memxequities_memo_sbe_v1_8.client_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Unsequenced Message
+  -- Unsequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
   if message_type == 104 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(5, 1):uint()
+
+    -- New Order Single Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Order Cancel Replace Request Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Order Cancel Request Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Mass Cancel Request Message
+    if template_id == 4 then
+      return true
+    end
+
+    return false
   end
 
   return false
@@ -6153,9 +6179,90 @@ memx_memxequities_memo_sbe_v1_8.server_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Sequenced Message
+  -- Sequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
   if message_type == 11 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(5, 1):uint()
+
+    -- Execution Report Pending New Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Execution Report New Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Execution Report Rejected Message
+    if template_id == 7 then
+      return true
+    end
+
+    -- Execution Report Trade Message
+    if template_id == 8 then
+      return true
+    end
+
+    -- Execution Report Pending Cancel Message
+    if template_id == 9 then
+      return true
+    end
+
+    -- Pending Mass Cancel Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Execution Report Canceled Message
+    if template_id == 11 then
+      return true
+    end
+
+    -- Mass Cancel Done Message
+    if template_id == 12 then
+      return true
+    end
+
+    -- Execution Report Pending Replace Message
+    if template_id == 13 then
+      return true
+    end
+
+    -- Execution Report Replaced Message
+    if template_id == 14 then
+      return true
+    end
+
+    -- Execution Report Trade Correction Message
+    if template_id == 15 then
+      return true
+    end
+
+    -- Execution Report Trade Break Message
+    if template_id == 16 then
+      return true
+    end
+
+    -- Execution Report Restatement Message
+    if template_id == 17 then
+      return true
+    end
+
+    -- Order Cancel Reject Message
+    if template_id == 18 then
+      return true
+    end
+
+    -- Mass Cancel Reject Message
+    if template_id == 20 then
+      return true
+    end
+
+    return false
   end
 
   return false
@@ -6199,11 +6306,13 @@ end
 -- Dissector Heuristic for Memx MemxEquities Memo Sbe 1.8 (Tcp): apply the heuristic of the sender's connection role
 local function omi_memx_memxequities_memo_sbe_v1_8_tcp_heuristic(buffer, packet, parent)
   local role = memx_memxequities_memo_sbe_v1_8.role(packet)
-  local first = omi_memx_memxequities_memo_sbe_v1_8_tcp_initiator_heuristic
-  local second = omi_memx_memxequities_memo_sbe_v1_8_tcp_acceptor_heuristic
+  local initiator = omi_memx_memxequities_memo_sbe_v1_8_tcp_initiator_heuristic
+  local acceptor = omi_memx_memxequities_memo_sbe_v1_8_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

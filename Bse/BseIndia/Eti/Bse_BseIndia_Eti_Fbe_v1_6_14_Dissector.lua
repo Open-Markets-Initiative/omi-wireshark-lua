@@ -19173,11 +19173,13 @@ end
 -- Dissector Heuristic for Bse BseIndia Eti Fbe 1.6.14 (Tcp): apply the heuristic of the sender's connection role
 local function omi_bse_bseindia_eti_fbe_v1_6_14_tcp_heuristic(buffer, packet, parent)
   local role = bse_bseindia_eti_fbe_v1_6_14.role(packet)
-  local first = omi_bse_bseindia_eti_fbe_v1_6_14_tcp_initiator_heuristic
-  local second = omi_bse_bseindia_eti_fbe_v1_6_14_tcp_acceptor_heuristic
+  local initiator = omi_bse_bseindia_eti_fbe_v1_6_14_tcp_initiator_heuristic
+  local acceptor = omi_bse_bseindia_eti_fbe_v1_6_14_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

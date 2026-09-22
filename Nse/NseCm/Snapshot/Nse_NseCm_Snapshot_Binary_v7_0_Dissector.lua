@@ -1406,11 +1406,13 @@ end
 -- Dissector Heuristic for Nse NseCm Snapshot Binary 7.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nse_nsecm_snapshot_binary_v7_0_tcp_heuristic(buffer, packet, parent)
   local role = nse_nsecm_snapshot_binary_v7_0.role(packet)
-  local first = omi_nse_nsecm_snapshot_binary_v7_0_tcp_initiator_heuristic
-  local second = omi_nse_nsecm_snapshot_binary_v7_0_tcp_acceptor_heuristic
+  local initiator = omi_nse_nsecm_snapshot_binary_v7_0_tcp_initiator_heuristic
+  local acceptor = omi_nse_nsecm_snapshot_binary_v7_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

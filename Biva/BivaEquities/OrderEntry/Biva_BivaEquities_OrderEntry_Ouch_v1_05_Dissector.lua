@@ -2871,9 +2871,30 @@ biva_bivaequities_orderentry_ouch_v1_05.client_packet.fingerprint = function(buf
     return true
   end
 
-  -- Unsequenced Data Packet
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if client_packet_type == "U" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 1):string()
+
+    -- Enter Order Message
+    if unsequenced_message_type == "O" then
+      return true
+    end
+
+    -- Replace Order Message
+    if unsequenced_message_type == "U" then
+      return true
+    end
+
+    -- Cancel Order Message
+    if unsequenced_message_type == "X" then
+      return true
+    end
+
+    return false
   end
 
   -- Client Heartbeat
@@ -2912,9 +2933,50 @@ biva_bivaequities_orderentry_ouch_v1_05.server_packet.fingerprint = function(buf
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Accepted Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Replaced Message
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Canceled Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Executed Order Message
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    -- Broken Trade Message
+    if sequenced_message_type == "B" then
+      return true
+    end
+
+    -- Rejected Order Message
+    if sequenced_message_type == "J" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -2968,11 +3030,13 @@ end
 -- Dissector Heuristic for Biva BivaEquities OrderEntry Ouch 1.05 (Tcp): apply the heuristic of the sender's connection role
 local function omi_biva_bivaequities_orderentry_ouch_v1_05_tcp_heuristic(buffer, packet, parent)
   local role = biva_bivaequities_orderentry_ouch_v1_05.role(packet)
-  local first = omi_biva_bivaequities_orderentry_ouch_v1_05_tcp_initiator_heuristic
-  local second = omi_biva_bivaequities_orderentry_ouch_v1_05_tcp_acceptor_heuristic
+  local initiator = omi_biva_bivaequities_orderentry_ouch_v1_05_tcp_initiator_heuristic
+  local acceptor = omi_biva_bivaequities_orderentry_ouch_v1_05_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

@@ -1548,11 +1548,13 @@ end
 -- Dissector Heuristic for Nasdaq Common SoupBin Tcp 3.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nasdaq_common_soupbin_tcp_v3_0_tcp_heuristic(buffer, packet, parent)
   local role = nasdaq_common_soupbin_tcp_v3_0.role(packet)
-  local first = omi_nasdaq_common_soupbin_tcp_v3_0_tcp_initiator_heuristic
-  local second = omi_nasdaq_common_soupbin_tcp_v3_0_tcp_acceptor_heuristic
+  local initiator = omi_nasdaq_common_soupbin_tcp_v3_0_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_common_soupbin_tcp_v3_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

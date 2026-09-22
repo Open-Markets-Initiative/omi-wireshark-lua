@@ -11271,11 +11271,13 @@ end
 -- Dissector Heuristic for Cme Globex Mdp3 Sbe 1.6 (Tcp): apply the heuristic of the sender's connection role
 local function omi_cme_globex_mdp3_sbe_v1_6_tcp_heuristic(buffer, packet, parent)
   local role = cme_globex_mdp3_sbe_v1_6.role(packet)
-  local first = omi_cme_globex_mdp3_sbe_v1_6_tcp_initiator_heuristic
-  local second = omi_cme_globex_mdp3_sbe_v1_6_tcp_acceptor_heuristic
+  local initiator = omi_cme_globex_mdp3_sbe_v1_6_tcp_initiator_heuristic
+  local acceptor = omi_cme_globex_mdp3_sbe_v1_6_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

@@ -5,7 +5,7 @@
 
 | Division | [Protocol][Omi.Sgx.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Sgx.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TitanDt][TitanDt.Platform] | [DepthOfBook][Sgx.TitanDt.DepthOfBook] | [Glimpse][Omi.Encoding.Glimpse] | [1.4][Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Dissector] | 5/10/2016 | 3248 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Url] - [pdf][Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Pdf] |
+| [TitanDt][TitanDt.Platform] | [DepthOfBook][Sgx.TitanDt.DepthOfBook] | [Glimpse][Omi.Encoding.Glimpse] | [1.4][Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Dissector] | 5/10/2016 | 3291 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Url] - [pdf][Sgx.TitanDt.DepthOfBook.Glimpse.v1.4.Pdf] |
 | [TitanDt][TitanDt.Platform] | [DepthOfBook][Sgx.TitanDt.DepthOfBook] | [Itch][Omi.Encoding.Itch] | [1.4][Sgx.TitanDt.DepthOfBook.Itch.v1.4.Dissector] | 5/10/2016 | 3165 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Sgx.TitanDt.DepthOfBook.Itch.v1.4.Url] - [pdf][Sgx.TitanDt.DepthOfBook.Itch.v1.4.Pdf] |
 
 

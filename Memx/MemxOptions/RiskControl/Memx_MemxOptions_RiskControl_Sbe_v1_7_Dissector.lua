@@ -10770,9 +10770,315 @@ memx_memxoptions_riskcontrol_sbe_v1_7.client_packet.fingerprint = function(buffe
     return true
   end
 
-  -- Unsequenced Message
+  -- Unsequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
   if message_type == 104 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(5, 1):uint()
+
+    -- Risk Settings Query Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Active Risk Threshold Change Request Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Active Risk Acknowledgement Request Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Cp Volume Threshold Change Request Message
+    if template_id == 4 then
+      return true
+    end
+
+    -- Cp Executed Notional Threshold Change Request Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Cp Total Executions Threshold Change Request Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Cp Percent Outstanding Contracts Threshold Change Request Message
+    if template_id == 7 then
+      return true
+    end
+
+    -- Cp Breach Count Threshold Change Request Message
+    if template_id == 8 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Request Message
+    if template_id == 9 then
+      return true
+    end
+
+    -- Cp Clear Breach Request Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Single Order Allow Iso Orders Change Request Message
+    if template_id == 11 then
+      return true
+    end
+
+    -- Single Order Allow Orders In Crossed Market Change Request Message
+    if template_id == 12 then
+      return true
+    end
+
+    -- Single Order Max Notional Change Request Message
+    if template_id == 13 then
+      return true
+    end
+
+    -- Single Order Max Contracts Change Request Message
+    if template_id == 14 then
+      return true
+    end
+
+    -- Single Order Allow Market Orders Change Request Message
+    if template_id == 15 then
+      return true
+    end
+
+    -- Single Order Restricted Underlier Change Request Message
+    if template_id == 16 then
+      return true
+    end
+
+    -- Cp Gross Notional Threshold Change Request Message
+    if template_id == 18 then
+      return true
+    end
+
+    -- Cp Market Order Gross Notional Threshold Change Request Message
+    if template_id == 19 then
+      return true
+    end
+
+    -- Cp Net Notional Threshold Change Request Message
+    if template_id == 20 then
+      return true
+    end
+
+    -- Cp Market Order Net Notional Threshold Change Request Message
+    if template_id == 21 then
+      return true
+    end
+
+    -- Cp Duplicate Order Threshold Change Request Message
+    if template_id == 22 then
+      return true
+    end
+
+    -- Cp Order Rate Threshold Change Request Message
+    if template_id == 23 then
+      return true
+    end
+
+    -- Cp Clear All Breaches Request Message
+    if template_id == 24 then
+      return true
+    end
+
+    -- Cp Clear All Breaches By Efid Or Underlier Request Message
+    if template_id == 25 then
+      return true
+    end
+
+    -- Active Risk Acknowledge All Request Message
+    if template_id == 26 then
+      return true
+    end
+
+    -- Active Risk Threshold State Message
+    if template_id == 30 then
+      return true
+    end
+
+    -- Active Risk Threshold Change Rejected Message
+    if template_id == 31 then
+      return true
+    end
+
+    -- Active Risk Acknowledged Message
+    if template_id == 32 then
+      return true
+    end
+
+    -- Active Risk Acknowledge Rejected Message
+    if template_id == 33 then
+      return true
+    end
+
+    -- Active Risk Quantity Update Notification Message
+    if template_id == 34 then
+      return true
+    end
+
+    -- Cp Volume Threshold State Message
+    if template_id == 35 then
+      return true
+    end
+
+    -- Cp Executed Notional Threshold State Message
+    if template_id == 36 then
+      return true
+    end
+
+    -- Cp Total Executions Threshold State Message
+    if template_id == 37 then
+      return true
+    end
+
+    -- Cp Percent Outstanding Contracts Threshold State Message
+    if template_id == 38 then
+      return true
+    end
+
+    -- Cp Breach Count Threshold State Message
+    if template_id == 39 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Pending Message
+    if template_id == 40 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Done Message
+    if template_id == 41 then
+      return true
+    end
+
+    -- Risk Threshold Update Rejected Message
+    if template_id == 42 then
+      return true
+    end
+
+    -- Passive Risk Threshold Notification Message
+    if template_id == 43 then
+      return true
+    end
+
+    -- Single Order Allow Iso Orders State Message
+    if template_id == 44 then
+      return true
+    end
+
+    -- Single Order Allow Orders In Crossed Market State Message
+    if template_id == 45 then
+      return true
+    end
+
+    -- Single Order Max Notional Threshold State Message
+    if template_id == 46 then
+      return true
+    end
+
+    -- Single Order Max Contracts Threshold State Message
+    if template_id == 47 then
+      return true
+    end
+
+    -- Single Order Allow Market Orders State Message
+    if template_id == 66 then
+      return true
+    end
+
+    -- Single Order Restricted Underlier State Message
+    if template_id == 67 then
+      return true
+    end
+
+    -- Risk Settings Query Done Message
+    if template_id == 48 then
+      return true
+    end
+
+    -- Risk Settings Query Rejected Message
+    if template_id == 49 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Rejected Message
+    if template_id == 50 then
+      return true
+    end
+
+    -- Breach Clear Rejected Message
+    if template_id == 51 then
+      return true
+    end
+
+    -- Breach Cleared Message
+    if template_id == 52 then
+      return true
+    end
+
+    -- Breach Clear All Accepted Message
+    if template_id == 53 then
+      return true
+    end
+
+    -- Breach Clear All Rejected Message
+    if template_id == 69 then
+      return true
+    end
+
+    -- Breach Clear All By Efid Or Underlier Accepted Message
+    if template_id == 54 then
+      return true
+    end
+
+    -- Breach Clear All By Efid Or Underlier Rejected Message
+    if template_id == 68 then
+      return true
+    end
+
+    -- Cp Gross Notional Threshold State Message
+    if template_id == 60 then
+      return true
+    end
+
+    -- Cp Market Order Gross Notional Threshold State Message
+    if template_id == 61 then
+      return true
+    end
+
+    -- Cp Net Notional Threshold State Message
+    if template_id == 62 then
+      return true
+    end
+
+    -- Cp Market Order Net Notional Threshold State Message
+    if template_id == 63 then
+      return true
+    end
+
+    -- Cp Duplicate Order Threshold State Message
+    if template_id == 64 then
+      return true
+    end
+
+    -- Cp Order Rate Threshold State Message
+    if template_id == 65 then
+      return true
+    end
+
+    return false
   end
 
   return false
@@ -10831,9 +11137,315 @@ memx_memxoptions_riskcontrol_sbe_v1_7.server_packet.fingerprint = function(buffe
     return true
   end
 
-  -- Sequenced Message
+  -- Sequenced Message: carries the application messages, which tell this protocol from others sharing the session framing
   if message_type == 11 then
-    return true
+    if buffer:len() < 6 then
+      return false
+    end
+
+    local template_id = buffer(5, 1):uint()
+
+    -- Risk Settings Query Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Active Risk Threshold Change Request Message
+    if template_id == 2 then
+      return true
+    end
+
+    -- Active Risk Acknowledgement Request Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Cp Volume Threshold Change Request Message
+    if template_id == 4 then
+      return true
+    end
+
+    -- Cp Executed Notional Threshold Change Request Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Cp Total Executions Threshold Change Request Message
+    if template_id == 6 then
+      return true
+    end
+
+    -- Cp Percent Outstanding Contracts Threshold Change Request Message
+    if template_id == 7 then
+      return true
+    end
+
+    -- Cp Breach Count Threshold Change Request Message
+    if template_id == 8 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Request Message
+    if template_id == 9 then
+      return true
+    end
+
+    -- Cp Clear Breach Request Message
+    if template_id == 10 then
+      return true
+    end
+
+    -- Single Order Allow Iso Orders Change Request Message
+    if template_id == 11 then
+      return true
+    end
+
+    -- Single Order Allow Orders In Crossed Market Change Request Message
+    if template_id == 12 then
+      return true
+    end
+
+    -- Single Order Max Notional Change Request Message
+    if template_id == 13 then
+      return true
+    end
+
+    -- Single Order Max Contracts Change Request Message
+    if template_id == 14 then
+      return true
+    end
+
+    -- Single Order Allow Market Orders Change Request Message
+    if template_id == 15 then
+      return true
+    end
+
+    -- Single Order Restricted Underlier Change Request Message
+    if template_id == 16 then
+      return true
+    end
+
+    -- Cp Gross Notional Threshold Change Request Message
+    if template_id == 18 then
+      return true
+    end
+
+    -- Cp Market Order Gross Notional Threshold Change Request Message
+    if template_id == 19 then
+      return true
+    end
+
+    -- Cp Net Notional Threshold Change Request Message
+    if template_id == 20 then
+      return true
+    end
+
+    -- Cp Market Order Net Notional Threshold Change Request Message
+    if template_id == 21 then
+      return true
+    end
+
+    -- Cp Duplicate Order Threshold Change Request Message
+    if template_id == 22 then
+      return true
+    end
+
+    -- Cp Order Rate Threshold Change Request Message
+    if template_id == 23 then
+      return true
+    end
+
+    -- Cp Clear All Breaches Request Message
+    if template_id == 24 then
+      return true
+    end
+
+    -- Cp Clear All Breaches By Efid Or Underlier Request Message
+    if template_id == 25 then
+      return true
+    end
+
+    -- Active Risk Acknowledge All Request Message
+    if template_id == 26 then
+      return true
+    end
+
+    -- Active Risk Threshold State Message
+    if template_id == 30 then
+      return true
+    end
+
+    -- Active Risk Threshold Change Rejected Message
+    if template_id == 31 then
+      return true
+    end
+
+    -- Active Risk Acknowledged Message
+    if template_id == 32 then
+      return true
+    end
+
+    -- Active Risk Acknowledge Rejected Message
+    if template_id == 33 then
+      return true
+    end
+
+    -- Active Risk Quantity Update Notification Message
+    if template_id == 34 then
+      return true
+    end
+
+    -- Cp Volume Threshold State Message
+    if template_id == 35 then
+      return true
+    end
+
+    -- Cp Executed Notional Threshold State Message
+    if template_id == 36 then
+      return true
+    end
+
+    -- Cp Total Executions Threshold State Message
+    if template_id == 37 then
+      return true
+    end
+
+    -- Cp Percent Outstanding Contracts Threshold State Message
+    if template_id == 38 then
+      return true
+    end
+
+    -- Cp Breach Count Threshold State Message
+    if template_id == 39 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Pending Message
+    if template_id == 40 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Done Message
+    if template_id == 41 then
+      return true
+    end
+
+    -- Risk Threshold Update Rejected Message
+    if template_id == 42 then
+      return true
+    end
+
+    -- Passive Risk Threshold Notification Message
+    if template_id == 43 then
+      return true
+    end
+
+    -- Single Order Allow Iso Orders State Message
+    if template_id == 44 then
+      return true
+    end
+
+    -- Single Order Allow Orders In Crossed Market State Message
+    if template_id == 45 then
+      return true
+    end
+
+    -- Single Order Max Notional Threshold State Message
+    if template_id == 46 then
+      return true
+    end
+
+    -- Single Order Max Contracts Threshold State Message
+    if template_id == 47 then
+      return true
+    end
+
+    -- Single Order Allow Market Orders State Message
+    if template_id == 66 then
+      return true
+    end
+
+    -- Single Order Restricted Underlier State Message
+    if template_id == 67 then
+      return true
+    end
+
+    -- Risk Settings Query Done Message
+    if template_id == 48 then
+      return true
+    end
+
+    -- Risk Settings Query Rejected Message
+    if template_id == 49 then
+      return true
+    end
+
+    -- Manual Cp Breach Trigger Rejected Message
+    if template_id == 50 then
+      return true
+    end
+
+    -- Breach Clear Rejected Message
+    if template_id == 51 then
+      return true
+    end
+
+    -- Breach Cleared Message
+    if template_id == 52 then
+      return true
+    end
+
+    -- Breach Clear All Accepted Message
+    if template_id == 53 then
+      return true
+    end
+
+    -- Breach Clear All Rejected Message
+    if template_id == 69 then
+      return true
+    end
+
+    -- Breach Clear All By Efid Or Underlier Accepted Message
+    if template_id == 54 then
+      return true
+    end
+
+    -- Breach Clear All By Efid Or Underlier Rejected Message
+    if template_id == 68 then
+      return true
+    end
+
+    -- Cp Gross Notional Threshold State Message
+    if template_id == 60 then
+      return true
+    end
+
+    -- Cp Market Order Gross Notional Threshold State Message
+    if template_id == 61 then
+      return true
+    end
+
+    -- Cp Net Notional Threshold State Message
+    if template_id == 62 then
+      return true
+    end
+
+    -- Cp Market Order Net Notional Threshold State Message
+    if template_id == 63 then
+      return true
+    end
+
+    -- Cp Duplicate Order Threshold State Message
+    if template_id == 64 then
+      return true
+    end
+
+    -- Cp Order Rate Threshold State Message
+    if template_id == 65 then
+      return true
+    end
+
+    return false
   end
 
   return false
@@ -10877,11 +11489,13 @@ end
 -- Dissector Heuristic for Memx MemxOptions RiskControl Sbe 1.7 (Tcp): apply the heuristic of the sender's connection role
 local function omi_memx_memxoptions_riskcontrol_sbe_v1_7_tcp_heuristic(buffer, packet, parent)
   local role = memx_memxoptions_riskcontrol_sbe_v1_7.role(packet)
-  local first = omi_memx_memxoptions_riskcontrol_sbe_v1_7_tcp_initiator_heuristic
-  local second = omi_memx_memxoptions_riskcontrol_sbe_v1_7_tcp_acceptor_heuristic
+  local initiator = omi_memx_memxoptions_riskcontrol_sbe_v1_7_tcp_initiator_heuristic
+  local acceptor = omi_memx_memxoptions_riskcontrol_sbe_v1_7_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

@@ -8791,11 +8791,13 @@ end
 -- Dissector Heuristic for Cboe BzxOptions BinaryOrderEntry Boe3 1.0.10 (Tcp): apply the heuristic of the sender's connection role
 local function omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10_tcp_heuristic(buffer, packet, parent)
   local role = cboe_bzxoptions_binaryorderentry_boe3_v1_0_10.role(packet)
-  local first = omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10_tcp_initiator_heuristic
-  local second = omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10_tcp_acceptor_heuristic
+  local initiator = omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10_tcp_initiator_heuristic
+  local acceptor = omi_cboe_bzxoptions_binaryorderentry_boe3_v1_0_10_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

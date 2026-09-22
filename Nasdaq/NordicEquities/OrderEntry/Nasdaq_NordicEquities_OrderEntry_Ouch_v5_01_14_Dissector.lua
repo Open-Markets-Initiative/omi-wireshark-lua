@@ -6304,9 +6304,40 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.client_packet.fingerprint = funct
     return true
   end
 
-  -- Unsequenced Data Packet
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if client_packet_type == "U" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 1):string()
+
+    -- Enter Order Message
+    if unsequenced_message_type == "O" then
+      return true
+    end
+
+    -- Replace Order Message
+    if unsequenced_message_type == "U" then
+      return true
+    end
+
+    -- Cancel Order Message
+    if unsequenced_message_type == "X" then
+      return true
+    end
+
+    -- Account Query Message
+    if unsequenced_message_type == "Q" then
+      return true
+    end
+
+    -- Mmi Notification Request Message
+    if unsequenced_message_type == "M" then
+      return true
+    end
+
+    return false
   end
 
   -- Client Heartbeat
@@ -6345,9 +6376,90 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.server_packet.fingerprint = funct
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Order Accepted Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Order Replaced Message
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Cancelled Order Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Cancel Pending Message
+    if sequenced_message_type == "P" then
+      return true
+    end
+
+    -- Replace Pending Message
+    if sequenced_message_type == "N" then
+      return true
+    end
+
+    -- Executed Order Message
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    -- Broken Trade Message
+    if sequenced_message_type == "B" then
+      return true
+    end
+
+    -- Rejected Order Message
+    if sequenced_message_type == "J" then
+      return true
+    end
+
+    -- Cancel Rejected Message
+    if sequenced_message_type == "I" then
+      return true
+    end
+
+    -- Order Restated Message
+    if sequenced_message_type == "T" then
+      return true
+    end
+
+    -- Mmo Refresh Request Message
+    if sequenced_message_type == "W" then
+      return true
+    end
+
+    -- Account Query Response Message
+    if sequenced_message_type == "Q" then
+      return true
+    end
+
+    -- Gtc Cancelled Message
+    if sequenced_message_type == "G" then
+      return true
+    end
+
+    -- Response To Mmi Notification Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -6401,11 +6513,13 @@ end
 -- Dissector Heuristic for Nasdaq NordicEquities OrderEntry Ouch 5.01.14 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14_tcp_heuristic(buffer, packet, parent)
   local role = nasdaq_nordicequities_orderentry_ouch_v5_01_14.role(packet)
-  local first = omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14_tcp_initiator_heuristic
-  local second = omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14_tcp_acceptor_heuristic
+  local initiator = omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

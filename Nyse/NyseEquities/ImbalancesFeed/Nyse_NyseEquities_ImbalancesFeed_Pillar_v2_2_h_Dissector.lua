@@ -656,7 +656,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.imbalance_side.display = function(value)
-  if value == "  " then
+  if value == " " then
     return "Imbalance Side: No Imbalance (<whitespace>)"
   end
   if value == "B" then
@@ -1702,7 +1702,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.size = 1
 
 -- Display: Significant Imbalance
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.display = function(value)
-  if value == "  " then
+  if value == " " then
     return "Significant Imbalance: Not Applicable (<whitespace>)"
   end
   if value == "Y" then
@@ -2258,7 +2258,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unpaired_side.size = 1
 
 -- Display: Unpaired Side
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unpaired_side.display = function(value)
-  if value == "  " then
+  if value == " " then
     return "Unpaired Side: Not Applicable (<whitespace>)"
   end
   if value == "B" then
@@ -2349,73 +2349,73 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Reference Price: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Price: Binary
   index, reference_price = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reference_price.dissect(buffer, index, packet, parent)
 
-  -- Paired Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Paired Qty: Binary
   index, paired_qty = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.paired_qty.dissect(buffer, index, packet, parent)
 
-  -- Total Imbalance Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Total Imbalance Qty: Binary
   index, total_imbalance_qty = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.total_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Market Imbalance Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Market Imbalance Qty: Binary
   index, market_imbalance_qty = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Auction Time: 2 Byte Unsigned Fixed Width Integer
+  -- Auction Time: Binary
   index, auction_time = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.auction_time.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 6 values
+  -- Auction Type: ASCII
   index, auction_type = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  -- Imbalance Side: ASCII
   index, imbalance_side = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Continuous Book Clearing Price: 4 Byte Unsigned Fixed Width Integer
+  -- Continuous Book Clearing Price: Binary
   index, continuous_book_clearing_price = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Interest Clearing Price: 4 Byte Unsigned Fixed Width Integer
+  -- Auction Interest Clearing Price: Binary
   index, auction_interest_clearing_price = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.auction_interest_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Ssr Filing Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Filing Price: Binary
   index, ssr_filing_price = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.ssr_filing_price.dissect(buffer, index, packet, parent)
 
-  -- Indicative Match Price: 4 Byte Unsigned Fixed Width Integer
+  -- Indicative Match Price: Binary
   index, indicative_match_price = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.indicative_match_price.dissect(buffer, index, packet, parent)
 
-  -- Upper Collar: 4 Byte Unsigned Fixed Width Integer
+  -- Upper Collar: Binary
   index, upper_collar = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.upper_collar.dissect(buffer, index, packet, parent)
 
-  -- Lower Collar: 4 Byte Unsigned Fixed Width Integer
+  -- Lower Collar: Binary
   index, lower_collar = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.lower_collar.dissect(buffer, index, packet, parent)
 
-  -- Auction Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Auction Status: Binary
   index, auction_status = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.auction_status.dissect(buffer, index, packet, parent)
 
-  -- Freeze Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Freeze Status: Binary
   index, freeze_status = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.freeze_status.dissect(buffer, index, packet, parent)
 
-  -- Num Extensions: 1 Byte Unsigned Fixed Width Integer
+  -- Num Extensions: Binary
   index, num_extensions = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.num_extensions.dissect(buffer, index, packet, parent)
 
-  -- Unpaired Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Unpaired Qty: Binary
   index, unpaired_qty = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unpaired_qty.dissect(buffer, index, packet, parent)
 
-  -- Unpaired Side: 1 Byte Ascii String Enum with 3 values
+  -- Unpaired Side: ASCII
   index, unpaired_side = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unpaired_side.dissect(buffer, index, packet, parent)
 
-  -- Significant Imbalance: 1 Byte Ascii String Enum with 2 values
+  -- Significant Imbalance: ASCII
   index, significant_imbalance = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.significant_imbalance.dissect(buffer, index, packet, parent)
 
   return index
@@ -2458,16 +2458,16 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.refresh_header_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
+  -- Current Refresh Pkt: Binary
   index, current_refresh_pkt = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.current_refresh_pkt.dissect(buffer, index, packet, parent)
 
-  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
+  -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Seq Num: Binary
   index, last_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.last_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Symbol Seq Num: Binary
   index, last_symbol_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.last_symbol_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2521,49 +2521,49 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 12 values
+  -- Security Status: ASCII
   index, security_status = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String Enum with 16 values
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: Binary
   index, reserved_4 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_4.dissect(buffer, index, packet, parent)
 
-  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  -- Price 1: Binary
   index, price_1 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.price_1.dissect(buffer, index, packet, parent)
 
-  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  -- Price 2: Binary
   index, price_2 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.price_2.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 19 values
+  -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Triggering Volume: Binary
   index, ssr_triggering_volume = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Time: Binary
   index, time = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.time.dissect(buffer, index, packet, parent)
 
-  -- Ssr State: 1 Byte Ascii String Enum with 2 values
+  -- Ssr State: ASCII
   index, ssr_state = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.ssr_state.dissect(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String Enum with 5 values
+  -- Market State: ASCII
   index, market_state = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.market_state.dissect(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Ascii String
+  -- Session State: ASCII
   index, session_state = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.session_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2606,16 +2606,16 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Next Source Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.next_source_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2658,16 +2658,16 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.message_unavailable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2710,16 +2710,16 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2763,19 +2763,19 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Retransmit Method: 1 Byte Unsigned Fixed Width Integer
+  -- Retransmit Method: Binary
   index, retransmit_method = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.retransmit_method.dissect(buffer, index, packet, parent)
 
   return index
@@ -2815,7 +2815,7 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2861,25 +2861,25 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Request Seq Num: Binary
   index, request_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.request_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String Enum with 9 values
+  -- Status: ASCII
   index, status = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -2923,19 +2923,19 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.retransmission_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2990,52 +2990,52 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: ASCII
   index, symbol = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: Binary
   index, reserved_1 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Market Id: Binary
   index, market_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 7 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.security_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: 2 Byte Unsigned Fixed Width Integer
+  -- Lot Size: Binary
   index, lot_size = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Price: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Price: Binary
   index, prev_close_price = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prev_close_price.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prev_close_volume.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Resolution: Binary
   index, price_resolution = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 1 Byte Ascii String Enum with 2 values
+  -- Round Lot: ASCII
   index, round_lot = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 2 Byte Unsigned Fixed Width Integer
+  -- Mpv: Binary
   index, mpv = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.mpv.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Trade: 2 Byte Unsigned Fixed Width Integer
+  -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: Binary
   index, reserved_2 = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -3077,13 +3077,13 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Id: 4 Byte Unsigned Fixed Width Integer
+  -- Id: Binary
   index, id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -3126,16 +3126,16 @@ end
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.channel_id.dissect(buffer, index, packet, parent)
 
   return index

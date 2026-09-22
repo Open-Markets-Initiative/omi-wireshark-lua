@@ -66,7 +66,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.price = ProtoField.new("P
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.totalview.itch.v5.0.2017.pricevariationindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.nsmequities.totalview.itch.v5.0.2017.primarymarketmaker", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.printable = ProtoField.new("Printable", "nasdaq.nsmequities.totalview.itch.v5.0.2017.printable", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.totalview.itch.v5.0.2017.reason", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.reason_code = ProtoField.new("Reason Code", "nasdaq.nsmequities.totalview.itch.v5.0.2017.reasoncode", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.totalview.itch.v5.0.2017.regshoaction", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.totalview.itch.v5.0.2017.reserved", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.itch.v5.0.2017.roundlotsize", ftypes.UINT32)
@@ -1007,16 +1007,16 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_classification.display = funct
     return "Issue Classification: Bond (B)"
   end
   if value == "C" then
-    return "Issue Classification: Common (C)"
+    return "Issue Classification: Common Stock (C)"
   end
   if value == "F" then
-    return "Issue Classification: Depository (F)"
+    return "Issue Classification: Depository Receipt (F)"
   end
   if value == "I" then
     return "Issue Classification: Sec 144 A (I)"
   end
   if value == "L" then
-    return "Issue Classification: Limited (L)"
+    return "Issue Classification: Limited Partnership (L)"
   end
   if value == "N" then
     return "Issue Classification: Notes (N)"
@@ -1025,25 +1025,25 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_classification.display = funct
     return "Issue Classification: Ordinary Share (O)"
   end
   if value == "P" then
-    return "Issue Classification: Preferred (P)"
+    return "Issue Classification: Preferred Stock (P)"
   end
   if value == "Q" then
-    return "Issue Classification: Other (Q)"
+    return "Issue Classification: Other Securities (Q)"
   end
   if value == "R" then
     return "Issue Classification: Right (R)"
   end
   if value == "S" then
-    return "Issue Classification: Shares (S)"
+    return "Issue Classification: Shares Of Beneficial Interest (S)"
   end
   if value == "T" then
-    return "Issue Classification: Convertible (T)"
+    return "Issue Classification: Convertible Debenture (T)"
   end
   if value == "U" then
     return "Issue Classification: Unit (U)"
   end
   if value == "V" then
-    return "Issue Classification: Units Benif Int (V)"
+    return "Issue Classification: Units Of Beneficial Interest (V)"
   end
   if value == "W" then
     return "Issue Classification: Warrant (W)"
@@ -1103,25 +1103,25 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_sub_type.display = function(va
     return "Issue Sub Type: Currency Trust Shares (CT)"
   end
   if value == "CU" then
-    return "Issue Sub Type: Commodity­ Currency (CU)"
+    return "Issue Sub Type: Commodity Currency Linked Securities (CU)"
   end
   if value == "CW" then
     return "Issue Sub Type: Currency Warrants (CW)"
   end
   if value == "D" then
-    return "Issue Sub Type: Global Depositary (D)"
+    return "Issue Sub Type: Global Depositary Shares (D)"
   end
   if value == "E" then
-    return "Issue Sub Type: Etf­ Portfolio Depositary Receipt (E)"
+    return "Issue Sub Type: Etf Portfolio Depositary Receipt (E)"
   end
   if value == "EG" then
     return "Issue Sub Type: Equity Gold Shares (EG)"
   end
   if value == "EI" then
-    return "Issue Sub Type: Etn Equity (EI)"
+    return "Issue Sub Type: Etn Equity Index Linked Securities (EI)"
   end
   if value == "EM" then
-    return "Issue Sub Type: Next Shares Exchange (EM)"
+    return "Issue Sub Type: Next Shares Exchange Traded Managed Fund (EM)"
   end
   if value == "EN" then
     return "Issue Sub Type: Exchange Traded Notes (EN)"
@@ -1133,34 +1133,34 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_sub_type.display = function(va
     return "Issue Sub Type: Holdrs (F)"
   end
   if value == "FI" then
-    return "Issue Sub Type: Etn Fixed Income (FI)"
+    return "Issue Sub Type: Etn Fixed Income Linked Securities (FI)"
   end
   if value == "FL" then
-    return "Issue Sub Type: Etn Futures (FL)"
+    return "Issue Sub Type: Etn Futures Linked Securities (FL)"
   end
   if value == "G" then
     return "Issue Sub Type: Global Shares (G)"
   end
   if value == "I" then
-    return "Issue Sub Type: Etf (I)"
+    return "Issue Sub Type: Etf Index Fund Shares (I)"
   end
   if value == "IR" then
-    return "Issue Sub Type: Interest (IR)"
+    return "Issue Sub Type: Interest Rate (IR)"
   end
   if value == "IW" then
-    return "Issue Sub Type: Index (IW)"
+    return "Issue Sub Type: Index Warrant (IW)"
   end
   if value == "IX" then
-    return "Issue Sub Type: Index (IX)"
+    return "Issue Sub Type: Index Linked Exchangeable Notes (IX)"
   end
   if value == "J" then
-    return "Issue Sub Type: Corporate (J)"
+    return "Issue Sub Type: Corporate Backed Trust Security (J)"
   end
   if value == "L" then
-    return "Issue Sub Type: Contingent (L)"
+    return "Issue Sub Type: Contingent Litigation Right (L)"
   end
   if value == "LL" then
-    return "Issue Sub Type: Identifies Securities (LL)"
+    return "Issue Sub Type: Limited Liability Company (LL)"
   end
   if value == "M" then
     return "Issue Sub Type: Equity Based Derivative (M)"
@@ -1169,7 +1169,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_sub_type.display = function(va
     return "Issue Sub Type: Managed Fund Shares (MF)"
   end
   if value == "ML" then
-    return "Issue Sub Type: Etn (ML)"
+    return "Issue Sub Type: Etn Multi Factor Index Linked Securities (ML)"
   end
   if value == "MT" then
     return "Issue Sub Type: Managed Trust Securities (MT)"
@@ -1196,16 +1196,16 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.issue_sub_type.display = function(va
     return "Issue Sub Type: Reg S (R)"
   end
   if value == "RC" then
-    return "Issue Sub Type: Commodity Redeemable (RC)"
+    return "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)"
   end
   if value == "RF" then
-    return "Issue Sub Type: Etn (RF)"
+    return "Issue Sub Type: Etn Redeemable Futures Linked Securities (RF)"
   end
   if value == "RT" then
     return "Issue Sub Type: Reit (RT)"
   end
   if value == "RU" then
-    return "Issue Sub Type: Commodity­ Redeemable (RU)"
+    return "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)"
   end
   if value == "S" then
     return "Issue Sub Type: Seed (S)"
@@ -1664,11 +1664,11 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.message_type.display = function(valu
   if value == "K" then
     return "Message Type: Ipo Quoting Period Update (K)"
   end
-  if value == "A" then
-    return "Message Type: Add Order No Mpid Attribution Message (A)"
-  end
   if value == "J" then
     return "Message Type: Luld Auction Collar Message (J)"
+  end
+  if value == "A" then
+    return "Message Type: Add Order No Mpid Attribution Message (A)"
   end
   if value == "F" then
     return "Message Type: Add Order With Mpid Attribution Message (F)"
@@ -2018,25 +2018,128 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.printable.dissect = function(buffer,
   return offset + length, value
 end
 
--- Reason
-nasdaq_nsmequities_totalview_itch_v5_0_2017.reason = {}
+-- Reason Code
+nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code = {}
 
--- Size: Reason
-nasdaq_nsmequities_totalview_itch_v5_0_2017.reason.size = 4
+-- Size: Reason Code
+nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.size = 4
 
--- Display: Reason
-nasdaq_nsmequities_totalview_itch_v5_0_2017.reason.display = function(value)
-  return "Reason: "..value
+-- Display: Reason Code
+nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.display = function(value)
+  if value == "T1" then
+    return "Reason Code: Halt News Pending (T1)"
+  end
+  if value == "T2" then
+    return "Reason Code: Halt News Disseminated (T2)"
+  end
+  if value == "T5" then
+    return "Reason Code: Single Security Trading Pause In Effect (T5)"
+  end
+  if value == "T6" then
+    return "Reason Code: Regulatory Halt (T6)"
+  end
+  if value == "T8" then
+    return "Reason Code: Halt Etf (T8)"
+  end
+  if value == "T12" then
+    return "Reason Code: Trading Halted (T12)"
+  end
+  if value == "H4" then
+    return "Reason Code: Halt Non Compliance (H4)"
+  end
+  if value == "H9" then
+    return "Reason Code: Halt Filings Not Current (H9)"
+  end
+  if value == "H10" then
+    return "Reason Code: Halt Sec Trading Suspension (H10)"
+  end
+  if value == "H11" then
+    return "Reason Code: Halt Regulatory Concern (H11)"
+  end
+  if value == "O1" then
+    return "Reason Code: Operations Halt (O1)"
+  end
+  if value == "LUDP" then
+    return "Reason Code: Volatility Trading Pause (LUDP)"
+  end
+  if value == "LUDS" then
+    return "Reason Code: Straddle Condition Trading Pause (LUDS)"
+  end
+  if value == "MWC1" then
+    return "Reason Code: Circuit Breaker Halt Level 1 (MWC1)"
+  end
+  if value == "MWC2" then
+    return "Reason Code: Circuit Breaker Halt Level 2 (MWC2)"
+  end
+  if value == "MWC3" then
+    return "Reason Code: Circuit Breaker Halt Level 3 (MWC3)"
+  end
+  if value == "MWC0" then
+    return "Reason Code: Carry Over Circuit Breaker Halt (MWC0)"
+  end
+  if value == "IPO1" then
+    return "Reason Code: Ipo Issue (IPO1)"
+  end
+  if value == "M1" then
+    return "Reason Code: Corporate Action (M1)"
+  end
+  if value == "M2" then
+    return "Reason Code: Not Available (M2)"
+  end
+  if value == "T3" then
+    return "Reason Code: News And Resumption Times (T3)"
+  end
+  if value == "T7" then
+    return "Reason Code: Trading Pause Quotation Only Period (T7)"
+  end
+  if value == "R4" then
+    return "Reason Code: Qualifications Issues Resolved (R4)"
+  end
+  if value == "R9" then
+    return "Reason Code: Filing Requirements Satisfied (R9)"
+  end
+  if value == "C3" then
+    return "Reason Code: Issuer News Not Forthcoming (C3)"
+  end
+  if value == "C4" then
+    return "Reason Code: Qualifications Halt Ended (C4)"
+  end
+  if value == "C9" then
+    return "Reason Code: Qualifications Halt Concluded (C9)"
+  end
+  if value == "C11" then
+    return "Reason Code: Trade Halt Concluded By Other Regulatory Authority (C11)"
+  end
+  if value == "MWCQ" then
+    return "Reason Code: Market Wide Circuit Breaker Resumption (MWCQ)"
+  end
+  if value == "R1" then
+    return "Reason Code: New Issue (R1)"
+  end
+  if value == "R2" then
+    return "Reason Code: Issue Available (R2)"
+  end
+  if value == "IPOQ" then
+    return "Reason Code: Ipo Security Released (IPOQ)"
+  end
+  if value == "    " then
+    return "Reason Code: Reason Not Available (<whitespace>)"
+  end
+  if value == "IPOE" then
+    return "Reason Code: Ipo Security Positioning Window Extension (IPOE)"
+  end
+
+  return "Reason Code: Unknown("..value..")"
 end
 
--- Dissect: Reason
-nasdaq_nsmequities_totalview_itch_v5_0_2017.reason.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.reason.size
+-- Dissect: Reason Code
+nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.reason.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.reason, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -3154,74 +3257,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_with_mpid_attribution_mess
   end
 end
 
--- Luld Auction Collar Message
-nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message = {}
-
--- Size: Luld Auction Collar Message
-nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.size =
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.tracking_number.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.timestamp.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.stock.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_reference_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.upper_auction_collar_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.lower_auction_collar_price.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_extension.size
-
--- Display: Luld Auction Collar Message
-nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Luld Auction Collar Message
-nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Stock Locate: Integer
-  index, stock_locate = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.dissect(buffer, index, packet, parent)
-
-  -- Tracking Number: Integer
-  index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2017.tracking_number.dissect(buffer, index, packet, parent)
-
-  -- Timestamp: Integer
-  index, timestamp = nasdaq_nsmequities_totalview_itch_v5_0_2017.timestamp.dissect(buffer, index, packet, parent)
-
-  -- Stock: Alpha
-  index, stock = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock.dissect(buffer, index, packet, parent)
-
-  -- Auction Collar Reference Price: Price (4)
-  index, auction_collar_reference_price = nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_reference_price.dissect(buffer, index, packet, parent)
-
-  -- Upper Auction Collar Price: Price (4)
-  index, upper_auction_collar_price = nasdaq_nsmequities_totalview_itch_v5_0_2017.upper_auction_collar_price.dissect(buffer, index, packet, parent)
-
-  -- Lower Auction Collar Price: Price (4)
-  index, lower_auction_collar_price = nasdaq_nsmequities_totalview_itch_v5_0_2017.lower_auction_collar_price.dissect(buffer, index, packet, parent)
-
-  -- Auction Collar Extension: Integer
-  index, auction_collar_extension = nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_extension.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Luld Auction Collar Message
-nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.luld_auction_collar_message, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Add Order No Mpid Attribution Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_no_mpid_attribution_message = {}
 
@@ -3287,6 +3322,74 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_no_mpid_attribution_messag
   else
     -- Skip element, add fields directly
     return nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_no_mpid_attribution_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Luld Auction Collar Message
+nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message = {}
+
+-- Size: Luld Auction Collar Message
+nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.size =
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.tracking_number.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.timestamp.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.stock.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_reference_price.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.upper_auction_collar_price.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.lower_auction_collar_price.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_extension.size
+
+-- Display: Luld Auction Collar Message
+nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Luld Auction Collar Message
+nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Stock Locate: Integer
+  index, stock_locate = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_locate.dissect(buffer, index, packet, parent)
+
+  -- Tracking Number: Integer
+  index, tracking_number = nasdaq_nsmequities_totalview_itch_v5_0_2017.tracking_number.dissect(buffer, index, packet, parent)
+
+  -- Timestamp: Integer
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v5_0_2017.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_itch_v5_0_2017.stock.dissect(buffer, index, packet, parent)
+
+  -- Auction Collar Reference Price: Price (4)
+  index, auction_collar_reference_price = nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_reference_price.dissect(buffer, index, packet, parent)
+
+  -- Upper Auction Collar Price: Price (4)
+  index, upper_auction_collar_price = nasdaq_nsmequities_totalview_itch_v5_0_2017.upper_auction_collar_price.dissect(buffer, index, packet, parent)
+
+  -- Lower Auction Collar Price: Price (4)
+  index, lower_auction_collar_price = nasdaq_nsmequities_totalview_itch_v5_0_2017.lower_auction_collar_price.dissect(buffer, index, packet, parent)
+
+  -- Auction Collar Extension: Integer
+  index, auction_collar_extension = nasdaq_nsmequities_totalview_itch_v5_0_2017.auction_collar_extension.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Luld Auction Collar Message
+nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.luld_auction_collar_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3601,7 +3704,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_trading_action_message.size =
   nasdaq_nsmequities_totalview_itch_v5_0_2017.stock.size + 
   nasdaq_nsmequities_totalview_itch_v5_0_2017.trading_state.size + 
   nasdaq_nsmequities_totalview_itch_v5_0_2017.reserved.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.reason.size
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.size
 
 -- Display: Stock Trading Action Message
 nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_trading_action_message.display = function(packet, parent, length)
@@ -3630,8 +3733,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.stock_trading_action_message.fields 
   -- Reserved: Alpha
   index, reserved = nasdaq_nsmequities_totalview_itch_v5_0_2017.reserved.dissect(buffer, index, packet, parent)
 
-  -- Reason: Alpha
-  index, reason = nasdaq_nsmequities_totalview_itch_v5_0_2017.reason.dissect(buffer, index, packet, parent)
+  -- Reason Code: Alpha
+  index, reason_code = nasdaq_nsmequities_totalview_itch_v5_0_2017.reason_code.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3847,13 +3950,13 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.payload.dissect = function(buffer, o
   if message_type == "K" then
     return nasdaq_nsmequities_totalview_itch_v5_0_2017.ipo_quoting_period_update.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order No Mpid Attribution Message
-  if message_type == "A" then
-    return nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_no_mpid_attribution_message.dissect(buffer, offset, packet, parent)
-  end
   -- Dissect Luld Auction Collar Message
   if message_type == "J" then
     return nasdaq_nsmequities_totalview_itch_v5_0_2017.luld_auction_collar_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Add Order No Mpid Attribution Message
+  if message_type == "A" then
+    return nasdaq_nsmequities_totalview_itch_v5_0_2017.add_order_no_mpid_attribution_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Add Order With Mpid Attribution Message
   if message_type == "F" then

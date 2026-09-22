@@ -47,13 +47,18 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.price = ProtoField.new("Price"
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.nsmequities.totalview.itch.v4.1.pricevariationindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.nsmequities.totalview.itch.v4.1.primarymarketmaker", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.printable = ProtoField.new("Printable", "nasdaq.nsmequities.totalview.itch.v4.1.printable", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.totalview.itch.v4.1.reason", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.totalview.itch.v4.1.regshoaction", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reserved = ProtoField.new("Reserved", "nasdaq.nsmequities.totalview.itch.v4.1.reserved", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nsmequities.totalview.itch.v4.1.roundlotsize", ftypes.UINT32)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.nsmequities.totalview.itch.v4.1.roundlotsonly", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.second = ProtoField.new("Second", "nasdaq.nsmequities.totalview.itch.v4.1.second", ftypes.UINT32)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.sequencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.itch.v4.1.session", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.itch.v4.1.shares", ftypes.UINT32)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.itch.v4.1.side", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v4.1.stock", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.totalview.itch.v4.1.tradingstate", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView Itch 4.1 Framing
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.itch.v4.1.message", ftypes.STRING)
@@ -76,6 +81,7 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.order_replace_message = ProtoF
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.nsmequities.totalview.itch.v4.1.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.retail_price_improvement_indicator_message = ProtoField.new("Retail Price Improvement Indicator Message", "nasdaq.nsmequities.totalview.itch.v4.1.retailpriceimprovementindicatormessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.nsmequities.totalview.itch.v4.1.stockdirectorymessage", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.totalview.itch.v4.1.stocktradingactionmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.totalview.itch.v4.1.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.nsmequities.totalview.itch.v4.1.timestampmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.nsmequities.totalview.itch.v4.1.trademessage", ftypes.STRING)
@@ -402,16 +408,16 @@ nasdaq_nsmequities_totalview_itch_v4_1.event_code.display = function(value)
     return "Event Code: End Of System Hours (E)"
   end
   if value == "C" then
-    return "Event Code: End Of Message (C)"
+    return "Event Code: End Of Messages (C)"
   end
   if value == "A" then
-    return "Event Code: Halt (A)"
+    return "Event Code: Emergency Market Condition Halt (A)"
   end
   if value == "R" then
-    return "Event Code: Quote Only Period (R)"
+    return "Event Code: Emergency Market Condition Quote Only Period (R)"
   end
   if value == "B" then
-    return "Event Code: Resumption (B)"
+    return "Event Code: Emergency Market Condition Resumption (B)"
   end
 
   return "Event Code: Unknown("..value..")"
@@ -519,10 +525,10 @@ nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.size = 1
 -- Display: Financial Status Indicator
 nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.display = function(value)
   if value == "D" then
-    return "Financial Status Indicator: Delinquent (D)"
+    return "Financial Status Indicator: Deficient (D)"
   end
   if value == "E" then
-    return "Financial Status Indicator: Deficient (E)"
+    return "Financial Status Indicator: Delinquent (E)"
   end
   if value == "Q" then
     return "Financial Status Indicator: Bankrupt (Q)"
@@ -541,6 +547,9 @@ nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.display = func
   end
   if value == "K" then
     return "Financial Status Indicator: Deficient Delinquent And Bankrupt (K)"
+  end
+  if value == " " then
+    return "Financial Status Indicator: In Compliance (<whitespace>)"
   end
 
   return "Financial Status Indicator: Unknown("..value..")"
@@ -715,6 +724,9 @@ nasdaq_nsmequities_totalview_itch_v4_1.market_maker_mode.display = function(valu
   if value == "S" then
     return "Market Maker Mode: Syndicate (S)"
   end
+  if value == "R" then
+    return "Market Maker Mode: Pre Syndicate (R)"
+  end
   if value == "L" then
     return "Market Maker Mode: Penalty (L)"
   end
@@ -858,6 +870,9 @@ nasdaq_nsmequities_totalview_itch_v4_1.message_type.display = function(value)
   end
   if value == "R" then
     return "Message Type: Stock Directory Message (R)"
+  end
+  if value == "H" then
+    return "Message Type: Stock Trading Action Message (H)"
   end
   if value == "Y" then
     return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator Message (Y)"
@@ -1191,7 +1206,7 @@ nasdaq_nsmequities_totalview_itch_v4_1.primary_market_maker.display = function(v
     return "Primary Market Maker: Primary (Y)"
   end
   if value == "N" then
-    return "Primary Market Maker: Nonprimary (N)"
+    return "Primary Market Maker: Non Primary (N)"
   end
 
   return "Primary Market Maker: Unknown("..value..")"
@@ -1218,7 +1233,7 @@ nasdaq_nsmequities_totalview_itch_v4_1.printable.size = 1
 -- Display: Printable
 nasdaq_nsmequities_totalview_itch_v4_1.printable.display = function(value)
   if value == "N" then
-    return "Printable: Nonprintable (N)"
+    return "Printable: Non Printable (N)"
   end
   if value == "Y" then
     return "Printable: Printable (Y)"
@@ -1235,6 +1250,132 @@ nasdaq_nsmequities_totalview_itch_v4_1.printable.dissect = function(buffer, offs
   local display = nasdaq_nsmequities_totalview_itch_v4_1.printable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.printable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+nasdaq_nsmequities_totalview_itch_v4_1.reason = {}
+
+-- Size: Reason
+nasdaq_nsmequities_totalview_itch_v4_1.reason.size = 4
+
+-- Display: Reason
+nasdaq_nsmequities_totalview_itch_v4_1.reason.display = function(value)
+  if value == "T1" then
+    return "Reason: Halt News Pending (T1)"
+  end
+  if value == "T2" then
+    return "Reason: Halt News Disseminated (T2)"
+  end
+  if value == "T5" then
+    return "Reason: Single Security Trading Pause In Effect (T5)"
+  end
+  if value == "T6" then
+    return "Reason: Regulatory Halt Extraordinary Market Activity (T6)"
+  end
+  if value == "T8" then
+    return "Reason: Halt Etf (T8)"
+  end
+  if value == "T12" then
+    return "Reason: Trading Halted For Information Requested (T12)"
+  end
+  if value == "H4" then
+    return "Reason: Halt Non Compliance (H4)"
+  end
+  if value == "H9" then
+    return "Reason: Halt Filings Not Current (H9)"
+  end
+  if value == "H10" then
+    return "Reason: Halt Sec Trading Suspension (H10)"
+  end
+  if value == "H11" then
+    return "Reason: Halt Regulatory Concern (H11)"
+  end
+  if value == "O1" then
+    return "Reason: Operations Halt (O1)"
+  end
+  if value == "LUDP" then
+    return "Reason: Volatility Trading Pause (LUDP)"
+  end
+  if value == "LUDS" then
+    return "Reason: Volatility Trading Pause Straddle Condition (LUDS)"
+  end
+  if value == "MWC1" then
+    return "Reason: Market Wide Circuit Breaker Halt Level One (MWC1)"
+  end
+  if value == "MWC2" then
+    return "Reason: Market Wide Circuit Breaker Halt Level Two (MWC2)"
+  end
+  if value == "MWC3" then
+    return "Reason: Market Wide Circuit Breaker Halt Level Three (MWC3)"
+  end
+  if value == "MWC0" then
+    return "Reason: Market Wide Circuit Breaker Halt Carry Over (MWC0)"
+  end
+  if value == "IPO1" then
+    return "Reason: Ipo Issue Not Yet Trading (IPO1)"
+  end
+  if value == "M1" then
+    return "Reason: Corporate Action (M1)"
+  end
+  if value == "M2" then
+    return "Reason: Quotation Not Available (M2)"
+  end
+  if value == "T3" then
+    return "Reason: News And Resumption Times (T3)"
+  end
+  if value == "T7" then
+    return "Reason: Single Security Trading Pause Quotation Only Period (T7)"
+  end
+  if value == "R4" then
+    return "Reason: Qualifications Issues Reviewed (R4)"
+  end
+  if value == "R9" then
+    return "Reason: Filing Requirements Satisfied (R9)"
+  end
+  if value == "C3" then
+    return "Reason: Issuer News Not Forthcoming (C3)"
+  end
+  if value == "C4" then
+    return "Reason: Qualifications Halt Ended (C4)"
+  end
+  if value == "C9" then
+    return "Reason: Qualifications Halt Concluded (C9)"
+  end
+  if value == "C11" then
+    return "Reason: Trade Halt Concluded (C11)"
+  end
+  if value == "MWCQ" then
+    return "Reason: Market Wide Circuit Breaker Resumption (MWCQ)"
+  end
+  if value == "R1" then
+    return "Reason: New Issue Available (R1)"
+  end
+  if value == "R2" then
+    return "Reason: Issue Available (R2)"
+  end
+  if value == "IPOQ" then
+    return "Reason: Ipo Security Released For Quotation (IPOQ)"
+  end
+  if value == "IPOE" then
+    return "Reason: Ipo Security Positioning Window Extension (IPOE)"
+  end
+  if value == "    " then
+    return "Reason: Reason Not Available (<whitespace>)"
+  end
+
+  return "Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reason
+nasdaq_nsmequities_totalview_itch_v4_1.reason.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.reason.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -1268,6 +1409,82 @@ nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.dissect = function(buffer,
   local display = nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reg_sho_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved
+nasdaq_nsmequities_totalview_itch_v4_1.reserved = {}
+
+-- Size: Reserved
+nasdaq_nsmequities_totalview_itch_v4_1.reserved.size = 1
+
+-- Display: Reserved
+nasdaq_nsmequities_totalview_itch_v4_1.reserved.display = function(value)
+  return "Reserved: "..value
+end
+
+-- Dissect: Reserved
+nasdaq_nsmequities_totalview_itch_v4_1.reserved.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.reserved.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.reserved.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.reserved, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lot Size
+nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size = {}
+
+-- Size: Round Lot Size
+nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size.size = 4
+
+-- Display: Round Lot Size
+nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size.display = function(value)
+  return "Round Lot Size: "..value
+end
+
+-- Dissect: Round Lot Size
+nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.round_lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Round Lots Only
+nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only = {}
+
+-- Size: Round Lots Only
+nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only.size = 1
+
+-- Display: Round Lots Only
+nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only.display = function(value)
+  if value == "Y" then
+    return "Round Lots Only: Yes (Y)"
+  end
+  if value == "N" then
+    return "Round Lots Only: No (N)"
+  end
+
+  return "Round Lots Only: Unknown("..value..")"
+end
+
+-- Dissect: Round Lots Only
+nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.round_lots_only, range, value, display)
 
   return offset + length, value
 end
@@ -1439,6 +1656,42 @@ nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect = function(buffer, offset, 
   local display = nasdaq_nsmequities_totalview_itch_v4_1.stock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading State
+nasdaq_nsmequities_totalview_itch_v4_1.trading_state = {}
+
+-- Size: Trading State
+nasdaq_nsmequities_totalview_itch_v4_1.trading_state.size = 1
+
+-- Display: Trading State
+nasdaq_nsmequities_totalview_itch_v4_1.trading_state.display = function(value)
+  if value == "H" then
+    return "Trading State: Halted (H)"
+  end
+  if value == "P" then
+    return "Trading State: Paused (P)"
+  end
+  if value == "Q" then
+    return "Trading State: Quotation Only (Q)"
+  end
+  if value == "T" then
+    return "Trading State: Trading (T)"
+  end
+
+  return "Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Trading State
+nasdaq_nsmequities_totalview_itch_v4_1.trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_1.trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_itch_v4_1.trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.trading_state, range, value, display)
 
   return offset + length, value
 end
@@ -2291,6 +2544,62 @@ nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_
   end
 end
 
+-- Stock Trading Action Message
+nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message = {}
+
+-- Size: Stock Trading Action Message
+nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.size =
+  nasdaq_nsmequities_totalview_itch_v4_1.nanoseconds.size + 
+  nasdaq_nsmequities_totalview_itch_v4_1.stock.size + 
+  nasdaq_nsmequities_totalview_itch_v4_1.trading_state.size + 
+  nasdaq_nsmequities_totalview_itch_v4_1.reserved.size + 
+  nasdaq_nsmequities_totalview_itch_v4_1.reason.size
+
+-- Display: Stock Trading Action Message
+nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Stock Trading Action Message
+nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = nasdaq_nsmequities_totalview_itch_v4_1.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_totalview_itch_v4_1.stock.dissect(buffer, index, packet, parent)
+
+  -- Trading State: Alpha
+  index, trading_state = nasdaq_nsmequities_totalview_itch_v4_1.trading_state.dissect(buffer, index, packet, parent)
+
+  -- Reserved: Alpha
+  index, reserved = nasdaq_nsmequities_totalview_itch_v4_1.reserved.dissect(buffer, index, packet, parent)
+
+  -- Reason: Alpha
+  index, reason = nasdaq_nsmequities_totalview_itch_v4_1.reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Stock Trading Action Message
+nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.stock_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Stock Directory Message
 nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message = {}
 
@@ -2299,7 +2608,9 @@ nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.size =
   nasdaq_nsmequities_totalview_itch_v4_1.nanoseconds.size + 
   nasdaq_nsmequities_totalview_itch_v4_1.stock.size + 
   nasdaq_nsmequities_totalview_itch_v4_1.market_category.size + 
-  nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.size
+  nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.size + 
+  nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size.size + 
+  nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only.size
 
 -- Display: Stock Directory Message
 nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.display = function(packet, parent, length)
@@ -2321,6 +2632,12 @@ nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.fields = function
 
   -- Financial Status Indicator: Alpha
   index, financial_status_indicator = nasdaq_nsmequities_totalview_itch_v4_1.financial_status_indicator.dissect(buffer, index, packet, parent)
+
+  -- Round Lot Size: Integer
+  index, round_lot_size = nasdaq_nsmequities_totalview_itch_v4_1.round_lot_size.dissect(buffer, index, packet, parent)
+
+  -- Round Lots Only: Alpha
+  index, round_lots_only = nasdaq_nsmequities_totalview_itch_v4_1.round_lots_only.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2451,6 +2768,10 @@ nasdaq_nsmequities_totalview_itch_v4_1.payload.dissect = function(buffer, offset
   if message_type == "R" then
     return nasdaq_nsmequities_totalview_itch_v4_1.stock_directory_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Stock Trading Action Message
+  if message_type == "H" then
+    return nasdaq_nsmequities_totalview_itch_v4_1.stock_trading_action_message.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Reg Sho Short Sale Price Test Restricted Indicator Message
   if message_type == "Y" then
     return nasdaq_nsmequities_totalview_itch_v4_1.reg_sho_short_sale_price_test_restricted_indicator_message.dissect(buffer, offset, packet, parent)
@@ -2531,7 +2852,7 @@ nasdaq_nsmequities_totalview_itch_v4_1.message_header.fields = function(buffer, 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
   index, message_length = nasdaq_nsmequities_totalview_itch_v4_1.message_length.dissect(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Ascii String Enum with 17 values
+  -- Message Type: 1 Byte Ascii String Enum with 18 values
   index, message_type = nasdaq_nsmequities_totalview_itch_v4_1.message_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2595,7 +2916,7 @@ nasdaq_nsmequities_totalview_itch_v4_1.message.fields = function(buffer, offset,
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):string()
 
-  -- Payload: Runtime Type with 17 branches
+  -- Payload: Runtime Type with 18 branches
   index = nasdaq_nsmequities_totalview_itch_v4_1.payload.dissect(buffer, index, packet, parent, message_type)
 
   return index

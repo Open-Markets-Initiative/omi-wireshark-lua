@@ -3095,9 +3095,30 @@ odx_odxequities_pts_ouch_v2_0.client_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Unsequenced Data Packet
+  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if client_packet_type == "U" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local unsequenced_message_type = buffer(3, 1):string()
+
+    -- Enter Order Message
+    if unsequenced_message_type == "O" then
+      return true
+    end
+
+    -- Replace Order Message
+    if unsequenced_message_type == "U" then
+      return true
+    end
+
+    -- Cancel Order Message
+    if unsequenced_message_type == "X" then
+      return true
+    end
+
+    return false
   end
 
   -- Client Heartbeat
@@ -3136,9 +3157,50 @@ odx_odxequities_pts_ouch_v2_0.server_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Order Accepted Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Order Replaced Message
+    if sequenced_message_type == "U" then
+      return true
+    end
+
+    -- Order Canceled Message
+    if sequenced_message_type == "C" then
+      return true
+    end
+
+    -- Order Aiq Canceled Message
+    if sequenced_message_type == "D" then
+      return true
+    end
+
+    -- Order Executed Message
+    if sequenced_message_type == "E" then
+      return true
+    end
+
+    -- Order Rejected Message
+    if sequenced_message_type == "J" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -3192,11 +3254,13 @@ end
 -- Dissector Heuristic for Odx OdxEquities Pts Ouch 2.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_odx_odxequities_pts_ouch_v2_0_tcp_heuristic(buffer, packet, parent)
   local role = odx_odxequities_pts_ouch_v2_0.role(packet)
-  local first = omi_odx_odxequities_pts_ouch_v2_0_tcp_initiator_heuristic
-  local second = omi_odx_odxequities_pts_ouch_v2_0_tcp_acceptor_heuristic
+  local initiator = omi_odx_odxequities_pts_ouch_v2_0_tcp_initiator_heuristic
+  local acceptor = omi_odx_odxequities_pts_ouch_v2_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

@@ -3419,9 +3419,70 @@ biva_bivaequities_totalview_glimpse_v1_12.server_packet.fingerprint = function(b
     return true
   end
 
-  -- Sequenced Data Packet
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if server_packet_type == "S" then
-    return true
+    if buffer:len() < 4 then
+      return false
+    end
+
+    local sequenced_message_type = buffer(3, 1):string()
+
+    -- Time Stamp Seconds Message
+    if sequenced_message_type == "T" then
+      return true
+    end
+
+    -- System Event Message
+    if sequenced_message_type == "S" then
+      return true
+    end
+
+    -- Price Tick Size Message
+    if sequenced_message_type == "L" then
+      return true
+    end
+
+    -- Quantity Tick Size Message
+    if sequenced_message_type == "M" then
+      return true
+    end
+
+    -- Orderbook Directory Message
+    if sequenced_message_type == "R" then
+      return true
+    end
+
+    -- Participant Directory Message
+    if sequenced_message_type == "F" then
+      return true
+    end
+
+    -- Orderbook Trading Action Message
+    if sequenced_message_type == "H" then
+      return true
+    end
+
+    -- Orderbook Reference Price Message
+    if sequenced_message_type == "X" then
+      return true
+    end
+
+    -- Add Order Message
+    if sequenced_message_type == "A" then
+      return true
+    end
+
+    -- Indicative Price Quantity Message
+    if sequenced_message_type == "I" then
+      return true
+    end
+
+    -- Glimpse Snapshot Message
+    if sequenced_message_type == "G" then
+      return true
+    end
+
+    return false
   end
 
   -- Server Heartbeat
@@ -3475,11 +3536,13 @@ end
 -- Dissector Heuristic for Biva BivaEquities TotalView Glimpse 1.12 (Tcp): apply the heuristic of the sender's connection role
 local function omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_heuristic(buffer, packet, parent)
   local role = biva_bivaequities_totalview_glimpse_v1_12.role(packet)
-  local first = omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_initiator_heuristic
-  local second = omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_acceptor_heuristic
+  local initiator = omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_initiator_heuristic
+  local acceptor = omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then

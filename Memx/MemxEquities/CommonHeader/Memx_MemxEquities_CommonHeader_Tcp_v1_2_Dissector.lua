@@ -1628,11 +1628,13 @@ end
 -- Dissector Heuristic for Memx MemxEquities CommonHeader Tcp 1.2 (Tcp): apply the heuristic of the sender's connection role
 local function omi_memx_memxequities_commonheader_tcp_v1_2_tcp_heuristic(buffer, packet, parent)
   local role = memx_memxequities_commonheader_tcp_v1_2.role(packet)
-  local first = omi_memx_memxequities_commonheader_tcp_v1_2_tcp_initiator_heuristic
-  local second = omi_memx_memxequities_commonheader_tcp_v1_2_tcp_acceptor_heuristic
+  local initiator = omi_memx_memxequities_commonheader_tcp_v1_2_tcp_initiator_heuristic
+  local acceptor = omi_memx_memxequities_commonheader_tcp_v1_2_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
 
   if role == "acceptor" then
-    first, second = second, first
+    first, second = acceptor, initiator
   end
 
   if first(buffer, packet, parent) then
