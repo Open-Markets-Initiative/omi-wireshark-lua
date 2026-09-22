@@ -442,8 +442,6 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.gateway_router_response_message 
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.giveup_confirmation_message = ProtoField.new("Giveup Confirmation Message", "nse.nsefo.orderentry.nnfdirect.v9.50.giveupconfirmationmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.global_contracts_message = ProtoField.new("Global Contracts Message", "nse.nsefo.orderentry.nnfdirect.v9.50.globalcontractsmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.global_indices_message = ProtoField.new("Global Indices Message", "nse.nsefo.orderentry.nnfdirect.v9.50.globalindicesmessage", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.header_record_message = ProtoField.new("Header Record Message", "nse.nsefo.orderentry.nnfdirect.v9.50.headerrecordmessage", ftypes.BYTES)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsefo.orderentry.nnfdirect.v9.50.heartbeatmessage", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.industry_index_report_message = ProtoField.new("Industry Index Report Message", "nse.nsefo.orderentry.nnfdirect.v9.50.industryindexreportmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_index_report_message = ProtoField.new("Market Index Report Message", "nse.nsefo.orderentry.nnfdirect.v9.50.marketindexreportmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_statistics_report_message = ProtoField.new("Market Statistics Report Message", "nse.nsefo.orderentry.nnfdirect.v9.50.marketstatisticsreportmessage", ftypes.STRING)
@@ -455,8 +453,6 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.price_modification_message = Pro
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reset_user_password_message = ProtoField.new("Reset User Password Message", "nse.nsefo.orderentry.nnfdirect.v9.50.resetuserpasswordmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sector_index_report_message = ProtoField.new("Sector Index Report Message", "nse.nsefo.orderentry.nnfdirect.v9.50.sectorindexreportmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.secure_box_registration_request_in_message = ProtoField.new("Secure Box Registration Request In Message", "nse.nsefo.orderentry.nnfdirect.v9.50.secureboxregistrationrequestinmessage", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.secure_box_registration_response_out_message = ProtoField.new("Secure Box Registration Response Out Message", "nse.nsefo.orderentry.nnfdirect.v9.50.secureboxregistrationresponseoutmessage", ftypes.BYTES)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sign_off_request_in_message = ProtoField.new("Sign Off Request In Message", "nse.nsefo.orderentry.nnfdirect.v9.50.signoffrequestinmessage", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sign_off_request_out_message = ProtoField.new("Sign Off Request Out Message", "nse.nsefo.orderentry.nnfdirect.v9.50.signoffrequestoutmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sign_on_request_in_message = ProtoField.new("Sign On Request In Message", "nse.nsefo.orderentry.nnfdirect.v9.50.signonrequestinmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sign_on_request_out_message = ProtoField.new("Sign On Request Out Message", "nse.nsefo.orderentry.nnfdirect.v9.50.signonrequestoutmessage", ftypes.STRING)
@@ -467,7 +463,6 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.system_information_in_message = 
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.system_information_out_message = ProtoField.new("System Information Out Message", "nse.nsefo.orderentry.nnfdirect.v9.50.systeminformationoutmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trade_confirmation_message = ProtoField.new("Trade Confirmation Message", "nse.nsefo.orderentry.nnfdirect.v9.50.tradeconfirmationmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trade_inquiry_message = ProtoField.new("Trade Inquiry Message", "nse.nsefo.orderentry.nnfdirect.v9.50.tradeinquirymessage", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.trailer_record_message = ProtoField.new("Trailer Record Message", "nse.nsefo.orderentry.nnfdirect.v9.50.trailerrecordmessage", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.update_local_database_data_message = ProtoField.new("Update Local Database Data Message", "nse.nsefo.orderentry.nnfdirect.v9.50.updatelocaldatabasedatamessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.update_local_database_header_message = ProtoField.new("Update Local Database Header Message", "nse.nsefo.orderentry.nnfdirect.v9.50.updatelocaldatabaseheadermessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.update_local_database_in_message = ProtoField.new("Update Local Database In Message", "nse.nsefo.orderentry.nnfdirect.v9.50.updatelocaldatabaseinmessage", ftypes.STRING)
@@ -11814,6 +11809,23 @@ nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_off_message.dissect = function(buf
   end
 end
 
+-- Heartbeat Message
+nse_nsefo_orderentry_nnfdirect_v9_50.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+nse_nsefo_orderentry_nnfdirect_v9_50.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+nse_nsefo_orderentry_nnfdirect_v9_50.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Box Sign On Request Out Message
 nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_out_message = {}
 
@@ -11908,6 +11920,23 @@ nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_in_message.dissect = fu
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnfdirect_v9_50.box_sign_on_request_in_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Secure Box Registration Response Out Message
+nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_response_out_message = {}
+
+-- Display: Secure Box Registration Response Out Message
+nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_response_out_message.display = function(packet, parent, length)
+  return "Secure Box Registration Response Out Message"
+end
+
+
+-- Dissect: Secure Box Registration Response Out Message
+nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_response_out_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_response_out_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Secure Box Registration Request In Message
@@ -14174,6 +14203,23 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect = function(buff
   end
 end
 
+-- Trailer Record Message
+nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message = {}
+
+-- Display: Trailer Record Message
+nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message.display = function(packet, parent, length)
+  return "Trailer Record Message"
+end
+
+
+-- Dissect: Trailer Record Message
+nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Message Download Data
 nse_nsefo_orderentry_nnfdirect_v9_50.message_download_data = {}
 
@@ -14340,6 +14386,23 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_record_message.dissect = function(b
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnfdirect_v9_50.message_record_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Header Record Message
+nse_nsefo_orderentry_nnfdirect_v9_50.header_record_message = {}
+
+-- Display: Header Record Message
+nse_nsefo_orderentry_nnfdirect_v9_50.header_record_message.display = function(packet, parent, length)
+  return "Header Record Message"
+end
+
+
+-- Dissect: Header Record Message
+nse_nsefo_orderentry_nnfdirect_v9_50.header_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.header_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Local Database Data
@@ -14784,6 +14847,23 @@ nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_in_message.dissect = 
     -- Skip element, add fields directly
     return nse_nsefo_orderentry_nnfdirect_v9_50.update_local_database_in_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Sign Off Request In Message
+nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_in_message = {}
+
+-- Display: Sign Off Request In Message
+nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_in_message.display = function(packet, parent, length)
+  return "Sign Off Request In Message"
+end
+
+
+-- Dissect: Sign Off Request In Message
+nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_in_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_in_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- New Encryption Tail
@@ -15721,7 +15801,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect = function(buffer, 
   end
   -- Dissect Sign Off Request In Message
   if transaction_code == 2320 then
-    return offset
+    return nse_nsefo_orderentry_nnfdirect_v9_50.sign_off_request_in_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Update Local Database In Message
   if transaction_code == 7300 then
@@ -15745,7 +15825,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect = function(buffer, 
   end
   -- Dissect Header Record Message
   if transaction_code == 7011 then
-    return offset
+    return nse_nsefo_orderentry_nnfdirect_v9_50.header_record_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Message Record Message
   if transaction_code == 7021 then
@@ -15753,7 +15833,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect = function(buffer, 
   end
   -- Dissect Trailer Record Message
   if transaction_code == 7031 then
-    return offset
+    return nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Entry Message
   if transaction_code == 2000 then
@@ -15997,7 +16077,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect = function(buffer, 
   end
   -- Dissect Secure Box Registration Response Out Message
   if transaction_code == 23009 then
-    return offset
+    return nse_nsefo_orderentry_nnfdirect_v9_50.secure_box_registration_response_out_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Box Sign On Request In Message
   if transaction_code == 23000 then
@@ -16009,7 +16089,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect = function(buffer, 
   end
   -- Dissect Heartbeat Message
   if transaction_code == 23506 then
-    return offset
+    return nse_nsefo_orderentry_nnfdirect_v9_50.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Box Sign Off Message
   if transaction_code == 20322 then
