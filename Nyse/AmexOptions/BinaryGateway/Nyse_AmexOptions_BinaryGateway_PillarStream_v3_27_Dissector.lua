@@ -3181,9 +3181,6 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.pre_liquidity_indicator.displa
   if value == "4" then
     return "Pre Liquidity Indicator: Join Nbbo Candidate (4)"
   end
-  if value == "5" then
-    return "Pre Liquidity Indicator: Set Nbbo Candidate (5)"
-  end
 
   return "Pre Liquidity Indicator: Unknown("..value..")"
 end

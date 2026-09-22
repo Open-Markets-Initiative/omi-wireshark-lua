@@ -32,17 +32,12 @@ omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.message_size = ProtoField.new("M
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.message_type = ProtoField.new("Message Type", "nyse.amexoptions.deepfeed.xdp.v1.3.a.messagetype", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexoptions.deepfeed.xdp.v1.3.a.nanoseconds", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.amexoptions.deepfeed.xdp.v1.3.a.optionsymbolroot", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message = ProtoField.new("Outright Market Depth Buy Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.outrightmarketdepthbuymessage", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message = ProtoField.new("Outright Market Depth Sell Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.outrightmarketdepthsellmessage", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.amexoptions.deepfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.price_resolution = ProtoField.new("Price Resolution", "nyse.amexoptions.deepfeed.xdp.v1.3.a.priceresolution", ftypes.UINT8)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.amexoptions.deepfeed.xdp.v1.3.a.pricescalecode", ftypes.UINT8)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.amexoptions.deepfeed.xdp.v1.3.a.productid", ftypes.UINT8)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.amexoptions.deepfeed.xdp.v1.3.a.putorcall", ftypes.UINT8)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.amexoptions.deepfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message = ProtoField.new("Refresh Outright Market Depth Buy Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.refreshoutrightmarketdepthbuymessage", ftypes.STRING)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message = ProtoField.new("Refresh Outright Market Depth Sell Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.refreshoutrightmarketdepthsellmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexoptions.deepfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexoptions.deepfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.reserved_a_1 = ProtoField.new("Reserved A 1", "nyse.amexoptions.deepfeed.xdp.v1.3.a.reserveda1", ftypes.BYTES)
@@ -57,14 +52,11 @@ omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.security_type = ProtoField.new("
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.series_index = ProtoField.new("Series Index", "nyse.amexoptions.deepfeed.xdp.v1.3.a.seriesindex", ftypes.UINT32)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message = ProtoField.new("Series Index Mapping Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.seriesindexmappingmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sourcens", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sourcetime", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.amexoptions.deepfeed.xdp.v1.3.a.streamid", ftypes.UINT16)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.strike_price = ProtoField.new("Strike Price", "nyse.amexoptions.deepfeed.xdp.v1.3.a.strikeprice", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexoptions.deepfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.amexoptions.deepfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
@@ -73,9 +65,7 @@ omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.third_level_price = ProtoField.n
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.third_level_volume = ProtoField.new("Third Level Volume", "nyse.amexoptions.deepfeed.xdp.v1.3.a.thirdlevelvolume", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.third_volume = ProtoField.new("Third Volume", "nyse.amexoptions.deepfeed.xdp.v1.3.a.thirdvolume", ftypes.UINT16)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingindex", ftypes.UINT32)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_seq_num = ProtoField.new("Underlying Seq Num", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingseqnum", ftypes.UINT32)
-omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingsymbol", ftypes.STRING)
 
 -- Nyse AmexOptions DeepFeed Xdp 1.3.a Framing
@@ -83,6 +73,18 @@ omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.message = ProtoField.new("Messag
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.amexoptions.deepfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.deepfeed.xdp.v1.3.a.packet", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.deepfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+
+-- Nyse AmexOptions DeepFeed 1.3.a Application Messages
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message = ProtoField.new("Outright Market Depth Buy Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.outrightmarketdepthbuymessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message = ProtoField.new("Outright Market Depth Sell Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.outrightmarketdepthsellmessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message = ProtoField.new("Refresh Outright Market Depth Buy Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.refreshoutrightmarketdepthbuymessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message = ProtoField.new("Refresh Outright Market Depth Sell Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.refreshoutrightmarketdepthsellmessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message = ProtoField.new("Series Index Mapping Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.seriesindexmappingmessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 
 -- Nyse AmexOptions DeepFeed Xdp 1.3.a generated fields
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.deepfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
@@ -110,11 +112,13 @@ local show = {}
 -- Nyse AmexOptions DeepFeed Xdp 1.3.a Element Dissection Options
 show.structs = true
 show.headers = true
+show.application_messages = true
 show.indexes = true
 
 -- Register Nyse AmexOptions DeepFeed Xdp 1.3.a Show Options
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -123,6 +127,9 @@ omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.absolute_time_base = Pref.enum("A
 function omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs_changed()
 
   -- Check if preferences have changed
+  if show.application_messages ~= omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_application_messages then
+    show.application_messages = omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_application_messages
+  end
   if show.headers ~= omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_headers then
     show.headers = omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.prefs.show_headers
   end
@@ -1600,16 +1607,16 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1617,7 +1624,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -1650,10 +1657,10 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  -- Stream Id: Binary
   index, stream_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -1661,7 +1668,7 @@ end
 
 -- Dissect: Stream Id Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
@@ -1708,52 +1715,52 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved A 1: 1 Byte
+  -- Reserved A 1: reserved
   index, reserved_a_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_a_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.system_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved B 1: 1 Byte
+  -- Reserved B 1: reserved
   index, reserved_b_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_b_1.dissect(buffer, index, packet, parent)
 
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  -- Stream Id: Binary
   index, stream_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Index: Binary
   index, underlying_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_index.dissect(buffer, index, packet, parent)
 
-  -- Contract Multiplier: 2 Byte Unsigned Fixed Width Integer
+  -- Contract Multiplier: Binary
   index, contract_multiplier = nyse_amexoptions_deepfeed_xdp_v1_3_a.contract_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 6 Byte Ascii String
+  -- Maturity Date: ASCII
   index, maturity_date = nyse_amexoptions_deepfeed_xdp_v1_3_a.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Put Or Call: Binary
   index, put_or_call = nyse_amexoptions_deepfeed_xdp_v1_3_a.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 10 Byte Ascii String
+  -- Strike Price: ASCII
   index, strike_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_amexoptions_deepfeed_xdp_v1_3_a.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: ASCII
   index, underlying_symbol = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Option Symbol Root: 5 Byte Ascii String
+  -- Option Symbol Root: ASCII
   index, option_symbol_root = nyse_amexoptions_deepfeed_xdp_v1_3_a.option_symbol_root.dissect(buffer, index, packet, parent)
 
-  -- Group Id: 4 Byte Unsigned Fixed Width Integer
+  -- Group Id: Binary
   index, group_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.group_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1761,7 +1768,7 @@ end
 
 -- Dissect: Series Index Mapping Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.series_index_mapping_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -1802,34 +1809,34 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Index: Binary
   index, underlying_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_index.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: ASCII
   index, underlying_symbol = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_amexoptions_deepfeed_xdp_v1_3_a.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 6 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_amexoptions_deepfeed_xdp_v1_3_a.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_amexoptions_deepfeed_xdp_v1_3_a.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_amexoptions_deepfeed_xdp_v1_3_a.security_type.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Resolution: Binary
   index, price_resolution = nyse_amexoptions_deepfeed_xdp_v1_3_a.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
@@ -1837,7 +1844,7 @@ end
 
 -- Dissect: Underlying Index Mapping Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -1884,52 +1891,52 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_deepfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
+  -- First Level Price: Signed Binary
   index, first_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_price.dissect(buffer, index, packet, parent)
 
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
+  -- Second Level Price: Signed Binary
   index, second_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_price.dissect(buffer, index, packet, parent)
 
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
+  -- Third Level Price: Signed Binary
   index, third_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_price.dissect(buffer, index, packet, parent)
 
-  -- First Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Volume: Binary
   index, first_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Volume: Binary
   index, second_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Volume: Binary
   index, third_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Level Customer Volume: Binary
   index, second_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Level Customer Volume: Binary
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -1937,7 +1944,7 @@ end
 
 -- Dissect: Refresh Outright Market Depth Sell Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_sell_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_sell_message.fields(buffer, offset, packet, parent)
@@ -1984,52 +1991,52 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Ns: Binary
   index, source_ns = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_deepfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
+  -- First Level Price: Signed Binary
   index, first_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_price.dissect(buffer, index, packet, parent)
 
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
+  -- Second Level Price: Signed Binary
   index, second_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_price.dissect(buffer, index, packet, parent)
 
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
+  -- Third Level Price: Signed Binary
   index, third_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_price.dissect(buffer, index, packet, parent)
 
-  -- First Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Volume: Binary
   index, first_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Volume: Binary
   index, second_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Volume: Binary
   index, third_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Level Customer Volume: Binary
   index, second_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Level Customer Volume: Binary
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2037,7 +2044,7 @@ end
 
 -- Dissect: Refresh Outright Market Depth Buy Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.refresh_outright_market_depth_buy_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.refresh_outright_market_depth_buy_message.fields(buffer, offset, packet, parent)
@@ -2075,25 +2082,25 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_series_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_deepfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 8 values
+  -- Security Status: ASCII
   index, security_status = nyse_amexoptions_deepfeed_xdp_v1_3_a.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2101,7 +2108,7 @@ end
 
 -- Dissect: Outright Series Status Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_series_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_series_status_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_series_status_message.fields(buffer, offset, packet, parent)
@@ -2139,25 +2146,25 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Index: Binary
   index, underlying_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_index.dissect(buffer, index, packet, parent)
 
-  -- Underlying Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Seq Num: Binary
   index, underlying_seq_num = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 8 values
+  -- Security Status: ASCII
   index, security_status = nyse_amexoptions_deepfeed_xdp_v1_3_a.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2165,7 +2172,7 @@ end
 
 -- Dissect: Underlying Status Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_status_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.underlying_status_message.fields(buffer, offset, packet, parent)
@@ -2212,52 +2219,52 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Ns: Binary
   index, source_ns = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_deepfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
+  -- First Level Price: Signed Binary
   index, first_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_price.dissect(buffer, index, packet, parent)
 
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
+  -- Second Level Price: Signed Binary
   index, second_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_price.dissect(buffer, index, packet, parent)
 
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
+  -- Third Level Price: Signed Binary
   index, third_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_price.dissect(buffer, index, packet, parent)
 
-  -- First Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Volume: Binary
   index, first_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Volume: Binary
   index, second_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Volume: Binary
   index, third_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Level Customer Volume: Binary
   index, second_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Level Customer Volume: Binary
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2265,7 +2272,7 @@ end
 
 -- Dissect: Outright Market Depth Sell Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_sell_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_sell_message.fields(buffer, offset, packet, parent)
@@ -2312,52 +2319,52 @@ end
 nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Ns: Binary
   index, source_ns = nyse_amexoptions_deepfeed_xdp_v1_3_a.source_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_amexoptions_deepfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_deepfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- First Level Price: 4 Byte Signed Fixed Width Integer
+  -- First Level Price: Signed Binary
   index, first_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_price.dissect(buffer, index, packet, parent)
 
-  -- Second Level Price: 4 Byte Signed Fixed Width Integer
+  -- Second Level Price: Signed Binary
   index, second_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_price.dissect(buffer, index, packet, parent)
 
-  -- Third Level Price: 4 Byte Signed Fixed Width Integer
+  -- Third Level Price: Signed Binary
   index, third_level_price = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_price.dissect(buffer, index, packet, parent)
 
-  -- First Level Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Level Volume: Binary
   index, first_level_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Level Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Level Volume: Binary
   index, second_level_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Level Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Level Volume: Binary
   index, third_level_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_amexoptions_deepfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- First Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- First Level Customer Volume: Binary
   index, first_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.first_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Second Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Second Level Customer Volume: Binary
   index, second_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.second_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Third Level Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Third Level Customer Volume: Binary
   index, third_level_customer_volume = nyse_amexoptions_deepfeed_xdp_v1_3_a.third_level_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2365,7 +2372,7 @@ end
 
 -- Dissect: Outright Market Depth Buy Message
 nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.outright_market_depth_buy_message, buffer(offset, 0))
     local index = nyse_amexoptions_deepfeed_xdp_v1_3_a.outright_market_depth_buy_message.fields(buffer, offset, packet, parent)

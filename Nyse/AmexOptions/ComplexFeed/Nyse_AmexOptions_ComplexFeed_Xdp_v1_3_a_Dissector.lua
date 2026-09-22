@@ -22,14 +22,8 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.bid_customer_volume = ProtoFi
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.bid_price = ProtoField.new("Bid Price", "nyse.amexoptions.complexfeed.xdp.v1.3.a.bidprice", ftypes.INT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.bid_volume = ProtoField.new("Bid Volume", "nyse.amexoptions.complexfeed.xdp.v1.3.a.bidvolume", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.channel_id = ProtoField.new("Channel Id", "nyse.amexoptions.complexfeed.xdp.v1.3.a.channelid", ftypes.UINT8)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message = ProtoField.new("Complex Crossing Rfq Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexcrossingrfqmessage", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message = ProtoField.new("Complex Cube Rfq Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexcuberfqmessage", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_index = ProtoField.new("Complex Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexindex", ftypes.UINT32)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_quote_message = ProtoField.new("Complex Quote Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexquotemessage", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_status_message = ProtoField.new("Complex Status Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexstatusmessage", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_symbol = ProtoField.new("Complex Symbol", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexsymbol", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message = ProtoField.new("Complex Symbol Definition Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexsymboldefinitionmessage", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_trade_message = ProtoField.new("Complex Trade Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complextrademessage", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.amexoptions.complexfeed.xdp.v1.3.a.deliveryflag", ftypes.UINT8)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexoptions.complexfeed.xdp.v1.3.a.haltcondition", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition = ProtoField.new("Leg Definition", "nyse.amexoptions.complexfeed.xdp.v1.3.a.legdefinition", ftypes.STRING)
@@ -45,8 +39,6 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new(
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.price = ProtoField.new("Price", "nyse.amexoptions.complexfeed.xdp.v1.3.a.price", ftypes.INT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Product Id", "nyse.amexoptions.complexfeed.xdp.v1.3.a.productid", ftypes.UINT8)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.amexoptions.complexfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message = ProtoField.new("Refresh Complex Quote Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.refreshcomplexquotemessage", ftypes.STRING)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.xdp.v1.3.a.seconds", ftypes.UINT32)
@@ -54,13 +46,11 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.security_status = ProtoField.
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.amexoptions.complexfeed.xdp.v1.3.a.side", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcens", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcetime", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.amexoptions.complexfeed.xdp.v1.3.a.streamid", ftypes.UINT16)
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.symbolindex", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexoptions.complexfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.amexoptions.complexfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
@@ -76,8 +66,19 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_header = ProtoField.n
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.amexoptions.complexfeed.xdp.v1.3.a.packet", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexoptions.complexfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
 
+-- Nyse AmexOptions ComplexFeed 1.3.a Application Messages
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message = ProtoField.new("Complex Crossing Rfq Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexcrossingrfqmessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message = ProtoField.new("Complex Cube Rfq Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexcuberfqmessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_quote_message = ProtoField.new("Complex Quote Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexquotemessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_status_message = ProtoField.new("Complex Status Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexstatusmessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message = ProtoField.new("Complex Symbol Definition Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complexsymboldefinitionmessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_trade_message = ProtoField.new("Complex Trade Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.complextrademessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message = ProtoField.new("Refresh Complex Quote Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.refreshcomplexquotemessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message = ProtoField.new("Refresh Complex Trade Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.refreshcomplextrademessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
+
 -- Nyse AmexOptions ComplexFeed Xdp 1.3.a generated fields
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.legdefinitionindex", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -101,11 +102,15 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.absolute_time_base = 0
 local show = {}
 
 -- Nyse AmexOptions ComplexFeed Xdp 1.3.a Element Dissection Options
+show.application_messages = true
+show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
 
 -- Register Nyse AmexOptions ComplexFeed Xdp 1.3.a Show Options
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -116,8 +121,14 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.absolute_time_base = Pref.enum
 function omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs_changed()
 
   -- Check if preferences have changed
+  if show.application_messages ~= omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_application_messages then
+    show.application_messages = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_application_messages
+  end
   if show.headers ~= omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_headers then
     show.headers = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_repeating_groups
   end
   if show.structs ~= omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_structs then
     show.structs = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_structs
@@ -1287,16 +1298,16 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1304,7 +1315,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -1337,10 +1348,10 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  -- Stream Id: Binary
   index, stream_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -1348,7 +1359,7 @@ end
 
 -- Dissect: Stream Id Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
@@ -1380,36 +1391,30 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.display = function(packet
 end
 
 -- Dissect Fields: Leg Definition
-nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields = function(buffer, offset, packet, parent, leg_definition_index)
+nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Implicit Leg Definition Index
-  if leg_definition_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index, leg_definition_index)
-    iteration:set_generated()
-  end
-
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio Qty: Binary
   index, leg_ratio_qty = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_amexoptions_complexfeed_xdp_v1_3_a.side.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Type: 1 Byte Ascii String Enum with 2 values
+  -- Leg Security Type: ASCII
   index, leg_security_type = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_security_type.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Leg Definition
-nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
-  if show.structs then
+nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect = function(buffer, offset, packet, parent)
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition, buffer(offset, 0))
-    local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
+    local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.display(packet, parent, length)
@@ -1418,41 +1423,25 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
+    return nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Complex Symbol Definition Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message = {}
 
--- Calculate size of: Complex Symbol Definition Message
-nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.no_of_legs.size
-
-  index = index + nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.size
-
-  -- Calculate field size from count
-  local leg_definition_count = buffer(offset + index - 4, 2):le_uint()
-  index = index + leg_definition_count * 8
-
-  return index
-end
+-- Size: Complex Symbol Definition Message
+nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.size =
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.no_of_legs.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.size + 
+  nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.size
 
 -- Display: Complex Symbol Definition Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.display = function(packet, parent, length)
@@ -1463,44 +1452,42 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Complex Symbol: 21 Byte Ascii String
+  -- Complex Symbol: ASCII
   index, complex_symbol = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  -- Stream Id: Binary
   index, stream_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
 
-  -- No Of Legs: 2 Byte Unsigned Fixed Width Integer
+  -- No Of Legs: Binary
   index, no_of_legs = nyse_amexoptions_complexfeed_xdp_v1_3_a.no_of_legs.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Leg Definition
-  for leg_definition_index = 1, no_of_legs do
-    index, leg_definition = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect(buffer, index, packet, parent, leg_definition_index)
-  end
+  -- Leg Definition: Struct of 4 fields
+  index, leg_definition = nyse_amexoptions_complexfeed_xdp_v1_3_a.leg_definition.dissect(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Complex Symbol Definition Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_symbol_definition_message.fields(buffer, offset, packet, parent)
@@ -1541,34 +1528,34 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_amexoptions_complexfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  -- Volume 4: Binary
   index, volume_4 = nyse_amexoptions_complexfeed_xdp_v1_3_a.volume_4.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
+  -- Trade Cond 1: ASCII
   index, trade_cond_1 = nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_cond_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
+  -- Trade Cond 2: ASCII
   index, trade_cond_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_cond_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -1576,7 +1563,7 @@ end
 
 -- Dissect: Refresh Complex Trade Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_trade_message.fields(buffer, offset, packet, parent)
@@ -1620,43 +1607,43 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Ask Price: Signed Binary
   index, ask_price = nyse_amexoptions_complexfeed_xdp_v1_3_a.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: Signed Binary
   index, bid_price = nyse_amexoptions_complexfeed_xdp_v1_3_a.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Customer Volume: Binary
   index, ask_customer_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.ask_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Customer Volume: Binary
   index, bid_customer_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.bid_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_amexoptions_complexfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -1664,7 +1651,7 @@ end
 
 -- Dissect: Refresh Complex Quote Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.refresh_complex_quote_message.fields(buffer, offset, packet, parent)
@@ -1702,25 +1689,25 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 8 values
+  -- Security Status: ASCII
   index, security_status = nyse_amexoptions_complexfeed_xdp_v1_3_a.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_amexoptions_complexfeed_xdp_v1_3_a.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -1728,7 +1715,7 @@ end
 
 -- Dissect: Complex Status Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_status_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_status_message.fields(buffer, offset, packet, parent)
@@ -1767,28 +1754,28 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Ns: Binary
   index, source_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_ns.dissect(buffer, index, packet, parent)
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_amexoptions_complexfeed_xdp_v1_3_a.side.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Volume 2: 2 Byte Unsigned Fixed Width Integer
+  -- Volume 2: Binary
   index, volume_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.volume_2.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_amexoptions_complexfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1796,7 +1783,7 @@ end
 
 -- Dissect: Complex Cube Rfq Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_cube_rfq_message.fields(buffer, offset, packet, parent)
@@ -1835,28 +1822,28 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Ns: Binary
   index, source_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_ns.dissect(buffer, index, packet, parent)
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_amexoptions_complexfeed_xdp_v1_3_a.side.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Volume 2: 2 Byte Unsigned Fixed Width Integer
+  -- Volume 2: Binary
   index, volume_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.volume_2.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_amexoptions_complexfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1864,7 +1851,7 @@ end
 
 -- Dissect: Complex Crossing Rfq Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_crossing_rfq_message.fields(buffer, offset, packet, parent)
@@ -1905,34 +1892,34 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_amexoptions_complexfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  -- Volume 4: Binary
   index, volume_4 = nyse_amexoptions_complexfeed_xdp_v1_3_a.volume_4.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
+  -- Trade Cond 1: ASCII
   index, trade_cond_1 = nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_cond_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
+  -- Trade Cond 2: ASCII
   index, trade_cond_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_cond_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -1940,7 +1927,7 @@ end
 
 -- Dissect: Complex Trade Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_trade_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_trade_message.fields(buffer, offset, packet, parent)
@@ -1984,43 +1971,43 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexoptions_complexfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Complex Index: 4 Byte Unsigned Fixed Width Integer
+  -- Complex Index: Binary
   index, complex_index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexoptions_complexfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Ask Price: Signed Binary
   index, ask_price = nyse_amexoptions_complexfeed_xdp_v1_3_a.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: Signed Binary
   index, bid_price = nyse_amexoptions_complexfeed_xdp_v1_3_a.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Customer Volume: Binary
   index, ask_customer_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.ask_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Customer Volume: Binary
   index, bid_customer_volume = nyse_amexoptions_complexfeed_xdp_v1_3_a.bid_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_amexoptions_complexfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2028,7 +2015,7 @@ end
 
 -- Dissect: Complex Quote Message
 nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.complex_quote_message, buffer(offset, 0))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.complex_quote_message.fields(buffer, offset, packet, parent)

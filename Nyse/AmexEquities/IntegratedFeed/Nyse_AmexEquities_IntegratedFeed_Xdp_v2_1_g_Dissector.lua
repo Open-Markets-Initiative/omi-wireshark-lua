@@ -15,8 +15,6 @@ local nyse_amexequities_integratedfeed_xdp_v2_1_g = {}
 -----------------------------------------------------------------------
 
 -- Nyse AmexEquities IntegratedFeed Xdp 2.1.g Fields
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.addordermessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.addorderrefreshmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.auction_status = ProtoField.new("Auction Status", "nyse.amexequities.integratedfeed.xdp.v2.1.g.auctionstatus", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.auction_time = ProtoField.new("Auction Time", "nyse.amexequities.integratedfeed.xdp.v2.1.g.auctiontime", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.auction_type = ProtoField.new("Auction Type", "nyse.amexequities.integratedfeed.xdp.v2.1.g.auctiontype", ftypes.STRING)
@@ -25,23 +23,18 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.channel_id = ProtoField.n
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.close = ProtoField.new("Close", "nyse.amexequities.integratedfeed.xdp.v2.1.g.close", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.closing_only_clearing_price = ProtoField.new("Closing Only Clearing Price", "nyse.amexequities.integratedfeed.xdp.v2.1.g.closingonlyclearingprice", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.continuous_book_clearing_price = ProtoField.new("Continuous Book Clearing Price", "nyse.amexequities.integratedfeed.xdp.v2.1.g.continuousbookclearingprice", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_correction_message = ProtoField.new("Cross Correction Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.crosscorrectionmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_id = ProtoField.new("Cross Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.crossid", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.crosstrademessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_type = ProtoField.new("Cross Type", "nyse.amexequities.integratedfeed.xdp.v2.1.g.crosstype", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.current_refresh_pkt = ProtoField.new("Current Refresh Pkt", "nyse.amexequities.integratedfeed.xdp.v2.1.g.currentrefreshpkt", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.db_exec_id = ProtoField.new("Db Exec Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.dbexecid", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.delete_order_message = ProtoField.new("Delete Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.deleteordermessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.amexequities.integratedfeed.xdp.v2.1.g.deliveryflag", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.amexequities.integratedfeed.xdp.v2.1.g.endseqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.amexequities.integratedfeed.xdp.v2.1.g.exchangecode", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.firm_id = ProtoField.new("Firm Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.firmid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.freeze_status = ProtoField.new("Freeze Status", "nyse.amexequities.integratedfeed.xdp.v2.1.g.freezestatus", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.amexequities.integratedfeed.xdp.v2.1.g.haltcondition", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.high_price = ProtoField.new("High Price", "nyse.amexequities.integratedfeed.xdp.v2.1.g.highprice", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.id = ProtoField.new("Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.id", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.imbalancemessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.amexequities.integratedfeed.xdp.v2.1.g.imbalanceside", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.indicative_match_price = ProtoField.new("Indicative Match Price", "nyse.amexequities.integratedfeed.xdp.v2.1.g.indicativematchprice", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.amexequities.integratedfeed.xdp.v2.1.g.lastseqnum", ftypes.UINT32)
@@ -55,18 +48,14 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.market_state = ProtoField
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_count = ProtoField.new("Message Count", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messagecount", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_size = ProtoField.new("Message Size", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messagesize", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_type = ProtoField.new("Message Type", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messagetype", ftypes.UINT16)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messageunavailablemessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.modify_order_message = ProtoField.new("Modify Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.modifyordermessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.mpv = ProtoField.new("Mpv", "nyse.amexequities.integratedfeed.xdp.v2.1.g.mpv", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.amexequities.integratedfeed.xdp.v2.1.g.nanoseconds", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.new_order_id = ProtoField.new("New Order Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.neworderid", ftypes.UINT64)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.new_price_parity_splits = ProtoField.new("New Price Parity Splits", "nyse.amexequities.integratedfeed.xdp.v2.1.g.newpriceparitysplits", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.amexequities.integratedfeed.xdp.v2.1.g.nextsourceseqnum", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.non_displayed_trade_message = ProtoField.new("Non Displayed Trade Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.nondisplayedtrademessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.num_extensions = ProtoField.new("Num Extensions", "nyse.amexequities.integratedfeed.xdp.v2.1.g.numextensions", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.num_parity_splits = ProtoField.new("Num Parity Splits", "nyse.amexequities.integratedfeed.xdp.v2.1.g.numparitysplits", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.open = ProtoField.new("Open", "nyse.amexequities.integratedfeed.xdp.v2.1.g.open", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.order_execution_message = ProtoField.new("Order Execution Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.orderexecutionmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.order_id = ProtoField.new("Order Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.orderid", ftypes.UINT64)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.packet_size = ProtoField.new("Packet Size", "nyse.amexequities.integratedfeed.xdp.v2.1.g.packetsize", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.amexequities.integratedfeed.xdp.v2.1.g.pairedqty", ftypes.UINT32)
@@ -82,51 +71,37 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.price_scale_code = ProtoF
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.printable_flag = ProtoField.new("Printable Flag", "nyse.amexequities.integratedfeed.xdp.v2.1.g.printableflag", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.product_id = ProtoField.new("Product Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.productid", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.reference_price = ProtoField.new("Reference Price", "nyse.amexequities.integratedfeed.xdp.v2.1.g.referenceprice", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.refreshheadermessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.refreshrequestmessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.replace_order_message = ProtoField.new("Replace Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.replaceordermessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.requestresponsemessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.amexequities.integratedfeed.xdp.v2.1.g.requestseqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexequities.integratedfeed.xdp.v2.1.g.reserved1", ftypes.BYTES)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexequities.integratedfeed.xdp.v2.1.g.reserved2", ftypes.BYTES)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amexequities.integratedfeed.xdp.v2.1.g.reserved4", ftypes.BYTES)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.retailpriceimprovementmessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.amexequities.integratedfeed.xdp.v2.1.g.retransmitmethod", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.round_lot = ProtoField.new("Round Lot", "nyse.amexequities.integratedfeed.xdp.v2.1.g.roundlot", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.amexequities.integratedfeed.xdp.v2.1.g.rpiindicator", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.seconds = ProtoField.new("Seconds", "nyse.amexequities.integratedfeed.xdp.v2.1.g.seconds", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.security_status = ProtoField.new("Security Status", "nyse.amexequities.integratedfeed.xdp.v2.1.g.securitystatus", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.securitystatusmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.security_type = ProtoField.new("Security Type", "nyse.amexequities.integratedfeed.xdp.v2.1.g.securitytype", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.send_time = ProtoField.new("Send Time", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sequencenumber", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.session_state = ProtoField.new("Session State", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sessionstate", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.side = ProtoField.new("Side", "nyse.amexequities.integratedfeed.xdp.v2.1.g.side", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.source_id = ProtoField.new("Source Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourceid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.source_time = ProtoField.new("Source Time", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetime", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimens", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimereferencemessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.amexequities.integratedfeed.xdp.v2.1.g.ssrfilingprice", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.ssr_state = ProtoField.new("Ssr State", "nyse.amexequities.integratedfeed.xdp.v2.1.g.ssrstate", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.ssrtriggeringexchangeid", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.amexequities.integratedfeed.xdp.v2.1.g.ssrtriggeringvolume", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.status = ProtoField.new("Status", "nyse.amexequities.integratedfeed.xdp.v2.1.g.status", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.stock_summary_message = ProtoField.new("Stock Summary Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.stocksummarymessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol = ProtoField.new("Symbol", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbol", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolclearmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindex", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindexmappingmessage", ftypes.STRING)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolseqnum", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.system_id = ProtoField.new("System Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.systemid", ftypes.UINT8)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.time = ProtoField.new("Time", "nyse.amexequities.integratedfeed.xdp.v2.1.g.time", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.total_imbalance_qty = ProtoField.new("Total Imbalance Qty", "nyse.amexequities.integratedfeed.xdp.v2.1.g.totalimbalanceqty", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.amexequities.integratedfeed.xdp.v2.1.g.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.total_volume = ProtoField.new("Total Volume", "nyse.amexequities.integratedfeed.xdp.v2.1.g.totalvolume", ftypes.UINT32)
-omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.tradecancelmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.trade_id = ProtoField.new("Trade Id", "nyse.amexequities.integratedfeed.xdp.v2.1.g.tradeid", ftypes.UINT32)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.amexequities.integratedfeed.xdp.v2.1.g.unitoftrade", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.amexequities.integratedfeed.xdp.v2.1.g.uppercollar", ftypes.UINT32)
@@ -137,6 +112,33 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message = ProtoField.new(
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_header = ProtoField.new("Message Header", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messageheader", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.packet = ProtoField.new("Packet", "nyse.amexequities.integratedfeed.xdp.v2.1.g.packet", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.packet_header = ProtoField.new("Packet Header", "nyse.amexequities.integratedfeed.xdp.v2.1.g.packetheader", ftypes.STRING)
+
+-- Nyse AmexEquities IntegratedFeed 2.1.g Application Messages
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_message = ProtoField.new("Add Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.addordermessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_refresh_message = ProtoField.new("Add Order Refresh Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.addorderrefreshmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_correction_message = ProtoField.new("Cross Correction Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.crosscorrectionmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.crosstrademessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.delete_order_message = ProtoField.new("Delete Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.deleteordermessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.imbalance_message = ProtoField.new("Imbalance Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.imbalancemessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messageunavailablemessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.modify_order_message = ProtoField.new("Modify Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.modifyordermessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.non_displayed_trade_message = ProtoField.new("Non Displayed Trade Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.nondisplayedtrademessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.order_execution_message = ProtoField.new("Order Execution Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.orderexecutionmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.refreshheadermessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.refreshrequestmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.replace_order_message = ProtoField.new("Replace Order Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.replaceordermessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.requestresponsemessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retail_price_improvement_message = ProtoField.new("Retail Price Improvement Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.retailpriceimprovementmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.securitystatusmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.sourcetimereferencemessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.stock_summary_message = ProtoField.new("Stock Summary Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.stocksummarymessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolclearmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindexmappingrequestmessage", ftypes.STRING)
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.tradecancelmessage", ftypes.STRING)
 
 -- Nyse AmexEquities IntegratedFeed Xdp 2.1.g generated fields
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messageindex", ftypes.UINT16)
@@ -162,11 +164,13 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.absolute_time_base = 0
 local show = {}
 
 -- Nyse AmexEquities IntegratedFeed Xdp 2.1.g Element Dissection Options
+show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
 
 -- Register Nyse AmexEquities IntegratedFeed Xdp 2.1.g Show Options
+omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -177,6 +181,9 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.absolute_time_base = Pref.
 function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs_changed()
 
   -- Check if preferences have changed
+  if show.application_messages ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_application_messages then
+    show.application_messages = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_application_messages
+  end
   if show.headers ~= omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_headers then
     show.headers = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.prefs.show_headers
   end
@@ -828,7 +835,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_side.size = 1
 
 -- Display: Imbalance Side
 nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_side.display = function(value)
-  if value == "  " then
+  if value == " " then
     return "Imbalance Side: No Imbalance (<whitespace>)"
   end
   if value == "B" then
@@ -1956,7 +1963,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
 nyse_amexequities_integratedfeed_xdp_v2_1_g.rpi_indicator.display = function(value)
-  if value == "  " then
+  if value == " " then
     return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
   if value == "A" then
@@ -2851,28 +2858,28 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.stock_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- High Price: 4 Byte Unsigned Fixed Width Integer
+  -- High Price: Binary
   index, high_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 4 Byte Unsigned Fixed Width Integer
+  -- Low Price: Binary
   index, low_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.low_price.dissect(buffer, index, packet, parent)
 
-  -- Open: 4 Byte Unsigned Fixed Width Integer
+  -- Open: Binary
   index, open = nyse_amexequities_integratedfeed_xdp_v2_1_g.open.dissect(buffer, index, packet, parent)
 
-  -- Close: 4 Byte Unsigned Fixed Width Integer
+  -- Close: Binary
   index, close = nyse_amexequities_integratedfeed_xdp_v2_1_g.close.dissect(buffer, index, packet, parent)
 
-  -- Total Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume: Binary
   index, total_volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.total_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2880,7 +2887,7 @@ end
 
 -- Dissect: Stock Summary Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.stock_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.stock_summary_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.stock_summary_message.fields(buffer, offset, packet, parent)
@@ -2919,28 +2926,28 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_amexequities_integratedfeed_xdp_v2_1_g.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
-  -- Printable Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Printable Flag: Binary
   index, printable_flag = nyse_amexequities_integratedfeed_xdp_v2_1_g.printable_flag.dissect(buffer, index, packet, parent)
 
-  -- Db Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Db Exec Id: Binary
   index, db_exec_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.db_exec_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2948,7 +2955,7 @@ end
 
 -- Dissect: Non Displayed Trade Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.non_displayed_trade_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.non_displayed_trade_message.fields(buffer, offset, packet, parent)
@@ -2989,34 +2996,34 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.order_execution_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_amexequities_integratedfeed_xdp_v2_1_g.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
-  -- Printable Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Printable Flag: Binary
   index, printable_flag = nyse_amexequities_integratedfeed_xdp_v2_1_g.printable_flag.dissect(buffer, index, packet, parent)
 
-  -- Num Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- Num Parity Splits: Binary
   index, num_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.num_parity_splits.dissect(buffer, index, packet, parent)
 
-  -- Db Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Db Exec Id: Binary
   index, db_exec_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.db_exec_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3024,7 +3031,7 @@ end
 
 -- Dissect: Order Execution Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.order_execution_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.order_execution_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_execution_message.fields(buffer, offset, packet, parent)
@@ -3075,64 +3082,64 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Reference Price: 4 Byte Unsigned Fixed Width Integer
+  -- Reference Price: Binary
   index, reference_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.reference_price.dissect(buffer, index, packet, parent)
 
-  -- Paired Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Paired Qty: Binary
   index, paired_qty = nyse_amexequities_integratedfeed_xdp_v2_1_g.paired_qty.dissect(buffer, index, packet, parent)
 
-  -- Total Imbalance Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Total Imbalance Qty: Binary
   index, total_imbalance_qty = nyse_amexequities_integratedfeed_xdp_v2_1_g.total_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Market Imbalance Qty: 4 Byte Unsigned Fixed Width Integer
+  -- Market Imbalance Qty: Binary
   index, market_imbalance_qty = nyse_amexequities_integratedfeed_xdp_v2_1_g.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Auction Time: 2 Byte Unsigned Fixed Width Integer
+  -- Auction Time: Binary
   index, auction_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.auction_time.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 5 values
+  -- Auction Type: ASCII
   index, auction_type = nyse_amexequities_integratedfeed_xdp_v2_1_g.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  -- Imbalance Side: ASCII
   index, imbalance_side = nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Continuous Book Clearing Price: 4 Byte Unsigned Fixed Width Integer
+  -- Continuous Book Clearing Price: Binary
   index, continuous_book_clearing_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Closing Only Clearing Price: 4 Byte Unsigned Fixed Width Integer
+  -- Closing Only Clearing Price: Binary
   index, closing_only_clearing_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.closing_only_clearing_price.dissect(buffer, index, packet, parent)
 
-  -- Ssr Filing Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Filing Price: Binary
   index, ssr_filing_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.ssr_filing_price.dissect(buffer, index, packet, parent)
 
-  -- Indicative Match Price: 4 Byte Unsigned Fixed Width Integer
+  -- Indicative Match Price: Binary
   index, indicative_match_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.indicative_match_price.dissect(buffer, index, packet, parent)
 
-  -- Upper Collar: 4 Byte Unsigned Fixed Width Integer
+  -- Upper Collar: Binary
   index, upper_collar = nyse_amexequities_integratedfeed_xdp_v2_1_g.upper_collar.dissect(buffer, index, packet, parent)
 
-  -- Lower Collar: 4 Byte Unsigned Fixed Width Integer
+  -- Lower Collar: Binary
   index, lower_collar = nyse_amexequities_integratedfeed_xdp_v2_1_g.lower_collar.dissect(buffer, index, packet, parent)
 
-  -- Auction Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Auction Status: Binary
   index, auction_status = nyse_amexequities_integratedfeed_xdp_v2_1_g.auction_status.dissect(buffer, index, packet, parent)
 
-  -- Freeze Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Freeze Status: Binary
   index, freeze_status = nyse_amexequities_integratedfeed_xdp_v2_1_g.freeze_status.dissect(buffer, index, packet, parent)
 
-  -- Num Extensions: 1 Byte Unsigned Fixed Width Integer
+  -- Num Extensions: Binary
   index, num_extensions = nyse_amexequities_integratedfeed_xdp_v2_1_g.num_extensions.dissect(buffer, index, packet, parent)
 
   return index
@@ -3140,7 +3147,7 @@ end
 
 -- Dissect: Imbalance Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.imbalance_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.imbalance_message.fields(buffer, offset, packet, parent)
@@ -3181,34 +3188,34 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_amexequities_integratedfeed_xdp_v2_1_g.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_amexequities_integratedfeed_xdp_v2_1_g.side.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 5 Byte Ascii String
+  -- Firm Id: ASCII
   index, firm_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Num Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- Num Parity Splits: Binary
   index, num_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.num_parity_splits.dissect(buffer, index, packet, parent)
 
   return index
@@ -3216,7 +3223,7 @@ end
 
 -- Dissect: Add Order Refresh Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_refresh_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_refresh_message.fields(buffer, offset, packet, parent)
@@ -3251,16 +3258,16 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Rpi Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Rpi Indicator: ASCII
   index, rpi_indicator = nyse_amexequities_integratedfeed_xdp_v2_1_g.rpi_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -3268,7 +3275,7 @@ end
 
 -- Dissect: Retail Price Improvement Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retail_price_improvement_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.retail_price_improvement_message.fields(buffer, offset, packet, parent)
@@ -3304,19 +3311,19 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Id: Binary
   index, cross_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_id.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -3324,7 +3331,7 @@ end
 
 -- Dissect: Cross Correction Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_correction_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_correction_message.fields(buffer, offset, packet, parent)
@@ -3362,25 +3369,25 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Cross Id: 4 Byte Unsigned Fixed Width Integer
+  -- Cross Id: Binary
   index, cross_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_amexequities_integratedfeed_xdp_v2_1_g.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
-  -- Cross Type: 1 Byte Ascii String Enum with 4 values
+  -- Cross Type: ASCII
   index, cross_type = nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -3388,7 +3395,7 @@ end
 
 -- Dissect: Cross Trade Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.cross_trade_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.cross_trade_message.fields(buffer, offset, packet, parent)
@@ -3423,16 +3430,16 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3440,7 +3447,7 @@ end
 
 -- Dissect: Trade Cancel Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.trade_cancel_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -3476,19 +3483,19 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_id.dissect(buffer, index, packet, parent)
 
-  -- Num Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- Num Parity Splits: Binary
   index, num_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.num_parity_splits.dissect(buffer, index, packet, parent)
 
   return index
@@ -3496,7 +3503,7 @@ end
 
 -- Dissect: Delete Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.delete_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.delete_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.delete_order_message.fields(buffer, offset, packet, parent)
@@ -3536,31 +3543,31 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.replace_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_id.dissect(buffer, index, packet, parent)
 
-  -- New Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- New Order Id: Binary
   index, new_order_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.new_order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_amexequities_integratedfeed_xdp_v2_1_g.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
-  -- Prev Price Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- Prev Price Parity Splits: Binary
   index, prev_price_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits.dissect(buffer, index, packet, parent)
 
-  -- New Price Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- New Price Parity Splits: Binary
   index, new_price_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.new_price_parity_splits.dissect(buffer, index, packet, parent)
 
   return index
@@ -3568,7 +3575,7 @@ end
 
 -- Dissect: Replace Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.replace_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.replace_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.replace_order_message.fields(buffer, offset, packet, parent)
@@ -3608,31 +3615,31 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.modify_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_amexequities_integratedfeed_xdp_v2_1_g.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
-  -- Position Change: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Position Change: Binary
   index, position_change = nyse_amexequities_integratedfeed_xdp_v2_1_g.position_change.dissect(buffer, index, packet, parent)
 
-  -- Prev Price Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- Prev Price Parity Splits: Binary
   index, prev_price_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.prev_price_parity_splits.dissect(buffer, index, packet, parent)
 
-  -- New Price Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- New Price Parity Splits: Binary
   index, new_price_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.new_price_parity_splits.dissect(buffer, index, packet, parent)
 
   return index
@@ -3640,7 +3647,7 @@ end
 
 -- Dissect: Modify Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.modify_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.modify_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.modify_order_message.fields(buffer, offset, packet, parent)
@@ -3680,31 +3687,31 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.order_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: Binary
   index, price = nyse_amexequities_integratedfeed_xdp_v2_1_g.price.dissect(buffer, index, packet, parent)
 
-  -- Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Volume: Binary
   index, volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.volume.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_amexequities_integratedfeed_xdp_v2_1_g.side.dissect(buffer, index, packet, parent)
 
-  -- Firm Id: 5 Byte Ascii String
+  -- Firm Id: ASCII
   index, firm_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.firm_id.dissect(buffer, index, packet, parent)
 
-  -- Num Parity Splits: 1 Byte Unsigned Fixed Width Integer
+  -- Num Parity Splits: Binary
   index, num_parity_splits = nyse_amexequities_integratedfeed_xdp_v2_1_g.num_parity_splits.dissect(buffer, index, packet, parent)
 
   return index
@@ -3712,7 +3719,7 @@ end
 
 -- Dissect: Add Order Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.add_order_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.add_order_message.fields(buffer, offset, packet, parent)
@@ -3747,16 +3754,16 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_header_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
+  -- Current Refresh Pkt: Binary
   index, current_refresh_pkt = nyse_amexequities_integratedfeed_xdp_v2_1_g.current_refresh_pkt.dissect(buffer, index, packet, parent)
 
-  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
+  -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_amexequities_integratedfeed_xdp_v2_1_g.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Seq Num: Binary
   index, last_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.last_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Symbol Seq Num: Binary
   index, last_symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.last_symbol_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -3764,7 +3771,7 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_header_message.fields(buffer, offset, packet, parent)
@@ -3810,49 +3817,49 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 16 values
+  -- Security Status: ASCII
   index, security_status = nyse_amexequities_integratedfeed_xdp_v2_1_g.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String Enum with 12 values
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_amexequities_integratedfeed_xdp_v2_1_g.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: reserved
   index, reserved_4 = nyse_amexequities_integratedfeed_xdp_v2_1_g.reserved_4.dissect(buffer, index, packet, parent)
 
-  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  -- Price 1: Binary
   index, price_1 = nyse_amexequities_integratedfeed_xdp_v2_1_g.price_1.dissect(buffer, index, packet, parent)
 
-  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  -- Price 2: Binary
   index, price_2 = nyse_amexequities_integratedfeed_xdp_v2_1_g.price_2.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
+  -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Triggering Volume: Binary
   index, ssr_triggering_volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Time: Binary
   index, time = nyse_amexequities_integratedfeed_xdp_v2_1_g.time.dissect(buffer, index, packet, parent)
 
-  -- Ssr State: 1 Byte Ascii String Enum with 2 values
+  -- Ssr State: ASCII
   index, ssr_state = nyse_amexequities_integratedfeed_xdp_v2_1_g.ssr_state.dissect(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String Enum with 5 values
+  -- Market State: ASCII
   index, market_state = nyse_amexequities_integratedfeed_xdp_v2_1_g.market_state.dissect(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Ascii String
+  -- Session State: ASCII
   index, session_state = nyse_amexequities_integratedfeed_xdp_v2_1_g.session_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -3860,7 +3867,7 @@ end
 
 -- Dissect: Security Status Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.security_status_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.security_status_message.fields(buffer, offset, packet, parent)
@@ -3895,16 +3902,16 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Next Source Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.next_source_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -3912,7 +3919,7 @@ end
 
 -- Dissect: Symbol Clear Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -3947,16 +3954,16 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.message_unavailable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3964,7 +3971,7 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.message_unavailable_message.fields(buffer, offset, packet, parent)
@@ -3999,16 +4006,16 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4016,7 +4023,7 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.refresh_request_message.fields(buffer, offset, packet, parent)
@@ -4052,19 +4059,19 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Retransmit Method: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Retransmit Method: Binary
   index, retransmit_method = nyse_amexequities_integratedfeed_xdp_v2_1_g.retransmit_method.dissect(buffer, index, packet, parent)
 
   return index
@@ -4072,7 +4079,7 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
@@ -4104,7 +4111,7 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4112,7 +4119,7 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.heartbeat_response_message.fields(buffer, offset, packet, parent)
@@ -4150,25 +4157,25 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Request Seq Num: Binary
   index, request_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.request_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String Enum with 10 values
+  -- Status: ASCII
   index, status = nyse_amexequities_integratedfeed_xdp_v2_1_g.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -4176,7 +4183,7 @@ end
 
 -- Dissect: Request Response Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.request_response_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.request_response_message.fields(buffer, offset, packet, parent)
@@ -4212,19 +4219,19 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.retransmission_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4232,7 +4239,7 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.retransmission_request_message.fields(buffer, offset, packet, parent)
@@ -4279,52 +4286,52 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: ASCII
   index, symbol = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_amexequities_integratedfeed_xdp_v2_1_g.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Market Id: Binary
   index, market_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 9 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_amexequities_integratedfeed_xdp_v2_1_g.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_amexequities_integratedfeed_xdp_v2_1_g.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_amexequities_integratedfeed_xdp_v2_1_g.security_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: 2 Byte Unsigned Fixed Width Integer
+  -- Lot Size: Binary
   index, lot_size = nyse_amexequities_integratedfeed_xdp_v2_1_g.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Price: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Price: Binary
   index, prev_close_price = nyse_amexequities_integratedfeed_xdp_v2_1_g.prev_close_price.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_amexequities_integratedfeed_xdp_v2_1_g.prev_close_volume.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Resolution: Binary
   index, price_resolution = nyse_amexequities_integratedfeed_xdp_v2_1_g.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 1 Byte Ascii String Enum with 2 values
+  -- Round Lot: ASCII
   index, round_lot = nyse_amexequities_integratedfeed_xdp_v2_1_g.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 2 Byte Unsigned Fixed Width Integer
+  -- Mpv: Binary
   index, mpv = nyse_amexequities_integratedfeed_xdp_v2_1_g.mpv.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Trade: 2 Byte Unsigned Fixed Width Integer
+  -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_amexequities_integratedfeed_xdp_v2_1_g.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_amexequities_integratedfeed_xdp_v2_1_g.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -4332,7 +4339,7 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -4366,13 +4373,13 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Id: 4 Byte Unsigned Fixed Width Integer
+  -- Id: Binary
   index, id = nyse_amexequities_integratedfeed_xdp_v2_1_g.id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_amexequities_integratedfeed_xdp_v2_1_g.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -4380,7 +4387,7 @@ end
 
 -- Dissect: Source Time Reference Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.source_time_reference_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_reference_message.fields(buffer, offset, packet, parent)
@@ -4415,16 +4422,16 @@ end
 nyse_amexequities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_amexequities_integratedfeed_xdp_v2_1_g.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_amexequities_integratedfeed_xdp_v2_1_g.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -4432,7 +4439,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_amexequities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_amexequities_integratedfeed_xdp_v2_1_g.sequence_number_reset_message.fields(buffer, offset, packet, parent)

@@ -283,9 +283,6 @@ jobs:
       - name: Run Nyse NyseEquities IntegratedFeed Xdp 2.1.g Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Xdp-v2-1-g-Test.sh
 
-      - name: Run Nyse NyseEquities IntegratedFeed Xdp 2.3.a Dissector Tests
-        run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeed-Xdp-v2-3-a-Test.sh
-
       - name: Run Nyse NyseEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 

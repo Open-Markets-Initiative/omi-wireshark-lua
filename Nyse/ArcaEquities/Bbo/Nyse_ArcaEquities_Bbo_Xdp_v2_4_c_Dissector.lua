@@ -26,7 +26,6 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.delivery_flag = ProtoField.new("Deli
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.endseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.exchange_code = ProtoField.new("Exchange Code", "nyse.arcaequities.bbo.xdp.v2.4.c.exchangecode", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.halt_condition = ProtoField.new("Halt Condition", "nyse.arcaequities.bbo.xdp.v2.4.c.haltcondition", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.bbo.xdp.v2.4.c.heartbeatresponsemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.id = ProtoField.new("Id", "nyse.arcaequities.bbo.xdp.v2.4.c.id", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.last_seq_num = ProtoField.new("Last Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.lastseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.last_symbol_seq_num = ProtoField.new("Last Symbol Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.lastsymbolseqnum", ftypes.UINT32)
@@ -36,7 +35,6 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.market_state = ProtoField.new("Marke
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_count = ProtoField.new("Message Count", "nyse.arcaequities.bbo.xdp.v2.4.c.messagecount", ftypes.UINT8)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.bbo.xdp.v2.4.c.messagesize", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.bbo.xdp.v2.4.c.messagetype", ftypes.UINT16)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaequities.bbo.xdp.v2.4.c.messageunavailablemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.mpv = ProtoField.new("Mpv", "nyse.arcaequities.bbo.xdp.v2.4.c.mpv", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaequities.bbo.xdp.v2.4.c.nanoseconds", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.next_source_seq_num = ProtoField.new("Next Source Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.nextsourceseqnum", ftypes.UINT32)
@@ -49,46 +47,34 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_resolution = ProtoField.new("P
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_scale_code = ProtoField.new("Price Scale Code", "nyse.arcaequities.bbo.xdp.v2.4.c.pricescalecode", ftypes.UINT8)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.product_id = ProtoField.new("Product Id", "nyse.arcaequities.bbo.xdp.v2.4.c.productid", ftypes.UINT8)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.arcaequities.bbo.xdp.v2.4.c.quotecondition", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.quote_message = ProtoField.new("Quote Message", "nyse.arcaequities.bbo.xdp.v2.4.c.quotemessage", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arcaequities.bbo.xdp.v2.4.c.refreshheadermessage", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arcaequities.bbo.xdp.v2.4.c.refreshrequestmessage", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arcaequities.bbo.xdp.v2.4.c.requestresponsemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.requestseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaequities.bbo.xdp.v2.4.c.reserved1", ftypes.BYTES)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaequities.bbo.xdp.v2.4.c.reserved2", ftypes.BYTES)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.arcaequities.bbo.xdp.v2.4.c.reserved4", ftypes.BYTES)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arcaequities.bbo.xdp.v2.4.c.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaequities.bbo.xdp.v2.4.c.retransmitmethod", ftypes.UINT8)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaequities.bbo.xdp.v2.4.c.roundlot", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.arcaequities.bbo.xdp.v2.4.c.rpiindicator", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.bbo.xdp.v2.4.c.seconds", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.bbo.xdp.v2.4.c.securitystatus", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.arcaequities.bbo.xdp.v2.4.c.securitystatusmessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_type = ProtoField.new("Security Type", "nyse.arcaequities.bbo.xdp.v2.4.c.securitytype", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arcaequities.bbo.xdp.v2.4.c.sequencenumber", ftypes.UINT32)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaequities.bbo.xdp.v2.4.c.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.session_state = ProtoField.new("Session State", "nyse.arcaequities.bbo.xdp.v2.4.c.sessionstate", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_id = ProtoField.new("Source Id", "nyse.arcaequities.bbo.xdp.v2.4.c.sourceid", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetime", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetimens", ftypes.UINT32)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetimereferencemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arcaequities.bbo.xdp.v2.4.c.ssrstate", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arcaequities.bbo.xdp.v2.4.c.ssrtriggeringexchangeid", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ssr_triggering_volume = ProtoField.new("Ssr Triggering Volume", "nyse.arcaequities.bbo.xdp.v2.4.c.ssrtriggeringvolume", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.status = ProtoField.new("Status", "nyse.arcaequities.bbo.xdp.v2.4.c.status", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol = ProtoField.new("Symbol", "nyse.arcaequities.bbo.xdp.v2.4.c.symbol", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolclearmessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolindex", ftypes.UINT32)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolindexmappingmessage", ftypes.STRING)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolseqnum", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.system_id = ProtoField.new("System Id", "nyse.arcaequities.bbo.xdp.v2.4.c.systemid", ftypes.UINT8)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.time = ProtoField.new("Time", "nyse.arcaequities.bbo.xdp.v2.4.c.time", ftypes.UINT32)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.total_refresh_pkts = ProtoField.new("Total Refresh Pkts", "nyse.arcaequities.bbo.xdp.v2.4.c.totalrefreshpkts", ftypes.UINT16)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session = ProtoField.new("Trading Session", "nyse.arcaequities.bbo.xdp.v2.4.c.tradingsession", ftypes.UINT8)
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.arcaequities.bbo.xdp.v2.4.c.tradingsessionchangemessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.arcaequities.bbo.xdp.v2.4.c.unitoftrade", ftypes.UINT16)
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Framing
@@ -96,6 +82,22 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message = ProtoField.new("Message", 
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.bbo.xdp.v2.4.c.messageheader", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet = ProtoField.new("Packet", "nyse.arcaequities.bbo.xdp.v2.4.c.packet", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.bbo.xdp.v2.4.c.packetheader", ftypes.STRING)
+
+-- Nyse ArcaEquities Bbo 2.4.c Application Messages
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.bbo.xdp.v2.4.c.heartbeatresponsemessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_unavailable_message = ProtoField.new("Message Unavailable Message", "nyse.arcaequities.bbo.xdp.v2.4.c.messageunavailablemessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.quote_message = ProtoField.new("Quote Message", "nyse.arcaequities.bbo.xdp.v2.4.c.quotemessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.refresh_header_message = ProtoField.new("Refresh Header Message", "nyse.arcaequities.bbo.xdp.v2.4.c.refreshheadermessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arcaequities.bbo.xdp.v2.4.c.refreshrequestmessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arcaequities.bbo.xdp.v2.4.c.requestresponsemessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arcaequities.bbo.xdp.v2.4.c.retransmissionrequestmessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_status_message = ProtoField.new("Security Status Message", "nyse.arcaequities.bbo.xdp.v2.4.c.securitystatusmessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaequities.bbo.xdp.v2.4.c.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time_reference_message = ProtoField.new("Source Time Reference Message", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetimereferencemessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_clear_message = ProtoField.new("Symbol Clear Message", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolclearmessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolindexmappingmessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolindexmappingrequestmessage", ftypes.STRING)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.arcaequities.bbo.xdp.v2.4.c.tradingsessionchangemessage", ftypes.STRING)
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c generated fields
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.bbo.xdp.v2.4.c.messageindex", ftypes.UINT16)
@@ -121,11 +123,13 @@ nyse_arcaequities_bbo_xdp_v2_4_c.absolute_time_base = 0
 local show = {}
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Element Dissection Options
+show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
 
 -- Register Nyse ArcaEquities Bbo Xdp 2.4.c Show Options
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -136,6 +140,9 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.absolute_time_base = Pref.enum("Absol
 function omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs_changed()
 
   -- Check if preferences have changed
+  if show.application_messages ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages then
+    show.application_messages = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages
+  end
   if show.headers ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers then
     show.headers = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers
   end
@@ -1221,7 +1228,7 @@ nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.size = 1
 
 -- Display: Rpi Indicator
 nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.display = function(value)
-  if value == "  " then
+  if value == " " then
     return "Rpi Indicator: No Retail Interest (<whitespace>)"
   end
   if value == "A" then
@@ -1935,34 +1942,34 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price: Binary
   index, ask_price = nyse_arcaequities_bbo_xdp_v2_4_c.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_arcaequities_bbo_xdp_v2_4_c.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price: Binary
   index, bid_price = nyse_arcaequities_bbo_xdp_v2_4_c.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_arcaequities_bbo_xdp_v2_4_c.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 4 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_arcaequities_bbo_xdp_v2_4_c.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Rpi Indicator: 1 Byte Ascii String Enum with 4 values
+  -- Rpi Indicator: ASCII
   index, rpi_indicator = nyse_arcaequities_bbo_xdp_v2_4_c.rpi_indicator.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: reserved
   index, reserved_4 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.dissect(buffer, index, packet, parent)
 
   return index
@@ -1970,7 +1977,7 @@ end
 
 -- Dissect: Quote Message
 nyse_arcaequities_bbo_xdp_v2_4_c.quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.quote_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.quote_message.fields(buffer, offset, packet, parent)
@@ -2005,16 +2012,16 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Current Refresh Pkt: 2 Byte Unsigned Fixed Width Integer
+  -- Current Refresh Pkt: Binary
   index, current_refresh_pkt = nyse_arcaequities_bbo_xdp_v2_4_c.current_refresh_pkt.dissect(buffer, index, packet, parent)
 
-  -- Total Refresh Pkts: 2 Byte Unsigned Fixed Width Integer
+  -- Total Refresh Pkts: Binary
   index, total_refresh_pkts = nyse_arcaequities_bbo_xdp_v2_4_c.total_refresh_pkts.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Seq Num: Binary
   index, last_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.last_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Last Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Symbol Seq Num: Binary
   index, last_symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.last_symbol_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2022,7 +2029,7 @@ end
 
 -- Dissect: Refresh Header Message
 nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.refresh_header_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.refresh_header_message.fields(buffer, offset, packet, parent)
@@ -2068,49 +2075,49 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_bbo_xdp_v2_4_c.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 16 values
+  -- Security Status: ASCII
   index, security_status = nyse_arcaequities_bbo_xdp_v2_4_c.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String Enum with 12 values
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_arcaequities_bbo_xdp_v2_4_c.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: 4 Byte
+  -- Reserved 4: reserved
   index, reserved_4 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_4.dissect(buffer, index, packet, parent)
 
-  -- Price 1: 4 Byte Unsigned Fixed Width Integer
+  -- Price 1: Binary
   index, price_1 = nyse_arcaequities_bbo_xdp_v2_4_c.price_1.dissect(buffer, index, packet, parent)
 
-  -- Price 2: 4 Byte Unsigned Fixed Width Integer
+  -- Price 2: Binary
   index, price_2 = nyse_arcaequities_bbo_xdp_v2_4_c.price_2.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 18 values
+  -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
 
-  -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Ssr Triggering Volume: Binary
   index, ssr_triggering_volume = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_volume.dissect(buffer, index, packet, parent)
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Time: Binary
   index, time = nyse_arcaequities_bbo_xdp_v2_4_c.time.dissect(buffer, index, packet, parent)
 
-  -- Ssr State: 1 Byte Ascii String
+  -- Ssr State: ASCII
   index, ssr_state = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_state.dissect(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String
+  -- Market State: ASCII
   index, market_state = nyse_arcaequities_bbo_xdp_v2_4_c.market_state.dissect(buffer, index, packet, parent)
 
-  -- Session State: 1 Byte Ascii String
+  -- Session State: ASCII
   index, session_state = nyse_arcaequities_bbo_xdp_v2_4_c.session_state.dissect(buffer, index, packet, parent)
 
   return index
@@ -2118,7 +2125,7 @@ end
 
 -- Dissect: Security Status Message
 nyse_arcaequities_bbo_xdp_v2_4_c.security_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_status_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.security_status_message.fields(buffer, offset, packet, parent)
@@ -2154,19 +2161,19 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.trading_session_change_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_bbo_xdp_v2_4_c.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trading Session: 1 Byte Unsigned Fixed Width Integer
+  -- Trading Session: Binary
   index, trading_session = nyse_arcaequities_bbo_xdp_v2_4_c.trading_session.dissect(buffer, index, packet, parent)
 
   return index
@@ -2174,7 +2181,7 @@ end
 
 -- Dissect: Trading Session Change Message
 nyse_arcaequities_bbo_xdp_v2_4_c.trading_session_change_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session_change_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.trading_session_change_message.fields(buffer, offset, packet, parent)
@@ -2209,16 +2216,16 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_bbo_xdp_v2_4_c.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Next Source Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.next_source_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -2226,7 +2233,7 @@ end
 
 -- Dissect: Symbol Clear Message
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_clear_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_clear_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_clear_message.fields(buffer, offset, packet, parent)
@@ -2261,16 +2268,16 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.message_unavailable_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaequities_bbo_xdp_v2_4_c.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaequities_bbo_xdp_v2_4_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2278,7 +2285,7 @@ end
 
 -- Dissect: Message Unavailable Message
 nyse_arcaequities_bbo_xdp_v2_4_c.message_unavailable_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_unavailable_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.message_unavailable_message.fields(buffer, offset, packet, parent)
@@ -2313,16 +2320,16 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaequities_bbo_xdp_v2_4_c.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaequities_bbo_xdp_v2_4_c.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaequities_bbo_xdp_v2_4_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2330,7 +2337,7 @@ end
 
 -- Dissect: Refresh Request Message
 nyse_arcaequities_bbo_xdp_v2_4_c.refresh_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.refresh_request_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.refresh_request_message.fields(buffer, offset, packet, parent)
@@ -2366,19 +2373,19 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaequities_bbo_xdp_v2_4_c.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaequities_bbo_xdp_v2_4_c.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaequities_bbo_xdp_v2_4_c.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Retransmit Method: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
+  -- Retransmit Method: Binary
   index, retransmit_method = nyse_arcaequities_bbo_xdp_v2_4_c.retransmit_method.dissect(buffer, index, packet, parent)
 
   return index
@@ -2386,7 +2393,7 @@ end
 
 -- Dissect: Symbol Index Mapping Request Message
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_request_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
@@ -2418,7 +2425,7 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaequities_bbo_xdp_v2_4_c.source_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2426,7 +2433,7 @@ end
 
 -- Dissect: Heartbeat Response Message
 nyse_arcaequities_bbo_xdp_v2_4_c.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.heartbeat_response_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.heartbeat_response_message.fields(buffer, offset, packet, parent)
@@ -2464,25 +2471,25 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.request_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Request Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Request Seq Num: Binary
   index, request_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.request_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaequities_bbo_xdp_v2_4_c.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaequities_bbo_xdp_v2_4_c.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaequities_bbo_xdp_v2_4_c.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: ASCII
   index, status = nyse_arcaequities_bbo_xdp_v2_4_c.status.dissect(buffer, index, packet, parent)
 
   return index
@@ -2490,7 +2497,7 @@ end
 
 -- Dissect: Request Response Message
 nyse_arcaequities_bbo_xdp_v2_4_c.request_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.request_response_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.request_response_message.fields(buffer, offset, packet, parent)
@@ -2526,19 +2533,19 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.retransmission_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Begin Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Begin Seq Num: Binary
   index, begin_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.begin_seq_num.dissect(buffer, index, packet, parent)
 
-  -- End Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- End Seq Num: Binary
   index, end_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.end_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Id: 10 Byte Ascii String
+  -- Source Id: ASCII
   index, source_id = nyse_arcaequities_bbo_xdp_v2_4_c.source_id.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaequities_bbo_xdp_v2_4_c.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaequities_bbo_xdp_v2_4_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2546,7 +2553,7 @@ end
 
 -- Dissect: Retransmission Request Message
 nyse_arcaequities_bbo_xdp_v2_4_c.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.retransmission_request_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.retransmission_request_message.fields(buffer, offset, packet, parent)
@@ -2593,52 +2600,52 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: Binary
   index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 11 Byte Ascii String
+  -- Symbol: ASCII
   index, symbol = nyse_arcaequities_bbo_xdp_v2_4_c.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Market Id: Binary
   index, market_id = nyse_arcaequities_bbo_xdp_v2_4_c.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_arcaequities_bbo_xdp_v2_4_c.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 9 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_arcaequities_bbo_xdp_v2_4_c.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_arcaequities_bbo_xdp_v2_4_c.security_type.dissect(buffer, index, packet, parent)
 
-  -- Lot Size: 2 Byte Unsigned Fixed Width Integer
+  -- Lot Size: Binary
   index, lot_size = nyse_arcaequities_bbo_xdp_v2_4_c.lot_size.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Price: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Price: Binary
   index, prev_close_price = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price.dissect(buffer, index, packet, parent)
 
-  -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_volume.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer
+  -- Price Resolution: Binary
   index, price_resolution = nyse_arcaequities_bbo_xdp_v2_4_c.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Round Lot: 1 Byte Ascii String
+  -- Round Lot: ASCII
   index, round_lot = nyse_arcaequities_bbo_xdp_v2_4_c.round_lot.dissect(buffer, index, packet, parent)
 
-  -- Mpv: 2 Byte Unsigned Fixed Width Integer
+  -- Mpv: Binary
   index, mpv = nyse_arcaequities_bbo_xdp_v2_4_c.mpv.dissect(buffer, index, packet, parent)
 
-  -- Unit Of Trade: 2 Byte Unsigned Fixed Width Integer
+  -- Unit Of Trade: Binary
   index, unit_of_trade = nyse_arcaequities_bbo_xdp_v2_4_c.unit_of_trade.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2646,7 +2653,7 @@ end
 
 -- Dissect: Symbol Index Mapping Message
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -2680,13 +2687,13 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.source_time_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Id: 4 Byte Unsigned Fixed Width Integer
+  -- Id: Binary
   index, id = nyse_arcaequities_bbo_xdp_v2_4_c.id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_bbo_xdp_v2_4_c.source_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -2694,7 +2701,7 @@ end
 
 -- Dissect: Source Time Reference Message
 nyse_arcaequities_bbo_xdp_v2_4_c.source_time_reference_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time_reference_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.source_time_reference_message.fields(buffer, offset, packet, parent)
@@ -2729,16 +2736,16 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaequities_bbo_xdp_v2_4_c.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaequities_bbo_xdp_v2_4_c.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaequities_bbo_xdp_v2_4_c.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2746,7 +2753,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_arcaequities_bbo_xdp_v2_4_c.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.sequence_number_reset_message.fields(buffer, offset, packet, parent)

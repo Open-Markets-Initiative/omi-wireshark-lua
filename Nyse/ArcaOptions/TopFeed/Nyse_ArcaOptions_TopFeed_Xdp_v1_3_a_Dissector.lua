@@ -45,15 +45,6 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.nanoseconds = ProtoField.new("Nan
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.open = ProtoField.new("Open", "nyse.arcaoptions.topfeed.xdp.v1.3.a.open", ftypes.INT32)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.option_symbol_root = ProtoField.new("Option Symbol Root", "nyse.arcaoptions.topfeed.xdp.v1.3.a.optionsymbolroot", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.original_trade_id = ProtoField.new("Original Trade Id", "nyse.arcaoptions.topfeed.xdp.v1.3.a.originaltradeid", ftypes.UINT32)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_bold_rfq_message = ProtoField.new("Outright Bold Rfq Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightboldrfqmessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message = ProtoField.new("Outright Crossing Rfq Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightcrossingrfqmessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_imbalance_message = ProtoField.new("Outright Imbalance Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightimbalancemessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_quote_message = ProtoField.new("Outright Quote Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightquotemessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_summary_message = ProtoField.new("Outright Summary Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightsummarymessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message = ProtoField.new("Outright Trade Cancel Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrighttradecancelmessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message = ProtoField.new("Outright Trade Correction Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrighttradecorrectionmessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_message = ProtoField.new("Outright Trade Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrighttrademessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.packet_size = ProtoField.new("Packet Size", "nyse.arcaoptions.topfeed.xdp.v1.3.a.packetsize", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.paired_qty = ProtoField.new("Paired Qty", "nyse.arcaoptions.topfeed.xdp.v1.3.a.pairedqty", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.participant = ProtoField.new("Participant", "nyse.arcaoptions.topfeed.xdp.v1.3.a.participant", ftypes.STRING)
@@ -64,9 +55,6 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("Prod
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.put_or_call = ProtoField.new("Put Or Call", "nyse.arcaoptions.topfeed.xdp.v1.3.a.putorcall", ftypes.UINT8)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.arcaoptions.topfeed.xdp.v1.3.a.quotecondition", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.reference_price = ProtoField.new("Reference Price", "nyse.arcaoptions.topfeed.xdp.v1.3.a.referenceprice", ftypes.INT32)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_imbalance_message = ProtoField.new("Refresh Outright Imbalance Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.refreshoutrightimbalancemessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_quote_message = ProtoField.new("Refresh Outright Quote Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.refreshoutrightquotemessage", ftypes.STRING)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message = ProtoField.new("Refresh Outright Trade Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.refreshoutrighttrademessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.arcaoptions.topfeed.xdp.v1.3.a.reserved1", ftypes.BYTES)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.arcaoptions.topfeed.xdp.v1.3.a.reserved2", ftypes.BYTES)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.reserved_3 = ProtoField.new("Reserved 3", "nyse.arcaoptions.topfeed.xdp.v1.3.a.reserved3", ftypes.BYTES)
@@ -78,15 +66,12 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.security_type = ProtoField.new("S
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.series_index = ProtoField.new("Series Index", "nyse.arcaoptions.topfeed.xdp.v1.3.a.seriesindex", ftypes.UINT32)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.series_index_mapping_message = ProtoField.new("Series Index Mapping Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.seriesindexmappingmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.arcaoptions.topfeed.xdp.v1.3.a.side", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sourcens", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sourcetime", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.arcaoptions.topfeed.xdp.v1.3.a.streamid", ftypes.UINT16)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.strike_price = ProtoField.new("Strike Price", "nyse.arcaoptions.topfeed.xdp.v1.3.a.strikeprice", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.symbol_seq_num = ProtoField.new("Symbol Seq Num", "nyse.arcaoptions.topfeed.xdp.v1.3.a.symbolseqnum", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.system_id = ProtoField.new("System Id", "nyse.arcaoptions.topfeed.xdp.v1.3.a.systemid", ftypes.UINT8)
@@ -96,9 +81,7 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.trade_cond_1 = ProtoField.new("Tr
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.trade_cond_2 = ProtoField.new("Trade Cond 2", "nyse.arcaoptions.topfeed.xdp.v1.3.a.tradecond2", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.arcaoptions.topfeed.xdp.v1.3.a.tradeid", ftypes.UINT32)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_index = ProtoField.new("Underlying Index", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingindex", ftypes.UINT32)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_seq_num = ProtoField.new("Underlying Seq Num", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingseqnum", ftypes.UINT32)
-omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingsymbol", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.volume_2 = ProtoField.new("Volume 2", "nyse.arcaoptions.topfeed.xdp.v1.3.a.volume2", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.volume_4 = ProtoField.new("Volume 4", "nyse.arcaoptions.topfeed.xdp.v1.3.a.volume4", ftypes.UINT32)
@@ -108,6 +91,25 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.message = ProtoField.new("Message
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.message_header = ProtoField.new("Message Header", "nyse.arcaoptions.topfeed.xdp.v1.3.a.messageheader", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.packet = ProtoField.new("Packet", "nyse.arcaoptions.topfeed.xdp.v1.3.a.packet", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaoptions.topfeed.xdp.v1.3.a.packetheader", ftypes.STRING)
+
+-- Nyse ArcaOptions TopFeed 1.3.a Application Messages
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_bold_rfq_message = ProtoField.new("Outright Bold Rfq Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightboldrfqmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message = ProtoField.new("Outright Crossing Rfq Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightcrossingrfqmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_imbalance_message = ProtoField.new("Outright Imbalance Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightimbalancemessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_quote_message = ProtoField.new("Outright Quote Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightquotemessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_series_status_message = ProtoField.new("Outright Series Status Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightseriesstatusmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_summary_message = ProtoField.new("Outright Summary Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrightsummarymessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message = ProtoField.new("Outright Trade Cancel Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrighttradecancelmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message = ProtoField.new("Outright Trade Correction Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrighttradecorrectionmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_message = ProtoField.new("Outright Trade Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.outrighttrademessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_imbalance_message = ProtoField.new("Refresh Outright Imbalance Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.refreshoutrightimbalancemessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_quote_message = ProtoField.new("Refresh Outright Quote Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.refreshoutrightquotemessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message = ProtoField.new("Refresh Outright Trade Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.refreshoutrighttrademessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.series_index_mapping_message = ProtoField.new("Series Index Mapping Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.seriesindexmappingmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 
 -- Nyse ArcaOptions TopFeed Xdp 1.3.a generated fields
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.topfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
@@ -135,11 +137,13 @@ local show = {}
 -- Nyse ArcaOptions TopFeed Xdp 1.3.a Element Dissection Options
 show.structs = true
 show.headers = true
+show.application_messages = true
 show.indexes = true
 
 -- Register Nyse ArcaOptions TopFeed Xdp 1.3.a Show Options
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
@@ -148,6 +152,9 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.absolute_time_base = Pref.enum("Ab
 function omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs_changed()
 
   -- Check if preferences have changed
+  if show.application_messages ~= omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_application_messages then
+    show.application_messages = omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_application_messages
+  end
   if show.headers ~= omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_headers then
     show.headers = omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.prefs.show_headers
   end
@@ -2149,16 +2156,16 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.sequence_number_reset_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Product Id: 1 Byte Unsigned Fixed Width Integer
+  -- Product Id: Binary
   index, product_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.product_id.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2166,7 +2173,7 @@ end
 
 -- Dissect: Sequence Number Reset Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.sequence_number_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.sequence_number_reset_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.sequence_number_reset_message.fields(buffer, offset, packet, parent)
@@ -2199,10 +2206,10 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.stream_id_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  -- Stream Id: Binary
   index, stream_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2210,7 +2217,7 @@ end
 
 -- Dissect: Stream Id Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.stream_id_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.stream_id_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.stream_id_message.fields(buffer, offset, packet, parent)
@@ -2257,52 +2264,52 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved A 1: 1 Byte
+  -- Reserved A 1: reserved
   index, reserved_a_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_a_1.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.system_id.dissect(buffer, index, packet, parent)
 
-  -- Reserved B 1: 1 Byte
+  -- Reserved B 1: reserved
   index, reserved_b_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_b_1.dissect(buffer, index, packet, parent)
 
-  -- Stream Id: 2 Byte Unsigned Fixed Width Integer
+  -- Stream Id: Binary
   index, stream_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.stream_id.dissect(buffer, index, packet, parent)
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Index: Binary
   index, underlying_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_index.dissect(buffer, index, packet, parent)
 
-  -- Contract Multiplier: 2 Byte Unsigned Fixed Width Integer
+  -- Contract Multiplier: Binary
   index, contract_multiplier = nyse_arcaoptions_topfeed_xdp_v1_3_a.contract_multiplier.dissect(buffer, index, packet, parent)
 
-  -- Maturity Date: 6 Byte Ascii String
+  -- Maturity Date: ASCII
   index, maturity_date = nyse_arcaoptions_topfeed_xdp_v1_3_a.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Put Or Call: Binary
   index, put_or_call = nyse_arcaoptions_topfeed_xdp_v1_3_a.put_or_call.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: 10 Byte Ascii String
+  -- Strike Price: ASCII
   index, strike_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.strike_price.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_arcaoptions_topfeed_xdp_v1_3_a.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: ASCII
   index, underlying_symbol = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Option Symbol Root: 5 Byte Ascii String
+  -- Option Symbol Root: ASCII
   index, option_symbol_root = nyse_arcaoptions_topfeed_xdp_v1_3_a.option_symbol_root.dissect(buffer, index, packet, parent)
 
-  -- Group Id: 4 Byte Unsigned Fixed Width Integer
+  -- Group Id: Binary
   index, group_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.group_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2310,7 +2317,7 @@ end
 
 -- Dissect: Series Index Mapping Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.series_index_mapping_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -2351,34 +2358,34 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_index_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Index: Binary
   index, underlying_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_index.dissect(buffer, index, packet, parent)
 
-  -- Underlying Symbol: 11 Byte Ascii String
+  -- Underlying Symbol: ASCII
   index, underlying_symbol = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Channel Id: 1 Byte Unsigned Fixed Width Integer
+  -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
+  -- Market Id: Binary
   index, market_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.market_id.dissect(buffer, index, packet, parent)
 
-  -- System Id: 1 Byte Unsigned Fixed Width Integer
+  -- System Id: Binary
   index, system_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.system_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String Enum with 6 values
+  -- Exchange Code: ASCII
   index, exchange_code = nyse_arcaoptions_topfeed_xdp_v1_3_a.exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
+  -- Price Scale Code: Binary
   index, price_scale_code = nyse_arcaoptions_topfeed_xdp_v1_3_a.price_scale_code.dissect(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String Enum with 16 values
+  -- Security Type: ASCII
   index, security_type = nyse_arcaoptions_topfeed_xdp_v1_3_a.security_type.dissect(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Price Resolution: Binary
   index, price_resolution = nyse_arcaoptions_topfeed_xdp_v1_3_a.price_resolution.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
   return index
@@ -2386,7 +2393,7 @@ end
 
 -- Dissect: Underlying Index Mapping Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_index_mapping_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_index_mapping_message.fields(buffer, offset, packet, parent)
@@ -2429,40 +2436,40 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Reference Price: 4 Byte Signed Fixed Width Integer
+  -- Reference Price: Signed Binary
   index, reference_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.reference_price.dissect(buffer, index, packet, parent)
 
-  -- Paired Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Paired Qty: Binary
   index, paired_qty = nyse_arcaoptions_topfeed_xdp_v1_3_a.paired_qty.dissect(buffer, index, packet, parent)
 
-  -- Total Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Total Imbalance Qty: Binary
   index, total_imbalance_qty = nyse_arcaoptions_topfeed_xdp_v1_3_a.total_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Market Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Market Imbalance Qty: Binary
   index, market_imbalance_qty = nyse_arcaoptions_topfeed_xdp_v1_3_a.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 2 values
+  -- Auction Type: ASCII
   index, auction_type = nyse_arcaoptions_topfeed_xdp_v1_3_a.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  -- Imbalance Side: ASCII
   index, imbalance_side = nyse_arcaoptions_topfeed_xdp_v1_3_a.imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Market Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  -- Market Imbalance Side: ASCII
   index, market_imbalance_side = nyse_arcaoptions_topfeed_xdp_v1_3_a.market_imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Reserved 3: 3 Byte
+  -- Reserved 3: reserved
   index, reserved_3 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
@@ -2470,7 +2477,7 @@ end
 
 -- Dissect: Refresh Outright Imbalance Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_imbalance_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_imbalance_message.fields(buffer, offset, packet, parent)
@@ -2511,34 +2518,34 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_arcaoptions_topfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  -- Volume 4: Binary
   index, volume_4 = nyse_arcaoptions_topfeed_xdp_v1_3_a.volume_4.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
+  -- Trade Cond 1: ASCII
   index, trade_cond_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_cond_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
+  -- Trade Cond 2: ASCII
   index, trade_cond_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_cond_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2546,7 +2553,7 @@ end
 
 -- Dissect: Refresh Outright Trade Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_trade_message.fields(buffer, offset, packet, parent)
@@ -2590,43 +2597,43 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Ask Price: Signed Binary
   index, ask_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: Signed Binary
   index, bid_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Customer Volume: Binary
   index, ask_customer_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.ask_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Customer Volume: Binary
   index, bid_customer_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.bid_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_arcaoptions_topfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2634,7 +2641,7 @@ end
 
 -- Dissect: Refresh Outright Quote Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.refresh_outright_quote_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.refresh_outright_quote_message.fields(buffer, offset, packet, parent)
@@ -2672,25 +2679,25 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_series_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 8 values
+  -- Security Status: ASCII
   index, security_status = nyse_arcaoptions_topfeed_xdp_v1_3_a.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_arcaoptions_topfeed_xdp_v1_3_a.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2698,7 +2705,7 @@ end
 
 -- Dissect: Outright Series Status Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_series_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_series_status_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_series_status_message.fields(buffer, offset, packet, parent)
@@ -2736,25 +2743,25 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Index: Binary
   index, underlying_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_index.dissect(buffer, index, packet, parent)
 
-  -- Underlying Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Seq Num: Binary
   index, underlying_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String Enum with 8 values
+  -- Security Status: ASCII
   index, security_status = nyse_arcaoptions_topfeed_xdp_v1_3_a.security_status.dissect(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String
+  -- Halt Condition: ASCII
   index, halt_condition = nyse_arcaoptions_topfeed_xdp_v1_3_a.halt_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -2762,7 +2769,7 @@ end
 
 -- Dissect: Underlying Status Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_status_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_status_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.underlying_status_message.fields(buffer, offset, packet, parent)
@@ -2802,31 +2809,31 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- High Price: 4 Byte Signed Fixed Width Integer
+  -- High Price: Signed Binary
   index, high_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price: 4 Byte Signed Fixed Width Integer
+  -- Low Price: Signed Binary
   index, low_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.low_price.dissect(buffer, index, packet, parent)
 
-  -- Open: 4 Byte Signed Fixed Width Integer
+  -- Open: Signed Binary
   index, open = nyse_arcaoptions_topfeed_xdp_v1_3_a.open.dissect(buffer, index, packet, parent)
 
-  -- Close: 4 Byte Signed Fixed Width Integer
+  -- Close: Signed Binary
   index, close = nyse_arcaoptions_topfeed_xdp_v1_3_a.close.dissect(buffer, index, packet, parent)
 
-  -- Total Volume: 4 Byte Unsigned Fixed Width Integer
+  -- Total Volume: Binary
   index, total_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.total_volume.dissect(buffer, index, packet, parent)
 
   return index
@@ -2834,7 +2841,7 @@ end
 
 -- Dissect: Outright Summary Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_summary_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_summary_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_summary_message.fields(buffer, offset, packet, parent)
@@ -2874,31 +2881,31 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_bold_rfq_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Ns: Binary
   index, source_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_arcaoptions_topfeed_xdp_v1_3_a.side.dissect(buffer, index, packet, parent)
 
-  -- Capacity: 1 Byte Ascii String Enum with 6 values
+  -- Capacity: ASCII
   index, capacity = nyse_arcaoptions_topfeed_xdp_v1_3_a.capacity.dissect(buffer, index, packet, parent)
 
-  -- Contracts: 2 Byte Unsigned Fixed Width Integer
+  -- Contracts: Binary
   index, contracts = nyse_arcaoptions_topfeed_xdp_v1_3_a.contracts.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_arcaoptions_topfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
-  -- Participant: 4 Byte Ascii String
+  -- Participant: ASCII
   index, participant = nyse_arcaoptions_topfeed_xdp_v1_3_a.participant.dissect(buffer, index, packet, parent)
 
   return index
@@ -2906,7 +2913,7 @@ end
 
 -- Dissect: Outright Bold Rfq Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_bold_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_bold_rfq_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_bold_rfq_message.fields(buffer, offset, packet, parent)
@@ -2945,28 +2952,28 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Ns: Binary
   index, source_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: ASCII
   index, side = nyse_arcaoptions_topfeed_xdp_v1_3_a.side.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Volume 2: 2 Byte Unsigned Fixed Width Integer
+  -- Volume 2: Binary
   index, volume_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.volume_2.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_arcaoptions_topfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2974,7 +2981,7 @@ end
 
 -- Dissect: Outright Crossing Rfq Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_crossing_rfq_message.fields(buffer, offset, packet, parent)
@@ -3017,40 +3024,40 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_imbalance_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Reference Price: 4 Byte Signed Fixed Width Integer
+  -- Reference Price: Signed Binary
   index, reference_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.reference_price.dissect(buffer, index, packet, parent)
 
-  -- Paired Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Paired Qty: Binary
   index, paired_qty = nyse_arcaoptions_topfeed_xdp_v1_3_a.paired_qty.dissect(buffer, index, packet, parent)
 
-  -- Total Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Total Imbalance Qty: Binary
   index, total_imbalance_qty = nyse_arcaoptions_topfeed_xdp_v1_3_a.total_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Market Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
+  -- Market Imbalance Qty: Binary
   index, market_imbalance_qty = nyse_arcaoptions_topfeed_xdp_v1_3_a.market_imbalance_qty.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 2 values
+  -- Auction Type: ASCII
   index, auction_type = nyse_arcaoptions_topfeed_xdp_v1_3_a.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  -- Imbalance Side: ASCII
   index, imbalance_side = nyse_arcaoptions_topfeed_xdp_v1_3_a.imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Market Imbalance Side: 1 Byte Ascii String Enum with 3 values
+  -- Market Imbalance Side: ASCII
   index, market_imbalance_side = nyse_arcaoptions_topfeed_xdp_v1_3_a.market_imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Reserved 3: 3 Byte
+  -- Reserved 3: reserved
   index, reserved_3 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_3.dissect(buffer, index, packet, parent)
 
   return index
@@ -3058,7 +3065,7 @@ end
 
 -- Dissect: Outright Imbalance Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_imbalance_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_imbalance_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_imbalance_message.fields(buffer, offset, packet, parent)
@@ -3100,37 +3107,37 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_correction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Id: Binary
   index, original_trade_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.original_trade_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_arcaoptions_topfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  -- Volume 4: Binary
   index, volume_4 = nyse_arcaoptions_topfeed_xdp_v1_3_a.volume_4.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
+  -- Trade Cond 1: ASCII
   index, trade_cond_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_cond_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
+  -- Trade Cond 2: ASCII
   index, trade_cond_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_cond_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -3138,7 +3145,7 @@ end
 
 -- Dissect: Outright Trade Correction Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_correction_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_correction_message.fields(buffer, offset, packet, parent)
@@ -3174,19 +3181,19 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Original Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Original Trade Id: Binary
   index, original_trade_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.original_trade_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3194,7 +3201,7 @@ end
 
 -- Dissect: Outright Trade Cancel Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_cancel_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_cancel_message.fields(buffer, offset, packet, parent)
@@ -3235,34 +3242,34 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Trade Id: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Id: Binary
   index, trade_id = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: Signed Binary
   index, price = nyse_arcaoptions_topfeed_xdp_v1_3_a.price.dissect(buffer, index, packet, parent)
 
-  -- Volume 4: 4 Byte Unsigned Fixed Width Integer
+  -- Volume 4: Binary
   index, volume_4 = nyse_arcaoptions_topfeed_xdp_v1_3_a.volume_4.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
+  -- Trade Cond 1: ASCII
   index, trade_cond_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_cond_1.dissect(buffer, index, packet, parent)
 
-  -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
+  -- Trade Cond 2: ASCII
   index, trade_cond_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.trade_cond_2.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -3270,7 +3277,7 @@ end
 
 -- Dissect: Outright Trade Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_trade_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_trade_message.fields(buffer, offset, packet, parent)
@@ -3314,43 +3321,43 @@ end
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_quote_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Source Time: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time: Binary
   index, source_time = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time.dissect(buffer, index, packet, parent)
 
-  -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
+  -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaoptions_topfeed_xdp_v1_3_a.source_time_ns.dissect(buffer, index, packet, parent)
 
-  -- Series Index: 4 Byte Unsigned Fixed Width Integer
+  -- Series Index: Binary
   index, series_index = nyse_arcaoptions_topfeed_xdp_v1_3_a.series_index.dissect(buffer, index, packet, parent)
 
-  -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaoptions_topfeed_xdp_v1_3_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Signed Fixed Width Integer
+  -- Ask Price: Signed Binary
   index, ask_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.ask_price.dissect(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Bid Price: Signed Binary
   index, bid_price = nyse_arcaoptions_topfeed_xdp_v1_3_a.bid_price.dissect(buffer, index, packet, parent)
 
-  -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Volume: Binary
   index, ask_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.ask_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Volume: Binary
   index, bid_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.bid_volume.dissect(buffer, index, packet, parent)
 
-  -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Customer Volume: Binary
   index, ask_customer_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.ask_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Customer Volume: Binary
   index, bid_customer_volume = nyse_arcaoptions_topfeed_xdp_v1_3_a.bid_customer_volume.dissect(buffer, index, packet, parent)
 
-  -- Quote Condition: 1 Byte Ascii String Enum with 5 values
+  -- Quote Condition: ASCII
   index, quote_condition = nyse_arcaoptions_topfeed_xdp_v1_3_a.quote_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: reserved
   index, reserved_1 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: reserved
   index, reserved_2 = nyse_arcaoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
 
   return index
@@ -3358,7 +3365,7 @@ end
 
 -- Dissect: Outright Quote Message
 nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.outright_quote_message, buffer(offset, 0))
     local index = nyse_arcaoptions_topfeed_xdp_v1_3_a.outright_quote_message.fields(buffer, offset, packet, parent)

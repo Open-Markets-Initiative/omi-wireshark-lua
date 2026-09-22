@@ -68,6 +68,10 @@ grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved1" Nyse.AmexOptions.Comple
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.streamid" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.nooflegs" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
 grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
+grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.symbolindex" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
+grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.legratioqty" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
+grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.side" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
+grep "nyse.amexoptions.complexfeed.xdp.v1.3.a.legsecuritytype" Nyse.AmexOptions.ComplexFeed.Xdp.v1.3.a.ComplexSymbolDefinitionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nyse/AmexOptions.ComplexFeed.Xdp.v1.3.a/ComplexTradeMessage.pcap" \
   -X "lua_script:Nyse/AmexOptions/ComplexFeed/Nyse_AmexOptions_ComplexFeed_Xdp_v1_3_a_Dissector.lua" \
