@@ -146,6 +146,7 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.static_circuit_breaker_tolerances =
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.static_reference_price = ProtoField.new("Static Reference Price", "lseg.turquoise.recovery.gtp.v24.4.staticreferenceprice", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.strike_price = ProtoField.new("Strike Price", "lseg.turquoise.recovery.gtp.v24.4.strikeprice", ftypes.DOUBLE)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.symbol = ProtoField.new("Symbol", "lseg.turquoise.recovery.gtp.v24.4.symbol", ftypes.STRING)
+omi_lseg_turquoise_recovery_gtp_v24_4.fields.tcp_unit = ProtoField.new("Tcp Unit", "lseg.turquoise.recovery.gtp.v24.4.tcpunit", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "lseg.turquoise.recovery.gtp.v24.4.thirdreserved1", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_4 = ProtoField.new("Third Reserved 4", "lseg.turquoise.recovery.gtp.v24.4.thirdreserved4", ftypes.BYTES)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.recovery.gtp.v24.4.thirdreserved8", ftypes.BYTES)
@@ -6851,6 +6852,81 @@ lseg_turquoise_recovery_gtp_v24_4.unit_header.dissect = function(buffer, offset,
   end
 end
 
+-- Tcp Unit
+lseg_turquoise_recovery_gtp_v24_4.tcp_unit = {}
+
+-- Display: Tcp Unit
+lseg_turquoise_recovery_gtp_v24_4.tcp_unit.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tcp Unit
+lseg_turquoise_recovery_gtp_v24_4.tcp_unit.fields = function(buffer, offset, packet, parent, size_of_tcp_unit)
+  local index = offset
+
+  -- Unit Header: Struct of 4 fields
+  index, unit_header = lseg_turquoise_recovery_gtp_v24_4.unit_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Message
+  local end_of_payload = offset + size_of_tcp_unit
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_turquoise_recovery_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_length, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Tcp Unit
+lseg_turquoise_recovery_gtp_v24_4.tcp_unit.dissect = function(buffer, offset, packet, parent, size_of_tcp_unit)
+  local index = offset + size_of_tcp_unit
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_lseg_turquoise_recovery_gtp_v24_4.fields.tcp_unit, buffer(offset, 0))
+    local current = lseg_turquoise_recovery_gtp_v24_4.tcp_unit.fields(buffer, offset, packet, parent, size_of_tcp_unit)
+    parent:set_len(size_of_tcp_unit)
+    local display = lseg_turquoise_recovery_gtp_v24_4.tcp_unit.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    lseg_turquoise_recovery_gtp_v24_4.tcp_unit.fields(buffer, offset, packet, parent, size_of_tcp_unit)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Tcp Unit
+local tcp_unit_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < lseg_turquoise_recovery_gtp_v24_4.unit_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Packet
 lseg_turquoise_recovery_gtp_v24_4.packet = {}
 
@@ -6863,22 +6939,24 @@ end
 lseg_turquoise_recovery_gtp_v24_4.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Unit Header: Struct of 4 fields
-  index, unit_header = lseg_turquoise_recovery_gtp_v24_4.unit_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency for Message
+  -- Dependency for Tcp Unit
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
+  -- Tcp Unit: Struct of 2 fields
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_tcp_unit = tcp_unit_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Message
-    index, message = lseg_turquoise_recovery_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_length, message_index)
+    if available > 0 then
+      index = lseg_turquoise_recovery_gtp_v24_4.tcp_unit.dissect(buffer, index, packet, parent, size_of_tcp_unit)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
   end
 
   return index

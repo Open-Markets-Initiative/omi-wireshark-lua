@@ -59,6 +59,7 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.side = ProtoField.
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.size = ProtoField.new("Size", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.size", ftypes.DOUBLE)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.sourcevenue", ftypes.UINT16)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE)
+omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.tcp_unit = ProtoField.new("Tcp Unit", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.tcpunit", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.thirdreserved8", ftypes.BYTES)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.tickid", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.timestamp", ftypes.UINT64)
@@ -2483,6 +2484,81 @@ lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.unit_header.dissect = functio
   end
 end
 
+-- Tcp Unit
+lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit = {}
+
+-- Display: Tcp Unit
+lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Tcp Unit
+lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit.fields = function(buffer, offset, packet, parent, size_of_tcp_unit)
+  local index = offset
+
+  -- Unit Header: Struct of 4 fields
+  index, unit_header = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.unit_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Message
+  local end_of_payload = offset + size_of_tcp_unit
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_length, message_index)
+  end
+
+  return index
+end
+
+-- Dissect: Tcp Unit
+lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit.dissect = function(buffer, offset, packet, parent, size_of_tcp_unit)
+  local index = offset + size_of_tcp_unit
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.tcp_unit, buffer(offset, 0))
+    local current = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit.fields(buffer, offset, packet, parent, size_of_tcp_unit)
+    parent:set_len(size_of_tcp_unit)
+    local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit.fields(buffer, offset, packet, parent, size_of_tcp_unit)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Tcp Unit
+local tcp_unit_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.unit_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Packet
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.packet = {}
 
@@ -2495,22 +2571,24 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Unit Header: Struct of 4 fields
-  index, unit_header = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.unit_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency for Message
+  -- Dependency for Tcp Unit
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
+  -- Tcp Unit: Struct of 2 fields
   while index < end_of_payload do
-    message_index = message_index + 1
 
-    -- Dependency element: Message Length
-    local message_length = buffer(index, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_tcp_unit = tcp_unit_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Runtime Size Of: Message
-    index, message = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.message.dissect(buffer, index, packet, parent, message_length, message_index)
+    if available > 0 then
+      index = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.tcp_unit.dissect(buffer, index, packet, parent, size_of_tcp_unit)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
   end
 
   return index
