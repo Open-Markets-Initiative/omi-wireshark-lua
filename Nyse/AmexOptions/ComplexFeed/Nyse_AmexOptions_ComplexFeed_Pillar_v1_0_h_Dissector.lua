@@ -138,7 +138,7 @@ omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.symbol_index_mapping_reque
 -- Nyse AmexOptions ComplexFeed 1.0.h Session Messages
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amexoptions.complexfeed.pillar.v1.0.h.heartbeat", ftypes.BYTES)
 
--- Nyse AmexOptions ComplexFeed Pillar 1.0.h generated fields
+-- Nyse AmexOptions ComplexFeed Pillar 1.0.h Generated Fields
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.complex_series_index_mapping_leg_index = ProtoField.new("Complex Series Index Mapping Leg Index", "nyse.amexoptions.complexfeed.pillar.v1.0.h.complexseriesindexmappinglegindex", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messageindex", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.amexoptions.complexfeed.pillar.v1.0.h.messagesequencenumber", ftypes.UINT64)
@@ -4874,7 +4874,6 @@ end
 
 -- Dissector for Nyse AmexOptions ComplexFeed Pillar 1.0.h
 function omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.name
 

@@ -1544,7 +1544,6 @@ end
 
 -- Dissector for Ltse CommonHeader Tcp 1.2
 function omi_ltse_commonheader_tcp_v1_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ltse_commonheader_tcp_v1_2.name
 

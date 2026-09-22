@@ -118,7 +118,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.system_event_message = Pr
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.totalview.itch.v5.0.2022.endofsession", ftypes.BYTES)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.totalview.itch.v5.0.2022.heartbeat", ftypes.BYTES)
 
--- Nasdaq NsmEquities TotalView Itch 5.0.2022 generated fields
+-- Nasdaq NsmEquities TotalView Itch 5.0.2022 Generated Fields
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.totalview.itch.v5.0.2022.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.totalview.itch.v5.0.2022.messagesequencenumber", ftypes.UINT64)
 
@@ -4623,7 +4623,6 @@ end
 
 -- Dissector for Nasdaq NsmEquities TotalView Itch 5.0.2022
 function omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.name
 

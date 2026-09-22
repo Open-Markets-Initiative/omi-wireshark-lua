@@ -49,7 +49,7 @@ omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.heartbeat_message = ProtoField.ne
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.market_at_close_book_entry_message = ProtoField.new("Market At Close Book Entry Message", "a2x.a2xequities.snapshot.amd.v1.3.2.marketatclosebookentrymessage", ftypes.STRING)
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "a2x.a2xequities.snapshot.amd.v1.3.2.snapshotstartmessage", ftypes.STRING)
 
--- A2X A2XEquities Snapshot Amd 1.3.2 generated fields
+-- A2X A2XEquities Snapshot Amd 1.3.2 Generated Fields
 omi_a2x_a2xequities_snapshot_amd_v1_3_2.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.snapshot.amd.v1.3.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -939,7 +939,6 @@ end
 
 -- Dissector for A2X A2XEquities Snapshot Amd 1.3.2
 function omi_a2x_a2xequities_snapshot_amd_v1_3_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_a2x_a2xequities_snapshot_amd_v1_3_2.name
 

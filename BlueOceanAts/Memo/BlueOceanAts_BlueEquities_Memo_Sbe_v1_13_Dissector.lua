@@ -150,7 +150,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_rejected_message = Pr
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "blueoceanats.blueequities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 
--- BlueOceanAts BlueEquities Memo Sbe 1.13 generated fields
+-- BlueOceanAts BlueEquities Memo Sbe 1.13 Generated Fields
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Parties Group Index", "blueoceanats.blueequities.memo.sbe.v1.13.partiesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -6776,7 +6776,6 @@ end
 
 -- Dissector for BlueOceanAts BlueEquities Memo Sbe 1.13
 function omi_blueoceanats_blueequities_memo_sbe_v1_13.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_blueoceanats_blueequities_memo_sbe_v1_13.name
 

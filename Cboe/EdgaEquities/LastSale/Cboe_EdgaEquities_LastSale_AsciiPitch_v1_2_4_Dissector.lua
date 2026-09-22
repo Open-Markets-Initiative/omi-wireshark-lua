@@ -1150,7 +1150,6 @@ end
 
 -- Dissector for Cboe EdgaEquities LastSale AsciiPitch 1.2.4
 function omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgaequities_lastsale_asciipitch_v1_2_4.name
 

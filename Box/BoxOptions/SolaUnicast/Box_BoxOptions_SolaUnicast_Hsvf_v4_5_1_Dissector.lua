@@ -193,7 +193,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_trade_cancellation_mess
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_trade_message = ProtoField.new("Option Trade Message", "box.boxoptions.solaunicast.hsvf.v4.5.1.optiontrademessage", ftypes.STRING)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.system_timestamp_message = ProtoField.new("System Timestamp Message", "box.boxoptions.solaunicast.hsvf.v4.5.1.systemtimestampmessage", ftypes.STRING)
 
--- Box BoxOptions SolaUnicast Hsvf 4.5.1 generated fields
+-- Box BoxOptions SolaUnicast Hsvf 4.5.1 Generated Fields
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.complex_market_depth_level_index = ProtoField.new("Complex Market Depth Level Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.complexmarketdepthlevelindex", ftypes.UINT16)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.instrumentlegindex", ftypes.UINT16)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.marketdepthlevelindex", ftypes.UINT16)
@@ -6998,7 +6998,6 @@ end
 
 -- Dissector for Box BoxOptions SolaUnicast Hsvf 4.5.1
 function omi_box_boxoptions_solaunicast_hsvf_v4_5_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_box_boxoptions_solaunicast_hsvf_v4_5_1.name
 

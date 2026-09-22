@@ -104,7 +104,7 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequenced_data_packet = Pro
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "biva.bivaequities.totalview.glimpse.v1.12.serverheartbeat", ftypes.BYTES)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "biva.bivaequities.totalview.glimpse.v1.12.unsequenceddatapacket", ftypes.STRING)
 
--- Biva BivaEquities TotalView Glimpse 1.12 generated fields
+-- Biva BivaEquities TotalView Glimpse 1.12 Generated Fields
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.timestamp = ProtoField.new("Timestamp", "biva.bivaequities.totalview.glimpse.v1.12.timestamp", ftypes.UINT64)
 
@@ -128,6 +128,13 @@ biva_bivaequities_totalview_glimpse_v1_12.utc_offset_hours = 6
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 biva_bivaequities_totalview_glimpse_v1_12.format_timestamp = true
 
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -143,11 +150,6 @@ show.session_messages = true
 show.sequences = true
 
 -- Register Biva BivaEquities TotalView Glimpse 1.12 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -1168,7 +1170,14 @@ biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
 biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
+  if value == "A" then
+    return "Reject Reason Code: Not Authorized (A)"
+  end
+  if value == "S" then
+    return "Reject Reason Code: Session Not Available (S)"
+  end
+
+  return "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2614,7 +2623,7 @@ end
 biva_bivaequities_totalview_glimpse_v1_12.login_rejected_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reject Reason Code: 1 Byte Ascii String
+  -- Reject Reason Code: 1 Byte Ascii String Enum with 2 values
   index, reject_reason_code = biva_bivaequities_totalview_glimpse_v1_12.reject_reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -3266,12 +3275,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -3280,31 +3291,42 @@ biva_bivaequities_totalview_glimpse_v1_12.role = function(packet)
   if omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_biva_bivaequities_totalview_glimpse_v1_12.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -3318,16 +3340,18 @@ end
 
 -- Dissector for Biva BivaEquities TotalView Glimpse 1.12
 function omi_biva_bivaequities_totalview_glimpse_v1_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_biva_bivaequities_totalview_glimpse_v1_12.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12, buffer(), omi_biva_bivaequities_totalview_glimpse_v1_12.description, "("..buffer:len().." Bytes)")
+
   local role = biva_bivaequities_totalview_glimpse_v1_12.role(packet)
+
   if role == "initiator" then
     return biva_bivaequities_totalview_glimpse_v1_12.client_packet.dissect(buffer, packet, protocol)
   end
+
   return biva_bivaequities_totalview_glimpse_v1_12.server_packet.dissect(buffer, packet, protocol)
 end
 
@@ -3341,6 +3365,7 @@ biva_bivaequities_totalview_glimpse_v1_12.client_packet.fingerprint = function(b
   if buffer:len() < 3 then
     return false
   end
+
   local client_packet_type = buffer(2, 1):string()
 
   -- Debug Packet
@@ -3371,12 +3396,12 @@ biva_bivaequities_totalview_glimpse_v1_12.client_packet.fingerprint = function(b
   return false
 end
 
-
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 biva_bivaequities_totalview_glimpse_v1_12.server_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
+
   local server_packet_type = buffer(2, 1):string()
 
   -- Debug Packet
@@ -3411,7 +3436,6 @@ biva_bivaequities_totalview_glimpse_v1_12.server_packet.fingerprint = function(b
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------
@@ -3451,19 +3475,24 @@ end
 -- Dissector Heuristic for Biva BivaEquities TotalView Glimpse 1.12 (Tcp): apply the heuristic of the sender's connection role
 local function omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_heuristic(buffer, packet, parent)
   local role = biva_bivaequities_totalview_glimpse_v1_12.role(packet)
-  local first, second = omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_initiator_heuristic, omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_acceptor_heuristic
+  local first = omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_initiator_heuristic
+  local second = omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   biva_bivaequities_totalview_glimpse_v1_12.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   biva_bivaequities_totalview_glimpse_v1_12.swap(packet)
 
   return false
@@ -3471,6 +3500,7 @@ end
 
 -- Register Heuristics for Biva BivaEquities TotalView Glimpse 1.12
 omi_biva_bivaequities_totalview_glimpse_v1_12:register_heuristic("tcp", omi_biva_bivaequities_totalview_glimpse_v1_12_tcp_heuristic)
+
 -- Register Biva BivaEquities TotalView Glimpse 1.12 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_biva_bivaequities_totalview_glimpse_v1_12)

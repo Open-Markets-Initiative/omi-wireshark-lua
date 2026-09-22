@@ -35,7 +35,7 @@ omi_ltse_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "ltse.co
 omi_ltse_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "ltse.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
 omi_ltse_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "ltse.commonheader.udp.v1.1.sbemessage", ftypes.STRING)
 
--- Ltse CommonHeader Udp 1.1 generated fields
+-- Ltse CommonHeader Udp 1.1 Generated Fields
 omi_ltse_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "ltse.commonheader.udp.v1.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -650,7 +650,6 @@ end
 
 -- Dissector for Ltse CommonHeader Udp 1.1
 function omi_ltse_commonheader_udp_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ltse_commonheader_udp_v1_1.name
 

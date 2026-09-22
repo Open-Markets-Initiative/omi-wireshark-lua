@@ -2323,7 +2323,6 @@ end
 
 -- Dissector for Nyse NyseEquities OpenBook Ultra 2.1.b
 function omi_nyse_nyseequities_openbook_ultra_v2_1_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_openbook_ultra_v2_1_b.name
 

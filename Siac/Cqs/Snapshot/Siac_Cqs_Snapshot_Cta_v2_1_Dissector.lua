@@ -103,7 +103,7 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.market_wide_circuit_breaker_decline_level_
 omi_siac_cqs_snapshot_cta_v2_1.fields.participant_snapshot_message = ProtoField.new("Participant Snapshot Message", "siac.cqs.snapshot.cta.v2.1.participantsnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.symbol_reference_data_message = ProtoField.new("Symbol Reference Data Message", "siac.cqs.snapshot.cta.v2.1.symbolreferencedatamessage", ftypes.STRING)
 
--- Siac Cqs Snapshot Cta 2.1 generated fields
+-- Siac Cqs Snapshot Cta 2.1 Generated Fields
 omi_siac_cqs_snapshot_cta_v2_1.fields.message_index = ProtoField.new("Message Index", "siac.cqs.snapshot.cta.v2.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3189,7 +3189,6 @@ end
 
 -- Dissector for Siac Cqs Snapshot Cta 2.1
 function omi_siac_cqs_snapshot_cta_v2_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cqs_snapshot_cta_v2_1.name
 

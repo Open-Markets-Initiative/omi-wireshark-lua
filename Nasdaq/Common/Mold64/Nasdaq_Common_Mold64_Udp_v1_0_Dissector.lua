@@ -32,7 +32,7 @@ omi_nasdaq_common_mold64_udp_v1_0.fields.packet_header = ProtoField.new("Packet 
 omi_nasdaq_common_mold64_udp_v1_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.common.mold64.udp.v1.0.endofsession", ftypes.BYTES)
 omi_nasdaq_common_mold64_udp_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.common.mold64.udp.v1.0.heartbeat", ftypes.BYTES)
 
--- Nasdaq Common Mold64 Udp 1.0 generated fields
+-- Nasdaq Common Mold64 Udp 1.0 Generated Fields
 omi_nasdaq_common_mold64_udp_v1_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.common.mold64.udp.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -481,7 +481,6 @@ end
 
 -- Dissector for Nasdaq Common Mold64 Udp 1.0
 function omi_nasdaq_common_mold64_udp_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_common_mold64_udp_v1_0.name
 

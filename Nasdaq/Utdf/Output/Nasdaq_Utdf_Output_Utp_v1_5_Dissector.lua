@@ -149,7 +149,7 @@ omi_nasdaq_utdf_output_utp_v1_5.fields.trade_correction_message = ProtoField.new
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_long_form_message = ProtoField.new("Trade Report Message Long Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessagelongformmessage", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_short_form_message = ProtoField.new("Trade Report Message Short Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessageshortformmessage", ftypes.STRING)
 
--- Nasdaq Utdf Output Utp 1.5 generated fields
+-- Nasdaq Utdf Output Utp 1.5 Generated Fields
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary_index = ProtoField.new("Market Center Closing Price And Volume Summary Index", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingpriceandvolumesummaryindex", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment_index = ProtoField.new("Market Center Volume Attachment Index", "nasdaq.utdf.output.utp.v1.5.marketcentervolumeattachmentindex", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v1_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.utdf.output.utp.v1.5.messageindex", ftypes.UINT16)
@@ -5253,7 +5253,6 @@ end
 
 -- Dissector for Nasdaq Utdf Output Utp 1.5
 function omi_nasdaq_utdf_output_utp_v1_5.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_utdf_output_utp_v1_5.name
 

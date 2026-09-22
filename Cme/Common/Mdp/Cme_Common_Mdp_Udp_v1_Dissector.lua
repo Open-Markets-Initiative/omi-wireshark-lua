@@ -438,7 +438,6 @@ end
 
 -- Dissector for Cme Common Mdp Udp 1
 function omi_cme_common_mdp_udp_v1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cme_common_mdp_udp_v1.name
 

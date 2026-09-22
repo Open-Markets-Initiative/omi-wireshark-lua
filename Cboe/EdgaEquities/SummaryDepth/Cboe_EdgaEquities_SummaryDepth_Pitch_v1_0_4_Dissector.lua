@@ -72,7 +72,7 @@ omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.trade_break_message = Pro
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.trade_message = ProtoField.new("Trade Message", "cboe.edgaequities.summarydepth.pitch.v1.0.4.trademessage", ftypes.STRING)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.edgaequities.summarydepth.pitch.v1.0.4.tradingstatusmessage", ftypes.STRING)
 
--- Cboe EdgaEquities SummaryDepth Pitch 1.0.4 generated fields
+-- Cboe EdgaEquities SummaryDepth Pitch 1.0.4 Generated Fields
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.adap_block_index = ProtoField.new("Adap Block Index", "cboe.edgaequities.summarydepth.pitch.v1.0.4.adapblockindex", ftypes.UINT16)
 omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.fields.message_index = ProtoField.new("Message Index", "cboe.edgaequities.summarydepth.pitch.v1.0.4.messageindex", ftypes.UINT16)
 
@@ -1901,7 +1901,6 @@ end
 
 -- Dissector for Cboe EdgaEquities SummaryDepth Pitch 1.0.4
 function omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgaequities_summarydepth_pitch_v1_0_4.name
 

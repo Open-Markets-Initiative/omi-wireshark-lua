@@ -189,13 +189,25 @@ omi_nasdaq_utp_input_utp_v4_0.fields.login_request_packet = ProtoField.new("Logi
 omi_nasdaq_utp_input_utp_v4_0.fields.logout_request_packet = ProtoField.new("Logout Request Packet", "nasdaq.utp.input.utp.v4.0.logoutrequestpacket", ftypes.BYTES)
 omi_nasdaq_utp_input_utp_v4_0.fields.server_heartbeat_packet = ProtoField.new("Server Heartbeat Packet", "nasdaq.utp.input.utp.v4.0.serverheartbeatpacket", ftypes.BYTES)
 
--- Nasdaq Utp Input Utp 4.0 generated fields
+-- Nasdaq Utp Input Utp 4.0 Generated Fields
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_adf_form_attachment_index = ProtoField.new("Odd Lot Ask Adf Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotaskadfformattachmentindex", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_long_form_attachment_index = ProtoField.new("Odd Lot Ask Long Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotasklongformattachmentindex", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_ask_short_form_attachment_index = ProtoField.new("Odd Lot Ask Short Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotaskshortformattachmentindex", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_adf_form_attachment_index = ProtoField.new("Odd Lot Bid Adf Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotbidadfformattachmentindex", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_long_form_attachment_index = ProtoField.new("Odd Lot Bid Long Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotbidlongformattachmentindex", ftypes.UINT16)
 omi_nasdaq_utp_input_utp_v4_0.fields.odd_lot_bid_short_form_attachment_index = ProtoField.new("Odd Lot Bid Short Form Attachment Index", "nasdaq.utp.input.utp.v4.0.oddlotbidshortformattachmentindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Nasdaq Utp Input Utp 4.0 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -212,11 +224,6 @@ show.repeating_groups = true
 show.indexes = true
 
 -- Register Nasdaq Utp Input Utp 4.0 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_nasdaq_utp_input_utp_v4_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_nasdaq_utp_input_utp_v4_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_nasdaq_utp_input_utp_v4_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -287,7 +294,7 @@ end
 nasdaq_utp_input_utp_v4_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.accepted_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_utp_input_utp_v4_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number, range, value, display)
@@ -310,7 +317,7 @@ end
 nasdaq_utp_input_utp_v4_0.accepted_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.accepted_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_utp_input_utp_v4_0.accepted_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.accepted_session, range, value, display)
@@ -2051,7 +2058,7 @@ end
 nasdaq_utp_input_utp_v4_0.password.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.password.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_utp_input_utp_v4_0.password.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.password, range, value, display)
@@ -2284,7 +2291,7 @@ end
 nasdaq_utp_input_utp_v4_0.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.requested_sequence_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_utp_input_utp_v4_0.requested_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.requested_sequence_number, range, value, display)
@@ -2307,7 +2314,7 @@ end
 nasdaq_utp_input_utp_v4_0.requested_session.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.requested_session.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_utp_input_utp_v4_0.requested_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.requested_session, range, value, display)
@@ -2918,7 +2925,7 @@ end
 nasdaq_utp_input_utp_v4_0.username.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_utp_input_utp_v4_0.username.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_utp_input_utp_v4_0.username.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.username, range, value, display)
@@ -7730,12 +7737,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -7744,31 +7753,42 @@ nasdaq_utp_input_utp_v4_0.role = function(packet)
   if omi_nasdaq_utp_input_utp_v4_0.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_nasdaq_utp_input_utp_v4_0.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_nasdaq_utp_input_utp_v4_0.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_nasdaq_utp_input_utp_v4_0.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_nasdaq_utp_input_utp_v4_0.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -7782,16 +7802,18 @@ end
 
 -- Dissector for Nasdaq Utp Input Utp 4.0
 function omi_nasdaq_utp_input_utp_v4_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_utp_input_utp_v4_0.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_utp_input_utp_v4_0, buffer(), omi_nasdaq_utp_input_utp_v4_0.description, "("..buffer:len().." Bytes)")
+
   local role = nasdaq_utp_input_utp_v4_0.role(packet)
+
   if role == "initiator" then
     return nasdaq_utp_input_utp_v4_0.client_packet.dissect(buffer, packet, protocol)
   end
+
   return nasdaq_utp_input_utp_v4_0.server_packet.dissect(buffer, packet, protocol)
 end
 
@@ -7805,6 +7827,7 @@ nasdaq_utp_input_utp_v4_0.client_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
+
   local client_packet_type = buffer(2, 1):string()
 
   -- Unsequenced Data Packet
@@ -7835,12 +7858,12 @@ nasdaq_utp_input_utp_v4_0.client_packet.fingerprint = function(buffer)
   return false
 end
 
-
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 nasdaq_utp_input_utp_v4_0.server_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
+
   local server_packet_type = buffer(2, 1):string()
 
   -- Sequenced Data Packet
@@ -7875,7 +7898,6 @@ nasdaq_utp_input_utp_v4_0.server_packet.fingerprint = function(buffer)
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------
@@ -7915,19 +7937,24 @@ end
 -- Dissector Heuristic for Nasdaq Utp Input Utp 4.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_nasdaq_utp_input_utp_v4_0_tcp_heuristic(buffer, packet, parent)
   local role = nasdaq_utp_input_utp_v4_0.role(packet)
-  local first, second = omi_nasdaq_utp_input_utp_v4_0_tcp_initiator_heuristic, omi_nasdaq_utp_input_utp_v4_0_tcp_acceptor_heuristic
+  local first = omi_nasdaq_utp_input_utp_v4_0_tcp_initiator_heuristic
+  local second = omi_nasdaq_utp_input_utp_v4_0_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   nasdaq_utp_input_utp_v4_0.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   nasdaq_utp_input_utp_v4_0.swap(packet)
 
   return false
@@ -7935,6 +7962,7 @@ end
 
 -- Register Heuristics for Nasdaq Utp Input Utp 4.0
 omi_nasdaq_utp_input_utp_v4_0:register_heuristic("tcp", omi_nasdaq_utp_input_utp_v4_0_tcp_heuristic)
+
 -- Register Nasdaq Utp Input Utp 4.0 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_nasdaq_utp_input_utp_v4_0)

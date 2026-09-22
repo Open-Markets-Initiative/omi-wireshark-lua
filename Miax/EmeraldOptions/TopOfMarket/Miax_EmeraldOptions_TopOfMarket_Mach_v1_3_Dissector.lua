@@ -133,7 +133,7 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.system_time_message = Proto
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.emeraldoptions.topofmarket.mach.v1.3.tradecancelmessage", ftypes.STRING)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.emeraldoptions.topofmarket.mach.v1.3.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax EmeraldOptions TopOfMarket Mach 1.3 generated fields
+-- Miax EmeraldOptions TopOfMarket Mach 1.3 Generated Fields
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.timestamp = ProtoField.new("Timestamp", "miax.emeraldoptions.topofmarket.mach.v1.3.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -4805,15 +4805,16 @@ end
 
 -- Dissector for Miax EmeraldOptions TopOfMarket Mach 1.3
 function omi_miax_emeraldoptions_topofmarket_mach_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_emeraldoptions_topofmarket_mach_v1_3.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3, buffer(), omi_miax_emeraldoptions_topofmarket_mach_v1_3.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_emeraldoptions_topofmarket_mach_v1_3.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_emeraldoptions_topofmarket_mach_v1_3.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -4851,9 +4852,11 @@ end
 -- Register Heuristics for Miax EmeraldOptions TopOfMarket Mach 1.3
 omi_miax_emeraldoptions_topofmarket_mach_v1_3:register_heuristic("udp", omi_miax_emeraldoptions_topofmarket_mach_v1_3_udp_heuristic)
 omi_miax_emeraldoptions_topofmarket_mach_v1_3:register_heuristic("tcp", omi_miax_emeraldoptions_topofmarket_mach_v1_3_tcp_heuristic)
+
 -- Register Miax EmeraldOptions TopOfMarket Mach 1.3 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_emeraldoptions_topofmarket_mach_v1_3)
+
 -- Register Miax EmeraldOptions TopOfMarket Mach 1.3 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_emeraldoptions_topofmarket_mach_v1_3)

@@ -112,7 +112,7 @@ omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_clear_message 
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse TexasEquities ImbalancesFeed Pillar 2.2.n generated fields
+-- Nyse TexasEquities ImbalancesFeed Pillar 2.2.n Generated Fields
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_index = ProtoField.new("Message Index", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.messageindex", ftypes.UINT16)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.messagesequencenumber", ftypes.UINT64)
 omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.texasequities.imbalancesfeed.pillar.v2.2.n.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
@@ -3780,7 +3780,6 @@ end
 
 -- Dissector for Nyse TexasEquities ImbalancesFeed Pillar 2.2.n
 function omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_n.name
 

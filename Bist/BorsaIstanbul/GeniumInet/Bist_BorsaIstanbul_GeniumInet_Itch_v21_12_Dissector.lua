@@ -108,7 +108,7 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.trade_message = ProtoField.
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.end_of_session = ProtoField.new("End Of Session", "bist.borsaistanbul.geniuminet.itch.v21.12.endofsession", ftypes.BYTES)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.heartbeat = ProtoField.new("Heartbeat", "bist.borsaistanbul.geniuminet.itch.v21.12.heartbeat", ftypes.BYTES)
 
--- Bist BorsaIstanbul GeniumInet Itch 21.12 generated fields
+-- Bist BorsaIstanbul GeniumInet Itch 21.12 Generated Fields
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_index = ProtoField.new("Message Index", "bist.borsaistanbul.geniuminet.itch.v21.12.messageindex", ftypes.UINT16)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "bist.borsaistanbul.geniuminet.itch.v21.12.messagesequencenumber", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.timestamp = ProtoField.new("Timestamp", "bist.borsaistanbul.geniuminet.itch.v21.12.timestamp", ftypes.UINT64)
@@ -3255,7 +3255,6 @@ end
 
 -- Dissector for Bist BorsaIstanbul GeniumInet Itch 21.12
 function omi_bist_borsaistanbul_geniuminet_itch_v21_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_bist_borsaistanbul_geniuminet_itch_v21_12.name
 

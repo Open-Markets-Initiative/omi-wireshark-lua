@@ -6267,7 +6267,6 @@ end
 
 -- Dissector for Miax PearlEquities ExpressOrders Meo 2.7.b
 function omi_miax_pearlequities_expressorders_meo_v2_7_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearlequities_expressorders_meo_v2_7_b.name
 

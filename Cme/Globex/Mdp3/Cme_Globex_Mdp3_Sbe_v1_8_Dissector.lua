@@ -303,7 +303,7 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book = ProtoFiel
 omi_cme_globex_mdp3_sbe_v1_8.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.mdp3.sbe.v1.8.subscriberheartbeat", ftypes.BYTES)
 omi_cme_globex_mdp3_sbe_v1_8.fields.terminate = ProtoField.new("Terminate", "cme.globex.mdp3.sbe.v1.8.terminate", ftypes.STRING)
 
--- Cme Globex Mdp3 Sbe 1.8 generated fields
+-- Cme Globex Mdp3 Sbe 1.8 Generated Fields
 omi_cme_globex_mdp3_sbe_v1_8.fields.channel_reset_group_index = ProtoField.new("Channel Reset Group Index", "cme.globex.mdp3.sbe.v1.8.channelresetgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_8.fields.events_group_index = ProtoField.new("Events Group Index", "cme.globex.mdp3.sbe.v1.8.eventsgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_8.fields.feed_types_group_index = ProtoField.new("Feed Types Group Index", "cme.globex.mdp3.sbe.v1.8.feedtypesgroupindex", ftypes.UINT16)
@@ -335,6 +335,18 @@ omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_group_index = ProtoFie
 omi_cme_globex_mdp3_sbe_v1_8.fields.snapshot_full_refresh_order_book_group_index = ProtoField.new("Snapshot Full Refresh Order Book Group Index", "cme.globex.mdp3.sbe.v1.8.snapshotfullrefreshorderbookgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Cme Globex Mdp3 Sbe 1.8 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -348,11 +360,6 @@ show.structs = true
 show.indexes = true
 
 -- Register Cme Globex Mdp3 Sbe 1.8 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_cme_globex_mdp3_sbe_v1_8.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_cme_globex_mdp3_sbe_v1_8.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_cme_globex_mdp3_sbe_v1_8.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -11825,12 +11832,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -11839,31 +11848,42 @@ cme_globex_mdp3_sbe_v1_8.role = function(packet)
   if omi_cme_globex_mdp3_sbe_v1_8.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_cme_globex_mdp3_sbe_v1_8.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_cme_globex_mdp3_sbe_v1_8.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_cme_globex_mdp3_sbe_v1_8.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_cme_globex_mdp3_sbe_v1_8.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -11877,20 +11897,23 @@ end
 
 -- Dissector for Cme Globex Mdp3 Sbe 1.8
 function omi_cme_globex_mdp3_sbe_v1_8.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cme_globex_mdp3_sbe_v1_8.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_mdp3_sbe_v1_8, buffer(), omi_cme_globex_mdp3_sbe_v1_8.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return cme_globex_mdp3_sbe_v1_8.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     local role = cme_globex_mdp3_sbe_v1_8.role(packet)
+
     if role == "initiator" then
       return cme_globex_mdp3_sbe_v1_8.client_tcp_packet.dissect(buffer, packet, protocol)
     end
+
     return cme_globex_mdp3_sbe_v1_8.server_tcp_packet.dissect(buffer, packet, protocol)
   end
 end
@@ -11905,6 +11928,7 @@ cme_globex_mdp3_sbe_v1_8.client_tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 20 then
     return false
   end
+
   local template_id = buffer(18, 2):le_uint()
 
   -- Negotiate
@@ -11940,12 +11964,12 @@ cme_globex_mdp3_sbe_v1_8.client_tcp_packet.fingerprint = function(buffer)
   return false
 end
 
-
 -- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
 cme_globex_mdp3_sbe_v1_8.server_tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 20 then
     return false
   end
+
   local template_id = buffer(18, 2):le_uint()
 
   -- Channel Reset
@@ -12070,7 +12094,6 @@ cme_globex_mdp3_sbe_v1_8.server_tcp_packet.fingerprint = function(buffer)
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------
@@ -12266,19 +12289,24 @@ end
 -- Dissector Heuristic for Cme Globex Mdp3 Sbe 1.8 (Tcp): apply the heuristic of the sender's connection role
 local function omi_cme_globex_mdp3_sbe_v1_8_tcp_heuristic(buffer, packet, parent)
   local role = cme_globex_mdp3_sbe_v1_8.role(packet)
-  local first, second = omi_cme_globex_mdp3_sbe_v1_8_tcp_initiator_heuristic, omi_cme_globex_mdp3_sbe_v1_8_tcp_acceptor_heuristic
+  local first = omi_cme_globex_mdp3_sbe_v1_8_tcp_initiator_heuristic
+  local second = omi_cme_globex_mdp3_sbe_v1_8_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   cme_globex_mdp3_sbe_v1_8.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   cme_globex_mdp3_sbe_v1_8.swap(packet)
 
   return false
@@ -12287,9 +12315,11 @@ end
 -- Register Heuristics for Cme Globex Mdp3 Sbe 1.8
 omi_cme_globex_mdp3_sbe_v1_8:register_heuristic("udp", omi_cme_globex_mdp3_sbe_v1_8_udp_heuristic)
 omi_cme_globex_mdp3_sbe_v1_8:register_heuristic("tcp", omi_cme_globex_mdp3_sbe_v1_8_tcp_heuristic)
+
 -- Register Cme Globex Mdp3 Sbe 1.8 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_cme_globex_mdp3_sbe_v1_8)
+
 -- Register Cme Globex Mdp3 Sbe 1.8 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_cme_globex_mdp3_sbe_v1_8)

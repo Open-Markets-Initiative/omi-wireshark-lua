@@ -84,7 +84,7 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.trade_message =
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.tradingstatusmessage", ftypes.STRING)
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.unitclearmessage", ftypes.STRING)
 
--- Cboe NeoEquities MulticastMarketByPrice Pitch 1.0.14 generated fields
+-- Cboe NeoEquities MulticastMarketByPrice Pitch 1.0.14 Generated Fields
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.fields.message_index = ProtoField.new("Message Index", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.14.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2219,7 +2219,6 @@ end
 
 -- Dissector for Cboe NeoEquities MulticastMarketByPrice Pitch 1.0.14
 function omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_14.name
 

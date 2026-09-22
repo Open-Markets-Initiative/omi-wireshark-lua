@@ -111,7 +111,7 @@ omi_lseg_millennium_level2_mitch_v11_9.fields.time_message = ProtoField.new("Tim
 omi_lseg_millennium_level2_mitch_v11_9.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "lseg.millennium.level2.mitch.v11.9.topofbookmessage", ftypes.STRING)
 omi_lseg_millennium_level2_mitch_v11_9.fields.trade_message = ProtoField.new("Trade Message", "lseg.millennium.level2.mitch.v11.9.trademessage", ftypes.STRING)
 
--- Lseg Millennium Level2 Mitch 11.9 generated fields
+-- Lseg Millennium Level2 Mitch 11.9 Generated Fields
 omi_lseg_millennium_level2_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2.mitch.v11.9.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -326,9 +326,6 @@ lseg_millennium_level2_mitch_v11_9.cross_type.size = 1
 
 -- Display: Cross Type
 lseg_millennium_level2_mitch_v11_9.cross_type.display = function(value)
-  if value == Value then
-    return "Cross Type: Meaning (Value)"
-  end
   if value == 5 then
     return "Cross Type: Internal Cross (5)"
   end
@@ -340,6 +337,9 @@ lseg_millennium_level2_mitch_v11_9.cross_type.display = function(value)
   end
   if value == 8 then
     return "Cross Type: Committed Btf (8)"
+  end
+  if value == 0 then
+    return "Cross Type: No Value"
   end
 
   return "Cross Type: Unknown("..value..")"
@@ -766,9 +766,6 @@ lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.size = 1
 
 -- Display: Open Close Price Indicator
 lseg_millennium_level2_mitch_v11_9.open_close_price_indicator.display = function(value)
-  if value == "Value" then
-    return "Open Close Price Indicator: Meaning (Value)"
-  end
   if value == "A" then
     return "Open Close Price Indicator: Ut (A)"
   end
@@ -1451,9 +1448,6 @@ lseg_millennium_level2_mitch_v11_9.trading_status.size = 1
 lseg_millennium_level2_mitch_v11_9.trading_status.display = function(value)
   if value == " " then
     return "Trading Status: Active (<whitespace>)"
-  end
-  if value == "Value" then
-    return "Trading Status: Meaning (Value)"
   end
   if value == "H" then
     return "Trading Status: Halt (H)"
@@ -3253,7 +3247,6 @@ end
 
 -- Dissector for Lseg Millennium Level2 Mitch 11.9
 function omi_lseg_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_millennium_level2_mitch_v11_9.name
 

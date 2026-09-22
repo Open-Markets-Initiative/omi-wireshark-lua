@@ -88,7 +88,7 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.fields.short_selling_price_restriction_stat
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxequities.pts.glimpse.v1.3.systemeventmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.jnxequities.pts.glimpse.v1.3.tradingstatemessage", ftypes.STRING)
 
--- Jnx JnxEquities Pts Glimpse 1.3 generated fields
+-- Jnx JnxEquities Pts Glimpse 1.3 Generated Fields
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.glimpse.v1.3.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -111,6 +111,13 @@ jnx_jnxequities_pts_glimpse_v1_3.utc_offset_hours = 9
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 jnx_jnxequities_pts_glimpse_v1_3.format_timestamp = true
 
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -125,11 +132,6 @@ show.session_messages = true
 show.application_messages = true
 
 -- Register Jnx JnxEquities Pts Glimpse 1.3 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -856,7 +858,14 @@ jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
 jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
+  if value == "A" then
+    return "Reject Reason Code: Not Authorized (A)"
+  end
+  if value == "S" then
+    return "Reject Reason Code: Session Not Available (S)"
+  end
+
+  return "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2103,7 +2112,7 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.login_rejected_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reject Reason Code: 1 Byte Ascii String
+  -- Reject Reason Code: 1 Byte Ascii String Enum with 2 values
   index, reject_reason_code = jnx_jnxequities_pts_glimpse_v1_3.reject_reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2743,12 +2752,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -2757,31 +2768,42 @@ jnx_jnxequities_pts_glimpse_v1_3.role = function(packet)
   if omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -2795,16 +2817,18 @@ end
 
 -- Dissector for Jnx JnxEquities Pts Glimpse 1.3
 function omi_jnx_jnxequities_pts_glimpse_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jnx_jnxequities_pts_glimpse_v1_3.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3, buffer(), omi_jnx_jnxequities_pts_glimpse_v1_3.description, "("..buffer:len().." Bytes)")
+
   local role = jnx_jnxequities_pts_glimpse_v1_3.role(packet)
+
   if role == "initiator" then
     return jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.dissect(buffer, packet, protocol)
   end
+
   return jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.dissect(buffer, packet, protocol)
 end
 
@@ -2818,6 +2842,7 @@ jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.fingerprint = function(buffer
   if buffer:len() < 3 then
     return false
   end
+
   local client_packet_type = buffer(2, 1):string()
 
   -- Debug Packet
@@ -2848,12 +2873,12 @@ jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.fingerprint = function(buffer
   return false
 end
 
-
 -- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
 jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
+
   local server_packet_type = buffer(2, 1):string()
 
   -- Debug Packet
@@ -2888,7 +2913,6 @@ jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.fingerprint = function(buffer
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------
@@ -2928,19 +2952,24 @@ end
 -- Dissector Heuristic for Jnx JnxEquities Pts Glimpse 1.3 (Tcp): apply the heuristic of the sender's connection role
 local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_heuristic(buffer, packet, parent)
   local role = jnx_jnxequities_pts_glimpse_v1_3.role(packet)
-  local first, second = omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_initiator_heuristic, omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_acceptor_heuristic
+  local first = omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_initiator_heuristic
+  local second = omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   jnx_jnxequities_pts_glimpse_v1_3.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   jnx_jnxequities_pts_glimpse_v1_3.swap(packet)
 
   return false
@@ -2948,6 +2977,7 @@ end
 
 -- Register Heuristics for Jnx JnxEquities Pts Glimpse 1.3
 omi_jnx_jnxequities_pts_glimpse_v1_3:register_heuristic("tcp", omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_heuristic)
+
 -- Register Jnx JnxEquities Pts Glimpse 1.3 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_jnx_jnxequities_pts_glimpse_v1_3)

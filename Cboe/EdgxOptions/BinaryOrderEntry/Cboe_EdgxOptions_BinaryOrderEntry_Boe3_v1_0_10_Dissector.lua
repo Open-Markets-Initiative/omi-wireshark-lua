@@ -247,7 +247,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.logout_request = Proto
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.replay_complete = ProtoField.new("Replay Complete", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.replaycomplete", ftypes.BYTES)
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.serverheartbeat", ftypes.BYTES)
 
--- Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10 generated fields
+-- Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10 Generated Fields
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.acknowledgement_allocation_index = ProtoField.new("Acknowledgement Allocation Index", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.acknowledgementallocationindex", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.allocation_index = ProtoField.new("Allocation Index", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.allocationindex", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.allocation_cancelled_index = ProtoField.new("Allocation Cancelled Index", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.allocationcancelledindex", ftypes.UINT16)
@@ -258,6 +258,18 @@ omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.quote_index = ProtoFie
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.quote_acknowledgement_index = ProtoField.new("Quote Acknowledgement Index", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.quoteacknowledgementindex", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.quote_short_index = ProtoField.new("Quote Short Index", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.quoteshortindex", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.unit_sequence_index = ProtoField.new("Unit Sequence Index", "cboe.edgxoptions.binaryorderentry.boe3.v1.0.10.unitsequenceindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -271,11 +283,6 @@ show.headers = true
 show.indexes = true
 
 -- Register Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -11028,12 +11035,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -11042,31 +11051,42 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.role = function(packet)
   if omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -11080,16 +11100,18 @@ end
 
 -- Dissector for Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10
 function omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10, buffer(), omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.description, "("..buffer:len().." Bytes)")
+
   local role = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.role(packet)
+
   if role == "initiator" then
     return cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.firm_packet.dissect(buffer, packet, protocol)
   end
+
   return cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.exchange_packet.dissect(buffer, packet, protocol)
 end
 
@@ -11103,6 +11125,7 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.firm_packet.fingerprint = functio
   if buffer:len() < 6 then
     return false
   end
+
   local firm_message_type = buffer(4, 2):le_uint()
 
   -- Login Request Message
@@ -11193,12 +11216,12 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.firm_packet.fingerprint = functio
   return false
 end
 
-
 -- Fingerprint of Exchange Packet: would its message dispatch accept this frame?
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.exchange_packet.fingerprint = function(buffer)
   if buffer:len() < 6 then
     return false
   end
+
   local exchange_message_type = buffer(4, 2):le_uint()
 
   -- Login Response Message
@@ -11360,7 +11383,6 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.exchange_packet.fingerprint = fun
 end
 
 
-
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
@@ -11398,19 +11420,24 @@ end
 -- Dissector Heuristic for Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10 (Tcp): apply the heuristic of the sender's connection role
 local function omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10_tcp_heuristic(buffer, packet, parent)
   local role = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.role(packet)
-  local first, second = omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10_tcp_initiator_heuristic, omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10_tcp_acceptor_heuristic
+  local first = omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10_tcp_initiator_heuristic
+  local second = omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.swap(packet)
 
   return false
@@ -11418,6 +11445,7 @@ end
 
 -- Register Heuristics for Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10
 omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10:register_heuristic("tcp", omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10_tcp_heuristic)
+
 -- Register Cboe EdgxOptions BinaryOrderEntry Boe3 1.0.10 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10)

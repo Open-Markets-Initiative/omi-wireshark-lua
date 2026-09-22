@@ -166,7 +166,7 @@ omi_hkex_hkexderivatives_lite_omd_v2_2.fields.trade_amendment_message = ProtoFie
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.trade_statistics_message = ProtoField.new("Trade Statistics Message", "hkex.hkexderivatives.lite.omd.v2.2.tradestatisticsmessage", ftypes.STRING)
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.vcm_trigger = ProtoField.new("Vcm Trigger", "hkex.hkexderivatives.lite.omd.v2.2.vcmtrigger", ftypes.STRING)
 
--- Hkex HkexDerivatives Lite Omd 2.2 generated fields
+-- Hkex HkexDerivatives Lite Omd 2.2 Generated Fields
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.book_entry_index = ProtoField.new("Book Entry Index", "hkex.hkexderivatives.lite.omd.v2.2.bookentryindex", ftypes.UINT16)
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.content_index = ProtoField.new("Content Index", "hkex.hkexderivatives.lite.omd.v2.2.contentindex", ftypes.UINT16)
 omi_hkex_hkexderivatives_lite_omd_v2_2.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.lite.omd.v2.2.messageindex", ftypes.UINT16)
@@ -5103,7 +5103,6 @@ end
 
 -- Dissector for Hkex HkexDerivatives Lite Omd 2.2
 function omi_hkex_hkexderivatives_lite_omd_v2_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexderivatives_lite_omd_v2_2.name
 

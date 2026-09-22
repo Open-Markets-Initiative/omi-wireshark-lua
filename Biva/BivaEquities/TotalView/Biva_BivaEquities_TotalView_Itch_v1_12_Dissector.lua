@@ -103,7 +103,7 @@ omi_biva_bivaequities_totalview_itch_v1_12.fields.trade_message = ProtoField.new
 omi_biva_bivaequities_totalview_itch_v1_12.fields.end_of_session = ProtoField.new("End Of Session", "biva.bivaequities.totalview.itch.v1.12.endofsession", ftypes.BYTES)
 omi_biva_bivaequities_totalview_itch_v1_12.fields.heartbeat = ProtoField.new("Heartbeat", "biva.bivaequities.totalview.itch.v1.12.heartbeat", ftypes.BYTES)
 
--- Biva BivaEquities TotalView Itch 1.12 generated fields
+-- Biva BivaEquities TotalView Itch 1.12 Generated Fields
 omi_biva_bivaequities_totalview_itch_v1_12.fields.message_index = ProtoField.new("Message Index", "biva.bivaequities.totalview.itch.v1.12.messageindex", ftypes.UINT16)
 omi_biva_bivaequities_totalview_itch_v1_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "biva.bivaequities.totalview.itch.v1.12.messagesequencenumber", ftypes.UINT64)
 omi_biva_bivaequities_totalview_itch_v1_12.fields.timestamp = ProtoField.new("Timestamp", "biva.bivaequities.totalview.itch.v1.12.timestamp", ftypes.UINT64)
@@ -3186,7 +3186,6 @@ end
 
 -- Dissector for Biva BivaEquities TotalView Itch 1.12
 function omi_biva_bivaequities_totalview_itch_v1_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_biva_bivaequities_totalview_itch_v1_12.name
 

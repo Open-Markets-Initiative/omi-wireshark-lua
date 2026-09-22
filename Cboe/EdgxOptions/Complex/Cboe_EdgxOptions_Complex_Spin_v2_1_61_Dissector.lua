@@ -80,7 +80,7 @@ omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.symbol_mapping_message = ProtoF
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.time_message = ProtoField.new("Time Message", "cboe.edgxoptions.complex.spin.v2.1.61.timemessage", ftypes.STRING)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.edgxoptions.complex.spin.v2.1.61.tradingstatusmessage", ftypes.STRING)
 
--- Cboe EdgxOptions Complex Spin 2.1.61 generated fields
+-- Cboe EdgxOptions Complex Spin 2.1.61 Generated Fields
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.edgxoptions.complex.spin.v2.1.61.complexlegindex", ftypes.UINT16)
 omi_cboe_edgxoptions_complex_spin_v2_1_61.fields.message_index = ProtoField.new("Message Index", "cboe.edgxoptions.complex.spin.v2.1.61.messageindex", ftypes.UINT16)
 
@@ -2267,7 +2267,6 @@ end
 
 -- Dissector for Cboe EdgxOptions Complex Spin 2.1.61
 function omi_cboe_edgxoptions_complex_spin_v2_1_61.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxoptions_complex_spin_v2_1_61.name
 

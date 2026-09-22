@@ -100,7 +100,7 @@ omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.symbol_clear_message = ProtoF
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nationalequities.bbo.pillar.v2.5.d.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nationalequities.bbo.pillar.v2.5.d.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse NationalEquities Bbo Pillar 2.5.d generated fields
+-- Nyse NationalEquities Bbo Pillar 2.5.d Generated Fields
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.message_index = ProtoField.new("Message Index", "nyse.nationalequities.bbo.pillar.v2.5.d.messageindex", ftypes.UINT16)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nationalequities.bbo.pillar.v2.5.d.messagesequencenumber", ftypes.UINT64)
 omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.nationalequities.bbo.pillar.v2.5.d.askpricecalculate", ftypes.DOUBLE)
@@ -3280,7 +3280,6 @@ end
 
 -- Dissector for Nyse NationalEquities Bbo Pillar 2.5.d
 function omi_nyse_nationalequities_bbo_pillar_v2_5_d.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nationalequities_bbo_pillar_v2_5_d.name
 

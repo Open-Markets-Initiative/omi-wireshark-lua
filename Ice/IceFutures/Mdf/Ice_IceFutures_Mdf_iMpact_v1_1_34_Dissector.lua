@@ -282,7 +282,7 @@ omi_ice_icefutures_mdf_impact_v1_1_34.fields.system_text_message = ProtoField.ne
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.trade_message = ProtoField.new("Trade Message", "ice.icefutures.mdf.impact.v1.1.34.trademessage", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.transaction_end_marker_for_empty_last_bundle_message = ProtoField.new("Transaction End Marker For Empty Last Bundle Message", "ice.icefutures.mdf.impact.v1.1.34.transactionendmarkerforemptylastbundlemessage", ftypes.STRING)
 
--- Ice IceFutures Mdf iMpact 1.1.34 generated fields
+-- Ice IceFutures Mdf iMpact 1.1.34 Generated Fields
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.hedge_definition_index = ProtoField.new("Hedge Definition Index", "ice.icefutures.mdf.impact.v1.1.34.hedgedefinitionindex", ftypes.UINT16)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "ice.icefutures.mdf.impact.v1.1.34.legdefinitionindex", ftypes.UINT16)
 omi_ice_icefutures_mdf_impact_v1_1_34.fields.message_index = ProtoField.new("Message Index", "ice.icefutures.mdf.impact.v1.1.34.messageindex", ftypes.UINT16)
@@ -11479,7 +11479,6 @@ end
 
 -- Dissector for Ice IceFutures Mdf iMpact 1.1.34
 function omi_ice_icefutures_mdf_impact_v1_1_34.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ice_icefutures_mdf_impact_v1_1_34.name
 

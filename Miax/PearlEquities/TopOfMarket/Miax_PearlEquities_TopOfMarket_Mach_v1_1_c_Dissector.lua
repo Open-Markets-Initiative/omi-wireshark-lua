@@ -104,7 +104,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.system_time_message = Prot
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.topofmarket.mach.v1.1.c.tradecancelmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.wide_top_of_market_best_bid_and_offer_message = ProtoField.new("Wide Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.c.widetopofmarketbestbidandoffermessage", ftypes.STRING)
 
--- Miax PearlEquities TopOfMarket Mach 1.1.c generated fields
+-- Miax PearlEquities TopOfMarket Mach 1.1.c Generated Fields
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.topofmarket.mach.v1.1.c.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -3437,15 +3437,16 @@ end
 
 -- Dissector for Miax PearlEquities TopOfMarket Mach 1.1.c
 function omi_miax_pearlequities_topofmarket_mach_v1_1_c.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearlequities_topofmarket_mach_v1_1_c.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c, buffer(), omi_miax_pearlequities_topofmarket_mach_v1_1_c.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_pearlequities_topofmarket_mach_v1_1_c.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -3483,9 +3484,11 @@ end
 -- Register Heuristics for Miax PearlEquities TopOfMarket Mach 1.1.c
 omi_miax_pearlequities_topofmarket_mach_v1_1_c:register_heuristic("udp", omi_miax_pearlequities_topofmarket_mach_v1_1_c_udp_heuristic)
 omi_miax_pearlequities_topofmarket_mach_v1_1_c:register_heuristic("tcp", omi_miax_pearlequities_topofmarket_mach_v1_1_c_tcp_heuristic)
+
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.c for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_pearlequities_topofmarket_mach_v1_1_c)
+
 -- Register Miax PearlEquities TopOfMarket Mach 1.1.c for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_pearlequities_topofmarket_mach_v1_1_c)

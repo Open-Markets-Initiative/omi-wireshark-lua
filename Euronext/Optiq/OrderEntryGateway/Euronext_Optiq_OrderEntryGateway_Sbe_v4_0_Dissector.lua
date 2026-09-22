@@ -426,7 +426,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_0.fields.trade_bust_notification_mes
 omi_euronext_optiq_orderentrygateway_sbe_v4_0.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v4.0.usernotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v4_0.fields.wholesale_order_ack_message = ProtoField.new("Wholesale Order Ack Message", "euronext.optiq.orderentrygateway.sbe.v4.0.wholesaleorderackmessage", ftypes.STRING)
 
--- Euronext Optiq OrderEntryGateway Sbe 4.0 generated fields
+-- Euronext Optiq OrderEntryGateway Sbe 4.0 Generated Fields
 omi_euronext_optiq_orderentrygateway_sbe_v4_0.fields.additional_infos_group_index = ProtoField.new("Additional Infos Group Index", "euronext.optiq.orderentrygateway.sbe.v4.0.additionalinfosgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_0.fields.cancel_replace_clearing_fields_group_index = ProtoField.new("Cancel Replace Clearing Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v4.0.cancelreplaceclearingfieldsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_0.fields.cancel_replace_optional_field_group_index = ProtoField.new("Cancel Replace Optional Field Group Index", "euronext.optiq.orderentrygateway.sbe.v4.0.cancelreplaceoptionalfieldgroupindex", ftypes.UINT16)
@@ -17901,7 +17901,6 @@ end
 
 -- Dissector for Euronext Optiq OrderEntryGateway Sbe 4.0
 function omi_euronext_optiq_orderentrygateway_sbe_v4_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_euronext_optiq_orderentrygateway_sbe_v4_0.name
 

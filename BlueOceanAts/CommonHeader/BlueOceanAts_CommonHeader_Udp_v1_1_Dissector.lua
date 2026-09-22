@@ -35,7 +35,7 @@ omi_blueoceanats_commonheader_udp_v1_1.fields.packet = ProtoField.new("Packet", 
 omi_blueoceanats_commonheader_udp_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "blueoceanats.commonheader.udp.v1.1.sbeheader", ftypes.STRING)
 omi_blueoceanats_commonheader_udp_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "blueoceanats.commonheader.udp.v1.1.sbemessage", ftypes.STRING)
 
--- BlueOceanAts CommonHeader Udp 1.1 generated fields
+-- BlueOceanAts CommonHeader Udp 1.1 Generated Fields
 omi_blueoceanats_commonheader_udp_v1_1.fields.message_index = ProtoField.new("Message Index", "blueoceanats.commonheader.udp.v1.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -650,7 +650,6 @@ end
 
 -- Dissector for BlueOceanAts CommonHeader Udp 1.1
 function omi_blueoceanats_commonheader_udp_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_blueoceanats_commonheader_udp_v1_1.name
 

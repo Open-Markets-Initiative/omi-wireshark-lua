@@ -113,7 +113,7 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.spin_response_message = Pro
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.time_message = ProtoField.new("Time Message", "cboe.cfefutures.multicasttop.spin.v1.2.20.timemessage", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.time_reference_message = ProtoField.new("Time Reference Message", "cboe.cfefutures.multicasttop.spin.v1.2.20.timereferencemessage", ftypes.STRING)
 
--- Cboe CfeFutures MulticastTop Spin 1.2.20 generated fields
+-- Cboe CfeFutures MulticastTop Spin 1.2.20 Generated Fields
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicasttop.spin.v1.2.20.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicasttop.spin.v1.2.20.messageindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_spin_v1_2_20.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicasttop.spin.v1.2.20.timestamp", ftypes.UINT64)
@@ -3315,7 +3315,6 @@ end
 
 -- Dissector for Cboe CfeFutures MulticastTop Spin 1.2.20
 function omi_cboe_cfefutures_multicasttop_spin_v1_2_20.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cfefutures_multicasttop_spin_v1_2_20.name
 

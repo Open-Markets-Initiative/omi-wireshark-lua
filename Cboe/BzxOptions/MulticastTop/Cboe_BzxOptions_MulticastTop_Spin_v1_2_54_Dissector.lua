@@ -95,7 +95,7 @@ omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.trading_status_message = Pr
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.two_side_update_expanded_long_message = ProtoField.new("Two Side Update Expanded Long Message", "cboe.bzxoptions.multicasttop.spin.v1.2.54.twosideupdateexpandedlongmessage", ftypes.STRING)
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.two_side_update_expanded_short_message = ProtoField.new("Two Side Update Expanded Short Message", "cboe.bzxoptions.multicasttop.spin.v1.2.54.twosideupdateexpandedshortmessage", ftypes.STRING)
 
--- Cboe BzxOptions MulticastTop Spin 1.2.54 generated fields
+-- Cboe BzxOptions MulticastTop Spin 1.2.54 Generated Fields
 omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.fields.message_index = ProtoField.new("Message Index", "cboe.bzxoptions.multicasttop.spin.v1.2.54.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2723,7 +2723,6 @@ end
 
 -- Dissector for Cboe BzxOptions MulticastTop Spin 1.2.54
 function omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxoptions_multicasttop_spin_v1_2_54.name
 

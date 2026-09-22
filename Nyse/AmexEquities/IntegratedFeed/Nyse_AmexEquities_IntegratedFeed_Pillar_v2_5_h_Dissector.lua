@@ -123,7 +123,7 @@ omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.trade_cancel_message =
 -- Nyse AmexEquities IntegratedFeed 2.5.h Session Messages
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amexequities.integratedfeed.pillar.v2.5.h.heartbeat", ftypes.BYTES)
 
--- Nyse AmexEquities IntegratedFeed Pillar 2.5.h generated fields
+-- Nyse AmexEquities IntegratedFeed Pillar 2.5.h Generated Fields
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.integratedfeed.pillar.v2.5.h.messageindex", ftypes.UINT16)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.amexequities.integratedfeed.pillar.v2.5.h.messagesequencenumber", ftypes.UINT64)
 omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.amexequities.integratedfeed.pillar.v2.5.h.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
@@ -4660,7 +4660,6 @@ end
 
 -- Dissector for Nyse AmexEquities IntegratedFeed Pillar 2.5.h
 function omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.name
 

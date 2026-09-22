@@ -70,7 +70,7 @@ omi_biva_bivaequities_index_itch_v1_12.fields.quantity_tick_size_message = Proto
 omi_biva_bivaequities_index_itch_v1_12.fields.system_event_message = ProtoField.new("System Event Message", "biva.bivaequities.index.itch.v1.12.systemeventmessage", ftypes.STRING)
 omi_biva_bivaequities_index_itch_v1_12.fields.time_stamp_seconds_message = ProtoField.new("Time Stamp Seconds Message", "biva.bivaequities.index.itch.v1.12.timestampsecondsmessage", ftypes.STRING)
 
--- Biva BivaEquities Index Itch 1.12 generated fields
+-- Biva BivaEquities Index Itch 1.12 Generated Fields
 omi_biva_bivaequities_index_itch_v1_12.fields.message_index = ProtoField.new("Message Index", "biva.bivaequities.index.itch.v1.12.messageindex", ftypes.UINT16)
 omi_biva_bivaequities_index_itch_v1_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "biva.bivaequities.index.itch.v1.12.messagesequencenumber", ftypes.UINT64)
 omi_biva_bivaequities_index_itch_v1_12.fields.timestamp = ProtoField.new("Timestamp", "biva.bivaequities.index.itch.v1.12.timestamp", ftypes.UINT64)
@@ -1945,7 +1945,6 @@ end
 
 -- Dissector for Biva BivaEquities Index Itch 1.12
 function omi_biva_bivaequities_index_itch_v1_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_biva_bivaequities_index_itch_v1_12.name
 

@@ -106,7 +106,7 @@ omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.transaction_begin_message = Pr
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.transaction_end_message = ProtoField.new("Transaction End Message", "cboe.edgxoptions.complex.pitch.v2.1.61.transactionendmessage", ftypes.STRING)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.edgxoptions.complex.pitch.v2.1.61.unitclearmessage", ftypes.STRING)
 
--- Cboe EdgxOptions Complex Pitch 2.1.61 generated fields
+-- Cboe EdgxOptions Complex Pitch 2.1.61 Generated Fields
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.edgxoptions.complex.pitch.v2.1.61.complexlegindex", ftypes.UINT16)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.message_index = ProtoField.new("Message Index", "cboe.edgxoptions.complex.pitch.v2.1.61.messageindex", ftypes.UINT16)
 omi_cboe_edgxoptions_complex_pitch_v2_1_61.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.complex.pitch.v2.1.61.timestamp", ftypes.UINT64)
@@ -3673,7 +3673,6 @@ end
 
 -- Dissector for Cboe EdgxOptions Complex Pitch 2.1.61
 function omi_cboe_edgxoptions_complex_pitch_v2_1_61.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxoptions_complex_pitch_v2_1_61.name
 

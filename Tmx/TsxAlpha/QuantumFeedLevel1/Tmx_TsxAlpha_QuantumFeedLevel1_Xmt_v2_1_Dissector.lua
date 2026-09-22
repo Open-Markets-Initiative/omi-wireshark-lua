@@ -75,7 +75,7 @@ omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.symbol_status_message = Proto
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.trade_cancelled_message = ProtoField.new("Trade Cancelled Message", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.tradecancelledmessage", ftypes.STRING)
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.trade_message = ProtoField.new("Trade Message", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.trademessage", ftypes.STRING)
 
--- Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.1 generated fields
+-- Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.1 Generated Fields
 omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.body_index = ProtoField.new("Body Index", "tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.bodyindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2008,7 +2008,6 @@ end
 
 -- Dissector for Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.1
 function omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.name
 

@@ -77,7 +77,7 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_message = P
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradingstatusmessage", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.unitclearmessage", ftypes.STRING)
 
--- Cboe CxaEquities MulticastDepthOfBook Pitch 1.0.12 generated fields
+-- Cboe CxaEquities MulticastDepthOfBook Pitch 1.0.12 Generated Fields
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.message_index = ProtoField.new("Message Index", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2313,7 +2313,6 @@ end
 
 -- Dissector for Cboe CxaEquities MulticastDepthOfBook Pitch 1.0.12
 function omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.name
 

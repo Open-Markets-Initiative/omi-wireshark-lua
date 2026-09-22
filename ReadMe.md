@@ -2,7 +2,7 @@
 
 [![Wireshark](https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/About/Images/Wireshark.png)](https://www.wireshark.org)
 
-Omi Lua Wireshark dissectors provide easily customized, cross platform viewing of common binary exchange protocols.
+Omi Lua Wireshark dissectors provide easily customized and verified viewing of common binary exchange protocols.
 
 ## Usage
 
@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1037 | 7,068,863 |
+| 1041 | 7,089,351 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -65,7 +65,7 @@ Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiativ
 
 ## Organizations
 
-> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [B3][B3.Directory] · [Bist][Bist.Directory] · [Biva][Biva.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Bse][Bse.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Jse][Jse.Directory] · [Koscom][Koscom.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Nasdaq][Nasdaq.Directory] · [Nse][Nse.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Tmx][Tmx.Directory] · [Txse][Txse.Directory]
+> [24X][24X.Directory] · [A2X][A2X.Directory] · [Aquis][Aquis.Directory] · [Asx][Asx.Directory] · [B3][B3.Directory] · [Bist][Bist.Directory] · [Biva][Biva.Directory] · [BlueOceanAts][BlueOceanAts.Directory] · [Box][Box.Directory] · [BruceAts][BruceAts.Directory] · [Bse][Bse.Directory] · [Cboe][Cboe.Directory] · [CixAts][CixAts.Directory] · [Cme][Cme.Directory] · [Coinbase][Coinbase.Directory] · [Currenex][Currenex.Directory] · [Eurex][Eurex.Directory] · [Euronext][Euronext.Directory] · [Finra][Finra.Directory] · [Hkex][Hkex.Directory] · [Ice][Ice.Directory] · [Iex][Iex.Directory] · [Imperative][Imperative.Directory] · [Jnx][Jnx.Directory] · [Jpx][Jpx.Directory] · [Jse][Jse.Directory] · [Koscom][Koscom.Directory] · [Lseg][Lseg.Directory] · [Ltse][Ltse.Directory] · [Memx][Memx.Directory] · [Miax][Miax.Directory] · [Nasdaq][Nasdaq.Directory] · [Nse][Nse.Directory] · [NsxAustralia][NsxAustralia.Directory] · [Nyse][Nyse.Directory] · [Odx][Odx.Directory] · [OtcMarkets][OtcMarkets.Directory] · [Sgx][Sgx.Directory] · [Siac][Siac.Directory] · [SmallX][SmallX.Directory] · [Tmx][Tmx.Directory] · [Txse][Txse.Directory]
 
 ## Exchanges and Ats
 
@@ -77,7 +77,7 @@ Useful? A star helps others find [OMI](https://github.com/Open-Markets-Initiativ
 
 ## Platforms
 
-> [CixAts CixAspen][CixAspen.Platform] · [Cme Globex][Globex.Platform] · [Jse Itac][Itac.Platform] · [Lseg Millennium][Millennium.Platform] · [NsxAustralia Nets][Nets.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform]
+> [CixAts CixAspen][CixAspen.Platform] · [Cme Globex][Globex.Platform] · [Jse Itac][Itac.Platform] · [Lseg Millennium][Millennium.Platform] · [NsxAustralia Nets][Nets.Platform] · [Euronext Optiq][Optiq.Platform] · [Eurex T7][T7.Platform] · [Sgx TitanDt][TitanDt.Platform]
 
 ## Related Definitions
 
@@ -390,6 +390,8 @@ Enjoy.
 [Lseg.Lse.Analytics]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Lse/Analytics.md "Analytics"
 [Lseg.Lse.AnalyticsReplay]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Lse/AnalyticsReplay.md "Analytics Replay"
 [Lseg.Millennium.Level2]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Millennium/Level2.md "Level 2"
+[Lseg.Millennium.Level2Replay]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Millennium/Level2Replay.md ""
+[Lseg.Millennium.Level2Recovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Millennium/Level2Recovery.md ""
 [Lseg.Millennium.UdpUnitHeader]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Millennium/UdpUnitHeader.md "Udp Unit Header"
 [Lseg.Millennium.NativeTradingGateway]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Millennium/NativeTradingGateway.md "Native Trading Gateway"
 [Lseg.Millennium.NativeTradingGatewayRecovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Millennium/NativeTradingGatewayRecovery.md "Native Trading Gateway Recovery"
@@ -618,6 +620,7 @@ Enjoy.
 [OtcMarkets.Overnight.DepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/OtcMarkets/Protocols/Overnight/DepthOfBook.md "OTC Depth of Book"
 [OtcMarkets.Overnight.TopOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/OtcMarkets/Protocols/Overnight/TopOfBook.md "OTC Top of Book"
 [OtcMarkets.Overnight.Retransmission]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/OtcMarkets/Protocols/Overnight/Retransmission.md "OTC Retransmission"
+[Sgx.TitanDt.DepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Sgx/Protocols/TitanDt/DepthOfBook.md "Depth Of Book"
 [Siac.Opra.Output]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Siac/Protocols/Opra/Output.md "Output"
 [Siac.Opra.Input]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Siac/Protocols/Opra/Input.md "Input"
 [Siac.Cts.Output]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Siac/Protocols/Cts/Output.md "Output"
@@ -672,6 +675,7 @@ Enjoy.
 [Nyse.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Nyse "New York Stock Exchange"
 [Odx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Odx "Osaka Digital Exchange"
 [OtcMarkets.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/OtcMarkets "OTC Markets Group"
+[Sgx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Sgx "Singapore Exchange"
 [Siac.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Siac "The Securities Industry Automation Corporation"
 [SmallX.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/SmallX "The Small Exchange"
 [Tmx.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/Tmx "TMX Group"
@@ -775,6 +779,7 @@ Enjoy.
 [Szse.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Hkex/Protocols/Szse "Shenzhen Stock Exchange"
 [T7.Platform]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Eurex/Protocols/T7 "T7"
 [TexasEquities.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Nyse/Protocols/TexasEquities "Nyse Texas Equities"
+[TitanDt.Platform]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Sgx/Protocols/TitanDt "SGX Titan"
 [TitaniumConsolidated.Consolidator]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Cboe/Protocols/TitaniumConsolidated "Cboe Titanium Consolidated"
 [Trace.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Finra/Protocols/Trace "Finra TRACE"
 [TradeEcho.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Lseg/Protocols/TradeEcho "TRADEcho"

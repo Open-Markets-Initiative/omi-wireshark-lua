@@ -79,7 +79,7 @@ omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.system_event_message = ProtoField.n
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.qbbo.itch.v2.1.endofsession", ftypes.BYTES)
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.qbbo.itch.v2.1.heartbeat", ftypes.BYTES)
 
--- Nasdaq NsmEquities Qbbo Itch 2.1 generated fields
+-- Nasdaq NsmEquities Qbbo Itch 2.1 Generated Fields
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.qbbo.itch.v2.1.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_qbbo_itch_v2_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.qbbo.itch.v2.1.messagesequencenumber", ftypes.UINT64)
 
@@ -2597,7 +2597,6 @@ end
 
 -- Dissector for Nasdaq NsmEquities Qbbo Itch 2.1
 function omi_nasdaq_nsmequities_qbbo_itch_v2_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_qbbo_itch_v2_1.name
 

@@ -48,7 +48,7 @@ omi_nyse_texasequities_depthfeedrequest_pillar_v1_6.fields.request_response_mess
 omi_nyse_texasequities_depthfeedrequest_pillar_v1_6.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.texasequities.depthfeedrequest.pillar.v1.6.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_texasequities_depthfeedrequest_pillar_v1_6.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.texasequities.depthfeedrequest.pillar.v1.6.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse TexasEquities DepthFeedRequest Pillar 1.6 generated fields
+-- Nyse TexasEquities DepthFeedRequest Pillar 1.6 Generated Fields
 omi_nyse_texasequities_depthfeedrequest_pillar_v1_6.fields.message_index = ProtoField.new("Message Index", "nyse.texasequities.depthfeedrequest.pillar.v1.6.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1155,7 +1155,6 @@ end
 
 -- Dissector for Nyse TexasEquities DepthFeedRequest Pillar 1.6
 function omi_nyse_texasequities_depthfeedrequest_pillar_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_texasequities_depthfeedrequest_pillar_v1_6.name
 

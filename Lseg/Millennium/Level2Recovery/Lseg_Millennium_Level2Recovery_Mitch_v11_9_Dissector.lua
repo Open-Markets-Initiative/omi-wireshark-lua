@@ -75,7 +75,7 @@ omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_request_message =
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.snapshot_response_message = ProtoField.new("Snapshot Response Message", "lseg.millennium.level2recovery.mitch.v11.9.snapshotresponsemessage", ftypes.STRING)
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "lseg.millennium.level2recovery.mitch.v11.9.symbolstatusmessage", ftypes.STRING)
 
--- Lseg Millennium Level2Recovery Mitch 11.9 generated fields
+-- Lseg Millennium Level2Recovery Mitch 11.9 Generated Fields
 omi_lseg_millennium_level2recovery_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2recovery.mitch.v11.9.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -828,9 +828,6 @@ lseg_millennium_level2recovery_mitch_v11_9.trading_status.size = 1
 lseg_millennium_level2recovery_mitch_v11_9.trading_status.display = function(value)
   if value == " " then
     return "Trading Status: Active (<whitespace>)"
-  end
-  if value == "Value" then
-    return "Trading Status: Meaning (Value)"
   end
   if value == "H" then
     return "Trading Status: Halt (H)"
@@ -1926,7 +1923,6 @@ end
 
 -- Dissector for Lseg Millennium Level2Recovery Mitch 11.9
 function omi_lseg_millennium_level2recovery_mitch_v11_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_millennium_level2recovery_mitch_v11_9.name
 

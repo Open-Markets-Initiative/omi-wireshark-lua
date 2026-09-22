@@ -40,7 +40,7 @@ omi_cboe_gaprequestproxy_pitch_v1.fields.gap_response_message = ProtoField.new("
 omi_cboe_gaprequestproxy_pitch_v1.fields.login_message = ProtoField.new("Login Message", "cboe.gaprequestproxy.pitch.v1.loginmessage", ftypes.STRING)
 omi_cboe_gaprequestproxy_pitch_v1.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.gaprequestproxy.pitch.v1.loginresponsemessage", ftypes.STRING)
 
--- Cboe GapRequestProxy Pitch 1 generated fields
+-- Cboe GapRequestProxy Pitch 1 Generated Fields
 omi_cboe_gaprequestproxy_pitch_v1.fields.message_index = ProtoField.new("Message Index", "cboe.gaprequestproxy.pitch.v1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -881,7 +881,6 @@ end
 
 -- Dissector for Cboe GapRequestProxy Pitch 1
 function omi_cboe_gaprequestproxy_pitch_v1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_gaprequestproxy_pitch_v1.name
 

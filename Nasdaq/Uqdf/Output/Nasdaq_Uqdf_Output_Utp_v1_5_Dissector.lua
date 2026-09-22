@@ -138,7 +138,7 @@ omi_nasdaq_uqdf_output_utp_v1_5.fields.regulation_sho_short_sale_price_test_rest
 omi_nasdaq_uqdf_output_utp_v1_5.fields.session_close_recap_message = ProtoField.new("Session Close Recap Message", "nasdaq.uqdf.output.utp.v1.5.sessioncloserecapmessage", ftypes.STRING)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "nasdaq.uqdf.output.utp.v1.5.startofdaymessage", ftypes.STRING)
 
--- Nasdaq Uqdf Output Utp 1.5 generated fields
+-- Nasdaq Uqdf Output Utp 1.5 Generated Fields
 omi_nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap_index = ProtoField.new("Market Center Close Recap Index", "nasdaq.uqdf.output.utp.v1.5.marketcentercloserecapindex", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v1_5.fields.message_index = ProtoField.new("Message Index", "nasdaq.uqdf.output.utp.v1.5.messageindex", ftypes.UINT16)
 
@@ -4745,7 +4745,6 @@ end
 
 -- Dissector for Nasdaq Uqdf Output Utp 1.5
 function omi_nasdaq_uqdf_output_utp_v1_5.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_uqdf_output_utp_v1_5.name
 

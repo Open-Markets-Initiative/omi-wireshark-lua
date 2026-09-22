@@ -1388,7 +1388,6 @@ end
 
 -- Dissector for Miax PearlEquities HeaderOnly ESesM 1.0.a
 function omi_miax_pearlequities_headeronly_esesm_v1_0_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearlequities_headeronly_esesm_v1_0_a.name
 

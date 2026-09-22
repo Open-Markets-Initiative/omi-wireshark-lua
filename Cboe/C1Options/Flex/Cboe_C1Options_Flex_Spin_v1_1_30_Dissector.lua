@@ -92,7 +92,7 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.symbol_mapping_message = ProtoField.
 omi_cboe_c1options_flex_spin_v1_1_30.fields.time_message = ProtoField.new("Time Message", "cboe.c1options.flex.spin.v1.1.30.timemessage", ftypes.STRING)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.c1options.flex.spin.v1.1.30.tradingstatusmessage", ftypes.STRING)
 
--- Cboe C1Options Flex Spin 1.1.30 generated fields
+-- Cboe C1Options Flex Spin 1.1.30 Generated Fields
 omi_cboe_c1options_flex_spin_v1_1_30.fields.complex_flex_leg_index = ProtoField.new("Complex Flex Leg Index", "cboe.c1options.flex.spin.v1.1.30.complexflexlegindex", ftypes.UINT16)
 omi_cboe_c1options_flex_spin_v1_1_30.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.flex.spin.v1.1.30.messageindex", ftypes.UINT16)
 
@@ -2555,7 +2555,6 @@ end
 
 -- Dissector for Cboe C1Options Flex Spin 1.1.30
 function omi_cboe_c1options_flex_spin_v1_1_30.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_flex_spin_v1_1_30.name
 

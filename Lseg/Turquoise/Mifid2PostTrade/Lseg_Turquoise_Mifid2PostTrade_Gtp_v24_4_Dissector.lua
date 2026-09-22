@@ -105,7 +105,7 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.mi_fid_ii_trade_cross_messag
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.mifid_ii_trade_message = ProtoField.new("Mifid Ii Trade Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.mifidiitrademessage", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.mifid2posttrade.gtp.v24.4.systemeventmessage", ftypes.STRING)
 
--- Lseg Turquoise Mifid2PostTrade Gtp 24.4 generated fields
+-- Lseg Turquoise Mifid2PostTrade Gtp 24.4 Generated Fields
 omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.mifid2posttrade.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3331,7 +3331,6 @@ end
 
 -- Dissector for Lseg Turquoise Mifid2PostTrade Gtp 24.4
 function omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_turquoise_mifid2posttrade_gtp_v24_4.name
 

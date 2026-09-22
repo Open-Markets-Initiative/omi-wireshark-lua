@@ -420,7 +420,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logon_request_message = ProtoField
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logout_report_message = ProtoField.new("Trader Logout Report Message", "ice.icefutures.bgw.sbe.v7.0.traderlogoutreportmessage", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logout_request_message = ProtoField.new("Trader Logout Request Message", "ice.icefutures.bgw.sbe.v7.0.traderlogoutrequestmessage", ftypes.STRING)
 
--- Ice IceFutures Bgw Sbe 7.0 generated fields
+-- Ice IceFutures Bgw Sbe 7.0 Generated Fields
 omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group_index = ProtoField.new("I P Report Message no Users Group Index", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroupindex", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group_index = ProtoField.new("I P Request Message no Users Group Index", "ice.icefutures.bgw.sbe.v7.0.iprequestmessagenousersgroupindex", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group_index = ProtoField.new("Mass Quote Report Message no Quote Sets Group Index", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessagenoquotesetsgroupindex", ftypes.UINT16)
@@ -16162,7 +16162,6 @@ end
 
 -- Dissector for Ice IceFutures Bgw Sbe 7.0
 function omi_ice_icefutures_bgw_sbe_v7_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ice_icefutures_bgw_sbe_v7_0.name
 

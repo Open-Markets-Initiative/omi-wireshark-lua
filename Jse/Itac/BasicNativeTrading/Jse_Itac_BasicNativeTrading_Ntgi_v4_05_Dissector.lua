@@ -4353,7 +4353,6 @@ end
 
 -- Dissector for Jse Itac BasicNativeTrading Ntgi 4.05
 function omi_jse_itac_basicnativetrading_ntgi_v4_05.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jse_itac_basicnativetrading_ntgi_v4_05.name
 

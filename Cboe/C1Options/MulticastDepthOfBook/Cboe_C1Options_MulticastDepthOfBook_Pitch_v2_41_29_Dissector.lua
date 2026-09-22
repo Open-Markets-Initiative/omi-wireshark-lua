@@ -16,7 +16,7 @@ local cboe_c1options_multicastdepthofbook_pitch_v2_41_29 = {}
 
 -- Cboe C1Options MulticastDepthOfBook Pitch 2.41.29 Fields
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.add_order_flags = ProtoField.new("Add Order Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.addorderflags", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.aon = ProtoField.new("Aon", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.aon = ProtoField.new("Aon", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.aon", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.auctionendoffset", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.auctionid", ftypes.UINT64)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.auction_notification_type = ProtoField.new("Auction Notification Type", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.auctionnotificationtype", ftypes.STRING)
@@ -32,7 +32,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.composite_market_o
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.contracts = ProtoField.new("Contracts", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.contracts", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.count = ProtoField.new("Count", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.count", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.customerindicator", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.display = ProtoField.new("Display", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.display", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.display = ProtoField.new("Display", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.display", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.epochtime", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.executedquantity", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.executionid", ftypes.UINT64)
@@ -45,7 +45,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.message_length = P
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.messagetype", ftypes.UINT8)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.midnightreference", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.modifyorderflags", ftypes.STRING)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.modify_reserved_flags = ProtoField.new("Modify Reserved Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.modifyreservedflags", ftypes.UINT8, nil, base.DEC, 0x3F)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.modify_reserved_flags = ProtoField.new("Modify Reserved Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.modifyreservedflags", ftypes.UINT8, nil, base.DEC, 0xFC)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.multiplier = ProtoField.new("Multiplier", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.multiplier", ftypes.DOUBLE)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.openingcondition", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.order_id = ProtoField.new("Order Id", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.orderid", ftypes.UINT64)
@@ -54,16 +54,16 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.padding = ProtoFie
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.participantid", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.price", ftypes.DOUBLE)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.priceshort", ftypes.DOUBLE)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.priority = ProtoField.new("Priority", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.priority = ProtoField.new("Priority", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.priority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.quantity = ProtoField.new("Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.quantity", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.quantityshort", ftypes.UINT16)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reference_price = ProtoField.new("Reference Price", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.referenceprice", ftypes.UINT64)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.remainingquantity", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reserved1", ftypes.BYTES)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reserved2", ftypes.BYTES)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_bit_1 = ProtoField.new("Reserved Bit 1", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reservedbit1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_bit_2 = ProtoField.new("Reserved Bit 2", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reservedbit2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
-omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reservedflags", ftypes.UINT8, nil, base.DEC, 0x0F)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_bit_1 = ProtoField.new("Reserved Bit 1", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reservedbit1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_bit_2 = ProtoField.new("Reserved Bit 2", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reservedbit2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags = ProtoField.new("Reserved Flags", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.reservedflags", ftypes.UINT8, nil, base.DEC, 0xF0)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.sellcontracts", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.sequence = ProtoField.new("Sequence", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.sequence", ftypes.UINT32)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.shares_contracts = ProtoField.new("Shares Contracts", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.sharescontracts", ftypes.UINT32)
@@ -122,7 +122,7 @@ omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.transaction_end = 
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.unitclearmessage", ftypes.STRING)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.width_update = ProtoField.new("Width Update", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.widthupdate", ftypes.STRING)
 
--- Cboe C1Options MulticastDepthOfBook Pitch 2.41.29 generated fields
+-- Cboe C1Options MulticastDepthOfBook Pitch 2.41.29 Generated Fields
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.messageindex", ftypes.UINT16)
 omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.multicastdepthofbook.pitch.v2.41.29.timestamp", ftypes.UINT64)
 
@@ -1955,19 +1955,19 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.constituent_symbol_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Feed Symbol: 6 Byte Ascii String
+  -- Feed Symbol: Printable ASCII
   index, feed_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.feed_symbol.dissect(buffer, index, packet, parent)
 
-  -- Osi Symbol: 21 Byte Ascii String
+  -- Osi Symbol: Printable ASCII
   index, osi_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.osi_symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
+  -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: 8 Byte Ascii String
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.underlying.dissect(buffer, index, packet, parent)
 
-  -- Soq Identifier: 20 Byte Ascii String
+  -- Soq Identifier: Printable ASCII
   index, soq_identifier = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.soq_identifier.dissect(buffer, index, packet, parent)
 
   return index
@@ -2010,16 +2010,16 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.soq_strike_range_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Soq Identifier: 20 Byte Ascii String
+  -- Soq Identifier: Printable ASCII
   index, soq_identifier = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.soq_identifier.dissect(buffer, index, packet, parent)
 
-  -- Lower Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Lower Strike Price: Binary Long Price
   index, lower_strike_price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.lower_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Upper Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Upper Strike Price: Binary Long Price
   index, upper_strike_price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.upper_strike_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2063,19 +2063,19 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts: Binary
   index, contracts = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -2116,10 +2116,10 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2169,37 +2169,37 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Notification Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Notification Type: Alphanumeric
   index, auction_notification_type = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_notification_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: Alphanumeric
   index, side = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.side.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts: Binary
   index, contracts = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.contracts.dissect(buffer, index, packet, parent)
 
-  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Customer Indicator: Alphanumeric
   index, customer_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.customer_indicator.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 4 Byte Ascii String
+  -- Participant Id: Alphanumeric
   index, participant_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Auction End Offset: Binary
   index, auction_end_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_end_offset.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 4 Byte Ascii String
+  -- Client Id: Alphanumeric
   index, client_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2243,19 +2243,19 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: 8 Byte Ascii String
+  -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Auction Opening Type: 1 Byte Ascii String
+  -- Auction Opening Type: Alphanumeric
   index, auction_opening_type = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_opening_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
-  -- Shares Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Shares Contracts: Binary
   index, shares_contracts = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.shares_contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -2305,37 +2305,37 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: 8 Byte Ascii String
+  -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: Alphanumeric
   index, auction_type = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Reference Price: 8 Byte Unsigned Fixed Width Integer
+  -- Reference Price: Binary
   index, reference_price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.reference_price.dissect(buffer, index, packet, parent)
 
-  -- Buy Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Contracts: Binary
   index, buy_contracts = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.buy_contracts.dissect(buffer, index, packet, parent)
 
-  -- Sell Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Contracts: Binary
   index, sell_contracts = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.sell_contracts.dissect(buffer, index, packet, parent)
 
-  -- Indicative Price: 8 Byte Unsigned Fixed Width Integer
+  -- Indicative Price: Binary Long Price
   index, indicative_price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.indicative_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Only Price: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Only Price: Binary Long Price
   index, auction_only_price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.auction_only_price.dissect(buffer, index, packet, parent)
 
-  -- Opening Condition: 1 Byte Ascii String
+  -- Opening Condition: Alphanumeric
   index, opening_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.opening_condition.dissect(buffer, index, packet, parent)
 
-  -- Composite Market Bid Price: 8 Byte Unsigned Fixed Width Integer
+  -- Composite Market Bid Price: Binary Long Price
   index, composite_market_bid_price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.composite_market_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Composite Market Offer Price: 8 Byte Unsigned Fixed Width Integer
+  -- Composite Market Offer Price: Binary Long Price
   index, composite_market_offer_price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.composite_market_offer_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -2378,16 +2378,16 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.width_update.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: 8 Byte Ascii String
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.underlying.dissect(buffer, index, packet, parent)
 
-  -- Width Type: 1 Byte Ascii String
+  -- Width Type: Alphanumeric
   index, width_type = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.width_type.dissect(buffer, index, packet, parent)
 
-  -- Multiplier: 4 Byte Unsigned Fixed Width Integer
+  -- Multiplier: Multiplier
   index, multiplier = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.multiplier.dissect(buffer, index, packet, parent)
 
   return index
@@ -2433,25 +2433,25 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: 2 Byte
+  -- Reserved 2: Reserved
   index, reserved_2 = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.reserved_2.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 5 values
+  -- Trading Status: Alphanumeric
   index, trading_status = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trading_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Byte
+  -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Gth Trading Status: 1 Byte Ascii String Enum with 4 values
+  -- Gth Trading Status: Alphanumeric
   index, gth_trading_status = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.gth_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Padding: 1 Byte Ascii String
+  -- Padding: Alphanumeric
   index, padding = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.padding.dissect(buffer, index, packet, parent)
 
   return index
@@ -2494,16 +2494,16 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Feed Symbol: 6 Byte Ascii String
+  -- Feed Symbol: Printable ASCII
   index, feed_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.feed_symbol.dissect(buffer, index, packet, parent)
 
-  -- Osi Symbol: 21 Byte Ascii String
+  -- Osi Symbol: Printable ASCII
   index, osi_symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.osi_symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
+  -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: 8 Byte Ascii String
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -2543,7 +2543,7 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.end_of_session.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -2584,10 +2584,10 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_break_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2622,7 +2622,8 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_expanded_message.size =
   cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_extended.size + 
   cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.size + 
-  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.size
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.size + 
+  cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_condition.size
 
 -- Display: Trade Expanded Message
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_expanded_message.display = function(packet, parent, length)
@@ -2633,26 +2634,29 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: 8 Byte Ascii String
+  -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition: Alphanumeric
+  index, trade_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2698,28 +2702,28 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: Binary
   index, quantity_short = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: Binary Short Price
   index, price_short = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price_short.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 21 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -2766,28 +2770,28 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 21 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -2828,10 +2832,10 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2865,13 +2869,13 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.modify_order_flags.size = 1
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.modify_order_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Priority flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Priority"
-  end
   -- Is Display flag set?
-  if bit.band(value, 0x80) ~= 0 then
+  if bit.band(value, 0x01) ~= 0 then
     flags[#flags + 1] = "Display"
+  end
+  -- Is Priority flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Priority"
   end
 
   return table.concat(flags, "|")
@@ -2880,14 +2884,14 @@ end
 -- Dissect Bit Fields: Modify Order Flags
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.modify_order_flags.bits = function(range, value, packet, parent)
 
-  -- Modify Reserved Flags: 6 Bit
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.modify_reserved_flags, range, value)
+  -- Display: 1 Bit
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.display, range, value)
 
   -- Priority: 1 Bit
   parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.priority, range, value)
 
-  -- Display: 1 Bit
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.display, range, value)
+  -- Modify Reserved Flags: 6 Bit
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.modify_reserved_flags, range, value)
 end
 
 -- Dissect: Modify Order Flags
@@ -2925,16 +2929,16 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.modify_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: Binary
   index, quantity_short = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: Binary Short Price
   index, price_short = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price_short.dissect(buffer, index, packet, parent)
 
   -- Modify Order Flags: Struct of 3 fields
@@ -2981,16 +2985,16 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.modify_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
   -- Modify Order Flags: Struct of 3 fields
@@ -3035,13 +3039,13 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.reduce_size_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Canceled Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Canceled Quantity Short: Binary
   index, canceled_quantity_short = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.canceled_quantity_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -3083,13 +3087,13 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.reduce_size_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Canceled Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Canceled Quantity: Binary
   index, canceled_quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.canceled_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -3135,25 +3139,25 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Binary
   index, executed_quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Remaining Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Remaining Quantity: Binary
   index, remaining_quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 21 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -3197,19 +3201,19 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Binary
   index, executed_quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 21 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -3243,21 +3247,21 @@ cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_flags.size = 1
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_flags.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Aon flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Aon"
-  end
-  -- Is Reserved Bit 2 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Reserved Bit 2"
+  -- Is Display flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Display"
   end
   -- Is Reserved Bit 1 flag set?
-  if bit.band(value, 0x40) ~= 0 then
+  if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Reserved Bit 1"
   end
-  -- Is Display flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Display"
+  -- Is Reserved Bit 2 flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Reserved Bit 2"
+  end
+  -- Is Aon flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Aon"
   end
 
   return table.concat(flags, "|")
@@ -3266,20 +3270,20 @@ end
 -- Dissect Bit Fields: Add Order Flags
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_flags.bits = function(range, value, packet, parent)
 
-  -- Reserved Flags: 4 Bit
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags, range, value)
-
-  -- Aon: 1 Bit
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.aon, range, value)
-
-  -- Reserved Bit 2: 1 Bit
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_bit_2, range, value)
+  -- Display: 1 Bit
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.display, range, value)
 
   -- Reserved Bit 1: 1 Bit
   parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_bit_1, range, value)
 
-  -- Display: 1 Bit
-  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.display, range, value)
+  -- Reserved Bit 2: 1 Bit
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_bit_2, range, value)
+
+  -- Aon: 1 Bit
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.aon, range, value)
+
+  -- Reserved Flags: 4 Bit
+  parent:add(omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.fields.reserved_flags, range, value)
 end
 
 -- Dissect: Add Order Flags
@@ -3322,34 +3326,34 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: 8 Byte Ascii String
+  -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
   -- Add Order Flags: Struct of 5 fields
   index, add_order_flags = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_flags.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 4 Byte Ascii String
+  -- Participant Id: Alphanumeric
   index, participant_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Customer Indicator: Alphanumeric
   index, customer_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.customer_indicator.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 4 Byte Ascii String
+  -- Client Id: Alphanumeric
   index, client_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -3395,22 +3399,22 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: Binary
   index, quantity_short = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Unsigned Fixed Width Integer
+  -- Price Short: Binary Short Price
   index, price_short = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price_short.dissect(buffer, index, packet, parent)
 
   -- Add Order Flags: Struct of 5 fields
@@ -3459,22 +3463,22 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.add_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.symbol.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.price.dissect(buffer, index, packet, parent)
 
   -- Add Order Flags: Struct of 5 fields
@@ -3517,7 +3521,7 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.transaction_end.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3557,7 +3561,7 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.transaction_begin.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3597,7 +3601,7 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3638,10 +3642,10 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
+  -- Time: Binary
   index, time = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.time.dissect(buffer, index, packet, parent)
 
-  -- Epoch Time: 4 Byte Unsigned Fixed Width Integer
+  -- Epoch Time: Binary
   index, epoch_time = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.epoch_time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
@@ -3691,16 +3695,16 @@ end
 cboe_c1options_multicastdepthofbook_pitch_v2_41_29.time_reference_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Midnight Reference: 4 Byte Unsigned Fixed Width Integer
+  -- Midnight Reference: Binary
   index, midnight_reference = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.midnight_reference.dissect(buffer, index, packet, parent)
 
-  -- Time Reference: 4 Byte Unsigned Fixed Width Integer
+  -- Time Reference: Binary
   index, time_reference = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.time_reference.dissect(buffer, index, packet, parent)
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Trade Date: 4 Byte Unsigned Fixed Width Integer
+  -- Trade Date: Binary Date
   index, trade_date = cboe_c1options_multicastdepthofbook_pitch_v2_41_29.trade_date.dissect(buffer, index, packet, parent)
 
   -- Store Midnight Reference Value
@@ -4106,7 +4110,6 @@ end
 
 -- Dissector for Cboe C1Options MulticastDepthOfBook Pitch 2.41.29
 function omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_multicastdepthofbook_pitch_v2_41_29.name
 

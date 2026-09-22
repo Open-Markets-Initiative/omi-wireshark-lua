@@ -180,7 +180,7 @@ omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.option_trade_message = ProtoFi
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.strategies_group_status_message = ProtoField.new("Strategies Group Status Message", "box.boxoptions.solamulticast.hsvf.v1.8.strategiesgroupstatusmessage", ftypes.STRING)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.system_timestamp_message = ProtoField.new("System Timestamp Message", "box.boxoptions.solamulticast.hsvf.v1.8.systemtimestampmessage", ftypes.STRING)
 
--- Box BoxOptions SolaMulticast Hsvf 1.8 generated fields
+-- Box BoxOptions SolaMulticast Hsvf 1.8 Generated Fields
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.complex_market_depth_level_index = ProtoField.new("Complex Market Depth Level Index", "box.boxoptions.solamulticast.hsvf.v1.8.complexmarketdepthlevelindex", ftypes.UINT16)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "box.boxoptions.solamulticast.hsvf.v1.8.instrumentlegindex", ftypes.UINT16)
 omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "box.boxoptions.solamulticast.hsvf.v1.8.marketdepthlevelindex", ftypes.UINT16)
@@ -6549,7 +6549,6 @@ end
 
 -- Dissector for Box BoxOptions SolaMulticast Hsvf 1.8
 function omi_box_boxoptions_solamulticast_hsvf_v1_8.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_box_boxoptions_solamulticast_hsvf_v1_8.name
 

@@ -2607,7 +2607,6 @@ end
 
 -- Dissector for Finra FinraOtc Bbds Dfi 2018.1A
 function omi_finra_finraotc_bbds_dfi_v2018_1a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_finra_finraotc_bbds_dfi_v2018_1a.name
 

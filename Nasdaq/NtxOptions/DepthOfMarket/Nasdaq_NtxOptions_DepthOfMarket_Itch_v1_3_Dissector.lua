@@ -118,7 +118,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.trading_action_message = Pr
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.endofsession", ftypes.BYTES)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.heartbeat", ftypes.BYTES)
 
--- Nasdaq NtxOptions DepthOfMarket Itch 1.3 generated fields
+-- Nasdaq NtxOptions DepthOfMarket Itch 1.3 Generated Fields
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messageindex", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxoptions.depthofmarket.itch.v1.3.timestamp", ftypes.UINT64)
@@ -3929,7 +3929,6 @@ end
 
 -- Dissector for Nasdaq NtxOptions DepthOfMarket Itch 1.3
 function omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_ntxoptions_depthofmarket_itch_v1_3.name
 

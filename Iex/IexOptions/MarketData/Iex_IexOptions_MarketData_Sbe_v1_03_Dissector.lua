@@ -112,7 +112,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.trade_message = ProtoField.new("T
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.iexoptions.marketdata.sbe.v1.03.tradingstatusmessage", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.underlying_ref_data_message = ProtoField.new("Underlying Ref Data Message", "iex.iexoptions.marketdata.sbe.v1.03.underlyingrefdatamessage", ftypes.STRING)
 
--- Iex IexOptions MarketData Sbe 1.03 generated fields
+-- Iex IexOptions MarketData Sbe 1.03 Generated Fields
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_group_index = ProtoField.new("Sequenced Packet Message messages Group Index", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3796,7 +3796,6 @@ end
 
 -- Dissector for Iex IexOptions MarketData Sbe 1.03
 function omi_iex_iexoptions_marketdata_sbe_v1_03.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_iex_iexoptions_marketdata_sbe_v1_03.name
 

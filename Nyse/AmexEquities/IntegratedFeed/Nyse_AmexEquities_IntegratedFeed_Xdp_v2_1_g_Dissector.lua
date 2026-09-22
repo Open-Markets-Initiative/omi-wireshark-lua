@@ -140,7 +140,7 @@ omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_mess
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nyse.amexequities.integratedfeed.xdp.v2.1.g.tradecancelmessage", ftypes.STRING)
 
--- Nyse AmexEquities IntegratedFeed Xdp 2.1.g generated fields
+-- Nyse AmexEquities IntegratedFeed Xdp 2.1.g Generated Fields
 omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.integratedfeed.xdp.v2.1.g.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -4820,7 +4820,6 @@ end
 
 -- Dissector for Nyse AmexEquities IntegratedFeed Xdp 2.1.g
 function omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexequities_integratedfeed_xdp_v2_1_g.name
 

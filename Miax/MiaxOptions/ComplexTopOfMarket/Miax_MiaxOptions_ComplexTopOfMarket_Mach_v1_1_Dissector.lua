@@ -99,7 +99,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_complex_double_sid
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_complex_top_of_market_bid_message = ProtoField.new("Wide Complex Top Of Market Bid Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.widecomplextopofmarketbidmessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_complex_top_of_market_offer_message = ProtoField.new("Wide Complex Top Of Market Offer Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.widecomplextopofmarketoffermessage", ftypes.STRING)
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 generated fields
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Generated Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.miaxoptions.complextopofmarket.mach.v1.1.legdefinitionindex", ftypes.UINT16)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.complextopofmarket.mach.v1.1.timestamp", ftypes.UINT64)
 
@@ -3250,7 +3250,6 @@ end
 
 -- Dissector for Miax MiaxOptions ComplexTopOfMarket Mach 1.1
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.name
 

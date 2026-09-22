@@ -159,7 +159,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.transaction_end_
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.unitclearmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.widthupdatemessage", ftypes.STRING)
 
--- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 generated fields
+-- Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11 Generated Fields
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.leg_group_index = ProtoField.new("Leg Group Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.leggroupindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.message_index = ProtoField.new("Message Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.messageindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.fields.price_level_group_index = ProtoField.new("Price Level Group Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v1.11.pricelevelgroupindex", ftypes.UINT16)
@@ -5517,7 +5517,6 @@ end
 
 -- Dissector for Cboe DxeDerivatives MulticastDepthOfBook Pitch 1.11
 function omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v1_11.name
 

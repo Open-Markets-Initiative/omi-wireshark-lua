@@ -78,7 +78,7 @@ omi_lseg_turquoise_analytics_gtp_v26_3.fields.instrument_directory_message = Pro
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.turquoise.analytics.gtp.v26.3.instrumentstatusmessage", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.analytics.gtp.v26.3.systemeventmessage", ftypes.STRING)
 
--- Lseg Turquoise Analytics Gtp 26.3 generated fields
+-- Lseg Turquoise Analytics Gtp 26.3 Generated Fields
 omi_lseg_turquoise_analytics_gtp_v26_3.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.analytics.gtp.v26.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2034,7 +2034,6 @@ end
 
 -- Dissector for Lseg Turquoise Analytics Gtp 26.3
 function omi_lseg_turquoise_analytics_gtp_v26_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_turquoise_analytics_gtp_v26_3.name
 

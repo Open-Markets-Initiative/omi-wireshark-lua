@@ -166,7 +166,7 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.utp_quote_shortform_message = ProtoFiel
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.uqdf.output.utp.v3.0.c.endofsession", ftypes.BYTES)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.uqdf.output.utp.v3.0.c.heartbeat", ftypes.BYTES)
 
--- Nasdaq Uqdf Output Utp 3.0.c generated fields
+-- Nasdaq Uqdf Output Utp 3.0.c Generated Fields
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.market_center_close_recap_index = ProtoField.new("Market Center Close Recap Index", "nasdaq.uqdf.output.utp.v3.0.c.marketcentercloserecapindex", ftypes.UINT16)
 omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_index = ProtoField.new("Message Index", "nasdaq.uqdf.output.utp.v3.0.c.messageindex", ftypes.UINT16)
 
@@ -6770,7 +6770,6 @@ end
 
 -- Dissector for Nasdaq Uqdf Output Utp 3.0.c
 function omi_nasdaq_uqdf_output_utp_v3_0_c.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_uqdf_output_utp_v3_0_c.name
 

@@ -208,7 +208,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.reject_message = ProtoField.new("
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.resend_request_message = ProtoField.new("Resend Request Message", "coinbase.deribit.ordersapi.sbe.v1.3.resendrequestmessage", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.test_request_message = ProtoField.new("Test Request Message", "coinbase.deribit.ordersapi.sbe.v1.3.testrequestmessage", ftypes.STRING)
 
--- Coinbase Deribit OrdersApi Sbe 1.3 generated fields
+-- Coinbase Deribit OrdersApi Sbe 1.3 Generated Fields
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_response_message_fills_group_index = ProtoField.new("Amend Order Response Message fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.3.amendorderresponsemessagefillsgroupindex", ftypes.UINT16)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.amend_order_response_message_legs_group_index = ProtoField.new("Amend Order Response Message legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.3.amendorderresponsemessagelegsgroupindex", ftypes.UINT16)
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.mass_quote_orders_placed_message_fills_group_index = ProtoField.new("Mass Quote Orders Placed Message fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.3.massquoteordersplacedmessagefillsgroupindex", ftypes.UINT16)
@@ -8835,7 +8835,6 @@ end
 
 -- Dissector for Coinbase Deribit OrdersApi Sbe 1.3
 function omi_coinbase_deribit_ordersapi_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_coinbase_deribit_ordersapi_sbe_v1_3.name
 

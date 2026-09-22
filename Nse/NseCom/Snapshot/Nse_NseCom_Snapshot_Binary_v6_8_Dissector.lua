@@ -37,7 +37,7 @@ omi_nse_nsecom_snapshot_binary_v6_8.fields.snapshot_header = ProtoField.new("Sna
 omi_nse_nsecom_snapshot_binary_v6_8.fields.new_order_message = ProtoField.new("New Order Message", "nse.nsecom.snapshot.binary.v6.8.newordermessage", ftypes.STRING)
 omi_nse_nsecom_snapshot_binary_v6_8.fields.new_spread_order_message = ProtoField.new("New Spread Order Message", "nse.nsecom.snapshot.binary.v6.8.newspreadordermessage", ftypes.STRING)
 
--- Nse NseCom Snapshot Binary 6.8 generated fields
+-- Nse NseCom Snapshot Binary 6.8 Generated Fields
 omi_nse_nsecom_snapshot_binary_v6_8.fields.message_index = ProtoField.new("Message Index", "nse.nsecom.snapshot.binary.v6.8.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -686,7 +686,6 @@ end
 
 -- Dissector for Nse NseCom Snapshot Binary 6.8
 function omi_nse_nsecom_snapshot_binary_v6_8.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsecom_snapshot_binary_v6_8.name
 
@@ -705,6 +704,7 @@ nse_nsecom_snapshot_binary_v6_8.packet.fingerprint = function(buffer)
   if buffer:len() < 17 then
     return false
   end
+
   local message_type = buffer(16, 1):string()
 
   -- New Order Message
@@ -719,7 +719,6 @@ nse_nsecom_snapshot_binary_v6_8.packet.fingerprint = function(buffer)
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------

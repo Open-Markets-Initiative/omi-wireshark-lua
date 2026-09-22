@@ -104,7 +104,7 @@ omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.symbol_clear_message 
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d generated fields
+-- Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Generated Fields
 omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.openbook.aggregated.xdp.v2.1.d.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3387,7 +3387,6 @@ end
 
 -- Dissector for Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d
 function omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.name
 

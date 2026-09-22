@@ -137,7 +137,7 @@ omi_miax_miaxoptions_ais_mach_v2_5.fields.theoretical_settlement_price_notificat
 omi_miax_miaxoptions_ais_mach_v2_5.fields.theoretical_settlement_reference_price_notification_message = ProtoField.new("Theoretical Settlement Reference Price Notification Message", "miax.miaxoptions.ais.mach.v2.5.theoreticalsettlementreferencepricenotificationmessage", ftypes.STRING)
 omi_miax_miaxoptions_ais_mach_v2_5.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.ais.mach.v2.5.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax MiaxOptions Ais Mach 2.5 generated fields
+-- Miax MiaxOptions Ais Mach 2.5 Generated Fields
 omi_miax_miaxoptions_ais_mach_v2_5.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.ais.mach.v2.5.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -4595,15 +4595,16 @@ end
 
 -- Dissector for Miax MiaxOptions Ais Mach 2.5
 function omi_miax_miaxoptions_ais_mach_v2_5.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_ais_mach_v2_5.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_miaxoptions_ais_mach_v2_5, buffer(), omi_miax_miaxoptions_ais_mach_v2_5.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_miaxoptions_ais_mach_v2_5.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_miaxoptions_ais_mach_v2_5.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -4641,9 +4642,11 @@ end
 -- Register Heuristics for Miax MiaxOptions Ais Mach 2.5
 omi_miax_miaxoptions_ais_mach_v2_5:register_heuristic("udp", omi_miax_miaxoptions_ais_mach_v2_5_udp_heuristic)
 omi_miax_miaxoptions_ais_mach_v2_5:register_heuristic("tcp", omi_miax_miaxoptions_ais_mach_v2_5_tcp_heuristic)
+
 -- Register Miax MiaxOptions Ais Mach 2.5 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_miaxoptions_ais_mach_v2_5)
+
 -- Register Miax MiaxOptions Ais Mach 2.5 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_miaxoptions_ais_mach_v2_5)

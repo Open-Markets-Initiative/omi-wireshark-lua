@@ -162,7 +162,7 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.symbol_index_mapping_request_m
 -- Nyse AmexOptions TopFeed 1.2.k Session Messages
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amexoptions.topfeed.pillar.v1.2.k.heartbeat", ftypes.BYTES)
 
--- Nyse AmexOptions TopFeed Pillar 1.2.k generated fields
+-- Nyse AmexOptions TopFeed Pillar 1.2.k Generated Fields
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.complex_series_index_mapping_leg_index = ProtoField.new("Complex Series Index Mapping Leg Index", "nyse.amexoptions.topfeed.pillar.v1.2.k.complexseriesindexmappinglegindex", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.topfeed.pillar.v1.2.k.messageindex", ftypes.UINT16)
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.amexoptions.topfeed.pillar.v1.2.k.messagesequencenumber", ftypes.UINT64)
@@ -5959,7 +5959,6 @@ end
 
 -- Dissector for Nyse AmexOptions TopFeed Pillar 1.2.k
 function omi_nyse_amexoptions_topfeed_pillar_v1_2_k.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexoptions_topfeed_pillar_v1_2_k.name
 

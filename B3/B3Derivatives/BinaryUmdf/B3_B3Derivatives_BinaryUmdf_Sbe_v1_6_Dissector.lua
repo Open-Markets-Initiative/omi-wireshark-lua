@@ -263,7 +263,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.theoretical_opening_price_16_mes
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.trade_53_message = ProtoField.new("Trade 53 Message", "b3.b3derivatives.binaryumdf.sbe.v1.6.trade53message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.trade_bust_57_message = ProtoField.new("Trade Bust 57 Message", "b3.b3derivatives.binaryumdf.sbe.v1.6.tradebust57message", ftypes.STRING)
 
--- B3 B3Derivatives BinaryUmdf Sbe 1.6 generated fields
+-- B3 B3Derivatives BinaryUmdf Sbe 1.6 Generated Fields
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_instr_attribs_group_index = ProtoField.new("Deprecated Instr Attribs Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.6.deprecatedinstrattribsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_legs_group_index = ProtoField.new("Deprecated Legs Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.6.deprecatedlegsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_6.fields.deprecated_underlyings_group_index = ProtoField.new("Deprecated Underlyings Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.6.deprecatedunderlyingsgroupindex", ftypes.UINT16)
@@ -9087,7 +9087,6 @@ end
 
 -- Dissector for B3 B3Derivatives BinaryUmdf Sbe 1.6
 function omi_b3_b3derivatives_binaryumdf_sbe_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_b3_b3derivatives_binaryumdf_sbe_v1_6.name
 

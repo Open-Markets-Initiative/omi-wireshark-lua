@@ -69,7 +69,7 @@ omi_jnx_jnxequities_pts_itch_v1_6.fields.short_selling_price_restriction_state_m
 omi_jnx_jnxequities_pts_itch_v1_6.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxequities.pts.itch.v1.6.systemeventmessage", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.jnxequities.pts.itch.v1.6.tradingstatemessage", ftypes.STRING)
 
--- Jnx JnxEquities Pts Itch 1.6 generated fields
+-- Jnx JnxEquities Pts Itch 1.6 Generated Fields
 omi_jnx_jnxequities_pts_itch_v1_6.fields.message_index = ProtoField.new("Message Index", "jnx.jnxequities.pts.itch.v1.6.messageindex", ftypes.UINT16)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jnx.jnxequities.pts.itch.v1.6.messagesequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_6.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.itch.v1.6.timestamp", ftypes.UINT64)
@@ -2030,7 +2030,6 @@ end
 
 -- Dissector for Jnx JnxEquities Pts Itch 1.6
 function omi_jnx_jnxequities_pts_itch_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jnx_jnxequities_pts_itch_v1_6.name
 

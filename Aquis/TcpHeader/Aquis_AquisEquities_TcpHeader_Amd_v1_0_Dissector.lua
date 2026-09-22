@@ -313,7 +313,6 @@ end
 
 -- Dissector for Aquis AquisEquities TcpHeader Amd 1.0
 function omi_aquis_aquisequities_tcpheader_amd_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_aquis_aquisequities_tcpheader_amd_v1_0.name
 

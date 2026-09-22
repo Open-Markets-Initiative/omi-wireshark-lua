@@ -177,7 +177,7 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.series_status_message 
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_amendment_message = ProtoField.new("Trade Amendment Message", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.tradeamendmentmessage", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.trade_message = ProtoField.new("Trade Message", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.trademessage", ftypes.STRING)
 
--- Hkex HkexDerivatives FullTickRetrans Omd 1.49 generated fields
+-- Hkex HkexDerivatives FullTickRetrans Omd 1.49 Generated Fields
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.content_index = ProtoField.new("Content Index", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.contentindex", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.fulltickretrans.omd.v1.49.messageindex", ftypes.UINT16)
 
@@ -5501,7 +5501,6 @@ end
 
 -- Dissector for Hkex HkexDerivatives FullTickRetrans Omd 1.49
 function omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexderivatives_fulltickretrans_omd_v1_49.name
 

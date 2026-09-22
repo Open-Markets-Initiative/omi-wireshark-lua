@@ -71,7 +71,7 @@ omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.security_status_message = Prot
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.statistics_message = ProtoField.new("Statistics Message", "hkex.szse.chinaconnectrefresh.omd.v1.4.statisticsmessage", ftypes.STRING)
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "hkex.szse.chinaconnectrefresh.omd.v1.4.topofbookmessage", ftypes.STRING)
 
--- Hkex Szse ChinaConnectRefresh Omd 1.4 generated fields
+-- Hkex Szse ChinaConnectRefresh Omd 1.4 Generated Fields
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.message_index = ProtoField.new("Message Index", "hkex.szse.chinaconnectrefresh.omd.v1.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1776,7 +1776,6 @@ end
 
 -- Dissector for Hkex Szse ChinaConnectRefresh Omd 1.4
 function omi_hkex_szse_chinaconnectrefresh_omd_v1_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_szse_chinaconnectrefresh_omd_v1_4.name
 

@@ -96,7 +96,7 @@ omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.trading_session_message = Pr
 -- OtcMarkets MoonAts DepthOfBook 1.3 Session Messages
 omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.moonats.depthofbook.link.v1.3.heartbeatpacket", ftypes.BYTES)
 
--- OtcMarkets MoonAts DepthOfBook Link 1.3 generated fields
+-- OtcMarkets MoonAts DepthOfBook Link 1.3 Generated Fields
 omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.message_index = ProtoField.new("Message Index", "otcmarkets.moonats.depthofbook.link.v1.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2533,7 +2533,6 @@ end
 
 -- Dissector for OtcMarkets MoonAts DepthOfBook Link 1.3
 function omi_otcmarkets_moonats_depthofbook_link_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_moonats_depthofbook_link_v1_3.name
 

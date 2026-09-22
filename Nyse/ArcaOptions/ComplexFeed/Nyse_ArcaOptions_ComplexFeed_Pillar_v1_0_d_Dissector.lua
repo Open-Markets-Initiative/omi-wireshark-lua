@@ -134,7 +134,7 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.time_reference_message = P
 -- Nyse ArcaOptions ComplexFeed 1.0.d Session Messages
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.heartbeat", ftypes.BYTES)
 
--- Nyse ArcaOptions ComplexFeed Pillar 1.0.d generated fields
+-- Nyse ArcaOptions ComplexFeed Pillar 1.0.d Generated Fields
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.legdefinitionindex", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messageindex", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messagesequencenumber", ftypes.UINT64)
@@ -4499,7 +4499,6 @@ end
 
 -- Dissector for Nyse ArcaOptions ComplexFeed Pillar 1.0.d
 function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.name
 

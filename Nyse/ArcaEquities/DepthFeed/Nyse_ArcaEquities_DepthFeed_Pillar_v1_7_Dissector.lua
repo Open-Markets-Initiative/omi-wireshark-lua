@@ -101,7 +101,7 @@ omi_nyse_arcaequities_depthfeed_pillar_v1_7.fields.symbol_index_mapping_message 
 -- Nyse ArcaEquities DepthFeed 1.7 Session Messages
 omi_nyse_arcaequities_depthfeed_pillar_v1_7.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaequities.depthfeed.pillar.v1.7.heartbeat", ftypes.BYTES)
 
--- Nyse ArcaEquities DepthFeed Pillar 1.7 generated fields
+-- Nyse ArcaEquities DepthFeed Pillar 1.7 Generated Fields
 omi_nyse_arcaequities_depthfeed_pillar_v1_7.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.depthfeed.pillar.v1.7.messageindex", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_7.fields.participant_index = ProtoField.new("Participant Index", "nyse.arcaequities.depthfeed.pillar.v1.7.participantindex", ftypes.UINT16)
 omi_nyse_arcaequities_depthfeed_pillar_v1_7.fields.price_point_index = ProtoField.new("Price Point Index", "nyse.arcaequities.depthfeed.pillar.v1.7.pricepointindex", ftypes.UINT16)
@@ -3493,7 +3493,6 @@ end
 
 -- Dissector for Nyse ArcaEquities DepthFeed Pillar 1.7
 function omi_nyse_arcaequities_depthfeed_pillar_v1_7.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaequities_depthfeed_pillar_v1_7.name
 

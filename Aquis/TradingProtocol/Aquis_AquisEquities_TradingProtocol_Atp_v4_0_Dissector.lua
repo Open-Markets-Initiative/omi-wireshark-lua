@@ -3638,7 +3638,6 @@ end
 
 -- Dissector for Aquis AquisEquities TradingProtocol Atp 4.0
 function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_aquis_aquisequities_tradingprotocol_atp_v4_0.name
 

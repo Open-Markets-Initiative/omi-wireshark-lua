@@ -78,7 +78,7 @@ omi_memx_memxequities_memoirlastsale_sbe_v1_1.fields.trade_correct_message = Pro
 omi_memx_memxequities_memoirlastsale_sbe_v1_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "memx.memxequities.memoirlastsale.sbe.v1.1.tradereportmessage", ftypes.STRING)
 omi_memx_memxequities_memoirlastsale_sbe_v1_1.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "memx.memxequities.memoirlastsale.sbe.v1.1.tradingsessionstatusmessage", ftypes.STRING)
 
--- Memx MemxEquities MemoirLastSale Sbe 1.1 generated fields
+-- Memx MemxEquities MemoirLastSale Sbe 1.1 Generated Fields
 omi_memx_memxequities_memoirlastsale_sbe_v1_1.fields.message_index = ProtoField.new("Message Index", "memx.memxequities.memoirlastsale.sbe.v1.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2358,7 +2358,6 @@ end
 
 -- Dissector for Memx MemxEquities MemoirLastSale Sbe 1.1
 function omi_memx_memxequities_memoirlastsale_sbe_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_memx_memxequities_memoirlastsale_sbe_v1_1.name
 

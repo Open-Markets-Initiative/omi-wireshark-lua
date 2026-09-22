@@ -113,7 +113,7 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.symbol_clear_message =
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse NyseEquities ImbalancesFeed Pillar 2.2.h generated fields
+-- Nyse NyseEquities ImbalancesFeed Pillar 2.2.h Generated Fields
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.messagesequencenumber", ftypes.UINT64)
 
@@ -3526,7 +3526,6 @@ end
 
 -- Dissector for Nyse NyseEquities ImbalancesFeed Pillar 2.2.h
 function omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.name
 

@@ -117,7 +117,7 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.trading_action_message = P
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.endofsession", ftypes.BYTES)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.heartbeat", ftypes.BYTES)
 
--- Nasdaq PhlxOptions DepthOfMarket Itch 1.6 generated fields
+-- Nasdaq PhlxOptions DepthOfMarket Itch 1.6 Generated Fields
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.messageindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.depthofmarket.itch.v1.6.timestamp", ftypes.UINT64)
@@ -4023,7 +4023,6 @@ end
 
 -- Dissector for Nasdaq PhlxOptions DepthOfMarket Itch 1.6
 function omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_phlxoptions_depthofmarket_itch_v1_6.name
 

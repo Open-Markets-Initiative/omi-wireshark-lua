@@ -149,7 +149,7 @@ omi_siac_cts_input_cta_v2_7_f.fields.trade_correction_message = ProtoField.new("
 omi_siac_cts_input_cta_v2_7_f.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cts.input.cta.v2.7.f.tradingstatusmessage", ftypes.STRING)
 omi_siac_cts_input_cta_v2_7_f.fields.warning_message = ProtoField.new("Warning Message", "siac.cts.input.cta.v2.7.f.warningmessage", ftypes.STRING)
 
--- Siac Cts Input Cta 2.7.f generated fields
+-- Siac Cts Input Cta 2.7.f Generated Fields
 omi_siac_cts_input_cta_v2_7_f.fields.message_index = ProtoField.new("Message Index", "siac.cts.input.cta.v2.7.f.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -4986,7 +4986,6 @@ end
 
 -- Dissector for Siac Cts Input Cta 2.7.f
 function omi_siac_cts_input_cta_v2_7_f.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cts_input_cta_v2_7_f.name
 

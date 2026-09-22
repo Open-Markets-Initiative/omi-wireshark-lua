@@ -69,7 +69,7 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.time_message = ProtoField.new
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c1options.auctionfeed.pitch.v1.1.1.unitclearmessage", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.c1options.auctionfeed.pitch.v1.1.1.widthupdatemessage", ftypes.STRING)
 
--- Cboe C1Options AuctionFeed Pitch 1.1.1 generated fields
+-- Cboe C1Options AuctionFeed Pitch 1.1.1 Generated Fields
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.auctionfeed.pitch.v1.1.1.messageindex", ftypes.UINT16)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT64)
 
@@ -1204,7 +1204,7 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Binary
   index, timestamp = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -1247,16 +1247,16 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Feed Symbol: 6 Byte Ascii String
+  -- Feed Symbol: Printable ASCII
   index, feed_symbol = cboe_c1options_auctionfeed_pitch_v1_1_1.feed_symbol.dissect(buffer, index, packet, parent)
 
-  -- Osi Symbol: 21 Byte Ascii String
+  -- Osi Symbol: Printable ASCII
   index, osi_symbol = cboe_c1options_auctionfeed_pitch_v1_1_1.osi_symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
+  -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_auctionfeed_pitch_v1_1_1.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: 8 Byte Ascii String
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_auctionfeed_pitch_v1_1_1.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -1299,16 +1299,16 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.width_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Underlying: 8 Byte Ascii String
+  -- Underlying: Printable ASCII
   index, underlying = cboe_c1options_auctionfeed_pitch_v1_1_1.underlying.dissect(buffer, index, packet, parent)
 
-  -- Width Type: 1 Byte Ascii String Enum with 2 values
+  -- Width Type: Alphanumeric
   index, width_type = cboe_c1options_auctionfeed_pitch_v1_1_1.width_type.dissect(buffer, index, packet, parent)
 
-  -- Multiplier: 4 Byte Unsigned Fixed Width Integer
+  -- Multiplier: Multiplier
   index, multiplier = cboe_c1options_auctionfeed_pitch_v1_1_1.multiplier.dissect(buffer, index, packet, parent)
 
   return index
@@ -1352,19 +1352,19 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: 8 Byte Ascii String
+  -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_auctionfeed_pitch_v1_1_1.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Opening Type: 1 Byte Ascii String Enum with 4 values
+  -- Opening Type: Alphanumeric
   index, opening_type = cboe_c1options_auctionfeed_pitch_v1_1_1.opening_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_auctionfeed_pitch_v1_1_1.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_auctionfeed_pitch_v1_1_1.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -1412,31 +1412,31 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Extended: 8 Byte Ascii String
+  -- Symbol Extended: Printable ASCII
   index, symbol_extended = cboe_c1options_auctionfeed_pitch_v1_1_1.symbol_extended.dissect(buffer, index, packet, parent)
 
-  -- Opening Type: 1 Byte Ascii String Enum with 4 values
+  -- Opening Type: Alphanumeric
   index, opening_type = cboe_c1options_auctionfeed_pitch_v1_1_1.opening_type.dissect(buffer, index, packet, parent)
 
-  -- Reference Price: 8 Byte Unsigned Fixed Width Integer
+  -- Reference Price: Binary Long Price
   index, reference_price = cboe_c1options_auctionfeed_pitch_v1_1_1.reference_price.dissect(buffer, index, packet, parent)
 
-  -- Buy Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Contracts: Binary
   index, buy_contracts = cboe_c1options_auctionfeed_pitch_v1_1_1.buy_contracts.dissect(buffer, index, packet, parent)
 
-  -- Sell Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Contracts: Binary
   index, sell_contracts = cboe_c1options_auctionfeed_pitch_v1_1_1.sell_contracts.dissect(buffer, index, packet, parent)
 
-  -- Indicative Price: 8 Byte Unsigned Fixed Width Integer
+  -- Indicative Price: Binary Long Price
   index, indicative_price = cboe_c1options_auctionfeed_pitch_v1_1_1.indicative_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Only Price: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Only Price: Binary Long Price
   index, auction_only_price = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_only_price.dissect(buffer, index, packet, parent)
 
-  -- Opening Condition: 1 Byte Ascii String
+  -- Opening Condition: Alphanumeric
   index, opening_condition = cboe_c1options_auctionfeed_pitch_v1_1_1.opening_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -1480,19 +1480,19 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_auctionfeed_pitch_v1_1_1.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_auctionfeed_pitch_v1_1_1.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts: Binary
   index, contracts = cboe_c1options_auctionfeed_pitch_v1_1_1.contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -1533,10 +1533,10 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1586,37 +1586,37 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_c1options_auctionfeed_pitch_v1_1_1.symbol.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: Alphanumeric
   index, auction_type = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_c1options_auctionfeed_pitch_v1_1_1.side.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_c1options_auctionfeed_pitch_v1_1_1.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts: Binary
   index, contracts = cboe_c1options_auctionfeed_pitch_v1_1_1.contracts.dissect(buffer, index, packet, parent)
 
-  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Customer Indicator: Alphanumeric
   index, customer_indicator = cboe_c1options_auctionfeed_pitch_v1_1_1.customer_indicator.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 4 Byte Ascii String
+  -- Participant Id: Alphanumeric
   index, participant_id = cboe_c1options_auctionfeed_pitch_v1_1_1.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Auction End Offset: Binary
   index, auction_end_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.auction_end_offset.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 4 Byte Ascii String
+  -- Client Id: Alphanumeric
   index, client_id = cboe_c1options_auctionfeed_pitch_v1_1_1.client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1656,7 +1656,7 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -1696,7 +1696,7 @@ end
 cboe_c1options_auctionfeed_pitch_v1_1_1.time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
+  -- Time: Binary
   index, time = cboe_c1options_auctionfeed_pitch_v1_1_1.time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
@@ -2019,7 +2019,6 @@ end
 
 -- Dissector for Cboe C1Options AuctionFeed Pitch 1.1.1
 function omi_cboe_c1options_auctionfeed_pitch_v1_1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_auctionfeed_pitch_v1_1_1.name
 

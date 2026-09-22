@@ -95,7 +95,7 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.system_state_message = Pro
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.total_volume_update_message = ProtoField.new("Total Volume Update Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.totalvolumeupdatemessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.tradecancelmessage", ftypes.STRING)
 
--- Miax OnyxFutures DepthOfMarket Mach 1.0.b generated fields
+-- Miax OnyxFutures DepthOfMarket Mach 1.0.b Generated Fields
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentlegindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2950,7 +2950,6 @@ end
 
 -- Dissector for Miax OnyxFutures DepthOfMarket Mach 1.0.b
 function omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.name
 

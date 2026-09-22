@@ -2845,7 +2845,6 @@ end
 
 -- Dissector for Nse NseFo OrderEntry NnfTrimmed 9.50
 function omi_nse_nsefo_orderentry_nnftrimmed_v9_50.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.name
 

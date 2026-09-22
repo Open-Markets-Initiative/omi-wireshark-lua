@@ -71,7 +71,7 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message =
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "24x.24xequities.memoirdepthfeed.sbe.v1.3.trademessage", ftypes.STRING)
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "24x.24xequities.memoirdepthfeed.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
--- 24X 24XEquities MemoirDepthFeed Sbe 1.3 generated fields
+-- 24X 24XEquities MemoirDepthFeed Sbe 1.3 Generated Fields
 omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "24x.24xequities.memoirdepthfeed.sbe.v1.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2152,7 +2152,6 @@ end
 
 -- Dissector for 24X 24XEquities MemoirDepthFeed Sbe 1.3
 function omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_n24x_24xequities_memoirdepthfeed_sbe_v1_3.name
 

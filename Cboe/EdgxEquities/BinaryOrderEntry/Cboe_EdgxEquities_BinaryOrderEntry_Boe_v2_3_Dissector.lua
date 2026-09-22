@@ -401,7 +401,7 @@ omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.server_heartbeat_message 
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.edgxequities.binaryorderentry.boe.v2.3.tradecancelorcorrectmessage", ftypes.STRING)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.edgxequities.binaryorderentry.boe.v2.3.usermodifyrejectedmessage", ftypes.STRING)
 
--- Cboe EdgxEquities BinaryOrderEntry Boe 2.3 generated fields
+-- Cboe EdgxEquities BinaryOrderEntry Boe 2.3 Generated Fields
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.edgxequities.binaryorderentry.boe.v2.3.paramgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -12178,7 +12178,6 @@ end
 
 -- Dissector for Cboe EdgxEquities BinaryOrderEntry Boe 2.3
 function omi_cboe_edgxequities_binaryorderentry_boe_v2_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.name
 

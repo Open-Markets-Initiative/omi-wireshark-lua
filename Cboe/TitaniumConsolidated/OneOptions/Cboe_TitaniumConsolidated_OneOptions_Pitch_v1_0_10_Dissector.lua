@@ -65,7 +65,7 @@ omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_break_messag
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trade_message = ProtoField.new("Trade Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.trademessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.tradingstatusmessage", ftypes.STRING)
 
--- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 generated fields
+-- Cboe TitaniumConsolidated OneOptions Pitch 1.0.10 Generated Fields
 omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.oneoptions.pitch.v1.0.10.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1868,7 +1868,6 @@ end
 
 -- Dissector for Cboe TitaniumConsolidated OneOptions Pitch 1.0.10
 function omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_titaniumconsolidated_oneoptions_pitch_v1_0_10.name
 

@@ -97,7 +97,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.system_state_message = 
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.systemtimemessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 generated fields
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Generated Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.complextopofmarket.mach.v1.3.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -3080,7 +3080,6 @@ end
 
 -- Dissector for Miax MiaxOptions ComplexTopOfMarket Mach 1.3
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.name
 

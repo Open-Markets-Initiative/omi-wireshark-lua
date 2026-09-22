@@ -471,7 +471,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v4_10.fields.strategy_standing_data_mes
 omi_euronext_optiq_marketdatagateway_sbe_v4_10.fields.technical_notification_message = ProtoField.new("Technical Notification Message", "euronext.optiq.marketdatagateway.sbe.v4.10.technicalnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v4_10.fields.timetable_message = ProtoField.new("Timetable Message", "euronext.optiq.marketdatagateway.sbe.v4.10.timetablemessage", ftypes.STRING)
 
--- Euronext Optiq MarketDataGateway Sbe 4.10 generated fields
+-- Euronext Optiq MarketDataGateway Sbe 4.10 Generated Fields
 omi_euronext_optiq_marketdatagateway_sbe_v4_10.fields.contract_emm_properties_group_index = ProtoField.new("Contract Emm Properties Group Index", "euronext.optiq.marketdatagateway.sbe.v4.10.contractemmpropertiesgroupindex", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v4_10.fields.emm_pattern_rep_group_index = ProtoField.new("Emm Pattern Rep Group Index", "euronext.optiq.marketdatagateway.sbe.v4.10.emmpatternrepgroupindex", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v4_10.fields.interest_payment_date_rep_group_index = ProtoField.new("Interest Payment Date Rep Group Index", "euronext.optiq.marketdatagateway.sbe.v4.10.interestpaymentdaterepgroupindex", ftypes.UINT16)
@@ -18088,7 +18088,6 @@ end
 
 -- Dissector for Euronext Optiq MarketDataGateway Sbe 4.10
 function omi_euronext_optiq_marketdatagateway_sbe_v4_10.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_euronext_optiq_marketdatagateway_sbe_v4_10.name
 

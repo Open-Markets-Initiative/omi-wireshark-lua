@@ -2257,7 +2257,6 @@ end
 
 -- Dissector for Cboe ByxEquities Top AsciiPitch 1.3.2
 function omi_cboe_byxequities_top_asciipitch_v1_3_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_byxequities_top_asciipitch_v1_3_2.name
 

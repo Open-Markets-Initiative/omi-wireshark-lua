@@ -89,7 +89,7 @@ omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.trade_short_mess
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.66.tradingstatusmessage", ftypes.STRING)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.66.unitclearmessage", ftypes.STRING)
 
--- Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.66 generated fields
+-- Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.66 Generated Fields
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.message_index = ProtoField.new("Message Index", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.66.messageindex", ftypes.UINT16)
 omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.fields.timestamp = ProtoField.new("Timestamp", "cboe.byxequities.multicastdepthofbook.pitch.v2.41.66.timestamp", ftypes.UINT64)
 
@@ -2857,7 +2857,6 @@ end
 
 -- Dissector for Cboe ByxEquities MulticastDepthOfBook Pitch 2.41.66
 function omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_byxequities_multicastdepthofbook_pitch_v2_41_66.name
 

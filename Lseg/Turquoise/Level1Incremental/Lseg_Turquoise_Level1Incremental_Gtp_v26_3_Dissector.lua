@@ -108,7 +108,7 @@ omi_lseg_turquoise_level1incremental_gtp_v26_3.fields.top_of_book_message = Prot
 omi_lseg_turquoise_level1incremental_gtp_v26_3.fields.trade_cross_message = ProtoField.new("Trade Cross Message", "lseg.turquoise.level1incremental.gtp.v26.3.tradecrossmessage", ftypes.STRING)
 omi_lseg_turquoise_level1incremental_gtp_v26_3.fields.trade_message = ProtoField.new("Trade Message", "lseg.turquoise.level1incremental.gtp.v26.3.trademessage", ftypes.STRING)
 
--- Lseg Turquoise Level1Incremental Gtp 26.3 generated fields
+-- Lseg Turquoise Level1Incremental Gtp 26.3 Generated Fields
 omi_lseg_turquoise_level1incremental_gtp_v26_3.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.level1incremental.gtp.v26.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3162,7 +3162,6 @@ end
 
 -- Dissector for Lseg Turquoise Level1Incremental Gtp 26.3
 function omi_lseg_turquoise_level1incremental_gtp_v26_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_turquoise_level1incremental_gtp_v26_3.name
 

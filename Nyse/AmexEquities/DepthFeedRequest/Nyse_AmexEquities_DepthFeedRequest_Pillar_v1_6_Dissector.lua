@@ -48,7 +48,7 @@ omi_nyse_amexequities_depthfeedrequest_pillar_v1_6.fields.request_response_messa
 omi_nyse_amexequities_depthfeedrequest_pillar_v1_6.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.amexequities.depthfeedrequest.pillar.v1.6.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_amexequities_depthfeedrequest_pillar_v1_6.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.amexequities.depthfeedrequest.pillar.v1.6.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse AmexEquities DepthFeedRequest Pillar 1.6 generated fields
+-- Nyse AmexEquities DepthFeedRequest Pillar 1.6 Generated Fields
 omi_nyse_amexequities_depthfeedrequest_pillar_v1_6.fields.message_index = ProtoField.new("Message Index", "nyse.amexequities.depthfeedrequest.pillar.v1.6.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1155,7 +1155,6 @@ end
 
 -- Dissector for Nyse AmexEquities DepthFeedRequest Pillar 1.6
 function omi_nyse_amexequities_depthfeedrequest_pillar_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexequities_depthfeedrequest_pillar_v1_6.name
 

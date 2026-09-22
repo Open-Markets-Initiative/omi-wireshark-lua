@@ -75,7 +75,7 @@ omi_memx_memxequities_memoirdepthfeed_sbe_v1_1.fields.trading_session_status_mes
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxequities.memoirdepthfeed.sbe.v1.1.heartbeat", ftypes.BYTES)
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_1.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxequities.memoirdepthfeed.sbe.v1.1.sessionshutdown", ftypes.BYTES)
 
--- Memx MemxEquities MemoirDepthFeed Sbe 1.1 generated fields
+-- Memx MemxEquities MemoirDepthFeed Sbe 1.1 Generated Fields
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_1.fields.message_index = ProtoField.new("Message Index", "memx.memxequities.memoirdepthfeed.sbe.v1.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2203,7 +2203,6 @@ end
 
 -- Dissector for Memx MemxEquities MemoirDepthFeed Sbe 1.1
 function omi_memx_memxequities_memoirdepthfeed_sbe_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_memx_memxequities_memoirdepthfeed_sbe_v1_1.name
 

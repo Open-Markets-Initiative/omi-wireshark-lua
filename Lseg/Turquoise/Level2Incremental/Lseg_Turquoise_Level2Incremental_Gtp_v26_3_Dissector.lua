@@ -85,6 +85,7 @@ omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_cancellation = Proto
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_flags = ProtoField.new("Trade Flags", "lseg.turquoise.level2incremental.gtp.v26.3.tradeflags", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_id = ProtoField.new("Trade Id", "lseg.turquoise.level2incremental.gtp.v26.3.tradeid", ftypes.UINT64)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.level2incremental.gtp.v26.3.tradequalifier", ftypes.STRING)
+omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_summary_side = ProtoField.new("Trade Summary Side", "lseg.turquoise.level2incremental.gtp.v26.3.tradesummaryside", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_type = ProtoField.new("Trade Type", "lseg.turquoise.level2incremental.gtp.v26.3.tradetype", ftypes.UINT8)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.level2incremental.gtp.v26.3.tradingstatus", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.level2incremental.gtp.v26.3.transactiontime", ftypes.UINT64)
@@ -120,7 +121,7 @@ omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_cross_message = Prot
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_message = ProtoField.new("Trade Message", "lseg.turquoise.level2incremental.gtp.v26.3.trademessage", ftypes.STRING)
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "lseg.turquoise.level2incremental.gtp.v26.3.tradesummarymessage", ftypes.STRING)
 
--- Lseg Turquoise Level2Incremental Gtp 26.3 generated fields
+-- Lseg Turquoise Level2Incremental Gtp 26.3 Generated Fields
 omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.level2incremental.gtp.v26.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1637,11 +1638,11 @@ lseg_turquoise_level2incremental_gtp_v26_3.side.display = function(value)
     return "Side: No Value"
   end
 
-  if value == "BUYI" then
-    return "Side: Buy Side (BUYI)"
+  if value == "B" then
+    return "Side: Buy Order (B)"
   end
-  if value == "SELL" then
-    return "Side: Sell Side (SELL)"
+  if value == "S" then
+    return "Side: Sell Order (S)"
   end
 
   return "Side: Unknown("..value..")"
@@ -2087,6 +2088,52 @@ lseg_turquoise_level2incremental_gtp_v26_3.trade_qualifier.dissect = function(bu
   return offset + length, value
 end
 
+-- Trade Summary Side
+lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side = {}
+
+-- Size: Trade Summary Side
+lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.size = 1
+
+-- Display: Trade Summary Side
+lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Summary Side: No Value"
+  end
+
+  if value == " " then
+    return "Trade Summary Side: No Side Only Hidden Quantity Executed (<whitespace>)"
+  end
+  if value == "B" then
+    return "Trade Summary Side: Buy Side (B)"
+  end
+  if value == "S" then
+    return "Trade Summary Side: Sell Side (S)"
+  end
+
+  return "Trade Summary Side: Unknown("..value..")"
+end
+
+-- Dissect: Trade Summary Side
+lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_summary_side, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Type
 lseg_turquoise_level2incremental_gtp_v26_3.trade_type = {}
 
@@ -2454,7 +2501,7 @@ lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_message.size =
   lseg_turquoise_level2incremental_gtp_v26_3.total_executed_quantity.size + 
   lseg_turquoise_level2incremental_gtp_v26_3.total_hidden_executed_quantity.size + 
   lseg_turquoise_level2incremental_gtp_v26_3.deleted_order_quantity.size + 
-  lseg_turquoise_level2incremental_gtp_v26_3.side.size + 
+  lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.size + 
   lseg_turquoise_level2incremental_gtp_v26_3.best_bid_size.size + 
   lseg_turquoise_level2incremental_gtp_v26_3.best_bid_price.size + 
   lseg_turquoise_level2incremental_gtp_v26_3.best_offer_size.size + 
@@ -2493,8 +2540,8 @@ lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_message.fields = functi
   -- Deleted Order Quantity: Size
   index, deleted_order_quantity = lseg_turquoise_level2incremental_gtp_v26_3.deleted_order_quantity.dissect(buffer, index, packet, parent)
 
-  -- Side: Byte
-  index, side = lseg_turquoise_level2incremental_gtp_v26_3.side.dissect(buffer, index, packet, parent)
+  -- Trade Summary Side: Byte
+  index, trade_summary_side = lseg_turquoise_level2incremental_gtp_v26_3.trade_summary_side.dissect(buffer, index, packet, parent)
 
   -- Best Bid Size: Int Size
   index, best_bid_size = lseg_turquoise_level2incremental_gtp_v26_3.best_bid_size.dissect(buffer, index, packet, parent)
@@ -3773,7 +3820,6 @@ end
 
 -- Dissector for Lseg Turquoise Level2Incremental Gtp 26.3
 function omi_lseg_turquoise_level2incremental_gtp_v26_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_turquoise_level2incremental_gtp_v26_3.name
 

@@ -2765,7 +2765,6 @@ end
 
 -- Dissector for Iex IexEquities Tops Snap 1.6
 function omi_iex_iexequities_tops_snap_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_iex_iexequities_tops_snap_v1_6.name
 

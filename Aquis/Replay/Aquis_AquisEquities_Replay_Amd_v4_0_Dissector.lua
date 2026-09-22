@@ -623,7 +623,6 @@ end
 
 -- Dissector for Aquis AquisEquities Replay Amd 4.0
 function omi_aquis_aquisequities_replay_amd_v4_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_aquis_aquisequities_replay_amd_v4_0.name
 

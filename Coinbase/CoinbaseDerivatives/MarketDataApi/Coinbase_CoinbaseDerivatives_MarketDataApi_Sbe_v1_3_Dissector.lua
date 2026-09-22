@@ -5006,7 +5006,6 @@ end
 
 -- Dissector for Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.3
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.name
 

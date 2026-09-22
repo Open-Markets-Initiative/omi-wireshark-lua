@@ -74,7 +74,7 @@ omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.trade_correct_message = Pro
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "ltse.ltseequities.memoirlastsale.sbe.v1.3.tradereportmessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "ltse.ltseequities.memoirlastsale.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
--- Ltse LtseEquities MemoirLastSale Sbe 1.3 generated fields
+-- Ltse LtseEquities MemoirLastSale Sbe 1.3 Generated Fields
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "ltse.ltseequities.memoirlastsale.sbe.v1.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2303,7 +2303,6 @@ end
 
 -- Dissector for Ltse LtseEquities MemoirLastSale Sbe 1.3
 function omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.name
 

@@ -84,7 +84,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.trading_action_message = Prot
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.ntxoptions.topofmarket.itch.v1.2.endofsession", ftypes.BYTES)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.ntxoptions.topofmarket.itch.v1.2.heartbeat", ftypes.BYTES)
 
--- Nasdaq NtxOptions TopOfMarket Itch 1.2 generated fields
+-- Nasdaq NtxOptions TopOfMarket Itch 1.2 Generated Fields
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxoptions.topofmarket.itch.v1.2.messageindex", ftypes.UINT16)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v1.2.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxoptions.topofmarket.itch.v1.2.timestamp", ftypes.UINT64)
@@ -2539,7 +2539,6 @@ end
 
 -- Dissector for Nasdaq NtxOptions TopOfMarket Itch 1.2
 function omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_ntxoptions_topofmarket_itch_v1_2.name
 

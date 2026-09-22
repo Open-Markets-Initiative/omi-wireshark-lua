@@ -2781,7 +2781,6 @@ end
 
 -- Dissector for Cboe EdgxEquities Top AsciiPitch 1.3.9
 function omi_cboe_edgxequities_top_asciipitch_v1_3_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxequities_top_asciipitch_v1_3_9.name
 

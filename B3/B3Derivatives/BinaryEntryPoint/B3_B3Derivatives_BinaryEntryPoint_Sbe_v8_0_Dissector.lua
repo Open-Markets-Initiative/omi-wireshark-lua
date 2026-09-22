@@ -277,7 +277,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_modify_order_messag
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.simple_new_order_message = ProtoField.new("Simple New Order Message", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.simplenewordermessage", ftypes.STRING)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.terminate_message = ProtoField.new("Terminate Message", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.terminatemessage", ftypes.STRING)
 
--- B3 B3Derivatives BinaryEntryPoint Sbe 8.0 generated fields
+-- B3 B3Derivatives BinaryEntryPoint Sbe 8.0 Generated Fields
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.cross_sides_group_index = ProtoField.new("Cross Sides Group Index", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.crosssidesgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.legs_group_index = ProtoField.new("Legs Group Index", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.legsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.positions_group_index = ProtoField.new("Positions Group Index", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.positionsgroupindex", ftypes.UINT16)
@@ -13871,7 +13871,6 @@ end
 
 -- Dissector for B3 B3Derivatives BinaryEntryPoint Sbe 8.0
 function omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.name
 

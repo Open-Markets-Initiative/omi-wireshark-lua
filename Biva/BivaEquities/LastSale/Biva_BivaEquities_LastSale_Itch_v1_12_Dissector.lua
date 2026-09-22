@@ -82,7 +82,7 @@ omi_biva_bivaequities_lastsale_itch_v1_12.fields.system_event_message = ProtoFie
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.time_stamp_seconds_message = ProtoField.new("Time Stamp Seconds Message", "biva.bivaequities.lastsale.itch.v1.12.timestampsecondsmessage", ftypes.STRING)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.trade_message = ProtoField.new("Trade Message", "biva.bivaequities.lastsale.itch.v1.12.trademessage", ftypes.STRING)
 
--- Biva BivaEquities LastSale Itch 1.12 generated fields
+-- Biva BivaEquities LastSale Itch 1.12 Generated Fields
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_index = ProtoField.new("Message Index", "biva.bivaequities.lastsale.itch.v1.12.messageindex", ftypes.UINT16)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "biva.bivaequities.lastsale.itch.v1.12.messagesequencenumber", ftypes.UINT64)
 omi_biva_bivaequities_lastsale_itch_v1_12.fields.timestamp = ProtoField.new("Timestamp", "biva.bivaequities.lastsale.itch.v1.12.timestamp", ftypes.UINT64)
@@ -2364,7 +2364,6 @@ end
 
 -- Dissector for Biva BivaEquities LastSale Itch 1.12
 function omi_biva_bivaequities_lastsale_itch_v1_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_biva_bivaequities_lastsale_itch_v1_12.name
 

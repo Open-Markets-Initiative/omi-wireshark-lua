@@ -27,7 +27,7 @@ omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_header = ProtoField.ne
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.udpheader.amd.v1.0.packet", ftypes.STRING)
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.packet_header = ProtoField.new("Packet Header", "aquis.aquisequities.udpheader.amd.v1.0.packetheader", ftypes.STRING)
 
--- Aquis AquisEquities UdpHeader Amd 1.0 generated fields
+-- Aquis AquisEquities UdpHeader Amd 1.0 Generated Fields
 omi_aquis_aquisequities_udpheader_amd_v1_0.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.udpheader.amd.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -366,7 +366,6 @@ end
 
 -- Dissector for Aquis AquisEquities UdpHeader Amd 1.0
 function omi_aquis_aquisequities_udpheader_amd_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_aquis_aquisequities_udpheader_amd_v1_0.name
 

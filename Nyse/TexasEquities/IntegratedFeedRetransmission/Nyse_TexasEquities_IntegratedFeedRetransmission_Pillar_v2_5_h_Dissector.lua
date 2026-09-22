@@ -126,7 +126,7 @@ omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.fields.trade_c
 -- Nyse TexasEquities IntegratedFeedRetransmission 2.5.h Session Messages
 omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.texasequities.integratedfeedretransmission.pillar.v2.5.h.heartbeat", ftypes.BYTES)
 
--- Nyse TexasEquities IntegratedFeedRetransmission Pillar 2.5.h generated fields
+-- Nyse TexasEquities IntegratedFeedRetransmission Pillar 2.5.h Generated Fields
 omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.fields.message_index = ProtoField.new("Message Index", "nyse.texasequities.integratedfeedretransmission.pillar.v2.5.h.messageindex", ftypes.UINT16)
 omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.texasequities.integratedfeedretransmission.pillar.v2.5.h.messagesequencenumber", ftypes.UINT64)
 omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.texasequities.integratedfeedretransmission.pillar.v2.5.h.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
@@ -4768,7 +4768,6 @@ end
 
 -- Dissector for Nyse TexasEquities IntegratedFeedRetransmission Pillar 2.5.h
 function omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_texasequities_integratedfeedretransmission_pillar_v2_5_h.name
 

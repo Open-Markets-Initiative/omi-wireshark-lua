@@ -120,7 +120,7 @@ omi_nyse_arcaequities_trades_pillar_v2_6.fields.trf_fractional_trade_correction_
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.trf_fractional_trade_message = ProtoField.new("Trf Fractional Trade Message", "nyse.arcaequities.trades.pillar.v2.6.trffractionaltrademessage", ftypes.STRING)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.trf_trade_cancel_message = ProtoField.new("Trf Trade Cancel Message", "nyse.arcaequities.trades.pillar.v2.6.trftradecancelmessage", ftypes.STRING)
 
--- Nyse ArcaEquities Trades Pillar 2.6 generated fields
+-- Nyse ArcaEquities Trades Pillar 2.6 Generated Fields
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.trades.pillar.v2.6.messageindex", ftypes.UINT16)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaequities.trades.pillar.v2.6.messagesequencenumber", ftypes.UINT64)
 omi_nyse_arcaequities_trades_pillar_v2_6.fields.high_price_calculate = ProtoField.new("High Price Calculate", "nyse.arcaequities.trades.pillar.v2.6.highpricecalculate", ftypes.DOUBLE)
@@ -4336,7 +4336,6 @@ end
 
 -- Dissector for Nyse ArcaEquities Trades Pillar 2.6
 function omi_nyse_arcaequities_trades_pillar_v2_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaequities_trades_pillar_v2_6.name
 

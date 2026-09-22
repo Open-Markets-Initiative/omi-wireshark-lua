@@ -104,7 +104,7 @@ omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_7.fields.symbol_index_mappi
 -- Nyse NationalEquities DepthFeedRefresh 1.7 Session Messages
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_7.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nationalequities.depthfeedrefresh.pillar.v1.7.heartbeat", ftypes.BYTES)
 
--- Nyse NationalEquities DepthFeedRefresh Pillar 1.7 generated fields
+-- Nyse NationalEquities DepthFeedRefresh Pillar 1.7 Generated Fields
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_7.fields.message_index = ProtoField.new("Message Index", "nyse.nationalequities.depthfeedrefresh.pillar.v1.7.messageindex", ftypes.UINT16)
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_7.fields.participant_index = ProtoField.new("Participant Index", "nyse.nationalequities.depthfeedrefresh.pillar.v1.7.participantindex", ftypes.UINT16)
 omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_7.fields.price_point_index = ProtoField.new("Price Point Index", "nyse.nationalequities.depthfeedrefresh.pillar.v1.7.pricepointindex", ftypes.UINT16)
@@ -3561,7 +3561,6 @@ end
 
 -- Dissector for Nyse NationalEquities DepthFeedRefresh Pillar 1.7
 function omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_7.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nationalequities_depthfeedrefresh_pillar_v1_7.name
 

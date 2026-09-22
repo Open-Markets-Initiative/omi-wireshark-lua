@@ -94,7 +94,7 @@ omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.system_event_message = 
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.endofsession", ftypes.BYTES)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.heartbeat", ftypes.BYTES)
 
--- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 generated fields
+-- Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Generated Fields
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.leg_information_index = ProtoField.new("Leg Information Index", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.leginformationindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messageindex", ftypes.UINT16)
 omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.iseoptions.topcomboquotefeed.itch.v1.0.messagesequencenumber", ftypes.UINT64)
@@ -2645,7 +2645,6 @@ end
 
 -- Dissector for Nasdaq IseOptions TopComboQuoteFeed Itch 1.0
 function omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_iseoptions_topcomboquotefeed_itch_v1_0.name
 

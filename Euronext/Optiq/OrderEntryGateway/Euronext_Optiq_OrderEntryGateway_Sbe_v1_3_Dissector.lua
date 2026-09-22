@@ -317,7 +317,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.test_request_message = Prot
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.tradebustnotificationmessage", ftypes.STRING)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.usernotificationmessage", ftypes.STRING)
 
--- Euronext Optiq OrderEntryGateway Sbe 1.3 generated fields
+-- Euronext Optiq OrderEntryGateway Sbe 1.3 Generated Fields
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_group_index = ProtoField.new("Cancel Replace Clearing Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceclearingfieldsgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_optional_field_group_index = ProtoField.new("Cancel Replace Optional Field Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceoptionalfieldgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.clearing_dataset_group_index = ProtoField.new("Clearing Dataset Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.clearingdatasetgroupindex", ftypes.UINT16)
@@ -11862,7 +11862,6 @@ end
 
 -- Dissector for Euronext Optiq OrderEntryGateway Sbe 1.3
 function omi_euronext_optiq_orderentrygateway_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_euronext_optiq_orderentrygateway_sbe_v1_3.name
 

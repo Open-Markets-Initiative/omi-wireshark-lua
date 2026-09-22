@@ -154,7 +154,7 @@ omi_siac_cqs_input_cta_v2_9_b.fields.test_message = ProtoField.new("Test Message
 omi_siac_cqs_input_cta_v2_9_b.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cqs.input.cta.v2.9.b.tradingstatusmessage", ftypes.STRING)
 omi_siac_cqs_input_cta_v2_9_b.fields.warning_message = ProtoField.new("Warning Message", "siac.cqs.input.cta.v2.9.b.warningmessage", ftypes.STRING)
 
--- Siac Cqs Input Cta 2.9.b generated fields
+-- Siac Cqs Input Cta 2.9.b Generated Fields
 omi_siac_cqs_input_cta_v2_9_b.fields.message_index = ProtoField.new("Message Index", "siac.cqs.input.cta.v2.9.b.messageindex", ftypes.UINT16)
 omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_extended_quote_appendage_index = ProtoField.new("Odd Lot Bid Extended Quote Appendage Index", "siac.cqs.input.cta.v2.9.b.oddlotbidextendedquoteappendageindex", ftypes.UINT16)
 omi_siac_cqs_input_cta_v2_9_b.fields.odd_lot_bid_long_quote_appendage_index = ProtoField.new("Odd Lot Bid Long Quote Appendage Index", "siac.cqs.input.cta.v2.9.b.oddlotbidlongquoteappendageindex", ftypes.UINT16)
@@ -5434,7 +5434,6 @@ end
 
 -- Dissector for Siac Cqs Input Cta 2.9.b
 function omi_siac_cqs_input_cta_v2_9_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cqs_input_cta_v2_9_b.name
 

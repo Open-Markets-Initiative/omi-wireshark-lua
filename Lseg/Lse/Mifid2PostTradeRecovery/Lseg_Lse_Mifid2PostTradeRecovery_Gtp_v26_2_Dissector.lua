@@ -174,7 +174,7 @@ omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.replay_and_recovery_comple
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.statistics_snapshot_message = ProtoField.new("Statistics Snapshot Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.statisticssnapshotmessage", ftypes.STRING)
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.system_event_message = ProtoField.new("System Event Message", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.systemeventmessage", ftypes.STRING)
 
--- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 generated fields
+-- Lseg Lse Mifid2PostTradeRecovery Gtp 26.2 Generated Fields
 omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.fields.message_index = ProtoField.new("Message Index", "lseg.lse.mifid2posttraderecovery.gtp.v26.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -5830,7 +5830,6 @@ end
 
 -- Dissector for Lseg Lse Mifid2PostTradeRecovery Gtp 26.2
 function omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_lse_mifid2posttraderecovery_gtp_v26_2.name
 

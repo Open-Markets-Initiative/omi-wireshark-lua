@@ -66,7 +66,7 @@ omi_odx_odxequities_pts_itch_v2_2.fields.short_selling_price_restriction_state_m
 omi_odx_odxequities_pts_itch_v2_2.fields.system_event_message = ProtoField.new("System Event Message", "odx.odxequities.pts.itch.v2.2.systemeventmessage", ftypes.STRING)
 omi_odx_odxequities_pts_itch_v2_2.fields.trading_state_message = ProtoField.new("Trading State Message", "odx.odxequities.pts.itch.v2.2.tradingstatemessage", ftypes.STRING)
 
--- Odx OdxEquities Pts Itch 2.2 generated fields
+-- Odx OdxEquities Pts Itch 2.2 Generated Fields
 omi_odx_odxequities_pts_itch_v2_2.fields.message_index = ProtoField.new("Message Index", "odx.odxequities.pts.itch.v2.2.messageindex", ftypes.UINT16)
 omi_odx_odxequities_pts_itch_v2_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "odx.odxequities.pts.itch.v2.2.messagesequencenumber", ftypes.UINT64)
 omi_odx_odxequities_pts_itch_v2_2.fields.timestamp = ProtoField.new("Timestamp", "odx.odxequities.pts.itch.v2.2.timestamp", ftypes.UINT64)
@@ -1892,7 +1892,6 @@ end
 
 -- Dissector for Odx OdxEquities Pts Itch 2.2
 function omi_odx_odxequities_pts_itch_v2_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_odx_odxequities_pts_itch_v2_2.name
 

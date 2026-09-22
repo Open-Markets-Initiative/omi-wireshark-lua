@@ -184,7 +184,7 @@ omi_siac_cts_output_cta_v2_10.fields.trade_cancel_error_message = ProtoField.new
 omi_siac_cts_output_cta_v2_10.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.10.tradecorrectionmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_10.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cts.output.cta.v2.10.tradingstatusmessage", ftypes.STRING)
 
--- Siac Cts Output Cta 2.10 generated fields
+-- Siac Cts Output Cta 2.10 Generated Fields
 omi_siac_cts_output_cta_v2_10.fields.fractional_participants_index = ProtoField.new("Fractional Participants Index", "siac.cts.output.cta.v2.10.fractionalparticipantsindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_10.fields.message_index = ProtoField.new("Message Index", "siac.cts.output.cta.v2.10.messageindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_10.fields.participants_index = ProtoField.new("Participants Index", "siac.cts.output.cta.v2.10.participantsindex", ftypes.UINT16)
@@ -8614,7 +8614,6 @@ end
 
 -- Dissector for Siac Cts Output Cta 2.10
 function omi_siac_cts_output_cta_v2_10.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cts_output_cta_v2_10.name
 

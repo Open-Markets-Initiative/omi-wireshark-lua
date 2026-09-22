@@ -54,7 +54,7 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_data_message = Proto
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.indexdefinitionmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.refresh_complete_message = ProtoField.new("Refresh Complete Message", "hkex.hkexsecurities.indexrefresh.omd.v1.44.refreshcompletemessage", ftypes.STRING)
 
--- Hkex HkexSecurities IndexRefresh Omd 1.44 generated fields
+-- Hkex HkexSecurities IndexRefresh Omd 1.44 Generated Fields
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message_index = ProtoField.new("Message Index", "hkex.hkexsecurities.indexrefresh.omd.v1.44.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1259,7 +1259,6 @@ end
 
 -- Dissector for Hkex HkexSecurities IndexRefresh Omd 1.44
 function omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.name
 

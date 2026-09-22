@@ -96,7 +96,7 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.trading_session_message = 
 -- OtcMarkets Overnight DepthOfBook 1.0 Session Messages
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.overnight.depthofbook.link.v1.0.heartbeatpacket", ftypes.BYTES)
 
--- OtcMarkets Overnight DepthOfBook Link 1.0 generated fields
+-- OtcMarkets Overnight DepthOfBook Link 1.0 Generated Fields
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_index = ProtoField.new("Message Index", "otcmarkets.overnight.depthofbook.link.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2557,7 +2557,6 @@ end
 
 -- Dissector for OtcMarkets Overnight DepthOfBook Link 1.0
 function omi_otcmarkets_overnight_depthofbook_link_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_overnight_depthofbook_link_v1_0.name
 

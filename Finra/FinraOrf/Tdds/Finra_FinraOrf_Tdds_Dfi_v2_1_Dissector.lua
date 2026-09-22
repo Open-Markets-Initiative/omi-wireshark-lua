@@ -109,7 +109,7 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_report_long_form_message = ProtoFi
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trade_report_short_form_message = ProtoField.new("Trade Report Short Form Message", "finra.finraorf.tdds.dfi.v2.1.tradereportshortformmessage", ftypes.STRING)
 omi_finra_finraorf_tdds_dfi_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "finra.finraorf.tdds.dfi.v2.1.tradingactionmessage", ftypes.STRING)
 
--- Finra FinraOrf Tdds Dfi 2.1 generated fields
+-- Finra FinraOrf Tdds Dfi 2.1 Generated Fields
 omi_finra_finraorf_tdds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.finraorf.tdds.dfi.v2.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3711,7 +3711,6 @@ end
 
 -- Dissector for Finra FinraOrf Tdds Dfi 2.1
 function omi_finra_finraorf_tdds_dfi_v2_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_finra_finraorf_tdds_dfi_v2_1.name
 

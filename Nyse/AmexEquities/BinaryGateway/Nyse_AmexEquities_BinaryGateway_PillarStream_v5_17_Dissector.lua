@@ -9871,7 +9871,6 @@ end
 
 -- Dissector for Nyse AmexEquities BinaryGateway PillarStream 5.17
 function omi_nyse_amexequities_binarygateway_pillarstream_v5_17.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexequities_binarygateway_pillarstream_v5_17.name
 

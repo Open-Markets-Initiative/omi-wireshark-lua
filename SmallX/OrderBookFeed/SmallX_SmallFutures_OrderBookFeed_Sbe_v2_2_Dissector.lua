@@ -157,7 +157,7 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_bust_message = Proto
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradecorrectmessage", ftypes.STRING)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trades_incremental_message = ProtoField.new("Trades Incremental Message", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradesincrementalmessage", ftypes.STRING)
 
--- SmallX SmallFutures OrderBookFeed Sbe 2.2 generated fields
+-- SmallX SmallFutures OrderBookFeed Sbe 2.2 Generated Fields
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incremental_trade_group_index = ProtoField.new("Incremental Trade Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incrementaltradegroupindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.incremetal_orders_group_index = ProtoField.new("Incremetal Orders Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.incremetalordersgroupindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.legs_group_index = ProtoField.new("Legs Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.legsgroupindex", ftypes.UINT16)
@@ -5642,7 +5642,6 @@ end
 
 -- Dissector for SmallX SmallFutures OrderBookFeed Sbe 2.2
 function omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.name
 

@@ -1259,7 +1259,6 @@ end
 
 -- Dissector for Nse NseCm Mtbt Binary 6.9
 function omi_nse_nsecm_mtbt_binary_v6_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsecm_mtbt_binary_v6_9.name
 

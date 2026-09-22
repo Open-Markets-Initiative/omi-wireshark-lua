@@ -77,7 +77,7 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.symbol_definition_message = ProtoField
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.synthetic_future_value_message = ProtoField.new("Synthetic Future Value Message", "miax.miaxoptions.mpf.mach.v1.1.syntheticfuturevaluemessage", ftypes.STRING)
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.mpf.mach.v1.1.systemtimemessage", ftypes.STRING)
 
--- Miax MiaxOptions Mpf Mach 1.1 generated fields
+-- Miax MiaxOptions Mpf Mach 1.1 Generated Fields
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.mpf.mach.v1.1.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -2464,15 +2464,16 @@ end
 
 -- Dissector for Miax MiaxOptions Mpf Mach 1.1
 function omi_miax_miaxoptions_mpf_mach_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_mpf_mach_v1_1.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_miaxoptions_mpf_mach_v1_1, buffer(), omi_miax_miaxoptions_mpf_mach_v1_1.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_miaxoptions_mpf_mach_v1_1.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_miaxoptions_mpf_mach_v1_1.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -2510,9 +2511,11 @@ end
 -- Register Heuristics for Miax MiaxOptions Mpf Mach 1.1
 omi_miax_miaxoptions_mpf_mach_v1_1:register_heuristic("udp", omi_miax_miaxoptions_mpf_mach_v1_1_udp_heuristic)
 omi_miax_miaxoptions_mpf_mach_v1_1:register_heuristic("tcp", omi_miax_miaxoptions_mpf_mach_v1_1_tcp_heuristic)
+
 -- Register Miax MiaxOptions Mpf Mach 1.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_miaxoptions_mpf_mach_v1_1)
+
 -- Register Miax MiaxOptions Mpf Mach 1.1 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_miaxoptions_mpf_mach_v1_1)

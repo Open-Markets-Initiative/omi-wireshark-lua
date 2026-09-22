@@ -149,7 +149,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.trf_fractional_prior_day_trade_messa
 omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.trf_fractional_trade_correction_message = ProtoField.new("Trf Fractional Trade Correction Message", "nyse.nyseequities.bqt.xdp.v2.4.a.trffractionaltradecorrectionmessage", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.trf_fractional_trade_message = ProtoField.new("Trf Fractional Trade Message", "nyse.nyseequities.bqt.xdp.v2.4.a.trffractionaltrademessage", ftypes.STRING)
 
--- Nyse NyseEquities Bqt Xdp 2.4.a generated fields
+-- Nyse NyseEquities Bqt Xdp 2.4.a Generated Fields
 omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bqt.xdp.v2.4.a.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.nyseequities.bqt.xdp.v2.4.a.askpricecalculate", ftypes.DOUBLE)
 omi_nyse_nyseequities_bqt_xdp_v2_4_a.fields.bid_price_calculate = ProtoField.new("Bid Price Calculate", "nyse.nyseequities.bqt.xdp.v2.4.a.bidpricecalculate", ftypes.DOUBLE)
@@ -5660,7 +5660,6 @@ end
 
 -- Dissector for Nyse NyseEquities Bqt Xdp 2.4.a
 function omi_nyse_nyseequities_bqt_xdp_v2_4_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_bqt_xdp_v2_4_a.name
 

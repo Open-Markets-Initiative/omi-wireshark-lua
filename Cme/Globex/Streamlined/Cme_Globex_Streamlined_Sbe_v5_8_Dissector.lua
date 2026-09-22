@@ -282,7 +282,7 @@ omi_cme_globex_streamlined_sbe_v5_8.fields.md_instrument_definition_indices = Pr
 omi_cme_globex_streamlined_sbe_v5_8.fields.md_news_indices = ProtoField.new("Md News Indices", "cme.globex.streamlined.sbe.v5.8.mdnewsindices", ftypes.STRING)
 omi_cme_globex_streamlined_sbe_v5_8.fields.quote_request = ProtoField.new("Quote Request", "cme.globex.streamlined.sbe.v5.8.quoterequest", ftypes.STRING)
 
--- Cme Globex Streamlined Sbe 5.8 generated fields
+-- Cme Globex Streamlined Sbe 5.8 Generated Fields
 omi_cme_globex_streamlined_sbe_v5_8.fields.eris_feed_types_group_index = ProtoField.new("Eris Feed Types Group Index", "cme.globex.streamlined.sbe.v5.8.erisfeedtypesgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_8.fields.eris_group_index = ProtoField.new("Eris Group Index", "cme.globex.streamlined.sbe.v5.8.erisgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_8.fields.eris_legs_group_index = ProtoField.new("Eris Legs Group Index", "cme.globex.streamlined.sbe.v5.8.erislegsgroupindex", ftypes.UINT16)
@@ -12044,15 +12044,16 @@ end
 
 -- Dissector for Cme Globex Streamlined Sbe 5.8
 function omi_cme_globex_streamlined_sbe_v5_8.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cme_globex_streamlined_sbe_v5_8.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_streamlined_sbe_v5_8, buffer(), omi_cme_globex_streamlined_sbe_v5_8.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return cme_globex_streamlined_sbe_v5_8.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return cme_globex_streamlined_sbe_v5_8.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -12068,6 +12069,7 @@ cme_globex_streamlined_sbe_v5_8.tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 20 then
     return false
   end
+
   local template_id = buffer(18, 2):le_uint()
 
   -- Admin Heartbeat
@@ -12142,7 +12144,6 @@ cme_globex_streamlined_sbe_v5_8.tcp_packet.fingerprint = function(buffer)
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------
@@ -12254,9 +12255,11 @@ end
 -- Register Heuristics for Cme Globex Streamlined Sbe 5.8
 omi_cme_globex_streamlined_sbe_v5_8:register_heuristic("udp", omi_cme_globex_streamlined_sbe_v5_8_udp_heuristic)
 omi_cme_globex_streamlined_sbe_v5_8:register_heuristic("tcp", omi_cme_globex_streamlined_sbe_v5_8_tcp_acceptor_heuristic)
+
 -- Register Cme Globex Streamlined Sbe 5.8 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_cme_globex_streamlined_sbe_v5_8)
+
 -- Register Cme Globex Streamlined Sbe 5.8 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_cme_globex_streamlined_sbe_v5_8)

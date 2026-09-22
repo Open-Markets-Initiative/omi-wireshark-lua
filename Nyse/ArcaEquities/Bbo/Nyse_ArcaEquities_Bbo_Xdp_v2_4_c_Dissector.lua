@@ -99,7 +99,7 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_message = Proto
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaequities.bbo.xdp.v2.4.c.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.arcaequities.bbo.xdp.v2.4.c.tradingsessionchangemessage", ftypes.STRING)
 
--- Nyse ArcaEquities Bbo Xdp 2.4.c generated fields
+-- Nyse ArcaEquities Bbo Xdp 2.4.c Generated Fields
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.bbo.xdp.v2.4.c.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3090,7 +3090,6 @@ end
 
 -- Dissector for Nyse ArcaEquities Bbo Xdp 2.4.c
 function omi_nyse_arcaequities_bbo_xdp_v2_4_c.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaequities_bbo_xdp_v2_4_c.name
 

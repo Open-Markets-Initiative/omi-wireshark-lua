@@ -75,7 +75,7 @@ omi_cboe_c2options_complexauction_pitch_v2_2_41.fields.options_auction_update_me
 omi_cboe_c2options_complexauction_pitch_v2_2_41.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.c2options.complexauction.pitch.v2.2.41.symbolmappingmessage", ftypes.STRING)
 omi_cboe_c2options_complexauction_pitch_v2_2_41.fields.time_message = ProtoField.new("Time Message", "cboe.c2options.complexauction.pitch.v2.2.41.timemessage", ftypes.STRING)
 
--- Cboe C2Options ComplexAuction Pitch 2.2.41 generated fields
+-- Cboe C2Options ComplexAuction Pitch 2.2.41 Generated Fields
 omi_cboe_c2options_complexauction_pitch_v2_2_41.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.c2options.complexauction.pitch.v2.2.41.complexlegindex", ftypes.UINT16)
 omi_cboe_c2options_complexauction_pitch_v2_2_41.fields.message_index = ProtoField.new("Message Index", "cboe.c2options.complexauction.pitch.v2.2.41.messageindex", ftypes.UINT16)
 omi_cboe_c2options_complexauction_pitch_v2_2_41.fields.timestamp = ProtoField.new("Timestamp", "cboe.c2options.complexauction.pitch.v2.2.41.timestamp", ftypes.UINT64)
@@ -2219,7 +2219,6 @@ end
 
 -- Dissector for Cboe C2Options ComplexAuction Pitch 2.2.41
 function omi_cboe_c2options_complexauction_pitch_v2_2_41.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c2options_complexauction_pitch_v2_2_41.name
 

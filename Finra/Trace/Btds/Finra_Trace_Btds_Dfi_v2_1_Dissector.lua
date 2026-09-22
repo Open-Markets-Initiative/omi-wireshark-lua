@@ -162,7 +162,7 @@ omi_finra_trace_btds_dfi_v2_1.fields.trade_correction_message = ProtoField.new("
 omi_finra_trace_btds_dfi_v2_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "finra.trace.btds.dfi.v2.1.tradereportmessage", ftypes.STRING)
 omi_finra_trace_btds_dfi_v2_1.fields.trading_halt_message = ProtoField.new("Trading Halt Message", "finra.trace.btds.dfi.v2.1.tradinghaltmessage", ftypes.STRING)
 
--- Finra Trace Btds Dfi 2.1 generated fields
+-- Finra Trace Btds Dfi 2.1 Generated Fields
 omi_finra_trace_btds_dfi_v2_1.fields.message_index = ProtoField.new("Message Index", "finra.trace.btds.dfi.v2.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -5643,7 +5643,6 @@ end
 
 -- Dissector for Finra Trace Btds Dfi 2.1
 function omi_finra_trace_btds_dfi_v2_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_finra_trace_btds_dfi_v2_1.name
 

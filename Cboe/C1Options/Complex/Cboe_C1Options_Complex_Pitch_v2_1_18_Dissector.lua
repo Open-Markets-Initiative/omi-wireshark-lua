@@ -24,8 +24,6 @@ omi_cboe_c1options_complex_pitch_v2_1_18.fields.buy_contracts = ProtoField.new("
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.c1options.complex.pitch.v2.1.18.canceledquantity", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.c1options.complex.pitch.v2.1.18.canceledquantityshort", ftypes.UINT16)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.client_id = ProtoField.new("Client Id", "cboe.c1options.complex.pitch.v2.1.18.clientid", ftypes.STRING)
-omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_auction_reserved_bytes = ProtoField.new("Complex Auction Reserved Bytes", "cboe.c1options.complex.pitch.v2.1.18.complexauctionreservedbytes", ftypes.BYTES)
-omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_auction_type = ProtoField.new("Complex Auction Type", "cboe.c1options.complex.pitch.v2.1.18.complexauctiontype", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentid", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_id_8 = ProtoField.new("Complex Instrument Id 8", "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentid8", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_leg = ProtoField.new("Complex Instrument Leg", "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentleg", ftypes.STRING)
@@ -59,7 +57,7 @@ omi_cboe_c1options_complex_pitch_v2_1_18.fields.quantity = ProtoField.new("Quant
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.c1options.complex.pitch.v2.1.18.quantityshort", ftypes.UINT16)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.reference_price = ProtoField.new("Reference Price", "cboe.c1options.complex.pitch.v2.1.18.referenceprice", ftypes.DOUBLE)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.c1options.complex.pitch.v2.1.18.remainingquantity", ftypes.UINT32)
-omi_cboe_c1options_complex_pitch_v2_1_18.fields.reserved = ProtoField.new("Reserved", "cboe.c1options.complex.pitch.v2.1.18.reserved", ftypes.BYTES)
+omi_cboe_c1options_complex_pitch_v2_1_18.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c1options.complex.pitch.v2.1.18.reserved1", ftypes.BYTES)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.c1options.complex.pitch.v2.1.18.sellcontracts", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.sequence = ProtoField.new("Sequence", "cboe.c1options.complex.pitch.v2.1.18.sequence", ftypes.UINT32)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.c1options.complex.pitch.v2.1.18.sideindicator", ftypes.STRING)
@@ -105,7 +103,7 @@ omi_cboe_c1options_complex_pitch_v2_1_18.fields.transaction_begin = ProtoField.n
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.transaction_end_message = ProtoField.new("Transaction End Message", "cboe.c1options.complex.pitch.v2.1.18.transactionendmessage", ftypes.STRING)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c1options.complex.pitch.v2.1.18.unitclearmessage", ftypes.STRING)
 
--- Cboe C1Options Complex Pitch 2.1.18 generated fields
+-- Cboe C1Options Complex Pitch 2.1.18 Generated Fields
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_leg_index = ProtoField.new("Complex Instrument Leg Index", "cboe.c1options.complex.pitch.v2.1.18.complexinstrumentlegindex", ftypes.UINT16)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.complex.pitch.v2.1.18.messageindex", ftypes.UINT16)
 omi_cboe_c1options_complex_pitch_v2_1_18.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.complex.pitch.v2.1.18.timestamp", ftypes.UINT64)
@@ -139,12 +137,14 @@ local show = {}
 
 -- Cboe C1Options Complex Pitch 2.1.18 Element Dissection Options
 show.application_messages = true
+show.repeating_groups = true
 show.structs = true
 show.headers = true
 show.indexes = true
 
 -- Register Cboe C1Options Complex Pitch 2.1.18 Show Options
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -162,6 +162,9 @@ function omi_cboe_c1options_complex_pitch_v2_1_18.prefs_changed()
   end
   if show.headers ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_headers then
     show.headers = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_repeating_groups
   end
   if show.structs ~= omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_structs then
     show.structs = omi_cboe_c1options_complex_pitch_v2_1_18.prefs.show_structs
@@ -467,52 +470,6 @@ cboe_c1options_complex_pitch_v2_1_18.client_id.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Complex Auction Reserved Bytes
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes = {}
-
--- Size: Complex Auction Reserved Bytes
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes.size = 3
-
--- Display: Complex Auction Reserved Bytes
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes.display = function(value)
-  return "Complex Auction Reserved Bytes: "..value
-end
-
--- Dissect: Complex Auction Reserved Bytes
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_auction_reserved_bytes, range, value, display)
-
-  return offset + length, value
-end
-
--- Complex Auction Type
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_type = {}
-
--- Size: Complex Auction Type
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_type.size = 1
-
--- Display: Complex Auction Type
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_type.display = function(value)
-  return "Complex Auction Type: "..value
-end
-
--- Dissect: Complex Auction Type
-cboe_c1options_complex_pitch_v2_1_18.complex_auction_type.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complex_pitch_v2_1_18.complex_auction_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1options_complex_pitch_v2_1_18.complex_auction_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_auction_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Complex Instrument Id
 cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id = {}
 
@@ -555,6 +512,29 @@ cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id_8.dissect = function(
   local display = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id_8.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_id_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Complex Instrument Type
+cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type = {}
+
+-- Size: Complex Instrument Type
+cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.size = 4
+
+-- Display: Complex Instrument Type
+cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.display = function(value)
+  return "Complex Instrument Type: "..value
+end
+
+-- Dissect: Complex Instrument Type
+cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_type, range, value, display)
 
   return offset + length, value
 end
@@ -1362,25 +1342,25 @@ cboe_c1options_complex_pitch_v2_1_18.remaining_quantity.dissect = function(buffe
   return offset + length, value
 end
 
--- Reserved
-cboe_c1options_complex_pitch_v2_1_18.reserved = {}
+-- Reserved 1
+cboe_c1options_complex_pitch_v2_1_18.reserved_1 = {}
 
--- Size: Reserved
-cboe_c1options_complex_pitch_v2_1_18.reserved.size = 1
+-- Size: Reserved 1
+cboe_c1options_complex_pitch_v2_1_18.reserved_1.size = 1
 
--- Display: Reserved
-cboe_c1options_complex_pitch_v2_1_18.reserved.display = function(value)
-  return "Reserved: "..value
+-- Display: Reserved 1
+cboe_c1options_complex_pitch_v2_1_18.reserved_1.display = function(value)
+  return "Reserved 1: "..value
 end
 
--- Dissect: Reserved
-cboe_c1options_complex_pitch_v2_1_18.reserved.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complex_pitch_v2_1_18.reserved.size
+-- Dissect: Reserved 1
+cboe_c1options_complex_pitch_v2_1_18.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complex_pitch_v2_1_18.reserved_1.size
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1options_complex_pitch_v2_1_18.reserved.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_complex_pitch_v2_1_18.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.reserved, range, value, display)
+  parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.reserved_1, range, value, display)
 
   return offset + length, value
 end
@@ -1780,7 +1760,7 @@ end
 cboe_c1options_complex_pitch_v2_1_18.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -1824,19 +1804,19 @@ end
 cboe_c1options_complex_pitch_v2_1_18.auction_summary_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id 8: 8 Byte Ascii String
+  -- Complex Instrument Id 8: Printable ASCII
   index, complex_instrument_id_8 = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id_8.dissect(buffer, index, packet, parent)
 
-  -- Auction Opening Type: 1 Byte Ascii String Enum with 3 values
+  -- Auction Opening Type: Alphanumeric
   index, auction_opening_type = cboe_c1options_complex_pitch_v2_1_18.auction_opening_type.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_complex_pitch_v2_1_18.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -1886,37 +1866,37 @@ end
 cboe_c1options_complex_pitch_v2_1_18.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id 8: 8 Byte Ascii String
+  -- Complex Instrument Id 8: Printable ASCII
   index, complex_instrument_id_8 = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id_8.dissect(buffer, index, packet, parent)
 
-  -- Auction Opening Type: 1 Byte Ascii String Enum with 3 values
+  -- Auction Opening Type: Alphanumeric
   index, auction_opening_type = cboe_c1options_complex_pitch_v2_1_18.auction_opening_type.dissect(buffer, index, packet, parent)
 
-  -- Reference Price: 8 Byte Unsigned Fixed Width Integer
+  -- Reference Price: Binary Long Price
   index, reference_price = cboe_c1options_complex_pitch_v2_1_18.reference_price.dissect(buffer, index, packet, parent)
 
-  -- Buy Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Buy Contracts: Binary
   index, buy_contracts = cboe_c1options_complex_pitch_v2_1_18.buy_contracts.dissect(buffer, index, packet, parent)
 
-  -- Sell Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Sell Contracts: Binary
   index, sell_contracts = cboe_c1options_complex_pitch_v2_1_18.sell_contracts.dissect(buffer, index, packet, parent)
 
-  -- Indicative Price: 8 Byte Signed Fixed Width Integer
+  -- Indicative Price: Binary Signed Long Price
   index, indicative_price = cboe_c1options_complex_pitch_v2_1_18.indicative_price.dissect(buffer, index, packet, parent)
 
-  -- Auction Only Price: 8 Byte Signed Fixed Width Integer
+  -- Auction Only Price: Binary Signed Long Price
   index, auction_only_price = cboe_c1options_complex_pitch_v2_1_18.auction_only_price.dissect(buffer, index, packet, parent)
 
-  -- Opening Condition: 1 Byte Ascii String
+  -- Opening Condition: Alphanumeric
   index, opening_condition = cboe_c1options_complex_pitch_v2_1_18.opening_condition.dissect(buffer, index, packet, parent)
 
-  -- Composite Market Bid Price: 8 Byte Signed Fixed Width Integer
+  -- Composite Market Bid Price: Binary Signed Long Price
   index, composite_market_bid_price = cboe_c1options_complex_pitch_v2_1_18.composite_market_bid_price.dissect(buffer, index, packet, parent)
 
-  -- Composite Market Offer Price: 8 Byte Signed Fixed Width Integer
+  -- Composite Market Offer Price: Binary Signed Long Price
   index, composite_market_offer_price = cboe_c1options_complex_pitch_v2_1_18.composite_market_offer_price.dissect(buffer, index, packet, parent)
 
   return index
@@ -1949,7 +1929,7 @@ cboe_c1options_complex_pitch_v2_1_18.trading_status_message.size =
   cboe_c1options_complex_pitch_v2_1_18.complex_symbol_id.size + 
   cboe_c1options_complex_pitch_v2_1_18.unused.size + 
   cboe_c1options_complex_pitch_v2_1_18.trading_status.size + 
-  cboe_c1options_complex_pitch_v2_1_18.reserved.size + 
+  cboe_c1options_complex_pitch_v2_1_18.reserved_1.size + 
   cboe_c1options_complex_pitch_v2_1_18.gth_trading_status.size + 
   cboe_c1options_complex_pitch_v2_1_18.padding.size
 
@@ -1962,25 +1942,25 @@ end
 cboe_c1options_complex_pitch_v2_1_18.trading_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Complex Symbol Id: 6 Byte Ascii String
+  -- Complex Symbol Id: Printable ASCII
   index, complex_symbol_id = cboe_c1options_complex_pitch_v2_1_18.complex_symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Unused: 2 Byte
+  -- Unused: Reserved
   index, unused = cboe_c1options_complex_pitch_v2_1_18.unused.dissect(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Ascii String Enum with 3 values
+  -- Trading Status: Alphanumeric
   index, trading_status = cboe_c1options_complex_pitch_v2_1_18.trading_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte
-  index, reserved = cboe_c1options_complex_pitch_v2_1_18.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Reserved
+  index, reserved_1 = cboe_c1options_complex_pitch_v2_1_18.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Gth Trading Status: 1 Byte Ascii String Enum with 3 values
+  -- Gth Trading Status: Alphanumeric
   index, gth_trading_status = cboe_c1options_complex_pitch_v2_1_18.gth_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Padding: 1 Byte
+  -- Padding: Reserved
   index, padding = cboe_c1options_complex_pitch_v2_1_18.padding.dissect(buffer, index, packet, parent)
 
   return index
@@ -2024,19 +2004,19 @@ end
 cboe_c1options_complex_pitch_v2_1_18.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_complex_pitch_v2_1_18.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_complex_pitch_v2_1_18.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_complex_pitch_v2_1_18.quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -2077,10 +2057,10 @@ end
 cboe_c1options_complex_pitch_v2_1_18.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_complex_pitch_v2_1_18.auction_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2130,37 +2110,37 @@ end
 cboe_c1options_complex_pitch_v2_1_18.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id: 6 Byte Ascii String
+  -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_c1options_complex_pitch_v2_1_18.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: Alphanumeric
   index, auction_type = cboe_c1options_complex_pitch_v2_1_18.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_complex_pitch_v2_1_18.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_complex_pitch_v2_1_18.quantity.dissect(buffer, index, packet, parent)
 
-  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Customer Indicator: Alphanumeric
   index, customer_indicator = cboe_c1options_complex_pitch_v2_1_18.customer_indicator.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 4 Byte Ascii String
+  -- Participant Id: Alphanumeric
   index, participant_id = cboe_c1options_complex_pitch_v2_1_18.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Auction End Offset: Binary
   index, auction_end_offset = cboe_c1options_complex_pitch_v2_1_18.auction_end_offset.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 4 Byte Ascii String
+  -- Client Id: Alphanumeric
   index, client_id = cboe_c1options_complex_pitch_v2_1_18.client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2207,28 +2187,28 @@ end
 cboe_c1options_complex_pitch_v2_1_18.trade_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_complex_pitch_v2_1_18.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: Binary
   index, quantity_short = cboe_c1options_complex_pitch_v2_1_18.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id: 6 Byte Ascii String
+  -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Signed Fixed Width Integer
+  -- Price Short: Binary Signed Short Price
   index, price_short = cboe_c1options_complex_pitch_v2_1_18.price_short.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_complex_pitch_v2_1_18.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_complex_pitch_v2_1_18.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -2275,28 +2255,28 @@ end
 cboe_c1options_complex_pitch_v2_1_18.trade_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_complex_pitch_v2_1_18.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_complex_pitch_v2_1_18.quantity.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id: 6 Byte Ascii String
+  -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_complex_pitch_v2_1_18.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_complex_pitch_v2_1_18.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -2337,10 +2317,10 @@ end
 cboe_c1options_complex_pitch_v2_1_18.delete_order_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2384,19 +2364,19 @@ end
 cboe_c1options_complex_pitch_v2_1_18.modify_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: Binary
   index, quantity_short = cboe_c1options_complex_pitch_v2_1_18.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Signed Fixed Width Integer
+  -- Price Short: Binary Signed Short Price
   index, price_short = cboe_c1options_complex_pitch_v2_1_18.price_short.dissect(buffer, index, packet, parent)
 
-  -- Padding: 1 Byte
+  -- Padding: Reserved
   index, padding = cboe_c1options_complex_pitch_v2_1_18.padding.dissect(buffer, index, packet, parent)
 
   return index
@@ -2440,19 +2420,19 @@ end
 cboe_c1options_complex_pitch_v2_1_18.modify_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_complex_pitch_v2_1_18.quantity.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Padding: 1 Byte
+  -- Padding: Reserved
   index, padding = cboe_c1options_complex_pitch_v2_1_18.padding.dissect(buffer, index, packet, parent)
 
   return index
@@ -2494,13 +2474,13 @@ end
 cboe_c1options_complex_pitch_v2_1_18.reduce_size_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Canceled Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Canceled Quantity Short: Binary
   index, canceled_quantity_short = cboe_c1options_complex_pitch_v2_1_18.canceled_quantity_short.dissect(buffer, index, packet, parent)
 
   return index
@@ -2542,13 +2522,13 @@ end
 cboe_c1options_complex_pitch_v2_1_18.reduce_size_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Canceled Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Canceled Quantity: Binary
   index, canceled_quantity = cboe_c1options_complex_pitch_v2_1_18.canceled_quantity.dissect(buffer, index, packet, parent)
 
   return index
@@ -2594,25 +2574,25 @@ end
 cboe_c1options_complex_pitch_v2_1_18.order_executed_at_price_size_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Binary
   index, executed_quantity = cboe_c1options_complex_pitch_v2_1_18.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Remaining Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Remaining Quantity: Binary
   index, remaining_quantity = cboe_c1options_complex_pitch_v2_1_18.remaining_quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_complex_pitch_v2_1_18.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_complex_pitch_v2_1_18.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -2656,19 +2636,19 @@ end
 cboe_c1options_complex_pitch_v2_1_18.order_executed_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Executed Quantity: Binary
   index, executed_quantity = cboe_c1options_complex_pitch_v2_1_18.executed_quantity.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_c1options_complex_pitch_v2_1_18.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: Alphanumeric
   index, trade_condition = cboe_c1options_complex_pitch_v2_1_18.trade_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -2703,7 +2683,7 @@ cboe_c1options_complex_pitch_v2_1_18.add_order_expanded_message.size =
   cboe_c1options_complex_pitch_v2_1_18.quantity.size + 
   cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id_8.size + 
   cboe_c1options_complex_pitch_v2_1_18.price.size + 
-  cboe_c1options_complex_pitch_v2_1_18.reserved.size + 
+  cboe_c1options_complex_pitch_v2_1_18.reserved_1.size + 
   cboe_c1options_complex_pitch_v2_1_18.participant_id.size + 
   cboe_c1options_complex_pitch_v2_1_18.customer_indicator.size + 
   cboe_c1options_complex_pitch_v2_1_18.client_id.size
@@ -2717,34 +2697,34 @@ end
 cboe_c1options_complex_pitch_v2_1_18.add_order_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_complex_pitch_v2_1_18.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_complex_pitch_v2_1_18.quantity.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id 8: 8 Byte Ascii String
+  -- Complex Instrument Id 8: Printable ASCII
   index, complex_instrument_id_8 = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id_8.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Reserved: 1 Byte
-  index, reserved = cboe_c1options_complex_pitch_v2_1_18.reserved.dissect(buffer, index, packet, parent)
+  -- Reserved 1: Reserved
+  index, reserved_1 = cboe_c1options_complex_pitch_v2_1_18.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 4 Byte Ascii String
+  -- Participant Id: Alphanumeric
   index, participant_id = cboe_c1options_complex_pitch_v2_1_18.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Customer Indicator: Alphanumeric
   index, customer_indicator = cboe_c1options_complex_pitch_v2_1_18.customer_indicator.dissect(buffer, index, packet, parent)
 
-  -- Client Id: 4 Byte Ascii String
+  -- Client Id: Alphanumeric
   index, client_id = cboe_c1options_complex_pitch_v2_1_18.client_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -2790,25 +2770,25 @@ end
 cboe_c1options_complex_pitch_v2_1_18.add_order_short_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_complex_pitch_v2_1_18.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  -- Quantity Short: Binary
   index, quantity_short = cboe_c1options_complex_pitch_v2_1_18.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id: 6 Byte Ascii String
+  -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price Short: 2 Byte Signed Fixed Width Integer
+  -- Price Short: Binary Signed Short Price
   index, price_short = cboe_c1options_complex_pitch_v2_1_18.price_short.dissect(buffer, index, packet, parent)
 
-  -- Padding: 1 Byte
+  -- Padding: Reserved
   index, padding = cboe_c1options_complex_pitch_v2_1_18.padding.dissect(buffer, index, packet, parent)
 
   return index
@@ -2854,25 +2834,25 @@ end
 cboe_c1options_complex_pitch_v2_1_18.add_order_long_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: Binary
   index, order_id = cboe_c1options_complex_pitch_v2_1_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Side Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_c1options_complex_pitch_v2_1_18.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  -- Quantity: Binary
   index, quantity = cboe_c1options_complex_pitch_v2_1_18.quantity.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id: 6 Byte Ascii String
+  -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: Binary Signed Long Price
   index, price = cboe_c1options_complex_pitch_v2_1_18.price.dissect(buffer, index, packet, parent)
 
-  -- Padding: 1 Byte
+  -- Padding: Reserved
   index, padding = cboe_c1options_complex_pitch_v2_1_18.padding.dissect(buffer, index, packet, parent)
 
   return index
@@ -2915,16 +2895,16 @@ end
 cboe_c1options_complex_pitch_v2_1_18.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Feed Symbol: 6 Byte Ascii String
+  -- Feed Symbol: Printable ASCII
   index, feed_symbol = cboe_c1options_complex_pitch_v2_1_18.feed_symbol.dissect(buffer, index, packet, parent)
 
-  -- Osi Symbol: 21 Byte Ascii String
+  -- Osi Symbol: Printable ASCII
   index, osi_symbol = cboe_c1options_complex_pitch_v2_1_18.osi_symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
+  -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_c1options_complex_pitch_v2_1_18.symbol_condition.dissect(buffer, index, packet, parent)
 
-  -- Underlying: 8 Byte Ascii String
+  -- Underlying: Alphanumeric
   index, underlying = cboe_c1options_complex_pitch_v2_1_18.underlying.dissect(buffer, index, packet, parent)
 
   return index
@@ -2972,13 +2952,13 @@ cboe_c1options_complex_pitch_v2_1_18.complex_instrument_leg.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Leg Symbol: 8 Byte Ascii String
+  -- Leg Symbol: Printable ASCII
   index, leg_symbol = cboe_c1options_complex_pitch_v2_1_18.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Signed Fixed Width Integer
+  -- Leg Ratio: Signed Binary
   index, leg_ratio = cboe_c1options_complex_pitch_v2_1_18.leg_ratio.dissect(buffer, index, packet, parent)
 
-  -- Leg Security Type: 1 Byte Ascii String Enum with 2 values
+  -- Leg Security Type: Alphanumeric
   index, leg_security_type = cboe_c1options_complex_pitch_v2_1_18.leg_security_type.dissect(buffer, index, packet, parent)
 
   return index
@@ -2986,7 +2966,7 @@ end
 
 -- Dissect: Complex Instrument Leg
 cboe_c1options_complex_pitch_v2_1_18.complex_instrument_leg.dissect = function(buffer, offset, packet, parent, complex_instrument_leg_index)
-  if show.structs then
+  if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_leg, buffer(offset, 0))
     local index = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_leg.fields(buffer, offset, packet, parent, complex_instrument_leg_index)
@@ -2999,50 +2979,6 @@ cboe_c1options_complex_pitch_v2_1_18.complex_instrument_leg.dissect = function(b
   else
     -- Skip element, add fields directly
     return cboe_c1options_complex_pitch_v2_1_18.complex_instrument_leg.fields(buffer, offset, packet, parent, complex_instrument_leg_index)
-  end
-end
-
--- Complex Instrument Type
-cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type = {}
-
--- Size: Complex Instrument Type
-cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.size =
-  cboe_c1options_complex_pitch_v2_1_18.complex_auction_type.size + 
-  cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes.size
-
--- Display: Complex Instrument Type
-cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.display = function(buffer, offset, value, packet, parent)
-  return ""..value
-end
-
--- Dissect Fields: Complex Instrument Type
-cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Complex Auction Type: 1 Byte Ascii String
-  index, complex_auction_type = cboe_c1options_complex_pitch_v2_1_18.complex_auction_type.dissect(buffer, index, packet, parent)
-
-  -- Complex Auction Reserved Bytes: 3 Byte
-  index, complex_auction_reserved_bytes = cboe_c1options_complex_pitch_v2_1_18.complex_auction_reserved_bytes.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Complex Instrument Type
-cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_c1options_complex_pitch_v2_1_18.fields.complex_instrument_type, buffer(offset, 0))
-    local index = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, value
-  else
-    -- Skip element, add fields directly
-    return cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3079,19 +3015,19 @@ end
 cboe_c1options_complex_pitch_v2_1_18.complex_instrument_definition_expanded_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Id: 6 Byte Ascii String
+  -- Complex Instrument Id: Printable ASCII
   index, complex_instrument_id = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Underlying: 8 Byte Ascii String
+  -- Complex Instrument Underlying: Printable ASCII
   index, complex_instrument_underlying = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_underlying.dissect(buffer, index, packet, parent)
 
-  -- Complex Instrument Type: Struct of 2 fields
+  -- Complex Instrument Type: Alphanumeric
   index, complex_instrument_type = cboe_c1options_complex_pitch_v2_1_18.complex_instrument_type.dissect(buffer, index, packet, parent)
 
-  -- Leg Count: 1 Byte Unsigned Fixed Width Integer
+  -- Leg Count: Binary
   index, leg_count = cboe_c1options_complex_pitch_v2_1_18.leg_count.dissect(buffer, index, packet, parent)
 
   -- Repeating: Complex Instrument Leg
@@ -3136,7 +3072,7 @@ end
 cboe_c1options_complex_pitch_v2_1_18.transaction_end_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3176,7 +3112,7 @@ end
 cboe_c1options_complex_pitch_v2_1_18.transaction_begin.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3216,7 +3152,7 @@ end
 cboe_c1options_complex_pitch_v2_1_18.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_c1options_complex_pitch_v2_1_18.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -3256,7 +3192,7 @@ end
 cboe_c1options_complex_pitch_v2_1_18.time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
+  -- Time: Binary
   index, time = cboe_c1options_complex_pitch_v2_1_18.time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
@@ -3639,7 +3575,6 @@ end
 
 -- Dissector for Cboe C1Options Complex Pitch 2.1.18
 function omi_cboe_c1options_complex_pitch_v2_1_18.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_complex_pitch_v2_1_18.name
 

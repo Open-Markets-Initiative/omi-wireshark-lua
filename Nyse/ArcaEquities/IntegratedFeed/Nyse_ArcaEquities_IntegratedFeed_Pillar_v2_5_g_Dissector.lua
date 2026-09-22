@@ -123,7 +123,7 @@ omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.fields.trade_cancel_message =
 -- Nyse ArcaEquities IntegratedFeed 2.5.g Session Messages
 omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaequities.integratedfeed.pillar.v2.5.g.heartbeat", ftypes.BYTES)
 
--- Nyse ArcaEquities IntegratedFeed Pillar 2.5.g generated fields
+-- Nyse ArcaEquities IntegratedFeed Pillar 2.5.g Generated Fields
 omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.integratedfeed.pillar.v2.5.g.messageindex", ftypes.UINT16)
 omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaequities.integratedfeed.pillar.v2.5.g.messagesequencenumber", ftypes.UINT64)
 omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.arcaequities.integratedfeed.pillar.v2.5.g.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
@@ -4660,7 +4660,6 @@ end
 
 -- Dissector for Nyse ArcaEquities IntegratedFeed Pillar 2.5.g
 function omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaequities_integratedfeed_pillar_v2_5_g.name
 

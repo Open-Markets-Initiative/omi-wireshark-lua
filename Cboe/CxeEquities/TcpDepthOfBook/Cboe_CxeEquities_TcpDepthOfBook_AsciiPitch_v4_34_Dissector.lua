@@ -2854,7 +2854,6 @@ end
 
 -- Dissector for Cboe CxeEquities TcpDepthOfBook AsciiPitch 4.34
 function omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cxeequities_tcpdepthofbook_asciipitch_v4_34.name
 

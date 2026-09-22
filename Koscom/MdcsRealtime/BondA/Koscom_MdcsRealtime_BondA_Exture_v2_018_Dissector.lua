@@ -19425,7 +19425,6 @@ end
 
 -- Dissector for Koscom MdcsRealtime BondA Exture 2.018
 function omi_koscom_mdcsrealtime_bonda_exture_v2_018.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_koscom_mdcsrealtime_bonda_exture_v2_018.name
 

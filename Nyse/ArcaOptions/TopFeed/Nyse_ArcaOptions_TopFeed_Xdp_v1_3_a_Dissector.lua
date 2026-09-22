@@ -111,7 +111,7 @@ omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.ne
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.arcaoptions.topfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 
--- Nyse ArcaOptions TopFeed Xdp 1.3.a generated fields
+-- Nyse ArcaOptions TopFeed Xdp 1.3.a Generated Fields
 omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.topfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3714,7 +3714,6 @@ end
 
 -- Dissector for Nyse ArcaOptions TopFeed Xdp 1.3.a
 function omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaoptions_topfeed_xdp_v1_3_a.name
 

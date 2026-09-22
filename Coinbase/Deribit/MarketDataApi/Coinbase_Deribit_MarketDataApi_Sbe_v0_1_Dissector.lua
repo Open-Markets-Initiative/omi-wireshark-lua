@@ -129,7 +129,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.trading_status_update_message
 -- Coinbase Deribit MarketDataApi 0.1 Session Messages
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.empty_packet = ProtoField.new("Empty Packet", "coinbase.deribit.marketdataapi.sbe.v0.1.emptypacket", ftypes.BYTES)
 
--- Coinbase Deribit MarketDataApi Sbe 0.1 generated fields
+-- Coinbase Deribit MarketDataApi Sbe 0.1 Generated Fields
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.md_message_index = ProtoField.new("Md Message Index", "coinbase.deribit.marketdataapi.sbe.v0.1.mdmessageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3727,7 +3727,6 @@ end
 
 -- Dissector for Coinbase Deribit MarketDataApi Sbe 0.1
 function omi_coinbase_deribit_marketdataapi_sbe_v0_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_coinbase_deribit_marketdataapi_sbe_v0_1.name
 

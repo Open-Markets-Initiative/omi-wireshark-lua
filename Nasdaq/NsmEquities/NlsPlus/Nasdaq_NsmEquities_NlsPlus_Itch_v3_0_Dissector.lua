@@ -142,7 +142,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.trade_report_message = ProtoFiel
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.nlsplus.itch.v3.0.endofsession", ftypes.BYTES)
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.nlsplus.itch.v3.0.heartbeat", ftypes.BYTES)
 
--- Nasdaq NsmEquities NlsPlus Itch 3.0 generated fields
+-- Nasdaq NsmEquities NlsPlus Itch 3.0 Generated Fields
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.nlsplus.itch.v3.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -5283,7 +5283,6 @@ end
 
 -- Dissector for Nasdaq NsmEquities NlsPlus Itch 3.0
 function omi_nasdaq_nsmequities_nlsplus_itch_v3_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_nlsplus_itch_v3_0.name
 

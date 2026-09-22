@@ -64,7 +64,7 @@ omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.fields.spin_request_messa
 omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.fields.spin_response_message = ProtoField.new("Spin Response Message", "cboe.cxaequities.multicastdepthofbook.spin.v1.0.12.spinresponsemessage", ftypes.STRING)
 omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.cxaequities.multicastdepthofbook.spin.v1.0.12.tradingstatusmessage", ftypes.STRING)
 
--- Cboe CxaEquities MulticastDepthOfBook Spin 1.0.12 generated fields
+-- Cboe CxaEquities MulticastDepthOfBook Spin 1.0.12 Generated Fields
 omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.fields.message_index = ProtoField.new("Message Index", "cboe.cxaequities.multicastdepthofbook.spin.v1.0.12.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1750,7 +1750,6 @@ end
 
 -- Dissector for Cboe CxaEquities MulticastDepthOfBook Spin 1.0.12
 function omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.name
 

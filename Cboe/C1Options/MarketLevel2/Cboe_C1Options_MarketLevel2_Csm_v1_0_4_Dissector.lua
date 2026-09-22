@@ -102,7 +102,7 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_definition_message = 
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_status_message = ProtoField.new("Security Status Message", "cboe.c1options.marketlevel2.csm.v1.0.4.securitystatusmessage", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_message = ProtoField.new("Snapshot Full Refresh Message", "cboe.c1options.marketlevel2.csm.v1.0.4.snapshotfullrefreshmessage", ftypes.STRING)
 
--- Cboe C1Options MarketLevel2 Csm 1.0.4 generated fields
+-- Cboe C1Options MarketLevel2 Csm 1.0.4 Generated Fields
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.incremental_refresh_md_entry_index = ProtoField.new("Incremental Refresh Md Entry Index", "cboe.c1options.marketlevel2.csm.v1.0.4.incrementalrefreshmdentryindex", ftypes.UINT16)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.md_volume_entry_index = ProtoField.new("Md Volume Entry Index", "cboe.c1options.marketlevel2.csm.v1.0.4.mdvolumeentryindex", ftypes.UINT16)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.marketlevel2.csm.v1.0.4.messageindex", ftypes.UINT16)
@@ -3042,7 +3042,6 @@ end
 
 -- Dissector for Cboe C1Options MarketLevel2 Csm 1.0.4
 function omi_cboe_c1options_marketlevel2_csm_v1_0_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_marketlevel2_csm_v1_0_4.name
 

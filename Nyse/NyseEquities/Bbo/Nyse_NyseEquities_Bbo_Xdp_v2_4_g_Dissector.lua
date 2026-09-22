@@ -99,7 +99,7 @@ omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_message = Proto
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.bbo.xdp.v2.4.g.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.trading_session_change_message = ProtoField.new("Trading Session Change Message", "nyse.nyseequities.bbo.xdp.v2.4.g.tradingsessionchangemessage", ftypes.STRING)
 
--- Nyse NyseEquities Bbo Xdp 2.4.g generated fields
+-- Nyse NyseEquities Bbo Xdp 2.4.g Generated Fields
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bbo.xdp.v2.4.g.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3086,7 +3086,6 @@ end
 
 -- Dissector for Nyse NyseEquities Bbo Xdp 2.4.g
 function omi_nyse_nyseequities_bbo_xdp_v2_4_g.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_bbo_xdp_v2_4_g.name
 

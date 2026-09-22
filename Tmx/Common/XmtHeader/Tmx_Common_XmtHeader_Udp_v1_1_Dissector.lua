@@ -39,7 +39,7 @@ omi_tmx_common_xmtheader_udp_v1_1.fields.business_header = ProtoField.new("Busin
 omi_tmx_common_xmtheader_udp_v1_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.common.xmtheader.udp.v1.1.frameheader", ftypes.STRING)
 omi_tmx_common_xmtheader_udp_v1_1.fields.packet = ProtoField.new("Packet", "tmx.common.xmtheader.udp.v1.1.packet", ftypes.STRING)
 
--- Tmx Common XmtHeader Udp 1.1 generated fields
+-- Tmx Common XmtHeader Udp 1.1 Generated Fields
 omi_tmx_common_xmtheader_udp_v1_1.fields.body_index = ProtoField.new("Body Index", "tmx.common.xmtheader.udp.v1.1.bodyindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -750,7 +750,6 @@ end
 
 -- Dissector for Tmx Common XmtHeader Udp 1.1
 function omi_tmx_common_xmtheader_udp_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_tmx_common_xmtheader_udp_v1_1.name
 

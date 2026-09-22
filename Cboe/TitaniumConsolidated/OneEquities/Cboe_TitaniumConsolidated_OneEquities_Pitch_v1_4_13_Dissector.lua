@@ -103,7 +103,7 @@ omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.opening_closing_p
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.rpi_message = ProtoField.new("Rpi Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.rpimessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.tradingstatusmessage", ftypes.STRING)
 
--- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 generated fields
+-- Cboe TitaniumConsolidated OneEquities Pitch 1.4.13 Generated Fields
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.adap_block_index = ProtoField.new("Adap Block Index", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.adapblockindex", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.oneequities.pitch.v1.4.13.messageindex", ftypes.UINT16)
 
@@ -3403,7 +3403,6 @@ end
 
 -- Dissector for Cboe TitaniumConsolidated OneEquities Pitch 1.4.13
 function omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.name
 

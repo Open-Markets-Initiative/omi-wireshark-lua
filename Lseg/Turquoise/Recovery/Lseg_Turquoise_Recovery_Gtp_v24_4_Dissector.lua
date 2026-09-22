@@ -206,7 +206,7 @@ omi_lseg_turquoise_recovery_gtp_v24_4.fields.top_of_book_message = ProtoField.ne
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.trade_cross_message = ProtoField.new("Trade Cross Message", "lseg.turquoise.recovery.gtp.v24.4.tradecrossmessage", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.trade_message = ProtoField.new("Trade Message", "lseg.turquoise.recovery.gtp.v24.4.trademessage", ftypes.STRING)
 
--- Lseg Turquoise Recovery Gtp 24.4 generated fields
+-- Lseg Turquoise Recovery Gtp 24.4 Generated Fields
 omi_lseg_turquoise_recovery_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.recovery.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -6973,7 +6973,6 @@ end
 
 -- Dissector for Lseg Turquoise Recovery Gtp 24.4
 function omi_lseg_turquoise_recovery_gtp_v24_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_turquoise_recovery_gtp_v24_4.name
 

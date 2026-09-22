@@ -64,7 +64,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.index_summary_message 
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.index_value_message = ProtoField.new("Index Value Message", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.indexvaluemessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.index_value_with_status_message = ProtoField.new("Index Value With Status Message", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.indexvaluewithstatusmessage", ftypes.STRING)
 
--- Cboe TitaniumConsolidated Indices Cgif 1.4.13 generated fields
+-- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Generated Fields
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.md_entries_index = ProtoField.new("Md Entries Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.mdentriesindex", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messageindex", ftypes.UINT16)
 
@@ -1690,7 +1690,6 @@ end
 
 -- Dissector for Cboe TitaniumConsolidated Indices Cgif 1.4.13
 function omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.name
 

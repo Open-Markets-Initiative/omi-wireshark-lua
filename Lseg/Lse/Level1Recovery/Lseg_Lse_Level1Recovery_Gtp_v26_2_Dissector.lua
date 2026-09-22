@@ -160,7 +160,7 @@ omi_lseg_lse_level1recovery_gtp_v26_2.fields.system_event_message = ProtoField.n
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "lseg.lse.level1recovery.gtp.v26.2.topofbookmessage", ftypes.STRING)
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.trade_message = ProtoField.new("Trade Message", "lseg.lse.level1recovery.gtp.v26.2.trademessage", ftypes.STRING)
 
--- Lseg Lse Level1Recovery Gtp 26.2 generated fields
+-- Lseg Lse Level1Recovery Gtp 26.2 Generated Fields
 omi_lseg_lse_level1recovery_gtp_v26_2.fields.message_index = ProtoField.new("Message Index", "lseg.lse.level1recovery.gtp.v26.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -5134,7 +5134,6 @@ end
 
 -- Dissector for Lseg Lse Level1Recovery Gtp 26.2
 function omi_lseg_lse_level1recovery_gtp_v26_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_lse_level1recovery_gtp_v26_2.name
 

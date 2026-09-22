@@ -157,7 +157,7 @@ omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.symbol_index_mapping_message 
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.time_reference_message = ProtoField.new("Time Reference Message", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.timereferencemessage", ftypes.STRING)
 
--- Nyse ArcaOptions DeepFeed Pillar 1.2.f generated fields
+-- Nyse ArcaOptions DeepFeed Pillar 1.2.f Generated Fields
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.messageindex", ftypes.UINT16)
 omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.deepfeed.pillar.v1.2.f.messagesequencenumber", ftypes.UINT64)
 
@@ -5434,7 +5434,6 @@ end
 
 -- Dissector for Nyse ArcaOptions DeepFeed Pillar 1.2.f
 function omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.name
 

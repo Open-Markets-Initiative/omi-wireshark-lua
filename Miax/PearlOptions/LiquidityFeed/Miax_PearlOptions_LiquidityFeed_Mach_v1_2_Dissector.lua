@@ -106,7 +106,7 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.system_state_message = Prot
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearloptions.liquidityfeed.mach.v1.2.systemtimemessage", ftypes.STRING)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.pearloptions.liquidityfeed.mach.v1.2.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax PearlOptions LiquidityFeed Mach 1.2 generated fields
+-- Miax PearlOptions LiquidityFeed Mach 1.2 Generated Fields
 omi_miax_pearloptions_liquidityfeed_mach_v1_2.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.liquidityfeed.mach.v1.2.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -3531,15 +3531,16 @@ end
 
 -- Dissector for Miax PearlOptions LiquidityFeed Mach 1.2
 function omi_miax_pearloptions_liquidityfeed_mach_v1_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearloptions_liquidityfeed_mach_v1_2.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_pearloptions_liquidityfeed_mach_v1_2, buffer(), omi_miax_pearloptions_liquidityfeed_mach_v1_2.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_pearloptions_liquidityfeed_mach_v1_2.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_pearloptions_liquidityfeed_mach_v1_2.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -3577,9 +3578,11 @@ end
 -- Register Heuristics for Miax PearlOptions LiquidityFeed Mach 1.2
 omi_miax_pearloptions_liquidityfeed_mach_v1_2:register_heuristic("udp", omi_miax_pearloptions_liquidityfeed_mach_v1_2_udp_heuristic)
 omi_miax_pearloptions_liquidityfeed_mach_v1_2:register_heuristic("tcp", omi_miax_pearloptions_liquidityfeed_mach_v1_2_tcp_heuristic)
+
 -- Register Miax PearlOptions LiquidityFeed Mach 1.2 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_pearloptions_liquidityfeed_mach_v1_2)
+
 -- Register Miax PearlOptions LiquidityFeed Mach 1.2 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_pearloptions_liquidityfeed_mach_v1_2)

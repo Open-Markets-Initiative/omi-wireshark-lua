@@ -53,7 +53,7 @@ omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message = Pr
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.time_message = ProtoField.new("Time Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timemessage", ftypes.STRING)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.unitclearmessage", ftypes.STRING)
 
--- Cboe EdgxOptions AuctionFeed Pitch 1.1.1 generated fields
+-- Cboe EdgxOptions AuctionFeed Pitch 1.1.1 Generated Fields
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.message_index = ProtoField.new("Message Index", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.messageindex", ftypes.UINT16)
 omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.auctionfeed.pitch.v1.1.1.timestamp", ftypes.UINT64)
 
@@ -823,7 +823,7 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.end_of_session_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: Binary
   index, timestamp = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -865,13 +865,13 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.symbol_mapping_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Feed Symbol: 6 Byte Ascii String
+  -- Feed Symbol: Printable ASCII
   index, feed_symbol = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.feed_symbol.dissect(buffer, index, packet, parent)
 
-  -- Osi Symbol: 21 Byte Ascii String
+  -- Osi Symbol: Printable ASCII
   index, osi_symbol = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.osi_symbol.dissect(buffer, index, packet, parent)
 
-  -- Symbol Condition: 1 Byte Ascii String
+  -- Symbol Condition: Alphanumeric
   index, symbol_condition = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.symbol_condition.dissect(buffer, index, packet, parent)
 
   return index
@@ -915,19 +915,19 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Execution Id: 8 Byte Unsigned Fixed Width Integer
+  -- Execution Id: Binary
   index, execution_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.execution_id.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts: Binary
   index, contracts = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.contracts.dissect(buffer, index, packet, parent)
 
   return index
@@ -968,10 +968,10 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_cancel_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
 
   return index
@@ -1020,34 +1020,34 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_notification_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
+  -- Symbol: Printable ASCII
   index, symbol = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.symbol.dissect(buffer, index, packet, parent)
 
-  -- Auction Id: 8 Byte Unsigned Fixed Width Integer
+  -- Auction Id: Binary
   index, auction_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 2 values
+  -- Auction Type: Alphanumeric
   index, auction_type = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_type.dissect(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String Enum with 2 values
+  -- Side: Alphanumeric
   index, side = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.side.dissect(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Unsigned Fixed Width Integer
+  -- Price: Binary Long Price
   index, price = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts: 4 Byte Unsigned Fixed Width Integer
+  -- Contracts: Binary
   index, contracts = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.contracts.dissect(buffer, index, packet, parent)
 
-  -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
+  -- Customer Indicator: Alphanumeric
   index, customer_indicator = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.customer_indicator.dissect(buffer, index, packet, parent)
 
-  -- Participant Id: 4 Byte Ascii String
+  -- Participant Id: Alphanumeric
   index, participant_id = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.participant_id.dissect(buffer, index, packet, parent)
 
-  -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Auction End Offset: Binary
   index, auction_end_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.auction_end_offset.dissect(buffer, index, packet, parent)
 
   return index
@@ -1087,7 +1087,7 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.unit_clear_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Offset: 4 Byte Unsigned Fixed Width Integer
+  -- Time Offset: Binary
   index, time_offset = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.timestamp.dissect(buffer, index, packet, parent)
 
   return index
@@ -1127,7 +1127,7 @@ end
 cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time: 4 Byte Unsigned Fixed Width Integer
+  -- Time: Binary
   index, time = cboe_edgxoptions_auctionfeed_pitch_v1_1_1.time.dissect(buffer, index, packet, parent)
 
   -- Store Time Value
@@ -1438,7 +1438,6 @@ end
 
 -- Dissector for Cboe EdgxOptions AuctionFeed Pitch 1.1.1
 function omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxoptions_auctionfeed_pitch_v1_1_1.name
 

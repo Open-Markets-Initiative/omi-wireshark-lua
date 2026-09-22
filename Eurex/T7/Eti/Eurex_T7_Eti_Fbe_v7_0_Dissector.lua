@@ -579,7 +579,7 @@ omi_eurex_t7_eti_fbe_v7_0.fields.user_login_response = ProtoField.new("User Logi
 omi_eurex_t7_eti_fbe_v7_0.fields.user_logout_request = ProtoField.new("User Logout Request", "eurex.t7.eti.fbe.v7.0.userlogoutrequest", ftypes.STRING)
 omi_eurex_t7_eti_fbe_v7_0.fields.user_logout_response = ProtoField.new("User Logout Response", "eurex.t7.eti.fbe.v7.0.userlogoutresponse", ftypes.STRING)
 
--- Eurex T7 Eti Fbe 7.0 generated fields
+-- Eurex T7 Eti Fbe 7.0 Generated Fields
 omi_eurex_t7_eti_fbe_v7_0.fields.affected_order_requests_grp_comp_index = ProtoField.new("Affected Order Requests Grp Comp Index", "eurex.t7.eti.fbe.v7.0.affectedorderrequestsgrpcompindex", ftypes.UINT16)
 omi_eurex_t7_eti_fbe_v7_0.fields.cross_request_ack_side_grp_comp_index = ProtoField.new("Cross Request Ack Side Grp Comp Index", "eurex.t7.eti.fbe.v7.0.crossrequestacksidegrpcompindex", ftypes.UINT16)
 omi_eurex_t7_eti_fbe_v7_0.fields.cross_request_side_grp_comp_index = ProtoField.new("Cross Request Side Grp Comp Index", "eurex.t7.eti.fbe.v7.0.crossrequestsidegrpcompindex", ftypes.UINT16)
@@ -612,6 +612,18 @@ omi_eurex_t7_eti_fbe_v7_0.fields.trd_instrmnt_leg_grp_comp_index = ProtoField.ne
 omi_eurex_t7_eti_fbe_v7_0.fields.underlying_stip_grp_comp_index = ProtoField.new("Underlying Stip Grp Comp Index", "eurex.t7.eti.fbe.v7.0.underlyingstipgrpcompindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Eurex T7 Eti Fbe 7.0 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -625,11 +637,6 @@ show.headers = true
 show.indexes = true
 
 -- Register Eurex T7 Eti Fbe 7.0 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_eurex_t7_eti_fbe_v7_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_eurex_t7_eti_fbe_v7_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_eurex_t7_eti_fbe_v7_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -28934,12 +28941,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -28948,31 +28957,42 @@ eurex_t7_eti_fbe_v7_0.role = function(packet)
   if omi_eurex_t7_eti_fbe_v7_0.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_eurex_t7_eti_fbe_v7_0.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_eurex_t7_eti_fbe_v7_0.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_eurex_t7_eti_fbe_v7_0.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_eurex_t7_eti_fbe_v7_0.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -28986,16 +29006,18 @@ end
 
 -- Dissector for Eurex T7 Eti Fbe 7.0
 function omi_eurex_t7_eti_fbe_v7_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_eurex_t7_eti_fbe_v7_0.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_eurex_t7_eti_fbe_v7_0, buffer(), omi_eurex_t7_eti_fbe_v7_0.description, "("..buffer:len().." Bytes)")
+
   local role = eurex_t7_eti_fbe_v7_0.role(packet)
+
   if role == "initiator" then
     return eurex_t7_eti_fbe_v7_0.client_packet.dissect(buffer, packet, protocol)
   end
+
   return eurex_t7_eti_fbe_v7_0.server_packet.dissect(buffer, packet, protocol)
 end
 
@@ -29009,6 +29031,7 @@ eurex_t7_eti_fbe_v7_0.client_packet.fingerprint = function(buffer)
   if buffer:len() < 6 then
     return false
   end
+
   local template_id = buffer(4, 2):le_uint()
 
   -- Add Complex Instrument Request
@@ -29249,12 +29272,12 @@ eurex_t7_eti_fbe_v7_0.client_packet.fingerprint = function(buffer)
   return false
 end
 
-
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 eurex_t7_eti_fbe_v7_0.server_packet.fingerprint = function(buffer)
   if buffer:len() < 6 then
     return false
   end
+
   local template_id = buffer(4, 2):le_uint()
 
   -- Add Complex Instrument Response
@@ -29641,7 +29664,6 @@ eurex_t7_eti_fbe_v7_0.server_packet.fingerprint = function(buffer)
 end
 
 
-
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
@@ -29679,19 +29701,24 @@ end
 -- Dissector Heuristic for Eurex T7 Eti Fbe 7.0 (Tcp): apply the heuristic of the sender's connection role
 local function omi_eurex_t7_eti_fbe_v7_0_tcp_heuristic(buffer, packet, parent)
   local role = eurex_t7_eti_fbe_v7_0.role(packet)
-  local first, second = omi_eurex_t7_eti_fbe_v7_0_tcp_initiator_heuristic, omi_eurex_t7_eti_fbe_v7_0_tcp_acceptor_heuristic
+  local first = omi_eurex_t7_eti_fbe_v7_0_tcp_initiator_heuristic
+  local second = omi_eurex_t7_eti_fbe_v7_0_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   eurex_t7_eti_fbe_v7_0.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   eurex_t7_eti_fbe_v7_0.swap(packet)
 
   return false
@@ -29699,6 +29726,7 @@ end
 
 -- Register Heuristics for Eurex T7 Eti Fbe 7.0
 omi_eurex_t7_eti_fbe_v7_0:register_heuristic("tcp", omi_eurex_t7_eti_fbe_v7_0_tcp_heuristic)
+
 -- Register Eurex T7 Eti Fbe 7.0 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_eurex_t7_eti_fbe_v7_0)

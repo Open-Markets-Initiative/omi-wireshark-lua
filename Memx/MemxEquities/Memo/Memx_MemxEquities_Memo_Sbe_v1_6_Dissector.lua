@@ -139,6 +139,18 @@ omi_memx_memxequities_memo_sbe_v1_6.fields.order_cancel_request_message = ProtoF
 omi_memx_memxequities_memo_sbe_v1_6.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "memx.memxequities.memo.sbe.v1.6.pendingmasscancelmessage", ftypes.STRING)
 
 -----------------------------------------------------------------------
+-- Memx MemxEquities Memo Sbe 1.6 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -150,11 +162,6 @@ show.headers = true
 show.application_messages = true
 
 -- Register Memx MemxEquities Memo Sbe 1.6 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_memx_memxequities_memo_sbe_v1_6.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_memx_memxequities_memo_sbe_v1_6.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_memx_memxequities_memo_sbe_v1_6.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -5896,12 +5903,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -5910,31 +5919,42 @@ memx_memxequities_memo_sbe_v1_6.role = function(packet)
   if omi_memx_memxequities_memo_sbe_v1_6.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_memx_memxequities_memo_sbe_v1_6.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_memx_memxequities_memo_sbe_v1_6.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_memx_memxequities_memo_sbe_v1_6.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_memx_memxequities_memo_sbe_v1_6.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -5948,16 +5968,18 @@ end
 
 -- Dissector for Memx MemxEquities Memo Sbe 1.6
 function omi_memx_memxequities_memo_sbe_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_memx_memxequities_memo_sbe_v1_6.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_memx_memxequities_memo_sbe_v1_6, buffer(), omi_memx_memxequities_memo_sbe_v1_6.description, "("..buffer:len().." Bytes)")
+
   local role = memx_memxequities_memo_sbe_v1_6.role(packet)
+
   if role == "initiator" then
     return memx_memxequities_memo_sbe_v1_6.client_packet.dissect(buffer, packet, protocol)
   end
+
   return memx_memxequities_memo_sbe_v1_6.server_packet.dissect(buffer, packet, protocol)
 end
 
@@ -5971,6 +5993,7 @@ memx_memxequities_memo_sbe_v1_6.client_packet.fingerprint = function(buffer)
   if buffer:len() < 1 then
     return false
   end
+
   local message_type = buffer(0, 1):uint()
 
   -- Login Request Message
@@ -6001,12 +6024,12 @@ memx_memxequities_memo_sbe_v1_6.client_packet.fingerprint = function(buffer)
   return false
 end
 
-
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 memx_memxequities_memo_sbe_v1_6.server_packet.fingerprint = function(buffer)
   if buffer:len() < 1 then
     return false
   end
+
   local message_type = buffer(0, 1):uint()
 
   -- Login Accepted Message
@@ -6063,7 +6086,6 @@ memx_memxequities_memo_sbe_v1_6.server_packet.fingerprint = function(buffer)
 end
 
 
-
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
@@ -6101,19 +6123,24 @@ end
 -- Dissector Heuristic for Memx MemxEquities Memo Sbe 1.6 (Tcp): apply the heuristic of the sender's connection role
 local function omi_memx_memxequities_memo_sbe_v1_6_tcp_heuristic(buffer, packet, parent)
   local role = memx_memxequities_memo_sbe_v1_6.role(packet)
-  local first, second = omi_memx_memxequities_memo_sbe_v1_6_tcp_initiator_heuristic, omi_memx_memxequities_memo_sbe_v1_6_tcp_acceptor_heuristic
+  local first = omi_memx_memxequities_memo_sbe_v1_6_tcp_initiator_heuristic
+  local second = omi_memx_memxequities_memo_sbe_v1_6_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   memx_memxequities_memo_sbe_v1_6.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   memx_memxequities_memo_sbe_v1_6.swap(packet)
 
   return false
@@ -6121,6 +6148,7 @@ end
 
 -- Register Heuristics for Memx MemxEquities Memo Sbe 1.6
 omi_memx_memxequities_memo_sbe_v1_6:register_heuristic("tcp", omi_memx_memxequities_memo_sbe_v1_6_tcp_heuristic)
+
 -- Register Memx MemxEquities Memo Sbe 1.6 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_memx_memxequities_memo_sbe_v1_6)

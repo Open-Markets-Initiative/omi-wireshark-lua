@@ -399,7 +399,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.dcafqrfe_message = ProtoFiel
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.long_order_message = ProtoField.new("Long Order Message", "euronext.optiq.dropcopygateway.sbe.v5.56.longordermessage", ftypes.STRING)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.dropcopygateway.sbe.v5.56.tradebustnotificationmessage", ftypes.STRING)
 
--- Euronext Optiq DropCopyGateway Sbe 5.56 generated fields
+-- Euronext Optiq DropCopyGateway Sbe 5.56 Generated Fields
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.d_c_quote_message_bid_quoterep_group_index = ProtoField.new("D C Quote Message Bid Quoterep Group Index", "euronext.optiq.dropcopygateway.sbe.v5.56.dcquotemessagebidquoterepgroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.d_c_quote_message_clearing_dataset_group_index = ProtoField.new("D C Quote Message Clearing Dataset Group Index", "euronext.optiq.dropcopygateway.sbe.v5.56.dcquotemessageclearingdatasetgroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v5_56.fields.d_c_quote_message_modifiable_short_codes_group_index = ProtoField.new("D C Quote Message Modifiable Short Codes Group Index", "euronext.optiq.dropcopygateway.sbe.v5.56.dcquotemessagemodifiableshortcodesgroupindex", ftypes.UINT16)
@@ -16248,7 +16248,6 @@ end
 
 -- Dissector for Euronext Optiq DropCopyGateway Sbe 5.56
 function omi_euronext_optiq_dropcopygateway_sbe_v5_56.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_euronext_optiq_dropcopygateway_sbe_v5_56.name
 

@@ -134,7 +134,7 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.sequence_number_reset_message = Prot
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nyseequities.bqt.xdp.v2.1.a.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.bqt.xdp.v2.1.a.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse NyseEquities Bqt Xdp 2.1.a generated fields
+-- Nyse NyseEquities Bqt Xdp 2.1.a Generated Fields
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bqt.xdp.v2.1.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1596,8 +1596,8 @@ nyse_nyseequities_bqt_xdp_v2_1_a.quote_condition.display = function(value)
   if value == "W" then
     return "Quote Condition: Slow On The Bid And Ask (W)"
   end
-  if value == "OxOO" then
-    return "Quote Condition: Empty Quote (OxOO)"
+  if value == 0 then
+    return "Quote Condition: Empty Quote"
   end
 
   return "Quote Condition: Unknown("..value..")"
@@ -1607,7 +1607,15 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.quote_condition.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_1_a.quote_condition.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.quote_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.quote_condition, range, value, display)
@@ -4542,7 +4550,6 @@ end
 
 -- Dissector for Nyse NyseEquities Bqt Xdp 2.1.a
 function omi_nyse_nyseequities_bqt_xdp_v2_1_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_bqt_xdp_v2_1_a.name
 

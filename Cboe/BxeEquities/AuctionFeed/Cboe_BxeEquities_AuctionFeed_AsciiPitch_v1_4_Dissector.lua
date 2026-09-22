@@ -1312,7 +1312,6 @@ end
 
 -- Dissector for Cboe BxeEquities AuctionFeed AsciiPitch 1.4
 function omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.name
 

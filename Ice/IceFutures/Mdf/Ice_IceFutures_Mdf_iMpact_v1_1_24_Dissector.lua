@@ -246,7 +246,7 @@ omi_ice_icefutures_mdf_impact_v1_1_24.fields.strip_info_message = ProtoField.new
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.system_text_message = ProtoField.new("System Text Message", "ice.icefutures.mdf.impact.v1.1.24.systemtextmessage", ftypes.STRING)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.trade_message = ProtoField.new("Trade Message", "ice.icefutures.mdf.impact.v1.1.24.trademessage", ftypes.STRING)
 
--- Ice IceFutures Mdf iMpact 1.1.24 generated fields
+-- Ice IceFutures Mdf iMpact 1.1.24 Generated Fields
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.hedge_definition_index = ProtoField.new("Hedge Definition Index", "ice.icefutures.mdf.impact.v1.1.24.hedgedefinitionindex", ftypes.UINT16)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "ice.icefutures.mdf.impact.v1.1.24.legdefinitionindex", ftypes.UINT16)
 omi_ice_icefutures_mdf_impact_v1_1_24.fields.message_index = ProtoField.new("Message Index", "ice.icefutures.mdf.impact.v1.1.24.messageindex", ftypes.UINT16)
@@ -9841,7 +9841,6 @@ end
 
 -- Dissector for Ice IceFutures Mdf iMpact 1.1.24
 function omi_ice_icefutures_mdf_impact_v1_1_24.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ice_icefutures_mdf_impact_v1_1_24.name
 

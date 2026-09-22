@@ -51,7 +51,7 @@ omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.stock_directory = ProtoF
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "bruceats.bruceequities.depthofbook.itch.v1.0.stocktradingaction", ftypes.STRING)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.system_event_message = ProtoField.new("System Event Message", "bruceats.bruceequities.depthofbook.itch.v1.0.systemeventmessage", ftypes.STRING)
 
--- BruceAts BruceEquities DepthOfBook Itch 1.0 generated fields
+-- BruceAts BruceEquities DepthOfBook Itch 1.0 Generated Fields
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_index = ProtoField.new("Message Index", "bruceats.bruceequities.depthofbook.itch.v1.0.messageindex", ftypes.UINT16)
 omi_bruceats_bruceequities_depthofbook_itch_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "bruceats.bruceequities.depthofbook.itch.v1.0.messagesequencenumber", ftypes.UINT64)
 
@@ -1215,7 +1215,6 @@ end
 
 -- Dissector for BruceAts BruceEquities DepthOfBook Itch 1.0
 function omi_bruceats_bruceequities_depthofbook_itch_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_bruceats_bruceequities_depthofbook_itch_v1_0.name
 

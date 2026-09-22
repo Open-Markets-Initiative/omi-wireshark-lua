@@ -102,7 +102,7 @@ omi_lseg_lse_level2mbo_gtp_v26_2.fields.statistics_update_message = ProtoField.n
 omi_lseg_lse_level2mbo_gtp_v26_2.fields.system_event_message = ProtoField.new("System Event Message", "lseg.lse.level2mbo.gtp.v26.2.systemeventmessage", ftypes.STRING)
 omi_lseg_lse_level2mbo_gtp_v26_2.fields.trade_message = ProtoField.new("Trade Message", "lseg.lse.level2mbo.gtp.v26.2.trademessage", ftypes.STRING)
 
--- Lseg Lse Level2Mbo Gtp 26.2 generated fields
+-- Lseg Lse Level2Mbo Gtp 26.2 Generated Fields
 omi_lseg_lse_level2mbo_gtp_v26_2.fields.message_index = ProtoField.new("Message Index", "lseg.lse.level2mbo.gtp.v26.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3050,7 +3050,6 @@ end
 
 -- Dissector for Lseg Lse Level2Mbo Gtp 26.2
 function omi_lseg_lse_level2mbo_gtp_v26_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_lse_level2mbo_gtp_v26_2.name
 

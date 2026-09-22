@@ -62,7 +62,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_time_message = Prot
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.topofmarket.mach.v1.1.a.tradecancelmessage", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bid_and_offer_message = ProtoField.new("Wide Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.a.widetopofmarketbestbidandoffermessage", ftypes.STRING)
 
--- Miax PearlEquities TopOfMarket Mach 1.1.a generated fields
+-- Miax PearlEquities TopOfMarket Mach 1.1.a Generated Fields
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.topofmarket.mach.v1.1.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -1853,7 +1853,6 @@ end
 
 -- Dissector for Miax PearlEquities TopOfMarket Mach 1.1.a
 function omi_miax_pearlequities_topofmarket_mach_v1_1_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearlequities_topofmarket_mach_v1_1_a.name
 

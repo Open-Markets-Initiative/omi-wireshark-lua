@@ -107,7 +107,7 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.mifid_ii_order_book_update_me
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.order_book_clear_message = ProtoField.new("Order Book Clear Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.orderbookclearmessage", ftypes.STRING)
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.system_event_message = ProtoField.new("System Event Message", "lseg.turquoise.mifid2pretrade.gtp.v26.3.systemeventmessage", ftypes.STRING)
 
--- Lseg Turquoise Mifid2PreTrade Gtp 26.3 generated fields
+-- Lseg Turquoise Mifid2PreTrade Gtp 26.3 Generated Fields
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.mifid2pretrade.gtp.v26.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3067,7 +3067,6 @@ end
 
 -- Dissector for Lseg Turquoise Mifid2PreTrade Gtp 26.3
 function omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.name
 

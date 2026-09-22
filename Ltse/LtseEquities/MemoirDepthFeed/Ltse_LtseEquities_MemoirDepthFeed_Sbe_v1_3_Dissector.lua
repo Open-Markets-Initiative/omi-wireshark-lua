@@ -71,7 +71,7 @@ omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.snapshot_complete_message 
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.trademessage", ftypes.STRING)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
--- Ltse LtseEquities MemoirDepthFeed Sbe 1.3 generated fields
+-- Ltse LtseEquities MemoirDepthFeed Sbe 1.3 Generated Fields
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "ltse.ltseequities.memoirdepthfeed.sbe.v1.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2148,7 +2148,6 @@ end
 
 -- Dissector for Ltse LtseEquities MemoirDepthFeed Sbe 1.3
 function omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ltse_ltseequities_memoirdepthfeed_sbe_v1_3.name
 

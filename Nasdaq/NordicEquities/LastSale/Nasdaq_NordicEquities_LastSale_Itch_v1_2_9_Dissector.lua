@@ -68,7 +68,7 @@ omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.otc_trade_message = ProtoF
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nordicequities.lastsale.itch.v1.2.9.endofsession", ftypes.BYTES)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nordicequities.lastsale.itch.v1.2.9.heartbeat", ftypes.BYTES)
 
--- Nasdaq NordicEquities LastSale Itch 1.2.9 generated fields
+-- Nasdaq NordicEquities LastSale Itch 1.2.9 Generated Fields
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_index = ProtoField.new("Message Index", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messageindex", ftypes.UINT16)
 omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nordicequities.lastsale.itch.v1.2.9.messagesequencenumber", ftypes.UINT64)
 
@@ -1757,7 +1757,6 @@ end
 
 -- Dissector for Nasdaq NordicEquities LastSale Itch 1.2.9
 function omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nordicequities_lastsale_itch_v1_2_9.name
 

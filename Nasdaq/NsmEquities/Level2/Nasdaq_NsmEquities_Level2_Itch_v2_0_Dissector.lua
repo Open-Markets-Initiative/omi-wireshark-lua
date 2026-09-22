@@ -81,7 +81,7 @@ omi_nasdaq_nsmequities_level2_itch_v2_0.fields.stock_directory_message = ProtoFi
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.nsmequities.level2.itch.v2.0.stocktradingactionmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.level2.itch.v2.0.systemeventmessage", ftypes.STRING)
 
--- Nasdaq NsmEquities Level2 Itch 2.0 generated fields
+-- Nasdaq NsmEquities Level2 Itch 2.0 Generated Fields
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.level2.itch.v2.0.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_level2_itch_v2_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.level2.itch.v2.0.messagesequencenumber", ftypes.UINT64)
 
@@ -2806,7 +2806,6 @@ end
 
 -- Dissector for Nasdaq NsmEquities Level2 Itch 2.0
 function omi_nasdaq_nsmequities_level2_itch_v2_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_level2_itch_v2_0.name
 

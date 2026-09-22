@@ -153,7 +153,7 @@ omi_nasdaq_nordicequities_totalview_itch_v3_04_x.fields.trade_message = ProtoFie
 omi_nasdaq_nordicequities_totalview_itch_v3_04_x.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nordicequities.totalview.itch.v3.04.x.endofsession", ftypes.BYTES)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_x.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nordicequities.totalview.itch.v3.04.x.heartbeat", ftypes.BYTES)
 
--- Nasdaq NordicEquities TotalView Itch 3.04.X generated fields
+-- Nasdaq NordicEquities TotalView Itch 3.04.X Generated Fields
 omi_nasdaq_nordicequities_totalview_itch_v3_04_x.fields.message_index = ProtoField.new("Message Index", "nasdaq.nordicequities.totalview.itch.v3.04.x.messageindex", ftypes.UINT16)
 omi_nasdaq_nordicequities_totalview_itch_v3_04_x.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nordicequities.totalview.itch.v3.04.x.messagesequencenumber", ftypes.UINT64)
 
@@ -4021,7 +4021,6 @@ end
 
 -- Dissector for Nasdaq NordicEquities TotalView Itch 3.04.X
 function omi_nasdaq_nordicequities_totalview_itch_v3_04_x.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nordicequities_totalview_itch_v3_04_x.name
 

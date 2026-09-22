@@ -140,7 +140,7 @@ omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_47.fields.series_definition_base
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_47.fields.series_definition_extended_message = ProtoField.new("Series Definition Extended Message", "hkex.hkexderivatives.fulltickrefresh.omd.v1.47.seriesdefinitionextendedmessage", ftypes.STRING)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_47.fields.series_status_message = ProtoField.new("Series Status Message", "hkex.hkexderivatives.fulltickrefresh.omd.v1.47.seriesstatusmessage", ftypes.STRING)
 
--- Hkex HkexDerivatives FullTickRefresh Omd 1.47 generated fields
+-- Hkex HkexDerivatives FullTickRefresh Omd 1.47 Generated Fields
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_47.fields.content_index = ProtoField.new("Content Index", "hkex.hkexderivatives.fulltickrefresh.omd.v1.47.contentindex", ftypes.UINT16)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_47.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.fulltickrefresh.omd.v1.47.messageindex", ftypes.UINT16)
 
@@ -4326,7 +4326,6 @@ end
 
 -- Dissector for Hkex HkexDerivatives FullTickRefresh Omd 1.47
 function omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_47.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_47.name
 

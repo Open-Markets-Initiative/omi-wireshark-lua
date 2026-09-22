@@ -3676,7 +3676,6 @@ end
 
 -- Dissector for Finra FinraOrf Tdds Dfi 2.0
 function omi_finra_finraorf_tdds_dfi_v2_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_finra_finraorf_tdds_dfi_v2_0.name
 

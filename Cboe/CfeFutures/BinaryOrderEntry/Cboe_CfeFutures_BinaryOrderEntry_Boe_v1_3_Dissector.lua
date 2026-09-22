@@ -780,7 +780,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.user_modify_rejected_messag
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_quote_restatement_message = ProtoField.new("Variance Quote Restatement Message", "cboe.cfefutures.binaryorderentry.boe.v1.3.variancequoterestatementmessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.variance_restatement_message = ProtoField.new("Variance Restatement Message", "cboe.cfefutures.binaryorderentry.boe.v1.3.variancerestatementmessage", ftypes.STRING)
 
--- Cboe CfeFutures BinaryOrderEntry Boe 1.3 generated fields
+-- Cboe CfeFutures BinaryOrderEntry Boe 1.3 Generated Fields
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.cfefutures.binaryorderentry.boe.v1.3.paramgroupindex", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.quote_group_index = ProtoField.new("Quote Group Index", "cboe.cfefutures.binaryorderentry.boe.v1.3.quotegroupindex", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.quote_result_group_index = ProtoField.new("Quote Result Group Index", "cboe.cfefutures.binaryorderentry.boe.v1.3.quoteresultgroupindex", ftypes.UINT16)
@@ -33337,7 +33337,6 @@ end
 
 -- Dissector for Cboe CfeFutures BinaryOrderEntry Boe 1.3
 function omi_cboe_cfefutures_binaryorderentry_boe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cfefutures_binaryorderentry_boe_v1_3.name
 

@@ -78,7 +78,7 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.time_reference_message = Pro
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.unitclearmessage", ftypes.STRING)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.c1options.auctionfeed.pitch.v1.1.39.widthupdatemessage", ftypes.STRING)
 
--- Cboe C1Options AuctionFeed Pitch 1.1.39 generated fields
+-- Cboe C1Options AuctionFeed Pitch 1.1.39 Generated Fields
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.auctionfeed.pitch.v1.1.39.messageindex", ftypes.UINT16)
 omi_cboe_c1options_auctionfeed_pitch_v1_1_39.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.auctionfeed.pitch.v1.1.39.timestamp", ftypes.UINT64)
 
@@ -2389,7 +2389,6 @@ end
 
 -- Dissector for Cboe C1Options AuctionFeed Pitch 1.1.39
 function omi_cboe_c1options_auctionfeed_pitch_v1_1_39.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_auctionfeed_pitch_v1_1_39.name
 

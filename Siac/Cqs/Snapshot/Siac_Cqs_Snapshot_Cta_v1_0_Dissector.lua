@@ -92,7 +92,7 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.line_integrity_message = ProtoField.new("L
 omi_siac_cqs_snapshot_cta_v1_0.fields.market_wide_circuit_breaker_decline_level_status_snapshot_message = ProtoField.new("Market Wide Circuit Breaker Decline Level Status Snapshot Message", "siac.cqs.snapshot.cta.v1.0.marketwidecircuitbreakerdeclinelevelstatussnapshotmessage", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v1_0.fields.participant_snapshot_message = ProtoField.new("Participant Snapshot Message", "siac.cqs.snapshot.cta.v1.0.participantsnapshotmessage", ftypes.STRING)
 
--- Siac Cqs Snapshot Cta 1.0 generated fields
+-- Siac Cqs Snapshot Cta 1.0 Generated Fields
 omi_siac_cqs_snapshot_cta_v1_0.fields.message_index = ProtoField.new("Message Index", "siac.cqs.snapshot.cta.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3109,7 +3109,6 @@ end
 
 -- Dissector for Siac Cqs Snapshot Cta 1.0
 function omi_siac_cqs_snapshot_cta_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cqs_snapshot_cta_v1_0.name
 

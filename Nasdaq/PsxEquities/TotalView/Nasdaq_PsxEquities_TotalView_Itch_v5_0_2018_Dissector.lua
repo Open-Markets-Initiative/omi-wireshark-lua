@@ -112,7 +112,7 @@ omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.trade_message_non_cross =
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.psxequities.totalview.itch.v5.0.2018.endofsession", ftypes.BYTES)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.psxequities.totalview.itch.v5.0.2018.heartbeat", ftypes.BYTES)
 
--- Nasdaq PsxEquities TotalView Itch 5.0.2018 generated fields
+-- Nasdaq PsxEquities TotalView Itch 5.0.2018 Generated Fields
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.totalview.itch.v5.0.2018.messageindex", ftypes.UINT16)
 omi_nasdaq_psxequities_totalview_itch_v5_0_2018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.psxequities.totalview.itch.v5.0.2018.messagesequencenumber", ftypes.UINT64)
 
@@ -3815,7 +3815,6 @@ end
 
 -- Dissector for Nasdaq PsxEquities TotalView Itch 5.0.2018
 function omi_nasdaq_psxequities_totalview_itch_v5_0_2018.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_psxequities_totalview_itch_v5_0_2018.name
 

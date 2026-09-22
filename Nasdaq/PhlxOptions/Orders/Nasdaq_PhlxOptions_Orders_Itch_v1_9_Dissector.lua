@@ -92,7 +92,7 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.system_event_message = ProtoField
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.phlxoptions.orders.itch.v1.9.endofsession", ftypes.BYTES)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.phlxoptions.orders.itch.v1.9.heartbeat", ftypes.BYTES)
 
--- Nasdaq PhlxOptions Orders Itch 1.9 generated fields
+-- Nasdaq PhlxOptions Orders Itch 1.9 Generated Fields
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_leg_index = ProtoField.new("Complex Order Leg Index", "nasdaq.phlxoptions.orders.itch.v1.9.complexorderlegindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.complex_order_strategy_leg_index = ProtoField.new("Complex Order Strategy Leg Index", "nasdaq.phlxoptions.orders.itch.v1.9.complexorderstrategylegindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_orders_itch_v1_9.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.orders.itch.v1.9.messageindex", ftypes.UINT16)
@@ -2872,7 +2872,6 @@ end
 
 -- Dissector for Nasdaq PhlxOptions Orders Itch 1.9
 function omi_nasdaq_phlxoptions_orders_itch_v1_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_phlxoptions_orders_itch_v1_9.name
 

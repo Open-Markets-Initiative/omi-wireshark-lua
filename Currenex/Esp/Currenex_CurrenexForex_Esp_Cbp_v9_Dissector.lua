@@ -1656,7 +1656,6 @@ end
 
 -- Dissector for Currenex CurrenexForex Esp Cbp 9
 function omi_currenex_currenexforex_esp_cbp_v9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_currenex_currenexforex_esp_cbp_v9.name
 

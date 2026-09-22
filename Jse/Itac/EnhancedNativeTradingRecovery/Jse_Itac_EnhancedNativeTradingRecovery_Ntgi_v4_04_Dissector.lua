@@ -3043,7 +3043,6 @@ end
 
 -- Dissector for Jse Itac EnhancedNativeTradingRecovery Ntgi 4.04
 function omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.name
 

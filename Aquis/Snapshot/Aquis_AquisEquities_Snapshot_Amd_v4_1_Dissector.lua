@@ -50,7 +50,7 @@ omi_aquis_aquisequities_snapshot_amd_v4_1.fields.book_status_message = ProtoFiel
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.ma_c_book_entry_message = ProtoField.new("Ma C Book Entry Message", "aquis.aquisequities.snapshot.amd.v4.1.macbookentrymessage", ftypes.STRING)
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.snapshot_start_message = ProtoField.new("Snapshot Start Message", "aquis.aquisequities.snapshot.amd.v4.1.snapshotstartmessage", ftypes.STRING)
 
--- Aquis AquisEquities Snapshot Amd 4.1 generated fields
+-- Aquis AquisEquities Snapshot Amd 4.1 Generated Fields
 omi_aquis_aquisequities_snapshot_amd_v4_1.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.snapshot.amd.v4.1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1015,7 +1015,6 @@ end
 
 -- Dissector for Aquis AquisEquities Snapshot Amd 4.1
 function omi_aquis_aquisequities_snapshot_amd_v4_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_aquis_aquisequities_snapshot_amd_v4_1.name
 

@@ -242,7 +242,7 @@ omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.open_response = Pro
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.seq_msg = ProtoField.new("Seq Msg", "nyse.amexoptions.binarygateway.pillarstream.v3.27.seqmsg", ftypes.STRING)
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.amexoptions.binarygateway.pillarstream.v3.27.streamavail", ftypes.STRING)
 
--- Nyse AmexOptions BinaryGateway PillarStream 3.27 generated fields
+-- Nyse AmexOptions BinaryGateway PillarStream 3.27 Generated Fields
 omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.leg_group_index = ProtoField.new("Leg Group Index", "nyse.amexoptions.binarygateway.pillarstream.v3.27.leggroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -10422,7 +10422,6 @@ end
 
 -- Dissector for Nyse AmexOptions BinaryGateway PillarStream 3.27
 function omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.name
 

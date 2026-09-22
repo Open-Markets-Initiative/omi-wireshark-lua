@@ -103,7 +103,7 @@ omi_sgx_titandt_depthofbook_itch_v1_4.fields.trade_message = ProtoField.new("Tra
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.end_of_session = ProtoField.new("End Of Session", "sgx.titandt.depthofbook.itch.v1.4.endofsession", ftypes.BYTES)
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.heartbeat = ProtoField.new("Heartbeat", "sgx.titandt.depthofbook.itch.v1.4.heartbeat", ftypes.BYTES)
 
--- Sgx TitanDt DepthOfBook Itch 1.4 generated fields
+-- Sgx TitanDt DepthOfBook Itch 1.4 Generated Fields
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.message_index = ProtoField.new("Message Index", "sgx.titandt.depthofbook.itch.v1.4.messageindex", ftypes.UINT16)
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "sgx.titandt.depthofbook.itch.v1.4.messagesequencenumber", ftypes.UINT64)
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.timestamp = ProtoField.new("Timestamp", "sgx.titandt.depthofbook.itch.v1.4.timestamp", ftypes.UINT64)
@@ -3100,7 +3100,6 @@ end
 
 -- Dissector for Sgx TitanDt DepthOfBook Itch 1.4
 function omi_sgx_titandt_depthofbook_itch_v1_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_sgx_titandt_depthofbook_itch_v1_4.name
 

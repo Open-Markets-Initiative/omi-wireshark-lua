@@ -64,7 +64,7 @@ omi_jnx_jnxbonds_pts_itch_v1_2.fields.seconds_message = ProtoField.new("Seconds 
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.system_event_message = ProtoField.new("System Event Message", "jnx.jnxbonds.pts.itch.v1.2.systemeventmessage", ftypes.STRING)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.jnxbonds.pts.itch.v1.2.tradingstatemessage", ftypes.STRING)
 
--- Jnx JnxBonds Pts Itch 1.2 generated fields
+-- Jnx JnxBonds Pts Itch 1.2 Generated Fields
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_index = ProtoField.new("Message Index", "jnx.jnxbonds.pts.itch.v1.2.messageindex", ftypes.UINT16)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jnx.jnxbonds.pts.itch.v1.2.messagesequencenumber", ftypes.UINT64)
 omi_jnx_jnxbonds_pts_itch_v1_2.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxbonds.pts.itch.v1.2.timestamp", ftypes.UINT64)
@@ -1780,7 +1780,6 @@ end
 
 -- Dissector for Jnx JnxBonds Pts Itch 1.2
 function omi_jnx_jnxbonds_pts_itch_v1_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jnx_jnxbonds_pts_itch_v1_2.name
 

@@ -78,7 +78,7 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sequencenumberresetmessage", ftypes.STRING)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.new("Stream Id Message", "nyse.amexoptions.complexfeed.xdp.v1.3.a.streamidmessage", ftypes.STRING)
 
--- Nyse AmexOptions ComplexFeed Xdp 1.3.a generated fields
+-- Nyse AmexOptions ComplexFeed Xdp 1.3.a Generated Fields
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2336,7 +2336,6 @@ end
 
 -- Dissector for Nyse AmexOptions ComplexFeed Xdp 1.3.a
 function omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.name
 

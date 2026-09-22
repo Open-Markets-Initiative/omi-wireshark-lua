@@ -126,7 +126,7 @@ omi_nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.fields.trade_ca
 -- Nyse NyseEquities IntegratedFeedRetransmission 2.5.g Session Messages
 omi_nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.heartbeat", ftypes.BYTES)
 
--- Nyse NyseEquities IntegratedFeedRetransmission Pillar 2.5.g generated fields
+-- Nyse NyseEquities IntegratedFeedRetransmission Pillar 2.5.g Generated Fields
 omi_nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.messagesequencenumber", ftypes.UINT64)
 omi_nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.fields.auction_interest_clearing_price_calculate = ProtoField.new("Auction Interest Clearing Price Calculate", "nyse.nyseequities.integratedfeedretransmission.pillar.v2.5.g.auctioninterestclearingpricecalculate", ftypes.DOUBLE)
@@ -4768,7 +4768,6 @@ end
 
 -- Dissector for Nyse NyseEquities IntegratedFeedRetransmission Pillar 2.5.g
 function omi_nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_integratedfeedretransmission_pillar_v2_5_g.name
 

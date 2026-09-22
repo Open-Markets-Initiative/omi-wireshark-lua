@@ -118,7 +118,7 @@ omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.two_side_update_long_messa
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.two_side_update_short_message = ProtoField.new("Two Side Update Short Message", "cboe.cfefutures.multicasttop.pitch.v1.2.20.twosideupdateshortmessage", ftypes.STRING)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.cfefutures.multicasttop.pitch.v1.2.20.unitclearmessage", ftypes.STRING)
 
--- Cboe CfeFutures MulticastTop Pitch 1.2.20 generated fields
+-- Cboe CfeFutures MulticastTop Pitch 1.2.20 Generated Fields
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicasttop.pitch.v1.2.20.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicasttop.pitch.v1.2.20.messageindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.2.20.timestamp", ftypes.UINT64)
@@ -3674,7 +3674,6 @@ end
 
 -- Dissector for Cboe CfeFutures MulticastTop Pitch 1.2.20
 function omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cfefutures_multicasttop_pitch_v1_2_20.name
 

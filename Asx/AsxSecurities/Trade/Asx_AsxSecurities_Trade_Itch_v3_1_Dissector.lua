@@ -104,7 +104,7 @@ omi_asx_asxsecurities_trade_itch_v3_1.fields.trade_message = ProtoField.new("Tra
 omi_asx_asxsecurities_trade_itch_v3_1.fields.end_of_session = ProtoField.new("End Of Session", "asx.asxsecurities.trade.itch.v3.1.endofsession", ftypes.BYTES)
 omi_asx_asxsecurities_trade_itch_v3_1.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxsecurities.trade.itch.v3.1.heartbeat", ftypes.BYTES)
 
--- Asx AsxSecurities Trade Itch 3.1 generated fields
+-- Asx AsxSecurities Trade Itch 3.1 Generated Fields
 omi_asx_asxsecurities_trade_itch_v3_1.fields.message_index = ProtoField.new("Message Index", "asx.asxsecurities.trade.itch.v3.1.messageindex", ftypes.UINT16)
 omi_asx_asxsecurities_trade_itch_v3_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "asx.asxsecurities.trade.itch.v3.1.messagesequencenumber", ftypes.UINT64)
 omi_asx_asxsecurities_trade_itch_v3_1.fields.timestamp = ProtoField.new("Timestamp", "asx.asxsecurities.trade.itch.v3.1.timestamp", ftypes.UINT64)
@@ -3121,7 +3121,6 @@ end
 
 -- Dissector for Asx AsxSecurities Trade Itch 3.1
 function omi_asx_asxsecurities_trade_itch_v3_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_asx_asxsecurities_trade_itch_v3_1.name
 

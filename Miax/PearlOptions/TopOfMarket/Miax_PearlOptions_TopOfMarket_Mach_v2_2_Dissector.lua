@@ -93,7 +93,7 @@ omi_miax_pearloptions_topofmarket_mach_v2_2.fields.system_time_message = ProtoFi
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearloptions.topofmarket.mach.v2.2.tradecancelmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.pearloptions.topofmarket.mach.v2.2.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax PearlOptions TopOfMarket Mach 2.2 generated fields
+-- Miax PearlOptions TopOfMarket Mach 2.2 Generated Fields
 omi_miax_pearloptions_topofmarket_mach_v2_2.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.topofmarket.mach.v2.2.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -3019,7 +3019,6 @@ end
 
 -- Dissector for Miax PearlOptions TopOfMarket Mach 2.2
 function omi_miax_pearloptions_topofmarket_mach_v2_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearloptions_topofmarket_mach_v2_2.name
 

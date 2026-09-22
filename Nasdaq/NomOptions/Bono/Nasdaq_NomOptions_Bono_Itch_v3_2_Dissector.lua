@@ -84,7 +84,7 @@ omi_nasdaq_nomoptions_bono_itch_v3_2.fields.trading_action_message = ProtoField.
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nomoptions.bono.itch.v3.2.endofsession", ftypes.BYTES)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nomoptions.bono.itch.v3.2.heartbeat", ftypes.BYTES)
 
--- Nasdaq NomOptions Bono Itch 3.2 generated fields
+-- Nasdaq NomOptions Bono Itch 3.2 Generated Fields
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.nomoptions.bono.itch.v3.2.messageindex", ftypes.UINT16)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nomoptions.bono.itch.v3.2.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_nomoptions_bono_itch_v3_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nomoptions.bono.itch.v3.2.timestamp", ftypes.UINT64)
@@ -2546,7 +2546,6 @@ end
 
 -- Dissector for Nasdaq NomOptions Bono Itch 3.2
 function omi_nasdaq_nomoptions_bono_itch_v3_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nomoptions_bono_itch_v3_2.name
 

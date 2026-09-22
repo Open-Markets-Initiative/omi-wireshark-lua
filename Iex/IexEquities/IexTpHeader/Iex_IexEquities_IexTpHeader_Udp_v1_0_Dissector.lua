@@ -35,7 +35,7 @@ omi_iex_iexequities_iextpheader_udp_v1_0.fields.message = ProtoField.new("Messag
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_header = ProtoField.new("Message Header", "iex.iexequities.iextpheader.udp.v1.0.messageheader", ftypes.STRING)
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.packet = ProtoField.new("Packet", "iex.iexequities.iextpheader.udp.v1.0.packet", ftypes.STRING)
 
--- Iex IexEquities IexTpHeader Udp 1.0 generated fields
+-- Iex IexEquities IexTpHeader Udp 1.0 Generated Fields
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_index = ProtoField.new("Message Index", "iex.iexequities.iextpheader.udp.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -640,7 +640,6 @@ end
 
 -- Dissector for Iex IexEquities IexTpHeader Udp 1.0
 function omi_iex_iexequities_iextpheader_udp_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_iex_iexequities_iextpheader_udp_v1_0.name
 

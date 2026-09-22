@@ -6224,7 +6224,6 @@ end
 
 -- Dissector for Ltse LtseEquities Memo Sbe 1.12
 function omi_ltse_ltseequities_memo_sbe_v1_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_ltse_ltseequities_memo_sbe_v1_12.name
 

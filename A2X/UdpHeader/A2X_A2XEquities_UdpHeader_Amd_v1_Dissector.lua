@@ -26,7 +26,7 @@ omi_a2x_a2xequities_udpheader_amd_v1.fields.message = ProtoField.new("Message", 
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.udpheader.amd.v1.messageheader", ftypes.STRING)
 omi_a2x_a2xequities_udpheader_amd_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.udpheader.amd.v1.packet", ftypes.STRING)
 
--- A2X A2XEquities UdpHeader Amd 1 generated fields
+-- A2X A2XEquities UdpHeader Amd 1 Generated Fields
 omi_a2x_a2xequities_udpheader_amd_v1.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.udpheader.amd.v1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -320,7 +320,6 @@ end
 
 -- Dissector for A2X A2XEquities UdpHeader Amd 1
 function omi_a2x_a2xequities_udpheader_amd_v1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_a2x_a2xequities_udpheader_amd_v1.name
 

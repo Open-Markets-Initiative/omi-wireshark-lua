@@ -132,7 +132,7 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.system_time_message = Prot
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.sapphireoptions.topofmarket.mach.v2.0.tradecancelmessage", ftypes.STRING)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.sapphireoptions.topofmarket.mach.v2.0.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax SapphireOptions TopOfMarket Mach 2.0 generated fields
+-- Miax SapphireOptions TopOfMarket Mach 2.0 Generated Fields
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.timestamp = ProtoField.new("Timestamp", "miax.sapphireoptions.topofmarket.mach.v2.0.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -4774,15 +4774,16 @@ end
 
 -- Dissector for Miax SapphireOptions TopOfMarket Mach 2.0
 function omi_miax_sapphireoptions_topofmarket_mach_v2_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_sapphireoptions_topofmarket_mach_v2_0.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0, buffer(), omi_miax_sapphireoptions_topofmarket_mach_v2_0.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_sapphireoptions_topofmarket_mach_v2_0.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_sapphireoptions_topofmarket_mach_v2_0.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -4820,9 +4821,11 @@ end
 -- Register Heuristics for Miax SapphireOptions TopOfMarket Mach 2.0
 omi_miax_sapphireoptions_topofmarket_mach_v2_0:register_heuristic("udp", omi_miax_sapphireoptions_topofmarket_mach_v2_0_udp_heuristic)
 omi_miax_sapphireoptions_topofmarket_mach_v2_0:register_heuristic("tcp", omi_miax_sapphireoptions_topofmarket_mach_v2_0_tcp_heuristic)
+
 -- Register Miax SapphireOptions TopOfMarket Mach 2.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_sapphireoptions_topofmarket_mach_v2_0)
+
 -- Register Miax SapphireOptions TopOfMarket Mach 2.0 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_sapphireoptions_topofmarket_mach_v2_0)

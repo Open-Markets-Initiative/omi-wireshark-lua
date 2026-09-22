@@ -3173,7 +3173,6 @@ end
 
 -- Dissector for OtcMarkets MoonAts Retransmission Link 1.3
 function omi_otcmarkets_moonats_retransmission_link_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_moonats_retransmission_link_v1_3.name
 

@@ -120,7 +120,7 @@ omi_nyse_nationalequities_trades_pillar_v2_6_a.fields.trf_fractional_trade_corre
 omi_nyse_nationalequities_trades_pillar_v2_6_a.fields.trf_fractional_trade_message = ProtoField.new("Trf Fractional Trade Message", "nyse.nationalequities.trades.pillar.v2.6.a.trffractionaltrademessage", ftypes.STRING)
 omi_nyse_nationalequities_trades_pillar_v2_6_a.fields.trf_trade_cancel_message = ProtoField.new("Trf Trade Cancel Message", "nyse.nationalequities.trades.pillar.v2.6.a.trftradecancelmessage", ftypes.STRING)
 
--- Nyse NationalEquities Trades Pillar 2.6.a generated fields
+-- Nyse NationalEquities Trades Pillar 2.6.a Generated Fields
 omi_nyse_nationalequities_trades_pillar_v2_6_a.fields.message_index = ProtoField.new("Message Index", "nyse.nationalequities.trades.pillar.v2.6.a.messageindex", ftypes.UINT16)
 omi_nyse_nationalequities_trades_pillar_v2_6_a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nationalequities.trades.pillar.v2.6.a.messagesequencenumber", ftypes.UINT64)
 omi_nyse_nationalequities_trades_pillar_v2_6_a.fields.high_price_calculate = ProtoField.new("High Price Calculate", "nyse.nationalequities.trades.pillar.v2.6.a.highpricecalculate", ftypes.DOUBLE)
@@ -4336,7 +4336,6 @@ end
 
 -- Dissector for Nyse NationalEquities Trades Pillar 2.6.a
 function omi_nyse_nationalequities_trades_pillar_v2_6_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nationalequities_trades_pillar_v2_6_a.name
 

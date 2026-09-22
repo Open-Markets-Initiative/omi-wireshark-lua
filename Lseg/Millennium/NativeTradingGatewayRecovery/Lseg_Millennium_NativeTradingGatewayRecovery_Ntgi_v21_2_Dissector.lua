@@ -5160,7 +5160,6 @@ end
 
 -- Dissector for Lseg Millennium NativeTradingGatewayRecovery Ntgi 21.2
 function omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.name
 

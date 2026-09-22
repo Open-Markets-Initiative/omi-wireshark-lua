@@ -132,7 +132,7 @@ omi_siac_cqs_output_cta_v1_91.fields.special_long_quote_message = ProtoField.new
 omi_siac_cqs_output_cta_v1_91.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cqs.output.cta.v1.91.startofdaymessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message = ProtoField.new("Start Of Test Cycle Message", "siac.cqs.output.cta.v1.91.startoftestcyclemessage", ftypes.STRING)
 
--- Siac Cqs Output Cta 1.91 generated fields
+-- Siac Cqs Output Cta 1.91 Generated Fields
 omi_siac_cqs_output_cta_v1_91.fields.message_index = ProtoField.new("Message Index", "siac.cqs.output.cta.v1.91.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2205,8 +2205,8 @@ siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.size = 1
 
 -- Display: Primary Listing Market Participant Id
 siac_cqs_output_cta_v1_91.primary_listing_market_participant_id.display = function(value)
-  if value == "Space" then
-    return "Primary Listing Market Participant Id: Primary Listing Market Participant Id Not Applicable (Space)"
+  if value == " " then
+    return "Primary Listing Market Participant Id: Primary Listing Market Participant Id Not Applicable (<whitespace>)"
   end
   if value == "A" then
     return "Primary Listing Market Participant Id: Nyse American (A)"
@@ -5147,7 +5147,6 @@ end
 
 -- Dissector for Siac Cqs Output Cta 1.91
 function omi_siac_cqs_output_cta_v1_91.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cqs_output_cta_v1_91.name
 

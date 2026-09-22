@@ -73,7 +73,7 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.trading_status_mess
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.two_side_update_message = ProtoField.new("Two Side Update Message", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.twosideupdatemessage", ftypes.STRING)
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.unitclearmessage", ftypes.STRING)
 
--- Cboe CxaEquities MulticastTopOfBook Pitch 1.0.10 generated fields
+-- Cboe CxaEquities MulticastTopOfBook Pitch 1.0.10 Generated Fields
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message_index = ProtoField.new("Message Index", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2027,7 +2027,6 @@ end
 
 -- Dissector for Cboe CxaEquities MulticastTopOfBook Pitch 1.0.10
 function omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.name
 

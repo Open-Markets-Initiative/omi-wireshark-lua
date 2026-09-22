@@ -104,7 +104,7 @@ omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.system_event_message = ProtoF
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.aggregated.itch.v2.0.endofsession", ftypes.BYTES)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.aggregated.itch.v2.0.heartbeat", ftypes.BYTES)
 
--- Nasdaq NsmEquities Aggregated Itch 2.0 generated fields
+-- Nasdaq NsmEquities Aggregated Itch 2.0 Generated Fields
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.aggregated.itch.v2.0.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_aggregated_itch_v2_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.aggregated.itch.v2.0.messagesequencenumber", ftypes.UINT64)
 
@@ -3682,7 +3682,6 @@ end
 
 -- Dissector for Nasdaq NsmEquities Aggregated Itch 2.0
 function omi_nasdaq_nsmequities_aggregated_itch_v2_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_aggregated_itch_v2_0.name
 

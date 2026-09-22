@@ -944,7 +944,6 @@ end
 
 -- Dissector for Txse TxseEquities Framing Tcp 1.0
 function omi_txse_txseequities_framing_tcp_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_txse_txseequities_framing_tcp_v1_0.name
 

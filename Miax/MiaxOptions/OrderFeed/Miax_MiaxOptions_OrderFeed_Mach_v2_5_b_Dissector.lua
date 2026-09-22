@@ -119,7 +119,7 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.system_state_message = ProtoFi
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.systemtimemessage", ftypes.STRING)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.orderfeed.mach.v2.5.b.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax MiaxOptions OrderFeed Mach 2.5.b generated fields
+-- Miax MiaxOptions OrderFeed Mach 2.5.b Generated Fields
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.orderfeed.mach.v2.5.b.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -4022,15 +4022,16 @@ end
 
 -- Dissector for Miax MiaxOptions OrderFeed Mach 2.5.b
 function omi_miax_miaxoptions_orderfeed_mach_v2_5_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_orderfeed_mach_v2_5_b.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_b, buffer(), omi_miax_miaxoptions_orderfeed_mach_v2_5_b.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_miaxoptions_orderfeed_mach_v2_5_b.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_miaxoptions_orderfeed_mach_v2_5_b.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -4068,9 +4069,11 @@ end
 -- Register Heuristics for Miax MiaxOptions OrderFeed Mach 2.5.b
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b:register_heuristic("udp", omi_miax_miaxoptions_orderfeed_mach_v2_5_b_udp_heuristic)
 omi_miax_miaxoptions_orderfeed_mach_v2_5_b:register_heuristic("tcp", omi_miax_miaxoptions_orderfeed_mach_v2_5_b_tcp_heuristic)
+
 -- Register Miax MiaxOptions OrderFeed Mach 2.5.b for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_miaxoptions_orderfeed_mach_v2_5_b)
+
 -- Register Miax MiaxOptions OrderFeed Mach 2.5.b for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_miaxoptions_orderfeed_mach_v2_5_b)

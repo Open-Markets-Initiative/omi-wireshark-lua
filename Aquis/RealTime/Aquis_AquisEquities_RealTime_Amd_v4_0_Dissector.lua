@@ -95,7 +95,7 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.tick_table_data_message = Proto
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trade = ProtoField.new("Trade", "aquis.aquisequities.realtime.amd.v4.0.trade", ftypes.STRING)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "aquis.aquisequities.realtime.amd.v4.0.tradebustmessage", ftypes.STRING)
 
--- Aquis AquisEquities RealTime Amd 4.0 generated fields
+-- Aquis AquisEquities RealTime Amd 4.0 Generated Fields
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.realtime.amd.v4.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2101,7 +2101,6 @@ end
 
 -- Dissector for Aquis AquisEquities RealTime Amd 4.0
 function omi_aquis_aquisequities_realtime_amd_v4_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_aquis_aquisequities_realtime_amd_v4_0.name
 

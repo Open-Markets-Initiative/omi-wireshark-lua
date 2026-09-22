@@ -9871,7 +9871,6 @@ end
 
 -- Dissector for Nyse TexasEquities BinaryGateway PillarStream 5.17
 function omi_nyse_texasequities_binarygateway_pillarstream_v5_17.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_texasequities_binarygateway_pillarstream_v5_17.name
 

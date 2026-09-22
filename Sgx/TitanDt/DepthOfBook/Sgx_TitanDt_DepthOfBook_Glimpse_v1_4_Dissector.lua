@@ -100,7 +100,7 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequenced_data_packet = ProtoFie
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "sgx.titandt.depthofbook.glimpse.v1.4.serverheartbeat", ftypes.BYTES)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "sgx.titandt.depthofbook.glimpse.v1.4.unsequenceddatapacket", ftypes.STRING)
 
--- Sgx TitanDt DepthOfBook Glimpse 1.4 generated fields
+-- Sgx TitanDt DepthOfBook Glimpse 1.4 Generated Fields
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.timestamp = ProtoField.new("Timestamp", "sgx.titandt.depthofbook.glimpse.v1.4.timestamp", ftypes.UINT64)
 
@@ -110,6 +110,13 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.timestamp = ProtoField.new("Time
 
 -- Timestamp format (true = decimal-scaled, false = raw mantissa)
 sgx_titandt_depthofbook_glimpse_v1_4.format_timestamp = true
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
 
 
 -----------------------------------------------------------------------
@@ -126,11 +133,6 @@ show.session_messages = true
 show.sequences = true
 
 -- Register Sgx TitanDt DepthOfBook Glimpse 1.4 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -1028,7 +1030,14 @@ sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.size = 1
 
 -- Display: Reject Reason Code
 sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.display = function(value)
-  return "Reject Reason Code: "..value
+  if value == "A" then
+    return "Reject Reason Code: Not Authorized (A)"
+  end
+  if value == "S" then
+    return "Reject Reason Code: Session Not Available (S)"
+  end
+
+  return "Reject Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason Code
@@ -2326,7 +2335,7 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.login_rejected_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reject Reason Code: 1 Byte Ascii String
+  -- Reject Reason Code: 1 Byte Ascii String Enum with 2 values
   index, reject_reason_code = sgx_titandt_depthofbook_glimpse_v1_4.reject_reason_code.dissect(buffer, index, packet, parent)
 
   return index
@@ -2976,12 +2985,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -2990,31 +3001,42 @@ sgx_titandt_depthofbook_glimpse_v1_4.role = function(packet)
   if omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -3028,16 +3050,18 @@ end
 
 -- Dissector for Sgx TitanDt DepthOfBook Glimpse 1.4
 function omi_sgx_titandt_depthofbook_glimpse_v1_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_sgx_titandt_depthofbook_glimpse_v1_4.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4, buffer(), omi_sgx_titandt_depthofbook_glimpse_v1_4.description, "("..buffer:len().." Bytes)")
+
   local role = sgx_titandt_depthofbook_glimpse_v1_4.role(packet)
+
   if role == "initiator" then
     return sgx_titandt_depthofbook_glimpse_v1_4.client_packet.dissect(buffer, packet, protocol)
   end
+
   return sgx_titandt_depthofbook_glimpse_v1_4.server_packet.dissect(buffer, packet, protocol)
 end
 
@@ -3051,6 +3075,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.client_packet.fingerprint = function(buffer
   if buffer:len() < 3 then
     return false
   end
+
   local client_packet_type = buffer(2, 1):string()
 
   -- Debug Packet
@@ -3081,12 +3106,12 @@ sgx_titandt_depthofbook_glimpse_v1_4.client_packet.fingerprint = function(buffer
   return false
 end
 
-
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 sgx_titandt_depthofbook_glimpse_v1_4.server_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
+
   local server_packet_type = buffer(2, 1):string()
 
   -- Debug Packet
@@ -3121,7 +3146,6 @@ sgx_titandt_depthofbook_glimpse_v1_4.server_packet.fingerprint = function(buffer
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------
@@ -3161,19 +3185,24 @@ end
 -- Dissector Heuristic for Sgx TitanDt DepthOfBook Glimpse 1.4 (Tcp): apply the heuristic of the sender's connection role
 local function omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_heuristic(buffer, packet, parent)
   local role = sgx_titandt_depthofbook_glimpse_v1_4.role(packet)
-  local first, second = omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_initiator_heuristic, omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_acceptor_heuristic
+  local first = omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_initiator_heuristic
+  local second = omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   sgx_titandt_depthofbook_glimpse_v1_4.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   sgx_titandt_depthofbook_glimpse_v1_4.swap(packet)
 
   return false
@@ -3181,6 +3210,7 @@ end
 
 -- Register Heuristics for Sgx TitanDt DepthOfBook Glimpse 1.4
 omi_sgx_titandt_depthofbook_glimpse_v1_4:register_heuristic("tcp", omi_sgx_titandt_depthofbook_glimpse_v1_4_tcp_heuristic)
+
 -- Register Sgx TitanDt DepthOfBook Glimpse 1.4 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_sgx_titandt_depthofbook_glimpse_v1_4)

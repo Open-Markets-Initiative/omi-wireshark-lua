@@ -85,7 +85,7 @@ omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.trading_session_message = Pro
 -- OtcMarkets LinkNqb TopOfBook 1.18 Session Messages
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linknqb.topofbook.link.v1.18.heartbeatpacket", ftypes.BYTES)
 
--- OtcMarkets LinkNqb TopOfBook Link 1.18 generated fields
+-- OtcMarkets LinkNqb TopOfBook Link 1.18 Generated Fields
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linknqb.topofbook.link.v1.18.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2090,7 +2090,6 @@ end
 
 -- Dissector for OtcMarkets LinkNqb TopOfBook Link 1.18
 function omi_otcmarkets_linknqb_topofbook_link_v1_18.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_linknqb_topofbook_link_v1_18.name
 

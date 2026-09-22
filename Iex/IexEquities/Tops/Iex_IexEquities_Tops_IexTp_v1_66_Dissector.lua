@@ -96,7 +96,7 @@ omi_iex_iexequities_tops_iextp_v1_66.fields.trade_break_message = ProtoField.new
 omi_iex_iexequities_tops_iextp_v1_66.fields.trade_report_message = ProtoField.new("Trade Report Message", "iex.iexequities.tops.iextp.v1.66.tradereportmessage", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_66.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.iexequities.tops.iextp.v1.66.tradingstatusmessage", ftypes.STRING)
 
--- Iex IexEquities Tops IexTp 1.66 generated fields
+-- Iex IexEquities Tops IexTp 1.66 Generated Fields
 omi_iex_iexequities_tops_iextp_v1_66.fields.message_index = ProtoField.new("Message Index", "iex.iexequities.tops.iextp.v1.66.messageindex", ftypes.UINT16)
 omi_iex_iexequities_tops_iextp_v1_66.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "iex.iexequities.tops.iextp.v1.66.messagesequencenumber", ftypes.UINT64)
 
@@ -2564,7 +2564,6 @@ end
 
 -- Dissector for Iex IexEquities Tops IexTp 1.66
 function omi_iex_iexequities_tops_iextp_v1_66.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_iex_iexequities_tops_iextp_v1_66.name
 

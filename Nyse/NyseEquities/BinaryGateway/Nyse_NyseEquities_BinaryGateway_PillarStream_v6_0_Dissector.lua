@@ -9900,7 +9900,6 @@ end
 
 -- Dissector for Nyse NyseEquities BinaryGateway PillarStream 6.0
 function omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_binarygateway_pillarstream_v6_0.name
 

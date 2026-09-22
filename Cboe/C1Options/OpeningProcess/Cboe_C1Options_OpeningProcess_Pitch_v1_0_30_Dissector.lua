@@ -66,7 +66,7 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.time_message = ProtoField
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.time_reference_message = ProtoField.new("Time Reference Message", "cboe.c1options.openingprocess.pitch.v1.0.30.timereferencemessage", ftypes.STRING)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.c1options.openingprocess.pitch.v1.0.30.widthupdatemessage", ftypes.STRING)
 
--- Cboe C1Options OpeningProcess Pitch 1.0.30 generated fields
+-- Cboe C1Options OpeningProcess Pitch 1.0.30 Generated Fields
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.openingprocess.pitch.v1.0.30.messageindex", ftypes.UINT16)
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.timestamp = ProtoField.new("Timestamp", "cboe.c1options.openingprocess.pitch.v1.0.30.timestamp", ftypes.UINT64)
 
@@ -1910,7 +1910,6 @@ end
 
 -- Dissector for Cboe C1Options OpeningProcess Pitch 1.0.30
 function omi_cboe_c1options_openingprocess_pitch_v1_0_30.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_openingprocess_pitch_v1_0_30.name
 

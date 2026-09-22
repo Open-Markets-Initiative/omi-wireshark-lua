@@ -116,7 +116,7 @@ omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.fields.transaction_end_m
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.80.unitclearmessage", ftypes.STRING)
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.80.widthupdatemessage", ftypes.STRING)
 
--- Cboe BzxOptions MulticastDepthOfBook Pitch 2.41.80 generated fields
+-- Cboe BzxOptions MulticastDepthOfBook Pitch 2.41.80 Generated Fields
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.fields.message_index = ProtoField.new("Message Index", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.80.messageindex", ftypes.UINT16)
 omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxoptions.multicastdepthofbook.pitch.v2.41.80.timestamp", ftypes.UINT64)
 
@@ -4003,7 +4003,6 @@ end
 
 -- Dissector for Cboe BzxOptions MulticastDepthOfBook Pitch 2.41.80
 function omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41_80.name
 

@@ -116,7 +116,7 @@ omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_76.fields.transaction_end_me
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_76.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c2options.multicastdepthofbook.pitch.v2.41.76.unitclearmessage", ftypes.STRING)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_76.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.c2options.multicastdepthofbook.pitch.v2.41.76.widthupdatemessage", ftypes.STRING)
 
--- Cboe C2Options MulticastDepthOfBook Pitch 2.41.76 generated fields
+-- Cboe C2Options MulticastDepthOfBook Pitch 2.41.76 Generated Fields
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_76.fields.message_index = ProtoField.new("Message Index", "cboe.c2options.multicastdepthofbook.pitch.v2.41.76.messageindex", ftypes.UINT16)
 omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_76.fields.timestamp = ProtoField.new("Timestamp", "cboe.c2options.multicastdepthofbook.pitch.v2.41.76.timestamp", ftypes.UINT64)
 
@@ -3994,7 +3994,6 @@ end
 
 -- Dissector for Cboe C2Options MulticastDepthOfBook Pitch 2.41.76
 function omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_76.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c2options_multicastdepthofbook_pitch_v2_41_76.name
 

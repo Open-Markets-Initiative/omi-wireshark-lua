@@ -107,7 +107,7 @@ omi_cboe_c1options_openingauction_csm_v1_0.fields.heartbeat_message = ProtoField
 omi_cboe_c1options_openingauction_csm_v1_0.fields.market_data_refresh_message = ProtoField.new("Market Data Refresh Message", "cboe.c1options.openingauction.csm.v1.0.marketdatarefreshmessage", ftypes.STRING)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.security_definition_message = ProtoField.new("Security Definition Message", "cboe.c1options.openingauction.csm.v1.0.securitydefinitionmessage", ftypes.STRING)
 
--- Cboe C1Options OpeningAuction Csm 1.0 generated fields
+-- Cboe C1Options OpeningAuction Csm 1.0 Generated Fields
 omi_cboe_c1options_openingauction_csm_v1_0.fields.md_entry_index = ProtoField.new("Md Entry Index", "cboe.c1options.openingauction.csm.v1.0.mdentryindex", ftypes.UINT16)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.openingauction.csm.v1.0.messageindex", ftypes.UINT16)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.security_definition_leg_index = ProtoField.new("Security Definition Leg Index", "cboe.c1options.openingauction.csm.v1.0.securitydefinitionlegindex", ftypes.UINT16)
@@ -3146,7 +3146,6 @@ end
 
 -- Dissector for Cboe C1Options OpeningAuction Csm 1.0
 function omi_cboe_c1options_openingauction_csm_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_openingauction_csm_v1_0.name
 

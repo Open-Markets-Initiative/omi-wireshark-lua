@@ -29,7 +29,7 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_header = ProtoField.
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.packet = ProtoField.new("Packet", "lseg.millennium.udpunitheader.mitch.v1.0.packet", ftypes.STRING)
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header = ProtoField.new("Unit Header", "lseg.millennium.udpunitheader.mitch.v1.0.unitheader", ftypes.STRING)
 
--- Lseg Millennium UdpUnitHeader Mitch 1.0 generated fields
+-- Lseg Millennium UdpUnitHeader Mitch 1.0 Generated Fields
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.udpunitheader.mitch.v1.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -424,7 +424,6 @@ end
 
 -- Dissector for Lseg Millennium UdpUnitHeader Mitch 1.0
 function omi_lseg_millennium_udpunitheader_mitch_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_millennium_udpunitheader_mitch_v1_0.name
 

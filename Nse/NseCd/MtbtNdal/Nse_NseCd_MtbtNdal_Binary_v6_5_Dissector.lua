@@ -1259,7 +1259,6 @@ end
 
 -- Dissector for Nse NseCd MtbtNdal Binary 6.5
 function omi_nse_nsecd_mtbtndal_binary_v6_5.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsecd_mtbtndal_binary_v6_5.name
 

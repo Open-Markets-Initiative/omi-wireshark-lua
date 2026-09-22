@@ -118,7 +118,7 @@ omi_siac_opra_output_obi_v4_0.fields.short_equity_and_index_quote_message = Prot
 omi_siac_opra_output_obi_v4_0.fields.underlying_value_bid_and_offer_message = ProtoField.new("Underlying Value Bid And Offer Message", "siac.opra.output.obi.v4.0.underlyingvaluebidandoffermessage", ftypes.STRING)
 omi_siac_opra_output_obi_v4_0.fields.underlying_value_last_sale_message = ProtoField.new("Underlying Value Last Sale Message", "siac.opra.output.obi.v4.0.underlyingvaluelastsalemessage", ftypes.STRING)
 
--- Siac Opra Output Obi 4.0 generated fields
+-- Siac Opra Output Obi 4.0 Generated Fields
 omi_siac_opra_output_obi_v4_0.fields.message_index = ProtoField.new("Message Index", "siac.opra.output.obi.v4.0.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -4370,7 +4370,6 @@ end
 
 -- Dissector for Siac Opra Output Obi 4.0
 function omi_siac_opra_output_obi_v4_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_opra_output_obi_v4_0.name
 

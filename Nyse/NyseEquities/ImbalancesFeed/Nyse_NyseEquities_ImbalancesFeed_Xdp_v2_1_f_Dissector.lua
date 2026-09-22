@@ -105,7 +105,7 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.symbol_clear_message = Pr
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f generated fields
+-- Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Generated Fields
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.imbalancesfeed.xdp.v2.1.f.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2975,7 +2975,6 @@ end
 
 -- Dissector for Nyse NyseEquities ImbalancesFeed Xdp 2.1.f
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_1_f.name
 

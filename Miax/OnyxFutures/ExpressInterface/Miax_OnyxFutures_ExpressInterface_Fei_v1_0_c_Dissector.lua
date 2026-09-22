@@ -132,7 +132,7 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_reques
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_response_message = ProtoField.new("Strategy Creation Response Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategycreationresponsemessage", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_state_notification_message = ProtoField.new("System State Notification Message", "miax.onyxfutures.expressinterface.fei.v1.0.c.systemstatenotificationmessage", ftypes.STRING)
 
--- Miax OnyxFutures ExpressInterface Fei 1.0.c generated fields
+-- Miax OnyxFutures ExpressInterface Fei 1.0.c Generated Fields
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg_index = ProtoField.new("Strategy Leg Index", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategylegindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -4539,7 +4539,6 @@ end
 
 -- Dissector for Miax OnyxFutures ExpressInterface Fei 1.0.c
 function omi_miax_onyxfutures_expressinterface_fei_v1_0_c.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.name
 

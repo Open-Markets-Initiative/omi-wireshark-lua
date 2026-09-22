@@ -38,7 +38,7 @@ omi_otcmarkets_linkats_headers_link_v1.fields.packet_header = ProtoField.new("Pa
 -- OtcMarkets LinkAts Headers 1 Session Messages
 omi_otcmarkets_linkats_headers_link_v1.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.headers.link.v1.heartbeatpacket", ftypes.BYTES)
 
--- OtcMarkets LinkAts Headers Link 1 generated fields
+-- OtcMarkets LinkAts Headers Link 1 Generated Fields
 omi_otcmarkets_linkats_headers_link_v1.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.headers.link.v1.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -557,7 +557,6 @@ end
 
 -- Dissector for OtcMarkets LinkAts Headers Link 1
 function omi_otcmarkets_linkats_headers_link_v1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_linkats_headers_link_v1.name
 

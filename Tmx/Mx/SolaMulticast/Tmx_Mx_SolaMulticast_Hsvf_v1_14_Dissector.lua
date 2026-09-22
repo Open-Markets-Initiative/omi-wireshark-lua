@@ -240,7 +240,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strategy_trade_message = ProtoField.n
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.tick_table_message = ProtoField.new("Tick Table Message", "tmx.mx.solamulticast.hsvf.v1.14.ticktablemessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.underlying_instrument_keys_message = ProtoField.new("Underlying Instrument Keys Message", "tmx.mx.solamulticast.hsvf.v1.14.underlyinginstrumentkeysmessage", ftypes.STRING)
 
--- Tmx Mx SolaMulticast Hsvf 1.14 generated fields
+-- Tmx Mx SolaMulticast Hsvf 1.14 Generated Fields
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.bond_definition_index = ProtoField.new("Bond Definition Index", "tmx.mx.solamulticast.hsvf.v1.14.bonddefinitionindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "tmx.mx.solamulticast.hsvf.v1.14.marketdepthlevelindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_14.fields.strategy_instrument_leg_index = ProtoField.new("Strategy Instrument Leg Index", "tmx.mx.solamulticast.hsvf.v1.14.strategyinstrumentlegindex", ftypes.UINT16)
@@ -9445,7 +9445,6 @@ end
 
 -- Dissector for Tmx Mx SolaMulticast Hsvf 1.14
 function omi_tmx_mx_solamulticast_hsvf_v1_14.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_tmx_mx_solamulticast_hsvf_v1_14.name
 

@@ -391,7 +391,7 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.user_logout_response = ProtoField.new("U
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.user_password_change_request = ProtoField.new("User Password Change Request", "bse.bseindia.eti.fbe.v1.6.14.userpasswordchangerequest", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.user_password_change_response = ProtoField.new("User Password Change Response", "bse.bseindia.eti.fbe.v1.6.14.userpasswordchangeresponse", ftypes.STRING)
 
--- Bse BseIndia Eti Fbe 1.6.14 generated fields
+-- Bse BseIndia Eti Fbe 1.6.14 Generated Fields
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.fills_grp_comp_index = ProtoField.new("Fills Grp Comp Index", "bse.bseindia.eti.fbe.v1.6.14.fillsgrpcompindex", ftypes.UINT16)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.instrmnt_leg_exec_grp_comp_index = ProtoField.new("Instrmnt Leg Exec Grp Comp Index", "bse.bseindia.eti.fbe.v1.6.14.instrmntlegexecgrpcompindex", ftypes.UINT16)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.leg_ord_grp_comp_index = ProtoField.new("Leg Ord Grp Comp Index", "bse.bseindia.eti.fbe.v1.6.14.legordgrpcompindex", ftypes.UINT16)
@@ -408,6 +408,18 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_leg_exec_grp_comp_index = ProtoFie
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.sessions_grp_comp_index = ProtoField.new("Sessions Grp Comp Index", "bse.bseindia.eti.fbe.v1.6.14.sessionsgrpcompindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Bse BseIndia Eti Fbe 1.6.14 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -421,11 +433,6 @@ show.headers = true
 show.indexes = true
 
 -- Register Bse BseIndia Eti Fbe 1.6.14 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_bse_bseindia_eti_fbe_v1_6_14.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -18631,12 +18638,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -18645,31 +18654,42 @@ bse_bseindia_eti_fbe_v1_6_14.role = function(packet)
   if omi_bse_bseindia_eti_fbe_v1_6_14.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_bse_bseindia_eti_fbe_v1_6_14.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_bse_bseindia_eti_fbe_v1_6_14.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_bse_bseindia_eti_fbe_v1_6_14.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -18683,16 +18703,18 @@ end
 
 -- Dissector for Bse BseIndia Eti Fbe 1.6.14
 function omi_bse_bseindia_eti_fbe_v1_6_14.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_bse_bseindia_eti_fbe_v1_6_14.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_bse_bseindia_eti_fbe_v1_6_14, buffer(), omi_bse_bseindia_eti_fbe_v1_6_14.description, "("..buffer:len().." Bytes)")
+
   local role = bse_bseindia_eti_fbe_v1_6_14.role(packet)
+
   if role == "initiator" then
     return bse_bseindia_eti_fbe_v1_6_14.client_packet.dissect(buffer, packet, protocol)
   end
+
   return bse_bseindia_eti_fbe_v1_6_14.server_packet.dissect(buffer, packet, protocol)
 end
 
@@ -18706,6 +18728,7 @@ bse_bseindia_eti_fbe_v1_6_14.client_packet.fingerprint = function(buffer)
   if buffer:len() < 6 then
     return false
   end
+
   local template_id = buffer(4, 2):le_uint()
 
   -- Debt Inquiry Request
@@ -18846,12 +18869,12 @@ bse_bseindia_eti_fbe_v1_6_14.client_packet.fingerprint = function(buffer)
   return false
 end
 
-
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 bse_bseindia_eti_fbe_v1_6_14.server_packet.fingerprint = function(buffer)
   if buffer:len() < 6 then
     return false
   end
+
   local template_id = buffer(4, 2):le_uint()
 
   -- Broadcast Error Notification
@@ -19113,7 +19136,6 @@ bse_bseindia_eti_fbe_v1_6_14.server_packet.fingerprint = function(buffer)
 end
 
 
-
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
@@ -19151,19 +19173,24 @@ end
 -- Dissector Heuristic for Bse BseIndia Eti Fbe 1.6.14 (Tcp): apply the heuristic of the sender's connection role
 local function omi_bse_bseindia_eti_fbe_v1_6_14_tcp_heuristic(buffer, packet, parent)
   local role = bse_bseindia_eti_fbe_v1_6_14.role(packet)
-  local first, second = omi_bse_bseindia_eti_fbe_v1_6_14_tcp_initiator_heuristic, omi_bse_bseindia_eti_fbe_v1_6_14_tcp_acceptor_heuristic
+  local first = omi_bse_bseindia_eti_fbe_v1_6_14_tcp_initiator_heuristic
+  local second = omi_bse_bseindia_eti_fbe_v1_6_14_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   bse_bseindia_eti_fbe_v1_6_14.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   bse_bseindia_eti_fbe_v1_6_14.swap(packet)
 
   return false
@@ -19171,6 +19198,7 @@ end
 
 -- Register Heuristics for Bse BseIndia Eti Fbe 1.6.14
 omi_bse_bseindia_eti_fbe_v1_6_14:register_heuristic("tcp", omi_bse_bseindia_eti_fbe_v1_6_14_tcp_heuristic)
+
 -- Register Bse BseIndia Eti Fbe 1.6.14 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_bse_bseindia_eti_fbe_v1_6_14)

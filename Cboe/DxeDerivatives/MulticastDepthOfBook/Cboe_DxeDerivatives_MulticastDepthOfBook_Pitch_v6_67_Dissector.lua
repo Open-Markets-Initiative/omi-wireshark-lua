@@ -117,7 +117,7 @@ omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.transaction_begi
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.transaction_end_message = ProtoField.new("Transaction End Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.transactionendmessage", ftypes.STRING)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.unitclearmessage", ftypes.STRING)
 
--- Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67 generated fields
+-- Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67 Generated Fields
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.message_index = ProtoField.new("Message Index", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.messageindex", ftypes.UINT16)
 omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.fields.timestamp = ProtoField.new("Timestamp", "cboe.dxederivatives.multicastdepthofbook.pitch.v6.67.timestamp", ftypes.UINT64)
 
@@ -4174,7 +4174,6 @@ end
 
 -- Dissector for Cboe DxeDerivatives MulticastDepthOfBook Pitch 6.67
 function omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.name
 

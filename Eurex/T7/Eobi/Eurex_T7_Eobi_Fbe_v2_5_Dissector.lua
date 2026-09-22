@@ -111,7 +111,7 @@ omi_eurex_t7_eobi_fbe_v2_5.fields.top_of_book = ProtoField.new("Top Of Book", "e
 omi_eurex_t7_eobi_fbe_v2_5.fields.trade_report = ProtoField.new("Trade Report", "eurex.t7.eobi.fbe.v2.5.tradereport", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v2_5.fields.trade_reversal = ProtoField.new("Trade Reversal", "eurex.t7.eobi.fbe.v2.5.tradereversal", ftypes.STRING)
 
--- Eurex T7 Eobi Fbe 2.5 generated fields
+-- Eurex T7 Eobi Fbe 2.5 Generated Fields
 omi_eurex_t7_eobi_fbe_v2_5.fields.instrmt_leg_grp_comp_index = ProtoField.new("Instrmt Leg Grp Comp Index", "eurex.t7.eobi.fbe.v2.5.instrmtleggrpcompindex", ftypes.UINT16)
 omi_eurex_t7_eobi_fbe_v2_5.fields.md_instrument_entry_grp_comp_index = ProtoField.new("Md Instrument Entry Grp Comp Index", "eurex.t7.eobi.fbe.v2.5.mdinstrumententrygrpcompindex", ftypes.UINT16)
 omi_eurex_t7_eobi_fbe_v2_5.fields.md_trade_entry_grp_comp_index = ProtoField.new("Md Trade Entry Grp Comp Index", "eurex.t7.eobi.fbe.v2.5.mdtradeentrygrpcompindex", ftypes.UINT16)
@@ -4039,7 +4039,6 @@ end
 
 -- Dissector for Eurex T7 Eobi Fbe 2.5
 function omi_eurex_t7_eobi_fbe_v2_5.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_eurex_t7_eobi_fbe_v2_5.name
 

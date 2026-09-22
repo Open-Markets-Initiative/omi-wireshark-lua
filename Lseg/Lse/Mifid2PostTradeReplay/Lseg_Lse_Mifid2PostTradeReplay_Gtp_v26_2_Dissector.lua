@@ -115,7 +115,7 @@ omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.replay_request_message = Pro
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.replay_response_message = ProtoField.new("Replay Response Message", "lseg.lse.mifid2posttradereplay.gtp.v26.2.replayresponsemessage", ftypes.STRING)
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.system_event_message = ProtoField.new("System Event Message", "lseg.lse.mifid2posttradereplay.gtp.v26.2.systemeventmessage", ftypes.STRING)
 
--- Lseg Lse Mifid2PostTradeReplay Gtp 26.2 generated fields
+-- Lseg Lse Mifid2PostTradeReplay Gtp 26.2 Generated Fields
 omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.fields.message_index = ProtoField.new("Message Index", "lseg.lse.mifid2posttradereplay.gtp.v26.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3664,7 +3664,6 @@ end
 
 -- Dissector for Lseg Lse Mifid2PostTradeReplay Gtp 26.2
 function omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_lse_mifid2posttradereplay_gtp_v26_2.name
 

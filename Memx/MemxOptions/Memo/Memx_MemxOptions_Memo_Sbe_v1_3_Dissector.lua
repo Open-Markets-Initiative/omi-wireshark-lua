@@ -192,7 +192,7 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.short_one_sided_bulk_quote_message = P
 omi_memx_memxoptions_memo_sbe_v1_3.fields.short_two_sided_bulk_quote_message = ProtoField.new("Short Two Sided Bulk Quote Message", "memx.memxoptions.memo.sbe.v1.3.shorttwosidedbulkquotemessage", ftypes.STRING)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.user_notification_message = ProtoField.new("User Notification Message", "memx.memxoptions.memo.sbe.v1.3.usernotificationmessage", ftypes.STRING)
 
--- Memx MemxOptions Memo Sbe 1.3 generated fields
+-- Memx MemxOptions Memo Sbe 1.3 Generated Fields
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_instruction_message_allocations_group_index = ProtoField.new("Allocation Instruction Message Allocations Group Index", "memx.memxoptions.memo.sbe.v1.3.allocationinstructionmessageallocationsgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_allocations_group_index = ProtoField.new("Allocation Report Message Allocations Group Index", "memx.memxoptions.memo.sbe.v1.3.allocationreportmessageallocationsgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_parties_group_index = ProtoField.new("Allocation Report Message Parties Group Index", "memx.memxoptions.memo.sbe.v1.3.allocationreportmessagepartiesgroupindex", ftypes.UINT16)
@@ -200,6 +200,18 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.nested_parties_group_index = ProtoFiel
 omi_memx_memxoptions_memo_sbe_v1_3.fields.one_sided_quotes_group_index = ProtoField.new("One Sided Quotes Group Index", "memx.memxoptions.memo.sbe.v1.3.onesidedquotesgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.parties_group_index = ProtoField.new("Parties Group Index", "memx.memxoptions.memo.sbe.v1.3.partiesgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_group_index = ProtoField.new("Two Sided Quotes Group Index", "memx.memxoptions.memo.sbe.v1.3.twosidedquotesgroupindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Memx MemxOptions Memo Sbe 1.3 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -215,11 +227,6 @@ show.structs = true
 show.indexes = true
 
 -- Register Memx MemxOptions Memo Sbe 1.3 Show Options
-local role_enum = {
-  { 1, "Resolve from the conversation", 0 },
-  { 2, "Initiator", 1 },
-  { 3, "Acceptor", 2 }
-}
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
@@ -8731,12 +8738,14 @@ end
 
 -- Conversation key, the same in both directions
 local function conversation(packet)
-  local a = endpoint(packet.src, packet.src_port)
-  local b = endpoint(packet.dst, packet.dst_port)
-  if a < b then
-    return a.." "..b
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
   end
-  return b.." "..a
+
+  return destination.." "..source
 end
 
 
@@ -8745,31 +8754,42 @@ memx_memxoptions_memo_sbe_v1_3.role = function(packet)
   if omi_memx_memxoptions_memo_sbe_v1_3.prefs.assume_role == 1 then
     return "initiator"
   end
+
   if omi_memx_memxoptions_memo_sbe_v1_3.prefs.assume_role == 2 then
     return "acceptor"
   end
-  local port = omi_memx_memxoptions_memo_sbe_v1_3.prefs.acceptor_port
-  if port ~= 0 and packet.dst_port == port then
+
+  local acceptor_port = omi_memx_memxoptions_memo_sbe_v1_3.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
     return "initiator"
   end
-  if port ~= 0 and packet.src_port == port then
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
     return "acceptor"
   end
+
   local key = conversation(packet)
   local sender = endpoint(packet.src, packet.src_port)
+
   if initiators[key] == nil then
     initiators[key] = sender
   end
-  local first = initiators[key] == sender
+
+  local sender_initiated = initiators[key] == sender
+
   if omi_memx_memxoptions_memo_sbe_v1_3.prefs.swap_sides then
-    first = not first
+    sender_initiated = not sender_initiated
   end
+
   if swapped[key] then
-    first = not first
+    sender_initiated = not sender_initiated
   end
-  if first then
+
+  if sender_initiated then
     return "initiator"
   end
+
   return "acceptor"
 end
 
@@ -8783,16 +8803,18 @@ end
 
 -- Dissector for Memx MemxOptions Memo Sbe 1.3
 function omi_memx_memxoptions_memo_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_memx_memxoptions_memo_sbe_v1_3.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_memx_memxoptions_memo_sbe_v1_3, buffer(), omi_memx_memxoptions_memo_sbe_v1_3.description, "("..buffer:len().." Bytes)")
+
   local role = memx_memxoptions_memo_sbe_v1_3.role(packet)
+
   if role == "initiator" then
     return memx_memxoptions_memo_sbe_v1_3.client_packet.dissect(buffer, packet, protocol)
   end
+
   return memx_memxoptions_memo_sbe_v1_3.server_packet.dissect(buffer, packet, protocol)
 end
 
@@ -8806,6 +8828,7 @@ memx_memxoptions_memo_sbe_v1_3.client_packet.fingerprint = function(buffer)
   if buffer:len() < 1 then
     return false
   end
+
   local message_type = buffer(0, 1):uint()
 
   -- Login Request Message
@@ -8836,12 +8859,12 @@ memx_memxoptions_memo_sbe_v1_3.client_packet.fingerprint = function(buffer)
   return false
 end
 
-
 -- Fingerprint of Server Packet: would its message dispatch accept this frame?
 memx_memxoptions_memo_sbe_v1_3.server_packet.fingerprint = function(buffer)
   if buffer:len() < 1 then
     return false
   end
+
   local message_type = buffer(0, 1):uint()
 
   -- Login Accepted Message
@@ -8898,7 +8921,6 @@ memx_memxoptions_memo_sbe_v1_3.server_packet.fingerprint = function(buffer)
 end
 
 
-
 -----------------------------------------------------------------------
 -- Protocol Heuristics
 -----------------------------------------------------------------------
@@ -8936,19 +8958,24 @@ end
 -- Dissector Heuristic for Memx MemxOptions Memo Sbe 1.3 (Tcp): apply the heuristic of the sender's connection role
 local function omi_memx_memxoptions_memo_sbe_v1_3_tcp_heuristic(buffer, packet, parent)
   local role = memx_memxoptions_memo_sbe_v1_3.role(packet)
-  local first, second = omi_memx_memxoptions_memo_sbe_v1_3_tcp_initiator_heuristic, omi_memx_memxoptions_memo_sbe_v1_3_tcp_acceptor_heuristic
+  local first = omi_memx_memxoptions_memo_sbe_v1_3_tcp_initiator_heuristic
+  local second = omi_memx_memxoptions_memo_sbe_v1_3_tcp_acceptor_heuristic
+
   if role == "acceptor" then
     first, second = second, first
   end
+
   if first(buffer, packet, parent) then
     return true
   end
 
   -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
   memx_memxoptions_memo_sbe_v1_3.swap(packet)
+
   if second(buffer, packet, parent) then
     return true
   end
+
   memx_memxoptions_memo_sbe_v1_3.swap(packet)
 
   return false
@@ -8956,6 +8983,7 @@ end
 
 -- Register Heuristics for Memx MemxOptions Memo Sbe 1.3
 omi_memx_memxoptions_memo_sbe_v1_3:register_heuristic("tcp", omi_memx_memxoptions_memo_sbe_v1_3_tcp_heuristic)
+
 -- Register Memx MemxOptions Memo Sbe 1.3 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_memx_memxoptions_memo_sbe_v1_3)

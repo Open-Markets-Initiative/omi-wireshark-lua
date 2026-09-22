@@ -97,7 +97,7 @@ omi_cboe_bzxoptions_complextop_pitch_v1_1_54.fields.two_side_update_expanded_lon
 omi_cboe_bzxoptions_complextop_pitch_v1_1_54.fields.two_side_update_expanded_short_message = ProtoField.new("Two Side Update Expanded Short Message", "cboe.bzxoptions.complextop.pitch.v1.1.54.twosideupdateexpandedshortmessage", ftypes.STRING)
 omi_cboe_bzxoptions_complextop_pitch_v1_1_54.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.bzxoptions.complextop.pitch.v1.1.54.unitclearmessage", ftypes.STRING)
 
--- Cboe BzxOptions ComplexTop Pitch 1.1.54 generated fields
+-- Cboe BzxOptions ComplexTop Pitch 1.1.54 Generated Fields
 omi_cboe_bzxoptions_complextop_pitch_v1_1_54.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.bzxoptions.complextop.pitch.v1.1.54.complexlegindex", ftypes.UINT16)
 omi_cboe_bzxoptions_complextop_pitch_v1_1_54.fields.message_index = ProtoField.new("Message Index", "cboe.bzxoptions.complextop.pitch.v1.1.54.messageindex", ftypes.UINT16)
 omi_cboe_bzxoptions_complextop_pitch_v1_1_54.fields.timestamp = ProtoField.new("Timestamp", "cboe.bzxoptions.complextop.pitch.v1.1.54.timestamp", ftypes.UINT64)
@@ -2986,7 +2986,6 @@ end
 
 -- Dissector for Cboe BzxOptions ComplexTop Pitch 1.1.54
 function omi_cboe_bzxoptions_complextop_pitch_v1_1_54.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxoptions_complextop_pitch_v1_1_54.name
 

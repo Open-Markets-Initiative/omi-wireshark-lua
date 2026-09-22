@@ -69,7 +69,7 @@ omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.retransmission_request_mes
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.retransmission_response_message = ProtoField.new("Retransmission Response Message", "hkex.hkexsecurities.indexretrans.omd.v1.44.retransmissionresponsemessage", ftypes.STRING)
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "hkex.hkexsecurities.indexretrans.omd.v1.44.sequenceresetmessage", ftypes.STRING)
 
--- Hkex HkexSecurities IndexRetrans Omd 1.44 generated fields
+-- Hkex HkexSecurities IndexRetrans Omd 1.44 Generated Fields
 omi_hkex_hkexsecurities_indexretrans_omd_v1_44.fields.message_index = ProtoField.new("Message Index", "hkex.hkexsecurities.indexretrans.omd.v1.44.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1844,7 +1844,6 @@ end
 
 -- Dissector for Hkex HkexSecurities IndexRetrans Omd 1.44
 function omi_hkex_hkexsecurities_indexretrans_omd_v1_44.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexsecurities_indexretrans_omd_v1_44.name
 

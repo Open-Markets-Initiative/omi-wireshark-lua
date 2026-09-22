@@ -77,7 +77,7 @@ omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_incremental_refresh_ticker = Prot
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_snapshot_refresh_spectrum = ProtoField.new("Md Snapshot Refresh Spectrum", "cme.globex.ebsspectrum.sbe.v12.0.mdsnapshotrefreshspectrum", ftypes.STRING)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.md_snapshot_refresh_ticker = ProtoField.new("Md Snapshot Refresh Ticker", "cme.globex.ebsspectrum.sbe.v12.0.mdsnapshotrefreshticker", ftypes.STRING)
 
--- Cme Globex EbsSpectrum Sbe 12.0 generated fields
+-- Cme Globex EbsSpectrum Sbe 12.0 Generated Fields
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.incremental_refresh_spectrum_group_index = ProtoField.new("Incremental Refresh Spectrum Group Index", "cme.globex.ebsspectrum.sbe.v12.0.incrementalrefreshspectrumgroupindex", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.incremental_refresh_ticker_group_index = ProtoField.new("Incremental Refresh Ticker Group Index", "cme.globex.ebsspectrum.sbe.v12.0.incrementalrefreshtickergroupindex", ftypes.UINT16)
 omi_cme_globex_ebsspectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_group_index = ProtoField.new("Snapshot Refresh Spectrum Group Index", "cme.globex.ebsspectrum.sbe.v12.0.snapshotrefreshspectrumgroupindex", ftypes.UINT16)
@@ -2261,15 +2261,16 @@ end
 
 -- Dissector for Cme Globex EbsSpectrum Sbe 12.0
 function omi_cme_globex_ebsspectrum_sbe_v12_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cme_globex_ebsspectrum_sbe_v12_0.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_cme_globex_ebsspectrum_sbe_v12_0, buffer(), omi_cme_globex_ebsspectrum_sbe_v12_0.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return cme_globex_ebsspectrum_sbe_v12_0.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return cme_globex_ebsspectrum_sbe_v12_0.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -2285,6 +2286,7 @@ cme_globex_ebsspectrum_sbe_v12_0.tcp_packet.fingerprint = function(buffer)
   if buffer:len() < 20 then
     return false
   end
+
   local template_id = buffer(18, 2):le_uint()
 
   -- Admin Heartbeat
@@ -2319,7 +2321,6 @@ cme_globex_ebsspectrum_sbe_v12_0.tcp_packet.fingerprint = function(buffer)
 
   return false
 end
-
 
 
 -----------------------------------------------------------------------
@@ -2431,9 +2432,11 @@ end
 -- Register Heuristics for Cme Globex EbsSpectrum Sbe 12.0
 omi_cme_globex_ebsspectrum_sbe_v12_0:register_heuristic("udp", omi_cme_globex_ebsspectrum_sbe_v12_0_udp_heuristic)
 omi_cme_globex_ebsspectrum_sbe_v12_0:register_heuristic("tcp", omi_cme_globex_ebsspectrum_sbe_v12_0_tcp_acceptor_heuristic)
+
 -- Register Cme Globex EbsSpectrum Sbe 12.0 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_cme_globex_ebsspectrum_sbe_v12_0)
+
 -- Register Cme Globex EbsSpectrum Sbe 12.0 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_cme_globex_ebsspectrum_sbe_v12_0)

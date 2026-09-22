@@ -150,7 +150,7 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.volume_and_open_interest_message = 
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.end_of_session = ProtoField.new("End Of Session", "asx.asxderivatives.ntp.itch.v1.05.endofsession", ftypes.BYTES)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxderivatives.ntp.itch.v1.05.heartbeat", ftypes.BYTES)
 
--- Asx AsxDerivatives Ntp Itch 1.05 generated fields
+-- Asx AsxDerivatives Ntp Itch 1.05 Generated Fields
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.bundle_leg_index = ProtoField.new("Bundle Leg Index", "asx.asxderivatives.ntp.itch.v1.05.bundlelegindex", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.combination_leg_index = ProtoField.new("Combination Leg Index", "asx.asxderivatives.ntp.itch.v1.05.combinationlegindex", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_index = ProtoField.new("Message Index", "asx.asxderivatives.ntp.itch.v1.05.messageindex", ftypes.UINT16)
@@ -5258,7 +5258,6 @@ end
 
 -- Dissector for Asx AsxDerivatives Ntp Itch 1.05
 function omi_asx_asxderivatives_ntp_itch_v1_05.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_asx_asxderivatives_ntp_itch_v1_05.name
 

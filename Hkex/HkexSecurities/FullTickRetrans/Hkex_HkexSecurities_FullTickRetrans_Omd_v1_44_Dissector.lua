@@ -154,7 +154,7 @@ omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.trade_message = ProtoFi
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "hkex.hkexsecurities.fulltickretrans.omd.v1.44.tradingsessionstatusmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.vcm_trigger_message = ProtoField.new("Vcm Trigger Message", "hkex.hkexsecurities.fulltickretrans.omd.v1.44.vcmtriggermessage", ftypes.STRING)
 
--- Hkex HkexSecurities FullTickRetrans Omd 1.44 generated fields
+-- Hkex HkexSecurities FullTickRetrans Omd 1.44 Generated Fields
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.liquidity_provider_index = ProtoField.new("Liquidity Provider Index", "hkex.hkexsecurities.fulltickretrans.omd.v1.44.liquidityproviderindex", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.message_index = ProtoField.new("Message Index", "hkex.hkexsecurities.fulltickretrans.omd.v1.44.messageindex", ftypes.UINT16)
 omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.underlying_security_index = ProtoField.new("Underlying Security Index", "hkex.hkexsecurities.fulltickretrans.omd.v1.44.underlyingsecurityindex", ftypes.UINT16)
@@ -5021,7 +5021,6 @@ end
 
 -- Dissector for Hkex HkexSecurities FullTickRetrans Omd 1.44
 function omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.name
 

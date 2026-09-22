@@ -112,7 +112,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.transaction_begin 
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.transaction_end = ProtoField.new("Transaction End", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.transactionend", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.unitclearmessage", ftypes.STRING)
 
--- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 generated fields
+-- Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Generated Fields
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.messageindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.timestamp", ftypes.UINT64)
@@ -3620,7 +3620,6 @@ end
 
 -- Dissector for Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12
 function omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.name
 

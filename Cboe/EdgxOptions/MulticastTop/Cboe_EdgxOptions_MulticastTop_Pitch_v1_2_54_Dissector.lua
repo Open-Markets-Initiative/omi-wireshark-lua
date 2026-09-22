@@ -96,7 +96,7 @@ omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.two_side_update_expanded_
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.unitclearmessage", ftypes.STRING)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.width_update_message = ProtoField.new("Width Update Message", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.widthupdatemessage", ftypes.STRING)
 
--- Cboe EdgxOptions MulticastTop Pitch 1.2.54 generated fields
+-- Cboe EdgxOptions MulticastTop Pitch 1.2.54 Generated Fields
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.message_index = ProtoField.new("Message Index", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.messageindex", ftypes.UINT16)
 omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.fields.timestamp = ProtoField.new("Timestamp", "cboe.edgxoptions.multicasttop.pitch.v1.2.54.timestamp", ftypes.UINT64)
 
@@ -2922,7 +2922,6 @@ end
 
 -- Dissector for Cboe EdgxOptions MulticastTop Pitch 1.2.54
 function omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_edgxoptions_multicasttop_pitch_v1_2_54.name
 

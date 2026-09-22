@@ -51,7 +51,7 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.stock_directory = Pr
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.stocktradingaction", ftypes.STRING)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.system_event_message = ProtoField.new("System Event Message", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.systemeventmessage", ftypes.STRING)
 
--- BruceAts BruceEquities BestBidAndOffer Itch 1.0 generated fields
+-- BruceAts BruceEquities BestBidAndOffer Itch 1.0 Generated Fields
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_index = ProtoField.new("Message Index", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.messageindex", ftypes.UINT16)
 omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "bruceats.bruceequities.bestbidandoffer.itch.v1.0.messagesequencenumber", ftypes.UINT64)
 
@@ -1215,7 +1215,6 @@ end
 
 -- Dissector for BruceAts BruceEquities BestBidAndOffer Itch 1.0
 function omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_bruceats_bruceequities_bestbidandoffer_itch_v1_0.name
 

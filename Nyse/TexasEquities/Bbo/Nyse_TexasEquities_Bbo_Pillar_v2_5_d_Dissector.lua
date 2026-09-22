@@ -100,7 +100,7 @@ omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.symbol_clear_message = ProtoFiel
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.texasequities.bbo.pillar.v2.5.d.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.texasequities.bbo.pillar.v2.5.d.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse TexasEquities Bbo Pillar 2.5.d generated fields
+-- Nyse TexasEquities Bbo Pillar 2.5.d Generated Fields
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.message_index = ProtoField.new("Message Index", "nyse.texasequities.bbo.pillar.v2.5.d.messageindex", ftypes.UINT16)
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.texasequities.bbo.pillar.v2.5.d.messagesequencenumber", ftypes.UINT64)
 omi_nyse_texasequities_bbo_pillar_v2_5_d.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.texasequities.bbo.pillar.v2.5.d.askpricecalculate", ftypes.DOUBLE)
@@ -3280,7 +3280,6 @@ end
 
 -- Dissector for Nyse TexasEquities Bbo Pillar 2.5.d
 function omi_nyse_texasequities_bbo_pillar_v2_5_d.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_texasequities_bbo_pillar_v2_5_d.name
 

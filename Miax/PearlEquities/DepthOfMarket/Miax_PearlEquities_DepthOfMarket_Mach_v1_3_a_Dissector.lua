@@ -69,7 +69,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_time_message = Pr
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradecancelmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoField.new("Trade Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.trademessage", ftypes.STRING)
 
--- Miax PearlEquities DepthOfMarket Mach 1.3.a generated fields
+-- Miax PearlEquities DepthOfMarket Mach 1.3.a Generated Fields
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.depthofmarket.mach.v1.3.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -2119,7 +2119,6 @@ end
 
 -- Dissector for Miax PearlEquities DepthOfMarket Mach 1.3.a
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearlequities_depthofmarket_mach_v1_3_a.name
 

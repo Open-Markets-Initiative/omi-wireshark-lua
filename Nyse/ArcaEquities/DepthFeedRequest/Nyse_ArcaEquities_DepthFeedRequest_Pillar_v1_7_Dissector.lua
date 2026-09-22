@@ -48,7 +48,7 @@ omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.request_response_messa
 omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.7.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.7.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse ArcaEquities DepthFeedRequest Pillar 1.7 generated fields
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.7 Generated Fields
 omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.depthfeedrequest.pillar.v1.7.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1155,7 +1155,6 @@ end
 
 -- Dissector for Nyse ArcaEquities DepthFeedRequest Pillar 1.7
 function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.name
 

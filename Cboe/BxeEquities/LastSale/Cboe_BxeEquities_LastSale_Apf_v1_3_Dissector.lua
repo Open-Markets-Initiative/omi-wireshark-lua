@@ -1387,7 +1387,6 @@ end
 
 -- Dissector for Cboe BxeEquities LastSale Apf 1.3
 function omi_cboe_bxeequities_lastsale_apf_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bxeequities_lastsale_apf_v1_3.name
 

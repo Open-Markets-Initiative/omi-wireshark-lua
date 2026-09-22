@@ -249,7 +249,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_11.fields.swap_future_trade_message = ProtoFiel
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.tick_table_message = ProtoField.new("Tick Table Message", "tmx.mx.solamulticast.hsvf.v1.11.ticktablemessage", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.underlying_instrument_keys_message = ProtoField.new("Underlying Instrument Keys Message", "tmx.mx.solamulticast.hsvf.v1.11.underlyinginstrumentkeysmessage", ftypes.STRING)
 
--- Tmx Mx SolaMulticast Hsvf 1.11 generated fields
+-- Tmx Mx SolaMulticast Hsvf 1.11 Generated Fields
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.future_options_market_depth_trading_instrument_index = ProtoField.new("Future Options Market Depth Trading Instrument Index", "tmx.mx.solamulticast.hsvf.v1.11.futureoptionsmarketdepthtradinginstrumentindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.futures_market_depth_trading_instrument_index = ProtoField.new("Futures Market Depth Trading Instrument Index", "tmx.mx.solamulticast.hsvf.v1.11.futuresmarketdepthtradinginstrumentindex", ftypes.UINT16)
 omi_tmx_mx_solamulticast_hsvf_v1_11.fields.option_market_depth_trading_instrument_index = ProtoField.new("Option Market Depth Trading Instrument Index", "tmx.mx.solamulticast.hsvf.v1.11.optionmarketdepthtradinginstrumentindex", ftypes.UINT16)
@@ -10795,7 +10795,6 @@ end
 
 -- Dissector for Tmx Mx SolaMulticast Hsvf 1.11
 function omi_tmx_mx_solamulticast_hsvf_v1_11.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_tmx_mx_solamulticast_hsvf_v1_11.name
 

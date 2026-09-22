@@ -56,7 +56,7 @@ omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_data_message = ProtoField.n
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_definition_message = ProtoField.new("Index Definition Message", "hkex.hkexsecurities.index.omd.v1.45.indexdefinitionmessage", ftypes.STRING)
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "hkex.hkexsecurities.index.omd.v1.45.sequenceresetmessage", ftypes.STRING)
 
--- Hkex HkexSecurities Index Omd 1.45 generated fields
+-- Hkex HkexSecurities Index Omd 1.45 Generated Fields
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.message_index = ProtoField.new("Message Index", "hkex.hkexsecurities.index.omd.v1.45.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1338,7 +1338,6 @@ end
 
 -- Dissector for Hkex HkexSecurities Index Omd 1.45
 function omi_hkex_hkexsecurities_index_omd_v1_45.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexsecurities_index_omd_v1_45.name
 

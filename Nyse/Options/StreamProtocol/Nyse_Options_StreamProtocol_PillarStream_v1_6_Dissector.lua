@@ -1471,7 +1471,6 @@ end
 
 -- Dissector for Nyse Options StreamProtocol PillarStream 1.6
 function omi_nyse_options_streamprotocol_pillarstream_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_options_streamprotocol_pillarstream_v1_6.name
 

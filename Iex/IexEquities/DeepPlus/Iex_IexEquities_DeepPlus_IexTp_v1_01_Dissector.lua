@@ -85,7 +85,7 @@ omi_iex_iexequities_deepplus_iextp_v1_01.fields.trade_break_message = ProtoField
 omi_iex_iexequities_deepplus_iextp_v1_01.fields.trade_message = ProtoField.new("Trade Message", "iex.iexequities.deepplus.iextp.v1.01.trademessage", ftypes.STRING)
 omi_iex_iexequities_deepplus_iextp_v1_01.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.iexequities.deepplus.iextp.v1.01.tradingstatusmessage", ftypes.STRING)
 
--- Iex IexEquities DeepPlus IexTp 1.01 generated fields
+-- Iex IexEquities DeepPlus IexTp 1.01 Generated Fields
 omi_iex_iexequities_deepplus_iextp_v1_01.fields.message_index = ProtoField.new("Message Index", "iex.iexequities.deepplus.iextp.v1.01.messageindex", ftypes.UINT16)
 omi_iex_iexequities_deepplus_iextp_v1_01.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "iex.iexequities.deepplus.iextp.v1.01.messagesequencenumber", ftypes.UINT64)
 
@@ -2318,7 +2318,6 @@ end
 
 -- Dissector for Iex IexEquities DeepPlus IexTp 1.01
 function omi_iex_iexequities_deepplus_iextp_v1_01.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_iex_iexequities_deepplus_iextp_v1_01.name
 

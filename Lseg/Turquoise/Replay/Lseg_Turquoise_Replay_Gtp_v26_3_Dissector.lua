@@ -210,7 +210,7 @@ omi_lseg_turquoise_replay_gtp_v26_3.fields.trade_cross_message = ProtoField.new(
 omi_lseg_turquoise_replay_gtp_v26_3.fields.trade_message = ProtoField.new("Trade Message", "lseg.turquoise.replay.gtp.v26.3.trademessage", ftypes.STRING)
 omi_lseg_turquoise_replay_gtp_v26_3.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "lseg.turquoise.replay.gtp.v26.3.tradesummarymessage", ftypes.STRING)
 
--- Lseg Turquoise Replay Gtp 26.3 generated fields
+-- Lseg Turquoise Replay Gtp 26.3 Generated Fields
 omi_lseg_turquoise_replay_gtp_v26_3.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.replay.gtp.v26.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -7243,7 +7243,6 @@ end
 
 -- Dissector for Lseg Turquoise Replay Gtp 26.3
 function omi_lseg_turquoise_replay_gtp_v26_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_turquoise_replay_gtp_v26_3.name
 

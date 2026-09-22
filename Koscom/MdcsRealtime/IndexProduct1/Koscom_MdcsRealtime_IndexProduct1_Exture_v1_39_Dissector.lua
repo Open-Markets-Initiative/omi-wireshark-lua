@@ -3522,7 +3522,6 @@ end
 
 -- Dissector for Koscom MdcsRealtime IndexProduct1 Exture 1.39
 function omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_koscom_mdcsrealtime_indexproduct1_exture_v1_39.name
 

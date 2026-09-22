@@ -48,7 +48,7 @@ omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.request_respons
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.retransmissionrequestmessage", ftypes.STRING)
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h generated fields
+-- Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h Generated Fields
 omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeedrequest.pillar.v2.5.h.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1155,7 +1155,6 @@ end
 
 -- Dissector for Nyse NyseEquities IntegratedFeedRequest Pillar 2.5.h
 function omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_integratedfeedrequest_pillar_v2_5_h.name
 

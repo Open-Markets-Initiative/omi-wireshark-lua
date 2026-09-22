@@ -53,7 +53,7 @@ omi_nasdaq_nsmequities_nois_itch_v2_2.fields.stock_directory = ProtoField.new("S
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "nasdaq.nsmequities.nois.itch.v2.2.stocktradingaction", ftypes.STRING)
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.nois.itch.v2.2.systemeventmessage", ftypes.STRING)
 
--- Nasdaq NsmEquities Nois Itch 2.2 generated fields
+-- Nasdaq NsmEquities Nois Itch 2.2 Generated Fields
 omi_nasdaq_nsmequities_nois_itch_v2_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.nois.itch.v2.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1484,7 +1484,6 @@ end
 
 -- Dissector for Nasdaq NsmEquities Nois Itch 2.2
 function omi_nasdaq_nsmequities_nois_itch_v2_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_nois_itch_v2_2.name
 

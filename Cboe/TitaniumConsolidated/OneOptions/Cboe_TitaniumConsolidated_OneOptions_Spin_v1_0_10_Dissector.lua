@@ -58,7 +58,7 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.trade_replay_finish
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.trade_replay_request_message = ProtoField.new("Trade Replay Request Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.tradereplayrequestmessage", ftypes.STRING)
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.trade_replay_response_message = ProtoField.new("Trade Replay Response Message", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.tradereplayresponsemessage", ftypes.STRING)
 
--- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 generated fields
+-- Cboe TitaniumConsolidated OneOptions Spin 1.0.10 Generated Fields
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1480,7 +1480,6 @@ end
 
 -- Dissector for Cboe TitaniumConsolidated OneOptions Spin 1.0.10
 function omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.name
 

@@ -208,7 +208,7 @@ omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.trading_session_status_
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.vcm_trigger_message = ProtoField.new("Vcm Trigger Message", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.vcmtriggermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.yield_message = ProtoField.new("Yield Message", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.yieldmessage", ftypes.STRING)
 
--- Hkex HkexSecurities CombinedRefresh Omd 1.44 generated fields
+-- Hkex HkexSecurities CombinedRefresh Omd 1.44 Generated Fields
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.book_entry_index = ProtoField.new("Book Entry Index", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.bookentryindex", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.bq_item_index = ProtoField.new("Bq Item Index", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.bqitemindex", ftypes.UINT16)
 omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.fields.liquidity_provider_index = ProtoField.new("Liquidity Provider Index", "hkex.hkexsecurities.combinedrefresh.omd.v1.44.liquidityproviderindex", ftypes.UINT16)
@@ -6922,7 +6922,6 @@ end
 
 -- Dissector for Hkex HkexSecurities CombinedRefresh Omd 1.44
 function omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexsecurities_combinedrefresh_omd_v1_44.name
 

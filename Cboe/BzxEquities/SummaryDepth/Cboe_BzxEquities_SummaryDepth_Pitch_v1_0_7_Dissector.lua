@@ -74,7 +74,7 @@ omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.trade_break_message = Prot
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.trade_message = ProtoField.new("Trade Message", "cboe.bzxequities.summarydepth.pitch.v1.0.7.trademessage", ftypes.STRING)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.bzxequities.summarydepth.pitch.v1.0.7.tradingstatusmessage", ftypes.STRING)
 
--- Cboe BzxEquities SummaryDepth Pitch 1.0.7 generated fields
+-- Cboe BzxEquities SummaryDepth Pitch 1.0.7 Generated Fields
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.adap_block_index = ProtoField.new("Adap Block Index", "cboe.bzxequities.summarydepth.pitch.v1.0.7.adapblockindex", ftypes.UINT16)
 omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.fields.message_index = ProtoField.new("Message Index", "cboe.bzxequities.summarydepth.pitch.v1.0.7.messageindex", ftypes.UINT16)
 
@@ -1950,7 +1950,6 @@ end
 
 -- Dissector for Cboe BzxEquities SummaryDepth Pitch 1.0.7
 function omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxequities_summarydepth_pitch_v1_0_7.name
 

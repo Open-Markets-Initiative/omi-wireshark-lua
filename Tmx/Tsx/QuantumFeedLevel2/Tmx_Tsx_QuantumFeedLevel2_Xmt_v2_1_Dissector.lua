@@ -116,7 +116,7 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.trade_correction_terms_message = P
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.tradereportmessage", ftypes.STRING)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.trade_report_terms_message = ProtoField.new("Trade Report Terms Message", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.tradereporttermsmessage", ftypes.STRING)
 
--- Tmx Tsx QuantumFeedLevel2 Xmt 2.1 generated fields
+-- Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Generated Fields
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.body_index = ProtoField.new("Body Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.bodyindex", ftypes.UINT16)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_limit_index = ProtoField.new("Cop Limit Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coplimitindex", ftypes.UINT16)
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_order_index = ProtoField.new("Cop Order Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coporderindex", ftypes.UINT16)
@@ -4113,7 +4113,6 @@ end
 
 -- Dissector for Tmx Tsx QuantumFeedLevel2 Xmt 2.1
 function omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.name
 

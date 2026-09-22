@@ -151,7 +151,7 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.stream_rejected_message = ProtoField.
 omi_n24x_24xequities_memo_sbe_v1_13.fields.stream_request_message = ProtoField.new("Stream Request Message", "24x.24xequities.memo.sbe.v1.13.streamrequestmessage", ftypes.STRING)
 omi_n24x_24xequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "24x.24xequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING)
 
--- 24X 24XEquities Memo Sbe 1.13 generated fields
+-- 24X 24XEquities Memo Sbe 1.13 Generated Fields
 omi_n24x_24xequities_memo_sbe_v1_13.fields.parties_group_index = ProtoField.new("Parties Group Index", "24x.24xequities.memo.sbe.v1.13.partiesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -6813,7 +6813,6 @@ end
 
 -- Dissector for 24X 24XEquities Memo Sbe 1.13
 function omi_n24x_24xequities_memo_sbe_v1_13.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_n24x_24xequities_memo_sbe_v1_13.name
 

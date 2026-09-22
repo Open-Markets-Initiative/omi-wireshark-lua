@@ -268,7 +268,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.theoretical_opening_price_16_mes
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.trade_53_message = ProtoField.new("Trade 53 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.trade53message", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.trade_bust_57_message = ProtoField.new("Trade Bust 57 Message", "b3.b3derivatives.binaryumdf.sbe.v1.9.tradebust57message", ftypes.STRING)
 
--- B3 B3Derivatives BinaryUmdf Sbe 1.9 generated fields
+-- B3 B3Derivatives BinaryUmdf Sbe 1.9 Generated Fields
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.instr_attribs_group_index = ProtoField.new("Instr Attribs Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.9.instrattribsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.legs_group_index = ProtoField.new("Legs Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.9.legsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_9.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.9.snapshotfullrefreshordersmbo71messagenomdentriesgroupindex", ftypes.UINT16)
@@ -9387,7 +9387,6 @@ end
 
 -- Dissector for B3 B3Derivatives BinaryUmdf Sbe 1.9
 function omi_b3_b3derivatives_binaryumdf_sbe_v1_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_b3_b3derivatives_binaryumdf_sbe_v1_9.name
 

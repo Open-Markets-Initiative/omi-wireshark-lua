@@ -51,7 +51,7 @@ omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.system_event_message = Prot
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "bruceats.bruceequities.lastsale.itch.v1.0.tradecancelmessage", ftypes.STRING)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.trade_report_message = ProtoField.new("Trade Report Message", "bruceats.bruceequities.lastsale.itch.v1.0.tradereportmessage", ftypes.STRING)
 
--- BruceAts BruceEquities LastSale Itch 1.0 generated fields
+-- BruceAts BruceEquities LastSale Itch 1.0 Generated Fields
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_index = ProtoField.new("Message Index", "bruceats.bruceequities.lastsale.itch.v1.0.messageindex", ftypes.UINT16)
 omi_bruceats_bruceequities_lastsale_itch_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "bruceats.bruceequities.lastsale.itch.v1.0.messagesequencenumber", ftypes.UINT64)
 
@@ -1249,7 +1249,6 @@ end
 
 -- Dissector for BruceAts BruceEquities LastSale Itch 1.0
 function omi_bruceats_bruceequities_lastsale_itch_v1_0.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_bruceats_bruceequities_lastsale_itch_v1_0.name
 

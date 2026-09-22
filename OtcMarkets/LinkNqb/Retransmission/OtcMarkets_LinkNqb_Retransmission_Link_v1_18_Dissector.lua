@@ -3203,7 +3203,6 @@ end
 
 -- Dissector for OtcMarkets LinkNqb Retransmission Link 1.18
 function omi_otcmarkets_linknqb_retransmission_link_v1_18.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_linknqb_retransmission_link_v1_18.name
 

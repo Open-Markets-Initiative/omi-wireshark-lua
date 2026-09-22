@@ -113,7 +113,7 @@ omi_bse_bseindia_eobi_fbe_v1_4.fields.snapshot_order_message = ProtoField.new("S
 omi_bse_bseindia_eobi_fbe_v1_4.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "bse.bseindia.eobi.fbe.v1.4.topofbookmessage", ftypes.STRING)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trade_reversal_message = ProtoField.new("Trade Reversal Message", "bse.bseindia.eobi.fbe.v1.4.tradereversalmessage", ftypes.STRING)
 
--- Bse BseIndia Eobi Fbe 1.4 generated fields
+-- Bse BseIndia Eobi Fbe 1.4 Generated Fields
 omi_bse_bseindia_eobi_fbe_v1_4.fields.instrmt_leg_grp_index = ProtoField.new("Instrmt Leg Grp Index", "bse.bseindia.eobi.fbe.v1.4.instrmtleggrpindex", ftypes.UINT16)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.md_instrument_entry_grp_index = ProtoField.new("Md Instrument Entry Grp Index", "bse.bseindia.eobi.fbe.v1.4.mdinstrumententrygrpindex", ftypes.UINT16)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.md_trade_entry_grp_index = ProtoField.new("Md Trade Entry Grp Index", "bse.bseindia.eobi.fbe.v1.4.mdtradeentrygrpindex", ftypes.UINT16)
@@ -3887,7 +3887,6 @@ end
 
 -- Dissector for Bse BseIndia Eobi Fbe 1.4
 function omi_bse_bseindia_eobi_fbe_v1_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_bse_bseindia_eobi_fbe_v1_4.name
 

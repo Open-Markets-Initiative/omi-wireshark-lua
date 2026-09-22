@@ -1453,7 +1453,6 @@ end
 
 -- Dissector for Coinbase CoinbaseDerivatives Session Tcp 1.2
 function omi_coinbase_coinbasederivatives_session_tcp_v1_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_coinbase_coinbasederivatives_session_tcp_v1_2.name
 

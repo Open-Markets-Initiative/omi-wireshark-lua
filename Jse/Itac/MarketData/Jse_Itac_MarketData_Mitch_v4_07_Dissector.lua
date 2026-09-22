@@ -187,7 +187,7 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.time_message = ProtoField.new("Time M
 omi_jse_itac_marketdata_mitch_v4_07.fields.top_of_book_message = ProtoField.new("Top Of Book Message", "jse.itac.marketdata.mitch.v4.07.topofbookmessage", ftypes.STRING)
 omi_jse_itac_marketdata_mitch_v4_07.fields.trade_message = ProtoField.new("Trade Message", "jse.itac.marketdata.mitch.v4.07.trademessage", ftypes.STRING)
 
--- Jse Itac MarketData Mitch 4.07 generated fields
+-- Jse Itac MarketData Mitch 4.07 Generated Fields
 omi_jse_itac_marketdata_mitch_v4_07.fields.message_index = ProtoField.new("Message Index", "jse.itac.marketdata.mitch.v4.07.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -5995,7 +5995,6 @@ end
 
 -- Dissector for Jse Itac MarketData Mitch 4.07
 function omi_jse_itac_marketdata_mitch_v4_07.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jse_itac_marketdata_mitch_v4_07.name
 

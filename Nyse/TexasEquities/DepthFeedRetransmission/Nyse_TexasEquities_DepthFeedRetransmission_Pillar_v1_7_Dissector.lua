@@ -104,7 +104,7 @@ omi_nyse_texasequities_depthfeedretransmission_pillar_v1_7.fields.symbol_index_m
 -- Nyse TexasEquities DepthFeedRetransmission 1.7 Session Messages
 omi_nyse_texasequities_depthfeedretransmission_pillar_v1_7.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.texasequities.depthfeedretransmission.pillar.v1.7.heartbeat", ftypes.BYTES)
 
--- Nyse TexasEquities DepthFeedRetransmission Pillar 1.7 generated fields
+-- Nyse TexasEquities DepthFeedRetransmission Pillar 1.7 Generated Fields
 omi_nyse_texasequities_depthfeedretransmission_pillar_v1_7.fields.message_index = ProtoField.new("Message Index", "nyse.texasequities.depthfeedretransmission.pillar.v1.7.messageindex", ftypes.UINT16)
 omi_nyse_texasequities_depthfeedretransmission_pillar_v1_7.fields.participant_index = ProtoField.new("Participant Index", "nyse.texasequities.depthfeedretransmission.pillar.v1.7.participantindex", ftypes.UINT16)
 omi_nyse_texasequities_depthfeedretransmission_pillar_v1_7.fields.price_point_index = ProtoField.new("Price Point Index", "nyse.texasequities.depthfeedretransmission.pillar.v1.7.pricepointindex", ftypes.UINT16)
@@ -3601,7 +3601,6 @@ end
 
 -- Dissector for Nyse TexasEquities DepthFeedRetransmission Pillar 1.7
 function omi_nyse_texasequities_depthfeedretransmission_pillar_v1_7.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_texasequities_depthfeedretransmission_pillar_v1_7.name
 

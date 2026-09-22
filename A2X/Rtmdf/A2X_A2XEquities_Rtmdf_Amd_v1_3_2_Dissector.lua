@@ -71,7 +71,7 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_table_data_message = ProtoField
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradebustmessage", ftypes.STRING)
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_message = ProtoField.new("Trade Message", "a2x.a2xequities.rtmdf.amd.v1.3.2.trademessage", ftypes.STRING)
 
--- A2X A2XEquities Rtmdf Amd 1.3.2 generated fields
+-- A2X A2XEquities Rtmdf Amd 1.3.2 Generated Fields
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1743,7 +1743,6 @@ end
 
 -- Dissector for A2X A2XEquities Rtmdf Amd 1.3.2
 function omi_a2x_a2xequities_rtmdf_amd_v1_3_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_a2x_a2xequities_rtmdf_amd_v1_3_2.name
 

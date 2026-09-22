@@ -100,7 +100,7 @@ omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.symbol_clear_message = ProtoField
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nyseequities.bbo.pillar.v2.5.b.symbolindexmappingmessage", ftypes.STRING)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.nyseequities.bbo.pillar.v2.5.b.symbolindexmappingrequestmessage", ftypes.STRING)
 
--- Nyse NyseEquities Bbo Pillar 2.5.b generated fields
+-- Nyse NyseEquities Bbo Pillar 2.5.b Generated Fields
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bbo.pillar.v2.5.b.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_pillar_v2_5_b.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.bbo.pillar.v2.5.b.messagesequencenumber", ftypes.UINT64)
 
@@ -3051,7 +3051,6 @@ end
 
 -- Dissector for Nyse NyseEquities Bbo Pillar 2.5.b
 function omi_nyse_nyseequities_bbo_pillar_v2_5_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_bbo_pillar_v2_5_b.name
 

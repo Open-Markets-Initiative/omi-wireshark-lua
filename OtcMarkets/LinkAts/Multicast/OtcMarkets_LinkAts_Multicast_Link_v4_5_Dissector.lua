@@ -155,7 +155,7 @@ omi_otcmarkets_linkats_multicast_link_v4_5.fields.trade_message = ProtoField.new
 -- OtcMarkets LinkAts Multicast 4.5 Session Messages
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linkats.multicast.link.v4.5.heartbeatpacket", ftypes.BYTES)
 
--- OtcMarkets LinkAts Multicast Link 4.5 generated fields
+-- OtcMarkets LinkAts Multicast Link 4.5 Generated Fields
 omi_otcmarkets_linkats_multicast_link_v4_5.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linkats.multicast.link.v4.5.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -4183,7 +4183,6 @@ end
 
 -- Dissector for OtcMarkets LinkAts Multicast Link 4.5
 function omi_otcmarkets_linkats_multicast_link_v4_5.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_linkats_multicast_link_v4_5.name
 

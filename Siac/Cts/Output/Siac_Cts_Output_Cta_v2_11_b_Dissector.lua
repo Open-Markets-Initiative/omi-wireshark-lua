@@ -218,7 +218,7 @@ omi_siac_cts_output_cta_v2_11_b.fields.trade_cancel_error_message = ProtoField.n
 omi_siac_cts_output_cta_v2_11_b.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v2.11.b.tradecorrectionmessage", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.trading_status_message = ProtoField.new("Trading Status Message", "siac.cts.output.cta.v2.11.b.tradingstatusmessage", ftypes.STRING)
 
--- Siac Cts Output Cta 2.11.b generated fields
+-- Siac Cts Output Cta 2.11.b Generated Fields
 omi_siac_cts_output_cta_v2_11_b.fields.approximate_volume_participant_index = ProtoField.new("Approximate Volume Participant Index", "siac.cts.output.cta.v2.11.b.approximatevolumeparticipantindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.message_index = ProtoField.new("Message Index", "siac.cts.output.cta.v2.11.b.messageindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.participant_index = ProtoField.new("Participant Index", "siac.cts.output.cta.v2.11.b.participantindex", ftypes.UINT16)
@@ -9376,7 +9376,6 @@ end
 
 -- Dissector for Siac Cts Output Cta 2.11.b
 function omi_siac_cts_output_cta_v2_11_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cts_output_cta_v2_11_b.name
 

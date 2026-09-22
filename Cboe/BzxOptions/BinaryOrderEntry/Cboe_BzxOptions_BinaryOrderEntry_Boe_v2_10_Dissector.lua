@@ -833,7 +833,7 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.short_quote_update_message
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.bzxoptions.binaryorderentry.boe.v2.10.tradecancelorcorrectmessage", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.bzxoptions.binaryorderentry.boe.v2.10.usermodifyrejectedmessage", ftypes.STRING)
 
--- Cboe BzxOptions BinaryOrderEntry Boe 2.10 generated fields
+-- Cboe BzxOptions BinaryOrderEntry Boe 2.10 Generated Fields
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.bzxoptions.binaryorderentry.boe.v2.10.paramgroupindex", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.quote_result_group_index = ProtoField.new("Quote Result Group Index", "cboe.bzxoptions.binaryorderentry.boe.v2.10.quoteresultgroupindex", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.fields.quote_update_index = ProtoField.new("Quote Update Index", "cboe.bzxoptions.binaryorderentry.boe.v2.10.quoteupdateindex", ftypes.UINT16)
@@ -31543,7 +31543,6 @@ end
 
 -- Dissector for Cboe BzxOptions BinaryOrderEntry Boe 2.10
 function omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxoptions_binaryorderentry_boe_v2_10.name
 

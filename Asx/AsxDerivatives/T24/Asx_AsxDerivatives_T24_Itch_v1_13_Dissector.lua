@@ -163,7 +163,7 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.volume_and_open_interest_message = 
 omi_asx_asxderivatives_t24_itch_v1_13.fields.end_of_session = ProtoField.new("End Of Session", "asx.asxderivatives.t24.itch.v1.13.endofsession", ftypes.BYTES)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxderivatives.t24.itch.v1.13.heartbeat", ftypes.BYTES)
 
--- Asx AsxDerivatives T24 Itch 1.13 generated fields
+-- Asx AsxDerivatives T24 Itch 1.13 Generated Fields
 omi_asx_asxderivatives_t24_itch_v1_13.fields.contract_legs_index = ProtoField.new("Contract Legs Index", "asx.asxderivatives.t24.itch.v1.13.contractlegsindex", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_index = ProtoField.new("Message Index", "asx.asxderivatives.t24.itch.v1.13.messageindex", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "asx.asxderivatives.t24.itch.v1.13.messagesequencenumber", ftypes.UINT64)
@@ -5595,7 +5595,6 @@ end
 
 -- Dissector for Asx AsxDerivatives T24 Itch 1.13
 function omi_asx_asxderivatives_t24_itch_v1_13.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_asx_asxderivatives_t24_itch_v1_13.name
 

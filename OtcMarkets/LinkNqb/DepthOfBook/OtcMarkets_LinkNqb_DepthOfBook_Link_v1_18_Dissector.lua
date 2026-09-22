@@ -96,7 +96,7 @@ omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.trading_session_message = P
 -- OtcMarkets LinkNqb DepthOfBook 1.18 Session Messages
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.heartbeat_packet = ProtoField.new("Heartbeat Packet", "otcmarkets.linknqb.depthofbook.link.v1.18.heartbeatpacket", ftypes.BYTES)
 
--- OtcMarkets LinkNqb DepthOfBook Link 1.18 generated fields
+-- OtcMarkets LinkNqb DepthOfBook Link 1.18 Generated Fields
 omi_otcmarkets_linknqb_depthofbook_link_v1_18.fields.message_index = ProtoField.new("Message Index", "otcmarkets.linknqb.depthofbook.link.v1.18.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2563,7 +2563,6 @@ end
 
 -- Dissector for OtcMarkets LinkNqb DepthOfBook Link 1.18
 function omi_otcmarkets_linknqb_depthofbook_link_v1_18.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_otcmarkets_linknqb_depthofbook_link_v1_18.name
 

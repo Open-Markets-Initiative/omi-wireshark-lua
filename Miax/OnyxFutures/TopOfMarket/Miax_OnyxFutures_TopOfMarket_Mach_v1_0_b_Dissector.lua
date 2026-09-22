@@ -81,7 +81,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.simple_instrument_definition
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_state_message = ProtoField.new("System State Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.systemstatemessage", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradecancelmessage", ftypes.STRING)
 
--- Miax OnyxFutures TopOfMarket Mach 1.0.b generated fields
+-- Miax OnyxFutures TopOfMarket Mach 1.0.b Generated Fields
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "miax.onyxfutures.topofmarket.mach.v1.0.b.instrumentlegindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2332,7 +2332,6 @@ end
 
 -- Dissector for Miax OnyxFutures TopOfMarket Mach 1.0.b
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_onyxfutures_topofmarket_mach_v1_0_b.name
 

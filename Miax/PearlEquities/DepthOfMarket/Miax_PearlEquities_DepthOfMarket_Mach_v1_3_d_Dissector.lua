@@ -108,7 +108,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.system_time_message = Pr
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.tradecancelmessage", ftypes.STRING)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.trade_message = ProtoField.new("Trade Message", "miax.pearlequities.depthofmarket.mach.v1.3.d.trademessage", ftypes.STRING)
 
--- Miax PearlEquities DepthOfMarket Mach 1.3.d generated fields
+-- Miax PearlEquities DepthOfMarket Mach 1.3.d Generated Fields
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.depthofmarket.mach.v1.3.d.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -3590,15 +3590,16 @@ end
 
 -- Dissector for Miax PearlEquities DepthOfMarket Mach 1.3.d
 function omi_miax_pearlequities_depthofmarket_mach_v1_3_d.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearlequities_depthofmarket_mach_v1_3_d.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d, buffer(), omi_miax_pearlequities_depthofmarket_mach_v1_3_d.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_pearlequities_depthofmarket_mach_v1_3_d.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -3636,9 +3637,11 @@ end
 -- Register Heuristics for Miax PearlEquities DepthOfMarket Mach 1.3.d
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d:register_heuristic("udp", omi_miax_pearlequities_depthofmarket_mach_v1_3_d_udp_heuristic)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d:register_heuristic("tcp", omi_miax_pearlequities_depthofmarket_mach_v1_3_d_tcp_heuristic)
+
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_d)
+
 -- Register Miax PearlEquities DepthOfMarket Mach 1.3.d for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_d)

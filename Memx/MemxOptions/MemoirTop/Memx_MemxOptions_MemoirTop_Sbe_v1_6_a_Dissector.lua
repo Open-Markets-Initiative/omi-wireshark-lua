@@ -93,7 +93,7 @@ omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.underlier_instrument_status_mes
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.heartbeat = ProtoField.new("Heartbeat", "memx.memxoptions.memoirtop.sbe.v1.6.a.heartbeat", ftypes.BYTES)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.session_shutdown = ProtoField.new("Session Shutdown", "memx.memxoptions.memoirtop.sbe.v1.6.a.sessionshutdown", ftypes.BYTES)
 
--- Memx MemxOptions MemoirTop Sbe 1.6.a generated fields
+-- Memx MemxOptions MemoirTop Sbe 1.6.a Generated Fields
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.message_index = ProtoField.new("Message Index", "memx.memxoptions.memoirtop.sbe.v1.6.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2744,7 +2744,6 @@ end
 
 -- Dissector for Memx MemxOptions MemoirTop Sbe 1.6.a
 function omi_memx_memxoptions_memoirtop_sbe_v1_6_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_memx_memxoptions_memoirtop_sbe_v1_6_a.name
 

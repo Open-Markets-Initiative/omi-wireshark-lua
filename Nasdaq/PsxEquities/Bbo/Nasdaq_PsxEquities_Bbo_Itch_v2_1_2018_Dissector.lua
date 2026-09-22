@@ -75,7 +75,7 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.stock_directory_message = Proto
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.stocktradingactionmessage", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.psxequities.bbo.itch.v2.1.2018.systemeventmessage", ftypes.STRING)
 
--- Nasdaq PsxEquities Bbo Itch 2.1.2018 generated fields
+-- Nasdaq PsxEquities Bbo Itch 2.1.2018 Generated Fields
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.bbo.itch.v2.1.2018.messageindex", ftypes.UINT16)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.psxequities.bbo.itch.v2.1.2018.messagesequencenumber", ftypes.UINT64)
 
@@ -2211,7 +2211,6 @@ end
 
 -- Dissector for Nasdaq PsxEquities Bbo Itch 2.1.2018
 function omi_nasdaq_psxequities_bbo_itch_v2_1_2018.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_psxequities_bbo_itch_v2_1_2018.name
 

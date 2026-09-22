@@ -83,7 +83,7 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.reset_message = ProtoField.ne
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.seconds_timestamp_message = ProtoField.new("Seconds Timestamp Message", "jpx.sseequities.marketbyorder.flex.v1.1.secondstimestampmessage", ftypes.STRING)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.trading_status_message = ProtoField.new("Trading Status Message", "jpx.sseequities.marketbyorder.flex.v1.1.tradingstatusmessage", ftypes.STRING)
 
--- Jpx SseEquities MarketByOrder Flex 1.1 generated fields
+-- Jpx SseEquities MarketByOrder Flex 1.1 Generated Fields
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message_index = ProtoField.new("Message Index", "jpx.sseequities.marketbyorder.flex.v1.1.messageindex", ftypes.UINT16)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.timestamp = ProtoField.new("Timestamp", "jpx.sseequities.marketbyorder.flex.v1.1.timestamp", ftypes.UINT64)
 
@@ -2579,15 +2579,16 @@ end
 
 -- Dissector for Jpx SseEquities MarketByOrder Flex 1.1
 function omi_jpx_sseequities_marketbyorder_flex_v1_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jpx_sseequities_marketbyorder_flex_v1_1.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1, buffer(), omi_jpx_sseequities_marketbyorder_flex_v1_1.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return jpx_sseequities_marketbyorder_flex_v1_1.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return jpx_sseequities_marketbyorder_flex_v1_1.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -2625,9 +2626,11 @@ end
 -- Register Heuristics for Jpx SseEquities MarketByOrder Flex 1.1
 omi_jpx_sseequities_marketbyorder_flex_v1_1:register_heuristic("udp", omi_jpx_sseequities_marketbyorder_flex_v1_1_udp_heuristic)
 omi_jpx_sseequities_marketbyorder_flex_v1_1:register_heuristic("tcp", omi_jpx_sseequities_marketbyorder_flex_v1_1_tcp_heuristic)
+
 -- Register Jpx SseEquities MarketByOrder Flex 1.1 for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_jpx_sseequities_marketbyorder_flex_v1_1)
+
 -- Register Jpx SseEquities MarketByOrder Flex 1.1 for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_jpx_sseequities_marketbyorder_flex_v1_1)

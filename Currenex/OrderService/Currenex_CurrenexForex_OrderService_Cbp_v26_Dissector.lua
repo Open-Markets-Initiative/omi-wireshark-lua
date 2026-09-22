@@ -2517,7 +2517,6 @@ end
 
 -- Dissector for Currenex CurrenexForex OrderService Cbp 26
 function omi_currenex_currenexforex_orderservice_cbp_v26.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_currenex_currenexforex_orderservice_cbp_v26.name
 

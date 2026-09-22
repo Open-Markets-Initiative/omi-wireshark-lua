@@ -67,7 +67,7 @@ omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.security_trading_s
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.tradingsessionstatusmessage", ftypes.STRING)
 
--- BlueOceanAts BlueEquities MemoirTopOfBook Sbe 1.3 generated fields
+-- BlueOceanAts BlueEquities MemoirTopOfBook Sbe 1.3 Generated Fields
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1938,7 +1938,6 @@ end
 
 -- Dissector for BlueOceanAts BlueEquities MemoirTopOfBook Sbe 1.3
 function omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.name
 

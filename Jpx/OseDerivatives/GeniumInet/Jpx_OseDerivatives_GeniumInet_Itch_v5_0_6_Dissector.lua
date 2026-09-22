@@ -106,7 +106,7 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.trade_message = ProtoField.
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.end_of_session = ProtoField.new("End Of Session", "jpx.osederivatives.geniuminet.itch.v5.0.6.endofsession", ftypes.BYTES)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.heartbeat = ProtoField.new("Heartbeat", "jpx.osederivatives.geniuminet.itch.v5.0.6.heartbeat", ftypes.BYTES)
 
--- Jpx OseDerivatives GeniumInet Itch 5.0.6 generated fields
+-- Jpx OseDerivatives GeniumInet Itch 5.0.6 Generated Fields
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_index = ProtoField.new("Message Index", "jpx.osederivatives.geniuminet.itch.v5.0.6.messageindex", ftypes.UINT16)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jpx.osederivatives.geniuminet.itch.v5.0.6.messagesequencenumber", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.timestamp = ProtoField.new("Timestamp", "jpx.osederivatives.geniuminet.itch.v5.0.6.timestamp", ftypes.UINT64)
@@ -3067,7 +3067,6 @@ end
 
 -- Dissector for Jpx OseDerivatives GeniumInet Itch 5.0.6
 function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_jpx_osederivatives_geniuminet_itch_v5_0_6.name
 

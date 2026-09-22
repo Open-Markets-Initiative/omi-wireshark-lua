@@ -95,7 +95,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_correction_message =
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradereportmessage", ftypes.STRING)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.psxequities.lastsale.itch.v2.1.2026.tradingactionmessage", ftypes.STRING)
 
--- Nasdaq PsxEquities LastSale Itch 2.1.2026 generated fields
+-- Nasdaq PsxEquities LastSale Itch 2.1.2026 Generated Fields
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_index = ProtoField.new("Message Index", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messageindex", ftypes.UINT16)
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.psxequities.lastsale.itch.v2.1.2026.messagesequencenumber", ftypes.UINT64)
 
@@ -3450,7 +3450,6 @@ end
 
 -- Dissector for Nasdaq PsxEquities LastSale Itch 2.1.2026
 function omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.name
 

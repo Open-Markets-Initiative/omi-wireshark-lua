@@ -156,7 +156,7 @@ omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_message =
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.symbolindexmappingrequestmessage", ftypes.STRING)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.time_reference_message = ProtoField.new("Time Reference Message", "nyse.arcaoptions.topfeed.pillar.v1.2.c.timereferencemessage", ftypes.STRING)
 
--- Nyse ArcaOptions TopFeed Pillar 1.2.c generated fields
+-- Nyse ArcaOptions TopFeed Pillar 1.2.c Generated Fields
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messageindex", ftypes.UINT16)
 omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.topfeed.pillar.v1.2.c.messagesequencenumber", ftypes.UINT64)
 
@@ -5257,7 +5257,6 @@ end
 
 -- Dissector for Nyse ArcaOptions TopFeed Pillar 1.2.c
 function omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaoptions_topfeed_pillar_v1_2_c.name
 

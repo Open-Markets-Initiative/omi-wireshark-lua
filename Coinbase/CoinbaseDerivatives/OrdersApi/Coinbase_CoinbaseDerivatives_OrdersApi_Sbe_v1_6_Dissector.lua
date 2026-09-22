@@ -5125,7 +5125,6 @@ end
 
 -- Dissector for Coinbase CoinbaseDerivatives OrdersApi Sbe 1.6
 function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_6.name
 

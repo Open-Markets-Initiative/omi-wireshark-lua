@@ -93,7 +93,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_9.fields.wide_double_sided_top_of_mark
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.wide_top_of_market_bid_message = ProtoField.new("Wide Top Of Market Bid Message", "miax.pearloptions.topofmarket.mach.v1.9.widetopofmarketbidmessage", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.wide_top_of_market_offer_message = ProtoField.new("Wide Top Of Market Offer Message", "miax.pearloptions.topofmarket.mach.v1.9.widetopofmarketoffermessage", ftypes.STRING)
 
--- Miax PearlOptions TopOfMarket Mach 1.9 generated fields
+-- Miax PearlOptions TopOfMarket Mach 1.9 Generated Fields
 omi_miax_pearloptions_topofmarket_mach_v1_9.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.topofmarket.mach.v1.9.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -2925,7 +2925,6 @@ end
 
 -- Dissector for Miax PearlOptions TopOfMarket Mach 1.9
 function omi_miax_pearloptions_topofmarket_mach_v1_9.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_pearloptions_topofmarket_mach_v1_9.name
 

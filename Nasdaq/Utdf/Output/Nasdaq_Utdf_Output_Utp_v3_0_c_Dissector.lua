@@ -155,7 +155,7 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.trade_report_message_shortform_message 
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.utdf.output.utp.v3.0.c.endofsession", ftypes.BYTES)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.utdf.output.utp.v3.0.c.heartbeat", ftypes.BYTES)
 
--- Nasdaq Utdf Output Utp 3.0.c generated fields
+-- Nasdaq Utdf Output Utp 3.0.c Generated Fields
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_closing_price_and_volume_summary_index = ProtoField.new("Market Center Closing Price And Volume Summary Index", "nasdaq.utdf.output.utp.v3.0.c.marketcenterclosingpriceandvolumesummaryindex", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_volume_group_index = ProtoField.new("Market Center Volume Group Index", "nasdaq.utdf.output.utp.v3.0.c.marketcentervolumegroupindex", ftypes.UINT16)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.message_index = ProtoField.new("Message Index", "nasdaq.utdf.output.utp.v3.0.c.messageindex", ftypes.UINT16)
@@ -6421,7 +6421,6 @@ end
 
 -- Dissector for Nasdaq Utdf Output Utp 3.0.c
 function omi_nasdaq_utdf_output_utp_v3_0_c.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_utdf_output_utp_v3_0_c.name
 

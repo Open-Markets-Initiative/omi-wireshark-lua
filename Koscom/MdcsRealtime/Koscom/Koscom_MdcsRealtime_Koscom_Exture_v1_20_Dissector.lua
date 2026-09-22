@@ -9742,7 +9742,6 @@ end
 
 -- Dissector for Koscom MdcsRealtime Koscom Exture 1.20
 function omi_koscom_mdcsrealtime_koscom_exture_v1_20.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_koscom_mdcsrealtime_koscom_exture_v1_20.name
 

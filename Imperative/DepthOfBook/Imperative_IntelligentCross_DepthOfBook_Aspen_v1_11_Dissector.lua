@@ -58,7 +58,7 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.symbol_state_mess
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.trade_break_message = ProtoField.new("Trade Break Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.tradebreakmessage", ftypes.STRING)
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.trade_message = ProtoField.new("Trade Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.trademessage", ftypes.STRING)
 
--- Imperative IntelligentCross DepthOfBook Aspen 1.11 generated fields
+-- Imperative IntelligentCross DepthOfBook Aspen 1.11 Generated Fields
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_index = ProtoField.new("Message Index", "imperative.intelligentcross.depthofbook.aspen.v1.11.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1597,7 +1597,6 @@ end
 
 -- Dissector for Imperative IntelligentCross DepthOfBook Aspen 1.11
 function omi_imperative_intelligentcross_depthofbook_aspen_v1_11.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_imperative_intelligentcross_depthofbook_aspen_v1_11.name
 

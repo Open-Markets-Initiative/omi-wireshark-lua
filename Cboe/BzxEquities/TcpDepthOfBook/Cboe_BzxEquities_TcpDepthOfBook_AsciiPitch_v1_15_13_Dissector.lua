@@ -2818,7 +2818,6 @@ end
 
 -- Dissector for Cboe BzxEquities TcpDepthOfBook AsciiPitch 1.15.13
 function omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_bzxequities_tcpdepthofbook_asciipitch_v1_15_13.name
 

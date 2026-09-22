@@ -224,7 +224,7 @@ omi_hkex_hkexsecurities_combined_omd_v1_45.fields.trading_session_status_message
 omi_hkex_hkexsecurities_combined_omd_v1_45.fields.vcm_trigger_message = ProtoField.new("Vcm Trigger Message", "hkex.hkexsecurities.combined.omd.v1.45.vcmtriggermessage", ftypes.STRING)
 omi_hkex_hkexsecurities_combined_omd_v1_45.fields.yield_message = ProtoField.new("Yield Message", "hkex.hkexsecurities.combined.omd.v1.45.yieldmessage", ftypes.STRING)
 
--- Hkex HkexSecurities Combined Omd 1.45 generated fields
+-- Hkex HkexSecurities Combined Omd 1.45 Generated Fields
 omi_hkex_hkexsecurities_combined_omd_v1_45.fields.book_entry_index = ProtoField.new("Book Entry Index", "hkex.hkexsecurities.combined.omd.v1.45.bookentryindex", ftypes.UINT16)
 omi_hkex_hkexsecurities_combined_omd_v1_45.fields.bq_item_index = ProtoField.new("Bq Item Index", "hkex.hkexsecurities.combined.omd.v1.45.bqitemindex", ftypes.UINT16)
 omi_hkex_hkexsecurities_combined_omd_v1_45.fields.liquidity_provider_index = ProtoField.new("Liquidity Provider Index", "hkex.hkexsecurities.combined.omd.v1.45.liquidityproviderindex", ftypes.UINT16)
@@ -5611,7 +5611,7 @@ hkex_hkexsecurities_combined_omd_v1_45.entitlement_composite.fields = function(b
   index, decimals_in_entitlement = hkex_hkexsecurities_combined_omd_v1_45.decimals_in_entitlement.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local entitlement_composite = entitlement / 10 ^ decimals_in_entitlement
+  local entitlement_composite = entitlement * 10 ^ decimals_in_entitlement
 
   return index, entitlement_composite
 end
@@ -5662,7 +5662,7 @@ hkex_hkexsecurities_combined_omd_v1_45.call_price_composite.fields = function(bu
   index, decimals_in_call_price = hkex_hkexsecurities_combined_omd_v1_45.decimals_in_call_price.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local call_price_composite = call_price / 10 ^ decimals_in_call_price
+  local call_price_composite = call_price * 10 ^ decimals_in_call_price
 
   return index, call_price_composite
 end
@@ -5713,7 +5713,7 @@ hkex_hkexsecurities_combined_omd_v1_45.face_value_composite.fields = function(bu
   index, decimals_in_face_value = hkex_hkexsecurities_combined_omd_v1_45.decimals_in_face_value.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local face_value_composite = face_value / 10 ^ decimals_in_face_value
+  local face_value_composite = face_value * 10 ^ decimals_in_face_value
 
   return index, face_value_composite
 end
@@ -7679,7 +7679,6 @@ end
 
 -- Dissector for Hkex HkexSecurities Combined Omd 1.45
 function omi_hkex_hkexsecurities_combined_omd_v1_45.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_hkex_hkexsecurities_combined_omd_v1_45.name
 

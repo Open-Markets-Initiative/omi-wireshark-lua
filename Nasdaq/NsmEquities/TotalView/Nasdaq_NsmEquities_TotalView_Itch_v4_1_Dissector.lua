@@ -84,7 +84,7 @@ omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.trade_message = ProtoField.new
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.nsmequities.totalview.itch.v4.1.endofsession", ftypes.BYTES)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.nsmequities.totalview.itch.v4.1.heartbeat", ftypes.BYTES)
 
--- Nasdaq NsmEquities TotalView Itch 4.1 generated fields
+-- Nasdaq NsmEquities TotalView Itch 4.1 Generated Fields
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.totalview.itch.v4.1.messageindex", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nsmequities.totalview.itch.v4.1.messagesequencenumber", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.itch.v4.1.timestamp", ftypes.UINT64)
@@ -2783,7 +2783,6 @@ end
 
 -- Dissector for Nasdaq NsmEquities TotalView Itch 4.1
 function omi_nasdaq_nsmequities_totalview_itch_v4_1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nasdaq_nsmequities_totalview_itch_v4_1.name
 

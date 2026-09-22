@@ -131,7 +131,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.system_state_message 
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.systemtimemessage", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
--- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a generated fields
+-- Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a Generated Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.complextopofmarket.mach.v1.3.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -4485,15 +4485,16 @@ end
 
 -- Dissector for Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.name
 
   -- Dissect protocol
   local protocol = parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a, buffer(), omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a.description, "("..buffer:len().." Bytes)")
+
   if packet.port_type == 3 then
     return miax_miaxoptions_complextopofmarket_mach_v1_3_a.udp_packet.dissect(buffer, packet, protocol)
   end
+
   if packet.port_type == 2 then
     return miax_miaxoptions_complextopofmarket_mach_v1_3_a.tcp_packet.dissect(buffer, packet, protocol)
   end
@@ -4531,9 +4532,11 @@ end
 -- Register Heuristics for Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a:register_heuristic("udp", omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a_udp_heuristic)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a:register_heuristic("tcp", omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a_tcp_heuristic)
+
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a for Decode As
 local udp_table = DissectorTable.get("udp.port")
 udp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a)
+
 -- Register Miax MiaxOptions ComplexTopOfMarket Mach 1.3.a for Decode As
 local tcp_table = DissectorTable.get("tcp.port")
 tcp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_3_a)

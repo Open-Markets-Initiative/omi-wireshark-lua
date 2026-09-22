@@ -142,7 +142,7 @@ omi_siac_cqs_output_cta_v2_10_a.fields.special_long_quote_message = ProtoField.n
 omi_siac_cqs_output_cta_v2_10_a.fields.start_of_day_message = ProtoField.new("Start Of Day Message", "siac.cqs.output.cta.v2.10.a.startofdaymessage", ftypes.STRING)
 omi_siac_cqs_output_cta_v2_10_a.fields.symbol_reference_data_message = ProtoField.new("Symbol Reference Data Message", "siac.cqs.output.cta.v2.10.a.symbolreferencedatamessage", ftypes.STRING)
 
--- Siac Cqs Output Cta 2.10.a generated fields
+-- Siac Cqs Output Cta 2.10.a Generated Fields
 omi_siac_cqs_output_cta_v2_10_a.fields.message_index = ProtoField.new("Message Index", "siac.cqs.output.cta.v2.10.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -5502,7 +5502,6 @@ end
 
 -- Dissector for Siac Cqs Output Cta 2.10.a
 function omi_siac_cqs_output_cta_v2_10_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_siac_cqs_output_cta_v2_10_a.name
 

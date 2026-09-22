@@ -471,7 +471,7 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_order_value_limit_update_message 
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_trade_modify_cancel_status_change_request_message = ProtoField.new("User Trade Modify Cancel Status Change Request Message", "nse.nsefo.orderentry.nnf.v9.50.usertrademodifycancelstatuschangerequestmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_trade_modify_cancel_status_change_response_message = ProtoField.new("User Trade Modify Cancel Status Change Response Message", "nse.nsefo.orderentry.nnf.v9.50.usertrademodifycancelstatuschangeresponsemessage", ftypes.STRING)
 
--- Nse NseFo OrderEntry Nnf 9.50 generated fields
+-- Nse NseFo OrderEntry Nnf 9.50 Generated Fields
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.branch_limits_index = ProtoField.new("Branch Limits Index", "nse.nsefo.orderentry.nnf.v9.50.branchlimitsindex", ftypes.UINT16)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.enhncd_mkt_stats_data_index = ProtoField.new("Enhncd Mkt Stats Data Index", "nse.nsefo.orderentry.nnf.v9.50.enhncdmktstatsdataindex", ftypes.UINT16)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.index_data_index = ProtoField.new("Index Data Index", "nse.nsefo.orderentry.nnf.v9.50.indexdataindex", ftypes.UINT16)
@@ -16270,7 +16270,6 @@ end
 
 -- Dissector for Nse NseFo OrderEntry Nnf 9.50
 function omi_nse_nsefo_orderentry_nnf_v9_50.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nse_nsefo_orderentry_nnf_v9_50.name
 

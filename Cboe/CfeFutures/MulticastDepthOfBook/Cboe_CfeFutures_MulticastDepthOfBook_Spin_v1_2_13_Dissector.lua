@@ -108,7 +108,7 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.time_message = Prot
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.time_reference_message = ProtoField.new("Time Reference Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.timereferencemessage", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.tradingstatusmessage", ftypes.STRING)
 
--- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.13 generated fields
+-- Cboe CfeFutures MulticastDepthOfBook Spin 1.2.13 Generated Fields
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.futurelegindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.messageindex", ftypes.UINT16)
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.timestamp", ftypes.UINT64)
@@ -3155,7 +3155,6 @@ end
 
 -- Dissector for Cboe CfeFutures MulticastDepthOfBook Spin 1.2.13
 function omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.name
 

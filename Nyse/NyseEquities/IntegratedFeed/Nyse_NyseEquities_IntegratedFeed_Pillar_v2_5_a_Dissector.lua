@@ -149,7 +149,7 @@ omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.trade_cancel_message =
 -- Nyse NyseEquities IntegratedFeed 2.5.a Session Messages
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.heartbeat", ftypes.BYTES)
 
--- Nyse NyseEquities IntegratedFeed Pillar 2.5.a generated fields
+-- Nyse NyseEquities IntegratedFeed Pillar 2.5.a Generated Fields
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.nyseequities.integratedfeed.pillar.v2.5.a.messagesequencenumber", ftypes.UINT64)
 
@@ -5125,7 +5125,6 @@ end
 
 -- Dissector for Nyse NyseEquities IntegratedFeed Pillar 2.5.a
 function omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_nyseequities_integratedfeed_pillar_v2_5_a.name
 

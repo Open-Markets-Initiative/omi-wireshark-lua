@@ -86,7 +86,7 @@ omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.stream_id_message = ProtoField.n
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_index_mapping_message = ProtoField.new("Underlying Index Mapping Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingindexmappingmessage", ftypes.STRING)
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.underlying_status_message = ProtoField.new("Underlying Status Message", "nyse.amexoptions.deepfeed.xdp.v1.3.a.underlyingstatusmessage", ftypes.STRING)
 
--- Nyse AmexOptions DeepFeed Xdp 1.3.a generated fields
+-- Nyse AmexOptions DeepFeed Xdp 1.3.a Generated Fields
 omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.deepfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2693,7 +2693,6 @@ end
 
 -- Dissector for Nyse AmexOptions DeepFeed Xdp 1.3.a
 function omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_amexoptions_deepfeed_xdp_v1_3_a.name
 

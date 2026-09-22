@@ -633,7 +633,6 @@ end
 
 -- Dissector for Euronext Optiq MarketDataPacket Udp 1
 function omi_euronext_optiq_marketdatapacket_udp_v1.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_euronext_optiq_marketdatapacket_udp_v1.name
 

@@ -89,7 +89,7 @@ omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.replay_and_recover
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.system_event_message = ProtoField.new("System Event Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.systemeventmessage", ftypes.STRING)
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.systematic_internaliser_quotes_message = ProtoField.new("Systematic Internaliser Quotes Message", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.systematicinternaliserquotesmessage", ftypes.STRING)
 
--- Lseg TradeEcho Level2IncrementalRecovery Gtp 24.4 generated fields
+-- Lseg TradeEcho Level2IncrementalRecovery Gtp 24.4 Generated Fields
 omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.tradeecho.level2incrementalrecovery.gtp.v24.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -2605,7 +2605,6 @@ end
 
 -- Dissector for Lseg TradeEcho Level2IncrementalRecovery Gtp 24.4
 function omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.name
 

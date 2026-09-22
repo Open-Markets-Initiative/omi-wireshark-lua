@@ -65,7 +65,7 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.trade_cancel_message = Prot
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.tradecorrectmessage", ftypes.STRING)
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.trade_message = ProtoField.new("Trade Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.trademessage", ftypes.STRING)
 
--- CixAts CixAspen MarketDataFeed Aspen 1.4 generated fields
+-- CixAts CixAspen MarketDataFeed Aspen 1.4 Generated Fields
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message_index = ProtoField.new("Message Index", "cixats.cixaspen.marketdatafeed.aspen.v1.4.messageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -1872,7 +1872,6 @@ end
 
 -- Dissector for CixAts CixAspen MarketDataFeed Aspen 1.4
 function omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.name
 

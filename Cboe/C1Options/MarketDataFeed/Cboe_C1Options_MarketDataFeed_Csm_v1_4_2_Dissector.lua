@@ -130,7 +130,7 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.settlement_value_message = P
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.summary_message = ProtoField.new("Summary Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.summarymessage", ftypes.STRING)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.ticker_message = ProtoField.new("Ticker Message", "cboe.c1options.marketdatafeed.csm.v1.4.2.tickermessage", ftypes.STRING)
 
--- Cboe C1Options MarketDataFeed Csm 1.4.2 generated fields
+-- Cboe C1Options MarketDataFeed Csm 1.4.2 Generated Fields
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry_index = ProtoField.new("Index Value Md Entry Index", "cboe.c1options.marketdatafeed.csm.v1.4.2.indexvaluemdentryindex", ftypes.UINT16)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.md_entry_index = ProtoField.new("Md Entry Index", "cboe.c1options.marketdatafeed.csm.v1.4.2.mdentryindex", ftypes.UINT16)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.marketdatafeed.csm.v1.4.2.messageindex", ftypes.UINT16)
@@ -4310,7 +4310,6 @@ end
 
 -- Dissector for Cboe C1Options MarketDataFeed Csm 1.4.2
 function omi_cboe_c1options_marketdatafeed_csm_v1_4_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_cboe_c1options_marketdatafeed_csm_v1_4_2.name
 

@@ -68,7 +68,7 @@ omi_nyse_arcaequities_arcabook_pillar_v2_2.fields.modify_order_message = ProtoFi
 -- Nyse ArcaEquities ArcaBook 2.2 Session Messages
 omi_nyse_arcaequities_arcabook_pillar_v2_2.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.arcaequities.arcabook.pillar.v2.2.heartbeat", ftypes.BYTES)
 
--- Nyse ArcaEquities ArcaBook Pillar 2.2 generated fields
+-- Nyse ArcaEquities ArcaBook Pillar 2.2 Generated Fields
 omi_nyse_arcaequities_arcabook_pillar_v2_2.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.arcabook.pillar.v2.2.messageindex", ftypes.UINT16)
 omi_nyse_arcaequities_arcabook_pillar_v2_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaequities.arcabook.pillar.v2.2.messagesequencenumber", ftypes.UINT64)
 
@@ -1918,7 +1918,6 @@ end
 
 -- Dissector for Nyse ArcaEquities ArcaBook Pillar 2.2
 function omi_nyse_arcaequities_arcabook_pillar_v2_2.dissector(buffer, packet, parent)
-
   -- Set protocol name
   packet.cols.protocol = omi_nyse_arcaequities_arcabook_pillar_v2_2.name
 
