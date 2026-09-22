@@ -15399,6 +15399,23 @@ ice_icefutures_bgw_sbe_v7_0.error_message.dissect = function(buffer, offset, pac
   end
 end
 
+-- Heart Beat Message
+ice_icefutures_bgw_sbe_v7_0.heart_beat_message = {}
+
+-- Display: Heart Beat Message
+ice_icefutures_bgw_sbe_v7_0.heart_beat_message.display = function(packet, parent, length)
+  return "Heart Beat Message"
+end
+
+
+-- Dissect: Heart Beat Message
+ice_icefutures_bgw_sbe_v7_0.heart_beat_message.dissect = function(buffer, offset, packet, parent)
+  local display = ice_icefutures_bgw_sbe_v7_0.heart_beat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Logout Report Message
 ice_icefutures_bgw_sbe_v7_0.logout_report_message = {}
 
@@ -15722,7 +15739,7 @@ ice_icefutures_bgw_sbe_v7_0.payload.dissect = function(buffer, offset, packet, p
   end
   -- Dissect Heart Beat Message
   if template_id == 51 then
-    return offset
+    return ice_icefutures_bgw_sbe_v7_0.heart_beat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Error Message
   if template_id == 114 then
