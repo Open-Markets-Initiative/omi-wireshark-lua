@@ -47,8 +47,8 @@ omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.unsequenced_message = ProtoFie
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.itch.v1.0.username", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView Itch 1.0 Framing
-omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v1.0.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "nasdaq.nsmequities.totalview.itch.v1.0.sequencedmessageheader", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.soup_tcp_packet = ProtoField.new("Soup Tcp Packet", "nasdaq.nsmequities.totalview.itch.v1.0.souptcppacket", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView 1.0 Application Messages
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.itch.v1.0.addordermessage", ftypes.STRING)
@@ -1415,11 +1415,11 @@ nasdaq_nsmequities_totalview_itch_v1_0.debug_packet.dissect = function(buffer, o
   end
 end
 
--- Payload
-nasdaq_nsmequities_totalview_itch_v1_0.payload = {}
+-- Soup Tcp Payload
+nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_payload = {}
 
--- Dissect: Payload
-nasdaq_nsmequities_totalview_itch_v1_0.payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Soup Tcp Payload
+nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
     return nasdaq_nsmequities_totalview_itch_v1_0.debug_packet.dissect(buffer, offset, packet, parent)
@@ -1448,19 +1448,19 @@ nasdaq_nsmequities_totalview_itch_v1_0.payload.dissect = function(buffer, offset
   return offset
 end
 
--- Packet
-nasdaq_nsmequities_totalview_itch_v1_0.packet = {}
+-- Soup Tcp Packet
+nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_nsmequities_totalview_itch_v1_0.packet.requiredsize = function(buffer)
+nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.requiredsize = function(buffer)
   return buffer:len() >= nasdaq_nsmequities_totalview_itch_v1_0.packet_type.size
 end
 
--- Dissect Packet
-nasdaq_nsmequities_totalview_itch_v1_0.packet.dissect = function(buffer, packet, parent)
+-- Dissect Soup Tcp Packet
+nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Packet
+  -- Dependency for Soup Tcp Packet
   local end_of_payload = buffer:len()
 
   while index < end_of_payload do
@@ -1468,8 +1468,8 @@ nasdaq_nsmequities_totalview_itch_v1_0.packet.dissect = function(buffer, packet,
     -- Packet Type: 1 Byte Ascii String Enum with 9 values
     index, packet_type = nasdaq_nsmequities_totalview_itch_v1_0.packet_type.dissect(buffer, index, packet, parent)
 
-    -- Payload: Runtime Type with 6 branches
-    index = nasdaq_nsmequities_totalview_itch_v1_0.payload.dissect(buffer, index, packet, parent, packet_type)
+    -- Soup Tcp Payload: Runtime Type with 6 branches
+    index = nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_payload.dissect(buffer, index, packet, parent, packet_type)
 
     -- Soup Lf: 1 Byte Fixed Width Integer Static
     index, soup_lf = nasdaq_nsmequities_totalview_itch_v1_0.soup_lf.dissect(buffer, index, packet, parent)
@@ -1494,7 +1494,7 @@ function omi_nasdaq_nsmequities_totalview_itch_v1_0.dissector(buffer, packet, pa
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0, buffer(), omi_nasdaq_nsmequities_totalview_itch_v1_0.description, "("..buffer:len().." Bytes)")
-  return nasdaq_nsmequities_totalview_itch_v1_0.packet.dissect(buffer, packet, protocol)
+  return nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -1505,7 +1505,7 @@ end
 -- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 1.0 (Tcp)
 local function omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_nsmequities_totalview_itch_v1_0.packet.requiredsize(buffer) then return false end
+  if not nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_totalview_itch_v1_0

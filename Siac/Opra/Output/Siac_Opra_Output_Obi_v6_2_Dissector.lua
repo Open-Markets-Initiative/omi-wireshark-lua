@@ -2610,7 +2610,7 @@ siac_opra_output_obi_v6_2.underlying_value_message_payload = {}
 -- Dissect: Underlying Value Message Payload
 siac_opra_output_obi_v6_2.underlying_value_message_payload.dissect = function(buffer, offset, packet, parent, underlying_value_message_type)
   -- Dissect Underlying Value Last Sale Message
-  if underlying_value_message_type == "" then
+  if underlying_value_message_type == " " then
     return siac_opra_output_obi_v6_2.underlying_value_last_sale_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Value Bid And Offer Message
@@ -3038,7 +3038,7 @@ siac_opra_output_obi_v6_2.short_equity_and_index_quote_message_payload = {}
 -- Dissect: Short Equity And Index Quote Message Payload
 siac_opra_output_obi_v6_2.short_equity_and_index_quote_message_payload.dissect = function(buffer, offset, packet, parent, short_equity_and_index_quote_message_type)
   -- Dissect Short Equity And Index Quote Message
-  if short_equity_and_index_quote_message_type == "" or short_equity_and_index_quote_message_type == "F" or short_equity_and_index_quote_message_type == "I" or short_equity_and_index_quote_message_type == "R" or short_equity_and_index_quote_message_type == "T" or short_equity_and_index_quote_message_type == "A" or short_equity_and_index_quote_message_type == "B" or short_equity_and_index_quote_message_type == "O" or short_equity_and_index_quote_message_type == "C" or short_equity_and_index_quote_message_type == "X" or short_equity_and_index_quote_message_type == "Y" then
+  if short_equity_and_index_quote_message_type == " " or short_equity_and_index_quote_message_type == "F" or short_equity_and_index_quote_message_type == "I" or short_equity_and_index_quote_message_type == "R" or short_equity_and_index_quote_message_type == "T" or short_equity_and_index_quote_message_type == "A" or short_equity_and_index_quote_message_type == "B" or short_equity_and_index_quote_message_type == "O" or short_equity_and_index_quote_message_type == "C" or short_equity_and_index_quote_message_type == "X" or short_equity_and_index_quote_message_type == "Y" then
     return siac_opra_output_obi_v6_2.short_equity_and_index_quote_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -3257,7 +3257,7 @@ siac_opra_output_obi_v6_2.long_equity_and_index_quote_message_payload = {}
 -- Dissect: Long Equity And Index Quote Message Payload
 siac_opra_output_obi_v6_2.long_equity_and_index_quote_message_payload.dissect = function(buffer, offset, packet, parent, long_equity_and_index_quote_message_type)
   -- Dissect Long Equity And Index Quote Message
-  if long_equity_and_index_quote_message_type == "" or long_equity_and_index_quote_message_type == "F" or long_equity_and_index_quote_message_type == "I" or long_equity_and_index_quote_message_type == "R" or long_equity_and_index_quote_message_type == "T" or long_equity_and_index_quote_message_type == "A" or long_equity_and_index_quote_message_type == "B" or long_equity_and_index_quote_message_type == "O" or long_equity_and_index_quote_message_type == "C" or long_equity_and_index_quote_message_type == "X" or long_equity_and_index_quote_message_type == "Y" then
+  if long_equity_and_index_quote_message_type == " " or long_equity_and_index_quote_message_type == "F" or long_equity_and_index_quote_message_type == "I" or long_equity_and_index_quote_message_type == "R" or long_equity_and_index_quote_message_type == "T" or long_equity_and_index_quote_message_type == "A" or long_equity_and_index_quote_message_type == "B" or long_equity_and_index_quote_message_type == "O" or long_equity_and_index_quote_message_type == "C" or long_equity_and_index_quote_message_type == "X" or long_equity_and_index_quote_message_type == "Y" then
     return siac_opra_output_obi_v6_2.long_equity_and_index_quote_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -3439,7 +3439,7 @@ siac_opra_output_obi_v6_2.equity_and_index_end_of_day_summary_message_payload = 
 -- Dissect: Equity And Index End Of Day Summary Message Payload
 siac_opra_output_obi_v6_2.equity_and_index_end_of_day_summary_message_payload.dissect = function(buffer, offset, packet, parent, equity_and_index_end_of_day_summary_message_type)
   -- Dissect Equity And Index End Of Day Summary Message
-  if equity_and_index_end_of_day_summary_message_type == "" then
+  if equity_and_index_end_of_day_summary_message_type == " " then
     return siac_opra_output_obi_v6_2.equity_and_index_end_of_day_summary_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -3577,7 +3577,7 @@ siac_opra_output_obi_v6_2.open_interest_message_payload = {}
 -- Dissect: Open Interest Message Payload
 siac_opra_output_obi_v6_2.open_interest_message_payload.dissect = function(buffer, offset, packet, parent, open_interest_message_type)
   -- Dissect Open Interest Message
-  if open_interest_message_type == "" then
+  if open_interest_message_type == " " then
     return siac_opra_output_obi_v6_2.open_interest_message.dissect(buffer, offset, packet, parent)
   end
 
@@ -3981,7 +3981,7 @@ siac_opra_output_obi_v6_2.administrative_message_payload = {}
 -- Dissect: Administrative Message Payload
 siac_opra_output_obi_v6_2.administrative_message_payload.dissect = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect Administrative Message
-  if administrative_message_type == "" then
+  if administrative_message_type == " " then
     return siac_opra_output_obi_v6_2.administrative_message.dissect(buffer, offset, packet, parent)
   end
 
