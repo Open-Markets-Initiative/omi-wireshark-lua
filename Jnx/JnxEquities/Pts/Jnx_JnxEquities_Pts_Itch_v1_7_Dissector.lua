@@ -102,6 +102,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.trading_state_message = ProtoField.new(
 -- Jnx JnxEquities Pts Itch 1.7 Generated Fields
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_index = ProtoField.new("Message Index", "jnx.jnxequities.pts.itch.v1.7.messageindex", ftypes.UINT16)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "jnx.jnxequities.pts.itch.v1.7.messagesequencenumber", ftypes.UINT64)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "jnx.jnxequities.pts.itch.v1.7.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.itch.v1.7.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -203,6 +204,11 @@ end
 jnx_jnxequities_pts_itch_v1_7.conversation = {}
 jnx_jnxequities_pts_itch_v1_7.conversation.flows = {}
 
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+jnx_jnxequities_pts_itch_v1_7.stream_frame = nil
+jnx_jnxequities_pts_itch_v1_7.stream_occurrence = 0
+
 -- Conversation key for the current packet (src/dst tuple)
 jnx_jnxequities_pts_itch_v1_7.conversation.key = function(packet)
   return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
@@ -214,7 +220,7 @@ jnx_jnxequities_pts_itch_v1_7.conversation.data = function(packet)
   local key = jnx_jnxequities_pts_itch_v1_7.conversation.key(packet)
   local data = jnx_jnxequities_pts_itch_v1_7.conversation.flows[key]
   if data == nil then
-    data = { seconds = { last = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     jnx_jnxequities_pts_itch_v1_7.conversation.flows[key] = data
   end
   return data
@@ -2563,6 +2569,43 @@ end
 jnx_jnxequities_pts_itch_v1_7.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = jnx_jnxequities_pts_itch_v1_7.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(jnx_jnxequities_pts_itch_v1_7.accepted_sequence_number.current)
+      end
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if jnx_jnxequities_pts_itch_v1_7.stream_frame ~= packet.number or jnx_jnxequities_pts_itch_v1_7.stream_occurrence >= #memo then
+          jnx_jnxequities_pts_itch_v1_7.stream_frame = packet.number
+          jnx_jnxequities_pts_itch_v1_7.stream_occurrence = 0
+        end
+        jnx_jnxequities_pts_itch_v1_7.stream_occurrence = jnx_jnxequities_pts_itch_v1_7.stream_occurrence + 1
+        local value = memo[jnx_jnxequities_pts_itch_v1_7.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 11 values
   index, sequenced_message_type = jnx_jnxequities_pts_itch_v1_7.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -2656,6 +2699,13 @@ jnx_jnxequities_pts_itch_v1_7.login_accepted_packet.fields = function(buffer, of
 
   -- Accepted Sequence Number: 20 Byte Ascii String
   index, accepted_sequence_number = jnx_jnxequities_pts_itch_v1_7.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Store Accepted Sequence Number Value
+  jnx_jnxequities_pts_itch_v1_7.accepted_sequence_number.current = accepted_sequence_number
+
+  if not packet.visited then
+    jnx_jnxequities_pts_itch_v1_7.conversation.current.accepted_sequence_number.last = accepted_sequence_number
+  end
 
   return index
 end
@@ -2874,8 +2924,10 @@ jnx_jnxequities_pts_itch_v1_7.server_tcp_packet.dissect = function(buffer, packe
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxequities_pts_itch_v1_7.conversation.data(packet)
   if not packet.visited then
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.seconds.frames[packet.number] = data.seconds.last
   end
+  jnx_jnxequities_pts_itch_v1_7.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   jnx_jnxequities_pts_itch_v1_7.seconds.current = data.seconds.frames[packet.number]
   jnx_jnxequities_pts_itch_v1_7.conversation.current = data
 
@@ -3230,6 +3282,7 @@ end
 
 -- Initialize Dissector
 function omi_jnx_jnxequities_pts_itch_v1_7.init()
+  jnx_jnxequities_pts_itch_v1_7.accepted_sequence_number.current = nil
   jnx_jnxequities_pts_itch_v1_7.seconds.current = nil
   jnx_jnxequities_pts_itch_v1_7.conversation.current = nil
   jnx_jnxequities_pts_itch_v1_7.conversation.flows = {}

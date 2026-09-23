@@ -89,6 +89,7 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event_message = ProtoField.ne
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.jnxequities.pts.glimpse.v1.3.tradingstatemessage", ftypes.STRING)
 
 -- Jnx JnxEquities Pts Glimpse 1.3 Generated Fields
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "jnx.jnxequities.pts.glimpse.v1.3.sequenceddatapacketsequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxequities.pts.glimpse.v1.3.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -130,6 +131,7 @@ show.structs = true
 show.headers = true
 show.session_messages = true
 show.application_messages = true
+show.sequences = true
 
 -- Register Jnx JnxEquities Pts Glimpse 1.3 Show Options
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
@@ -139,6 +141,7 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_structs = Pref.bool("Show Struct
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.timestamp_format = Pref.enum("Nanoseconds Format", 2, "Nanoseconds display format", timestamp_format_enum, false)
@@ -160,6 +163,9 @@ function omi_jnx_jnxequities_pts_glimpse_v1_3.prefs_changed()
   if show.structs ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_structs then
     show.structs = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_structs
   end
+  if show.sequences ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_sequences then
+    show.sequences = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.show_sequences
+  end
   if jnx_jnxequities_pts_glimpse_v1_3.format_timestamp ~= omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.format_timestamp then
     jnx_jnxequities_pts_glimpse_v1_3.format_timestamp = omi_jnx_jnxequities_pts_glimpse_v1_3.prefs.format_timestamp
   end
@@ -180,6 +186,11 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.conversation = {}
 jnx_jnxequities_pts_glimpse_v1_3.conversation.flows = {}
 
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+jnx_jnxequities_pts_glimpse_v1_3.stream_frame = nil
+jnx_jnxequities_pts_glimpse_v1_3.stream_occurrence = 0
+
 -- Conversation key for the current packet (src/dst tuple)
 jnx_jnxequities_pts_glimpse_v1_3.conversation.key = function(packet)
   return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
@@ -191,7 +202,7 @@ jnx_jnxequities_pts_glimpse_v1_3.conversation.data = function(packet)
   local key = jnx_jnxequities_pts_glimpse_v1_3.conversation.key(packet)
   local data = jnx_jnxequities_pts_glimpse_v1_3.conversation.flows[key]
   if data == nil then
-    data = { seconds = { last = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     jnx_jnxequities_pts_glimpse_v1_3.conversation.flows[key] = data
   end
   return data
@@ -2065,6 +2076,43 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = jnx_jnxequities_pts_glimpse_v1_3.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.current)
+      end
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if jnx_jnxequities_pts_glimpse_v1_3.stream_frame ~= packet.number or jnx_jnxequities_pts_glimpse_v1_3.stream_occurrence >= #memo then
+          jnx_jnxequities_pts_glimpse_v1_3.stream_frame = packet.number
+          jnx_jnxequities_pts_glimpse_v1_3.stream_occurrence = 0
+        end
+        jnx_jnxequities_pts_glimpse_v1_3.stream_occurrence = jnx_jnxequities_pts_glimpse_v1_3.stream_occurrence + 1
+        local value = memo[jnx_jnxequities_pts_glimpse_v1_3.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 11 values
   index, sequenced_message_type = jnx_jnxequities_pts_glimpse_v1_3.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -2158,6 +2206,13 @@ jnx_jnxequities_pts_glimpse_v1_3.login_accepted_packet.fields = function(buffer,
 
   -- Accepted Sequence Number: 20 Byte Ascii String
   index, accepted_sequence_number = jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Store Accepted Sequence Number Value
+  jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.current = accepted_sequence_number
+
+  if not packet.visited then
+    jnx_jnxequities_pts_glimpse_v1_3.conversation.current.accepted_sequence_number.last = accepted_sequence_number
+  end
 
   return index
 end
@@ -2376,8 +2431,10 @@ jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.dissect = function(buffer, pa
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxequities_pts_glimpse_v1_3.conversation.data(packet)
   if not packet.visited then
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.seconds.frames[packet.number] = data.seconds.last
   end
+  jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   jnx_jnxequities_pts_glimpse_v1_3.seconds.current = data.seconds.frames[packet.number]
   jnx_jnxequities_pts_glimpse_v1_3.conversation.current = data
 
@@ -2732,6 +2789,7 @@ end
 
 -- Initialize Dissector
 function omi_jnx_jnxequities_pts_glimpse_v1_3.init()
+  jnx_jnxequities_pts_glimpse_v1_3.accepted_sequence_number.current = nil
   jnx_jnxequities_pts_glimpse_v1_3.seconds.current = nil
   jnx_jnxequities_pts_glimpse_v1_3.conversation.current = nil
   jnx_jnxequities_pts_glimpse_v1_3.conversation.flows = {}
