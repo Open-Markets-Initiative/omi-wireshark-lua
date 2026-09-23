@@ -140,6 +140,7 @@ omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.fields.unsequenced_data_packet = 
 -- Nasdaq PhlxOptions DepthOfMarket Itch 2.1 Generated Fields
 omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.depthofmarket.itch.v2.1.messageindex", ftypes.UINT16)
 omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v2.1.messagesequencenumber", ftypes.UINT64)
+omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.phlxoptions.depthofmarket.itch.v2.1.sequenceddatapacketsequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq PhlxOptions DepthOfMarket Itch 2.1 Formatting
@@ -223,6 +224,41 @@ function omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.prefs_changed()
     nasdaq_phlxoptions_depthofmarket_itch_v2_1.utc_offset_hours = omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.prefs.utc_offset_hours
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation = {}
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_frame = nil
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.data = function(packet)
+  local key = nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.key(packet)
+  local data = nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.flows[key]
+  if data == nil then
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -4162,6 +4198,43 @@ end
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(nasdaq_phlxoptions_depthofmarket_itch_v2_1.accepted_sequence_number.current)
+      end
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_frame ~= packet.number or nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_occurrence >= #memo then
+          nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_frame = packet.number
+          nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_occurrence = 0
+        end
+        nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_occurrence = nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_occurrence + 1
+        local value = memo[nasdaq_phlxoptions_depthofmarket_itch_v2_1.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 20 values
   index, sequenced_message_type = nasdaq_phlxoptions_depthofmarket_itch_v2_1.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -4255,6 +4328,13 @@ nasdaq_phlxoptions_depthofmarket_itch_v2_1.login_accepted_packet.fields = functi
 
   -- Accepted Sequence Number: 20 Byte Ascii String
   index, accepted_sequence_number = nasdaq_phlxoptions_depthofmarket_itch_v2_1.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Store Accepted Sequence Number Value
+  nasdaq_phlxoptions_depthofmarket_itch_v2_1.accepted_sequence_number.current = accepted_sequence_number
+
+  if not packet.visited then
+    nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.current.accepted_sequence_number.last = accepted_sequence_number
+  end
 
   return index
 end
@@ -4470,6 +4550,14 @@ end
 
 -- Dissect Server Tcp Packet
 nasdaq_phlxoptions_depthofmarket_itch_v2_1.server_tcp_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.data(packet)
+  if not packet.visited then
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
+  end
+  nasdaq_phlxoptions_depthofmarket_itch_v2_1.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
+  nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -4821,6 +4909,9 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_phlxoptions_depthofmarket_itch_v2_1.init()
+  nasdaq_phlxoptions_depthofmarket_itch_v2_1.accepted_sequence_number.current = nil
+  nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.current = nil
+  nasdaq_phlxoptions_depthofmarket_itch_v2_1.conversation.flows = {}
 end
 
 -- Connection roles for Nasdaq PhlxOptions DepthOfMarket Itch 2.1: Client is the initiator, Server is the acceptor

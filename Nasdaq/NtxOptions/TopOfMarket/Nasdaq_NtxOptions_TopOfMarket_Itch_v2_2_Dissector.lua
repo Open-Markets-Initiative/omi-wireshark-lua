@@ -138,6 +138,7 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.unsequenced_data_packet = Pro
 -- Nasdaq NtxOptions TopOfMarket Itch 2.2 Generated Fields
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.message_index = ProtoField.new("Message Index", "nasdaq.ntxoptions.topofmarket.itch.v2.2.messageindex", ftypes.UINT16)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.messagesequencenumber", ftypes.UINT64)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.sequenced_data_packet_sequence_number = ProtoField.new("Sequenced Data Packet Sequence Number", "nasdaq.ntxoptions.topofmarket.itch.v2.2.sequenceddatapacketsequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq NtxOptions TopOfMarket Itch 2.2 Formatting
@@ -221,6 +222,41 @@ function omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.prefs_changed()
     nasdaq_ntxoptions_topofmarket_itch_v2_2.utc_offset_hours = omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.prefs.utc_offset_hours
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation = {}
+nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_frame = nil
+nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.data = function(packet)
+  local key = nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.key(packet)
+  local data = nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.flows[key]
+  if data == nil then
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -3450,6 +3486,43 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Implicit Sequenced Data Packet Sequence Number
+  local flow = nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.current
+  if flow ~= nil then
+    local memo = flow.sequence.frames[packet.number]
+    if not packet.visited then
+      if flow.sequence.next == nil then
+        flow.sequence.next = tonumber(nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.current)
+      end
+      local value = flow.sequence.next
+      if value ~= nil then
+        if memo == nil then
+          memo = {}
+          flow.sequence.frames[packet.number] = memo
+        end
+        memo[#memo + 1] = value
+        flow.sequence.next = value + 1
+        if show.sequences then
+          local sequence = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    else
+      if memo ~= nil and #memo > 0 then
+        if nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_frame ~= packet.number or nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_occurrence >= #memo then
+          nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_frame = packet.number
+          nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_occurrence = 0
+        end
+        nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_occurrence = nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_occurrence + 1
+        local value = memo[nasdaq_ntxoptions_topofmarket_itch_v2_2.stream_occurrence]
+        if show.sequences and value ~= nil then
+          local sequence = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.sequenced_data_packet_sequence_number, UInt64.new(value))
+          sequence:set_generated()
+        end
+      end
+    end
+  end
+
   -- Sequenced Message Type: 1 Byte Ascii String Enum with 10 values
   index, sequenced_message_type = nasdaq_ntxoptions_topofmarket_itch_v2_2.sequenced_message_type.dissect(buffer, index, packet, parent)
 
@@ -3543,6 +3616,13 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.login_accepted_packet.fields = function(
 
   -- Accepted Sequence Number: 20 Byte Ascii String
   index, accepted_sequence_number = nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Store Accepted Sequence Number Value
+  nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.current = accepted_sequence_number
+
+  if not packet.visited then
+    nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.current.accepted_sequence_number.last = accepted_sequence_number
+  end
 
   return index
 end
@@ -3758,6 +3838,14 @@ end
 
 -- Dissect Server Tcp Packet
 nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.data(packet)
+  if not packet.visited then
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
+  end
+  nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
+  nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.current = data
+
   local index = 0
 
   -- Dependency for Server Soup Bin Tcp Packet
@@ -4109,6 +4197,9 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.init()
+  nasdaq_ntxoptions_topofmarket_itch_v2_2.accepted_sequence_number.current = nil
+  nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.current = nil
+  nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.flows = {}
 end
 
 -- Connection roles for Nasdaq NtxOptions TopOfMarket Itch 2.2: Client is the initiator, Server is the acceptor
