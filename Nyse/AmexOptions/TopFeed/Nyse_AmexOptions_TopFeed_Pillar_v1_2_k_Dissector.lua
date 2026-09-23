@@ -5785,6 +5785,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.messages.dissect = function(buffer, offse
   if delivery_flag == 1 then
     return nyse_amexoptions_topfeed_pillar_v1_2_k.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, number_msgs do
 
@@ -5794,8 +5795,6 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.messages.dissect = function(buffer, offse
     -- Message: Struct of 2 fields
     offset = nyse_amexoptions_topfeed_pillar_v1_2_k.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Send Time

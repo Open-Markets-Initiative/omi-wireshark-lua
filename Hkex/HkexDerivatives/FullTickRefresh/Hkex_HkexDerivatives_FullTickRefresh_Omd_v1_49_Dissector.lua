@@ -3781,7 +3781,7 @@ hkex_hkexderivatives_fulltickrefresh_omd_v1_49.order_type.dissect = function(buf
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.order_type.display(range, value, packet, parent)
-  local element = parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.order_type, range, display)
+  local element = parent:add_le(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.order_type, range, display)
 
   if show.structs then
     hkex_hkexderivatives_fulltickrefresh_omd_v1_49.order_type.bits(range, value, packet, element)

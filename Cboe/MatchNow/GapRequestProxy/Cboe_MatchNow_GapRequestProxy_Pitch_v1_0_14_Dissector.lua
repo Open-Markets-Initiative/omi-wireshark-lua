@@ -1,0 +1,914 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Cboe MatchNow GapRequestProxy Pitch 1.0.14 Protocol
+local omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14 = Proto("Omi.Cboe.MatchNow.GapRequestProxy.Pitch.v1.0.14", "Cboe MatchNow GapRequestProxy Pitch 1.0.14")
+
+-- Protocol table
+local cboe_matchnow_gaprequestproxy_pitch_v1_0_14 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Cboe MatchNow GapRequestProxy Pitch 1.0.14 Fields
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.count = ProtoField.new("Count", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.count", ftypes.UINT16)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.filler = ProtoField.new("Filler", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.filler", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.length = ProtoField.new("Length", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.length", ftypes.UINT16)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_length = ProtoField.new("Message Length", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.messagelength", ftypes.UINT8)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_type = ProtoField.new("Message Type", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.messagetype", ftypes.UINT8)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.password = ProtoField.new("Password", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.password", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.sequence = ProtoField.new("Sequence", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.sequence", ftypes.UINT32)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.sessionsubid", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.status = ProtoField.new("Status", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.status", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.unit = ProtoField.new("Unit", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.unit", ftypes.UINT8)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.username = ProtoField.new("Username", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.username", ftypes.STRING)
+
+-- Cboe MatchNow GapRequestProxy Pitch 1.0.14 Framing
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message = ProtoField.new("Message", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.message", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_header = ProtoField.new("Message Header", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.messageheader", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.packet = ProtoField.new("Packet", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.packet", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.packet_header = ProtoField.new("Packet Header", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.packetheader", ftypes.STRING)
+
+-- Cboe MatchNow GapRequestProxy 1.0.14 Application Messages
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.gap_request_message = ProtoField.new("Gap Request Message", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.gaprequestmessage", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.gap_response_message = ProtoField.new("Gap Response Message", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.gapresponsemessage", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.login_message = ProtoField.new("Login Message", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.loginmessage", ftypes.STRING)
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.loginresponsemessage", ftypes.STRING)
+
+-- Cboe MatchNow GapRequestProxy Pitch 1.0.14 Generated Fields
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_index = ProtoField.new("Message Index", "cboe.matchnow.gaprequestproxy.pitch.v1.0.14.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Cboe MatchNow GapRequestProxy Pitch 1.0.14 Element Dissection Options
+show.application_messages = true
+show.structs = true
+show.headers = true
+show.indexes = true
+
+-- Register Cboe MatchNow GapRequestProxy Pitch 1.0.14 Show Options
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+-- Handle changed preferences
+function omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_application_messages then
+    show.application_messages = omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_headers then
+    show.headers = omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_headers
+  end
+  if show.structs ~= omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_structs then
+    show.structs = omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_indexes then
+    show.indexes = omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.prefs.show_indexes
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
+-- Cboe MatchNow GapRequestProxy Pitch 1.0.14 Fields
+-----------------------------------------------------------------------
+
+-- Count
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count = {}
+
+-- Size: Count
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.size = 2
+
+-- Display: Count
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Filler
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler = {}
+
+-- Size: Filler
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler.size = 2
+
+-- Display: Filler
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler.display = function(value)
+  return "Filler: "..value
+end
+
+-- Dissect: Filler
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.filler, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length = {}
+
+-- Size: Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length.size = 2
+
+-- Display: Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length = {}
+
+-- Size: Message Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length.size = 1
+
+-- Display: Message Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type = {}
+
+-- Size: Message Type
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.size = 1
+
+-- Display: Message Type
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.display = function(value)
+  if value == 0x01 then
+    return "Message Type: Login Message (0x01)"
+  end
+  if value == 0x02 then
+    return "Message Type: Login Response Message (0x02)"
+  end
+  if value == 0x03 then
+    return "Message Type: Gap Request Message (0x03)"
+  end
+  if value == 0x04 then
+    return "Message Type: Gap Response Message (0x04)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password = {}
+
+-- Size: Password
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password.size = 10
+
+-- Display: Password
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password.display = function(value)
+  return "Password: "..value
+end
+
+-- Dissect: Password
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence = {}
+
+-- Size: Sequence
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.size = 4
+
+-- Display: Sequence
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Sub Id
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id = {}
+
+-- Size: Session Sub Id
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id.size = 4
+
+-- Display: Session Sub Id
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id.display = function(value)
+  return "Session Sub Id: "..value
+end
+
+-- Dissect: Session Sub Id
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.session_sub_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status = {}
+
+-- Size: Status
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.size = 1
+
+-- Display: Status
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.display = function(value)
+  if value == "A" then
+    return "Status: Accepted (A)"
+  end
+  if value == "N" then
+    return "Status: Not Authorized Invalid Username Password (N)"
+  end
+  if value == "B" then
+    return "Status: Session In Use (B)"
+  end
+  if value == "S" then
+    return "Status: Invalid Session (S)"
+  end
+  if value == "O" then
+    return "Status: Out Of Range Ahead Of Sequence Or Too Far Behind (O)"
+  end
+  if value == "D" then
+    return "Status: Daily Gap Request Allocation Exhausted (D)"
+  end
+  if value == "M" then
+    return "Status: Minute Gap Request Allocation Exhausted (M)"
+  end
+  if value == "C" then
+    return "Status: Count Request Limit For One Gap Request Exceeded (C)"
+  end
+  if value == "I" then
+    return "Status: Invalid Unit Specified In Request (I)"
+  end
+  if value == "U" then
+    return "Status: Unit Is Currently Unavailable (U)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit = {}
+
+-- Size: Unit
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.size = 1
+
+-- Display: Unit
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.display = function(value)
+  return "Unit: "..value
+end
+
+-- Dissect: Unit
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username = {}
+
+-- Size: Username
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username.size = 4
+
+-- Display: Username
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe MatchNow GapRequestProxy Pitch 1.0.14
+-----------------------------------------------------------------------
+
+-- Gap Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message = {}
+
+-- Size: Gap Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.size =
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.size
+
+-- Display: Gap Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Gap Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Unit: Binary
+  index, unit = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
+
+  -- Sequence: Binary
+  index, sequence = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.dissect(buffer, index, packet, parent)
+
+  -- Count: Binary
+  index, count = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
+
+  -- Status: Alphanumeric
+  index, status = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Gap Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.gap_response_message, buffer(offset, 0))
+    local index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Gap Request Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message = {}
+
+-- Size: Gap Request Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.size =
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.size
+
+-- Display: Gap Request Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Gap Request Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Unit: Binary
+  index, unit = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
+
+  -- Sequence: Binary
+  index, sequence = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.dissect(buffer, index, packet, parent)
+
+  -- Count: Binary
+  index, count = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Gap Request Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.gap_request_message, buffer(offset, 0))
+    local index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message = {}
+
+-- Size: Login Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.size =
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.size
+
+-- Display: Login Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Status: Alphanumeric
+  index, status = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Response Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.login_response_message, buffer(offset, 0))
+    local index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message = {}
+
+-- Size: Login Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.size =
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password.size
+
+-- Display: Login Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session Sub Id: Alphanumeric
+  index, session_sub_id = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.session_sub_id.dissect(buffer, index, packet, parent)
+
+  -- Username: Alphanumeric
+  index, username = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.username.dissect(buffer, index, packet, parent)
+
+  -- Filler: Alphanumeric
+  index, filler = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.filler.dissect(buffer, index, packet, parent)
+
+  -- Password: Alphanumeric
+  index, password = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.password.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.login_message, buffer(offset, 0))
+    local index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.payload = {}
+
+-- Dissect: Payload
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Login Message
+  if message_type == 0x01 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Login Response Message
+  if message_type == 0x02 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.login_response_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gap Request Message
+  if message_type == 0x03 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Gap Response Message
+  if message_type == 0x04 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.gap_response_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header = {}
+
+-- Size: Message Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.size =
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.size
+
+-- Display: Message Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 1 Byte Unsigned Fixed Width Integer
+  index, message_length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, message_type = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_header, buffer(offset, 0))
+    local index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message = {}
+
+-- Read runtime size of: Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 1):le_uint()
+
+  return message_length
+end
+
+-- Display: Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):le_uint()
+
+  -- Payload: Runtime Type with 4 branches
+  index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.size(buffer, offset)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.message, buffer(offset, 0))
+    local current = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Heartbeat
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.messages = {}
+
+-- Dissect: Messages
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.messages.dissect = function(buffer, offset, packet, parent, count)
+  -- Dissect Heartbeat
+  if count == 0 then
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Repeating: Message
+  for message_index = 1, count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 1):le_uint()
+
+    -- Message: Struct of 2 fields
+    offset = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+end
+
+-- Packet Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header = {}
+
+-- Size: Packet Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.size =
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.size + 
+  cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.size
+
+-- Display: Packet Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.length.dissect(buffer, index, packet, parent)
+
+  -- Count: Binary
+  index, count = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.count.dissect(buffer, index, packet, parent)
+
+  -- Unit: Binary
+  index, unit = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.unit.dissect(buffer, index, packet, parent)
+
+  -- Sequence: Binary
+  index, sequence = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.fields.packet_header, buffer(offset, 0))
+    local index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet = {}
+
+-- Verify required size of Tcp packet
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.size
+end
+
+-- Dissect Packet
+cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 4 fields
+  index, packet_header = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Count
+  local count = buffer(index - 7, 2):le_uint()
+
+  -- Messages: Runtime Type with 2 branches
+  index = cboe_matchnow_gaprequestproxy_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, count)
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.init()
+end
+
+-- Dissector for Cboe MatchNow GapRequestProxy Pitch 1.0.14
+function omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14, buffer(), omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.description, "("..buffer:len().." Bytes)")
+  return cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Cboe MatchNow GapRequestProxy Pitch 1.0.14 (Tcp)
+local function omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cboe_matchnow_gaprequestproxy_pitch_v1_0_14.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14
+  omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Cboe MatchNow GapRequestProxy Pitch 1.0.14
+omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14:register_heuristic("tcp", omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14_tcp_heuristic)
+
+-- Register Cboe MatchNow GapRequestProxy Pitch 1.0.14 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_cboe_matchnow_gaprequestproxy_pitch_v1_0_14)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Chicago Board Options Exchange
+--   Version: 1.0.14
+--   Date: Monday, February 9, 2026
+--   Specification: Cboe Canada Equities Multicast PITCH Specification (2026-05-28).pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

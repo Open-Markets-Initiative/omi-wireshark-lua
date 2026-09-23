@@ -3240,6 +3240,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.messages.dissect = function(buffer, o
   if message_count == 65535 then
     return nasdaq_psxequities_lastsale_itch_v2_1_2018.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3252,8 +3253,6 @@ nasdaq_psxequities_lastsale_itch_v2_1_2018.messages.dissect = function(buffer, o
     -- Message: Struct of 2 fields
     offset = nasdaq_psxequities_lastsale_itch_v2_1_2018.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

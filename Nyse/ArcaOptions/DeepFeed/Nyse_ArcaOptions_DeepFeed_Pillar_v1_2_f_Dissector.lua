@@ -5266,6 +5266,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.messages.dissect = function(buffer, offs
   if delivery_flag == 1 then
     return nyse_arcaoptions_deepfeed_pillar_v1_2_f.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, number_msgs do
 
@@ -5275,8 +5276,6 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.messages.dissect = function(buffer, offs
     -- Message: Struct of 2 fields
     offset = nyse_arcaoptions_deepfeed_pillar_v1_2_f.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Send Time

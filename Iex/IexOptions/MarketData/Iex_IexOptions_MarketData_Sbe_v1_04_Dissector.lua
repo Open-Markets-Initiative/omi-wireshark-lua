@@ -43,6 +43,9 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.instrument_id = ProtoField.new("I
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.liquidity_event_type = ProtoField.new("Liquidity Event Type", "iex.iexoptions.marketdata.sbe.v1.04.liquidityeventtype", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.logon_id = ProtoField.new("Logon Id", "iex.iexoptions.marketdata.sbe.v1.04.logonid", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.maturity_date = ProtoField.new("Maturity Date", "iex.iexoptions.marketdata.sbe.v1.04.maturitydate", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message = ProtoField.new("Message", "iex.iexoptions.marketdata.sbe.v1.04.message", ftypes.STRING)
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message_data = ProtoField.new("Message Data", "iex.iexoptions.marketdata.sbe.v1.04.messagedata", ftypes.BYTES)
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message_length = ProtoField.new("Message Length", "iex.iexoptions.marketdata.sbe.v1.04.messagelength", ftypes.UINT16)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message_list_group_encoding = ProtoField.new("Message List Group Encoding", "iex.iexoptions.marketdata.sbe.v1.04.messagelistgroupencoding", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.mod_flag = ProtoField.new("Mod Flag", "iex.iexoptions.marketdata.sbe.v1.04.modflag", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.mpv_group = ProtoField.new("Mpv Group", "iex.iexoptions.marketdata.sbe.v1.04.mpvgroup", ftypes.INT8)
@@ -62,6 +65,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sbe_message = ProtoField.new("Sbe
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.marketdata.sbe.v1.04.schemaid", ftypes.UINT16)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_number = ProtoField.new("Sequence Number", "iex.iexoptions.marketdata.sbe.v1.04.sequencenumber", ftypes.UINT64)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_time = ProtoField.new("Sequence Time", "iex.iexoptions.marketdata.sbe.v1.04.sequencetime", ftypes.UINT64)
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_group = ProtoField.new("Sequenced Packet Message messages Group", "iex.iexoptions.marketdata.sbe.v1.04.sequencedpacketmessagemessagesgroup", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_groups = ProtoField.new("Sequenced Packet Message messages Groups", "iex.iexoptions.marketdata.sbe.v1.04.sequencedpacketmessagemessagesgroups", ftypes.STRING)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.side = ProtoField.new("Side", "iex.iexoptions.marketdata.sbe.v1.04.side", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.snapshot_id = ProtoField.new("Snapshot Id", "iex.iexoptions.marketdata.sbe.v1.04.snapshotid", ftypes.UINT32)
@@ -125,14 +129,16 @@ local show = {}
 
 -- Iex IexOptions MarketData Sbe 1.04 Element Dissection Options
 show.application_messages = true
-show.headers = true
 show.structs = true
+show.headers = true
+show.repeating_groups = true
 show.indexes = true
 
 -- Register Iex IexOptions MarketData Sbe 1.04 Show Options
 omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
-omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -144,6 +150,9 @@ function omi_iex_iexoptions_marketdata_sbe_v1_04.prefs_changed()
   end
   if show.headers ~= omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_headers then
     show.headers = omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_repeating_groups then
+    show.repeating_groups = omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_repeating_groups
   end
   if show.structs ~= omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_structs then
     show.structs = omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_structs
@@ -916,6 +925,48 @@ iex_iexoptions_marketdata_sbe_v1_04.maturity_date.dissect = function(buffer, off
   local display = iex_iexoptions_marketdata_sbe_v1_04.maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.maturity_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Data
+iex_iexoptions_marketdata_sbe_v1_04.message_data = {}
+
+-- Display: Message Data
+iex_iexoptions_marketdata_sbe_v1_04.message_data.display = function(value)
+  return "Message Data: "..value
+end
+
+-- Dissect runtime sized field: Message Data
+iex_iexoptions_marketdata_sbe_v1_04.message_data.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = iex_iexoptions_marketdata_sbe_v1_04.message_data.display(value, packet, parent, size)
+
+  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message_data, range, value, display)
+
+  return offset + size, value
+end
+
+-- Message Length
+iex_iexoptions_marketdata_sbe_v1_04.message_length = {}
+
+-- Size: Message Length
+iex_iexoptions_marketdata_sbe_v1_04.message_length.size = 2
+
+-- Display: Message Length
+iex_iexoptions_marketdata_sbe_v1_04.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+iex_iexoptions_marketdata_sbe_v1_04.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_marketdata_sbe_v1_04.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = iex_iexoptions_marketdata_sbe_v1_04.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -2231,6 +2282,121 @@ iex_iexoptions_marketdata_sbe_v1_04.session_shutdown_message.dissect = function(
   end
 end
 
+-- Message
+iex_iexoptions_marketdata_sbe_v1_04.message = {}
+
+-- Calculate size of: Message
+iex_iexoptions_marketdata_sbe_v1_04.message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_iexoptions_marketdata_sbe_v1_04.message_length.size
+
+  local message_length = buffer(offset + 0, 2):le_uint()
+
+  if message_length > 0 then
+    -- Parse runtime size of: Message Data
+    index = index + buffer(offset + index - 2, 2):le_uint()
+
+  end
+
+  return index
+end
+
+-- Display: Message
+iex_iexoptions_marketdata_sbe_v1_04.message.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Message
+iex_iexoptions_marketdata_sbe_v1_04.message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: uint16
+  index, message_length = iex_iexoptions_marketdata_sbe_v1_04.message_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Message Data
+  local message_data = nil
+
+  local message_data_exists = message_length > 0
+
+  if message_data_exists then
+
+    -- Runtime Size Of: Message Data
+    index, message_data = iex_iexoptions_marketdata_sbe_v1_04.message_data.dissect(buffer, index, packet, parent, message_length)
+  end
+
+  return index
+end
+
+-- Dissect: Message
+iex_iexoptions_marketdata_sbe_v1_04.message.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message, buffer(offset, 0))
+    local index = iex_iexoptions_marketdata_sbe_v1_04.message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_marketdata_sbe_v1_04.message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_marketdata_sbe_v1_04.message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Packet Message messages Group
+iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group = {}
+
+-- Calculate size of: Sequenced Packet Message messages Group
+iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + iex_iexoptions_marketdata_sbe_v1_04.message.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Sequenced Packet Message messages Group
+iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Packet Message messages Group
+iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.fields = function(buffer, offset, packet, parent, sequenced_packet_message_messages_group_index)
+  local index = offset
+
+  -- Implicit Sequenced Packet Message messages Group Index
+  if sequenced_packet_message_messages_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_group_index, sequenced_packet_message_messages_group_index)
+    iteration:set_generated()
+  end
+
+  -- Message: Struct of 2 fields
+  index, message = iex_iexoptions_marketdata_sbe_v1_04.message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sequenced Packet Message messages Group
+iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.dissect = function(buffer, offset, packet, parent, sequenced_packet_message_messages_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_group, buffer(offset, 0))
+    local index = iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.fields(buffer, offset, packet, parent, sequenced_packet_message_messages_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.fields(buffer, offset, packet, parent, sequenced_packet_message_messages_group_index)
+  end
+end
+
 -- Message List Group Encoding
 iex_iexoptions_marketdata_sbe_v1_04.message_list_group_encoding = {}
 
@@ -2286,8 +2452,9 @@ iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_groups.siz
 
   -- Calculate field size from count
   local sequenced_packet_message_messages_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + sequenced_packet_message_messages_group_count * 0
-
+  for i = 1, sequenced_packet_message_messages_group_count do
+    index = index + iex_iexoptions_marketdata_sbe_v1_04.sequenced_packet_message_messages_group.size(buffer, offset + index)
+  end
   return index
 end
 

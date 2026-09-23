@@ -6677,14 +6677,13 @@ nasdaq_uqdf_output_utp_v3_0_c.messages.dissect = function(buffer, offset, packet
   if message_count == 65535 then
     return nasdaq_uqdf_output_utp_v3_0_c.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
     -- Message: Struct of 2 fields
     offset = nasdaq_uqdf_output_utp_v3_0_c.message.dissect(buffer, offset, packet, parent, message_index)
   end
-
-  return offset
 end
 
 -- Udp Packet Header

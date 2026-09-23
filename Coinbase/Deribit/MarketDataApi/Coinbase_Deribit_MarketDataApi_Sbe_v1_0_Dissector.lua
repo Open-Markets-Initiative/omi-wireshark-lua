@@ -3783,6 +3783,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.md_messages.dissect = function(buffer, o
   if message_count == 0 then
     return coinbase_deribit_marketdataapi_sbe_v1_0.empty_packet.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Md Message
   for md_message_index = 1, message_count do
 
@@ -3792,8 +3793,6 @@ coinbase_deribit_marketdataapi_sbe_v1_0.md_messages.dissect = function(buffer, o
     -- Md Message: Struct of 3 fields
     offset = coinbase_deribit_marketdataapi_sbe_v1_0.md_message.dissect(buffer, offset, packet, parent, size_of_md_message, md_message_index)
   end
-
-  return offset
 end
 
 -- Packet Type

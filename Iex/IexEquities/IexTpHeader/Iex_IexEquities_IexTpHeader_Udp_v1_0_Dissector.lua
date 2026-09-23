@@ -513,6 +513,7 @@ iex_iexequities_iextpheader_udp_v1_0.messages.dissect = function(buffer, offset,
   if message_count == 0 then
     return iex_iexequities_iextpheader_udp_v1_0.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -525,8 +526,6 @@ iex_iexequities_iextpheader_udp_v1_0.messages.dissect = function(buffer, offset,
     -- Message: Struct of 2 fields
     offset = iex_iexequities_iextpheader_udp_v1_0.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Iextp Header

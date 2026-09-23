@@ -4336,6 +4336,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages.dissect = function(buffer, o
   if delivery_flag == 1 then
     return nyse_arcaoptions_complexfeed_pillar_v1_0_d.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, number_msgs do
 
@@ -4345,8 +4346,6 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.messages.dissect = function(buffer, o
     -- Message: Struct of 2 fields
     offset = nyse_arcaoptions_complexfeed_pillar_v1_0_d.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Send Time

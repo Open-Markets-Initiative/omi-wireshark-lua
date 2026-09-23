@@ -4191,6 +4191,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.messages.dissect = function(buffer, of
   if message_count == 65535 then
     return nasdaq_ntxoptions_depthofmarket_itch_v2_2.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -4203,8 +4204,6 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.messages.dissect = function(buffer, of
     -- Message: Struct of 2 fields
     offset = nasdaq_ntxoptions_depthofmarket_itch_v2_2.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Udp Packet Header

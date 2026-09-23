@@ -2273,6 +2273,7 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.messages.dissect = function(buffer, off
   if count == 0 then
     return cboe_c1options_auctionfeed_pitch_v1_1_39.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, count do
 
@@ -2282,8 +2283,6 @@ cboe_c1options_auctionfeed_pitch_v1_1_39.messages.dissect = function(buffer, off
     -- Message: Struct of 2 fields
     offset = cboe_c1options_auctionfeed_pitch_v1_1_39.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

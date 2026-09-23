@@ -2356,6 +2356,7 @@ jnx_jnxequities_pts_itch_v1_7.messages.dissect = function(buffer, offset, packet
   if message_count == 65535 then
     return jnx_jnxequities_pts_itch_v1_7.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -2368,8 +2369,6 @@ jnx_jnxequities_pts_itch_v1_7.messages.dissect = function(buffer, offset, packet
     -- Message: Struct of 2 fields
     offset = jnx_jnxequities_pts_itch_v1_7.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Udp Packet Header

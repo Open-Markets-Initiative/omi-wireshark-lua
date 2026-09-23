@@ -3887,6 +3887,7 @@ nasdaq_gemxoptions_depthofmarket_itch_v2_1.messages.dissect = function(buffer, o
   if message_count == 65535 then
     return nasdaq_gemxoptions_depthofmarket_itch_v2_1.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3899,8 +3900,6 @@ nasdaq_gemxoptions_depthofmarket_itch_v2_1.messages.dissect = function(buffer, o
     -- Message: Struct of 2 fields
     offset = nasdaq_gemxoptions_depthofmarket_itch_v2_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Udp Packet Header

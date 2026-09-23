@@ -3888,7 +3888,7 @@ hkex_hkexderivatives_combined_omd_v1_47.trade_condition.dissect = function(buffe
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = hkex_hkexderivatives_combined_omd_v1_47.trade_condition.display(range, value, packet, parent)
-  local element = parent:add(omi_hkex_hkexderivatives_combined_omd_v1_47.fields.trade_condition, range, display)
+  local element = parent:add_le(omi_hkex_hkexderivatives_combined_omd_v1_47.fields.trade_condition, range, display)
 
   if show.structs then
     hkex_hkexderivatives_combined_omd_v1_47.trade_condition.bits(range, value, packet, element)
@@ -5030,7 +5030,7 @@ hkex_hkexderivatives_combined_omd_v1_47.order_type.dissect = function(buffer, of
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = hkex_hkexderivatives_combined_omd_v1_47.order_type.display(range, value, packet, parent)
-  local element = parent:add(omi_hkex_hkexderivatives_combined_omd_v1_47.fields.order_type, range, display)
+  local element = parent:add_le(omi_hkex_hkexderivatives_combined_omd_v1_47.fields.order_type, range, display)
 
   if show.structs then
     hkex_hkexderivatives_combined_omd_v1_47.order_type.bits(range, value, packet, element)

@@ -3606,6 +3606,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.messages.dissect = function(buffe
   if delivery_flag == 1 then
     return nyse_amexequities_imbalancesfeed_pillar_v2_2_o.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, number_msgs do
 
@@ -3615,8 +3616,6 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_o.messages.dissect = function(buffe
     -- Message: Struct of 2 fields
     offset = nyse_amexequities_imbalancesfeed_pillar_v2_2_o.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Send Time

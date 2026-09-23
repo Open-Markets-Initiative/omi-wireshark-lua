@@ -2495,6 +2495,7 @@ nasdaq_nsmequities_qbbo_itch_v2_1.messages.dissect = function(buffer, offset, pa
   if message_count == 65535 then
     return nasdaq_nsmequities_qbbo_itch_v2_1.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -2507,8 +2508,6 @@ nasdaq_nsmequities_qbbo_itch_v2_1.messages.dissect = function(buffer, offset, pa
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_qbbo_itch_v2_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header
@@ -2638,7 +2637,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nsmequities_qbbo_itch_v2_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Thursday, February 19, 2026
---   Specification: Nasdaq.NsmEquities.Bbo.Itch.v2.1.20260219.pdf
+--   Specification: QBBOSpecification2.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

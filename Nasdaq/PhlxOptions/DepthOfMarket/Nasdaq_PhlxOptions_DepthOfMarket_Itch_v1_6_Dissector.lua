@@ -3910,6 +3910,7 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.messages.dissect = function(buffer, o
   if message_count == 65535 then
     return nasdaq_phlxoptions_depthofmarket_itch_v1_6.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3922,8 +3923,6 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.messages.dissect = function(buffer, o
     -- Message: Struct of 2 fields
     offset = nasdaq_phlxoptions_depthofmarket_itch_v1_6.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

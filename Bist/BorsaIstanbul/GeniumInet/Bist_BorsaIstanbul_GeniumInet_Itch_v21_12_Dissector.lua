@@ -3142,6 +3142,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.messages.dissect = function(buffer, of
   if message_count == 65535 then
     return bist_borsaistanbul_geniuminet_itch_v21_12.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3154,8 +3155,6 @@ bist_borsaistanbul_geniuminet_itch_v21_12.messages.dissect = function(buffer, of
     -- Message: Struct of 2 fields
     offset = bist_borsaistanbul_geniuminet_itch_v21_12.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

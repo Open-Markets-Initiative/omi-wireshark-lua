@@ -4063,6 +4063,7 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.messages.dissect = function
   if count == 0 then
     return cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, count do
 
@@ -4072,8 +4073,6 @@ cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.messages.dissect = function
     -- Message: Struct of 2 fields
     offset = cboe_dxederivatives_multicastdepthofbook_pitch_v6_67.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

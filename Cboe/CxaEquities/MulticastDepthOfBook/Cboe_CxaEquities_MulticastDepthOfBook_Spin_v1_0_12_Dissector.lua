@@ -1650,6 +1650,7 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.messages.dissect = function(b
   if count == 0 then
     return cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, count do
 
@@ -1659,8 +1660,6 @@ cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.messages.dissect = function(b
     -- Message: Struct of 2 fields
     offset = cboe_cxaequities_multicastdepthofbook_spin_v1_0_12.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

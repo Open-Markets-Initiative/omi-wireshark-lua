@@ -3303,6 +3303,7 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.messages.dissect = function(
   if count == 0 then
     return cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, count do
 
@@ -3312,8 +3313,6 @@ cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.messages.dissect = function(
     -- Message: Struct of 2 fields
     offset = cboe_titaniumconsolidated_oneequities_pitch_v1_4_13.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

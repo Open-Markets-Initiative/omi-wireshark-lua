@@ -3667,7 +3667,7 @@ hkex_hkexderivatives_premium_omd_v1_47.trade_condition.dissect = function(buffer
   local range = buffer(offset, size)
   local value = range:le_uint()
   local display = hkex_hkexderivatives_premium_omd_v1_47.trade_condition.display(range, value, packet, parent)
-  local element = parent:add(omi_hkex_hkexderivatives_premium_omd_v1_47.fields.trade_condition, range, display)
+  local element = parent:add_le(omi_hkex_hkexderivatives_premium_omd_v1_47.fields.trade_condition, range, display)
 
   if show.structs then
     hkex_hkexderivatives_premium_omd_v1_47.trade_condition.bits(range, value, packet, element)

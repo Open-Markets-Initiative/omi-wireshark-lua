@@ -1056,6 +1056,7 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dissect = function(buffer, 
   if count == 0 then
     return cboe_matchnow_multicasttrades_pitch_v1_0_14.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, count do
 
@@ -1065,8 +1066,6 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.messages.dissect = function(buffer, 
     -- Message: Struct of 2 fields
     offset = cboe_matchnow_multicasttrades_pitch_v1_0_14.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

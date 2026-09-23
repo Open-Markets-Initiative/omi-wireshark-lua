@@ -3008,6 +3008,7 @@ asx_asxsecurities_trade_itch_v3_1.messages.dissect = function(buffer, offset, pa
   if message_count == 65535 then
     return asx_asxsecurities_trade_itch_v3_1.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3020,8 +3021,6 @@ asx_asxsecurities_trade_itch_v3_1.messages.dissect = function(buffer, offset, pa
     -- Message: Struct of 2 fields
     offset = asx_asxsecurities_trade_itch_v3_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

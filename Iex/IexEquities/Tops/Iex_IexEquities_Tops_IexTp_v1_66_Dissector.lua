@@ -2434,6 +2434,7 @@ iex_iexequities_tops_iextp_v1_66.messages.dissect = function(buffer, offset, pac
   if message_count == 0 then
     return iex_iexequities_tops_iextp_v1_66.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -2446,8 +2447,6 @@ iex_iexequities_tops_iextp_v1_66.messages.dissect = function(buffer, offset, pac
     -- Message: Struct of 2 fields
     offset = iex_iexequities_tops_iextp_v1_66.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Iextp Header

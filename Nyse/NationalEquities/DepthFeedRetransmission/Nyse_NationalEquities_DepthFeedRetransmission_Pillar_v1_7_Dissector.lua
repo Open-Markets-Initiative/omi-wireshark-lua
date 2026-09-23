@@ -3427,6 +3427,7 @@ nyse_nationalequities_depthfeedretransmission_pillar_v1_7.messages.dissect = fun
   if delivery_flag == 1 then
     return nyse_nationalequities_depthfeedretransmission_pillar_v1_7.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, number_msgs do
 
@@ -3436,8 +3437,6 @@ nyse_nationalequities_depthfeedretransmission_pillar_v1_7.messages.dissect = fun
     -- Message: Struct of 2 fields
     offset = nyse_nationalequities_depthfeedretransmission_pillar_v1_7.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Send Time

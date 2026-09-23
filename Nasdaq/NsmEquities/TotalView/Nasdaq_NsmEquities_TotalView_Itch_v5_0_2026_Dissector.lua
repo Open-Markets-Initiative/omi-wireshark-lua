@@ -5292,6 +5292,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.messages.dissect = function(buffer, 
   if message_count == 65535 then
     return nasdaq_nsmequities_totalview_itch_v5_0_2026.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -5304,8 +5305,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.messages.dissect = function(buffer, 
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_totalview_itch_v5_0_2026.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Udp Packet Header

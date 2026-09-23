@@ -18,11 +18,9 @@ local cboe_cfefutures_binaryorderentry_boe3_v1_1_20 = {}
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.account = ProtoField.new("Account", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.account", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.acknowledgement_style = ProtoField.new("Acknowledgement Style", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.acknowledgementstyle", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.base_liquidity_indicator = ProtoField.new("Base Liquidity Indicator", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.baseliquidityindicator", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_order = ProtoField.new("Cancel Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelorder", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_orig_on_reject = ProtoField.new("Cancel Orig On Reject", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelorigonreject", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_reason = ProtoField.new("Cancel Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelreason", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_reject_reason = ProtoField.new("Cancel Reject Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelrejectreason", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_rejected = ProtoField.new("Cancel Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelrejected", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancelled_order_count = ProtoField.new("Cancelled Order Count", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelledordercount", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.capacity = ProtoField.new("Capacity", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.capacity", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.clordid", ftypes.STRING)
@@ -69,42 +67,25 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_reason = ProtoFi
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.logoutreasontext", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.logoutresponsemessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.manualorderindicator", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_acknowledgement = ProtoField.new("Mass Cancel Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelacknowledgement", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelinst", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_order = ProtoField.new("Mass Cancel Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelorder", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelrejectreason", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_rejected = ProtoField.new("Mass Cancel Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelrejected", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.matchingunit", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.maturitydate", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.messagelength", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.min_qty = ProtoField.new("Min Qty", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.minqty", ftypes.UINT32)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_order = ProtoField.new("Modify Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.modifyorder", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_reject_reason = ProtoField.new("Modify Reject Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.modifyrejectreason", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_rejected = ProtoField.new("Modify Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.modifyrejected", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mtp_modifier = ProtoField.new("Mtp Modifier", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.mtpmodifier", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.multileg_reporting_type = ProtoField.new("Multileg Reporting Type", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.multilegreportingtype", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_accepted_option = ProtoField.new("New Complex Instrument Accepted Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.newcomplexinstrumentacceptedoption", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_option = ProtoField.new("New Complex Instrument Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.newcomplexinstrumentoption", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_rejected_option = ProtoField.new("New Complex Instrument Rejected Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.newcomplexinstrumentrejectedoption", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_order = ProtoField.new("New Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.neworder", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_order_option = ProtoField.new("New Order Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.neworderoption", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.no_of_complex_instruments = ProtoField.new("No Of Complex Instruments", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.noofcomplexinstruments", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.numberofunits", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.oeo_id = ProtoField.new("Oeo Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.oeoid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.open_close = ProtoField.new("Open Close", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.openclose", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.option_leg = ProtoField.new("Option Leg", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.optionleg", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.ord_type = ProtoField.new("Ord Type", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.ordtype", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderacknowledgement", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_acknowledgement_option = ProtoField.new("Order Acknowledgement Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderacknowledgementoption", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_cancelled = ProtoField.new("Order Cancelled", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.ordercancelled", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_execution = ProtoField.new("Order Execution", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderexecution", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_execution_option = ProtoField.new("Order Execution Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderexecutionoption", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_id = ProtoField.new("Order Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderid", ftypes.UINT64)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_modified = ProtoField.new("Order Modified", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.ordermodified", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_qty = ProtoField.new("Order Qty", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderqty", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderrejectreason", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_rejected = ProtoField.new("Order Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderrejected", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.origclordid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.orig_time = ProtoField.new("Orig Time", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.origtime", ftypes.UINT64)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.password = ProtoField.new("Password", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.password", ftypes.STRING)
@@ -112,30 +93,18 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.pending_status = ProtoF
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.preventmatch", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.price = ProtoField.new("Price", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.price", ftypes.DOUBLE)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.product_name = ProtoField.new("Product Name", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.productname", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_acknowledgement = ProtoField.new("Purge Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.purgeacknowledgement", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_orders = ProtoField.new("Purge Orders", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.purgeorders", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.purgerejectreason", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_rejected = ProtoField.new("Purge Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.purgerejected", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_cancelled = ProtoField.new("Quote Cancelled", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quotecancelled", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_cnt = ProtoField.new("Quote Cnt", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quotecnt", ftypes.UINT8)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_execution = ProtoField.new("Quote Execution", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteexecution", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoterejectreason", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_restated = ProtoField.new("Quote Restated", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoterestated", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_result = ProtoField.new("Quote Result", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteresult", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_symbol = ProtoField.new("Quote Symbol", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quotesymbol", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update = ProtoField.new("Quote Update", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdate", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_acknowledgement = ProtoField.new("Quote Update Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateacknowledgement", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_acknowledgement_group = ProtoField.new("Quote Update Acknowledgement Group", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateacknowledgementgroup", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_group = ProtoField.new("Quote Update Group", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdategroup", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateid", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_option = ProtoField.new("Quote Update Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateoption", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_option_group = ProtoField.new("Quote Update Option Group", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateoptiongroup", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_rejected = ProtoField.new("Quote Update Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdaterejected", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.replayunspecifiedunit", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.requestreceivedtime", ftypes.UINT64)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.reservedfield", ftypes.UINT8)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.reset_risk = ProtoField.new("Reset Risk", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.resetrisk", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.reset_risk_acknowledgement = ProtoField.new("Reset Risk Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.resetriskacknowledgement", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.restatementreason", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.riskreset", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.riskresetresult", ftypes.STRING)
@@ -151,12 +120,8 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.start_of_message = Prot
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.stop_px = ProtoField.new("Stop Px", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.stoppx", ftypes.DOUBLE)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.subliquidityindicator", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.symbol = ProtoField.new("Symbol", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.symbol", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.tas_quote_restatement = ProtoField.new("Tas Quote Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tasquoterestatement", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.tas_restatement = ProtoField.new("Tas Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tasrestatement", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.text = ProtoField.new("Text", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.text", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.time_in_force = ProtoField.new("Time In Force", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.timeinforce", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_cancel_correct = ProtoField.new("Trade Cancel Correct", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tradecancelcorrect", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_cancel_correct_option = ProtoField.new("Trade Cancel Correct Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tradecancelcorrectoption", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_date = ProtoField.new("Trade Date", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tradedate", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trading_group_id = ProtoField.new("Trading Group Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tradinggroupid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.transactiontime", ftypes.UINT64)
@@ -170,6 +135,43 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_message_header
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.exchange_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.exchangepacket", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_message_header = ProtoField.new("Message Header", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.firmmessageheader", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.firm_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.firmpacket", ftypes.STRING)
+
+-- Cboe CfeFutures BinaryOrderEntry 1.1.20 Application Messages
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_order = ProtoField.new("Cancel Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelorder", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_rejected = ProtoField.new("Cancel Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.cancelrejected", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_acknowledgement = ProtoField.new("Mass Cancel Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelacknowledgement", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_order = ProtoField.new("Mass Cancel Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelorder", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_rejected = ProtoField.new("Mass Cancel Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelrejected", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_order = ProtoField.new("Modify Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.modifyorder", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_rejected = ProtoField.new("Modify Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.modifyrejected", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_accepted_option = ProtoField.new("New Complex Instrument Accepted Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.newcomplexinstrumentacceptedoption", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_option = ProtoField.new("New Complex Instrument Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.newcomplexinstrumentoption", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_rejected_option = ProtoField.new("New Complex Instrument Rejected Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.newcomplexinstrumentrejectedoption", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_order = ProtoField.new("New Order", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.neworder", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_order_option = ProtoField.new("New Order Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.neworderoption", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderacknowledgement", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_acknowledgement_option = ProtoField.new("Order Acknowledgement Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderacknowledgementoption", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_cancelled = ProtoField.new("Order Cancelled", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.ordercancelled", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_execution = ProtoField.new("Order Execution", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderexecution", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_execution_option = ProtoField.new("Order Execution Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderexecutionoption", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_modified = ProtoField.new("Order Modified", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.ordermodified", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_rejected = ProtoField.new("Order Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.orderrejected", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_acknowledgement = ProtoField.new("Purge Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.purgeacknowledgement", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_orders = ProtoField.new("Purge Orders", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.purgeorders", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_rejected = ProtoField.new("Purge Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.purgerejected", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_cancelled = ProtoField.new("Quote Cancelled", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quotecancelled", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_execution = ProtoField.new("Quote Execution", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteexecution", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_restated = ProtoField.new("Quote Restated", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoterestated", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update = ProtoField.new("Quote Update", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdate", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_acknowledgement = ProtoField.new("Quote Update Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateacknowledgement", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_option = ProtoField.new("Quote Update Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdateoption", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_rejected = ProtoField.new("Quote Update Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.quoteupdaterejected", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.reset_risk = ProtoField.new("Reset Risk", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.resetrisk", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.reset_risk_acknowledgement = ProtoField.new("Reset Risk Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.resetriskacknowledgement", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.tas_quote_restatement = ProtoField.new("Tas Quote Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tasquoterestatement", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.tas_restatement = ProtoField.new("Tas Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tasrestatement", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_cancel_correct = ProtoField.new("Trade Cancel Correct", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tradecancelcorrect", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_cancel_correct_option = ProtoField.new("Trade Cancel Correct Option", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.tradecancelcorrectoption", ftypes.STRING)
 
 -- Cboe CfeFutures BinaryOrderEntry 1.1.20 Session Messages
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.clientheartbeat", ftypes.BYTES)
@@ -204,22 +206,27 @@ local role_enum = {
 local show = {}
 
 -- Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Element Dissection Options
-show.structs = true
+show.application_messages = true
 show.headers = true
+show.structs = true
 show.indexes = true
 
 -- Register Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Show Options
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs_changed()
 
   -- Check if preferences have changed
+  if show.application_messages ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_application_messages then
+    show.application_messages = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_application_messages
+  end
   if show.headers ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers then
     show.headers = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers
   end
@@ -4178,7 +4185,7 @@ end
 
 -- Dissect: New Complex Instrument Rejected Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_rejected_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_rejected_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_rejected_option.fields(buffer, offset, packet, parent)
@@ -4306,7 +4313,7 @@ end
 
 -- Dissect: New Complex Instrument Accepted Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_accepted_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_accepted_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_accepted_option.fields(buffer, offset, packet, parent)
@@ -4354,7 +4361,7 @@ end
 
 -- Dissect: Reset Risk Acknowledgement
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reset_risk_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.reset_risk_acknowledgement, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reset_risk_acknowledgement.fields(buffer, offset, packet, parent)
@@ -4414,7 +4421,7 @@ end
 
 -- Dissect: Tas Quote Restatement
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_quote_restatement.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.tas_quote_restatement, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_quote_restatement.fields(buffer, offset, packet, parent)
@@ -4474,7 +4481,7 @@ end
 
 -- Dissect: Quote Cancelled
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_cancelled.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_cancelled, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_cancelled.fields(buffer, offset, packet, parent)
@@ -4562,7 +4569,7 @@ end
 
 -- Dissect: Quote Execution
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_execution.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_execution, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_execution.fields(buffer, offset, packet, parent)
@@ -4630,7 +4637,7 @@ end
 
 -- Dissect: Quote Restated
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_restated.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_restated, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_restated.fields(buffer, offset, packet, parent)
@@ -4678,7 +4685,7 @@ end
 
 -- Dissect: Quote Update Rejected
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_rejected.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_rejected, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_rejected.fields(buffer, offset, packet, parent)
@@ -4801,7 +4808,7 @@ end
 
 -- Dissect: Quote Update Acknowledgement
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_acknowledgement, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_acknowledgement.fields(buffer, offset, packet, parent)
@@ -4901,7 +4908,7 @@ end
 
 -- Dissect: Tas Restatement
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_restatement.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.tas_restatement, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.tas_restatement.fields(buffer, offset, packet, parent)
@@ -5001,7 +5008,7 @@ end
 
 -- Dissect: Trade Cancel Correct Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_cancel_correct_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct_option.fields(buffer, offset, packet, parent)
@@ -5101,7 +5108,7 @@ end
 
 -- Dissect: Trade Cancel Correct
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_cancel_correct, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.trade_cancel_correct.fields(buffer, offset, packet, parent)
@@ -5153,7 +5160,7 @@ end
 
 -- Dissect: Purge Rejected
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_rejected.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_rejected, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_rejected.fields(buffer, offset, packet, parent)
@@ -5205,7 +5212,7 @@ end
 
 -- Dissect: Purge Acknowledgement
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_acknowledgement, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_acknowledgement.fields(buffer, offset, packet, parent)
@@ -5257,7 +5264,7 @@ end
 
 -- Dissect: Mass Cancel Rejected
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_rejected.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_rejected, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_rejected.fields(buffer, offset, packet, parent)
@@ -5309,7 +5316,7 @@ end
 
 -- Dissect: Mass Cancel Acknowledgement
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_acknowledgement, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_acknowledgement.fields(buffer, offset, packet, parent)
@@ -5365,7 +5372,7 @@ end
 
 -- Dissect: Cancel Rejected
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cancel_rejected.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_rejected, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cancel_rejected.fields(buffer, offset, packet, parent)
@@ -5421,7 +5428,7 @@ end
 
 -- Dissect: Order Cancelled
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_cancelled.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_cancelled, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_cancelled.fields(buffer, offset, packet, parent)
@@ -5529,7 +5536,7 @@ end
 
 -- Dissect: Order Execution Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_execution_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution_option.fields(buffer, offset, packet, parent)
@@ -5637,7 +5644,7 @@ end
 
 -- Dissect: Order Execution
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_execution, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_execution.fields(buffer, offset, packet, parent)
@@ -5697,7 +5704,7 @@ end
 
 -- Dissect: Modify Rejected
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.modify_rejected.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_rejected, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.modify_rejected.fields(buffer, offset, packet, parent)
@@ -5789,7 +5796,7 @@ end
 
 -- Dissect: Order Modified
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_modified.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_modified, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_modified.fields(buffer, offset, packet, parent)
@@ -5845,7 +5852,7 @@ end
 
 -- Dissect: Order Rejected
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_rejected.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_rejected, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_rejected.fields(buffer, offset, packet, parent)
@@ -6092,7 +6099,7 @@ end
 
 -- Dissect: Order Acknowledgement Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_acknowledgement_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement_option.fields(buffer, offset, packet, parent)
@@ -6248,7 +6255,7 @@ end
 
 -- Dissect: Order Acknowledgement
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.order_acknowledgement, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.order_acknowledgement.fields(buffer, offset, packet, parent)
@@ -6718,7 +6725,7 @@ end
 
 -- Dissect: New Complex Instrument Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_complex_instrument_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_complex_instrument_option.fields(buffer, offset, packet, parent)
@@ -6774,7 +6781,7 @@ end
 
 -- Dissect: Reset Risk
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reset_risk.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.reset_risk, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.reset_risk.fields(buffer, offset, packet, parent)
@@ -6945,7 +6952,7 @@ end
 
 -- Dissect: Quote Update Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update_option.fields(buffer, offset, packet, parent)
@@ -7116,7 +7123,7 @@ end
 
 -- Dissect: Quote Update
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.quote_update, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.quote_update.fields(buffer, offset, packet, parent)
@@ -7244,7 +7251,7 @@ end
 
 -- Dissect: Purge Orders
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_orders.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.purge_orders, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.purge_orders.fields(buffer, offset, packet, parent)
@@ -7304,7 +7311,7 @@ end
 
 -- Dissect: Mass Cancel Order
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_order.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_order, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.mass_cancel_order.fields(buffer, offset, packet, parent)
@@ -7356,7 +7363,7 @@ end
 
 -- Dissect: Cancel Order
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cancel_order.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.cancel_order, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.cancel_order.fields(buffer, offset, packet, parent)
@@ -7440,7 +7447,7 @@ end
 
 -- Dissect: Modify Order
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.modify_order.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.modify_order, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.modify_order.fields(buffer, offset, packet, parent)
@@ -7609,7 +7616,7 @@ end
 
 -- Dissect: New Order Option
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_order_option.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_order_option, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_order_option.fields(buffer, offset, packet, parent)
@@ -7745,7 +7752,7 @@ end
 
 -- Dissect: New Order
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_order.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.application_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.new_order, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.new_order.fields(buffer, offset, packet, parent)

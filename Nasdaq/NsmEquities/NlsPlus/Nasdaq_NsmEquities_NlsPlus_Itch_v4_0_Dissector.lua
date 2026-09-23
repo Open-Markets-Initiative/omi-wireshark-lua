@@ -3232,6 +3232,7 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.messages.dissect = function(buffer, offset,
   if message_count == 65535 then
     return nasdaq_nsmequities_nlsplus_itch_v4_0.end_of_session.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, message_count do
 
@@ -3244,8 +3245,6 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.messages.dissect = function(buffer, offset,
     -- Message: Struct of 2 fields
     offset = nasdaq_nsmequities_nlsplus_itch_v4_0.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Header

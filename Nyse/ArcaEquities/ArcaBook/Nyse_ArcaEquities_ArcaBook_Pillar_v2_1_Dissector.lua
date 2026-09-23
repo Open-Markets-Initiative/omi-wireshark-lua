@@ -1744,6 +1744,7 @@ nyse_arcaequities_arcabook_pillar_v2_1.messages.dissect = function(buffer, offse
   if delivery_flag == 1 then
     return nyse_arcaequities_arcabook_pillar_v2_1.heartbeat.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, number_msgs do
 
@@ -1753,8 +1754,6 @@ nyse_arcaequities_arcabook_pillar_v2_1.messages.dissect = function(buffer, offse
     -- Message: Struct of 2 fields
     offset = nyse_arcaequities_arcabook_pillar_v2_1.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Send Time

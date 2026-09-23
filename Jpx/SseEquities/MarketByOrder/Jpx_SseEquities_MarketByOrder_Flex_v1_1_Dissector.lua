@@ -1166,7 +1166,7 @@ end
 jpx_sseequities_marketbyorder_flex_v1_1.status_flag.dissect = function(buffer, offset, packet, parent)
   local length = jpx_sseequities_marketbyorder_flex_v1_1.status_flag.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jpx_sseequities_marketbyorder_flex_v1_1.status_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.status_flag, range, value, display)
@@ -1424,7 +1424,7 @@ end
 jpx_sseequities_marketbyorder_flex_v1_1.user_id.dissect = function(buffer, offset, packet, parent)
   local length = jpx_sseequities_marketbyorder_flex_v1_1.user_id.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jpx_sseequities_marketbyorder_flex_v1_1.user_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.user_id, range, value, display)

@@ -15,7 +15,7 @@ local tmx_mx_solamulticast_hsvf_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Tmx Mx SolaMulticast Hsvf 2.1 Fields
-omi_tmx_mx_solamulticast_hsvf_v2_1.fields.end = ProtoField.new("End", "tmx.mx.solamulticast.hsvf.v2.1.end", ftypes.STRING)
+omi_tmx_mx_solamulticast_hsvf_v2_1.fields.end_ = ProtoField.new("End", "tmx.mx.solamulticast.hsvf.v2.1.end", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_code = ProtoField.new("Error Code", "tmx.mx.solamulticast.hsvf.v2.1.errorcode", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.error_msg = ProtoField.new("Error Msg", "tmx.mx.solamulticast.hsvf.v2.1.errormsg", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v2_1.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "tmx.mx.solamulticast.hsvf.v2.1.hsvfetx", ftypes.INT8)
@@ -75,19 +75,19 @@ end
 -----------------------------------------------------------------------
 
 -- End
-tmx_mx_solamulticast_hsvf_v2_1.end = {}
+tmx_mx_solamulticast_hsvf_v2_1.end_ = {}
 
 -- Size: End
-tmx_mx_solamulticast_hsvf_v2_1.end.size = 9
+tmx_mx_solamulticast_hsvf_v2_1.end_.size = 9
 
 -- Display: End
-tmx_mx_solamulticast_hsvf_v2_1.end.display = function(value)
+tmx_mx_solamulticast_hsvf_v2_1.end_.display = function(value)
   return "End: "..value
 end
 
 -- Dissect: End
-tmx_mx_solamulticast_hsvf_v2_1.end.dissect = function(buffer, offset, packet, parent)
-  local length = tmx_mx_solamulticast_hsvf_v2_1.end.size
+tmx_mx_solamulticast_hsvf_v2_1.end_.dissect = function(buffer, offset, packet, parent)
+  local length = tmx_mx_solamulticast_hsvf_v2_1.end_.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -95,9 +95,9 @@ tmx_mx_solamulticast_hsvf_v2_1.end.dissect = function(buffer, offset, packet, pa
     value =  "Not Applicable"
   end
 
-  local display = tmx_mx_solamulticast_hsvf_v2_1.end.display(value, buffer, offset, packet, parent)
+  local display = tmx_mx_solamulticast_hsvf_v2_1.end_.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.end, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v2_1.fields.end_, range, value, display)
 
   return offset + length, value
 end
@@ -472,7 +472,7 @@ tmx_mx_solamulticast_hsvf_v2_1.retransmission_request_message = {}
 tmx_mx_solamulticast_hsvf_v2_1.retransmission_request_message.size =
   tmx_mx_solamulticast_hsvf_v2_1.line.size + 
   tmx_mx_solamulticast_hsvf_v2_1.start.size + 
-  tmx_mx_solamulticast_hsvf_v2_1.end.size
+  tmx_mx_solamulticast_hsvf_v2_1.end_.size
 
 -- Display: Retransmission Request Message
 tmx_mx_solamulticast_hsvf_v2_1.retransmission_request_message.display = function(packet, parent, length)
@@ -490,7 +490,7 @@ tmx_mx_solamulticast_hsvf_v2_1.retransmission_request_message.fields = function(
   index, start = tmx_mx_solamulticast_hsvf_v2_1.start.dissect(buffer, index, packet, parent)
 
   -- End: N
-  index, end = tmx_mx_solamulticast_hsvf_v2_1.end.dissect(buffer, index, packet, parent)
+  index, end_ = tmx_mx_solamulticast_hsvf_v2_1.end_.dissect(buffer, index, packet, parent)
 
   return index
 end
