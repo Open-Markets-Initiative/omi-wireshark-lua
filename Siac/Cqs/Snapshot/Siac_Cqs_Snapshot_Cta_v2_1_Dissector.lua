@@ -2949,29 +2949,13 @@ end
 -- Message
 siac_cqs_snapshot_cta_v2_1.message = {}
 
--- Calculate size of: Message
-siac_cqs_snapshot_cta_v2_1.message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_cqs_snapshot_cta_v2_1.message_length.size
-
-  index = index + siac_cqs_snapshot_cta_v2_1.message_category.size
-
-  -- Calculate runtime size of Category Payload field
-  local category_payload_offset = offset + index
-  local category_payload_type = buffer(category_payload_offset - 1, 1):string()
-  index = index + siac_cqs_snapshot_cta_v2_1.category_payload.size(buffer, category_payload_offset, category_payload_type)
-
-  return index
-end
-
 -- Display: Message
 siac_cqs_snapshot_cta_v2_1.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-siac_cqs_snapshot_cta_v2_1.message.fields = function(buffer, offset, packet, parent, message_index)
+siac_cqs_snapshot_cta_v2_1.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset
 
   -- Implicit Message Index
@@ -2993,20 +2977,23 @@ siac_cqs_snapshot_cta_v2_1.message.fields = function(buffer, offset, packet, par
 end
 
 -- Dissect: Message
-siac_cqs_snapshot_cta_v2_1.message.dissect = function(buffer, offset, packet, parent, message_index)
+siac_cqs_snapshot_cta_v2_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.headers then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_siac_cqs_snapshot_cta_v2_1.fields.message, buffer(offset, 0))
-    local index = siac_cqs_snapshot_cta_v2_1.message.fields(buffer, offset, packet, parent, message_index)
-    local length = index - offset
-    parent:set_len(length)
-    local display = siac_cqs_snapshot_cta_v2_1.message.display(packet, parent, length)
+    local current = siac_cqs_snapshot_cta_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = siac_cqs_snapshot_cta_v2_1.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return siac_cqs_snapshot_cta_v2_1.message.fields(buffer, offset, packet, parent, message_index)
+    siac_cqs_snapshot_cta_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
   end
 end
 
@@ -3163,7 +3150,12 @@ siac_cqs_snapshot_cta_v2_1.packet.dissect = function(buffer, packet, parent)
 
   -- Repeating: Message
   for message_index = 1, messages_in_block do
-    index, message = siac_cqs_snapshot_cta_v2_1.message.dissect(buffer, index, packet, parent, message_index)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):uint()
+
+    -- Runtime Size Of: Message
+    index, message = siac_cqs_snapshot_cta_v2_1.message.dissect(buffer, index, packet, parent, message_length, message_index)
   end
 
   -- Runtime optional field: Block Pad Byte

@@ -98,13 +98,10 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.leaves_qty = ProtoField.
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.leg_cnt = ProtoField.new("Leg Cnt", "cboe.c1options.binaryorderentry.boe3.v1.0.10.legcnt", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.leg_position_effect = ProtoField.new("Leg Position Effect", "cboe.c1options.binaryorderentry.boe3.v1.0.10.legpositioneffect", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.lockout_instruction = ProtoField.new("Lockout Instruction", "cboe.c1options.binaryorderentry.boe3.v1.0.10.lockoutinstruction", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.c1options.binaryorderentry.boe3.v1.0.10.loginrequestmessage", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.c1options.binaryorderentry.boe3.v1.0.10.loginresponsemessage", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.c1options.binaryorderentry.boe3.v1.0.10.loginresponsestatus", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_response_text = ProtoField.new("Login Response Text", "cboe.c1options.binaryorderentry.boe3.v1.0.10.loginresponsetext", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.c1options.binaryorderentry.boe3.v1.0.10.logoutreason", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.c1options.binaryorderentry.boe3.v1.0.10.logoutreasontext", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.c1options.binaryorderentry.boe3.v1.0.10.logoutresponsemessage", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.marketing_fee_code = ProtoField.new("Marketing Fee Code", "cboe.c1options.binaryorderentry.boe3.v1.0.10.marketingfeecode", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.c1options.binaryorderentry.boe3.v1.0.10.masscancelid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.c1options.binaryorderentry.boe3.v1.0.10.masscancelinst", ftypes.STRING)
@@ -245,7 +242,10 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.trade_cancel_correct_mes
 
 -- Cboe C1Options BinaryOrderEntry 1.0.10 Session Messages
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "cboe.c1options.binaryorderentry.boe3.v1.0.10.clientheartbeat", ftypes.BYTES)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.c1options.binaryorderentry.boe3.v1.0.10.loginrequestmessage", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.c1options.binaryorderentry.boe3.v1.0.10.loginresponsemessage", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.logout_request = ProtoField.new("Logout Request", "cboe.c1options.binaryorderentry.boe3.v1.0.10.logoutrequest", ftypes.BYTES)
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.c1options.binaryorderentry.boe3.v1.0.10.logoutresponsemessage", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.replay_complete = ProtoField.new("Replay Complete", "cboe.c1options.binaryorderentry.boe3.v1.0.10.replaycomplete", ftypes.BYTES)
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "cboe.c1options.binaryorderentry.boe3.v1.0.10.serverheartbeat", ftypes.BYTES)
 
@@ -283,6 +283,7 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.session_messages = true
 show.indexes = true
 
 -- Register Cboe C1Options BinaryOrderEntry Boe3 1.0.10 Show Options
@@ -292,6 +293,7 @@ omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.swap_sides = Pref.bool("S
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -303,6 +305,9 @@ function omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs_changed()
   end
   if show.headers ~= omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_headers then
     show.headers = omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_headers
+  end
+  if show.session_messages ~= omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_session_messages then
+    show.session_messages = omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_session_messages
   end
   if show.structs ~= omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_structs then
     show.structs = omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.prefs.show_structs
@@ -8293,7 +8298,7 @@ end
 
 -- Dissect: Logout Response Message
 cboe_c1options_binaryorderentry_boe3_v1_0_10.logout_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.logout_response_message, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe3_v1_0_10.logout_response_message.fields(buffer, offset, packet, parent)
@@ -8429,7 +8434,7 @@ end
 
 -- Dissect: Login Response Message
 cboe_c1options_binaryorderentry_boe3_v1_0_10.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_response_message, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe3_v1_0_10.login_response_message.fields(buffer, offset, packet, parent)
@@ -10862,7 +10867,7 @@ end
 
 -- Dissect: Login Request Message
 cboe_c1options_binaryorderentry_boe3_v1_0_10.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_c1options_binaryorderentry_boe3_v1_0_10.fields.login_request_message, buffer(offset, 0))
     local index = cboe_c1options_binaryorderentry_boe3_v1_0_10.login_request_message.fields(buffer, offset, packet, parent)

@@ -81,15 +81,15 @@ omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.unsequenced_message_type = 
 omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.username = ProtoField.new("Username", "nasdaq.phlxoptions.spreadorders.itch.v2.1.username", ftypes.STRING)
 
 -- Nasdaq PhlxOptions SpreadOrders Itch 2.1 Framing
+omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.client_packet = ProtoField.new("Tcp Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.clientpacket", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.client_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.phlxoptions.spreadorders.itch.v2.1.clientpacketheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.clienttcppacket", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.phlxoptions.spreadorders.itch.v2.1.clienttcppacketheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.spreadorders.itch.v2.1.message", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.spreadorders.itch.v2.1.messageheader", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.moldudp64packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.server_packet = ProtoField.new("Tcp Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.serverpacket", ftypes.STRING)
+omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.server_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.phlxoptions.spreadorders.itch.v2.1.serverpacketheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.phlxoptions.spreadorders.itch.v2.1.servertcppacket", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.phlxoptions.spreadorders.itch.v2.1.servertcppacketheader", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.phlxoptions.spreadorders.itch.v2.1.udppacketheader", ftypes.STRING)
 
 -- Nasdaq PhlxOptions SpreadOrders 2.1 Session Messages
@@ -2831,16 +2831,16 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.udp_packet_header.dissect = function(b
   end
 end
 
--- Mold Udp 64 Packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.mold_udp_64_packet = {}
+-- Packet
+nasdaq_phlxoptions_spreadorders_itch_v2_1.packet = {}
 
 -- Verify required size of Udp packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.mold_udp_64_packet.requiredsize = function(buffer)
+nasdaq_phlxoptions_spreadorders_itch_v2_1.packet.requiredsize = function(buffer)
   return buffer:len() >= nasdaq_phlxoptions_spreadorders_itch_v2_1.udp_packet_header.size
 end
 
--- Dissect Mold Udp 64 Packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.mold_udp_64_packet.dissect = function(buffer, packet, parent)
+-- Dissect Packet
+nasdaq_phlxoptions_spreadorders_itch_v2_1.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Udp Packet Header: Struct of 3 fields
@@ -3183,11 +3183,11 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.debug_packet.dissect = function(buffer
   end
 end
 
--- Server Tcp Payload
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_payload = {}
+-- Server Payload
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_payload = {}
 
--- Dissect: Server Tcp Payload
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
+-- Dissect: Server Payload
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
   if server_packet_type == "+" then
     return nasdaq_phlxoptions_spreadorders_itch_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
@@ -3216,21 +3216,21 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_payload.dissect = function(
   return offset
 end
 
--- Server Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header = {}
+-- Server Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header = {}
 
--- Size: Server Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.size =
+-- Size: Server Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.size =
   nasdaq_phlxoptions_spreadorders_itch_v2_1.packet_length.size + 
   nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_type.size
 
--- Display: Server Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.display = function(packet, parent, length)
+-- Display: Server Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Server Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
@@ -3242,21 +3242,21 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.fields = func
   return index
 end
 
--- Dissect: Server Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.server_tcp_packet_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.server_packet_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.display(packet, parent, length)
+    local display = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3272,14 +3272,14 @@ end
 nasdaq_phlxoptions_spreadorders_itch_v2_1.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Server Tcp Packet Header: Struct of 2 fields
-  index, server_tcp_packet_header = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Server Packet Type
   local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Server Tcp Payload: Runtime Type with 6 branches
-  index = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_payload.dissect(buffer, index, packet, parent, server_packet_type)
+  -- Server Payload: Runtime Type with 6 branches
+  index = nasdaq_phlxoptions_spreadorders_itch_v2_1.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
@@ -3311,7 +3311,7 @@ local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.size then
+  if remaining < nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3326,16 +3326,16 @@ local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   return remaining, current
 end
 
--- Server Tcp Packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet = {}
+-- Server Packet
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet_header.size
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet_header.size
 end
 
--- Dissect Server Tcp Packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = nasdaq_phlxoptions_spreadorders_itch_v2_1.conversation.data(packet)
   if not packet.visited then
@@ -3514,11 +3514,11 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.login_request_packet.dissect = functio
   end
 end
 
--- Client Tcp Payload
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_payload = {}
+-- Client Payload
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_payload = {}
 
--- Dissect: Client Tcp Payload
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+-- Dissect: Client Payload
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   -- Dissect Debug Packet
   if client_packet_type == "+" then
     return nasdaq_phlxoptions_spreadorders_itch_v2_1.debug_packet.dissect(buffer, offset, packet, parent)
@@ -3543,21 +3543,21 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_payload.dissect = function(
   return offset
 end
 
--- Client Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header = {}
+-- Client Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header = {}
 
--- Size: Client Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.size =
+-- Size: Client Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.size =
   nasdaq_phlxoptions_spreadorders_itch_v2_1.packet_length.size + 
   nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_type.size
 
--- Display: Client Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.display = function(packet, parent, length)
+-- Display: Client Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Client Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
@@ -3569,21 +3569,21 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.fields = func
   return index
 end
 
--- Dissect: Client Tcp Packet Header
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Client Packet Header
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.client_tcp_packet_header, buffer(offset, 0))
-    local index = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.fields.client_packet_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.display(packet, parent, length)
+    local display = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3599,14 +3599,14 @@ end
 nasdaq_phlxoptions_spreadorders_itch_v2_1.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset
 
-  -- Client Tcp Packet Header: Struct of 2 fields
-  index, client_tcp_packet_header = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Client Packet Type
   local client_packet_type = buffer(index - 1, 1):string()
 
-  -- Client Tcp Payload: Runtime Type with 5 branches
-  index = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_payload.dissect(buffer, index, packet, parent, client_packet_type)
+  -- Client Payload: Runtime Type with 5 branches
+  index = nasdaq_phlxoptions_spreadorders_itch_v2_1.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
 
   return index
 end
@@ -3638,7 +3638,7 @@ local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.size then
+  if remaining < nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3653,16 +3653,16 @@ local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   return remaining, current
 end
 
--- Client Tcp Packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet = {}
+-- Client Packet
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet_header.size
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet_header.size
 end
 
--- Dissect Client Tcp Packet
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Client Soup Bin Tcp Packet
@@ -3790,14 +3790,14 @@ function omi_nasdaq_phlxoptions_spreadorders_itch_v2_1.dissector(buffer, packet,
     local role = nasdaq_phlxoptions_spreadorders_itch_v2_1.role(packet)
 
     if role == "initiator" then
-      return nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet.dissect(buffer, packet, protocol)
+      return nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet.dissect(buffer, packet, protocol)
     end
 
-    return nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet.dissect(buffer, packet, protocol)
+    return nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 3 then
-    return nasdaq_phlxoptions_spreadorders_itch_v2_1.mold_udp_64_packet.dissect(buffer, packet, protocol)
+    return nasdaq_phlxoptions_spreadorders_itch_v2_1.packet.dissect(buffer, packet, protocol)
   end
 end
 
@@ -3806,8 +3806,8 @@ end
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
 
--- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
-nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet.fingerprint = function(buffer)
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
@@ -3842,8 +3842,8 @@ nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet.fingerprint = functi
   return false
 end
 
--- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
-nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet.fingerprint = function(buffer)
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
@@ -3927,10 +3927,10 @@ end
 -- Dissector Heuristic for Nasdaq PhlxOptions SpreadOrders Itch 2.1 (Tcp)
 local function omi_nasdaq_phlxoptions_spreadorders_itch_v2_1_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet.requiredsize(buffer) then return false end
+  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet.requiredsize(buffer) then return false end
 
   -- Verify the frame matches this side's fingerprint
-  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.client_tcp_packet.fingerprint(buffer) then return false end
+  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_phlxoptions_spreadorders_itch_v2_1
@@ -3942,10 +3942,10 @@ end
 -- Dissector Heuristic for Nasdaq PhlxOptions SpreadOrders Itch 2.1 (Tcp)
 local function omi_nasdaq_phlxoptions_spreadorders_itch_v2_1_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet.requiredsize(buffer) then return false end
+  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet.requiredsize(buffer) then return false end
 
   -- Verify the frame matches this side's fingerprint
-  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.server_tcp_packet.fingerprint(buffer) then return false end
+  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_phlxoptions_spreadorders_itch_v2_1
@@ -3957,7 +3957,7 @@ end
 -- Dissector Heuristic for Nasdaq PhlxOptions SpreadOrders Itch 2.1 (Udp)
 local function omi_nasdaq_phlxoptions_spreadorders_itch_v2_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.mold_udp_64_packet.requiredsize(buffer) then return false end
+  if not nasdaq_phlxoptions_spreadorders_itch_v2_1.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_phlxoptions_spreadorders_itch_v2_1

@@ -1011,7 +1011,7 @@ nasdaq_ntxoptions_topofmarket_itch_v1_2.quote_condition.display = function(value
   if value == "Y" then
     return "Quote Condition: Ask Side Firm (Y)"
   end
-  if value == "  " then
+  if value == " " then
     return "Quote Condition: Regular Quote (<whitespace>)"
   end
 

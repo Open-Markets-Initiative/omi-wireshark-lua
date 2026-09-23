@@ -98,15 +98,15 @@ omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.volume = ProtoField.new("Volu
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.volume_notation = ProtoField.new("Volume Notation", "nasdaq.ntxoptions.topofmarket.itch.v2.2.volumenotation", ftypes.STRING)
 
 -- Nasdaq NtxOptions TopOfMarket Itch 2.2 Framing
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clientpacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clientpacketheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clientsoupbintcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clienttcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.clienttcppacketheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.message = ProtoField.new("Message", "nasdaq.ntxoptions.topofmarket.itch.v2.2.message", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.message_header = ProtoField.new("Message Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.messageheader", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.mold_udp_64_packet = ProtoField.new("Mold Udp 64 Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.moldudp64packet", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.packet = ProtoField.new("Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.packet", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.serverpacket", ftypes.STRING)
+omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.serverpacketheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.serversoupbintcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "nasdaq.ntxoptions.topofmarket.itch.v2.2.servertcppacket", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.servertcppacketheader", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.udp_packet_header = ProtoField.new("Udp Packet Header", "nasdaq.ntxoptions.topofmarket.itch.v2.2.udppacketheader", ftypes.STRING)
 
 -- Nasdaq NtxOptions TopOfMarket 2.2 Application Messages
@@ -3317,16 +3317,16 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.udp_packet_header.dissect = function(buf
   end
 end
 
--- Mold Udp 64 Packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.mold_udp_64_packet = {}
+-- Packet
+nasdaq_ntxoptions_topofmarket_itch_v2_2.packet = {}
 
 -- Verify required size of Udp packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.mold_udp_64_packet.requiredsize = function(buffer)
+nasdaq_ntxoptions_topofmarket_itch_v2_2.packet.requiredsize = function(buffer)
   return buffer:len() >= nasdaq_ntxoptions_topofmarket_itch_v2_2.udp_packet_header.size
 end
 
--- Dissect Mold Udp 64 Packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.mold_udp_64_packet.dissect = function(buffer, packet, parent)
+-- Dissect Packet
+nasdaq_ntxoptions_topofmarket_itch_v2_2.packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Udp Packet Header: Struct of 3 fields
@@ -3685,11 +3685,11 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.debug_packet.dissect = function(buffer, 
   end
 end
 
--- Server Tcp Payload
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_payload = {}
+-- Server Payload
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_payload = {}
 
--- Dissect: Server Tcp Payload
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
+-- Dissect: Server Payload
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
   if server_packet_type == "+" then
     return nasdaq_ntxoptions_topofmarket_itch_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
@@ -3718,21 +3718,21 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_payload.dissect = function(bu
   return offset
 end
 
--- Server Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header = {}
+-- Server Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header = {}
 
--- Size: Server Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.size =
+-- Size: Server Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.size =
   nasdaq_ntxoptions_topofmarket_itch_v2_2.packet_length.size + 
   nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_type.size
 
--- Display: Server Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.display = function(packet, parent, length)
+-- Display: Server Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Server Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
@@ -3744,21 +3744,21 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.fields = functi
   return index
 end
 
--- Dissect: Server Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_tcp_packet_header, buffer(offset, 0))
-    local index = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.server_packet_header, buffer(offset, 0))
+    local index = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.display(packet, parent, length)
+    local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3774,14 +3774,14 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Server Tcp Packet Header: Struct of 2 fields
-  index, server_tcp_packet_header = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Server Packet Type
   local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Server Tcp Payload: Runtime Type with 6 branches
-  index = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_payload.dissect(buffer, index, packet, parent, server_packet_type)
+  -- Server Payload: Runtime Type with 6 branches
+  index = nasdaq_ntxoptions_topofmarket_itch_v2_2.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
@@ -3813,7 +3813,7 @@ local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.size then
+  if remaining < nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -3828,16 +3828,16 @@ local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   return remaining, current
 end
 
--- Server Tcp Packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet = {}
+-- Server Packet
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet_header.size
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet_header.size
 end
 
--- Dissect Server Tcp Packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = nasdaq_ntxoptions_topofmarket_itch_v2_2.conversation.data(packet)
   if not packet.visited then
@@ -4016,11 +4016,11 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.login_request_packet.dissect = function(
   end
 end
 
--- Client Tcp Payload
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_payload = {}
+-- Client Payload
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_payload = {}
 
--- Dissect: Client Tcp Payload
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+-- Dissect: Client Payload
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   -- Dissect Debug Packet
   if client_packet_type == "+" then
     return nasdaq_ntxoptions_topofmarket_itch_v2_2.debug_packet.dissect(buffer, offset, packet, parent)
@@ -4045,21 +4045,21 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_payload.dissect = function(bu
   return offset
 end
 
--- Client Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header = {}
+-- Client Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header = {}
 
--- Size: Client Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.size =
+-- Size: Client Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.size =
   nasdaq_ntxoptions_topofmarket_itch_v2_2.packet_length.size + 
   nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_type.size
 
--- Display: Client Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.display = function(packet, parent, length)
+-- Display: Client Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Client Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
@@ -4071,21 +4071,21 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.fields = functi
   return index
 end
 
--- Dissect: Client Tcp Packet Header
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Client Packet Header
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_tcp_packet_header, buffer(offset, 0))
-    local index = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.fields.client_packet_header, buffer(offset, 0))
+    local index = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.display(packet, parent, length)
+    local display = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    return nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4101,14 +4101,14 @@ end
 nasdaq_ntxoptions_topofmarket_itch_v2_2.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset
 
-  -- Client Tcp Packet Header: Struct of 2 fields
-  index, client_tcp_packet_header = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Client Packet Type
   local client_packet_type = buffer(index - 1, 1):string()
 
-  -- Client Tcp Payload: Runtime Type with 5 branches
-  index = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_payload.dissect(buffer, index, packet, parent, client_packet_type)
+  -- Client Payload: Runtime Type with 5 branches
+  index = nasdaq_ntxoptions_topofmarket_itch_v2_2.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
 
   return index
 end
@@ -4140,7 +4140,7 @@ local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.size then
+  if remaining < nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -4155,16 +4155,16 @@ local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   return remaining, current
 end
 
--- Client Tcp Packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet = {}
+-- Client Packet
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet_header.size
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet_header.size
 end
 
--- Dissect Client Tcp Packet
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Client Soup Bin Tcp Packet
@@ -4292,14 +4292,14 @@ function omi_nasdaq_ntxoptions_topofmarket_itch_v2_2.dissector(buffer, packet, p
     local role = nasdaq_ntxoptions_topofmarket_itch_v2_2.role(packet)
 
     if role == "initiator" then
-      return nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet.dissect(buffer, packet, protocol)
+      return nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet.dissect(buffer, packet, protocol)
     end
 
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet.dissect(buffer, packet, protocol)
+    return nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet.dissect(buffer, packet, protocol)
   end
 
   if packet.port_type == 3 then
-    return nasdaq_ntxoptions_topofmarket_itch_v2_2.mold_udp_64_packet.dissect(buffer, packet, protocol)
+    return nasdaq_ntxoptions_topofmarket_itch_v2_2.packet.dissect(buffer, packet, protocol)
   end
 end
 
@@ -4308,8 +4308,8 @@ end
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
 
--- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
-nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet.fingerprint = function(buffer)
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
@@ -4344,8 +4344,8 @@ nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet.fingerprint = function
   return false
 end
 
--- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
-nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet.fingerprint = function(buffer)
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
@@ -4449,10 +4449,10 @@ end
 -- Dissector Heuristic for Nasdaq NtxOptions TopOfMarket Itch 2.2 (Tcp)
 local function omi_nasdaq_ntxoptions_topofmarket_itch_v2_2_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet.requiredsize(buffer) then return false end
+  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet.requiredsize(buffer) then return false end
 
   -- Verify the frame matches this side's fingerprint
-  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.client_tcp_packet.fingerprint(buffer) then return false end
+  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_ntxoptions_topofmarket_itch_v2_2
@@ -4464,10 +4464,10 @@ end
 -- Dissector Heuristic for Nasdaq NtxOptions TopOfMarket Itch 2.2 (Tcp)
 local function omi_nasdaq_ntxoptions_topofmarket_itch_v2_2_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet.requiredsize(buffer) then return false end
+  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet.requiredsize(buffer) then return false end
 
   -- Verify the frame matches this side's fingerprint
-  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.server_tcp_packet.fingerprint(buffer) then return false end
+  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_ntxoptions_topofmarket_itch_v2_2
@@ -4479,7 +4479,7 @@ end
 -- Dissector Heuristic for Nasdaq NtxOptions TopOfMarket Itch 2.2 (Udp)
 local function omi_nasdaq_ntxoptions_topofmarket_itch_v2_2_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.mold_udp_64_packet.requiredsize(buffer) then return false end
+  if not nasdaq_ntxoptions_topofmarket_itch_v2_2.packet.requiredsize(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_ntxoptions_topofmarket_itch_v2_2

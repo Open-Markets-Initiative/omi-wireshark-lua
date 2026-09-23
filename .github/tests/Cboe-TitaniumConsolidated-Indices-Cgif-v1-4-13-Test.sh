@@ -38,8 +38,7 @@ grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.bytelength" Cboe.TitaniumCo
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.datechars" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.status" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.agentclassification" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
-grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channellength" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
-grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channel" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
+grep "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nochannels" Cboe.TitaniumConsolidated.Indices.Cgif.v1.4.13.IndexDefinitionMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/TitaniumConsolidated.Indices.Cgif.v1.4.13/IndexValueMessage.pcap" \
   -X "lua_script:Cboe/TitaniumConsolidated/Indices/Cboe_TitaniumConsolidated_Indices_Cgif_v1_4_13_Dissector.lua" \

@@ -15,6 +15,8 @@ local bist_borsaistanbul_geniuminet_glimpse_v2_7 = {}
 -----------------------------------------------------------------------
 
 -- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Fields
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.acceptedsequencenumber", ftypes.STRING)
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_session = ProtoField.new("Accepted Session", "bist.borsaistanbul.geniuminet.glimpse.v2.7.acceptedsession", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.bait_implied_order = ProtoField.new("Bait Implied Order", "bist.borsaistanbul.geniuminet.glimpse.v2.7.baitimpliedorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.block_lot_size = ProtoField.new("Block Lot Size", "bist.borsaistanbul.geniuminet.glimpse.v2.7.blocklotsize", ftypes.UINT32)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.client_packet_type = ProtoField.new("Packet Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.clientpackettype", ftypes.STRING)
@@ -59,7 +61,6 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second = ProtoField.new("S
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequence_number = ProtoField.new("Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.sequencenumber", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.sequencedmessagetype", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.server_packet_type = ProtoField.new("Packet Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.serverpackettype", ftypes.STRING)
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.session = ProtoField.new("Session", "bist.borsaistanbul.geniuminet.glimpse.v2.7.session", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "bist.borsaistanbul.geniuminet.glimpse.v2.7.shortsalerestriction", ftypes.UINT8)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.side = ProtoField.new("Side", "bist.borsaistanbul.geniuminet.glimpse.v2.7.side", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.state_name = ProtoField.new("State Name", "bist.borsaistanbul.geniuminet.glimpse.v2.7.statename", ftypes.STRING)
@@ -196,7 +197,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.data = function(packet)
   local key = bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.key(packet)
   local data = bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, second = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, second = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.flows[key] = data
   end
   return data
@@ -226,6 +227,57 @@ end
 -----------------------------------------------------------------------
 -- Bist BorsaIstanbul GeniumInet Glimpse 2.7 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session = {}
+
+-- Size: Accepted Session
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session.size = 10
+
+-- Display: Accepted Session
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Block Lot Size
 bist_borsaistanbul_geniuminet_glimpse_v2_7.block_lot_size = {}
@@ -1311,29 +1363,6 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet_type.dissect = function
   return offset + length, value
 end
 
--- Session
-bist_borsaistanbul_geniuminet_glimpse_v2_7.session = {}
-
--- Size: Session
-bist_borsaistanbul_geniuminet_glimpse_v2_7.session.size = 10
-
--- Display: Session
-bist_borsaistanbul_geniuminet_glimpse_v2_7.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-bist_borsaistanbul_geniuminet_glimpse_v2_7.session.dissect = function(buffer, offset, packet, parent)
-  local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.session, range, value, display)
-
-  return offset + length, value
-end
-
 -- Short Sale Restriction
 bist_borsaistanbul_geniuminet_glimpse_v2_7.short_sale_restriction = {}
 
@@ -1723,13 +1752,6 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.end_of_snapshot_message.fields = func
 
   -- Sequence Number: Alpha
   index, sequence_number = bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Store Sequence Number Value
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.current = sequence_number
-
-  if not packet.visited then
-    bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.current.sequence_number.last = sequence_number
-  end
 
   return index
 end
@@ -2394,7 +2416,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.sequenced_data_packet.fields = functi
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.current)
+        flow.sequence.next = tonumber(bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2501,8 +2523,8 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 bist_borsaistanbul_geniuminet_glimpse_v2_7.login_accepted_packet.size =
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.session.size + 
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.size
+  bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session.size + 
+  bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 bist_borsaistanbul_geniuminet_glimpse_v2_7.login_accepted_packet.display = function(packet, parent, length)
@@ -2513,17 +2535,17 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = bist_borsaistanbul_geniuminet_glimpse_v2_7.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Alpha
-  index, sequence_number = bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.current.sequence_number.last = sequence_number
+    bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2743,13 +2765,11 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.server_packet.dissect = function(buff
   -- establish frame context from the conversation's stored values
   local data = bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.second.frames[packet.number] = data.second.last
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
   end
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.current = data.sequence_number.frames[packet.number]
+  bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   bist_borsaistanbul_geniuminet_glimpse_v2_7.second.current = data.second.frames[packet.number]
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.current = data.sequence_number.frames[packet.number]
   bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.current = data
 
   local index = 0
@@ -3103,7 +3123,7 @@ end
 
 -- Initialize Dissector
 function omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.init()
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.sequence_number.current = nil
+  bist_borsaistanbul_geniuminet_glimpse_v2_7.accepted_sequence_number.current = nil
   bist_borsaistanbul_geniuminet_glimpse_v2_7.second.current = nil
   bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.current = nil
   bist_borsaistanbul_geniuminet_glimpse_v2_7.conversation.flows = {}

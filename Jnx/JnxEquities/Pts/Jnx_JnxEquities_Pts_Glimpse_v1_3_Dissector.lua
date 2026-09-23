@@ -56,12 +56,12 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.fields.upper_price_limit = ProtoField.new("
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.username = ProtoField.new("Username", "jnx.jnxequities.pts.glimpse.v1.3.username", ftypes.STRING)
 
 -- Jnx JnxEquities Pts Glimpse 1.3 Framing
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.clientpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.clientpacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.clientsoupbintcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.clienttcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.clienttcppacketheader", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.serverpacket", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.serverpacketheader", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.serversoupbintcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet = ProtoField.new("Tcp Packet", "jnx.jnxequities.pts.glimpse.v1.3.servertcppacket", ftypes.STRING)
-omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet_header = ProtoField.new("Tcp Packet Header", "jnx.jnxequities.pts.glimpse.v1.3.servertcppacketheader", ftypes.STRING)
 
 -- Jnx JnxEquities Pts 1.3 Session Messages
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_heartbeat_packet = ProtoField.new("Client Heartbeat Packet", "jnx.jnxequities.pts.glimpse.v1.3.clientheartbeatpacket", ftypes.BYTES)
@@ -2275,11 +2275,11 @@ jnx_jnxequities_pts_glimpse_v1_3.debug_packet.dissect = function(buffer, offset,
   end
 end
 
--- Server Tcp Payload
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_payload = {}
+-- Server Payload
+jnx_jnxequities_pts_glimpse_v1_3.server_payload = {}
 
--- Dissect: Server Tcp Payload
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
+-- Dissect: Server Payload
+jnx_jnxequities_pts_glimpse_v1_3.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
   if server_packet_type == "+" then
     return jnx_jnxequities_pts_glimpse_v1_3.debug_packet.dissect(buffer, offset, packet, parent)
@@ -2308,21 +2308,21 @@ jnx_jnxequities_pts_glimpse_v1_3.server_tcp_payload.dissect = function(buffer, o
   return offset
 end
 
--- Server Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header = {}
+-- Server Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_header = {}
 
--- Size: Server Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.size =
+-- Size: Server Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.size =
   jnx_jnxequities_pts_glimpse_v1_3.packet_length.size + 
   jnx_jnxequities_pts_glimpse_v1_3.server_packet_type.size
 
--- Display: Server Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.display = function(packet, parent, length)
+-- Display: Server Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Server Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Server Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
@@ -2334,21 +2334,21 @@ jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields = function(buff
   return index
 end
 
--- Dissect: Server Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Server Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_tcp_packet_header, buffer(offset, 0))
-    local index = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_packet_header, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.display(packet, parent, length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.fields(buffer, offset, packet, parent)
+    return jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2364,14 +2364,14 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.server_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset
 
-  -- Server Tcp Packet Header: Struct of 2 fields
-  index, server_tcp_packet_header = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Server Packet Header: Struct of 2 fields
+  index, server_packet_header = jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Server Packet Type
   local server_packet_type = buffer(index - 1, 1):string()
 
-  -- Server Tcp Payload: Runtime Type with 6 branches
-  index = jnx_jnxequities_pts_glimpse_v1_3.server_tcp_payload.dissect(buffer, index, packet, parent, server_packet_type)
+  -- Server Payload: Runtime Type with 6 branches
+  index = jnx_jnxequities_pts_glimpse_v1_3.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
 
   return index
 end
@@ -2403,7 +2403,7 @@ local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.size then
+  if remaining < jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -2418,16 +2418,16 @@ local server_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   return remaining, current
 end
 
--- Server Tcp Packet
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet = {}
+-- Server Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_packet = {}
 
 -- Verify required size of Tcp packet
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet_header.size
+jnx_jnxequities_pts_glimpse_v1_3.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= jnx_jnxequities_pts_glimpse_v1_3.server_packet_header.size
 end
 
--- Dissect Server Tcp Packet
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Server Packet
+jnx_jnxequities_pts_glimpse_v1_3.server_packet.dissect = function(buffer, packet, parent)
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxequities_pts_glimpse_v1_3.conversation.data(packet)
   if not packet.visited then
@@ -2608,11 +2608,11 @@ jnx_jnxequities_pts_glimpse_v1_3.login_request_packet.dissect = function(buffer,
   end
 end
 
--- Client Tcp Payload
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_payload = {}
+-- Client Payload
+jnx_jnxequities_pts_glimpse_v1_3.client_payload = {}
 
--- Dissect: Client Tcp Payload
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+-- Dissect: Client Payload
+jnx_jnxequities_pts_glimpse_v1_3.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
   -- Dissect Debug Packet
   if client_packet_type == "+" then
     return jnx_jnxequities_pts_glimpse_v1_3.debug_packet.dissect(buffer, offset, packet, parent)
@@ -2637,21 +2637,21 @@ jnx_jnxequities_pts_glimpse_v1_3.client_tcp_payload.dissect = function(buffer, o
   return offset
 end
 
--- Client Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header = {}
+-- Client Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_header = {}
 
--- Size: Client Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.size =
+-- Size: Client Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.size =
   jnx_jnxequities_pts_glimpse_v1_3.packet_length.size + 
   jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.size
 
--- Display: Client Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.display = function(packet, parent, length)
+-- Display: Client Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Client Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Client Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
@@ -2663,21 +2663,21 @@ jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields = function(buff
   return index
 end
 
--- Dissect: Client Tcp Packet Header
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Client Packet Header
+jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_tcp_packet_header, buffer(offset, 0))
-    local index = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_packet_header, buffer(offset, 0))
+    local index = jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.display(packet, parent, length)
+    local display = jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.fields(buffer, offset, packet, parent)
+    return jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -2693,14 +2693,14 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.client_soup_bin_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset
 
-  -- Client Tcp Packet Header: Struct of 2 fields
-  index, client_tcp_packet_header = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.dissect(buffer, index, packet, parent)
+  -- Client Packet Header: Struct of 2 fields
+  index, client_packet_header = jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Client Packet Type
   local client_packet_type = buffer(index - 1, 1):string()
 
-  -- Client Tcp Payload: Runtime Type with 5 branches
-  index = jnx_jnxequities_pts_glimpse_v1_3.client_tcp_payload.dissect(buffer, index, packet, parent, client_packet_type)
+  -- Client Payload: Runtime Type with 5 branches
+  index = jnx_jnxequities_pts_glimpse_v1_3.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
 
   return index
 end
@@ -2732,7 +2732,7 @@ local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.size then
+  if remaining < jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.size then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -2747,16 +2747,16 @@ local client_soup_bin_tcp_packet_bytes_remaining = function(buffer, index, avail
   return remaining, current
 end
 
--- Client Tcp Packet
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet = {}
+-- Client Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_packet = {}
 
 -- Verify required size of Tcp packet
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet_header.size
+jnx_jnxequities_pts_glimpse_v1_3.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= jnx_jnxequities_pts_glimpse_v1_3.client_packet_header.size
 end
 
--- Dissect Client Tcp Packet
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+jnx_jnxequities_pts_glimpse_v1_3.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Client Soup Bin Tcp Packet
@@ -2884,10 +2884,10 @@ function omi_jnx_jnxequities_pts_glimpse_v1_3.dissector(buffer, packet, parent)
   local role = jnx_jnxequities_pts_glimpse_v1_3.role(packet)
 
   if role == "initiator" then
-    return jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.dissect(buffer, packet, protocol)
+    return jnx_jnxequities_pts_glimpse_v1_3.client_packet.dissect(buffer, packet, protocol)
   end
 
-  return jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.dissect(buffer, packet, protocol)
+  return jnx_jnxequities_pts_glimpse_v1_3.server_packet.dissect(buffer, packet, protocol)
 end
 
 
@@ -2895,8 +2895,8 @@ end
 -- Protocol Fingerprints
 -----------------------------------------------------------------------
 
--- Fingerprint of Client Tcp Packet: would its message dispatch accept this frame?
-jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.fingerprint = function(buffer)
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+jnx_jnxequities_pts_glimpse_v1_3.client_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
@@ -2931,8 +2931,8 @@ jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.fingerprint = function(buffer
   return false
 end
 
--- Fingerprint of Server Tcp Packet: would its message dispatch accept this frame?
-jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.fingerprint = function(buffer)
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+jnx_jnxequities_pts_glimpse_v1_3.server_packet.fingerprint = function(buffer)
   if buffer:len() < 3 then
     return false
   end
@@ -3041,10 +3041,10 @@ end
 -- Dissector Heuristic for Jnx JnxEquities Pts Glimpse 1.3 (Tcp)
 local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.requiredsize(buffer) then return false end
+  if not jnx_jnxequities_pts_glimpse_v1_3.client_packet.requiredsize(buffer) then return false end
 
   -- Verify the frame matches this side's fingerprint
-  if not jnx_jnxequities_pts_glimpse_v1_3.client_tcp_packet.fingerprint(buffer) then return false end
+  if not jnx_jnxequities_pts_glimpse_v1_3.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jnx_jnxequities_pts_glimpse_v1_3
@@ -3056,10 +3056,10 @@ end
 -- Dissector Heuristic for Jnx JnxEquities Pts Glimpse 1.3 (Tcp)
 local function omi_jnx_jnxequities_pts_glimpse_v1_3_tcp_acceptor_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.requiredsize(buffer) then return false end
+  if not jnx_jnxequities_pts_glimpse_v1_3.server_packet.requiredsize(buffer) then return false end
 
   -- Verify the frame matches this side's fingerprint
-  if not jnx_jnxequities_pts_glimpse_v1_3.server_tcp_packet.fingerprint(buffer) then return false end
+  if not jnx_jnxequities_pts_glimpse_v1_3.server_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_jnx_jnxequities_pts_glimpse_v1_3

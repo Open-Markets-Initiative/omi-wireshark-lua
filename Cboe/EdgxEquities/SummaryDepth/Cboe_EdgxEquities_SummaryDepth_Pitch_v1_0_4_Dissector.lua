@@ -844,8 +844,28 @@ cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp = {}
 cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp.size = 8
 
 -- Display: Timestamp
-cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp.display = function(value)
-  return "Timestamp: "..value
+cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = cboe_edgxequities_summarydepth_pitch_v1_0_4.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -890,8 +910,28 @@ cboe_edgxequities_summarydepth_pitch_v1_0_4.transaction_time = {}
 cboe_edgxequities_summarydepth_pitch_v1_0_4.transaction_time.size = 8
 
 -- Display: Transaction Time
-cboe_edgxequities_summarydepth_pitch_v1_0_4.transaction_time.display = function(value)
-  return "Transaction Time: "..value
+cboe_edgxequities_summarydepth_pitch_v1_0_4.transaction_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp_format == 0 then
+    return "Transaction Time: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if cboe_edgxequities_summarydepth_pitch_v1_0_4.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = cboe_edgxequities_summarydepth_pitch_v1_0_4.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Transaction Time: "..os.date("%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", nanoseconds)
+  end
+
+  -- Time of day mode
+  return "Transaction Time: "..os.date("%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transaction Time

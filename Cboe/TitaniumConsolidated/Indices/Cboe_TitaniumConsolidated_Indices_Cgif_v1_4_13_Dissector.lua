@@ -19,6 +19,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.agent_classification =
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.byte_length = ProtoField.new("Byte Length", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.bytelength", ftypes.INT8)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.channel = ProtoField.new("Channel", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channel", ftypes.STRING)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.channel_length = ProtoField.new("Channel Length", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channellength", ftypes.UINT8)
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.channels = ProtoField.new("Channels", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channels", ftypes.STRING)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.current_record_number = ProtoField.new("Current Record Number", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.currentrecordnumber", ftypes.UINT32)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.date = ProtoField.new("Date", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.date", ftypes.STRING)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.date_chars = ProtoField.new("Date Chars", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.datechars", ftypes.STRING)
@@ -37,6 +38,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.md_entry_type = ProtoF
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messagelength", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messagetype", ftypes.STRING)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.msgseqnum", ftypes.UINT32)
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.no_channels = ProtoField.new("No Channels", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nochannels", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.no_md_entries = ProtoField.new("No Md Entries", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nomdentries", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.number_of_messages = ProtoField.new("Number Of Messages", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.numberofmessages", ftypes.UINT8)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time = ProtoField.new("Sending Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.sendingtime", ftypes.UINT64)
@@ -65,6 +67,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.index_value_message = 
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.index_value_with_status_message = ProtoField.new("Index Value With Status Message", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.indexvaluewithstatusmessage", ftypes.STRING)
 
 -- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Generated Fields
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.channels_index = ProtoField.new("Channels Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.channelsindex", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.md_entries_index = ProtoField.new("Md Entries Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.mdentriesindex", ftypes.UINT16)
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_index = ProtoField.new("Message Index", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.messageindex", ftypes.UINT16)
 
@@ -75,16 +78,16 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.message_index = ProtoF
 local show = {}
 
 -- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Element Dissection Options
+show.repeating_groups = true
 show.application_messages = true
 show.structs = true
-show.repeating_groups = true
 show.headers = true
 show.indexes = true
 
 -- Register Cboe TitaniumConsolidated Indices Cgif 1.4.13 Show Options
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
-omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
@@ -576,6 +579,29 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.msg_seq_num.dissect = function(bu
   return offset + length, value
 end
 
+-- No Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels = {}
+
+-- Size: No Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels.size = 1
+
+-- Display: No Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels.display = function(value)
+  return "No Channels: "..value
+end
+
+-- Dissect: No Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.no_channels, range, value, display)
+
+  return offset + length, value
+end
+
 -- No Md Entries
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_md_entries = {}
 
@@ -870,6 +896,63 @@ end
 -- Dissect Cboe TitaniumConsolidated Indices Cgif 1.4.13
 -----------------------------------------------------------------------
 
+-- Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels = {}
+
+-- Calculate size of: Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_titaniumconsolidated_indices_cgif_v1_4_13.channel_length.size
+
+  -- Parse runtime size of: Channel
+  index = index + buffer(offset + index - 1, 1):uint()
+
+  return index
+end
+
+-- Display: Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.fields = function(buffer, offset, packet, parent, channels_index)
+  local index = offset
+
+  -- Implicit Channels Index
+  if channels_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.channels_index, channels_index)
+    iteration:set_generated()
+  end
+
+  -- Channel Length: length
+  index, channel_length = cboe_titaniumconsolidated_indices_cgif_v1_4_13.channel_length.dissect(buffer, index, packet, parent)
+
+  -- Runtime Size Of: Channel
+  index, channel = cboe_titaniumconsolidated_indices_cgif_v1_4_13.channel.dissect(buffer, index, packet, parent, channel_length)
+
+  return index
+end
+
+-- Dissect: Channels
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.dissect = function(buffer, offset, packet, parent, channels_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.channels, buffer(offset, 0))
+    local index = cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.fields(buffer, offset, packet, parent, channels_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.fields(buffer, offset, packet, parent, channels_index)
+  end
+end
+
 -- Date
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.date = {}
 
@@ -989,11 +1072,13 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_definition_message.size = f
 
   index = index + cboe_titaniumconsolidated_indices_cgif_v1_4_13.agent_classification.size
 
-  index = index + cboe_titaniumconsolidated_indices_cgif_v1_4_13.channel_length.size
+  index = index + cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels.size
 
-  -- Parse runtime size of: Channel
-  index = index + buffer(offset + index - 1, 1):uint()
-
+  -- Calculate field size from count
+  local channels_count = buffer(offset + index - 1, 1):uint()
+  for i = 1, channels_count do
+    index = index + cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.size(buffer, offset + index)
+  end
   return index
 end
 
@@ -1030,11 +1115,13 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_definition_message.fields =
   -- Agent Classification: two byte string
   index, agent_classification = cboe_titaniumconsolidated_indices_cgif_v1_4_13.agent_classification.dissect(buffer, index, packet, parent)
 
-  -- Channel Length: length
-  index, channel_length = cboe_titaniumconsolidated_indices_cgif_v1_4_13.channel_length.dissect(buffer, index, packet, parent)
+  -- No Channels: length
+  index, no_channels = cboe_titaniumconsolidated_indices_cgif_v1_4_13.no_channels.dissect(buffer, index, packet, parent)
 
-  -- Runtime Size Of: Channel
-  index, channel = cboe_titaniumconsolidated_indices_cgif_v1_4_13.channel.dissect(buffer, index, packet, parent, channel_length)
+  -- Repeating: Channels
+  for channels_index = 1, no_channels do
+    index, channels = cboe_titaniumconsolidated_indices_cgif_v1_4_13.channels.dissect(buffer, index, packet, parent, channels_index)
+  end
 
   return index
 end

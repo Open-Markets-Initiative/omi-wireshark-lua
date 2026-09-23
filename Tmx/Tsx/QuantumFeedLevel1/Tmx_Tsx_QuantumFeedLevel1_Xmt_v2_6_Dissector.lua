@@ -65,7 +65,7 @@ omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.sequence_1 = ProtoField.new("Seque
 omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.session_id = ProtoField.new("Session Id", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.sessionid", ftypes.UINT32)
 omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.settlement_terms = ProtoField.new("Settlement Terms", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.settlementterms", ftypes.STRING)
 omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.source_id = ProtoField.new("Source Id", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.sourceid", ftypes.STRING)
-omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.startofframe", ftypes.INT8)
+omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.start_of_frame = ProtoField.new("Start Of Frame", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.startofframe", ftypes.UINT8)
 omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.stock_group = ProtoField.new("Stock Group", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.stockgroup", ftypes.UINT8)
 omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.stock_state = ProtoField.new("Stock State", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.stockstate", ftypes.STRING)
 omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.stream_id = ProtoField.new("Stream Id", "tmx.tsx.quantumfeedlevel1.xmt.v2.6.streamid", ftypes.UINT16)
@@ -1564,7 +1564,7 @@ end
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.start_of_frame.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsx_quantumfeedlevel1_xmt_v2_6.start_of_frame.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = tmx_tsx_quantumfeedlevel1_xmt_v2_6.start_of_frame.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsx_quantumfeedlevel1_xmt_v2_6.fields.start_of_frame, range, value, display)
@@ -2622,7 +2622,7 @@ end
 tmx_tsx_quantumfeedlevel1_xmt_v2_6.frame_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Start Of Frame: 1 Byte Fixed Width Integer Enum with 1 values
+  -- Start Of Frame: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
   index, start_of_frame = tmx_tsx_quantumfeedlevel1_xmt_v2_6.start_of_frame.dissect(buffer, index, packet, parent)
 
   -- Protocol Name: 1 Byte Ascii String Enum with 1 values

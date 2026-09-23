@@ -15,6 +15,8 @@ local jnx_jnxbonds_pts_ouch_v1_4 = {}
 -----------------------------------------------------------------------
 
 -- Jnx JnxBonds Pts Ouch 1.4 Fields
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.acceptedsequencenumber", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_session = ProtoField.new("Accepted Session", "jnx.jnxbonds.pts.ouch.v1.4.acceptedsession", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxbonds.pts.ouch.v1.4.buysellindicator", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.capacity = ProtoField.new("Capacity", "jnx.jnxbonds.pts.ouch.v1.4.capacity", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "jnx.jnxbonds.pts.ouch.v1.4.cashmargintype", ftypes.STRING)
@@ -48,10 +50,8 @@ omi_jnx_jnxbonds_pts_ouch_v1_4.fields.reject_reason_code = ProtoField.new("Rejec
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.replacement_order_token = ProtoField.new("Replacement Order Token", "jnx.jnxbonds.pts.ouch.v1.4.replacementordertoken", ftypes.UINT32)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.requestedsequencenumber", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.requested_session = ProtoField.new("Requested Session", "jnx.jnxbonds.pts.ouch.v1.4.requestedsession", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "jnx.jnxbonds.pts.ouch.v1.4.sequencenumber", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.jnxbonds.pts.ouch.v1.4.sequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_packet_type = ProtoField.new("Packet Type", "jnx.jnxbonds.pts.ouch.v1.4.serverpackettype", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v1_4.fields.session = ProtoField.new("Session", "jnx.jnxbonds.pts.ouch.v1.4.session", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.system_event = ProtoField.new("System Event", "jnx.jnxbonds.pts.ouch.v1.4.systemevent", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.text = ProtoField.new("Text", "jnx.jnxbonds.pts.ouch.v1.4.text", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v1_4.fields.time_in_force = ProtoField.new("Time In Force", "jnx.jnxbonds.pts.ouch.v1.4.timeinforce", ftypes.UINT32)
@@ -197,7 +197,7 @@ jnx_jnxbonds_pts_ouch_v1_4.conversation.data = function(packet)
   local key = jnx_jnxbonds_pts_ouch_v1_4.conversation.key(packet)
   local data = jnx_jnxbonds_pts_ouch_v1_4.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     jnx_jnxbonds_pts_ouch_v1_4.conversation.flows[key] = data
   end
   return data
@@ -227,6 +227,57 @@ end
 -----------------------------------------------------------------------
 -- Jnx JnxBonds Pts Ouch 1.4 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+jnx_jnxbonds_pts_ouch_v1_4.accepted_session = {}
+
+-- Size: Accepted Session
+jnx_jnxbonds_pts_ouch_v1_4.accepted_session.size = 10
+
+-- Display: Accepted Session
+jnx_jnxbonds_pts_ouch_v1_4.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+jnx_jnxbonds_pts_ouch_v1_4.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxbonds_pts_ouch_v1_4.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jnx_jnxbonds_pts_ouch_v1_4.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxbonds_pts_ouch_v1_4.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Buy Sell Indicator
 jnx_jnxbonds_pts_ouch_v1_4.buy_sell_indicator = {}
@@ -1169,34 +1220,6 @@ jnx_jnxbonds_pts_ouch_v1_4.requested_session.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Sequence Number
-jnx_jnxbonds_pts_ouch_v1_4.sequence_number = {}
-
--- Size: Sequence Number
-jnx_jnxbonds_pts_ouch_v1_4.sequence_number.size = 20
-
--- Display: Sequence Number
-jnx_jnxbonds_pts_ouch_v1_4.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-jnx_jnxbonds_pts_ouch_v1_4.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxbonds_pts_ouch_v1_4.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = jnx_jnxbonds_pts_ouch_v1_4.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxbonds_pts_ouch_v1_4.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 jnx_jnxbonds_pts_ouch_v1_4.sequenced_message_type = {}
 
@@ -1280,29 +1303,6 @@ jnx_jnxbonds_pts_ouch_v1_4.server_packet_type.dissect = function(buffer, offset,
   local display = jnx_jnxbonds_pts_ouch_v1_4.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxbonds_pts_ouch_v1_4.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-jnx_jnxbonds_pts_ouch_v1_4.session = {}
-
--- Size: Session
-jnx_jnxbonds_pts_ouch_v1_4.session.size = 10
-
--- Display: Session
-jnx_jnxbonds_pts_ouch_v1_4.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-jnx_jnxbonds_pts_ouch_v1_4.session.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxbonds_pts_ouch_v1_4.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jnx_jnxbonds_pts_ouch_v1_4.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxbonds_pts_ouch_v1_4.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2057,7 +2057,7 @@ jnx_jnxbonds_pts_ouch_v1_4.sequenced_data_packet.fields = function(buffer, offse
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current)
+        flow.sequence.next = tonumber(jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2164,8 +2164,8 @@ jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet.size =
-  jnx_jnxbonds_pts_ouch_v1_4.session.size + 
-  jnx_jnxbonds_pts_ouch_v1_4.sequence_number.size
+  jnx_jnxbonds_pts_ouch_v1_4.accepted_session.size + 
+  jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet.display = function(packet, parent, length)
@@ -2176,17 +2176,17 @@ end
 jnx_jnxbonds_pts_ouch_v1_4.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = jnx_jnxbonds_pts_ouch_v1_4.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = jnx_jnxbonds_pts_ouch_v1_4.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = jnx_jnxbonds_pts_ouch_v1_4.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    jnx_jnxbonds_pts_ouch_v1_4.conversation.current.sequence_number.last = sequence_number
+    jnx_jnxbonds_pts_ouch_v1_4.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2406,9 +2406,9 @@ jnx_jnxbonds_pts_ouch_v1_4.server_packet.dissect = function(buffer, packet, pare
   -- establish frame context from the conversation's stored values
   local data = jnx_jnxbonds_pts_ouch_v1_4.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current = data.sequence_number.frames[packet.number]
+  jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   jnx_jnxbonds_pts_ouch_v1_4.conversation.current = data
 
   local index = 0
@@ -2977,7 +2977,7 @@ end
 
 -- Initialize Dissector
 function omi_jnx_jnxbonds_pts_ouch_v1_4.init()
-  jnx_jnxbonds_pts_ouch_v1_4.sequence_number.current = nil
+  jnx_jnxbonds_pts_ouch_v1_4.accepted_sequence_number.current = nil
   jnx_jnxbonds_pts_ouch_v1_4.conversation.current = nil
   jnx_jnxbonds_pts_ouch_v1_4.conversation.flows = {}
 end

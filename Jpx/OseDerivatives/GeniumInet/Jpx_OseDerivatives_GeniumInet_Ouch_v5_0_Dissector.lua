@@ -15,6 +15,8 @@ local jpx_osederivatives_geniuminet_ouch_v5_0 = {}
 -----------------------------------------------------------------------
 
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Fields
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.acceptedsequencenumber", ftypes.STRING)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "jpx.osederivatives.geniuminet.ouch.v5.0.acceptedsession", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.cancel_reason = ProtoField.new("Cancel Reason", "jpx.osederivatives.geniuminet.ouch.v5.0.cancelreason", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_account = ProtoField.new("Client Account", "jpx.osederivatives.geniuminet.ouch.v5.0.clientaccount", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.ouch.v5.0.clientpackettype", ftypes.STRING)
@@ -40,10 +42,8 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.replacement_order_token = Pro
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.requestedsequencenumber", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.requested_session = ProtoField.new("Requested Session", "jpx.osederivatives.geniuminet.ouch.v5.0.requestedsession", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.scope = ProtoField.new("Scope", "jpx.osederivatives.geniuminet.ouch.v5.0.scope", ftypes.UINT8)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencenumber", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jpx.osederivatives.geniuminet.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpackettype", ftypes.STRING)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.session = ProtoField.new("Session", "jpx.osederivatives.geniuminet.ouch.v5.0.session", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.side = ProtoField.new("Side", "jpx.osederivatives.geniuminet.ouch.v5.0.side", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.status = ProtoField.new("Status", "jpx.osederivatives.geniuminet.ouch.v5.0.status", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.text = ProtoField.new("Text", "jpx.osederivatives.geniuminet.ouch.v5.0.text", ftypes.STRING)
@@ -173,7 +173,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.conversation.data = function(packet)
   local key = jpx_osederivatives_geniuminet_ouch_v5_0.conversation.key(packet)
   local data = jpx_osederivatives_geniuminet_ouch_v5_0.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     jpx_osederivatives_geniuminet_ouch_v5_0.conversation.flows[key] = data
   end
   return data
@@ -203,6 +203,57 @@ end
 -----------------------------------------------------------------------
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session = {}
+
+-- Size: Accepted Session
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session.size = 10
+
+-- Display: Accepted Session
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Cancel Reason
 jpx_osederivatives_geniuminet_ouch_v5_0.cancel_reason = {}
@@ -1407,34 +1458,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.scope.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Sequence Number
-jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number = {}
-
--- Size: Sequence Number
-jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.size = 20
-
--- Display: Sequence Number
-jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_message_type = {}
 
@@ -1515,29 +1538,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.dissect = function(bu
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-jpx_osederivatives_geniuminet_ouch_v5_0.session = {}
-
--- Size: Session
-jpx_osederivatives_geniuminet_ouch_v5_0.session.size = 10
-
--- Display: Session
-jpx_osederivatives_geniuminet_ouch_v5_0.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-jpx_osederivatives_geniuminet_ouch_v5_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2322,7 +2322,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.sequenced_data_packet.fields = function(
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current)
+        flow.sequence.next = tonumber(jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2429,8 +2429,8 @@ jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.session.size + 
-  jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session.size + 
+  jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.display = function(packet, parent, length)
@@ -2441,17 +2441,17 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = jpx_osederivatives_geniuminet_ouch_v5_0.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current.sequence_number.last = sequence_number
+    jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2671,9 +2671,9 @@ jpx_osederivatives_geniuminet_ouch_v5_0.server_packet.dissect = function(buffer,
   -- establish frame context from the conversation's stored values
   local data = jpx_osederivatives_geniuminet_ouch_v5_0.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current = data.sequence_number.frames[packet.number]
+  jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current = data
 
   local index = 0
@@ -3402,7 +3402,7 @@ end
 
 -- Initialize Dissector
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.init()
-  jpx_osederivatives_geniuminet_ouch_v5_0.sequence_number.current = nil
+  jpx_osederivatives_geniuminet_ouch_v5_0.accepted_sequence_number.current = nil
   jpx_osederivatives_geniuminet_ouch_v5_0.conversation.current = nil
   jpx_osederivatives_geniuminet_ouch_v5_0.conversation.flows = {}
 end

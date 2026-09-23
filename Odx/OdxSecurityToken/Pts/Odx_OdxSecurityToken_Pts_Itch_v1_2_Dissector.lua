@@ -15,6 +15,8 @@ local odx_odxsecuritytoken_pts_itch_v1_2 = {}
 -----------------------------------------------------------------------
 
 -- Odx OdxSecurityToken Pts Itch 1.2 Fields
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "odx.odxsecuritytoken.pts.itch.v1.2.acceptedsequencenumber", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_session = ProtoField.new("Accepted Session", "odx.odxsecuritytoken.pts.itch.v1.2.acceptedsession", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.attention_flag = ProtoField.new("Attention Flag", "odx.odxsecuritytoken.pts.itch.v1.2.attentionflag", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxsecuritytoken.pts.itch.v1.2.buysellindicator", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_packet_type = ProtoField.new("Packet Type", "odx.odxsecuritytoken.pts.itch.v1.2.clientpackettype", ftypes.STRING)
@@ -45,10 +47,8 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.requested_session = ProtoField.new
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.restriction_of_market_order = ProtoField.new("Restriction Of Market Order", "odx.odxsecuritytoken.pts.itch.v1.2.restrictionofmarketorder", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "odx.odxsecuritytoken.pts.itch.v1.2.roundlotsize", ftypes.UINT32)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.seconds = ProtoField.new("Seconds", "odx.odxsecuritytoken.pts.itch.v1.2.seconds", ftypes.UINT32)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "odx.odxsecuritytoken.pts.itch.v1.2.sequencenumber", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "odx.odxsecuritytoken.pts.itch.v1.2.sequencedmessagetype", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet_type = ProtoField.new("Packet Type", "odx.odxsecuritytoken.pts.itch.v1.2.serverpackettype", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.session = ProtoField.new("Session", "odx.odxsecuritytoken.pts.itch.v1.2.session", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.state_name = ProtoField.new("State Name", "odx.odxsecuritytoken.pts.itch.v1.2.statename", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.system_event = ProtoField.new("System Event", "odx.odxsecuritytoken.pts.itch.v1.2.systemevent", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.termination_flag = ProtoField.new("Termination Flag", "odx.odxsecuritytoken.pts.itch.v1.2.terminationflag", ftypes.STRING)
@@ -207,7 +207,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.conversation.data = function(packet)
   local key = odx_odxsecuritytoken_pts_itch_v1_2.conversation.key(packet)
   local data = odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows[key] = data
   end
   return data
@@ -237,6 +237,57 @@ end
 -----------------------------------------------------------------------
 -- Odx OdxSecurityToken Pts Itch 1.2 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_session = {}
+
+-- Size: Accepted Session
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_session.size = 10
+
+-- Display: Accepted Session
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+odx_odxsecuritytoken_pts_itch_v1_2.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxsecuritytoken_pts_itch_v1_2.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Attention Flag
 odx_odxsecuritytoken_pts_itch_v1_2.attention_flag = {}
@@ -1021,34 +1072,6 @@ odx_odxsecuritytoken_pts_itch_v1_2.seconds.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Sequence Number
-odx_odxsecuritytoken_pts_itch_v1_2.sequence_number = {}
-
--- Size: Sequence Number
-odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.size = 20
-
--- Display: Sequence Number
-odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 odx_odxsecuritytoken_pts_itch_v1_2.sequenced_message_type = {}
 
@@ -1144,29 +1167,6 @@ odx_odxsecuritytoken_pts_itch_v1_2.server_packet_type.dissect = function(buffer,
   local display = odx_odxsecuritytoken_pts_itch_v1_2.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-odx_odxsecuritytoken_pts_itch_v1_2.session = {}
-
--- Size: Session
-odx_odxsecuritytoken_pts_itch_v1_2.session.size = 10
-
--- Display: Session
-odx_odxsecuritytoken_pts_itch_v1_2.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-odx_odxsecuritytoken_pts_itch_v1_2.session.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxsecuritytoken_pts_itch_v1_2.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = odx_odxsecuritytoken_pts_itch_v1_2.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2241,7 +2241,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.sequenced_data_packet.fields = function(buffe
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current)
+        flow.sequence.next = tonumber(odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2348,8 +2348,8 @@ odx_odxsecuritytoken_pts_itch_v1_2.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 odx_odxsecuritytoken_pts_itch_v1_2.login_accepted_packet.size =
-  odx_odxsecuritytoken_pts_itch_v1_2.session.size + 
-  odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.size
+  odx_odxsecuritytoken_pts_itch_v1_2.accepted_session.size + 
+  odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 odx_odxsecuritytoken_pts_itch_v1_2.login_accepted_packet.display = function(packet, parent, length)
@@ -2360,17 +2360,17 @@ end
 odx_odxsecuritytoken_pts_itch_v1_2.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = odx_odxsecuritytoken_pts_itch_v1_2.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = odx_odxsecuritytoken_pts_itch_v1_2.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    odx_odxsecuritytoken_pts_itch_v1_2.conversation.current.sequence_number.last = sequence_number
+    odx_odxsecuritytoken_pts_itch_v1_2.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2590,10 +2590,10 @@ odx_odxsecuritytoken_pts_itch_v1_2.server_packet.dissect = function(buffer, pack
   -- establish frame context from the conversation's stored values
   local data = odx_odxsecuritytoken_pts_itch_v1_2.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.seconds.frames[packet.number] = data.seconds.last
   end
-  odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current = data.sequence_number.frames[packet.number]
+  odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   odx_odxsecuritytoken_pts_itch_v1_2.seconds.current = data.seconds.frames[packet.number]
   odx_odxsecuritytoken_pts_itch_v1_2.conversation.current = data
 
@@ -2948,7 +2948,7 @@ end
 
 -- Initialize Dissector
 function omi_odx_odxsecuritytoken_pts_itch_v1_2.init()
-  odx_odxsecuritytoken_pts_itch_v1_2.sequence_number.current = nil
+  odx_odxsecuritytoken_pts_itch_v1_2.accepted_sequence_number.current = nil
   odx_odxsecuritytoken_pts_itch_v1_2.seconds.current = nil
   odx_odxsecuritytoken_pts_itch_v1_2.conversation.current = nil
   odx_odxsecuritytoken_pts_itch_v1_2.conversation.flows = {}

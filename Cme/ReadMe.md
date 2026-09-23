@@ -3,19 +3,19 @@
 
 ## CME Group
 
+### Market  Data
+
 | Division | [Protocol][Omi.Cme.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Cme.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Globex][Globex.Platform] | [BrokerTecUst][Cme.Globex.BrokerTecUst] | [Sbe][Omi.Encoding.Sbe] | [10.1][Cme.Globex.BrokerTecUst.Sbe.v10.1.Dissector] | 4/13/2023 | 1848 | [Active][Omi.Glossary.Deployment.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Cme.Globex.BrokerTecUst.Sbe.v10.1.Url] - [xml][Cme.Globex.BrokerTecUst.Sbe.v10.1.Xml] |
 | [Globex][Globex.Platform] | [Derived][Cme.Globex.Derived] | [Sbe][Omi.Encoding.Sbe] | [12.0][Cme.Globex.Derived.Sbe.v12.0.Dissector] | 1/4/2020 | 2463 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Derived.Sbe.v12.0.Url] - [xml][Cme.Globex.Derived.Sbe.v12.0.Xml] |
 | [Globex][Globex.Platform] | [EbsSpectrum][Cme.Globex.EbsSpectrum] | [Sbe][Omi.Encoding.Sbe] | [12.0][Cme.Globex.EbsSpectrum.Sbe.v12.0.Dissector] | 4/8/2022 | 2473 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.EbsSpectrum.Sbe.v12.0.Url] - [xml][Cme.Globex.EbsSpectrum.Sbe.v12.0.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.2][Cme.Globex.iLink3.Sbe.v8.2.Dissector] | 11/5/2019 | 17710 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.2.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.2.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.3][Cme.Globex.iLink3.Sbe.v8.3.Dissector] | 1/9/2020 | 17722 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.iLink3.Sbe.v8.3.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.3.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.4][Cme.Globex.iLink3.Sbe.v8.4.Dissector] | 2/11/2020 | 17801 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.iLink3.Sbe.v8.4.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.4.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.5][Cme.Globex.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | 17887 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.5.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.5.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.6][Cme.Globex.iLink3.Sbe.v8.6.Dissector] | 10/13/2020 | 18840 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.iLink3.Sbe.v8.6.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.6.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.7][Cme.Globex.iLink3.Sbe.v8.7.Dissector] | 1/6/2021 | 18837 | [Pending][Omi.Glossary.Deployment.Pending] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.7.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.7.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.8][Cme.Globex.iLink3.Sbe.v8.8.Dissector] | 5/31/2022 | 19658 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.8.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.8.Xml] |
-| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.9][Cme.Globex.iLink3.Sbe.v8.9.Dissector] | 5/31/2025 | 20237 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.9.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.9.Xml] |
+
+
+### Market Data
+
+| Division | [Protocol][Omi.Cme.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Cme.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Globex][Globex.Platform] | [Mdp3][Cme.Globex.Mdp3] | [Sbe][Omi.Encoding.Sbe] | [1.10][Cme.Globex.Mdp3.Sbe.v1.10.Dissector] | 7/26/2019 | 15153 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Mdp3.Sbe.v1.10.Url] - [xml][Cme.Globex.Mdp3.Sbe.v1.10.Xml] |
 | [Globex][Globex.Platform] | [Mdp3][Cme.Globex.Mdp3] | [Sbe][Omi.Encoding.Sbe] | [1.11][Cme.Globex.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | 15607 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Mdp3.Sbe.v1.11.Url] - [xml][Cme.Globex.Mdp3.Sbe.v1.11.Xml] |
 | [Globex][Globex.Platform] | [Mdp3][Cme.Globex.Mdp3] | [Sbe][Omi.Encoding.Sbe] | [1.12][Cme.Globex.Mdp3.Sbe.v1.12.Dissector] | 3/10/2021 | 18358 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Mdp3.Sbe.v1.12.Url] - [xml][Cme.Globex.Mdp3.Sbe.v1.12.Xml] |
@@ -24,10 +24,30 @@
 | [Globex][Globex.Platform] | [Mdp3][Cme.Globex.Mdp3] | [Sbe][Omi.Encoding.Sbe] | [1.6][Cme.Globex.Mdp3.Sbe.v1.6.Dissector] | 1/9/2016 | 11340 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.Mdp3.Sbe.v1.6.Url] - [xml][Cme.Globex.Mdp3.Sbe.v1.6.Xml] |
 | [Globex][Globex.Platform] | [Mdp3][Cme.Globex.Mdp3] | [Sbe][Omi.Encoding.Sbe] | [1.8][Cme.Globex.Mdp3.Sbe.v1.8.Dissector] | 7/1/2016 | 12358 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.Mdp3.Sbe.v1.8.Url] - [xml][Cme.Globex.Mdp3.Sbe.v1.8.Xml] |
 | [Globex][Globex.Platform] | [Mdp3][Cme.Globex.Mdp3] | [Sbe][Omi.Encoding.Sbe] | [1.9][Cme.Globex.Mdp3.Sbe.v1.9.Dissector] | 3/8/2018 | 14328 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.Mdp3.Sbe.v1.9.Url] - [xml][Cme.Globex.Mdp3.Sbe.v1.9.Xml] |
-| [Globex][Globex.Platform] | [SessionMgmt][Cme.Globex.SessionMgmt] | [Sbe][Omi.Encoding.Sbe] | [0.2][Cme.Globex.SessionMgmt.Sbe.v0.2.Dissector] | 3/10/2021 | 3132 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.SessionMgmt.Sbe.v0.2.Url] |
 | [Globex][Globex.Platform] | [Settlements][Cme.Globex.Settlements] | [Sbe][Omi.Encoding.Sbe] | [7.0][Cme.Globex.Settlements.Sbe.v7.0.Dissector] | 12/3/2018 | 3126 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Settlements.Sbe.v7.0.Url] - [xml][Cme.Globex.Settlements.Sbe.v7.0.Xml] |
 | [Globex][Globex.Platform] | [Streamlined][Cme.Globex.Streamlined] | [Sbe][Omi.Encoding.Sbe] | [5.8][Cme.Globex.Streamlined.Sbe.v5.8.Dissector] | 6/2/2017 | 12296 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Streamlined.Sbe.v5.8.Url] - [xml][Cme.Globex.Streamlined.Sbe.v5.8.Xml] |
 | [Globex][Globex.Platform] | [Streamlined][Cme.Globex.Streamlined] | [Sbe][Omi.Encoding.Sbe] | [5.9][Cme.Globex.Streamlined.Sbe.v5.9.Dissector] | 4/4/2018 | 13418 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.Streamlined.Sbe.v5.9.Url] - [xml][Cme.Globex.Streamlined.Sbe.v5.9.Xml] |
+
+
+### Order Entry
+
+| Division | [Protocol][Omi.Cme.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Cme.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.2][Cme.Globex.iLink3.Sbe.v8.2.Dissector] | 11/5/2019 | 17710 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.2.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.2.Xml] |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.3][Cme.Globex.iLink3.Sbe.v8.3.Dissector] | 1/9/2020 | 17722 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.iLink3.Sbe.v8.3.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.3.Xml] |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.4][Cme.Globex.iLink3.Sbe.v8.4.Dissector] | 2/11/2020 | 17801 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.iLink3.Sbe.v8.4.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.4.Xml] |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.5][Cme.Globex.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | 17887 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.5.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.5.Xml] |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.6][Cme.Globex.iLink3.Sbe.v8.6.Dissector] | 10/13/2020 | 18840 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.iLink3.Sbe.v8.6.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.6.Xml] |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.7][Cme.Globex.iLink3.Sbe.v8.7.Dissector] | 1/6/2021 | 18837 | [Pending][Omi.Glossary.Deployment.Pending] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.7.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.7.Xml] |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.8][Cme.Globex.iLink3.Sbe.v8.8.Dissector] | 5/31/2022 | 19658 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.8.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.8.Xml] |
+| [Globex][Globex.Platform] | [iLink3][Cme.Globex.iLink3] | [Sbe][Omi.Encoding.Sbe] | [8.9][Cme.Globex.iLink3.Sbe.v8.9.Dissector] | 5/31/2025 | 20237 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Globex.iLink3.Sbe.v8.9.Url] - [xml][Cme.Globex.iLink3.Sbe.v8.9.Xml] |
+
+
+### Session
+
+| Division | [Protocol][Omi.Cme.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Cme.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Globex][Globex.Platform] | [SessionMgmt][Cme.Globex.SessionMgmt] | [Sbe][Omi.Encoding.Sbe] | [0.2][Cme.Globex.SessionMgmt.Sbe.v0.2.Dissector] | 3/10/2021 | 3132 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Globex.SessionMgmt.Sbe.v0.2.Url] |
 
 
 <p align="center"><a href="https://www.cmegroup.com" title="CME Group Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/cme-group" title="CME Group on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/CME_Group" title="CME Group on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

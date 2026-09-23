@@ -15,6 +15,8 @@ local sgx_titandt_depthofbook_glimpse_v1_4 = {}
 -----------------------------------------------------------------------
 
 -- Sgx TitanDt DepthOfBook Glimpse 1.4 Fields
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.acceptedsequencenumber", ftypes.STRING)
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_session = ProtoField.new("Accepted Session", "sgx.titandt.depthofbook.glimpse.v1.4.acceptedsession", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.bait_implied_order = ProtoField.new("Bait Implied Order", "sgx.titandt.depthofbook.glimpse.v1.4.baitimpliedorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.client_packet_type = ProtoField.new("Packet Type", "sgx.titandt.depthofbook.glimpse.v1.4.clientpackettype", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.financial_product = ProtoField.new("Financial Product", "sgx.titandt.depthofbook.glimpse.v1.4.financialproduct", ftypes.UINT8)
@@ -57,10 +59,8 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_4_c = ProtoField.new("R
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_bits_1_to_13 = ProtoField.new("Reserved Bits 1 To 13", "sgx.titandt.depthofbook.glimpse.v1.4.reservedbits1to13", ftypes.UINT16, nil, base.DEC, 0x1FFF)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_bits_15_to_16 = ProtoField.new("Reserved Bits 15 To 16", "sgx.titandt.depthofbook.glimpse.v1.4.reservedbits15to16", ftypes.UINT16, nil, base.DEC, 0xC000)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second = ProtoField.new("Second", "sgx.titandt.depthofbook.glimpse.v1.4.second", ftypes.UINT32)
-omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.sequencenumber", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "sgx.titandt.depthofbook.glimpse.v1.4.sequencedmessagetype", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.server_packet_type = ProtoField.new("Packet Type", "sgx.titandt.depthofbook.glimpse.v1.4.serverpackettype", ftypes.STRING)
-omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.session = ProtoField.new("Session", "sgx.titandt.depthofbook.glimpse.v1.4.session", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.side = ProtoField.new("Side", "sgx.titandt.depthofbook.glimpse.v1.4.side", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.state_name = ProtoField.new("State Name", "sgx.titandt.depthofbook.glimpse.v1.4.statename", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.symbol = ProtoField.new("Symbol", "sgx.titandt.depthofbook.glimpse.v1.4.symbol", ftypes.STRING)
@@ -192,7 +192,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.conversation.data = function(packet)
   local key = sgx_titandt_depthofbook_glimpse_v1_4.conversation.key(packet)
   local data = sgx_titandt_depthofbook_glimpse_v1_4.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, second = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, second = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     sgx_titandt_depthofbook_glimpse_v1_4.conversation.flows[key] = data
   end
   return data
@@ -222,6 +222,57 @@ end
 -----------------------------------------------------------------------
 -- Sgx TitanDt DepthOfBook Glimpse 1.4 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_session = {}
+
+-- Size: Accepted Session
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_session.size = 10
+
+-- Display: Accepted Session
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+sgx_titandt_depthofbook_glimpse_v1_4.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = sgx_titandt_depthofbook_glimpse_v1_4.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = sgx_titandt_depthofbook_glimpse_v1_4.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Client Packet Type
 sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type = {}
@@ -1229,34 +1280,6 @@ sgx_titandt_depthofbook_glimpse_v1_4.second.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Sequence Number
-sgx_titandt_depthofbook_glimpse_v1_4.sequence_number = {}
-
--- Size: Sequence Number
-sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.size = 20
-
--- Display: Sequence Number
-sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 sgx_titandt_depthofbook_glimpse_v1_4.sequenced_message_type = {}
 
@@ -1340,29 +1363,6 @@ sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type.dissect = function(buffe
   local display = sgx_titandt_depthofbook_glimpse_v1_4.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-sgx_titandt_depthofbook_glimpse_v1_4.session = {}
-
--- Size: Session
-sgx_titandt_depthofbook_glimpse_v1_4.session.size = 10
-
--- Display: Session
-sgx_titandt_depthofbook_glimpse_v1_4.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-sgx_titandt_depthofbook_glimpse_v1_4.session.dissect = function(buffer, offset, packet, parent)
-  local length = sgx_titandt_depthofbook_glimpse_v1_4.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = sgx_titandt_depthofbook_glimpse_v1_4.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2257,7 +2257,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.sequenced_data_packet.fields = function(buf
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.current)
+        flow.sequence.next = tonumber(sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2364,8 +2364,8 @@ sgx_titandt_depthofbook_glimpse_v1_4.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 sgx_titandt_depthofbook_glimpse_v1_4.login_accepted_packet.size =
-  sgx_titandt_depthofbook_glimpse_v1_4.session.size + 
-  sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.size
+  sgx_titandt_depthofbook_glimpse_v1_4.accepted_session.size + 
+  sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 sgx_titandt_depthofbook_glimpse_v1_4.login_accepted_packet.display = function(packet, parent, length)
@@ -2376,17 +2376,17 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = sgx_titandt_depthofbook_glimpse_v1_4.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = sgx_titandt_depthofbook_glimpse_v1_4.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    sgx_titandt_depthofbook_glimpse_v1_4.conversation.current.sequence_number.last = sequence_number
+    sgx_titandt_depthofbook_glimpse_v1_4.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2606,10 +2606,10 @@ sgx_titandt_depthofbook_glimpse_v1_4.server_packet.dissect = function(buffer, pa
   -- establish frame context from the conversation's stored values
   local data = sgx_titandt_depthofbook_glimpse_v1_4.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.second.frames[packet.number] = data.second.last
   end
-  sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.current = data.sequence_number.frames[packet.number]
+  sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   sgx_titandt_depthofbook_glimpse_v1_4.second.current = data.second.frames[packet.number]
   sgx_titandt_depthofbook_glimpse_v1_4.conversation.current = data
 
@@ -2964,7 +2964,7 @@ end
 
 -- Initialize Dissector
 function omi_sgx_titandt_depthofbook_glimpse_v1_4.init()
-  sgx_titandt_depthofbook_glimpse_v1_4.sequence_number.current = nil
+  sgx_titandt_depthofbook_glimpse_v1_4.accepted_sequence_number.current = nil
   sgx_titandt_depthofbook_glimpse_v1_4.second.current = nil
   sgx_titandt_depthofbook_glimpse_v1_4.conversation.current = nil
   sgx_titandt_depthofbook_glimpse_v1_4.conversation.flows = {}

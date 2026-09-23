@@ -16,6 +16,7 @@ local nasdaq_nsmequities_totalview_itch_v1_0 = {}
 
 -- Nasdaq NsmEquities TotalView Itch 1.0 Fields
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.itch.v1.0.canceledshares", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.itch.v1.0.clientpackettype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.contra_broker_code = ProtoField.new("Contra Broker Code", "nasdaq.nsmequities.totalview.itch.v1.0.contrabrokercode", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.nsmequities.totalview.itch.v1.0.debugpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.totalview.itch.v1.0.display", ftypes.STRING)
@@ -27,7 +28,6 @@ omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.login_request_packet = ProtoFi
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.nsmequities.totalview.itch.v1.0.matchnumber", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.nsmequities.totalview.itch.v1.0.messagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.itch.v1.0.orderreferencenumber", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.totalview.itch.v1.0.packettype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.totalview.itch.v1.0.password", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.itch.v1.0.price", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.itch.v1.0.rejectreasoncode", ftypes.STRING)
@@ -35,6 +35,7 @@ omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.requested_sequence_number = Pr
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.totalview.itch.v1.0.requestedsession", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.totalview.itch.v1.0.sequencenumber", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.itch.v1.0.sequenceddatapacket", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.itch.v1.0.serverpackettype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.itch.v1.0.session", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.itch.v1.0.shares", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.itch.v1.0.side", ftypes.STRING)
@@ -47,8 +48,9 @@ omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.unsequenced_message = ProtoFie
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.itch.v1.0.username", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView Itch 1.0 Framing
+omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.client_packet = ProtoField.new("Client Packet", "nasdaq.nsmequities.totalview.itch.v1.0.clientpacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "nasdaq.nsmequities.totalview.itch.v1.0.sequencedmessageheader", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.soup_tcp_packet = ProtoField.new("Soup Tcp Packet", "nasdaq.nsmequities.totalview.itch.v1.0.souptcppacket", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.server_packet = ProtoField.new("Server Packet", "nasdaq.nsmequities.totalview.itch.v1.0.serverpacket", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView 1.0 Application Messages
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.itch.v1.0.addordermessage", ftypes.STRING)
@@ -57,6 +59,18 @@ omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.order_cancel_message = ProtoFi
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "nasdaq.nsmequities.totalview.itch.v1.0.orderexecutedmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.nsmequities.totalview.itch.v1.0.systemeventmessage", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.trade_message = ProtoField.new("Trade Message", "nasdaq.nsmequities.totalview.itch.v1.0.trademessage", ftypes.STRING)
+
+-----------------------------------------------------------------------
+-- Nasdaq NsmEquities TotalView Itch 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -70,6 +84,9 @@ show.structs = true
 show.headers = true
 
 -- Register Nasdaq NsmEquities TotalView Itch 1.0 Show Options
+omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
 omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
@@ -134,6 +151,45 @@ nasdaq_nsmequities_totalview_itch_v1_0.canceled_shares.dissect = function(buffer
   local display = nasdaq_nsmequities_totalview_itch_v1_0.canceled_shares.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.canceled_shares, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type = {}
+
+-- Size: Client Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type.size = 1
+
+-- Display: Client Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type.display = function(value)
+  if value == "+" then
+    return "Client Packet Type: Debug Packet (+)"
+  end
+  if value == "L" then
+    return "Client Packet Type: Login Request Packet (L)"
+  end
+  if value == "U" then
+    return "Client Packet Type: Unsequenced Data Packet (U)"
+  end
+  if value == "R" then
+    return "Client Packet Type: Client Heartbeat Packet (R)"
+  end
+  if value == "O" then
+    return "Client Packet Type: Logout Request Packet (O)"
+  end
+
+  return "Client Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Client Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.client_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -344,57 +400,6 @@ nasdaq_nsmequities_totalview_itch_v1_0.order_reference_number.dissect = function
   return offset + length, value
 end
 
--- Packet Type
-nasdaq_nsmequities_totalview_itch_v1_0.packet_type = {}
-
--- Size: Packet Type
-nasdaq_nsmequities_totalview_itch_v1_0.packet_type.size = 1
-
--- Display: Packet Type
-nasdaq_nsmequities_totalview_itch_v1_0.packet_type.display = function(value)
-  if value == "+" then
-    return "Packet Type: Debug Packet (+)"
-  end
-  if value == "A" then
-    return "Packet Type: Login Accepted Packet (A)"
-  end
-  if value == "J" then
-    return "Packet Type: Login Rejected Packet (J)"
-  end
-  if value == "S" then
-    return "Packet Type: Sequenced Data Packet (S)"
-  end
-  if value == "H" then
-    return "Packet Type: Server Heartbeat Packet (H)"
-  end
-  if value == "L" then
-    return "Packet Type: Login Request Packet (L)"
-  end
-  if value == "U" then
-    return "Packet Type: Unsequenced Data Packet (U)"
-  end
-  if value == "R" then
-    return "Packet Type: Client Heartbeat Packet (R)"
-  end
-  if value == "O" then
-    return "Packet Type: Logout Request Packet (O)"
-  end
-
-  return "Packet Type: Unknown("..value..")"
-end
-
--- Dissect: Packet Type
-nasdaq_nsmequities_totalview_itch_v1_0.packet_type.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v1_0.packet_type.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v1_0.packet_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.packet_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Password
 nasdaq_nsmequities_totalview_itch_v1_0.password = {}
 
@@ -529,6 +534,45 @@ nasdaq_nsmequities_totalview_itch_v1_0.sequence_number.dissect = function(buffer
   local display = nasdaq_nsmequities_totalview_itch_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Server Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type = {}
+
+-- Size: Server Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type.size = 1
+
+-- Display: Server Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type.display = function(value)
+  if value == "+" then
+    return "Server Packet Type: Debug Packet (+)"
+  end
+  if value == "A" then
+    return "Server Packet Type: Login Accepted Packet (A)"
+  end
+  if value == "J" then
+    return "Server Packet Type: Login Rejected Packet (J)"
+  end
+  if value == "S" then
+    return "Server Packet Type: Sequenced Data Packet (S)"
+  end
+  if value == "H" then
+    return "Server Packet Type: Server Heartbeat Packet (H)"
+  end
+
+  return "Server Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Server Packet Type
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.server_packet_type, range, value, display)
 
   return offset + length, value
 end
@@ -765,98 +809,6 @@ end
 -----------------------------------------------------------------------
 -- Dissect Nasdaq NsmEquities TotalView Itch 1.0
 -----------------------------------------------------------------------
-
--- Unsequenced Data Packet
-nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet = {}
-
--- Size: Unsequenced Data Packet
-nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.size =
-  nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_message.size
-
--- Display: Unsequenced Data Packet
-nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Unsequenced Data Packet
-nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Unsequenced Message: 0 Byte
-  index, unsequenced_message = nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_message.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Unsequenced Data Packet
-nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.unsequenced_data_packet, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Login Request Packet
-nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet = {}
-
--- Size: Login Request Packet
-nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.size =
-  nasdaq_nsmequities_totalview_itch_v1_0.username.size + 
-  nasdaq_nsmequities_totalview_itch_v1_0.password.size + 
-  nasdaq_nsmequities_totalview_itch_v1_0.requested_session.size + 
-  nasdaq_nsmequities_totalview_itch_v1_0.requested_sequence_number.size
-
--- Display: Login Request Packet
-nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Login Request Packet
-nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Username: 6 Byte Ascii String
-  index, username = nasdaq_nsmequities_totalview_itch_v1_0.username.dissect(buffer, index, packet, parent)
-
-  -- Password: 10 Byte Ascii String
-  index, password = nasdaq_nsmequities_totalview_itch_v1_0.password.dissect(buffer, index, packet, parent)
-
-  -- Requested Session: 10 Byte Ascii String
-  index, requested_session = nasdaq_nsmequities_totalview_itch_v1_0.requested_session.dissect(buffer, index, packet, parent)
-
-  -- Requested Sequence Number: 10 Byte Ascii String
-  index, requested_sequence_number = nasdaq_nsmequities_totalview_itch_v1_0.requested_sequence_number.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Login Request Packet
-nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.login_request_packet, buffer(offset, 0))
-    local index = nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.fields(buffer, offset, packet, parent)
-  end
-end
 
 -- Broken Trade Message
 nasdaq_nsmequities_totalview_itch_v1_0.broken_trade_message = {}
@@ -1415,61 +1367,196 @@ nasdaq_nsmequities_totalview_itch_v1_0.debug_packet.dissect = function(buffer, o
   end
 end
 
--- Soup Tcp Payload
-nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_payload = {}
+-- Server Payload
+nasdaq_nsmequities_totalview_itch_v1_0.server_payload = {}
 
--- Dissect: Soup Tcp Payload
-nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_payload.dissect = function(buffer, offset, packet, parent, packet_type)
+-- Dissect: Server Payload
+nasdaq_nsmequities_totalview_itch_v1_0.server_payload.dissect = function(buffer, offset, packet, parent, server_packet_type)
   -- Dissect Debug Packet
-  if packet_type == "+" then
+  if server_packet_type == "+" then
     return nasdaq_nsmequities_totalview_itch_v1_0.debug_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
-  if packet_type == "A" then
+  if server_packet_type == "A" then
     return nasdaq_nsmequities_totalview_itch_v1_0.login_accepted_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
-  if packet_type == "J" then
+  if server_packet_type == "J" then
     return nasdaq_nsmequities_totalview_itch_v1_0.login_rejected_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
-  if packet_type == "S" then
+  if server_packet_type == "S" then
     return nasdaq_nsmequities_totalview_itch_v1_0.sequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
+
+  return offset
+end
+
+-- Server Packet
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet = {}
+
+-- Verify required size of Tcp packet
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type.size
+end
+
+-- Dissect Server Packet
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Packet
+  local end_of_payload = buffer:len()
+
+  while index < end_of_payload do
+
+    -- Server Packet Type: 1 Byte Ascii String Enum with 5 values
+    index, server_packet_type = nasdaq_nsmequities_totalview_itch_v1_0.server_packet_type.dissect(buffer, index, packet, parent)
+
+    -- Server Payload: Runtime Type with 4 branches
+    index = nasdaq_nsmequities_totalview_itch_v1_0.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
+
+    -- Soup Lf: 1 Byte Fixed Width Integer Static
+    index, soup_lf = nasdaq_nsmequities_totalview_itch_v1_0.soup_lf.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Unsequenced Data Packet
+nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet = {}
+
+-- Size: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.size =
+  nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_message.size
+
+-- Display: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Unsequenced Message: 0 Byte
+  index, unsequenced_message = nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.unsequenced_data_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Request Packet
+nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet = {}
+
+-- Size: Login Request Packet
+nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.size =
+  nasdaq_nsmequities_totalview_itch_v1_0.username.size + 
+  nasdaq_nsmequities_totalview_itch_v1_0.password.size + 
+  nasdaq_nsmequities_totalview_itch_v1_0.requested_session.size + 
+  nasdaq_nsmequities_totalview_itch_v1_0.requested_sequence_number.size
+
+-- Display: Login Request Packet
+nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request Packet
+nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 6 Byte Ascii String
+  index, username = nasdaq_nsmequities_totalview_itch_v1_0.username.dissect(buffer, index, packet, parent)
+
+  -- Password: 10 Byte Ascii String
+  index, password = nasdaq_nsmequities_totalview_itch_v1_0.password.dissect(buffer, index, packet, parent)
+
+  -- Requested Session: 10 Byte Ascii String
+  index, requested_session = nasdaq_nsmequities_totalview_itch_v1_0.requested_session.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 10 Byte Ascii String
+  index, requested_sequence_number = nasdaq_nsmequities_totalview_itch_v1_0.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Request Packet
+nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.login_request_packet, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+nasdaq_nsmequities_totalview_itch_v1_0.client_payload = {}
+
+-- Dissect: Client Payload
+nasdaq_nsmequities_totalview_itch_v1_0.client_payload.dissect = function(buffer, offset, packet, parent, client_packet_type)
+  -- Dissect Debug Packet
+  if client_packet_type == "+" then
+    return nasdaq_nsmequities_totalview_itch_v1_0.debug_packet.dissect(buffer, offset, packet, parent)
+  end
   -- Dissect Login Request Packet
-  if packet_type == "L" then
+  if client_packet_type == "L" then
     return nasdaq_nsmequities_totalview_itch_v1_0.login_request_packet.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Unsequenced Data Packet
-  if packet_type == "U" then
+  if client_packet_type == "U" then
     return nasdaq_nsmequities_totalview_itch_v1_0.unsequenced_data_packet.dissect(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
--- Soup Tcp Packet
-nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet = {}
+-- Client Packet
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet = {}
 
 -- Verify required size of Tcp packet
-nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v1_0.packet_type.size
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type.size
 end
 
--- Dissect Soup Tcp Packet
-nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.dissect = function(buffer, packet, parent)
+-- Dissect Client Packet
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet.dissect = function(buffer, packet, parent)
   local index = 0
 
-  -- Dependency for Soup Tcp Packet
+  -- Dependency for Client Packet
   local end_of_payload = buffer:len()
 
   while index < end_of_payload do
 
-    -- Packet Type: 1 Byte Ascii String Enum with 9 values
-    index, packet_type = nasdaq_nsmequities_totalview_itch_v1_0.packet_type.dissect(buffer, index, packet, parent)
+    -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+    index, client_packet_type = nasdaq_nsmequities_totalview_itch_v1_0.client_packet_type.dissect(buffer, index, packet, parent)
 
-    -- Soup Tcp Payload: Runtime Type with 6 branches
-    index = nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_payload.dissect(buffer, index, packet, parent, packet_type)
+    -- Client Payload: Runtime Type with 3 branches
+    index = nasdaq_nsmequities_totalview_itch_v1_0.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
 
     -- Soup Lf: 1 Byte Fixed Width Integer Static
     index, soup_lf = nasdaq_nsmequities_totalview_itch_v1_0.soup_lf.dissect(buffer, index, packet, parent)
@@ -1487,6 +1574,84 @@ end
 function omi_nasdaq_nsmequities_totalview_itch_v1_0.init()
 end
 
+-- Connection roles for Nasdaq NsmEquities TotalView Itch 1.0: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nasdaq_nsmequities_totalview_itch_v1_0.role = function(packet)
+  if omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nasdaq_nsmequities_totalview_itch_v1_0.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nasdaq_nsmequities_totalview_itch_v1_0.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
 -- Dissector for Nasdaq NsmEquities TotalView Itch 1.0
 function omi_nasdaq_nsmequities_totalview_itch_v1_0.dissector(buffer, packet, parent)
   -- Set protocol name
@@ -1494,7 +1659,112 @@ function omi_nasdaq_nsmequities_totalview_itch_v1_0.dissector(buffer, packet, pa
 
   -- Dissect protocol
   local protocol = parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0, buffer(), omi_nasdaq_nsmequities_totalview_itch_v1_0.description, "("..buffer:len().." Bytes)")
-  return nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.dissect(buffer, packet, protocol)
+
+  local role = nasdaq_nsmequities_totalview_itch_v1_0.role(packet)
+
+  if role == "initiator" then
+    return nasdaq_nsmequities_totalview_itch_v1_0.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return nasdaq_nsmequities_totalview_itch_v1_0.server_packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nasdaq_nsmequities_totalview_itch_v1_0.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local client_packet_type = buffer(0, 1):string()
+
+  -- Debug Packet
+  if client_packet_type == "+" then
+    return true
+  end
+
+  -- Login Request Packet
+  if client_packet_type == "L" then
+    return true
+  end
+
+  -- Unsequenced Data Packet
+  if client_packet_type == "U" then
+    return true
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nasdaq_nsmequities_totalview_itch_v1_0.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 1 then
+    return false
+  end
+
+  local server_packet_type = buffer(0, 1):string()
+
+  -- Debug Packet
+  if server_packet_type == "+" then
+    return true
+  end
+
+  -- Login Accepted Packet
+  if server_packet_type == "A" then
+    return true
+  end
+
+  -- Login Rejected Packet
+  if server_packet_type == "J" then
+    return true
+  end
+
+  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if server_packet_type == "S" then
+    if buffer:len() < 9 then
+      return false
+    end
+
+    local message_type = buffer(8, 1):string()
+
+    -- System Event Message
+    if message_type == "S" then
+      return true
+    end
+
+    -- Add Order Message
+    if message_type == "A" then
+      return true
+    end
+
+    -- Order Executed Message
+    if message_type == "E" then
+      return true
+    end
+
+    -- Order Cancel Message
+    if message_type == "X" then
+      return true
+    end
+
+    -- Trade Message
+    if message_type == "P" then
+      return true
+    end
+
+    -- Broken Trade Message
+    if message_type == "B" then
+      return true
+    end
+
+    return false
+  end
+
+  return false
 end
 
 
@@ -1503,9 +1773,12 @@ end
 -----------------------------------------------------------------------
 
 -- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 1.0 (Tcp)
-local function omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_heuristic(buffer, packet, parent)
+local function omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_initiator_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not nasdaq_nsmequities_totalview_itch_v1_0.soup_tcp_packet.requiredsize(buffer) then return false end
+  if not nasdaq_nsmequities_totalview_itch_v1_0.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_nsmequities_totalview_itch_v1_0.client_packet.fingerprint(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_nasdaq_nsmequities_totalview_itch_v1_0
@@ -1514,7 +1787,50 @@ local function omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_heuristic(buffer, 
   return true
 end
 
--- Register Heuristic for Nasdaq NsmEquities TotalView Itch 1.0
+-- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 1.0 (Tcp)
+local function omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_nsmequities_totalview_itch_v1_0.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this side's fingerprint
+  if not nasdaq_nsmequities_totalview_itch_v1_0.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_nsmequities_totalview_itch_v1_0
+  omi_nasdaq_nsmequities_totalview_itch_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nasdaq NsmEquities TotalView Itch 1.0 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_heuristic(buffer, packet, parent)
+  local role = nasdaq_nsmequities_totalview_itch_v1_0.role(packet)
+  local initiator = omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_initiator_heuristic
+  local acceptor = omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nasdaq_nsmequities_totalview_itch_v1_0.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nasdaq_nsmequities_totalview_itch_v1_0.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nasdaq NsmEquities TotalView Itch 1.0
 omi_nasdaq_nsmequities_totalview_itch_v1_0:register_heuristic("tcp", omi_nasdaq_nsmequities_totalview_itch_v1_0_tcp_heuristic)
 
 -- Register Nasdaq NsmEquities TotalView Itch 1.0 for Decode As

@@ -3,6 +3,8 @@
 
 ## National Stock Exchange of India Ltd
 
+### Market Data
+
 | Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [NseCd][NseCd.Exchange] | [Mtbt][Nse.NseCd.Mtbt] | [Binary][Omi.Encoding.Binary] | [6.8][Nse.NseCd.Mtbt.Binary.v6.8.Dissector] | 12/1/2025 | 1324 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseCd.Mtbt.Binary.v6.8.Url] - [pdf][Nse.NseCd.Mtbt.Binary.v6.8.Pdf] |
@@ -43,14 +45,10 @@
 | [NseCom][NseCom.Exchange] | [Snapshot][Nse.NseCom.Snapshot] | [Binary][Omi.Encoding.Binary] | [6.9][Nse.NseCom.Snapshot.Binary.v6.9.Dissector] | 4/1/2026 | 1471 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseCom.Snapshot.Binary.v6.9.Url] - [pdf][Nse.NseCom.Snapshot.Binary.v6.9.Pdf] |
 | [NseCom][NseCom.Exchange] | [Snapshot][Nse.NseCom.Snapshot] | [Binary][Omi.Encoding.Binary] | [7.0][Nse.NseCom.Snapshot.Binary.v7.0.Dissector] | 8/1/2026 | 1471 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseCom.Snapshot.Binary.v7.0.Url] - [pdf][Nse.NseCom.Snapshot.Binary.v7.0.Pdf] |
 | [NseCom][NseCom.Exchange] | [Snapshot][Nse.NseCom.Snapshot] | [Binary][Omi.Encoding.Binary] | [7.1][Nse.NseCom.Snapshot.Binary.v7.1.Dissector] | 9/1/2026 | 1471 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseCom.Snapshot.Binary.v7.1.Url] - [pdf][Nse.NseCom.Snapshot.Binary.v7.1.Pdf] |
-| [NseFo][NseFo.Exchange] | [Broadcast][Nse.NseFo.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [9.50][Nse.NseFo.Broadcast.NnfBcast.v9.50.Dissector] | 7/27/2026 | 9303 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Broadcast.NnfBcast.v9.50.Url] - [pdf][Nse.NseFo.Broadcast.NnfBcast.v9.50.Pdf] |
 | [NseFo][NseFo.Exchange] | [Mtbt][Nse.NseFo.Mtbt] | [Binary][Omi.Encoding.Binary] | [6.8][Nse.NseFo.Mtbt.Binary.v6.8.Dissector] | 12/1/2025 | 1324 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Mtbt.Binary.v6.8.Url] - [pdf][Nse.NseFo.Mtbt.Binary.v6.8.Pdf] |
 | [NseFo][NseFo.Exchange] | [Mtbt][Nse.NseFo.Mtbt] | [Binary][Omi.Encoding.Binary] | [6.9][Nse.NseFo.Mtbt.Binary.v6.9.Dissector] | 4/1/2026 | 1324 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nse.NseFo.Mtbt.Binary.v6.9.Url] - [pdf][Nse.NseFo.Mtbt.Binary.v6.9.Pdf] |
 | [NseFo][NseFo.Exchange] | [Mtbt][Nse.NseFo.Mtbt] | [Binary][Omi.Encoding.Binary] | [7.0][Nse.NseFo.Mtbt.Binary.v7.0.Dissector] | 8/1/2026 | 1324 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Mtbt.Binary.v7.0.Url] - [pdf][Nse.NseFo.Mtbt.Binary.v7.0.Pdf] |
 | [NseFo][NseFo.Exchange] | [Mtbt][Nse.NseFo.Mtbt] | [Binary][Omi.Encoding.Binary] | [7.1][Nse.NseFo.Mtbt.Binary.v7.1.Dissector] | 9/1/2026 | 1324 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Mtbt.Binary.v7.1.Url] - [pdf][Nse.NseFo.Mtbt.Binary.v7.1.Pdf] |
-| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [Nnf][Omi.Encoding.Nnf] | [9.50][Nse.NseFo.OrderEntry.Nnf.v9.50.Dissector] | 7/27/2026 | 16335 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.OrderEntry.Nnf.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.Nnf.v9.50.Pdf] |
-| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfDirect][Omi.Encoding.NnfDirect] | [9.50][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Dissector] | 7/27/2026 | 16459 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Pdf] |
-| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfTrimmed][Omi.Encoding.NnfTrimmed] | [9.50][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Dissector] | 7/27/2026 | 2910 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Pdf] |
 | [NseFo][NseFo.Exchange] | [Recovery][Nse.NseFo.Recovery] | [Binary][Omi.Encoding.Binary] | [6.8][Nse.NseFo.Recovery.Binary.v6.8.Dissector] | 12/1/2025 | 1849 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Recovery.Binary.v6.8.Url] - [pdf][Nse.NseFo.Recovery.Binary.v6.8.Pdf] |
 | [NseFo][NseFo.Exchange] | [Recovery][Nse.NseFo.Recovery] | [Binary][Omi.Encoding.Binary] | [6.9][Nse.NseFo.Recovery.Binary.v6.9.Dissector] | 4/1/2026 | 1849 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Recovery.Binary.v6.9.Url] - [pdf][Nse.NseFo.Recovery.Binary.v6.9.Pdf] |
 | [NseFo][NseFo.Exchange] | [Recovery][Nse.NseFo.Recovery] | [Binary][Omi.Encoding.Binary] | [7.0][Nse.NseFo.Recovery.Binary.v7.0.Dissector] | 8/1/2026 | 1849 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Recovery.Binary.v7.0.Url] - [pdf][Nse.NseFo.Recovery.Binary.v7.0.Pdf] |
@@ -59,6 +57,22 @@
 | [NseFo][NseFo.Exchange] | [Snapshot][Nse.NseFo.Snapshot] | [Binary][Omi.Encoding.Binary] | [6.9][Nse.NseFo.Snapshot.Binary.v6.9.Dissector] | 4/1/2026 | 1471 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Snapshot.Binary.v6.9.Url] - [pdf][Nse.NseFo.Snapshot.Binary.v6.9.Pdf] |
 | [NseFo][NseFo.Exchange] | [Snapshot][Nse.NseFo.Snapshot] | [Binary][Omi.Encoding.Binary] | [7.0][Nse.NseFo.Snapshot.Binary.v7.0.Dissector] | 8/1/2026 | 1471 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Snapshot.Binary.v7.0.Url] - [pdf][Nse.NseFo.Snapshot.Binary.v7.0.Pdf] |
 | [NseFo][NseFo.Exchange] | [Snapshot][Nse.NseFo.Snapshot] | [Binary][Omi.Encoding.Binary] | [7.1][Nse.NseFo.Snapshot.Binary.v7.1.Dissector] | 9/1/2026 | 1471 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Snapshot.Binary.v7.1.Url] - [pdf][Nse.NseFo.Snapshot.Binary.v7.1.Pdf] |
+
+
+### Order Entry
+
+| Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [Nnf][Omi.Encoding.Nnf] | [9.50][Nse.NseFo.OrderEntry.Nnf.v9.50.Dissector] | 7/27/2026 | 16335 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.OrderEntry.Nnf.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.Nnf.v9.50.Pdf] |
+| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfDirect][Omi.Encoding.NnfDirect] | [9.50][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Dissector] | 7/27/2026 | 16459 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Pdf] |
+| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfTrimmed][Omi.Encoding.NnfTrimmed] | [9.50][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Dissector] | 7/27/2026 | 2910 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Pdf] |
+
+
+### Protocols
+
+| Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [NseFo][NseFo.Exchange] | [Broadcast][Nse.NseFo.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [9.50][Nse.NseFo.Broadcast.NnfBcast.v9.50.Dissector] | 7/27/2026 | 9303 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Broadcast.NnfBcast.v9.50.Url] - [pdf][Nse.NseFo.Broadcast.NnfBcast.v9.50.Pdf] |
 
 
 <p align="center"><a href="https://www.nseindia.com" title="National Stock Exchange of India Ltd Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/nseindia" title="National Stock Exchange of India Ltd on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/National_Stock_Exchange_of_India" title="National Stock Exchange of India Ltd on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

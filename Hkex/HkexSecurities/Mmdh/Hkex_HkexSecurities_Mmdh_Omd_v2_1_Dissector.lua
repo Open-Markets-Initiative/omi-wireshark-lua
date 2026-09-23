@@ -5610,19 +5610,19 @@ hkex_hkexsecurities_mmdh_omd_v2_1.logon_message.fields = function(buffer, offset
   -- Internal Seq Num: Uint32
   index, internal_seq_num = hkex_hkexsecurities_mmdh_omd_v2_1.internal_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Client Public Key: Binary
+  -- Client Public Key: Data
   index, client_public_key = hkex_hkexsecurities_mmdh_omd_v2_1.client_public_key.dissect(buffer, index, packet, parent)
 
   -- Encrypted Password Len: Uint8
   index, encrypted_password_len = hkex_hkexsecurities_mmdh_omd_v2_1.encrypted_password_len.dissect(buffer, index, packet, parent)
 
-  -- Encrypted Password: Binary
+  -- Encrypted Password: Data
   index, encrypted_password = hkex_hkexsecurities_mmdh_omd_v2_1.encrypted_password.dissect(buffer, index, packet, parent)
 
   -- Encrypted New Password Len: Uint8
   index, encrypted_new_password_len = hkex_hkexsecurities_mmdh_omd_v2_1.encrypted_new_password_len.dissect(buffer, index, packet, parent)
 
-  -- Encrypted New Password: Binary
+  -- Encrypted New Password: Data
   index, encrypted_new_password = hkex_hkexsecurities_mmdh_omd_v2_1.encrypted_new_password.dissect(buffer, index, packet, parent)
 
   return index
@@ -5665,16 +5665,16 @@ end
 hkex_hkexsecurities_mmdh_omd_v2_1.send_key_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Prime: Binary
+  -- Prime: Data
   index, prime = hkex_hkexsecurities_mmdh_omd_v2_1.prime.dissect(buffer, index, packet, parent)
 
-  -- Generator: Binary
+  -- Generator: Data
   index, generator = hkex_hkexsecurities_mmdh_omd_v2_1.generator.dissect(buffer, index, packet, parent)
 
-  -- Prime Order Subgroup: Binary
+  -- Prime Order Subgroup: Data
   index, prime_order_subgroup = hkex_hkexsecurities_mmdh_omd_v2_1.prime_order_subgroup.dissect(buffer, index, packet, parent)
 
-  -- Omd Public Key: Binary
+  -- Omd Public Key: Data
   index, omd_public_key = hkex_hkexsecurities_mmdh_omd_v2_1.omd_public_key.dissect(buffer, index, packet, parent)
 
   return index

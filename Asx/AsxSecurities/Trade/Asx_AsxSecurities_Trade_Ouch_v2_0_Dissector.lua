@@ -15,6 +15,8 @@ local asx_asxsecurities_trade_ouch_v2_0 = {}
 -----------------------------------------------------------------------
 
 -- Asx AsxSecurities Trade Ouch 2.0 Fields
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.acceptedsequencenumber", ftypes.STRING)
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_session = ProtoField.new("Accepted Session", "asx.asxsecurities.trade.ouch.v2.0.acceptedsession", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.capacity_of_participant = ProtoField.new("Capacity Of Participant", "asx.asxsecurities.trade.ouch.v2.0.capacityofparticipant", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.clearing_participant = ProtoField.new("Clearing Participant", "asx.asxsecurities.trade.ouch.v2.0.clearingparticipant", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.client_account = ProtoField.new("Client Account", "asx.asxsecurities.trade.ouch.v2.0.clientaccount", ftypes.STRING)
@@ -52,10 +54,8 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.replacement_order_token = ProtoFiel
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.requestedsequencenumber", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.requested_session = ProtoField.new("Requested Session", "asx.asxsecurities.trade.ouch.v2.0.requestedsession", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.reserved = ProtoField.new("Reserved", "asx.asxsecurities.trade.ouch.v2.0.reserved", ftypes.UINT8, nil, base.DEC, 0xF8)
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "asx.asxsecurities.trade.ouch.v2.0.sequencenumber", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "asx.asxsecurities.trade.ouch.v2.0.sequencedmessagetype", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.server_packet_type = ProtoField.new("Packet Type", "asx.asxsecurities.trade.ouch.v2.0.serverpackettype", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.session = ProtoField.new("Session", "asx.asxsecurities.trade.ouch.v2.0.session", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.short_sell_quantity = ProtoField.new("Short Sell Quantity", "asx.asxsecurities.trade.ouch.v2.0.shortsellquantity", ftypes.UINT64)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.side = ProtoField.new("Side", "asx.asxsecurities.trade.ouch.v2.0.side", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.text = ProtoField.new("Text", "asx.asxsecurities.trade.ouch.v2.0.text", ftypes.STRING)
@@ -181,7 +181,7 @@ asx_asxsecurities_trade_ouch_v2_0.conversation.data = function(packet)
   local key = asx_asxsecurities_trade_ouch_v2_0.conversation.key(packet)
   local data = asx_asxsecurities_trade_ouch_v2_0.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     asx_asxsecurities_trade_ouch_v2_0.conversation.flows[key] = data
   end
   return data
@@ -211,6 +211,57 @@ end
 -----------------------------------------------------------------------
 -- Asx AsxSecurities Trade Ouch 2.0 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+asx_asxsecurities_trade_ouch_v2_0.accepted_session = {}
+
+-- Size: Accepted Session
+asx_asxsecurities_trade_ouch_v2_0.accepted_session.size = 10
+
+-- Display: Accepted Session
+asx_asxsecurities_trade_ouch_v2_0.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+asx_asxsecurities_trade_ouch_v2_0.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = asx_asxsecurities_trade_ouch_v2_0.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = asx_asxsecurities_trade_ouch_v2_0.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Capacity Of Participant
 asx_asxsecurities_trade_ouch_v2_0.capacity_of_participant = {}
@@ -1085,34 +1136,6 @@ asx_asxsecurities_trade_ouch_v2_0.requested_session.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Sequence Number
-asx_asxsecurities_trade_ouch_v2_0.sequence_number = {}
-
--- Size: Sequence Number
-asx_asxsecurities_trade_ouch_v2_0.sequence_number.size = 20
-
--- Display: Sequence Number
-asx_asxsecurities_trade_ouch_v2_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-asx_asxsecurities_trade_ouch_v2_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = asx_asxsecurities_trade_ouch_v2_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = asx_asxsecurities_trade_ouch_v2_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 asx_asxsecurities_trade_ouch_v2_0.sequenced_message_type = {}
 
@@ -1190,29 +1213,6 @@ asx_asxsecurities_trade_ouch_v2_0.server_packet_type.dissect = function(buffer, 
   local display = asx_asxsecurities_trade_ouch_v2_0.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-asx_asxsecurities_trade_ouch_v2_0.session = {}
-
--- Size: Session
-asx_asxsecurities_trade_ouch_v2_0.session.size = 10
-
--- Display: Session
-asx_asxsecurities_trade_ouch_v2_0.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-asx_asxsecurities_trade_ouch_v2_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = asx_asxsecurities_trade_ouch_v2_0.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = asx_asxsecurities_trade_ouch_v2_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_asxsecurities_trade_ouch_v2_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2052,7 +2052,7 @@ asx_asxsecurities_trade_ouch_v2_0.sequenced_data_packet.fields = function(buffer
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(asx_asxsecurities_trade_ouch_v2_0.sequence_number.current)
+        flow.sequence.next = tonumber(asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2159,8 +2159,8 @@ asx_asxsecurities_trade_ouch_v2_0.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 asx_asxsecurities_trade_ouch_v2_0.login_accepted_packet.size =
-  asx_asxsecurities_trade_ouch_v2_0.session.size + 
-  asx_asxsecurities_trade_ouch_v2_0.sequence_number.size
+  asx_asxsecurities_trade_ouch_v2_0.accepted_session.size + 
+  asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 asx_asxsecurities_trade_ouch_v2_0.login_accepted_packet.display = function(packet, parent, length)
@@ -2171,17 +2171,17 @@ end
 asx_asxsecurities_trade_ouch_v2_0.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = asx_asxsecurities_trade_ouch_v2_0.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = asx_asxsecurities_trade_ouch_v2_0.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = asx_asxsecurities_trade_ouch_v2_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  asx_asxsecurities_trade_ouch_v2_0.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    asx_asxsecurities_trade_ouch_v2_0.conversation.current.sequence_number.last = sequence_number
+    asx_asxsecurities_trade_ouch_v2_0.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2401,9 +2401,9 @@ asx_asxsecurities_trade_ouch_v2_0.server_packet.dissect = function(buffer, packe
   -- establish frame context from the conversation's stored values
   local data = asx_asxsecurities_trade_ouch_v2_0.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  asx_asxsecurities_trade_ouch_v2_0.sequence_number.current = data.sequence_number.frames[packet.number]
+  asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   asx_asxsecurities_trade_ouch_v2_0.conversation.current = data
 
   local index = 0
@@ -3084,7 +3084,7 @@ end
 
 -- Initialize Dissector
 function omi_asx_asxsecurities_trade_ouch_v2_0.init()
-  asx_asxsecurities_trade_ouch_v2_0.sequence_number.current = nil
+  asx_asxsecurities_trade_ouch_v2_0.accepted_sequence_number.current = nil
   asx_asxsecurities_trade_ouch_v2_0.conversation.current = nil
   asx_asxsecurities_trade_ouch_v2_0.conversation.flows = {}
 end

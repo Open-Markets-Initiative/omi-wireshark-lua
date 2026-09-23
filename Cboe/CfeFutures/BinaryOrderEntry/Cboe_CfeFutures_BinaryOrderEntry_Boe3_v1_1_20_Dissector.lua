@@ -59,13 +59,10 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.leg_ratio_qty = ProtoFi
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.leg_side = ProtoField.new("Leg Side", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.legside", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.legsymbol", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.lockout_instruction = ProtoField.new("Lockout Instruction", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.lockoutinstruction", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.loginrequestmessage", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.loginresponsemessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.loginresponsestatus", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_response_text = ProtoField.new("Login Response Text", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.loginresponsetext", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.logoutreason", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.logoutreasontext", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.logoutresponsemessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.manualorderindicator", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.masscancelinst", ftypes.STRING)
@@ -175,7 +172,10 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.trade_cancel_correct_op
 
 -- Cboe CfeFutures BinaryOrderEntry 1.1.20 Session Messages
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.clientheartbeat", ftypes.BYTES)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.loginrequestmessage", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.loginresponsemessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_request = ProtoField.new("Logout Request", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.logoutrequest", ftypes.BYTES)
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.logoutresponsemessage", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.replay_complete = ProtoField.new("Replay Complete", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.replaycomplete", ftypes.BYTES)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "cboe.cfefutures.binaryorderentry.boe3.v1.1.20.serverheartbeat", ftypes.BYTES)
 
@@ -209,6 +209,7 @@ local show = {}
 show.application_messages = true
 show.headers = true
 show.structs = true
+show.session_messages = true
 show.indexes = true
 
 -- Register Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Show Options
@@ -218,6 +219,7 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.swap_sides = Pref.bool("
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -229,6 +231,9 @@ function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs_changed()
   end
   if show.headers ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers then
     show.headers = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_headers
+  end
+  if show.session_messages ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_session_messages then
+    show.session_messages = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_session_messages
   end
   if show.structs ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs then
     show.structs = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.prefs.show_structs
@@ -6316,7 +6321,7 @@ end
 
 -- Dissect: Logout Response Message
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.logout_response_message, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.logout_response_message.fields(buffer, offset, packet, parent)
@@ -6452,7 +6457,7 @@ end
 
 -- Dissect: Login Response Message
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_response_message, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_response_message.fields(buffer, offset, packet, parent)
@@ -7860,7 +7865,7 @@ end
 
 -- Dissect: Login Request Message
 cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_20.fields.login_request_message, buffer(offset, 0))
     local index = cboe_cfefutures_binaryorderentry_boe3_v1_1_20.login_request_message.fields(buffer, offset, packet, parent)

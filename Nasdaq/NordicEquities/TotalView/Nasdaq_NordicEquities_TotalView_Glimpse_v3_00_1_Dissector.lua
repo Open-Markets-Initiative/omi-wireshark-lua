@@ -15,6 +15,8 @@ local nasdaq_nordicequities_totalview_glimpse_v3_00_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Fields
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.acceptedsession", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.aod_mic = ProtoField.new("Aod Mic", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.aodmic", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.attribution = ProtoField.new("Attribution", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.attribution", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.bb_buy_back = ProtoField.new("Bb Buy Back", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.bbbuyback", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -75,7 +77,6 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.rs_reversed_split = P
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequencenumber", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.serverpackettype", ftypes.STRING)
-omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.session = ProtoField.new("Session", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.session", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sk_soft_knock = ProtoField.new("Sk Soft Knock", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sksoftknock", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sl_other_surveillance_list_reason = ProtoField.new("Sl Other Surveillance List Reason", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.slothersurveillancelistreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.sm_stressed_market = ProtoField.new("Sm Stressed Market", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.smstressedmarket", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
@@ -235,7 +236,7 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.data = function(pac
   local key = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.key(packet)
   local data = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows[key] = data
   end
   return data
@@ -265,6 +266,57 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq NordicEquities TotalView Glimpse 3.00.1 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Aod Mic
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.aod_mic = {}
@@ -1132,29 +1184,6 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet_type.dissect = fun
   return offset + length, value
 end
 
--- Session
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.session = {}
-
--- Size: Session
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.session.size = 10
-
--- Display: Session
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_totalview_glimpse_v3_00_1.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.session, range, value, display)
-
-  return offset + length, value
-end
-
 -- Symbol
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol = {}
 
@@ -1466,13 +1495,6 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.end_of_snapshot_message.fields =
 
   -- Sequence Number: Numeric
   index, sequence_number = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Store Sequence Number Value
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = sequence_number
-
-  if not packet.visited then
-    nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current.sequence_number.last = sequence_number
-  end
 
   return index
 end
@@ -2449,7 +2471,7 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequenced_data_packet.fields = f
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current)
+        flow.sequence.next = tonumber(nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2556,8 +2578,8 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet.size =
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.session.size + 
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.size
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session.size + 
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet.display = function(packet, parent, length)
@@ -2568,17 +2590,17 @@ end
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_nordicequities_totalview_glimpse_v3_00_1.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Numeric
-  index, sequence_number = nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current.sequence_number.last = sequence_number
+    nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2798,11 +2820,9 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.server_packet.dissect = function
   -- establish frame context from the conversation's stored values
   local data = nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = data.sequence_number.frames[packet.number]
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current = data
 
   local index = 0
@@ -3156,7 +3176,7 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.init()
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.sequence_number.current = nil
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.accepted_sequence_number.current = nil
   nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.current = nil
   nasdaq_nordicequities_totalview_glimpse_v3_00_1.conversation.flows = {}
 end

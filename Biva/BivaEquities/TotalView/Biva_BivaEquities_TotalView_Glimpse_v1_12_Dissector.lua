@@ -15,6 +15,8 @@ local biva_bivaequities_totalview_glimpse_v1_12 = {}
 -----------------------------------------------------------------------
 
 -- Biva BivaEquities TotalView Glimpse 1.12 Fields
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.acceptedsequencenumber", ftypes.STRING)
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_session = ProtoField.new("Accepted Session", "biva.bivaequities.totalview.glimpse.v1.12.acceptedsession", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.best_bid = ProtoField.new("Best Bid", "biva.bivaequities.totalview.glimpse.v1.12.bestbid", ftypes.UINT32)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.best_offer = ProtoField.new("Best Offer", "biva.bivaequities.totalview.glimpse.v1.12.bestoffer", ftypes.UINT32)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.client_packet_type = ProtoField.new("Packet Type", "biva.bivaequities.totalview.glimpse.v1.12.clientpackettype", ftypes.STRING)
@@ -59,7 +61,6 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.second = ProtoField.new("Se
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequence_number = ProtoField.new("Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.sequencenumber", ftypes.UINT64)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "biva.bivaequities.totalview.glimpse.v1.12.sequencedmessagetype", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.server_packet_type = ProtoField.new("Packet Type", "biva.bivaequities.totalview.glimpse.v1.12.serverpackettype", ftypes.STRING)
-omi_biva_bivaequities_totalview_glimpse_v1_12.fields.session = ProtoField.new("Session", "biva.bivaequities.totalview.glimpse.v1.12.session", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.text = ProtoField.new("Text", "biva.bivaequities.totalview.glimpse.v1.12.text", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.theoretical_opening_price = ProtoField.new("Theoretical Opening Price", "biva.bivaequities.totalview.glimpse.v1.12.theoreticalopeningprice", ftypes.UINT32)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.theoretical_opening_quantity = ProtoField.new("Theoretical Opening Quantity", "biva.bivaequities.totalview.glimpse.v1.12.theoreticalopeningquantity", ftypes.UINT64)
@@ -218,7 +219,7 @@ biva_bivaequities_totalview_glimpse_v1_12.conversation.data = function(packet)
   local key = biva_bivaequities_totalview_glimpse_v1_12.conversation.key(packet)
   local data = biva_bivaequities_totalview_glimpse_v1_12.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, second = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, second = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     biva_bivaequities_totalview_glimpse_v1_12.conversation.flows[key] = data
   end
   return data
@@ -248,6 +249,57 @@ end
 -----------------------------------------------------------------------
 -- Biva BivaEquities TotalView Glimpse 1.12 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+biva_bivaequities_totalview_glimpse_v1_12.accepted_session = {}
+
+-- Size: Accepted Session
+biva_bivaequities_totalview_glimpse_v1_12.accepted_session.size = 10
+
+-- Display: Accepted Session
+biva_bivaequities_totalview_glimpse_v1_12.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+biva_bivaequities_totalview_glimpse_v1_12.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = biva_bivaequities_totalview_glimpse_v1_12.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = biva_bivaequities_totalview_glimpse_v1_12.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Best Bid
 biva_bivaequities_totalview_glimpse_v1_12.best_bid = {}
@@ -1305,16 +1357,6 @@ biva_bivaequities_totalview_glimpse_v1_12.sequence_number = {}
 -- Size: Sequence Number
 biva_bivaequities_totalview_glimpse_v1_12.sequence_number.size = 8
 
--- Store: Sequence Number
-biva_bivaequities_totalview_glimpse_v1_12.sequence_number.current = nil
-
--- Generated: Sequence Number
-biva_bivaequities_totalview_glimpse_v1_12.sequence_number.generated = function(value, range, packet, parent)
-  local display = biva_bivaequities_totalview_glimpse_v1_12.sequence_number.display(value)
-  local sequence_number = parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequence_number, range, value, display)
-  sequence_number:set_generated()
-end
-
 -- Display: Sequence Number
 biva_bivaequities_totalview_glimpse_v1_12.sequence_number.display = function(value)
   return "Sequence Number: "..value
@@ -1427,29 +1469,6 @@ biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.dissect = function(
   local display = biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-biva_bivaequities_totalview_glimpse_v1_12.session = {}
-
--- Size: Session
-biva_bivaequities_totalview_glimpse_v1_12.session.size = 10
-
--- Display: Session
-biva_bivaequities_totalview_glimpse_v1_12.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-biva_bivaequities_totalview_glimpse_v1_12.session.dissect = function(buffer, offset, packet, parent)
-  local length = biva_bivaequities_totalview_glimpse_v1_12.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = biva_bivaequities_totalview_glimpse_v1_12.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -1840,13 +1859,6 @@ biva_bivaequities_totalview_glimpse_v1_12.glimpse_snapshot_message.fields = func
 
   -- Sequence Number: Integer
   index, sequence_number = biva_bivaequities_totalview_glimpse_v1_12.sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Store Sequence Number Value
-  biva_bivaequities_totalview_glimpse_v1_12.sequence_number.current = sequence_number
-
-  if not packet.visited then
-    biva_bivaequities_totalview_glimpse_v1_12.conversation.current.sequence_number.last = sequence_number
-  end
 
   return index
 end
@@ -2545,7 +2557,7 @@ biva_bivaequities_totalview_glimpse_v1_12.sequenced_data_packet.fields = functio
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(biva_bivaequities_totalview_glimpse_v1_12.sequence_number.current)
+        flow.sequence.next = tonumber(biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2652,8 +2664,8 @@ biva_bivaequities_totalview_glimpse_v1_12.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 biva_bivaequities_totalview_glimpse_v1_12.login_accepted_packet.size =
-  biva_bivaequities_totalview_glimpse_v1_12.session.size + 
-  biva_bivaequities_totalview_glimpse_v1_12.sequence_number.size
+  biva_bivaequities_totalview_glimpse_v1_12.accepted_session.size + 
+  biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 biva_bivaequities_totalview_glimpse_v1_12.login_accepted_packet.display = function(packet, parent, length)
@@ -2664,17 +2676,17 @@ end
 biva_bivaequities_totalview_glimpse_v1_12.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = biva_bivaequities_totalview_glimpse_v1_12.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = biva_bivaequities_totalview_glimpse_v1_12.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Integer
-  index, sequence_number = biva_bivaequities_totalview_glimpse_v1_12.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  biva_bivaequities_totalview_glimpse_v1_12.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    biva_bivaequities_totalview_glimpse_v1_12.conversation.current.sequence_number.last = sequence_number
+    biva_bivaequities_totalview_glimpse_v1_12.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2894,13 +2906,11 @@ biva_bivaequities_totalview_glimpse_v1_12.server_packet.dissect = function(buffe
   -- establish frame context from the conversation's stored values
   local data = biva_bivaequities_totalview_glimpse_v1_12.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.second.frames[packet.number] = data.second.last
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
   end
-  biva_bivaequities_totalview_glimpse_v1_12.sequence_number.current = data.sequence_number.frames[packet.number]
+  biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   biva_bivaequities_totalview_glimpse_v1_12.second.current = data.second.frames[packet.number]
-  biva_bivaequities_totalview_glimpse_v1_12.sequence_number.current = data.sequence_number.frames[packet.number]
   biva_bivaequities_totalview_glimpse_v1_12.conversation.current = data
 
   local index = 0
@@ -3254,7 +3264,7 @@ end
 
 -- Initialize Dissector
 function omi_biva_bivaequities_totalview_glimpse_v1_12.init()
-  biva_bivaequities_totalview_glimpse_v1_12.sequence_number.current = nil
+  biva_bivaequities_totalview_glimpse_v1_12.accepted_sequence_number.current = nil
   biva_bivaequities_totalview_glimpse_v1_12.second.current = nil
   biva_bivaequities_totalview_glimpse_v1_12.conversation.current = nil
   biva_bivaequities_totalview_glimpse_v1_12.conversation.flows = {}

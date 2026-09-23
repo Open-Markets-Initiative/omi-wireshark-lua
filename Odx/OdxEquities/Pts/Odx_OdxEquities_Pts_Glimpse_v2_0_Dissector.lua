@@ -15,6 +15,8 @@ local odx_odxequities_pts_glimpse_v2_0 = {}
 -----------------------------------------------------------------------
 
 -- Odx OdxEquities Pts Glimpse 2.0 Fields
+omi_odx_odxequities_pts_glimpse_v2_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "odx.odxequities.pts.glimpse.v2.0.acceptedsequencenumber", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.accepted_session = ProtoField.new("Accepted Session", "odx.odxequities.pts.glimpse.v2.0.acceptedsession", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.attribution = ProtoField.new("Attribution", "odx.odxequities.pts.glimpse.v2.0.attribution", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.glimpse.v2.0.buysellindicator", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.glimpse.v2.0.clientpackettype", ftypes.STRING)
@@ -41,7 +43,6 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.seconds = ProtoField.new("Seconds", 
 omi_odx_odxequities_pts_glimpse_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "odx.odxequities.pts.glimpse.v2.0.sequencenumber", ftypes.UINT64)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "odx.odxequities.pts.glimpse.v2.0.sequencedmessagetype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.glimpse.v2.0.serverpackettype", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.session = ProtoField.new("Session", "odx.odxequities.pts.glimpse.v2.0.session", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.short_selling_state = ProtoField.new("Short Selling State", "odx.odxequities.pts.glimpse.v2.0.shortsellingstate", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.system_event = ProtoField.new("System Event", "odx.odxequities.pts.glimpse.v2.0.systemevent", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.text = ProtoField.new("Text", "odx.odxequities.pts.glimpse.v2.0.text", ftypes.STRING)
@@ -196,7 +197,7 @@ odx_odxequities_pts_glimpse_v2_0.conversation.data = function(packet)
   local key = odx_odxequities_pts_glimpse_v2_0.conversation.key(packet)
   local data = odx_odxequities_pts_glimpse_v2_0.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, seconds = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     odx_odxequities_pts_glimpse_v2_0.conversation.flows[key] = data
   end
   return data
@@ -226,6 +227,57 @@ end
 -----------------------------------------------------------------------
 -- Odx OdxEquities Pts Glimpse 2.0 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+odx_odxequities_pts_glimpse_v2_0.accepted_session = {}
+
+-- Size: Accepted Session
+odx_odxequities_pts_glimpse_v2_0.accepted_session.size = 10
+
+-- Display: Accepted Session
+odx_odxequities_pts_glimpse_v2_0.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+odx_odxequities_pts_glimpse_v2_0.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_glimpse_v2_0.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = odx_odxequities_pts_glimpse_v2_0.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Attribution
 odx_odxequities_pts_glimpse_v2_0.attribution = {}
@@ -835,16 +887,6 @@ odx_odxequities_pts_glimpse_v2_0.sequence_number = {}
 -- Size: Sequence Number
 odx_odxequities_pts_glimpse_v2_0.sequence_number.size = 8
 
--- Store: Sequence Number
-odx_odxequities_pts_glimpse_v2_0.sequence_number.current = nil
-
--- Generated: Sequence Number
-odx_odxequities_pts_glimpse_v2_0.sequence_number.generated = function(value, range, packet, parent)
-  local display = odx_odxequities_pts_glimpse_v2_0.sequence_number.display(value)
-  local sequence_number = parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.sequence_number, range, value, display)
-  sequence_number:set_generated()
-end
-
 -- Display: Sequence Number
 odx_odxequities_pts_glimpse_v2_0.sequence_number.display = function(value)
   return "Sequence Number: "..value
@@ -951,29 +993,6 @@ odx_odxequities_pts_glimpse_v2_0.server_packet_type.dissect = function(buffer, o
   local display = odx_odxequities_pts_glimpse_v2_0.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-odx_odxequities_pts_glimpse_v2_0.session = {}
-
--- Size: Session
-odx_odxequities_pts_glimpse_v2_0.session.size = 10
-
--- Display: Session
-odx_odxequities_pts_glimpse_v2_0.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-odx_odxequities_pts_glimpse_v2_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxequities_pts_glimpse_v2_0.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = odx_odxequities_pts_glimpse_v2_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -1301,13 +1320,6 @@ odx_odxequities_pts_glimpse_v2_0.end_of_snapshot_message.fields = function(buffe
 
   -- Sequence Number: Integer
   index, sequence_number = odx_odxequities_pts_glimpse_v2_0.sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Store Sequence Number Value
-  odx_odxequities_pts_glimpse_v2_0.sequence_number.current = sequence_number
-
-  if not packet.visited then
-    odx_odxequities_pts_glimpse_v2_0.conversation.current.sequence_number.last = sequence_number
-  end
 
   return index
 end
@@ -1862,7 +1874,7 @@ odx_odxequities_pts_glimpse_v2_0.sequenced_data_packet.fields = function(buffer,
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(odx_odxequities_pts_glimpse_v2_0.sequence_number.current)
+        flow.sequence.next = tonumber(odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -1969,8 +1981,8 @@ odx_odxequities_pts_glimpse_v2_0.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 odx_odxequities_pts_glimpse_v2_0.login_accepted_packet.size =
-  odx_odxequities_pts_glimpse_v2_0.session.size + 
-  odx_odxequities_pts_glimpse_v2_0.sequence_number.size
+  odx_odxequities_pts_glimpse_v2_0.accepted_session.size + 
+  odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 odx_odxequities_pts_glimpse_v2_0.login_accepted_packet.display = function(packet, parent, length)
@@ -1981,17 +1993,17 @@ end
 odx_odxequities_pts_glimpse_v2_0.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = odx_odxequities_pts_glimpse_v2_0.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = odx_odxequities_pts_glimpse_v2_0.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: Integer
-  index, sequence_number = odx_odxequities_pts_glimpse_v2_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  odx_odxequities_pts_glimpse_v2_0.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    odx_odxequities_pts_glimpse_v2_0.conversation.current.sequence_number.last = sequence_number
+    odx_odxequities_pts_glimpse_v2_0.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2211,13 +2223,11 @@ odx_odxequities_pts_glimpse_v2_0.server_packet.dissect = function(buffer, packet
   -- establish frame context from the conversation's stored values
   local data = odx_odxequities_pts_glimpse_v2_0.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.seconds.frames[packet.number] = data.seconds.last
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
   end
-  odx_odxequities_pts_glimpse_v2_0.sequence_number.current = data.sequence_number.frames[packet.number]
+  odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   odx_odxequities_pts_glimpse_v2_0.seconds.current = data.seconds.frames[packet.number]
-  odx_odxequities_pts_glimpse_v2_0.sequence_number.current = data.sequence_number.frames[packet.number]
   odx_odxequities_pts_glimpse_v2_0.conversation.current = data
 
   local index = 0
@@ -2571,7 +2581,7 @@ end
 
 -- Initialize Dissector
 function omi_odx_odxequities_pts_glimpse_v2_0.init()
-  odx_odxequities_pts_glimpse_v2_0.sequence_number.current = nil
+  odx_odxequities_pts_glimpse_v2_0.accepted_sequence_number.current = nil
   odx_odxequities_pts_glimpse_v2_0.seconds.current = nil
   odx_odxequities_pts_glimpse_v2_0.conversation.current = nil
   odx_odxequities_pts_glimpse_v2_0.conversation.flows = {}

@@ -3,13 +3,27 @@
 
 ## Texas Stock Exchange
 
+### Market Data
+
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [TxseEquities][TxseEquities.Exchange] | [Bale][Txse.TxseEquities.Bale] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Bale.Rake.v1.0.Dissector] | 6/12/2026 | 2533 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Bale.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Bale.Rake.v1.0.Pdf] |
 | [TxseEquities][TxseEquities.Exchange] | [Feed][Txse.TxseEquities.Feed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Feed.Rake.v1.0.Dissector] | 6/12/2026 | 2962 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Feed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Feed.Rake.v1.0.Pdf] |
+
+
+### Order Entry
+
+| Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11752 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
+
+
+### Protocols
+
+| Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.TxseEquities.Framing.Tcp.v1.0.Dissector] | 6/12/2026 | 1009 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Tcp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Tcp.v1.0.Pdf] |
 | [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Udp][Omi.Encoding.Udp] | [1.0][Txse.TxseEquities.Framing.Udp.v1.0.Dissector] | 6/12/2026 | 491 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Udp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Udp.v1.0.Pdf] |
-| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11752 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
 
 
 <p align="center"><a href="https://www.txse.com" title="Texas Stock Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/txse" title="Texas Stock Exchange on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Texas_Stock_Exchange" title="Texas Stock Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

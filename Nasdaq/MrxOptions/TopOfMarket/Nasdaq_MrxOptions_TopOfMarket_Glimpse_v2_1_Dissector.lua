@@ -15,6 +15,8 @@ local nasdaq_mrxoptions_topofmarket_glimpse_v2_1 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq MrxOptions TopOfMarket Glimpse 2.1 Fields
+omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.acceptedsession", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.ask_cust_size_long = ProtoField.new("Ask Cust Size Long", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.askcustsizelong", ftypes.UINT32)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.ask_cust_size_short = ProtoField.new("Ask Cust Size Short", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.askcustsizeshort", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.ask_market_order_size_long = ProtoField.new("Ask Market Order Size Long", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.askmarketordersizelong", ftypes.UINT32)
@@ -62,10 +64,8 @@ omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.requested_sequence_number 
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.requestedsession", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.reserved_16 = ProtoField.new("Reserved 16", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.reserved16", ftypes.BYTES)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.securitysymbol", ftypes.STRING)
-omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.sequencenumber", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.serverpackettype", ftypes.STRING)
-omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.session = ProtoField.new("Session", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.session", ftypes.STRING)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.size_long = ProtoField.new("Size Long", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.sizelong", ftypes.UINT32)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.size_short = ProtoField.new("Size Short", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.sizeshort", ftypes.UINT16)
 omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.snapshot_sequence_number = ProtoField.new("Snapshot Sequence Number", "nasdaq.mrxoptions.topofmarket.glimpse.v2.1.snapshotsequencenumber", ftypes.STRING)
@@ -214,7 +214,7 @@ nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.data = function(packet)
   local key = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.key(packet)
   local data = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.flows[key] = data
   end
   return data
@@ -244,6 +244,57 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq MrxOptions TopOfMarket Glimpse 2.1 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Ask Cust Size Long
 nasdaq_mrxoptions_topofmarket_glimpse_v2_1.ask_cust_size_long = {}
@@ -1444,34 +1495,6 @@ nasdaq_mrxoptions_topofmarket_glimpse_v2_1.security_symbol.dissect = function(bu
   return offset + length, value
 end
 
--- Sequence Number
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.size = 20
-
--- Display: Sequence Number
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequenced_message_type = {}
 
@@ -1564,29 +1587,6 @@ nasdaq_mrxoptions_topofmarket_glimpse_v2_1.server_packet_type.dissect = function
   local display = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session = {}
-
--- Size: Session
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session.size = 10
-
--- Display: Session
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2543,7 +2543,7 @@ nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequenced_data_packet.fields = functi
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.current)
+        flow.sequence.next = tonumber(nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2650,8 +2650,8 @@ nasdaq_mrxoptions_topofmarket_glimpse_v2_1.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nasdaq_mrxoptions_topofmarket_glimpse_v2_1.login_accepted_packet.size =
-  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session.size + 
-  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.size
+  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session.size + 
+  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_mrxoptions_topofmarket_glimpse_v2_1.login_accepted_packet.display = function(packet, parent, length)
@@ -2662,17 +2662,17 @@ end
 nasdaq_mrxoptions_topofmarket_glimpse_v2_1.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.current.sequence_number.last = sequence_number
+    nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2892,9 +2892,9 @@ nasdaq_mrxoptions_topofmarket_glimpse_v2_1.server_packet.dissect = function(buff
   -- establish frame context from the conversation's stored values
   local data = nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.current = data
 
   local index = 0
@@ -3248,7 +3248,7 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_mrxoptions_topofmarket_glimpse_v2_1.init()
-  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.sequence_number.current = nil
+  nasdaq_mrxoptions_topofmarket_glimpse_v2_1.accepted_sequence_number.current = nil
   nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.current = nil
   nasdaq_mrxoptions_topofmarket_glimpse_v2_1.conversation.flows = {}
 end

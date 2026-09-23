@@ -40,8 +40,8 @@ runuser -u tester -- tshark \
   > Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json 2> Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json.stderr \
   || { echo "--- tshark FAILED (LoginAcceptedPacket) ---"; cat Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json.stderr; exit 1; }
 
-grep "jnx.jnxequities.pts.ouch.v1.11.session" Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json
-grep "jnx.jnxequities.pts.ouch.v1.11.sequencenumber" Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json
+grep "jnx.jnxequities.pts.ouch.v1.11.acceptedsession" Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json
+grep "jnx.jnxequities.pts.ouch.v1.11.acceptedsequencenumber" Jnx.JnxEquities.Pts.Ouch.v1.11.LoginAcceptedPacket.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Jnx/JnxEquities.Pts.Ouch.v1.11/LoginRequestPacket.pcap" \
   -X "lua_script:Jnx/JnxEquities/Pts/Jnx_JnxEquities_Pts_Ouch_v1_11_Dissector.lua" \

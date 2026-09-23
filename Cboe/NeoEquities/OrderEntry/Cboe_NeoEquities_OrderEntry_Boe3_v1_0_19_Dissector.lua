@@ -67,13 +67,10 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.lei_algorithm_id = ProtoFiel
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.lei_customer_account = ProtoField.new("Lei Customer Account", "cboe.neoequities.orderentry.boe3.v1.0.19.leicustomeraccount", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.lei_order_origin = ProtoField.new("Lei Order Origin", "cboe.neoequities.orderentry.boe3.v1.0.19.leiorderorigin", ftypes.UINT8)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.lei_routing_arrangement_indicator = ProtoField.new("Lei Routing Arrangement Indicator", "cboe.neoequities.orderentry.boe3.v1.0.19.leiroutingarrangementindicator", ftypes.STRING)
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.neoequities.orderentry.boe3.v1.0.19.loginrequestmessage", ftypes.STRING)
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.neoequities.orderentry.boe3.v1.0.19.loginresponsemessage", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.neoequities.orderentry.boe3.v1.0.19.loginresponsestatus", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_response_text = ProtoField.new("Login Response Text", "cboe.neoequities.orderentry.boe3.v1.0.19.loginresponsetext", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.neoequities.orderentry.boe3.v1.0.19.logoutreason", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.neoequities.orderentry.boe3.v1.0.19.logoutreasontext", ftypes.STRING)
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.neoequities.orderentry.boe3.v1.0.19.logoutresponsemessage", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.matching_priority = ProtoField.new("Matching Priority", "cboe.neoequities.orderentry.boe3.v1.0.19.matchingpriority", ftypes.UINT8)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.matching_state_participation = ProtoField.new("Matching State Participation", "cboe.neoequities.orderentry.boe3.v1.0.19.matchingstateparticipation", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.neoequities.orderentry.boe3.v1.0.19.matchingunit", ftypes.UINT8)
@@ -160,7 +157,10 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.trade_cancel_correct_ca_equi
 
 -- Cboe NeoEquities OrderEntry 1.0.19 Session Messages
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "cboe.neoequities.orderentry.boe3.v1.0.19.clientheartbeat", ftypes.BYTES)
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_request_message = ProtoField.new("Login Request Message", "cboe.neoequities.orderentry.boe3.v1.0.19.loginrequestmessage", ftypes.STRING)
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_response_message = ProtoField.new("Login Response Message", "cboe.neoequities.orderentry.boe3.v1.0.19.loginresponsemessage", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.logout_request = ProtoField.new("Logout Request", "cboe.neoequities.orderentry.boe3.v1.0.19.logoutrequest", ftypes.BYTES)
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.logout_response_message = ProtoField.new("Logout Response Message", "cboe.neoequities.orderentry.boe3.v1.0.19.logoutresponsemessage", ftypes.STRING)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.replay_complete = ProtoField.new("Replay Complete", "cboe.neoequities.orderentry.boe3.v1.0.19.replaycomplete", ftypes.BYTES)
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "cboe.neoequities.orderentry.boe3.v1.0.19.serverheartbeat", ftypes.BYTES)
 
@@ -189,6 +189,7 @@ local show = {}
 show.application_messages = true
 show.headers = true
 show.structs = true
+show.session_messages = true
 show.indexes = true
 
 -- Register Cboe NeoEquities OrderEntry Boe3 1.0.19 Show Options
@@ -198,6 +199,7 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.swap_sides = Pref.bool("Swap 
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
@@ -209,6 +211,9 @@ function omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs_changed()
   end
   if show.headers ~= omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_headers then
     show.headers = omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_headers
+  end
+  if show.session_messages ~= omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_session_messages then
+    show.session_messages = omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_session_messages
   end
   if show.structs ~= omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_structs then
     show.structs = omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_structs
@@ -5204,7 +5209,7 @@ end
 
 -- Dissect: Logout Response Message
 cboe_neoequities_orderentry_boe3_v1_0_19.logout_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.logout_response_message, buffer(offset, 0))
     local index = cboe_neoequities_orderentry_boe3_v1_0_19.logout_response_message.fields(buffer, offset, packet, parent)
@@ -5340,7 +5345,7 @@ end
 
 -- Dissect: Login Response Message
 cboe_neoequities_orderentry_boe3_v1_0_19.login_response_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_response_message, buffer(offset, 0))
     local index = cboe_neoequities_orderentry_boe3_v1_0_19.login_response_message.fields(buffer, offset, packet, parent)
@@ -6533,7 +6538,7 @@ end
 
 -- Dissect: Login Request Message
 cboe_neoequities_orderentry_boe3_v1_0_19.login_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.login_request_message, buffer(offset, 0))
     local index = cboe_neoequities_orderentry_boe3_v1_0_19.login_request_message.fields(buffer, offset, packet, parent)

@@ -15,6 +15,8 @@ local nasdaq_nsmequities_orders_ouch_v5_0 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities Orders Ouch 5.0 Fields
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.orders.ouch.v5.0.acceptedsession", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage = ProtoField.new("Account Query Appendage", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryappendage", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_optional_field = ProtoField.new("Account Query Optional Field", "nasdaq.nsmequities.orders.ouch.v5.0.accountqueryoptionalfield", ftypes.INT8)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.appendage_length = ProtoField.new("Appendage Length", "nasdaq.nsmequities.orders.ouch.v5.0.appendagelength", ftypes.UINT16)
@@ -92,10 +94,8 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_sequence_number = Proto
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.nsmequities.orders.ouch.v5.0.requestedsession", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.route = ProtoField.new("Route", "nasdaq.nsmequities.orders.ouch.v5.0.route", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.secondary_ord_ref_num = ProtoField.new("Secondary Ord Ref Num", "nasdaq.nsmequities.orders.ouch.v5.0.secondaryordrefnum", ftypes.UINT64)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.orders.ouch.v5.0.sequencenumber", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nsmequities.orders.ouch.v5.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v5.0.serverpackettype", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.orders.ouch.v5.0.session", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.orders.ouch.v5.0.side", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.symbol = ProtoField.new("Symbol", "nasdaq.nsmequities.orders.ouch.v5.0.symbol", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.orders.ouch.v5.0.text", ftypes.STRING)
@@ -262,7 +262,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.conversation.data = function(packet)
   local key = nasdaq_nsmequities_orders_ouch_v5_0.conversation.key(packet)
   local data = nasdaq_nsmequities_orders_ouch_v5_0.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nasdaq_nsmequities_orders_ouch_v5_0.conversation.flows[key] = data
   end
   return data
@@ -292,6 +292,57 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Orders Ouch 5.0 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_nsmequities_orders_ouch_v5_0.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v5_0.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_orders_ouch_v5_0.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Account Query Optional Field
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_optional_field = {}
@@ -2330,34 +2381,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.secondary_ord_ref_num.dissect = function(buf
   return offset + length, value
 end
 
--- Sequence Number
-nasdaq_nsmequities_orders_ouch_v5_0.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.size = 20
-
--- Display: Sequence Number
-nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 nasdaq_nsmequities_orders_ouch_v5_0.sequenced_message_type = {}
 
@@ -2474,29 +2497,6 @@ nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.dissect = function(buffer
   local display = nasdaq_nsmequities_orders_ouch_v5_0.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_nsmequities_orders_ouch_v5_0.session = {}
-
--- Size: Session
-nasdaq_nsmequities_orders_ouch_v5_0.session.size = 10
-
--- Display: Session
-nasdaq_nsmequities_orders_ouch_v5_0.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_nsmequities_orders_ouch_v5_0.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v5_0.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_orders_ouch_v5_0.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -4645,7 +4645,7 @@ nasdaq_nsmequities_orders_ouch_v5_0.sequenced_data_packet.fields = function(buff
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current)
+        flow.sequence.next = tonumber(nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -4752,8 +4752,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.size =
-  nasdaq_nsmequities_orders_ouch_v5_0.session.size + 
-  nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.size
+  nasdaq_nsmequities_orders_ouch_v5_0.accepted_session.size + 
+  nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.display = function(packet, parent, length)
@@ -4764,17 +4764,17 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_nsmequities_orders_ouch_v5_0.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_nsmequities_orders_ouch_v5_0.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    nasdaq_nsmequities_orders_ouch_v5_0.conversation.current.sequence_number.last = sequence_number
+    nasdaq_nsmequities_orders_ouch_v5_0.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -4994,9 +4994,9 @@ nasdaq_nsmequities_orders_ouch_v5_0.server_packet.dissect = function(buffer, pac
   -- establish frame context from the conversation's stored values
   local data = nasdaq_nsmequities_orders_ouch_v5_0.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   nasdaq_nsmequities_orders_ouch_v5_0.conversation.current = data
 
   local index = 0
@@ -6319,7 +6319,7 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_nsmequities_orders_ouch_v5_0.init()
-  nasdaq_nsmequities_orders_ouch_v5_0.sequence_number.current = nil
+  nasdaq_nsmequities_orders_ouch_v5_0.accepted_sequence_number.current = nil
   nasdaq_nsmequities_orders_ouch_v5_0.conversation.current = nil
   nasdaq_nsmequities_orders_ouch_v5_0.conversation.flows = {}
 end

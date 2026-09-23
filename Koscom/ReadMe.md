@@ -3,6 +3,8 @@
 
 ## Koscom Co., Ltd.
 
+### Market Data
+
 | Division | [Protocol][Omi.Koscom.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Koscom.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [MdcsRealtime][MdcsRealtime.Consolidator] | [BondA][Koscom.MdcsRealtime.BondA] | [Exture][Omi.Encoding.Exture] | [2.018][Koscom.MdcsRealtime.BondA.Exture.v2.018.Dissector] | 5/18/2026 | 19489 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Koscom.MdcsRealtime.BondA.Exture.v2.018.Url] - [xlsx][Koscom.MdcsRealtime.BondA.Exture.v2.018.Xlsx] - [xlsx][Koscom.MdcsRealtime.BondA.Exture.v2.018.Xlsx] |

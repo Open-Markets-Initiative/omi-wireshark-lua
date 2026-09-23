@@ -1428,7 +1428,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.binary_data_message.size = function(buffer,
   -- Dependency element: Length
   local length = buffer(offset - 3, 2):le_uint()
 
-  return length - 4
+  return length - 3
 end
 
 -- Display: Binary Data Message

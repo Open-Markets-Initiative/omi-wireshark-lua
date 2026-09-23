@@ -1009,7 +1009,7 @@ nasdaq_nomoptions_bono_itch_v3_2.quote_condition.size = 1
 
 -- Display: Quote Condition
 nasdaq_nomoptions_bono_itch_v3_2.quote_condition.display = function(value)
-  if value == "   " then
+  if value == " " then
     return "Quote Condition: Regular Quoteautox Eligible (<whitespace>)"
   end
   if value == "R" then

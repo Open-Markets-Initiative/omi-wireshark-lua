@@ -15,6 +15,8 @@ local nasdaq_nsmequities_totalview_itch_v5_0_2017 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq NsmEquities TotalView Itch 5.0.2017 Fields
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.nsmequities.totalview.itch.v5.0.2017.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.nsmequities.totalview.itch.v5.0.2017.acceptedsession", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.attribution = ProtoField.new("Attribution", "nasdaq.nsmequities.totalview.itch.v5.0.2017.attribution", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.nsmequities.totalview.itch.v5.0.2017.auctioncollarextension", ftypes.UINT32)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "nasdaq.nsmequities.totalview.itch.v5.0.2017.auctioncollarreferenceprice", ftypes.DOUBLE)
@@ -255,7 +257,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.data = function(packet)
   local key = nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.key(packet)
   local data = nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.flows[key] = data
   end
   return data
@@ -285,6 +287,57 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Itch 5.0.2017 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Attribution
 nasdaq_nsmequities_totalview_itch_v5_0_2017.attribution = {}
@@ -2503,16 +2556,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number = {}
 -- Size: Sequence Number
 nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.size = 8
 
--- Store: Sequence Number
-nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.current = nil
-
--- Generated: Sequence Number
-nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.generated = function(value, range, packet, parent)
-  local display = nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.display(value)
-  local sequence_number = parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.fields.sequence_number, range, value, display)
-  sequence_number:set_generated()
-end
-
 -- Display: Sequence Number
 nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.display = function(value)
   return "Sequence Number: "..value
@@ -4614,13 +4657,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.packet_header.fields = function(buff
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = nasdaq_nsmequities_totalview_itch_v5_0_2017.message_count.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.current = sequence_number
-
-  if not packet.visited then
-    nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.current.sequence_number.last = sequence_number
-  end
-
   -- Sequence base for the packet's messages
   nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence = sequence_number
 
@@ -4655,14 +4691,6 @@ end
 
 -- Dissect Packet
 nasdaq_nsmequities_totalview_itch_v5_0_2017.packet.dissect = function(buffer, packet, parent)
-  -- establish frame context from the conversation's stored values
-  local data = nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.data(packet)
-  if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
-  end
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.current = data.sequence_number.frames[packet.number]
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.current = data
-
   local index = 0
 
   -- Packet Header: Struct of 3 fields
@@ -4815,7 +4843,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.sequenced_data_packet.fields = funct
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.current)
+        flow.sequence.next = tonumber(nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -4922,8 +4950,8 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nasdaq_nsmequities_totalview_itch_v5_0_2017.login_accepted_packet.size =
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.session.size + 
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.size
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session.size + 
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_nsmequities_totalview_itch_v5_0_2017.login_accepted_packet.display = function(packet, parent, length)
@@ -4934,17 +4962,17 @@ end
 nasdaq_nsmequities_totalview_itch_v5_0_2017.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_nsmequities_totalview_itch_v5_0_2017.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.current.sequence_number.last = sequence_number
+    nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -5164,9 +5192,9 @@ nasdaq_nsmequities_totalview_itch_v5_0_2017.server_packet.dissect = function(buf
   -- establish frame context from the conversation's stored values
   local data = nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.current = data
 
   local index = 0
@@ -5520,7 +5548,7 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_nsmequities_totalview_itch_v5_0_2017.init()
-  nasdaq_nsmequities_totalview_itch_v5_0_2017.sequence_number.current = nil
+  nasdaq_nsmequities_totalview_itch_v5_0_2017.accepted_sequence_number.current = nil
   nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.current = nil
   nasdaq_nsmequities_totalview_itch_v5_0_2017.conversation.flows = {}
 end

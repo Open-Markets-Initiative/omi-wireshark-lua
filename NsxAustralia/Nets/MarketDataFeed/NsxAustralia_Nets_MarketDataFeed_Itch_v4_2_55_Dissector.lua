@@ -15,6 +15,8 @@ local nsxaustralia_nets_marketdatafeed_itch_v4_2_55 = {}
 -----------------------------------------------------------------------
 
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Fields
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.acceptedsequencenumber", ftypes.STRING)
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_session = ProtoField.new("Accepted Session", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.acceptedsession", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.aggressor_firm_id = ProtoField.new("Aggressor Firm Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.aggressorfirmid", ftypes.UINT32)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.asset_type = ProtoField.new("Asset Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.assettype", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.attribute_type = ProtoField.new("Attribute Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.attributetype", ftypes.STRING)
@@ -74,10 +76,8 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time = ProtoF
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.security_code = ProtoField.new("Security Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.securitycode", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.security_name = ProtoField.new("Security Name", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.securityname", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sell_firm_id = ProtoField.new("Sell Firm Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.sellfirmid", ftypes.UINT32)
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sequence_number = ProtoField.new("Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.sequencenumber", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.sequencedmessagetype", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.server_packet_type = ProtoField.new("Packet Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.serverpackettype", ftypes.STRING)
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.session = ProtoField.new("Session", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.session", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.settle_date = ProtoField.new("Settle Date", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.settledate", ftypes.UINT32)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.text = ProtoField.new("Text", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.text", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.theoretical_opening_price = ProtoField.new("Theoretical Opening Price", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.theoreticalopeningprice", ftypes.INT64)
@@ -227,7 +227,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.data = function(packe
   local key = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.key(packet)
   local data = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, nanosecond = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, nanosecond = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.flows[key] = data
   end
   return data
@@ -257,6 +257,57 @@ end
 -----------------------------------------------------------------------
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session = {}
+
+-- Size: Accepted Session
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session.size = 10
+
+-- Display: Accepted Session
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Aggressor Firm Id
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.aggressor_firm_id = {}
@@ -1826,34 +1877,6 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sell_firm_id.dissect = function(bu
   return offset + length, value
 end
 
--- Sequence Number
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number = {}
-
--- Size: Sequence Number
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.size = 20
-
--- Display: Sequence Number
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_message_type = {}
 
@@ -1973,29 +1996,6 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type.dissect = funct
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session = {}
-
--- Size: Session
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session.size = 10
-
--- Display: Session
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session.dissect = function(buffer, offset, packet, parent)
-  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -3751,7 +3751,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequenced_data_packet.fields = fun
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.current)
+        flow.sequence.next = tonumber(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -3858,8 +3858,8 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_accepted_packet.size =
-  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session.size + 
-  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.size
+  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session.size + 
+  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_accepted_packet.display = function(packet, parent, length)
@@ -3870,17 +3870,17 @@ end
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.current.sequence_number.last = sequence_number
+    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -4100,10 +4100,10 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_packet.dissect = function(b
   -- establish frame context from the conversation's stored values
   local data = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
     data.nanosecond.frames[packet.number] = data.nanosecond.last
   end
-  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.current = data.sequence_number.frames[packet.number]
+  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.current = data.nanosecond.frames[packet.number]
   nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.current = data
 
@@ -4458,7 +4458,7 @@ end
 
 -- Initialize Dissector
 function omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.init()
-  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.sequence_number.current = nil
+  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.accepted_sequence_number.current = nil
   nsxaustralia_nets_marketdatafeed_itch_v4_2_55.nanosecond.current = nil
   nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.current = nil
   nsxaustralia_nets_marketdatafeed_itch_v4_2_55.conversation.flows = {}

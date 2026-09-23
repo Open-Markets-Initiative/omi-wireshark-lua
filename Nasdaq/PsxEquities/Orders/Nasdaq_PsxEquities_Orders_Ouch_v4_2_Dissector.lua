@@ -15,6 +15,8 @@ local nasdaq_psxequities_orders_ouch_v4_2 = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq PsxEquities Orders Ouch 4.2 Fields
+omi_nasdaq_psxequities_orders_ouch_v4_2.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.psxequities.orders.ouch.v4.2.acceptedsequencenumber", ftypes.STRING)
+omi_nasdaq_psxequities_orders_ouch_v4_2.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.psxequities.orders.ouch.v4.2.acceptedsession", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.aiq_canceled_reason = ProtoField.new("Aiq Canceled Reason", "nasdaq.psxequities.orders.ouch.v4.2.aiqcanceledreason", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.bbo_weight_indicator = ProtoField.new("Bbo Weight Indicator", "nasdaq.psxequities.orders.ouch.v4.2.bboweightindicator", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.broken_trade_reason = ProtoField.new("Broken Trade Reason", "nasdaq.psxequities.orders.ouch.v4.2.brokentradereason", ftypes.STRING)
@@ -48,10 +50,8 @@ omi_nasdaq_psxequities_orders_ouch_v4_2.fields.replacement_order_token_alphanume
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.replacement_order_token_token_14 = ProtoField.new("Replacement Order Token Token 14", "nasdaq.psxequities.orders.ouch.v4.2.replacementordertokentoken14", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.psxequities.orders.ouch.v4.2.requestedsequencenumber", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.psxequities.orders.ouch.v4.2.requestedsession", ftypes.STRING)
-omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.psxequities.orders.ouch.v4.2.sequencenumber", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.psxequities.orders.ouch.v4.2.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.psxequities.orders.ouch.v4.2.serverpackettype", ftypes.STRING)
-omi_nasdaq_psxequities_orders_ouch_v4_2.fields.session = ProtoField.new("Session", "nasdaq.psxequities.orders.ouch.v4.2.session", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.shares = ProtoField.new("Shares", "nasdaq.psxequities.orders.ouch.v4.2.shares", ftypes.UINT32)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "nasdaq.psxequities.orders.ouch.v4.2.stock", ftypes.STRING)
 omi_nasdaq_psxequities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.psxequities.orders.ouch.v4.2.text", ftypes.STRING)
@@ -182,7 +182,7 @@ nasdaq_psxequities_orders_ouch_v4_2.conversation.data = function(packet)
   local key = nasdaq_psxequities_orders_ouch_v4_2.conversation.key(packet)
   local data = nasdaq_psxequities_orders_ouch_v4_2.conversation.flows[key]
   if data == nil then
-    data = { sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
+    data = { accepted_sequence_number = { last = nil, frames = {} }, sequence = { next = nil, frames = {} } }
     nasdaq_psxequities_orders_ouch_v4_2.conversation.flows[key] = data
   end
   return data
@@ -212,6 +212,57 @@ end
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities Orders Ouch 4.2 Fields
 -----------------------------------------------------------------------
+
+-- Accepted Sequence Number
+nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number = {}
+
+-- Size: Accepted Sequence Number
+nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.size = 20
+
+-- Display: Accepted Sequence Number
+nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.display = function(value)
+  return "Accepted Sequence Number: "..value
+end
+
+-- Dissect: Accepted Sequence Number
+nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.accepted_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accepted Session
+nasdaq_psxequities_orders_ouch_v4_2.accepted_session = {}
+
+-- Size: Accepted Session
+nasdaq_psxequities_orders_ouch_v4_2.accepted_session.size = 10
+
+-- Display: Accepted Session
+nasdaq_psxequities_orders_ouch_v4_2.accepted_session.display = function(value)
+  return "Accepted Session: "..value
+end
+
+-- Dissect: Accepted Session
+nasdaq_psxequities_orders_ouch_v4_2.accepted_session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_orders_ouch_v4_2.accepted_session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_psxequities_orders_ouch_v4_2.accepted_session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.accepted_session, range, value, display)
+
+  return offset + length, value
+end
 
 -- Aiq Canceled Reason
 nasdaq_psxequities_orders_ouch_v4_2.aiq_canceled_reason = {}
@@ -1270,34 +1321,6 @@ nasdaq_psxequities_orders_ouch_v4_2.requested_session.dissect = function(buffer,
   return offset + length, value
 end
 
--- Sequence Number
-nasdaq_psxequities_orders_ouch_v4_2.sequence_number = {}
-
--- Size: Sequence Number
-nasdaq_psxequities_orders_ouch_v4_2.sequence_number.size = 20
-
--- Display: Sequence Number
-nasdaq_psxequities_orders_ouch_v4_2.sequence_number.display = function(value)
-  return "Sequence Number: "..value
-end
-
--- Dissect: Sequence Number
-nasdaq_psxequities_orders_ouch_v4_2.sequence_number.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_orders_ouch_v4_2.sequence_number.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value =  "Not Applicable"
-  end
-
-  local display = nasdaq_psxequities_orders_ouch_v4_2.sequence_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
 -- Sequenced Message Type
 nasdaq_psxequities_orders_ouch_v4_2.sequenced_message_type = {}
 
@@ -1396,29 +1419,6 @@ nasdaq_psxequities_orders_ouch_v4_2.server_packet_type.dissect = function(buffer
   local display = nasdaq_psxequities_orders_ouch_v4_2.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Session
-nasdaq_psxequities_orders_ouch_v4_2.session = {}
-
--- Size: Session
-nasdaq_psxequities_orders_ouch_v4_2.session.size = 10
-
--- Display: Session
-nasdaq_psxequities_orders_ouch_v4_2.session.display = function(value)
-  return "Session: "..value
-end
-
--- Dissect: Session
-nasdaq_psxequities_orders_ouch_v4_2.session.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_orders_ouch_v4_2.session.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_psxequities_orders_ouch_v4_2.session.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_psxequities_orders_ouch_v4_2.fields.session, range, value, display)
 
   return offset + length, value
 end
@@ -2441,7 +2441,7 @@ nasdaq_psxequities_orders_ouch_v4_2.sequenced_data_packet.fields = function(buff
     local memo = flow.sequence.frames[packet.number]
     if not packet.visited then
       if flow.sequence.next == nil then
-        flow.sequence.next = tonumber(nasdaq_psxequities_orders_ouch_v4_2.sequence_number.current)
+        flow.sequence.next = tonumber(nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.current)
       end
       local value = flow.sequence.next
       if value ~= nil then
@@ -2548,8 +2548,8 @@ nasdaq_psxequities_orders_ouch_v4_2.login_accepted_packet = {}
 
 -- Size: Login Accepted Packet
 nasdaq_psxequities_orders_ouch_v4_2.login_accepted_packet.size =
-  nasdaq_psxequities_orders_ouch_v4_2.session.size + 
-  nasdaq_psxequities_orders_ouch_v4_2.sequence_number.size
+  nasdaq_psxequities_orders_ouch_v4_2.accepted_session.size + 
+  nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.size
 
 -- Display: Login Accepted Packet
 nasdaq_psxequities_orders_ouch_v4_2.login_accepted_packet.display = function(packet, parent, length)
@@ -2560,17 +2560,17 @@ end
 nasdaq_psxequities_orders_ouch_v4_2.login_accepted_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String
-  index, session = nasdaq_psxequities_orders_ouch_v4_2.session.dissect(buffer, index, packet, parent)
+  -- Accepted Session: 10 Byte Ascii String
+  index, accepted_session = nasdaq_psxequities_orders_ouch_v4_2.accepted_session.dissect(buffer, index, packet, parent)
 
-  -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = nasdaq_psxequities_orders_ouch_v4_2.sequence_number.dissect(buffer, index, packet, parent)
+  -- Accepted Sequence Number: 20 Byte Ascii String
+  index, accepted_sequence_number = nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Store Sequence Number Value
-  nasdaq_psxequities_orders_ouch_v4_2.sequence_number.current = sequence_number
+  -- Store Accepted Sequence Number Value
+  nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.current = accepted_sequence_number
 
   if not packet.visited then
-    nasdaq_psxequities_orders_ouch_v4_2.conversation.current.sequence_number.last = sequence_number
+    nasdaq_psxequities_orders_ouch_v4_2.conversation.current.accepted_sequence_number.last = accepted_sequence_number
   end
 
   return index
@@ -2790,9 +2790,9 @@ nasdaq_psxequities_orders_ouch_v4_2.server_packet.dissect = function(buffer, pac
   -- establish frame context from the conversation's stored values
   local data = nasdaq_psxequities_orders_ouch_v4_2.conversation.data(packet)
   if not packet.visited then
-    data.sequence_number.frames[packet.number] = data.sequence_number.last
+    data.accepted_sequence_number.frames[packet.number] = data.accepted_sequence_number.last
   end
-  nasdaq_psxequities_orders_ouch_v4_2.sequence_number.current = data.sequence_number.frames[packet.number]
+  nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.current = data.accepted_sequence_number.frames[packet.number]
   nasdaq_psxequities_orders_ouch_v4_2.conversation.current = data
 
   local index = 0
@@ -3409,7 +3409,7 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_psxequities_orders_ouch_v4_2.init()
-  nasdaq_psxequities_orders_ouch_v4_2.sequence_number.current = nil
+  nasdaq_psxequities_orders_ouch_v4_2.accepted_sequence_number.current = nil
   nasdaq_psxequities_orders_ouch_v4_2.conversation.current = nil
   nasdaq_psxequities_orders_ouch_v4_2.conversation.flows = {}
 end
