@@ -1895,6 +1895,7 @@ otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect = function(buffer, 
   if bit.band(packet_flag, 0x01) == 1 then
     return otcmarkets_moonats_topofbook_link_v1_3.heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, messages do
 
@@ -1904,8 +1905,6 @@ otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect = function(buffer, 
     -- Message: Struct of 2 fields
     offset = otcmarkets_moonats_topofbook_link_v1_3.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Flag

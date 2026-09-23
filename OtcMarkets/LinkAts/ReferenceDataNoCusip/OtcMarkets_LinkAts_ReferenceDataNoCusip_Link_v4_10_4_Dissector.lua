@@ -2044,6 +2044,7 @@ otcmarkets_linkats_referencedatanocusip_link_v4_10_4.message_block.dissect = fun
   if bit.band(packet_flag, 0x01) == 1 then
     return otcmarkets_linkats_referencedatanocusip_link_v4_10_4.heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, messages do
 
@@ -2053,8 +2054,6 @@ otcmarkets_linkats_referencedatanocusip_link_v4_10_4.message_block.dissect = fun
     -- Message: Struct of 2 fields
     offset = otcmarkets_linkats_referencedatanocusip_link_v4_10_4.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Flag

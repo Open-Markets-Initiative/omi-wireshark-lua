@@ -2398,6 +2398,7 @@ otcmarkets_linknqb_depthofbook_link_v1_18.message_block.dissect = function(buffe
   if bit.band(packet_flag, 0x01) == 1 then
     return otcmarkets_linknqb_depthofbook_link_v1_18.heartbeat_packet.dissect(buffer, offset, packet, parent)
   end
+
   -- Repeating: Message
   for message_index = 1, messages do
 
@@ -2407,8 +2408,6 @@ otcmarkets_linknqb_depthofbook_link_v1_18.message_block.dissect = function(buffe
     -- Message: Struct of 2 fields
     offset = otcmarkets_linknqb_depthofbook_link_v1_18.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
   end
-
-  return offset
 end
 
 -- Packet Flag
