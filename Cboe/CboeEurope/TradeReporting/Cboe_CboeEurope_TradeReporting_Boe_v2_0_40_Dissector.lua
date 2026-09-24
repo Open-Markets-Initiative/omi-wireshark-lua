@@ -51,6 +51,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_return_bitfields
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_trade_capture_report_v_2_bitfields = ProtoField.new("Number Of Trade Capture Report V 2 Bitfields", "cboe.cboeeurope.tradereporting.boe.v2.0.40.numberoftradecapturereportv2bitfields", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.cboeeurope.tradereporting.boe.v2.0.40.numberofunits", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_category = ProtoField.new("Order Category", "cboe.cboeeurope.tradereporting.boe.v2.0.40.ordercategory", ftypes.UINT8)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_qty = ProtoField.new("Order Qty", "cboe.cboeeurope.tradereporting.boe.v2.0.40.orderqty", ftypes.UINT32)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group = ProtoField.new("Param Group", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgroup", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgrouplength", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgrouptype", ftypes.UINT8)
@@ -2408,6 +2409,29 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.dissect = function(buf
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Qty
+cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty = {}
+
+-- Size: Order Qty
+cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.size = 4
+
+-- Display: Order Qty
+cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.display = function(value)
+  return "Order Qty: "..value
+end
+
+-- Dissect: Order Qty
+cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -9801,6 +9825,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_decline_v_2_return_bitfield_3, 0x40) > 0
+
+  if order_qty_exists then
+    index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Trade Report Type Return
   local trade_report_type_return = nil
 
@@ -12015,6 +12048,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_confirm_v_2_return_bitfield_3, 0x40) > 0
+
+  if order_qty_exists then
+    index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Trade Report Type Return
   local trade_report_type_return = nil
 
@@ -14195,6 +14237,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_reject_v_2_return_bitfield_3, 0x40) > 0
+
+  if order_qty_exists then
+    index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Trade Report Type Return
   local trade_report_type_return = nil
 
@@ -16322,6 +16373,15 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
 
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
+
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_3, 0x40) > 0
+
+  if order_qty_exists then
+    index, order_qty = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_qty.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Trade Report Type Return

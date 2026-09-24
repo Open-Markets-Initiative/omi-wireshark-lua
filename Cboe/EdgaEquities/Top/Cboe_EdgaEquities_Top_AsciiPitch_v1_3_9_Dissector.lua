@@ -2271,6 +2271,57 @@ cboe_edgaequities_top_asciipitch_v1_3_9.expanded_bid_update_message.dissect = fu
   end
 end
 
+-- Client Heartbeat Message
+cboe_edgaequities_top_asciipitch_v1_3_9.client_heartbeat_message = {}
+
+-- Display: Client Heartbeat Message
+cboe_edgaequities_top_asciipitch_v1_3_9.client_heartbeat_message.display = function(packet, parent, length)
+  return "Client Heartbeat Message"
+end
+
+
+-- Dissect: Client Heartbeat Message
+cboe_edgaequities_top_asciipitch_v1_3_9.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_edgaequities_top_asciipitch_v1_3_9.client_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Message
+cboe_edgaequities_top_asciipitch_v1_3_9.server_heartbeat_message = {}
+
+-- Display: Server Heartbeat Message
+cboe_edgaequities_top_asciipitch_v1_3_9.server_heartbeat_message.display = function(packet, parent, length)
+  return "Server Heartbeat Message"
+end
+
+
+-- Dissect: Server Heartbeat Message
+cboe_edgaequities_top_asciipitch_v1_3_9.server_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_edgaequities_top_asciipitch_v1_3_9.server_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Spin Done Message
+cboe_edgaequities_top_asciipitch_v1_3_9.spin_done_message = {}
+
+-- Display: Spin Done Message
+cboe_edgaequities_top_asciipitch_v1_3_9.spin_done_message.display = function(packet, parent, length)
+  return "Spin Done Message"
+end
+
+
+-- Dissect: Spin Done Message
+cboe_edgaequities_top_asciipitch_v1_3_9.spin_done_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_edgaequities_top_asciipitch_v1_3_9.spin_done_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Extended Spin Message
 cboe_edgaequities_top_asciipitch_v1_3_9.extended_spin_message = {}
 
@@ -2453,6 +2504,23 @@ cboe_edgaequities_top_asciipitch_v1_3_9.expanded_spin_message.dissect = function
     -- Skip element, add fields directly
     return cboe_edgaequities_top_asciipitch_v1_3_9.expanded_spin_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Logon Accepted Message
+cboe_edgaequities_top_asciipitch_v1_3_9.logon_accepted_message = {}
+
+-- Display: Logon Accepted Message
+cboe_edgaequities_top_asciipitch_v1_3_9.logon_accepted_message.display = function(packet, parent, length)
+  return "Logon Accepted Message"
+end
+
+
+-- Dissect: Logon Accepted Message
+cboe_edgaequities_top_asciipitch_v1_3_9.logon_accepted_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_edgaequities_top_asciipitch_v1_3_9.logon_accepted_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Milliseconds Message
@@ -2646,7 +2714,7 @@ cboe_edgaequities_top_asciipitch_v1_3_9.payload.dissect = function(buffer, offse
   end
   -- Dissect Logon Accepted Message
   if message_type == "C" then
-    return offset
+    return cboe_edgaequities_top_asciipitch_v1_3_9.logon_accepted_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Expanded Spin Message
   if message_type == "s" then
@@ -2658,15 +2726,15 @@ cboe_edgaequities_top_asciipitch_v1_3_9.payload.dissect = function(buffer, offse
   end
   -- Dissect Spin Done Message
   if message_type == "D" then
-    return offset
+    return cboe_edgaequities_top_asciipitch_v1_3_9.spin_done_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat Message
   if message_type == "H" then
-    return offset
+    return cboe_edgaequities_top_asciipitch_v1_3_9.server_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat Message
   if message_type == "R" then
-    return offset
+    return cboe_edgaequities_top_asciipitch_v1_3_9.client_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Expanded Bid Update Message
   if message_type == "E" then

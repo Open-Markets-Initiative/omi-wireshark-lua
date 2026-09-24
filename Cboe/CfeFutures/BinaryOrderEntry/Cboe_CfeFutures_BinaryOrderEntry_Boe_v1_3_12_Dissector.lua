@@ -220,6 +220,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.custom_group_id = ProtoF
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.customgroupidcnt", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.custom_group_id_one = ProtoField.new("Custom Group Id One", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.customgroupidone", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.custom_group_idn = ProtoField.new("Custom Group Idn", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.customgroupidn", ftypes.UINT16)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.day_avg_px = ProtoField.new("Day Avg Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.dayavgpx", ftypes.DOUBLE)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.daycumqty", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.day_order_qty = ProtoField.new("Day Order Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.dayorderqty", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.exec_id = ProtoField.new("Exec Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.execid", ftypes.UINT64)
@@ -351,7 +352,9 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_new_order_bitf
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_param_groups = ProtoField.new("Number Of Param Groups", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.numberofparamgroups", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_purge_orders_bitfields = ProtoField.new("Number Of Purge Orders Bitfields", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.numberofpurgeordersbitfields", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_return_bitfields = ProtoField.new("Number Of Return Bitfields", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.numberofreturnbitfields", ftypes.UINT8)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_tas_restatement_bitfields = ProtoField.new("Number Of Tas Restatement Bitfields", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.numberoftasrestatementbitfields", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.numberofunits", ftypes.UINT8)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_variance_restatement_bitfields = ProtoField.new("Number Of Variance Restatement Bitfields", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.numberofvariancerestatementbitfields", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.oeoid = ProtoField.new("Oeoid", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.oeoid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.open_close = ProtoField.new("Open Close", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.openclose", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.ord_type = ProtoField.new("Ord Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.ordtype", ftypes.STRING)
@@ -1176,6 +1179,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.param_group_type = Proto
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.password = ProtoField.new("Password", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.password", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.pending_status = ProtoField.new("Pending Status", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.pendingstatus", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.preventmatch", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.prevent_participant_match = ProtoField.new("Prevent Participant Match", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.preventparticipantmatch", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.price = ProtoField.new("Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.price", ftypes.DOUBLE)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.product_name = ProtoField.new("Product Name", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.productname", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.purge_orders_bitfield_1 = ProtoField.new("Purge Orders Bitfield 1", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.purgeordersbitfield1", ftypes.STRING)
@@ -1372,7 +1376,6 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.reserved_17 = ProtoField
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.reserved_4 = ProtoField.new("Reserved 4", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.reserved4", ftypes.BYTES)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.reserved_6 = ProtoField.new("Reserved 6", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.reserved6", ftypes.BYTES)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.restatementreason", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.return_bitfield_1 = ProtoField.new("Return Bitfield 1", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.returnbitfield1", ftypes.UINT8)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.riskreset", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.riskresetresult", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.riskstatusid", ftypes.STRING)
@@ -1387,6 +1390,168 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.stop_px = ProtoField.new
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.subliquidityindicator", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.symbol_alphanumeric_6 = ProtoField.new("Symbol Alphanumeric 6", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.symbolalphanumeric6", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.symbol_alphanumeric_8 = ProtoField.new("Symbol Alphanumeric 8", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.symbolalphanumeric8", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1 = ProtoField.new("Tas Restatement Bitfield 1", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_exec_inst = ProtoField.new("Tas Restatement Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_max_remove_pct = ProtoField.new("Tas Restatement Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_min_qty = ProtoField.new("Tas Restatement Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_order_type = ProtoField.new("Tas Restatement Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_peg_difference = ProtoField.new("Tas Restatement Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_price = ProtoField.new("Tas Restatement Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_side = ProtoField.new("Tas Restatement Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_time_in_force = ProtoField.new("Tas Restatement Bitfield 1 Time In Force", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield1timeinforce", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10 = ProtoField.new("Tas Restatement Bitfield 10", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_alloc_qty = ProtoField.new("Tas Restatement Bitfield 10 Alloc Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10allocqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_client_qualified_role = ProtoField.new("Tas Restatement Bitfield 10 Client Qualified Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10clientqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_cross_exclusion_indicator = ProtoField.new("Tas Restatement Bitfield 10 Cross Exclusion Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10crossexclusionindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_cross_id = ProtoField.new("Tas Restatement Bitfield 10 Cross Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10crossid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_give_up_firm_id = ProtoField.new("Tas Restatement Bitfield 10 Give Up Firm Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10giveupfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_price_formation = ProtoField.new("Tas Restatement Bitfield 10 Price Formation", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10priceformation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_routing_f_irm_id = ProtoField.new("Tas Restatement Bitfield 10 Routing F Irm Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10routingfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_waiver_type = ProtoField.new("Tas Restatement Bitfield 10 Waiver Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield10waivertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11 = ProtoField.new("Tas Restatement Bitfield 11", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_algo = ProtoField.new("Tas Restatement Bitfield 11 Algo", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11algo", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_client_id = ProtoField.new("Tas Restatement Bitfield 11 Client Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11clientid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_deferral_reason = ProtoField.new("Tas Restatement Bitfield 11 Deferral Reason", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11deferralreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_executor_id = ProtoField.new("Tas Restatement Bitfield 11 Executor Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11executorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_executor_qualified_role = ProtoField.new("Tas Restatement Bitfield 11 Executor Qualified Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11executorqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_investor_id = ProtoField.new("Tas Restatement Bitfield 11 Investor Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11investorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_investor_qualified_role = ProtoField.new("Tas Restatement Bitfield 11 Investor Qualified Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11investorqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_order_origination = ProtoField.new("Tas Restatement Bitfield 11 Order Origination", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield11orderorigination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12 = ProtoField.new("Tas Restatement Bitfield 12", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_clearing_price = ProtoField.new("Tas Restatement Bitfield 12 Clearing Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12clearingprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_clearing_size = ProtoField.new("Tas Restatement Bitfield 12 Clearing Size", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12clearingsize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_clearing_symbol = ProtoField.new("Tas Restatement Bitfield 12 Clearing Symbol", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12clearingsymbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_cti_code = ProtoField.new("Tas Restatement Bitfield 12 Cti Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12cticode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_manual_order_indicator = ProtoField.new("Tas Restatement Bitfield 12 Manual Order Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12manualorderindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_oeoid = ProtoField.new("Tas Restatement Bitfield 12 Oeoid", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12oeoid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_reserved_128 = ProtoField.new("Tas Restatement Bitfield 12 Reserved 128", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_trade_date = ProtoField.new("Tas Restatement Bitfield 12 Trade Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield12tradedate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13 = ProtoField.new("Tas Restatement Bitfield 13", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_avg_px = ProtoField.new("Tas Restatement Bitfield 13 Avg Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13avgpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_cum_qty = ProtoField.new("Tas Restatement Bitfield 13 Cum Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13cumqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_day_avg_px = ProtoField.new("Tas Restatement Bitfield 13 Day Avg Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13dayavgpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_day_cum_qty = ProtoField.new("Tas Restatement Bitfield 13 Day Cum Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13daycumqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_day_order_qty = ProtoField.new("Tas Restatement Bitfield 13 Day Order Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13dayorderqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_drill_thru_protection = ProtoField.new("Tas Restatement Bitfield 13 Drill Thru Protection", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13drillthruprotection", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_multileg_reporting_type = ProtoField.new("Tas Restatement Bitfield 13 Multileg Reporting Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13multilegreportingtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_pending_status = ProtoField.new("Tas Restatement Bitfield 13 Pending Status", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield13pendingstatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14 = ProtoField.new("Tas Restatement Bitfield 14", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_leg_cfi_code = ProtoField.new("Tas Restatement Bitfield 14 Leg Cfi Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14legcficode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_leg_maturity_date = ProtoField.new("Tas Restatement Bitfield 14 Leg Maturity Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14legmaturitydate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_leg_strike_price = ProtoField.new("Tas Restatement Bitfield 14 Leg Strike Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14legstrikeprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_room_id = ProtoField.new("Tas Restatement Bitfield 14 Room Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14roomid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_secondary_exec_id = ProtoField.new("Tas Restatement Bitfield 14 Secondary Exec Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14secondaryexecid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_sis_username = ProtoField.new("Tas Restatement Bitfield 14 Sis Username", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14sisusername", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_user_request_id = ProtoField.new("Tas Restatement Bitfield 14 User Request Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14userrequestid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_user_status = ProtoField.new("Tas Restatement Bitfield 14 User Status", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield14userstatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15 = ProtoField.new("Tas Restatement Bitfield 15", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_client_id_attr = ProtoField.new("Tas Restatement Bitfield 15 Client Id Attr", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15clientidattr", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_equity_nbbo_protect = ProtoField.new("Tas Restatement Bitfield 15 Equity Nbbo Protect", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15equitynbboprotect", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_equity_party_id = ProtoField.new("Tas Restatement Bitfield 15 Equity Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15equitypartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_leg_symbol_sfx = ProtoField.new("Tas Restatement Bitfield 15 Leg Symbol Sfx", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15legsymbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_mass_cancel_id = ProtoField.new("Tas Restatement Bitfield 15 Mass Cancel Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15masscancelid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_report_time = ProtoField.new("Tas Restatement Bitfield 15 Report Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15reporttime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_trade_publish_ind = ProtoField.new("Tas Restatement Bitfield 15 Trade Publish Ind", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15tradepublishind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_trade_reporting_indicator = ProtoField.new("Tas Restatement Bitfield 15 Trade Reporting Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield15tradereportingindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16 = ProtoField.new("Tas Restatement Bitfield 16", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_combo_order = ProtoField.new("Tas Restatement Bitfield 16 Combo Order", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16comboorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_compression = ProtoField.new("Tas Restatement Bitfield 16 Compression", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16compression", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_floor_destination = ProtoField.new("Tas Restatement Bitfield 16 Floor Destination", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16floordestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_floor_routing_inst = ProtoField.new("Tas Restatement Bitfield 16 Floor Routing Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_frequent_trader_id = ProtoField.new("Tas Restatement Bitfield 16 Frequent Trader Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16frequenttraderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_multi_class_sprd = ProtoField.new("Tas Restatement Bitfield 16 Multi Class Sprd", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16multiclasssprd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_order_origin = ProtoField.new("Tas Restatement Bitfield 16 Order Origin", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16orderorigin", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_session_eligibility = ProtoField.new("Tas Restatement Bitfield 16 Session Eligibility", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield16sessioneligibility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17 = ProtoField.new("Tas Restatement Bitfield 17", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_cust_order_handling_inst = ProtoField.new("Tas Restatement Bitfield 17 Cust Order Handling Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17custorderhandlinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_exec_leg_cfi_code = ProtoField.new("Tas Restatement Bitfield 17 Exec Leg Cfi Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17execlegcficode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_floor_trader_acronym = ProtoField.new("Tas Restatement Bitfield 17 Floor Trader Acronym", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17floortraderacronym", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_price_type = ProtoField.new("Tas Restatement Bitfield 17 Price Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17pricetype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_sender_location_id = ProtoField.new("Tas Restatement Bitfield 17 Sender Location Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17senderlocationid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_strategy_id = ProtoField.new("Tas Restatement Bitfield 17 Strategy Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17strategyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_trade_through_alert_type = ProtoField.new("Tas Restatement Bitfield 17 Trade Through Alert Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17tradethroughalerttype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_trading_session_id = ProtoField.new("Tas Restatement Bitfield 17 Trading Session Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield17tradingsessionid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18 = ProtoField.new("Tas Restatement Bitfield 18", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_cross_initiator = ProtoField.new("Tas Restatement Bitfield 18 Cross Initiator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18crossinitiator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_1 = ProtoField.new("Tas Restatement Bitfield 18 Reserved 1", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_128 = ProtoField.new("Tas Restatement Bitfield 18 Reserved 128", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_16 = ProtoField.new("Tas Restatement Bitfield 18 Reserved 16", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_32 = ProtoField.new("Tas Restatement Bitfield 18 Reserved 32", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_64 = ProtoField.new("Tas Restatement Bitfield 18 Reserved 64", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_8 = ProtoField.new("Tas Restatement Bitfield 18 Reserved 8", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_subreason = ProtoField.new("Tas Restatement Bitfield 18 Subreason", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield18subreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2 = ProtoField.new("Tas Restatement Bitfield 2", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_capacity = ProtoField.new("Tas Restatement Bitfield 2 Capacity", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2capacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_currency = ProtoField.new("Tas Restatement Bitfield 2 Currency", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2currency", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_id_source = ProtoField.new("Tas Restatement Bitfield 2 Id Source", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2idsource", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_reserved_128 = ProtoField.new("Tas Restatement Bitfield 2 Reserved 128", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_security_exchange = ProtoField.new("Tas Restatement Bitfield 2 Security Exchange", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2securityexchange", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_security_id = ProtoField.new("Tas Restatement Bitfield 2 Security Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2securityid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_symbol = ProtoField.new("Tas Restatement Bitfield 2 Symbol", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_symbol_sfx = ProtoField.new("Tas Restatement Bitfield 2 Symbol Sfx", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield2symbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3 = ProtoField.new("Tas Restatement Bitfield 3", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_account = ProtoField.new("Tas Restatement Bitfield 3 Account", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3account", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_clearing_account = ProtoField.new("Tas Restatement Bitfield 3 Clearing Account", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3clearingaccount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_clearing_firm = ProtoField.new("Tas Restatement Bitfield 3 Clearing Firm", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_discretion_amount = ProtoField.new("Tas Restatement Bitfield 3 Discretion Amount", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3discretionamount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_display_indicator = ProtoField.new("Tas Restatement Bitfield 3 Display Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3displayindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_max_floor = ProtoField.new("Tas Restatement Bitfield 3 Max Floor", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3maxfloor", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_order_qty = ProtoField.new("Tas Restatement Bitfield 3 Order Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3orderqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_prevent_match = ProtoField.new("Tas Restatement Bitfield 3 Prevent Match", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield3preventmatch", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4 = ProtoField.new("Tas Restatement Bitfield 4", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_access_fee = ProtoField.new("Tas Restatement Bitfield 4 Access Fee", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4accessfee", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_cl_ord_id_batch = ProtoField.new("Tas Restatement Bitfield 4 Cl Ord Id Batch", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4clordidbatch", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_corrected_size = ProtoField.new("Tas Restatement Bitfield 4 Corrected Size", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4correctedsize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_maturity_date = ProtoField.new("Tas Restatement Bitfield 4 Maturity Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4maturitydate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_open_close = ProtoField.new("Tas Restatement Bitfield 4 Open Close", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4openclose", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_party_id = ProtoField.new("Tas Restatement Bitfield 4 Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4partyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_put_or_call = ProtoField.new("Tas Restatement Bitfield 4 Put Or Call", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4putorcall", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_strike_price = ProtoField.new("Tas Restatement Bitfield 4 Strike Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield4strikeprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5 = ProtoField.new("Tas Restatement Bitfield 5", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_base_liquidity_indicator = ProtoField.new("Tas Restatement Bitfield 5 Base Liquidity Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5baseliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_display_price = ProtoField.new("Tas Restatement Bitfield 5 Display Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5displayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_expire_time = ProtoField.new("Tas Restatement Bitfield 5 Expire Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_last_px = ProtoField.new("Tas Restatement Bitfield 5 Last Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5lastpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_last_shares = ProtoField.new("Tas Restatement Bitfield 5 Last Shares", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5lastshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_leaves_qty = ProtoField.new("Tas Restatement Bitfield 5 Leaves Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5leavesqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_orig_cl_ord_id = ProtoField.new("Tas Restatement Bitfield 5 Orig Cl Ord Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5origclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_working_price = ProtoField.new("Tas Restatement Bitfield 5 Working Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield5workingprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6 = ProtoField.new("Tas Restatement Bitfield 6", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_attributed_order = ProtoField.new("Tas Restatement Bitfield 6 Attributed Order", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6attributedorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_bulk_order_ids = ProtoField.new("Tas Restatement Bitfield 6 Bulk Order Ids", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6bulkorderids", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_bulk_reject_reasons = ProtoField.new("Tas Restatement Bitfield 6 Bulk Reject Reasons", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6bulkrejectreasons", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_ccp = ProtoField.new("Tas Restatement Bitfield 6 Ccp", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6ccp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_contra_capacity = ProtoField.new("Tas Restatement Bitfield 6 Contra Capacity", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6contracapacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_ext_exec_inst = ProtoField.new("Tas Restatement Bitfield 6 Ext Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6extexecinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_party_role = ProtoField.new("Tas Restatement Bitfield 6 Party Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6partyrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_secondary_order_id = ProtoField.new("Tas Restatement Bitfield 6 Secondary Order Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield6secondaryorderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7 = ProtoField.new("Tas Restatement Bitfield 7", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_bid = ProtoField.new("Tas Restatement Bitfield 7 Bid", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7bid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_large_size = ProtoField.new("Tas Restatement Bitfield 7 Large Size", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7largesize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_last_mkt = ProtoField.new("Tas Restatement Bitfield 7 Last Mkt", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7lastmkt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_offer = ProtoField.new("Tas Restatement Bitfield 7 Offer", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7offer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_sub_liquidity_indicator = ProtoField.new("Tas Restatement Bitfield 7 Sub Liquidity Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7subliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_text = ProtoField.new("Tas Restatement Bitfield 7 Text", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7text", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_trade_publish_ind_return = ProtoField.new("Tas Restatement Bitfield 7 Trade Publish Ind Return", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7tradepublishindreturn", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_trade_report_type_return = ProtoField.new("Tas Restatement Bitfield 7 Trade Report Type Return", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield7tradereporttypereturn", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8 = ProtoField.new("Tas Restatement Bitfield 8", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_echo_text = ProtoField.new("Tas Restatement Bitfield 8 Echo Text", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8echotext", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_ex_destination = ProtoField.new("Tas Restatement Bitfield 8 Ex Destination", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8exdestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_fee_code = ProtoField.new("Tas Restatement Bitfield 8 Fee Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8feecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_rout_strategy = ProtoField.new("Tas Restatement Bitfield 8 Rout Strategy", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8routstrategy", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_route_delivery_method = ProtoField.new("Tas Restatement Bitfield 8 Route Delivery Method", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8routedeliverymethod", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_routing_inst = ProtoField.new("Tas Restatement Bitfield 8 Routing Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8routinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_stop_px = ProtoField.new("Tas Restatement Bitfield 8 Stop Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8stoppx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_trade_report_ref_id = ProtoField.new("Tas Restatement Bitfield 8 Trade Report Ref Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield8tradereportrefid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9 = ProtoField.new("Tas Restatement Bitfield 9", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_auction_id = ProtoField.new("Tas Restatement Bitfield 9 Auction Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9auctionid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_cmta_number = ProtoField.new("Tas Restatement Bitfield 9 Cmta Number", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9cmtanumber", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_cross_prioritization = ProtoField.new("Tas Restatement Bitfield 9 Cross Prioritization", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9crossprioritization", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_cross_type = ProtoField.new("Tas Restatement Bitfield 9 Cross Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9crosstype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_liquidity_provision = ProtoField.new("Tas Restatement Bitfield 9 Liquidity Provision", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9liquidityprovision", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_marketing_fee_code = ProtoField.new("Tas Restatement Bitfield 9 Marketing Fee Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_order_category = ProtoField.new("Tas Restatement Bitfield 9 Order Category", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_target_party_id = ProtoField.new("Tas Restatement Bitfield 9 Target Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tasrestatementbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.text = ProtoField.new("Text", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.text", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.time_in_force = ProtoField.new("Time In Force", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.timeinforce", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.trade_cancelor_correct_return_bitfield_1 = ProtoField.new("Trade Cancelor Correct Return Bitfield 1", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tradecancelorcorrectreturnbitfield1", ftypes.STRING)
@@ -1719,6 +1884,168 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.user_modify_rejected_ret
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.user_modify_rejected_return_bitfield_9_order_category = ProtoField.new("User Modify Rejected Return Bitfield 9 Order Category", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.usermodifyrejectedreturnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.user_modify_rejected_return_bitfield_9_target_party_id = ProtoField.new("User Modify Rejected Return Bitfield 9 Target Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.usermodifyrejectedreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.username = ProtoField.new("Username", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.username", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1 = ProtoField.new("Variance Restatement Bitfield 1", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_exec_inst = ProtoField.new("Variance Restatement Bitfield 1 Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_max_remove_pct = ProtoField.new("Variance Restatement Bitfield 1 Max Remove Pct", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_min_qty = ProtoField.new("Variance Restatement Bitfield 1 Min Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1minqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_order_type = ProtoField.new("Variance Restatement Bitfield 1 Order Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1ordertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_peg_difference = ProtoField.new("Variance Restatement Bitfield 1 Peg Difference", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1pegdifference", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_price = ProtoField.new("Variance Restatement Bitfield 1 Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1price", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_side = ProtoField.new("Variance Restatement Bitfield 1 Side", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1side", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_time_in_force = ProtoField.new("Variance Restatement Bitfield 1 Time In Force", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield1timeinforce", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10 = ProtoField.new("Variance Restatement Bitfield 10", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_alloc_qty = ProtoField.new("Variance Restatement Bitfield 10 Alloc Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10allocqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_client_qualified_role = ProtoField.new("Variance Restatement Bitfield 10 Client Qualified Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10clientqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_cross_exclusion_indicator = ProtoField.new("Variance Restatement Bitfield 10 Cross Exclusion Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10crossexclusionindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_cross_id = ProtoField.new("Variance Restatement Bitfield 10 Cross Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10crossid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_give_up_firm_id = ProtoField.new("Variance Restatement Bitfield 10 Give Up Firm Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10giveupfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_price_formation = ProtoField.new("Variance Restatement Bitfield 10 Price Formation", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10priceformation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_routing_f_irm_id = ProtoField.new("Variance Restatement Bitfield 10 Routing F Irm Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10routingfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_waiver_type = ProtoField.new("Variance Restatement Bitfield 10 Waiver Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield10waivertype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11 = ProtoField.new("Variance Restatement Bitfield 11", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_algo = ProtoField.new("Variance Restatement Bitfield 11 Algo", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11algo", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_client_id = ProtoField.new("Variance Restatement Bitfield 11 Client Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11clientid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_deferral_reason = ProtoField.new("Variance Restatement Bitfield 11 Deferral Reason", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11deferralreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_executor_id = ProtoField.new("Variance Restatement Bitfield 11 Executor Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11executorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_executor_qualified_role = ProtoField.new("Variance Restatement Bitfield 11 Executor Qualified Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11executorqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_investor_id = ProtoField.new("Variance Restatement Bitfield 11 Investor Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11investorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_investor_qualified_role = ProtoField.new("Variance Restatement Bitfield 11 Investor Qualified Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11investorqualifiedrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_order_origination = ProtoField.new("Variance Restatement Bitfield 11 Order Origination", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield11orderorigination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12 = ProtoField.new("Variance Restatement Bitfield 12", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_clearing_price = ProtoField.new("Variance Restatement Bitfield 12 Clearing Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12clearingprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_clearing_size = ProtoField.new("Variance Restatement Bitfield 12 Clearing Size", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12clearingsize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_clearing_symbol = ProtoField.new("Variance Restatement Bitfield 12 Clearing Symbol", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12clearingsymbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_cti_code = ProtoField.new("Variance Restatement Bitfield 12 Cti Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12cticode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_manual_order_indicator = ProtoField.new("Variance Restatement Bitfield 12 Manual Order Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12manualorderindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_oeoid = ProtoField.new("Variance Restatement Bitfield 12 Oeoid", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12oeoid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_reserved_128 = ProtoField.new("Variance Restatement Bitfield 12 Reserved 128", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_trade_date = ProtoField.new("Variance Restatement Bitfield 12 Trade Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield12tradedate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13 = ProtoField.new("Variance Restatement Bitfield 13", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_avg_px = ProtoField.new("Variance Restatement Bitfield 13 Avg Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13avgpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_cum_qty = ProtoField.new("Variance Restatement Bitfield 13 Cum Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13cumqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_day_avg_px = ProtoField.new("Variance Restatement Bitfield 13 Day Avg Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13dayavgpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_day_cum_qty = ProtoField.new("Variance Restatement Bitfield 13 Day Cum Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13daycumqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_day_order_qty = ProtoField.new("Variance Restatement Bitfield 13 Day Order Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13dayorderqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_drill_thru_protection = ProtoField.new("Variance Restatement Bitfield 13 Drill Thru Protection", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13drillthruprotection", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_multileg_reporting_type = ProtoField.new("Variance Restatement Bitfield 13 Multileg Reporting Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13multilegreportingtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_pending_status = ProtoField.new("Variance Restatement Bitfield 13 Pending Status", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield13pendingstatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14 = ProtoField.new("Variance Restatement Bitfield 14", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_leg_cfi_code = ProtoField.new("Variance Restatement Bitfield 14 Leg Cfi Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14legcficode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_leg_maturity_date = ProtoField.new("Variance Restatement Bitfield 14 Leg Maturity Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14legmaturitydate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_leg_strike_price = ProtoField.new("Variance Restatement Bitfield 14 Leg Strike Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14legstrikeprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_room_id = ProtoField.new("Variance Restatement Bitfield 14 Room Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14roomid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_secondary_exec_id = ProtoField.new("Variance Restatement Bitfield 14 Secondary Exec Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14secondaryexecid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_sis_username = ProtoField.new("Variance Restatement Bitfield 14 Sis Username", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14sisusername", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_user_request_id = ProtoField.new("Variance Restatement Bitfield 14 User Request Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14userrequestid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_user_status = ProtoField.new("Variance Restatement Bitfield 14 User Status", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield14userstatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15 = ProtoField.new("Variance Restatement Bitfield 15", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_client_id_attr = ProtoField.new("Variance Restatement Bitfield 15 Client Id Attr", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15clientidattr", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_equity_nbbo_protect = ProtoField.new("Variance Restatement Bitfield 15 Equity Nbbo Protect", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15equitynbboprotect", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_equity_party_id = ProtoField.new("Variance Restatement Bitfield 15 Equity Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15equitypartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_leg_symbol_sfx = ProtoField.new("Variance Restatement Bitfield 15 Leg Symbol Sfx", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15legsymbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_mass_cancel_id = ProtoField.new("Variance Restatement Bitfield 15 Mass Cancel Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15masscancelid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_report_time = ProtoField.new("Variance Restatement Bitfield 15 Report Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15reporttime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_trade_publish_ind = ProtoField.new("Variance Restatement Bitfield 15 Trade Publish Ind", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15tradepublishind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_trade_reporting_indicator = ProtoField.new("Variance Restatement Bitfield 15 Trade Reporting Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield15tradereportingindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16 = ProtoField.new("Variance Restatement Bitfield 16", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_combo_order = ProtoField.new("Variance Restatement Bitfield 16 Combo Order", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16comboorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_compression = ProtoField.new("Variance Restatement Bitfield 16 Compression", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16compression", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_floor_destination = ProtoField.new("Variance Restatement Bitfield 16 Floor Destination", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16floordestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_floor_routing_inst = ProtoField.new("Variance Restatement Bitfield 16 Floor Routing Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16floorroutinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_frequent_trader_id = ProtoField.new("Variance Restatement Bitfield 16 Frequent Trader Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16frequenttraderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_multi_class_sprd = ProtoField.new("Variance Restatement Bitfield 16 Multi Class Sprd", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16multiclasssprd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_order_origin = ProtoField.new("Variance Restatement Bitfield 16 Order Origin", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16orderorigin", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_session_eligibility = ProtoField.new("Variance Restatement Bitfield 16 Session Eligibility", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield16sessioneligibility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17 = ProtoField.new("Variance Restatement Bitfield 17", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_cust_order_handling_inst = ProtoField.new("Variance Restatement Bitfield 17 Cust Order Handling Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17custorderhandlinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_exec_leg_cfi_code = ProtoField.new("Variance Restatement Bitfield 17 Exec Leg Cfi Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17execlegcficode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_floor_trader_acronym = ProtoField.new("Variance Restatement Bitfield 17 Floor Trader Acronym", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17floortraderacronym", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_price_type = ProtoField.new("Variance Restatement Bitfield 17 Price Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17pricetype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_sender_location_id = ProtoField.new("Variance Restatement Bitfield 17 Sender Location Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17senderlocationid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_strategy_id = ProtoField.new("Variance Restatement Bitfield 17 Strategy Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17strategyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_trade_through_alert_type = ProtoField.new("Variance Restatement Bitfield 17 Trade Through Alert Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17tradethroughalerttype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_trading_session_id = ProtoField.new("Variance Restatement Bitfield 17 Trading Session Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield17tradingsessionid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18 = ProtoField.new("Variance Restatement Bitfield 18", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_cross_initiator = ProtoField.new("Variance Restatement Bitfield 18 Cross Initiator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18crossinitiator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_1 = ProtoField.new("Variance Restatement Bitfield 18 Reserved 1", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18reserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_128 = ProtoField.new("Variance Restatement Bitfield 18 Reserved 128", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_16 = ProtoField.new("Variance Restatement Bitfield 18 Reserved 16", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_32 = ProtoField.new("Variance Restatement Bitfield 18 Reserved 32", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_64 = ProtoField.new("Variance Restatement Bitfield 18 Reserved 64", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_8 = ProtoField.new("Variance Restatement Bitfield 18 Reserved 8", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_subreason = ProtoField.new("Variance Restatement Bitfield 18 Subreason", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield18subreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2 = ProtoField.new("Variance Restatement Bitfield 2", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_capacity = ProtoField.new("Variance Restatement Bitfield 2 Capacity", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2capacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_currency = ProtoField.new("Variance Restatement Bitfield 2 Currency", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2currency", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_id_source = ProtoField.new("Variance Restatement Bitfield 2 Id Source", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2idsource", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_reserved_128 = ProtoField.new("Variance Restatement Bitfield 2 Reserved 128", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_security_exchange = ProtoField.new("Variance Restatement Bitfield 2 Security Exchange", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2securityexchange", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_security_id = ProtoField.new("Variance Restatement Bitfield 2 Security Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2securityid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_symbol = ProtoField.new("Variance Restatement Bitfield 2 Symbol", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_symbol_sfx = ProtoField.new("Variance Restatement Bitfield 2 Symbol Sfx", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield2symbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3 = ProtoField.new("Variance Restatement Bitfield 3", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_account = ProtoField.new("Variance Restatement Bitfield 3 Account", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3account", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_clearing_account = ProtoField.new("Variance Restatement Bitfield 3 Clearing Account", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3clearingaccount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_clearing_firm = ProtoField.new("Variance Restatement Bitfield 3 Clearing Firm", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_discretion_amount = ProtoField.new("Variance Restatement Bitfield 3 Discretion Amount", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3discretionamount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_display_indicator = ProtoField.new("Variance Restatement Bitfield 3 Display Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3displayindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_max_floor = ProtoField.new("Variance Restatement Bitfield 3 Max Floor", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3maxfloor", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_order_qty = ProtoField.new("Variance Restatement Bitfield 3 Order Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3orderqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_prevent_participant_match = ProtoField.new("Variance Restatement Bitfield 3 Prevent Participant Match", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield3preventparticipantmatch", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4 = ProtoField.new("Variance Restatement Bitfield 4", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_access_fee = ProtoField.new("Variance Restatement Bitfield 4 Access Fee", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4accessfee", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_cl_ord_id_batch = ProtoField.new("Variance Restatement Bitfield 4 Cl Ord Id Batch", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4clordidbatch", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_corrected_size = ProtoField.new("Variance Restatement Bitfield 4 Corrected Size", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4correctedsize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_maturity_date = ProtoField.new("Variance Restatement Bitfield 4 Maturity Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4maturitydate", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_open_close = ProtoField.new("Variance Restatement Bitfield 4 Open Close", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4openclose", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_party_id = ProtoField.new("Variance Restatement Bitfield 4 Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4partyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_put_or_call = ProtoField.new("Variance Restatement Bitfield 4 Put Or Call", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4putorcall", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_strike_price = ProtoField.new("Variance Restatement Bitfield 4 Strike Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield4strikeprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5 = ProtoField.new("Variance Restatement Bitfield 5", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_base_liquidity_indicator = ProtoField.new("Variance Restatement Bitfield 5 Base Liquidity Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5baseliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_display_price = ProtoField.new("Variance Restatement Bitfield 5 Display Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5displayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_expire_time = ProtoField.new("Variance Restatement Bitfield 5 Expire Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5expiretime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_last_px = ProtoField.new("Variance Restatement Bitfield 5 Last Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5lastpx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_last_shares = ProtoField.new("Variance Restatement Bitfield 5 Last Shares", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5lastshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_leaves_qty = ProtoField.new("Variance Restatement Bitfield 5 Leaves Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5leavesqty", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_orig_cl_ord_id = ProtoField.new("Variance Restatement Bitfield 5 Orig Cl Ord Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5origclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_working_price = ProtoField.new("Variance Restatement Bitfield 5 Working Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield5workingprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6 = ProtoField.new("Variance Restatement Bitfield 6", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_attributed_order = ProtoField.new("Variance Restatement Bitfield 6 Attributed Order", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6attributedorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_bulk_order_ids = ProtoField.new("Variance Restatement Bitfield 6 Bulk Order Ids", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6bulkorderids", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_bulk_reject_reasons = ProtoField.new("Variance Restatement Bitfield 6 Bulk Reject Reasons", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6bulkrejectreasons", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_ccp = ProtoField.new("Variance Restatement Bitfield 6 Ccp", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6ccp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_contra_capacity = ProtoField.new("Variance Restatement Bitfield 6 Contra Capacity", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6contracapacity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_ext_exec_inst = ProtoField.new("Variance Restatement Bitfield 6 Ext Exec Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6extexecinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_party_role = ProtoField.new("Variance Restatement Bitfield 6 Party Role", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6partyrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_secondary_order_id = ProtoField.new("Variance Restatement Bitfield 6 Secondary Order Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield6secondaryorderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7 = ProtoField.new("Variance Restatement Bitfield 7", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_bid = ProtoField.new("Variance Restatement Bitfield 7 Bid", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7bid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_large_size = ProtoField.new("Variance Restatement Bitfield 7 Large Size", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7largesize", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_last_mkt = ProtoField.new("Variance Restatement Bitfield 7 Last Mkt", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7lastmkt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_offer = ProtoField.new("Variance Restatement Bitfield 7 Offer", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7offer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_sub_liquidity_indicator = ProtoField.new("Variance Restatement Bitfield 7 Sub Liquidity Indicator", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7subliquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_text = ProtoField.new("Variance Restatement Bitfield 7 Text", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7text", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_trade_publish_ind_return = ProtoField.new("Variance Restatement Bitfield 7 Trade Publish Ind Return", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7tradepublishindreturn", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_trade_report_type_return = ProtoField.new("Variance Restatement Bitfield 7 Trade Report Type Return", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield7tradereporttypereturn", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8 = ProtoField.new("Variance Restatement Bitfield 8", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_echo_text = ProtoField.new("Variance Restatement Bitfield 8 Echo Text", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8echotext", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_ex_destination = ProtoField.new("Variance Restatement Bitfield 8 Ex Destination", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8exdestination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_fee_code = ProtoField.new("Variance Restatement Bitfield 8 Fee Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8feecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_rout_strategy = ProtoField.new("Variance Restatement Bitfield 8 Rout Strategy", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8routstrategy", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_route_delivery_method = ProtoField.new("Variance Restatement Bitfield 8 Route Delivery Method", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8routedeliverymethod", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_routing_inst = ProtoField.new("Variance Restatement Bitfield 8 Routing Inst", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8routinginst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_stop_px = ProtoField.new("Variance Restatement Bitfield 8 Stop Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8stoppx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_trade_report_ref_id = ProtoField.new("Variance Restatement Bitfield 8 Trade Report Ref Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield8tradereportrefid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9 = ProtoField.new("Variance Restatement Bitfield 9", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9", ftypes.STRING)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_auction_id = ProtoField.new("Variance Restatement Bitfield 9 Auction Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9auctionid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_cmta_number = ProtoField.new("Variance Restatement Bitfield 9 Cmta Number", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9cmtanumber", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_cross_prioritization = ProtoField.new("Variance Restatement Bitfield 9 Cross Prioritization", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9crossprioritization", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_cross_type = ProtoField.new("Variance Restatement Bitfield 9 Cross Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9crosstype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_liquidity_provision = ProtoField.new("Variance Restatement Bitfield 9 Liquidity Provision", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9liquidityprovision", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_marketing_fee_code = ProtoField.new("Variance Restatement Bitfield 9 Marketing Fee Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9marketingfeecode", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_order_category = ProtoField.new("Variance Restatement Bitfield 9 Order Category", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_target_party_id = ProtoField.new("Variance Restatement Bitfield 9 Target Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.variancerestatementbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.working_price = ProtoField.new("Working Price", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.workingprice", ftypes.UINT64)
 
 -- Cboe CfeFutures BinaryOrderEntry Boe 1.3.12 Framing
@@ -2705,6 +3032,35 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.custom_group_idn.dissect = function
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.custom_group_idn.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.custom_group_idn, range, value, display)
+
+  return offset + length, value
+end
+
+-- Day Avg Px
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px = {}
+
+-- Size: Day Avg Px
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.size = 8
+
+-- Display: Day Avg Px
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.display = function(value)
+  return "Day Avg Px: "..value
+end
+
+-- Translate: Day Avg Px
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Day Avg Px
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.translate(raw)
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.day_avg_px, range, value, display)
 
   return offset + length, value
 end
@@ -3781,6 +4137,29 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_return_bitfields.dissect 
   return offset + length, value
 end
 
+-- Number Of Tas Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_tas_restatement_bitfields = {}
+
+-- Size: Number Of Tas Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_tas_restatement_bitfields.size = 1
+
+-- Display: Number Of Tas Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_tas_restatement_bitfields.display = function(value)
+  return "Number Of Tas Restatement Bitfields: "..value
+end
+
+-- Dissect: Number Of Tas Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_tas_restatement_bitfields.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_tas_restatement_bitfields.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_tas_restatement_bitfields.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_tas_restatement_bitfields, range, value, display)
+
+  return offset + length, value
+end
+
 -- Number Of Units
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_units = {}
 
@@ -3800,6 +4179,29 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_units.dissect = function(
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_units, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Variance Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_variance_restatement_bitfields = {}
+
+-- Size: Number Of Variance Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_variance_restatement_bitfields.size = 1
+
+-- Display: Number Of Variance Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_variance_restatement_bitfields.display = function(value)
+  return "Number Of Variance Restatement Bitfields: "..value
+end
+
+-- Dissect: Number Of Variance Restatement Bitfields
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_variance_restatement_bitfields.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_variance_restatement_bitfields.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_variance_restatement_bitfields.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.number_of_variance_restatement_bitfields, range, value, display)
 
   return offset + length, value
 end
@@ -4270,6 +4672,45 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_match.dissect = function(bu
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_match.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.prevent_match, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prevent Participant Match
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_participant_match = {}
+
+-- Size: Prevent Participant Match
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_participant_match.size = 3
+
+-- Display: Prevent Participant Match
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_participant_match.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Prevent Participant Match: No Value"
+  end
+
+  return "Prevent Participant Match: "..value
+end
+
+-- Dissect: Prevent Participant Match
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_participant_match.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_participant_match.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_participant_match.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.prevent_participant_match, range, value, display)
 
   return offset + length, value
 end
@@ -4841,29 +5282,6 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.restatement_reason.dissect = functi
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Return Bitfield 1
-cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1 = {}
-
--- Size: Return Bitfield 1
-cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1.size = 1
-
--- Display: Return Bitfield 1
-cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1.display = function(value)
-  return "Return Bitfield 1: "..value
-end
-
--- Dissect: Return Bitfield 1
-cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.return_bitfield_1, range, value, display)
 
   return offset + length, value
 end
@@ -5701,6 +6119,1608 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_quote_restatement_message.disse
   end
 end
 
+-- Variance Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18 = {}
+
+-- Size: Variance Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.size = 1
+
+-- Display: Variance Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 18 Reserved 1 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Reserved 1"
+  end
+  -- Is Variance Restatement Bitfield 18 Cross Initiator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Cross Initiator"
+  end
+  -- Is Variance Restatement Bitfield 18 Subreason flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Subreason"
+  end
+  -- Is Variance Restatement Bitfield 18 Reserved 8 flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Reserved 8"
+  end
+  -- Is Variance Restatement Bitfield 18 Reserved 16 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Reserved 16"
+  end
+  -- Is Variance Restatement Bitfield 18 Reserved 32 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Reserved 32"
+  end
+  -- Is Variance Restatement Bitfield 18 Reserved 64 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Reserved 64"
+  end
+  -- Is Variance Restatement Bitfield 18 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 18 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 18 Reserved 1: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_1, range, value)
+
+  -- Variance Restatement Bitfield 18 Cross Initiator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_cross_initiator, range, value)
+
+  -- Variance Restatement Bitfield 18 Subreason: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_subreason, range, value)
+
+  -- Variance Restatement Bitfield 18 Reserved 8: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_8, range, value)
+
+  -- Variance Restatement Bitfield 18 Reserved 16: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_16, range, value)
+
+  -- Variance Restatement Bitfield 18 Reserved 32: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_32, range, value)
+
+  -- Variance Restatement Bitfield 18 Reserved 64: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_64, range, value)
+
+  -- Variance Restatement Bitfield 18 Reserved 128: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18_reserved_128, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_18, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17 = {}
+
+-- Size: Variance Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.size = 1
+
+-- Display: Variance Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 17 Price Type flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Price Type"
+  end
+  -- Is Variance Restatement Bitfield 17 Strategy Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Strategy Id"
+  end
+  -- Is Variance Restatement Bitfield 17 Trading Session Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Trading Session Id"
+  end
+  -- Is Variance Restatement Bitfield 17 Trade Through Alert Type flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Trade Through Alert Type"
+  end
+  -- Is Variance Restatement Bitfield 17 Sender Location Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Sender Location Id"
+  end
+  -- Is Variance Restatement Bitfield 17 Floor Trader Acronym flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Floor Trader Acronym"
+  end
+  -- Is Variance Restatement Bitfield 17 Exec Leg Cfi Code flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Exec Leg Cfi Code"
+  end
+  -- Is Variance Restatement Bitfield 17 Cust Order Handling Inst flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 17 Cust Order Handling Inst"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 17 Price Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_price_type, range, value)
+
+  -- Variance Restatement Bitfield 17 Strategy Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_strategy_id, range, value)
+
+  -- Variance Restatement Bitfield 17 Trading Session Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_trading_session_id, range, value)
+
+  -- Variance Restatement Bitfield 17 Trade Through Alert Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_trade_through_alert_type, range, value)
+
+  -- Variance Restatement Bitfield 17 Sender Location Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_sender_location_id, range, value)
+
+  -- Variance Restatement Bitfield 17 Floor Trader Acronym: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_floor_trader_acronym, range, value)
+
+  -- Variance Restatement Bitfield 17 Exec Leg Cfi Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_exec_leg_cfi_code, range, value)
+
+  -- Variance Restatement Bitfield 17 Cust Order Handling Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17_cust_order_handling_inst, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_17, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16 = {}
+
+-- Size: Variance Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.size = 1
+
+-- Display: Variance Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 16 Frequent Trader Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Frequent Trader Id"
+  end
+  -- Is Variance Restatement Bitfield 16 Session Eligibility flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Session Eligibility"
+  end
+  -- Is Variance Restatement Bitfield 16 Combo Order flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Combo Order"
+  end
+  -- Is Variance Restatement Bitfield 16 Compression flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Compression"
+  end
+  -- Is Variance Restatement Bitfield 16 Floor Destination flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Floor Destination"
+  end
+  -- Is Variance Restatement Bitfield 16 Floor Routing Inst flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Floor Routing Inst"
+  end
+  -- Is Variance Restatement Bitfield 16 Multi Class Sprd flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Multi Class Sprd"
+  end
+  -- Is Variance Restatement Bitfield 16 Order Origin flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 16 Order Origin"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 16 Frequent Trader Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_frequent_trader_id, range, value)
+
+  -- Variance Restatement Bitfield 16 Session Eligibility: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_session_eligibility, range, value)
+
+  -- Variance Restatement Bitfield 16 Combo Order: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_combo_order, range, value)
+
+  -- Variance Restatement Bitfield 16 Compression: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_compression, range, value)
+
+  -- Variance Restatement Bitfield 16 Floor Destination: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_floor_destination, range, value)
+
+  -- Variance Restatement Bitfield 16 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_floor_routing_inst, range, value)
+
+  -- Variance Restatement Bitfield 16 Multi Class Sprd: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_multi_class_sprd, range, value)
+
+  -- Variance Restatement Bitfield 16 Order Origin: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16_order_origin, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_16, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15 = {}
+
+-- Size: Variance Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.size = 1
+
+-- Display: Variance Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 15 Trade Reporting Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Trade Reporting Indicator"
+  end
+  -- Is Variance Restatement Bitfield 15 Equity Party Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Equity Party Id"
+  end
+  -- Is Variance Restatement Bitfield 15 Equity Nbbo Protect flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Equity Nbbo Protect"
+  end
+  -- Is Variance Restatement Bitfield 15 Mass Cancel Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Mass Cancel Id"
+  end
+  -- Is Variance Restatement Bitfield 15 Trade Publish Ind flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Trade Publish Ind"
+  end
+  -- Is Variance Restatement Bitfield 15 Report Time flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Report Time"
+  end
+  -- Is Variance Restatement Bitfield 15 Leg Symbol Sfx flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Leg Symbol Sfx"
+  end
+  -- Is Variance Restatement Bitfield 15 Client Id Attr flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 15 Client Id Attr"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 15 Trade Reporting Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_trade_reporting_indicator, range, value)
+
+  -- Variance Restatement Bitfield 15 Equity Party Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_equity_party_id, range, value)
+
+  -- Variance Restatement Bitfield 15 Equity Nbbo Protect: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_equity_nbbo_protect, range, value)
+
+  -- Variance Restatement Bitfield 15 Mass Cancel Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_mass_cancel_id, range, value)
+
+  -- Variance Restatement Bitfield 15 Trade Publish Ind: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_trade_publish_ind, range, value)
+
+  -- Variance Restatement Bitfield 15 Report Time: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_report_time, range, value)
+
+  -- Variance Restatement Bitfield 15 Leg Symbol Sfx: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_leg_symbol_sfx, range, value)
+
+  -- Variance Restatement Bitfield 15 Client Id Attr: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15_client_id_attr, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_15, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14 = {}
+
+-- Size: Variance Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.size = 1
+
+-- Display: Variance Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 14 Leg Cfi Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 Leg Cfi Code"
+  end
+  -- Is Variance Restatement Bitfield 14 Leg Maturity Date flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 Leg Maturity Date"
+  end
+  -- Is Variance Restatement Bitfield 14 Leg Strike Price flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 Leg Strike Price"
+  end
+  -- Is Variance Restatement Bitfield 14 Room Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 Room Id"
+  end
+  -- Is Variance Restatement Bitfield 14 Secondary Exec Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 Secondary Exec Id"
+  end
+  -- Is Variance Restatement Bitfield 14 User Request Id flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 User Request Id"
+  end
+  -- Is Variance Restatement Bitfield 14 Sis Username flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 Sis Username"
+  end
+  -- Is Variance Restatement Bitfield 14 User Status flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 14 User Status"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 14 Leg Cfi Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_leg_cfi_code, range, value)
+
+  -- Variance Restatement Bitfield 14 Leg Maturity Date: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_leg_maturity_date, range, value)
+
+  -- Variance Restatement Bitfield 14 Leg Strike Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_leg_strike_price, range, value)
+
+  -- Variance Restatement Bitfield 14 Room Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_room_id, range, value)
+
+  -- Variance Restatement Bitfield 14 Secondary Exec Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_secondary_exec_id, range, value)
+
+  -- Variance Restatement Bitfield 14 User Request Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_user_request_id, range, value)
+
+  -- Variance Restatement Bitfield 14 Sis Username: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_sis_username, range, value)
+
+  -- Variance Restatement Bitfield 14 User Status: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14_user_status, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_14, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13 = {}
+
+-- Size: Variance Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.size = 1
+
+-- Display: Variance Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 13 Cum Qty flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Cum Qty"
+  end
+  -- Is Variance Restatement Bitfield 13 Day Order Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Day Order Qty"
+  end
+  -- Is Variance Restatement Bitfield 13 Day Cum Qty flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Day Cum Qty"
+  end
+  -- Is Variance Restatement Bitfield 13 Avg Px flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Avg Px"
+  end
+  -- Is Variance Restatement Bitfield 13 Day Avg Px flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Day Avg Px"
+  end
+  -- Is Variance Restatement Bitfield 13 Pending Status flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Pending Status"
+  end
+  -- Is Variance Restatement Bitfield 13 Drill Thru Protection flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Drill Thru Protection"
+  end
+  -- Is Variance Restatement Bitfield 13 Multileg Reporting Type flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 13 Multileg Reporting Type"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 13 Cum Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_cum_qty, range, value)
+
+  -- Variance Restatement Bitfield 13 Day Order Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_day_order_qty, range, value)
+
+  -- Variance Restatement Bitfield 13 Day Cum Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_day_cum_qty, range, value)
+
+  -- Variance Restatement Bitfield 13 Avg Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_avg_px, range, value)
+
+  -- Variance Restatement Bitfield 13 Day Avg Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_day_avg_px, range, value)
+
+  -- Variance Restatement Bitfield 13 Pending Status: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_pending_status, range, value)
+
+  -- Variance Restatement Bitfield 13 Drill Thru Protection: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_drill_thru_protection, range, value)
+
+  -- Variance Restatement Bitfield 13 Multileg Reporting Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13_multileg_reporting_type, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_13, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12 = {}
+
+-- Size: Variance Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.size = 1
+
+-- Display: Variance Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 12 Cti Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Cti Code"
+  end
+  -- Is Variance Restatement Bitfield 12 Manual Order Indicator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Manual Order Indicator"
+  end
+  -- Is Variance Restatement Bitfield 12 Oeoid flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Oeoid"
+  end
+  -- Is Variance Restatement Bitfield 12 Trade Date flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Trade Date"
+  end
+  -- Is Variance Restatement Bitfield 12 Clearing Price flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Clearing Price"
+  end
+  -- Is Variance Restatement Bitfield 12 Clearing Size flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Clearing Size"
+  end
+  -- Is Variance Restatement Bitfield 12 Clearing Symbol flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Clearing Symbol"
+  end
+  -- Is Variance Restatement Bitfield 12 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 12 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 12 Cti Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_cti_code, range, value)
+
+  -- Variance Restatement Bitfield 12 Manual Order Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_manual_order_indicator, range, value)
+
+  -- Variance Restatement Bitfield 12 Oeoid: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_oeoid, range, value)
+
+  -- Variance Restatement Bitfield 12 Trade Date: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_trade_date, range, value)
+
+  -- Variance Restatement Bitfield 12 Clearing Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_clearing_price, range, value)
+
+  -- Variance Restatement Bitfield 12 Clearing Size: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_clearing_size, range, value)
+
+  -- Variance Restatement Bitfield 12 Clearing Symbol: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_clearing_symbol, range, value)
+
+  -- Variance Restatement Bitfield 12 Reserved 128: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12_reserved_128, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_12, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11 = {}
+
+-- Size: Variance Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.size = 1
+
+-- Display: Variance Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 11 Client Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Client Id"
+  end
+  -- Is Variance Restatement Bitfield 11 Investor Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Investor Id"
+  end
+  -- Is Variance Restatement Bitfield 11 Executor Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Executor Id"
+  end
+  -- Is Variance Restatement Bitfield 11 Order Origination flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Order Origination"
+  end
+  -- Is Variance Restatement Bitfield 11 Algo flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Algo"
+  end
+  -- Is Variance Restatement Bitfield 11 Deferral Reason flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Deferral Reason"
+  end
+  -- Is Variance Restatement Bitfield 11 Investor Qualified Role flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Investor Qualified Role"
+  end
+  -- Is Variance Restatement Bitfield 11 Executor Qualified Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 11 Executor Qualified Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 11 Client Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_client_id, range, value)
+
+  -- Variance Restatement Bitfield 11 Investor Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_investor_id, range, value)
+
+  -- Variance Restatement Bitfield 11 Executor Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_executor_id, range, value)
+
+  -- Variance Restatement Bitfield 11 Order Origination: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_order_origination, range, value)
+
+  -- Variance Restatement Bitfield 11 Algo: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_algo, range, value)
+
+  -- Variance Restatement Bitfield 11 Deferral Reason: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_deferral_reason, range, value)
+
+  -- Variance Restatement Bitfield 11 Investor Qualified Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_investor_qualified_role, range, value)
+
+  -- Variance Restatement Bitfield 11 Executor Qualified Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11_executor_qualified_role, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_11, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10 = {}
+
+-- Size: Variance Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.size = 1
+
+-- Display: Variance Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 10 Cross Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Cross Id"
+  end
+  -- Is Variance Restatement Bitfield 10 Alloc Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Alloc Qty"
+  end
+  -- Is Variance Restatement Bitfield 10 Give Up Firm Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Give Up Firm Id"
+  end
+  -- Is Variance Restatement Bitfield 10 Routing F Irm Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Routing F Irm Id"
+  end
+  -- Is Variance Restatement Bitfield 10 Waiver Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Waiver Type"
+  end
+  -- Is Variance Restatement Bitfield 10 Cross Exclusion Indicator flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Cross Exclusion Indicator"
+  end
+  -- Is Variance Restatement Bitfield 10 Price Formation flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Price Formation"
+  end
+  -- Is Variance Restatement Bitfield 10 Client Qualified Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 10 Client Qualified Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 10 Cross Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_cross_id, range, value)
+
+  -- Variance Restatement Bitfield 10 Alloc Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_alloc_qty, range, value)
+
+  -- Variance Restatement Bitfield 10 Give Up Firm Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_give_up_firm_id, range, value)
+
+  -- Variance Restatement Bitfield 10 Routing F Irm Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_routing_f_irm_id, range, value)
+
+  -- Variance Restatement Bitfield 10 Waiver Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_waiver_type, range, value)
+
+  -- Variance Restatement Bitfield 10 Cross Exclusion Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_cross_exclusion_indicator, range, value)
+
+  -- Variance Restatement Bitfield 10 Price Formation: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_price_formation, range, value)
+
+  -- Variance Restatement Bitfield 10 Client Qualified Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10_client_qualified_role, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_10, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9 = {}
+
+-- Size: Variance Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.size = 1
+
+-- Display: Variance Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 9 Marketing Fee Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Marketing Fee Code"
+  end
+  -- Is Variance Restatement Bitfield 9 Target Party Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Target Party Id"
+  end
+  -- Is Variance Restatement Bitfield 9 Auction Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Auction Id"
+  end
+  -- Is Variance Restatement Bitfield 9 Order Category flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Order Category"
+  end
+  -- Is Variance Restatement Bitfield 9 Liquidity Provision flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Liquidity Provision"
+  end
+  -- Is Variance Restatement Bitfield 9 Cmta Number flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Cmta Number"
+  end
+  -- Is Variance Restatement Bitfield 9 Cross Type flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Cross Type"
+  end
+  -- Is Variance Restatement Bitfield 9 Cross Prioritization flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 9 Cross Prioritization"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 9 Marketing Fee Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_marketing_fee_code, range, value)
+
+  -- Variance Restatement Bitfield 9 Target Party Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_target_party_id, range, value)
+
+  -- Variance Restatement Bitfield 9 Auction Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_auction_id, range, value)
+
+  -- Variance Restatement Bitfield 9 Order Category: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_order_category, range, value)
+
+  -- Variance Restatement Bitfield 9 Liquidity Provision: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_liquidity_provision, range, value)
+
+  -- Variance Restatement Bitfield 9 Cmta Number: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_cmta_number, range, value)
+
+  -- Variance Restatement Bitfield 9 Cross Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_cross_type, range, value)
+
+  -- Variance Restatement Bitfield 9 Cross Prioritization: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9_cross_prioritization, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_9, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8 = {}
+
+-- Size: Variance Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.size = 1
+
+-- Display: Variance Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 8 Fee Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Fee Code"
+  end
+  -- Is Variance Restatement Bitfield 8 Echo Text flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Echo Text"
+  end
+  -- Is Variance Restatement Bitfield 8 Stop Px flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Stop Px"
+  end
+  -- Is Variance Restatement Bitfield 8 Routing Inst flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Routing Inst"
+  end
+  -- Is Variance Restatement Bitfield 8 Rout Strategy flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Rout Strategy"
+  end
+  -- Is Variance Restatement Bitfield 8 Route Delivery Method flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Route Delivery Method"
+  end
+  -- Is Variance Restatement Bitfield 8 Ex Destination flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Ex Destination"
+  end
+  -- Is Variance Restatement Bitfield 8 Trade Report Ref Id flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 8 Trade Report Ref Id"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 8 Fee Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_fee_code, range, value)
+
+  -- Variance Restatement Bitfield 8 Echo Text: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_echo_text, range, value)
+
+  -- Variance Restatement Bitfield 8 Stop Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_stop_px, range, value)
+
+  -- Variance Restatement Bitfield 8 Routing Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_routing_inst, range, value)
+
+  -- Variance Restatement Bitfield 8 Rout Strategy: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_rout_strategy, range, value)
+
+  -- Variance Restatement Bitfield 8 Route Delivery Method: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_route_delivery_method, range, value)
+
+  -- Variance Restatement Bitfield 8 Ex Destination: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_ex_destination, range, value)
+
+  -- Variance Restatement Bitfield 8 Trade Report Ref Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8_trade_report_ref_id, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_8, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7 = {}
+
+-- Size: Variance Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.size = 1
+
+-- Display: Variance Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 7 Sub Liquidity Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Sub Liquidity Indicator"
+  end
+  -- Is Variance Restatement Bitfield 7 Trade Report Type Return flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Trade Report Type Return"
+  end
+  -- Is Variance Restatement Bitfield 7 Trade Publish Ind Return flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Trade Publish Ind Return"
+  end
+  -- Is Variance Restatement Bitfield 7 Text flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Text"
+  end
+  -- Is Variance Restatement Bitfield 7 Bid flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Bid"
+  end
+  -- Is Variance Restatement Bitfield 7 Offer flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Offer"
+  end
+  -- Is Variance Restatement Bitfield 7 Large Size flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Large Size"
+  end
+  -- Is Variance Restatement Bitfield 7 Last Mkt flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 7 Last Mkt"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 7 Sub Liquidity Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_sub_liquidity_indicator, range, value)
+
+  -- Variance Restatement Bitfield 7 Trade Report Type Return: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_trade_report_type_return, range, value)
+
+  -- Variance Restatement Bitfield 7 Trade Publish Ind Return: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_trade_publish_ind_return, range, value)
+
+  -- Variance Restatement Bitfield 7 Text: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_text, range, value)
+
+  -- Variance Restatement Bitfield 7 Bid: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_bid, range, value)
+
+  -- Variance Restatement Bitfield 7 Offer: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_offer, range, value)
+
+  -- Variance Restatement Bitfield 7 Large Size: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_large_size, range, value)
+
+  -- Variance Restatement Bitfield 7 Last Mkt: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7_last_mkt, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_7, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6 = {}
+
+-- Size: Variance Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.size = 1
+
+-- Display: Variance Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 6 Secondary Order Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Secondary Order Id"
+  end
+  -- Is Variance Restatement Bitfield 6 Ccp flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Ccp"
+  end
+  -- Is Variance Restatement Bitfield 6 Contra Capacity flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Contra Capacity"
+  end
+  -- Is Variance Restatement Bitfield 6 Attributed Order flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Attributed Order"
+  end
+  -- Is Variance Restatement Bitfield 6 Ext Exec Inst flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Ext Exec Inst"
+  end
+  -- Is Variance Restatement Bitfield 6 Bulk Order Ids flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Bulk Order Ids"
+  end
+  -- Is Variance Restatement Bitfield 6 Bulk Reject Reasons flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Bulk Reject Reasons"
+  end
+  -- Is Variance Restatement Bitfield 6 Party Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 6 Party Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 6 Secondary Order Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_secondary_order_id, range, value)
+
+  -- Variance Restatement Bitfield 6 Ccp: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_ccp, range, value)
+
+  -- Variance Restatement Bitfield 6 Contra Capacity: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_contra_capacity, range, value)
+
+  -- Variance Restatement Bitfield 6 Attributed Order: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_attributed_order, range, value)
+
+  -- Variance Restatement Bitfield 6 Ext Exec Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_ext_exec_inst, range, value)
+
+  -- Variance Restatement Bitfield 6 Bulk Order Ids: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_bulk_order_ids, range, value)
+
+  -- Variance Restatement Bitfield 6 Bulk Reject Reasons: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_bulk_reject_reasons, range, value)
+
+  -- Variance Restatement Bitfield 6 Party Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6_party_role, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_6, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5 = {}
+
+-- Size: Variance Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.size = 1
+
+-- Display: Variance Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 5 Orig Cl Ord Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Orig Cl Ord Id"
+  end
+  -- Is Variance Restatement Bitfield 5 Leaves Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Leaves Qty"
+  end
+  -- Is Variance Restatement Bitfield 5 Last Shares flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Last Shares"
+  end
+  -- Is Variance Restatement Bitfield 5 Last Px flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Last Px"
+  end
+  -- Is Variance Restatement Bitfield 5 Display Price flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Display Price"
+  end
+  -- Is Variance Restatement Bitfield 5 Working Price flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Working Price"
+  end
+  -- Is Variance Restatement Bitfield 5 Base Liquidity Indicator flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Base Liquidity Indicator"
+  end
+  -- Is Variance Restatement Bitfield 5 Expire Time flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 5 Expire Time"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 5 Orig Cl Ord Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_orig_cl_ord_id, range, value)
+
+  -- Variance Restatement Bitfield 5 Leaves Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_leaves_qty, range, value)
+
+  -- Variance Restatement Bitfield 5 Last Shares: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_last_shares, range, value)
+
+  -- Variance Restatement Bitfield 5 Last Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_last_px, range, value)
+
+  -- Variance Restatement Bitfield 5 Display Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_display_price, range, value)
+
+  -- Variance Restatement Bitfield 5 Working Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_working_price, range, value)
+
+  -- Variance Restatement Bitfield 5 Base Liquidity Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_base_liquidity_indicator, range, value)
+
+  -- Variance Restatement Bitfield 5 Expire Time: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5_expire_time, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_5, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4 = {}
+
+-- Size: Variance Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.size = 1
+
+-- Display: Variance Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 4 Maturity Date flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Maturity Date"
+  end
+  -- Is Variance Restatement Bitfield 4 Strike Price flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Strike Price"
+  end
+  -- Is Variance Restatement Bitfield 4 Put Or Call flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Put Or Call"
+  end
+  -- Is Variance Restatement Bitfield 4 Open Close flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Open Close"
+  end
+  -- Is Variance Restatement Bitfield 4 Cl Ord Id Batch flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Cl Ord Id Batch"
+  end
+  -- Is Variance Restatement Bitfield 4 Corrected Size flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Corrected Size"
+  end
+  -- Is Variance Restatement Bitfield 4 Party Id flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Party Id"
+  end
+  -- Is Variance Restatement Bitfield 4 Access Fee flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 4 Access Fee"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 4 Maturity Date: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_maturity_date, range, value)
+
+  -- Variance Restatement Bitfield 4 Strike Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_strike_price, range, value)
+
+  -- Variance Restatement Bitfield 4 Put Or Call: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_put_or_call, range, value)
+
+  -- Variance Restatement Bitfield 4 Open Close: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_open_close, range, value)
+
+  -- Variance Restatement Bitfield 4 Cl Ord Id Batch: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_cl_ord_id_batch, range, value)
+
+  -- Variance Restatement Bitfield 4 Corrected Size: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_corrected_size, range, value)
+
+  -- Variance Restatement Bitfield 4 Party Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_party_id, range, value)
+
+  -- Variance Restatement Bitfield 4 Access Fee: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4_access_fee, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_4, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3 = {}
+
+-- Size: Variance Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.size = 1
+
+-- Display: Variance Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 3 Account flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Account"
+  end
+  -- Is Variance Restatement Bitfield 3 Clearing Firm flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Clearing Firm"
+  end
+  -- Is Variance Restatement Bitfield 3 Clearing Account flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Clearing Account"
+  end
+  -- Is Variance Restatement Bitfield 3 Display Indicator flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Display Indicator"
+  end
+  -- Is Variance Restatement Bitfield 3 Max Floor flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Max Floor"
+  end
+  -- Is Variance Restatement Bitfield 3 Discretion Amount flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Discretion Amount"
+  end
+  -- Is Variance Restatement Bitfield 3 Order Qty flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Order Qty"
+  end
+  -- Is Variance Restatement Bitfield 3 Prevent Participant Match flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 3 Prevent Participant Match"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 3 Account: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_account, range, value)
+
+  -- Variance Restatement Bitfield 3 Clearing Firm: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_clearing_firm, range, value)
+
+  -- Variance Restatement Bitfield 3 Clearing Account: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_clearing_account, range, value)
+
+  -- Variance Restatement Bitfield 3 Display Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_display_indicator, range, value)
+
+  -- Variance Restatement Bitfield 3 Max Floor: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_max_floor, range, value)
+
+  -- Variance Restatement Bitfield 3 Discretion Amount: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_discretion_amount, range, value)
+
+  -- Variance Restatement Bitfield 3 Order Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_order_qty, range, value)
+
+  -- Variance Restatement Bitfield 3 Prevent Participant Match: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3_prevent_participant_match, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_3, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2 = {}
+
+-- Size: Variance Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.size = 1
+
+-- Display: Variance Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 2 Symbol flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Symbol"
+  end
+  -- Is Variance Restatement Bitfield 2 Symbol Sfx flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Symbol Sfx"
+  end
+  -- Is Variance Restatement Bitfield 2 Currency flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Currency"
+  end
+  -- Is Variance Restatement Bitfield 2 Id Source flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Id Source"
+  end
+  -- Is Variance Restatement Bitfield 2 Security Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Security Id"
+  end
+  -- Is Variance Restatement Bitfield 2 Security Exchange flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Security Exchange"
+  end
+  -- Is Variance Restatement Bitfield 2 Capacity flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Capacity"
+  end
+  -- Is Variance Restatement Bitfield 2 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 2 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 2 Symbol: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_symbol, range, value)
+
+  -- Variance Restatement Bitfield 2 Symbol Sfx: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_symbol_sfx, range, value)
+
+  -- Variance Restatement Bitfield 2 Currency: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_currency, range, value)
+
+  -- Variance Restatement Bitfield 2 Id Source: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_id_source, range, value)
+
+  -- Variance Restatement Bitfield 2 Security Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_security_id, range, value)
+
+  -- Variance Restatement Bitfield 2 Security Exchange: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_security_exchange, range, value)
+
+  -- Variance Restatement Bitfield 2 Capacity: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_capacity, range, value)
+
+  -- Variance Restatement Bitfield 2 Reserved 128: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2_reserved_128, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_2, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Variance Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1 = {}
+
+-- Size: Variance Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.size = 1
+
+-- Display: Variance Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance Restatement Bitfield 1 Side flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Side"
+  end
+  -- Is Variance Restatement Bitfield 1 Peg Difference flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Peg Difference"
+  end
+  -- Is Variance Restatement Bitfield 1 Price flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Price"
+  end
+  -- Is Variance Restatement Bitfield 1 Exec Inst flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Exec Inst"
+  end
+  -- Is Variance Restatement Bitfield 1 Order Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Order Type"
+  end
+  -- Is Variance Restatement Bitfield 1 Time In Force flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Time In Force"
+  end
+  -- Is Variance Restatement Bitfield 1 Min Qty flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Min Qty"
+  end
+  -- Is Variance Restatement Bitfield 1 Max Remove Pct flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Variance Restatement Bitfield 1 Max Remove Pct"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Variance Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.bits = function(range, value, packet, parent)
+
+  -- Variance Restatement Bitfield 1 Side: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_side, range, value)
+
+  -- Variance Restatement Bitfield 1 Peg Difference: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_peg_difference, range, value)
+
+  -- Variance Restatement Bitfield 1 Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_price, range, value)
+
+  -- Variance Restatement Bitfield 1 Exec Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_exec_inst, range, value)
+
+  -- Variance Restatement Bitfield 1 Order Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_order_type, range, value)
+
+  -- Variance Restatement Bitfield 1 Time In Force: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_time_in_force, range, value)
+
+  -- Variance Restatement Bitfield 1 Min Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_min_qty, range, value)
+
+  -- Variance Restatement Bitfield 1 Max Remove Pct: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1_max_remove_pct, range, value)
+end
+
+-- Dissect: Variance Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.variance_restatement_bitfield_1, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Variance Restatement New Order Message Message
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_new_order_message_message = {}
 
@@ -5735,8 +7755,467 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_new_order_mess
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Return Bitfield 1: Binary
-  index, return_bitfield_1 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1.dissect(buffer, index, packet, parent)
+  -- Number Of Variance Restatement Bitfields: Binary
+  index, number_of_variance_restatement_bitfields = cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_variance_restatement_bitfields.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Variance Restatement Bitfield 1
+  local variance_restatement_bitfield_1 = nil
+
+  local variance_restatement_bitfield_1_exists = number_of_variance_restatement_bitfields >= 1
+
+  if variance_restatement_bitfield_1_exists then
+
+    -- Variance Restatement Bitfield 1: Struct of 8 fields
+    index, variance_restatement_bitfield_1 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_1.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 2
+  local variance_restatement_bitfield_2 = nil
+
+  local variance_restatement_bitfield_2_exists = number_of_variance_restatement_bitfields >= 2
+
+  if variance_restatement_bitfield_2_exists then
+
+    -- Variance Restatement Bitfield 2: Struct of 8 fields
+    index, variance_restatement_bitfield_2 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 3
+  local variance_restatement_bitfield_3 = nil
+
+  local variance_restatement_bitfield_3_exists = number_of_variance_restatement_bitfields >= 3
+
+  if variance_restatement_bitfield_3_exists then
+
+    -- Variance Restatement Bitfield 3: Struct of 8 fields
+    index, variance_restatement_bitfield_3 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_3.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 4
+  local variance_restatement_bitfield_4 = nil
+
+  local variance_restatement_bitfield_4_exists = number_of_variance_restatement_bitfields >= 4
+
+  if variance_restatement_bitfield_4_exists then
+
+    -- Variance Restatement Bitfield 4: Struct of 8 fields
+    index, variance_restatement_bitfield_4 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_4.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 5
+  local variance_restatement_bitfield_5 = nil
+
+  local variance_restatement_bitfield_5_exists = number_of_variance_restatement_bitfields >= 5
+
+  if variance_restatement_bitfield_5_exists then
+
+    -- Variance Restatement Bitfield 5: Struct of 8 fields
+    index, variance_restatement_bitfield_5 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_5.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 6
+  local variance_restatement_bitfield_6 = nil
+
+  local variance_restatement_bitfield_6_exists = number_of_variance_restatement_bitfields >= 6
+
+  if variance_restatement_bitfield_6_exists then
+
+    -- Variance Restatement Bitfield 6: Struct of 8 fields
+    index, variance_restatement_bitfield_6 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_6.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 7
+  local variance_restatement_bitfield_7 = nil
+
+  local variance_restatement_bitfield_7_exists = number_of_variance_restatement_bitfields >= 7
+
+  if variance_restatement_bitfield_7_exists then
+
+    -- Variance Restatement Bitfield 7: Struct of 8 fields
+    index, variance_restatement_bitfield_7 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_7.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 8
+  local variance_restatement_bitfield_8 = nil
+
+  local variance_restatement_bitfield_8_exists = number_of_variance_restatement_bitfields >= 8
+
+  if variance_restatement_bitfield_8_exists then
+
+    -- Variance Restatement Bitfield 8: Struct of 8 fields
+    index, variance_restatement_bitfield_8 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_8.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 9
+  local variance_restatement_bitfield_9 = nil
+
+  local variance_restatement_bitfield_9_exists = number_of_variance_restatement_bitfields >= 9
+
+  if variance_restatement_bitfield_9_exists then
+
+    -- Variance Restatement Bitfield 9: Struct of 8 fields
+    index, variance_restatement_bitfield_9 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_9.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 10
+  local variance_restatement_bitfield_10 = nil
+
+  local variance_restatement_bitfield_10_exists = number_of_variance_restatement_bitfields >= 10
+
+  if variance_restatement_bitfield_10_exists then
+
+    -- Variance Restatement Bitfield 10: Struct of 8 fields
+    index, variance_restatement_bitfield_10 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_10.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 11
+  local variance_restatement_bitfield_11 = nil
+
+  local variance_restatement_bitfield_11_exists = number_of_variance_restatement_bitfields >= 11
+
+  if variance_restatement_bitfield_11_exists then
+
+    -- Variance Restatement Bitfield 11: Struct of 8 fields
+    index, variance_restatement_bitfield_11 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_11.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 12
+  local variance_restatement_bitfield_12 = nil
+
+  local variance_restatement_bitfield_12_exists = number_of_variance_restatement_bitfields >= 12
+
+  if variance_restatement_bitfield_12_exists then
+
+    -- Variance Restatement Bitfield 12: Struct of 8 fields
+    index, variance_restatement_bitfield_12 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_12.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 13
+  local variance_restatement_bitfield_13 = nil
+
+  local variance_restatement_bitfield_13_exists = number_of_variance_restatement_bitfields >= 13
+
+  if variance_restatement_bitfield_13_exists then
+
+    -- Variance Restatement Bitfield 13: Struct of 8 fields
+    index, variance_restatement_bitfield_13 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_13.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 14
+  local variance_restatement_bitfield_14 = nil
+
+  local variance_restatement_bitfield_14_exists = number_of_variance_restatement_bitfields >= 14
+
+  if variance_restatement_bitfield_14_exists then
+
+    -- Variance Restatement Bitfield 14: Struct of 8 fields
+    index, variance_restatement_bitfield_14 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_14.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 15
+  local variance_restatement_bitfield_15 = nil
+
+  local variance_restatement_bitfield_15_exists = number_of_variance_restatement_bitfields >= 15
+
+  if variance_restatement_bitfield_15_exists then
+
+    -- Variance Restatement Bitfield 15: Struct of 8 fields
+    index, variance_restatement_bitfield_15 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_15.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 16
+  local variance_restatement_bitfield_16 = nil
+
+  local variance_restatement_bitfield_16_exists = number_of_variance_restatement_bitfields >= 16
+
+  if variance_restatement_bitfield_16_exists then
+
+    -- Variance Restatement Bitfield 16: Struct of 8 fields
+    index, variance_restatement_bitfield_16 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_16.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 17
+  local variance_restatement_bitfield_17 = nil
+
+  local variance_restatement_bitfield_17_exists = number_of_variance_restatement_bitfields >= 17
+
+  if variance_restatement_bitfield_17_exists then
+
+    -- Variance Restatement Bitfield 17: Struct of 8 fields
+    index, variance_restatement_bitfield_17 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_17.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Variance Restatement Bitfield 18
+  local variance_restatement_bitfield_18 = nil
+
+  local variance_restatement_bitfield_18_exists = number_of_variance_restatement_bitfields >= 18
+
+  if variance_restatement_bitfield_18_exists then
+
+    -- Variance Restatement Bitfield 18: Struct of 8 fields
+    index, variance_restatement_bitfield_18 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_bitfield_18.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_variance_restatement_bitfields >= 1 and bit.band(variance_restatement_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_cfefutures_binaryorderentry_boe_v1_3_12.side.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Price
+  local price = nil
+
+  local price_exists = number_of_variance_restatement_bitfields >= 1 and bit.band(variance_restatement_bitfield_1, 0x04) > 0
+
+  if price_exists then
+    index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
+  local time_in_force_exists = number_of_variance_restatement_bitfields >= 1 and bit.band(variance_restatement_bitfield_1, 0x20) > 0
+
+  if time_in_force_exists then
+    index, time_in_force = cboe_cfefutures_binaryorderentry_boe_v1_3_12.time_in_force.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
+  local min_qty_exists = number_of_variance_restatement_bitfields >= 1 and bit.band(variance_restatement_bitfield_1, 0x40) > 0
+
+  if min_qty_exists then
+    index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3_12.min_qty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Symbol Alphanumeric 8
+  local symbol_alphanumeric_8 = nil
+
+  local symbol_alphanumeric_8_exists = number_of_variance_restatement_bitfields >= 2 and bit.band(variance_restatement_bitfield_2, 0x01) > 0
+
+  if symbol_alphanumeric_8_exists then
+    index, symbol_alphanumeric_8 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_variance_restatement_bitfields >= 2 and bit.band(variance_restatement_bitfield_2, 0x40) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_cfefutures_binaryorderentry_boe_v1_3_12.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_variance_restatement_bitfields >= 3 and bit.band(variance_restatement_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_cfefutures_binaryorderentry_boe_v1_3_12.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
+  local clearing_firm_exists = number_of_variance_restatement_bitfields >= 3 and bit.band(variance_restatement_bitfield_3, 0x02) > 0
+
+  if clearing_firm_exists then
+    index, clearing_firm = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_firm.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
+  local clearing_account_exists = number_of_variance_restatement_bitfields >= 3 and bit.band(variance_restatement_bitfield_3, 0x04) > 0
+
+  if clearing_account_exists then
+    index, clearing_account = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Prevent Participant Match
+  local prevent_participant_match = nil
+
+  local prevent_participant_match_exists = number_of_variance_restatement_bitfields >= 3 and bit.band(variance_restatement_bitfield_3, 0x80) > 0
+
+  if prevent_participant_match_exists then
+    index, prevent_participant_match = cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_participant_match.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Maturity Date
+  local maturity_date = nil
+
+  local maturity_date_exists = number_of_variance_restatement_bitfields >= 4 and bit.band(variance_restatement_bitfield_4, 0x01) > 0
+
+  if maturity_date_exists then
+    index, maturity_date = cboe_cfefutures_binaryorderentry_boe_v1_3_12.maturity_date.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Open Close
+  local open_close = nil
+
+  local open_close_exists = number_of_variance_restatement_bitfields >= 4 and bit.band(variance_restatement_bitfield_4, 0x08) > 0
+
+  if open_close_exists then
+    index, open_close = cboe_cfefutures_binaryorderentry_boe_v1_3_12.open_close.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Orig Cl Ord Id
+  local orig_cl_ord_id = nil
+
+  local orig_cl_ord_id_exists = number_of_variance_restatement_bitfields >= 5 and bit.band(variance_restatement_bitfield_5, 0x01) > 0
+
+  if orig_cl_ord_id_exists then
+    index, orig_cl_ord_id = cboe_cfefutures_binaryorderentry_boe_v1_3_12.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Shares
+  local last_shares = nil
+
+  local last_shares_exists = number_of_variance_restatement_bitfields >= 5 and bit.band(variance_restatement_bitfield_5, 0x04) > 0
+
+  if last_shares_exists then
+    index, last_shares = cboe_cfefutures_binaryorderentry_boe_v1_3_12.last_shares.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Px
+  local last_px = nil
+
+  local last_px_exists = number_of_variance_restatement_bitfields >= 5 and bit.band(variance_restatement_bitfield_5, 0x08) > 0
+
+  if last_px_exists then
+    index, last_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.last_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Fee Code
+  local fee_code = nil
+
+  local fee_code_exists = number_of_variance_restatement_bitfields >= 8 and bit.band(variance_restatement_bitfield_8, 0x01) > 0
+
+  if fee_code_exists then
+    index, fee_code = cboe_cfefutures_binaryorderentry_boe_v1_3_12.fee_code.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
+  local stop_px_exists = number_of_variance_restatement_bitfields >= 8 and bit.band(variance_restatement_bitfield_8, 0x04) > 0
+
+  if stop_px_exists then
+    index, stop_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.stop_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
+
+  local cmta_number_exists = number_of_variance_restatement_bitfields >= 9 and bit.band(variance_restatement_bitfield_9, 0x20) > 0
+
+  if cmta_number_exists then
+    index, cmta_number = cboe_cfefutures_binaryorderentry_boe_v1_3_12.cmta_number.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cti Code
+  local cti_code = nil
+
+  local cti_code_exists = number_of_variance_restatement_bitfields >= 12 and bit.band(variance_restatement_bitfield_12, 0x01) > 0
+
+  if cti_code_exists then
+    index, cti_code = cboe_cfefutures_binaryorderentry_boe_v1_3_12.cti_code.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Manual Order Indicator
+  local manual_order_indicator = nil
+
+  local manual_order_indicator_exists = number_of_variance_restatement_bitfields >= 12 and bit.band(variance_restatement_bitfield_12, 0x02) > 0
+
+  if manual_order_indicator_exists then
+    index, manual_order_indicator = cboe_cfefutures_binaryorderentry_boe_v1_3_12.manual_order_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Oeoid
+  local oeoid = nil
+
+  local oeoid_exists = number_of_variance_restatement_bitfields >= 12 and bit.band(variance_restatement_bitfield_12, 0x04) > 0
+
+  if oeoid_exists then
+    index, oeoid = cboe_cfefutures_binaryorderentry_boe_v1_3_12.oeoid.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Trade Date
+  local trade_date = nil
+
+  local trade_date_exists = number_of_variance_restatement_bitfields >= 12 and bit.band(variance_restatement_bitfield_12, 0x08) > 0
+
+  if trade_date_exists then
+    index, trade_date = cboe_cfefutures_binaryorderentry_boe_v1_3_12.trade_date.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Price
+  local clearing_price = nil
+
+  local clearing_price_exists = number_of_variance_restatement_bitfields >= 12 and bit.band(variance_restatement_bitfield_12, 0x10) > 0
+
+  if clearing_price_exists then
+    index, clearing_price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Size
+  local clearing_size = nil
+
+  local clearing_size_exists = number_of_variance_restatement_bitfields >= 12 and bit.band(variance_restatement_bitfield_12, 0x20) > 0
+
+  if clearing_size_exists then
+    index, clearing_size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_size.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Symbol
+  local clearing_symbol = nil
+
+  local clearing_symbol_exists = number_of_variance_restatement_bitfields >= 12 and bit.band(variance_restatement_bitfield_12, 0x40) > 0
+
+  if clearing_symbol_exists then
+    index, clearing_symbol = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_symbol.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Multileg Reporting Type
+  local multileg_reporting_type = nil
+
+  local multileg_reporting_type_exists = number_of_variance_restatement_bitfields >= 13 and bit.band(variance_restatement_bitfield_13, 0x80) > 0
+
+  if multileg_reporting_type_exists then
+    index, multileg_reporting_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.multileg_reporting_type.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Secondary Exec Id
+  local secondary_exec_id = nil
+
+  local secondary_exec_id_exists = number_of_variance_restatement_bitfields >= 14 and bit.band(variance_restatement_bitfield_14, 0x10) > 0
+
+  if secondary_exec_id_exists then
+    index, secondary_exec_id = cboe_cfefutures_binaryorderentry_boe_v1_3_12.secondary_exec_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Frequent Trader Id
+  local frequent_trader_id = nil
+
+  local frequent_trader_id_exists = number_of_variance_restatement_bitfields >= 16 and bit.band(variance_restatement_bitfield_16, 0x01) > 0
+
+  if frequent_trader_id_exists then
+    index, frequent_trader_id = cboe_cfefutures_binaryorderentry_boe_v1_3_12.frequent_trader_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cust Order Handling Inst
+  local cust_order_handling_inst = nil
+
+  local cust_order_handling_inst_exists = number_of_variance_restatement_bitfields >= 17 and bit.band(variance_restatement_bitfield_17, 0x80) > 0
+
+  if cust_order_handling_inst_exists then
+    index, cust_order_handling_inst = cboe_cfefutures_binaryorderentry_boe_v1_3_12.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -5761,6 +8240,1608 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.variance_restatement_new_order_mess
 
     return index
   end
+end
+
+-- Tas Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18 = {}
+
+-- Size: Tas Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.size = 1
+
+-- Display: Tas Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 18 Reserved 1 flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Reserved 1"
+  end
+  -- Is Tas Restatement Bitfield 18 Cross Initiator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Cross Initiator"
+  end
+  -- Is Tas Restatement Bitfield 18 Subreason flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Subreason"
+  end
+  -- Is Tas Restatement Bitfield 18 Reserved 8 flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Reserved 8"
+  end
+  -- Is Tas Restatement Bitfield 18 Reserved 16 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Reserved 16"
+  end
+  -- Is Tas Restatement Bitfield 18 Reserved 32 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Reserved 32"
+  end
+  -- Is Tas Restatement Bitfield 18 Reserved 64 flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Reserved 64"
+  end
+  -- Is Tas Restatement Bitfield 18 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 18 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 18 Reserved 1: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_1, range, value)
+
+  -- Tas Restatement Bitfield 18 Cross Initiator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_cross_initiator, range, value)
+
+  -- Tas Restatement Bitfield 18 Subreason: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_subreason, range, value)
+
+  -- Tas Restatement Bitfield 18 Reserved 8: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_8, range, value)
+
+  -- Tas Restatement Bitfield 18 Reserved 16: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_16, range, value)
+
+  -- Tas Restatement Bitfield 18 Reserved 32: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_32, range, value)
+
+  -- Tas Restatement Bitfield 18 Reserved 64: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_64, range, value)
+
+  -- Tas Restatement Bitfield 18 Reserved 128: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18_reserved_128, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 18
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_18, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17 = {}
+
+-- Size: Tas Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.size = 1
+
+-- Display: Tas Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 17 Price Type flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Price Type"
+  end
+  -- Is Tas Restatement Bitfield 17 Strategy Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Strategy Id"
+  end
+  -- Is Tas Restatement Bitfield 17 Trading Session Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Trading Session Id"
+  end
+  -- Is Tas Restatement Bitfield 17 Trade Through Alert Type flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Trade Through Alert Type"
+  end
+  -- Is Tas Restatement Bitfield 17 Sender Location Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Sender Location Id"
+  end
+  -- Is Tas Restatement Bitfield 17 Floor Trader Acronym flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Floor Trader Acronym"
+  end
+  -- Is Tas Restatement Bitfield 17 Exec Leg Cfi Code flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Exec Leg Cfi Code"
+  end
+  -- Is Tas Restatement Bitfield 17 Cust Order Handling Inst flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 17 Cust Order Handling Inst"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 17 Price Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_price_type, range, value)
+
+  -- Tas Restatement Bitfield 17 Strategy Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_strategy_id, range, value)
+
+  -- Tas Restatement Bitfield 17 Trading Session Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_trading_session_id, range, value)
+
+  -- Tas Restatement Bitfield 17 Trade Through Alert Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_trade_through_alert_type, range, value)
+
+  -- Tas Restatement Bitfield 17 Sender Location Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_sender_location_id, range, value)
+
+  -- Tas Restatement Bitfield 17 Floor Trader Acronym: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_floor_trader_acronym, range, value)
+
+  -- Tas Restatement Bitfield 17 Exec Leg Cfi Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_exec_leg_cfi_code, range, value)
+
+  -- Tas Restatement Bitfield 17 Cust Order Handling Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17_cust_order_handling_inst, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 17
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_17, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16 = {}
+
+-- Size: Tas Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.size = 1
+
+-- Display: Tas Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 16 Frequent Trader Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Frequent Trader Id"
+  end
+  -- Is Tas Restatement Bitfield 16 Session Eligibility flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Session Eligibility"
+  end
+  -- Is Tas Restatement Bitfield 16 Combo Order flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Combo Order"
+  end
+  -- Is Tas Restatement Bitfield 16 Compression flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Compression"
+  end
+  -- Is Tas Restatement Bitfield 16 Floor Destination flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Floor Destination"
+  end
+  -- Is Tas Restatement Bitfield 16 Floor Routing Inst flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Floor Routing Inst"
+  end
+  -- Is Tas Restatement Bitfield 16 Multi Class Sprd flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Multi Class Sprd"
+  end
+  -- Is Tas Restatement Bitfield 16 Order Origin flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 16 Order Origin"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 16 Frequent Trader Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_frequent_trader_id, range, value)
+
+  -- Tas Restatement Bitfield 16 Session Eligibility: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_session_eligibility, range, value)
+
+  -- Tas Restatement Bitfield 16 Combo Order: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_combo_order, range, value)
+
+  -- Tas Restatement Bitfield 16 Compression: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_compression, range, value)
+
+  -- Tas Restatement Bitfield 16 Floor Destination: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_floor_destination, range, value)
+
+  -- Tas Restatement Bitfield 16 Floor Routing Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_floor_routing_inst, range, value)
+
+  -- Tas Restatement Bitfield 16 Multi Class Sprd: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_multi_class_sprd, range, value)
+
+  -- Tas Restatement Bitfield 16 Order Origin: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16_order_origin, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 16
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_16, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15 = {}
+
+-- Size: Tas Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.size = 1
+
+-- Display: Tas Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 15 Trade Reporting Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Trade Reporting Indicator"
+  end
+  -- Is Tas Restatement Bitfield 15 Equity Party Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Equity Party Id"
+  end
+  -- Is Tas Restatement Bitfield 15 Equity Nbbo Protect flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Equity Nbbo Protect"
+  end
+  -- Is Tas Restatement Bitfield 15 Mass Cancel Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Mass Cancel Id"
+  end
+  -- Is Tas Restatement Bitfield 15 Trade Publish Ind flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Trade Publish Ind"
+  end
+  -- Is Tas Restatement Bitfield 15 Report Time flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Report Time"
+  end
+  -- Is Tas Restatement Bitfield 15 Leg Symbol Sfx flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Leg Symbol Sfx"
+  end
+  -- Is Tas Restatement Bitfield 15 Client Id Attr flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 15 Client Id Attr"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 15 Trade Reporting Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_trade_reporting_indicator, range, value)
+
+  -- Tas Restatement Bitfield 15 Equity Party Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_equity_party_id, range, value)
+
+  -- Tas Restatement Bitfield 15 Equity Nbbo Protect: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_equity_nbbo_protect, range, value)
+
+  -- Tas Restatement Bitfield 15 Mass Cancel Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_mass_cancel_id, range, value)
+
+  -- Tas Restatement Bitfield 15 Trade Publish Ind: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_trade_publish_ind, range, value)
+
+  -- Tas Restatement Bitfield 15 Report Time: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_report_time, range, value)
+
+  -- Tas Restatement Bitfield 15 Leg Symbol Sfx: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_leg_symbol_sfx, range, value)
+
+  -- Tas Restatement Bitfield 15 Client Id Attr: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15_client_id_attr, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 15
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_15, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14 = {}
+
+-- Size: Tas Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.size = 1
+
+-- Display: Tas Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 14 Leg Cfi Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 Leg Cfi Code"
+  end
+  -- Is Tas Restatement Bitfield 14 Leg Maturity Date flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 Leg Maturity Date"
+  end
+  -- Is Tas Restatement Bitfield 14 Leg Strike Price flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 Leg Strike Price"
+  end
+  -- Is Tas Restatement Bitfield 14 Room Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 Room Id"
+  end
+  -- Is Tas Restatement Bitfield 14 Secondary Exec Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 Secondary Exec Id"
+  end
+  -- Is Tas Restatement Bitfield 14 User Request Id flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 User Request Id"
+  end
+  -- Is Tas Restatement Bitfield 14 Sis Username flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 Sis Username"
+  end
+  -- Is Tas Restatement Bitfield 14 User Status flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 14 User Status"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 14 Leg Cfi Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_leg_cfi_code, range, value)
+
+  -- Tas Restatement Bitfield 14 Leg Maturity Date: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_leg_maturity_date, range, value)
+
+  -- Tas Restatement Bitfield 14 Leg Strike Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_leg_strike_price, range, value)
+
+  -- Tas Restatement Bitfield 14 Room Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_room_id, range, value)
+
+  -- Tas Restatement Bitfield 14 Secondary Exec Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_secondary_exec_id, range, value)
+
+  -- Tas Restatement Bitfield 14 User Request Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_user_request_id, range, value)
+
+  -- Tas Restatement Bitfield 14 Sis Username: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_sis_username, range, value)
+
+  -- Tas Restatement Bitfield 14 User Status: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14_user_status, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 14
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_14, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13 = {}
+
+-- Size: Tas Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.size = 1
+
+-- Display: Tas Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 13 Cum Qty flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Cum Qty"
+  end
+  -- Is Tas Restatement Bitfield 13 Day Order Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Day Order Qty"
+  end
+  -- Is Tas Restatement Bitfield 13 Day Cum Qty flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Day Cum Qty"
+  end
+  -- Is Tas Restatement Bitfield 13 Avg Px flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Avg Px"
+  end
+  -- Is Tas Restatement Bitfield 13 Day Avg Px flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Day Avg Px"
+  end
+  -- Is Tas Restatement Bitfield 13 Pending Status flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Pending Status"
+  end
+  -- Is Tas Restatement Bitfield 13 Drill Thru Protection flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Drill Thru Protection"
+  end
+  -- Is Tas Restatement Bitfield 13 Multileg Reporting Type flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 13 Multileg Reporting Type"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 13 Cum Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_cum_qty, range, value)
+
+  -- Tas Restatement Bitfield 13 Day Order Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_day_order_qty, range, value)
+
+  -- Tas Restatement Bitfield 13 Day Cum Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_day_cum_qty, range, value)
+
+  -- Tas Restatement Bitfield 13 Avg Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_avg_px, range, value)
+
+  -- Tas Restatement Bitfield 13 Day Avg Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_day_avg_px, range, value)
+
+  -- Tas Restatement Bitfield 13 Pending Status: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_pending_status, range, value)
+
+  -- Tas Restatement Bitfield 13 Drill Thru Protection: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_drill_thru_protection, range, value)
+
+  -- Tas Restatement Bitfield 13 Multileg Reporting Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13_multileg_reporting_type, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 13
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_13, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12 = {}
+
+-- Size: Tas Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.size = 1
+
+-- Display: Tas Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 12 Cti Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Cti Code"
+  end
+  -- Is Tas Restatement Bitfield 12 Manual Order Indicator flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Manual Order Indicator"
+  end
+  -- Is Tas Restatement Bitfield 12 Oeoid flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Oeoid"
+  end
+  -- Is Tas Restatement Bitfield 12 Trade Date flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Trade Date"
+  end
+  -- Is Tas Restatement Bitfield 12 Clearing Price flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Clearing Price"
+  end
+  -- Is Tas Restatement Bitfield 12 Clearing Size flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Clearing Size"
+  end
+  -- Is Tas Restatement Bitfield 12 Clearing Symbol flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Clearing Symbol"
+  end
+  -- Is Tas Restatement Bitfield 12 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 12 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 12 Cti Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_cti_code, range, value)
+
+  -- Tas Restatement Bitfield 12 Manual Order Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_manual_order_indicator, range, value)
+
+  -- Tas Restatement Bitfield 12 Oeoid: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_oeoid, range, value)
+
+  -- Tas Restatement Bitfield 12 Trade Date: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_trade_date, range, value)
+
+  -- Tas Restatement Bitfield 12 Clearing Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_clearing_price, range, value)
+
+  -- Tas Restatement Bitfield 12 Clearing Size: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_clearing_size, range, value)
+
+  -- Tas Restatement Bitfield 12 Clearing Symbol: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_clearing_symbol, range, value)
+
+  -- Tas Restatement Bitfield 12 Reserved 128: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12_reserved_128, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 12
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_12, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11 = {}
+
+-- Size: Tas Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.size = 1
+
+-- Display: Tas Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 11 Client Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Client Id"
+  end
+  -- Is Tas Restatement Bitfield 11 Investor Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Investor Id"
+  end
+  -- Is Tas Restatement Bitfield 11 Executor Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Executor Id"
+  end
+  -- Is Tas Restatement Bitfield 11 Order Origination flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Order Origination"
+  end
+  -- Is Tas Restatement Bitfield 11 Algo flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Algo"
+  end
+  -- Is Tas Restatement Bitfield 11 Deferral Reason flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Deferral Reason"
+  end
+  -- Is Tas Restatement Bitfield 11 Investor Qualified Role flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Investor Qualified Role"
+  end
+  -- Is Tas Restatement Bitfield 11 Executor Qualified Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 11 Executor Qualified Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 11 Client Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_client_id, range, value)
+
+  -- Tas Restatement Bitfield 11 Investor Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_investor_id, range, value)
+
+  -- Tas Restatement Bitfield 11 Executor Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_executor_id, range, value)
+
+  -- Tas Restatement Bitfield 11 Order Origination: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_order_origination, range, value)
+
+  -- Tas Restatement Bitfield 11 Algo: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_algo, range, value)
+
+  -- Tas Restatement Bitfield 11 Deferral Reason: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_deferral_reason, range, value)
+
+  -- Tas Restatement Bitfield 11 Investor Qualified Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_investor_qualified_role, range, value)
+
+  -- Tas Restatement Bitfield 11 Executor Qualified Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11_executor_qualified_role, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 11
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_11, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10 = {}
+
+-- Size: Tas Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.size = 1
+
+-- Display: Tas Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 10 Cross Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Cross Id"
+  end
+  -- Is Tas Restatement Bitfield 10 Alloc Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Alloc Qty"
+  end
+  -- Is Tas Restatement Bitfield 10 Give Up Firm Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Give Up Firm Id"
+  end
+  -- Is Tas Restatement Bitfield 10 Routing F Irm Id flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Routing F Irm Id"
+  end
+  -- Is Tas Restatement Bitfield 10 Waiver Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Waiver Type"
+  end
+  -- Is Tas Restatement Bitfield 10 Cross Exclusion Indicator flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Cross Exclusion Indicator"
+  end
+  -- Is Tas Restatement Bitfield 10 Price Formation flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Price Formation"
+  end
+  -- Is Tas Restatement Bitfield 10 Client Qualified Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 10 Client Qualified Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 10 Cross Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_cross_id, range, value)
+
+  -- Tas Restatement Bitfield 10 Alloc Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_alloc_qty, range, value)
+
+  -- Tas Restatement Bitfield 10 Give Up Firm Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_give_up_firm_id, range, value)
+
+  -- Tas Restatement Bitfield 10 Routing F Irm Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_routing_f_irm_id, range, value)
+
+  -- Tas Restatement Bitfield 10 Waiver Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_waiver_type, range, value)
+
+  -- Tas Restatement Bitfield 10 Cross Exclusion Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_cross_exclusion_indicator, range, value)
+
+  -- Tas Restatement Bitfield 10 Price Formation: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_price_formation, range, value)
+
+  -- Tas Restatement Bitfield 10 Client Qualified Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10_client_qualified_role, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 10
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_10, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9 = {}
+
+-- Size: Tas Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.size = 1
+
+-- Display: Tas Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 9 Marketing Fee Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Marketing Fee Code"
+  end
+  -- Is Tas Restatement Bitfield 9 Target Party Id flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Target Party Id"
+  end
+  -- Is Tas Restatement Bitfield 9 Auction Id flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Auction Id"
+  end
+  -- Is Tas Restatement Bitfield 9 Order Category flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Order Category"
+  end
+  -- Is Tas Restatement Bitfield 9 Liquidity Provision flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Liquidity Provision"
+  end
+  -- Is Tas Restatement Bitfield 9 Cmta Number flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Cmta Number"
+  end
+  -- Is Tas Restatement Bitfield 9 Cross Type flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Cross Type"
+  end
+  -- Is Tas Restatement Bitfield 9 Cross Prioritization flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 9 Cross Prioritization"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 9 Marketing Fee Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_marketing_fee_code, range, value)
+
+  -- Tas Restatement Bitfield 9 Target Party Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_target_party_id, range, value)
+
+  -- Tas Restatement Bitfield 9 Auction Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_auction_id, range, value)
+
+  -- Tas Restatement Bitfield 9 Order Category: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_order_category, range, value)
+
+  -- Tas Restatement Bitfield 9 Liquidity Provision: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_liquidity_provision, range, value)
+
+  -- Tas Restatement Bitfield 9 Cmta Number: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_cmta_number, range, value)
+
+  -- Tas Restatement Bitfield 9 Cross Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_cross_type, range, value)
+
+  -- Tas Restatement Bitfield 9 Cross Prioritization: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9_cross_prioritization, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 9
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_9, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8 = {}
+
+-- Size: Tas Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.size = 1
+
+-- Display: Tas Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 8 Fee Code flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Fee Code"
+  end
+  -- Is Tas Restatement Bitfield 8 Echo Text flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Echo Text"
+  end
+  -- Is Tas Restatement Bitfield 8 Stop Px flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Stop Px"
+  end
+  -- Is Tas Restatement Bitfield 8 Routing Inst flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Routing Inst"
+  end
+  -- Is Tas Restatement Bitfield 8 Rout Strategy flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Rout Strategy"
+  end
+  -- Is Tas Restatement Bitfield 8 Route Delivery Method flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Route Delivery Method"
+  end
+  -- Is Tas Restatement Bitfield 8 Ex Destination flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Ex Destination"
+  end
+  -- Is Tas Restatement Bitfield 8 Trade Report Ref Id flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 8 Trade Report Ref Id"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 8 Fee Code: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_fee_code, range, value)
+
+  -- Tas Restatement Bitfield 8 Echo Text: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_echo_text, range, value)
+
+  -- Tas Restatement Bitfield 8 Stop Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_stop_px, range, value)
+
+  -- Tas Restatement Bitfield 8 Routing Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_routing_inst, range, value)
+
+  -- Tas Restatement Bitfield 8 Rout Strategy: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_rout_strategy, range, value)
+
+  -- Tas Restatement Bitfield 8 Route Delivery Method: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_route_delivery_method, range, value)
+
+  -- Tas Restatement Bitfield 8 Ex Destination: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_ex_destination, range, value)
+
+  -- Tas Restatement Bitfield 8 Trade Report Ref Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8_trade_report_ref_id, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 8
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_8, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7 = {}
+
+-- Size: Tas Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.size = 1
+
+-- Display: Tas Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 7 Sub Liquidity Indicator flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Sub Liquidity Indicator"
+  end
+  -- Is Tas Restatement Bitfield 7 Trade Report Type Return flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Trade Report Type Return"
+  end
+  -- Is Tas Restatement Bitfield 7 Trade Publish Ind Return flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Trade Publish Ind Return"
+  end
+  -- Is Tas Restatement Bitfield 7 Text flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Text"
+  end
+  -- Is Tas Restatement Bitfield 7 Bid flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Bid"
+  end
+  -- Is Tas Restatement Bitfield 7 Offer flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Offer"
+  end
+  -- Is Tas Restatement Bitfield 7 Large Size flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Large Size"
+  end
+  -- Is Tas Restatement Bitfield 7 Last Mkt flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 7 Last Mkt"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 7 Sub Liquidity Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_sub_liquidity_indicator, range, value)
+
+  -- Tas Restatement Bitfield 7 Trade Report Type Return: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_trade_report_type_return, range, value)
+
+  -- Tas Restatement Bitfield 7 Trade Publish Ind Return: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_trade_publish_ind_return, range, value)
+
+  -- Tas Restatement Bitfield 7 Text: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_text, range, value)
+
+  -- Tas Restatement Bitfield 7 Bid: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_bid, range, value)
+
+  -- Tas Restatement Bitfield 7 Offer: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_offer, range, value)
+
+  -- Tas Restatement Bitfield 7 Large Size: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_large_size, range, value)
+
+  -- Tas Restatement Bitfield 7 Last Mkt: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7_last_mkt, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 7
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_7, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6 = {}
+
+-- Size: Tas Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.size = 1
+
+-- Display: Tas Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 6 Secondary Order Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Secondary Order Id"
+  end
+  -- Is Tas Restatement Bitfield 6 Ccp flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Ccp"
+  end
+  -- Is Tas Restatement Bitfield 6 Contra Capacity flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Contra Capacity"
+  end
+  -- Is Tas Restatement Bitfield 6 Attributed Order flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Attributed Order"
+  end
+  -- Is Tas Restatement Bitfield 6 Ext Exec Inst flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Ext Exec Inst"
+  end
+  -- Is Tas Restatement Bitfield 6 Bulk Order Ids flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Bulk Order Ids"
+  end
+  -- Is Tas Restatement Bitfield 6 Bulk Reject Reasons flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Bulk Reject Reasons"
+  end
+  -- Is Tas Restatement Bitfield 6 Party Role flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 6 Party Role"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 6 Secondary Order Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_secondary_order_id, range, value)
+
+  -- Tas Restatement Bitfield 6 Ccp: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_ccp, range, value)
+
+  -- Tas Restatement Bitfield 6 Contra Capacity: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_contra_capacity, range, value)
+
+  -- Tas Restatement Bitfield 6 Attributed Order: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_attributed_order, range, value)
+
+  -- Tas Restatement Bitfield 6 Ext Exec Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_ext_exec_inst, range, value)
+
+  -- Tas Restatement Bitfield 6 Bulk Order Ids: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_bulk_order_ids, range, value)
+
+  -- Tas Restatement Bitfield 6 Bulk Reject Reasons: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_bulk_reject_reasons, range, value)
+
+  -- Tas Restatement Bitfield 6 Party Role: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6_party_role, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 6
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_6, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5 = {}
+
+-- Size: Tas Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.size = 1
+
+-- Display: Tas Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 5 Orig Cl Ord Id flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Orig Cl Ord Id"
+  end
+  -- Is Tas Restatement Bitfield 5 Leaves Qty flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Leaves Qty"
+  end
+  -- Is Tas Restatement Bitfield 5 Last Shares flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Last Shares"
+  end
+  -- Is Tas Restatement Bitfield 5 Last Px flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Last Px"
+  end
+  -- Is Tas Restatement Bitfield 5 Display Price flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Display Price"
+  end
+  -- Is Tas Restatement Bitfield 5 Working Price flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Working Price"
+  end
+  -- Is Tas Restatement Bitfield 5 Base Liquidity Indicator flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Base Liquidity Indicator"
+  end
+  -- Is Tas Restatement Bitfield 5 Expire Time flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 5 Expire Time"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 5 Orig Cl Ord Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_orig_cl_ord_id, range, value)
+
+  -- Tas Restatement Bitfield 5 Leaves Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_leaves_qty, range, value)
+
+  -- Tas Restatement Bitfield 5 Last Shares: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_last_shares, range, value)
+
+  -- Tas Restatement Bitfield 5 Last Px: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_last_px, range, value)
+
+  -- Tas Restatement Bitfield 5 Display Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_display_price, range, value)
+
+  -- Tas Restatement Bitfield 5 Working Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_working_price, range, value)
+
+  -- Tas Restatement Bitfield 5 Base Liquidity Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_base_liquidity_indicator, range, value)
+
+  -- Tas Restatement Bitfield 5 Expire Time: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5_expire_time, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 5
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_5, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4 = {}
+
+-- Size: Tas Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.size = 1
+
+-- Display: Tas Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 4 Maturity Date flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Maturity Date"
+  end
+  -- Is Tas Restatement Bitfield 4 Strike Price flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Strike Price"
+  end
+  -- Is Tas Restatement Bitfield 4 Put Or Call flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Put Or Call"
+  end
+  -- Is Tas Restatement Bitfield 4 Open Close flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Open Close"
+  end
+  -- Is Tas Restatement Bitfield 4 Cl Ord Id Batch flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Cl Ord Id Batch"
+  end
+  -- Is Tas Restatement Bitfield 4 Corrected Size flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Corrected Size"
+  end
+  -- Is Tas Restatement Bitfield 4 Party Id flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Party Id"
+  end
+  -- Is Tas Restatement Bitfield 4 Access Fee flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 4 Access Fee"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 4 Maturity Date: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_maturity_date, range, value)
+
+  -- Tas Restatement Bitfield 4 Strike Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_strike_price, range, value)
+
+  -- Tas Restatement Bitfield 4 Put Or Call: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_put_or_call, range, value)
+
+  -- Tas Restatement Bitfield 4 Open Close: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_open_close, range, value)
+
+  -- Tas Restatement Bitfield 4 Cl Ord Id Batch: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_cl_ord_id_batch, range, value)
+
+  -- Tas Restatement Bitfield 4 Corrected Size: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_corrected_size, range, value)
+
+  -- Tas Restatement Bitfield 4 Party Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_party_id, range, value)
+
+  -- Tas Restatement Bitfield 4 Access Fee: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4_access_fee, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 4
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_4, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3 = {}
+
+-- Size: Tas Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.size = 1
+
+-- Display: Tas Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 3 Account flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Account"
+  end
+  -- Is Tas Restatement Bitfield 3 Clearing Firm flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Clearing Firm"
+  end
+  -- Is Tas Restatement Bitfield 3 Clearing Account flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Clearing Account"
+  end
+  -- Is Tas Restatement Bitfield 3 Display Indicator flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Display Indicator"
+  end
+  -- Is Tas Restatement Bitfield 3 Max Floor flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Max Floor"
+  end
+  -- Is Tas Restatement Bitfield 3 Discretion Amount flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Discretion Amount"
+  end
+  -- Is Tas Restatement Bitfield 3 Order Qty flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Order Qty"
+  end
+  -- Is Tas Restatement Bitfield 3 Prevent Match flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 3 Prevent Match"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 3 Account: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_account, range, value)
+
+  -- Tas Restatement Bitfield 3 Clearing Firm: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_clearing_firm, range, value)
+
+  -- Tas Restatement Bitfield 3 Clearing Account: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_clearing_account, range, value)
+
+  -- Tas Restatement Bitfield 3 Display Indicator: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_display_indicator, range, value)
+
+  -- Tas Restatement Bitfield 3 Max Floor: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_max_floor, range, value)
+
+  -- Tas Restatement Bitfield 3 Discretion Amount: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_discretion_amount, range, value)
+
+  -- Tas Restatement Bitfield 3 Order Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_order_qty, range, value)
+
+  -- Tas Restatement Bitfield 3 Prevent Match: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3_prevent_match, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 3
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_3, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2 = {}
+
+-- Size: Tas Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.size = 1
+
+-- Display: Tas Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 2 Symbol flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Symbol"
+  end
+  -- Is Tas Restatement Bitfield 2 Symbol Sfx flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Symbol Sfx"
+  end
+  -- Is Tas Restatement Bitfield 2 Currency flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Currency"
+  end
+  -- Is Tas Restatement Bitfield 2 Id Source flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Id Source"
+  end
+  -- Is Tas Restatement Bitfield 2 Security Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Security Id"
+  end
+  -- Is Tas Restatement Bitfield 2 Security Exchange flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Security Exchange"
+  end
+  -- Is Tas Restatement Bitfield 2 Capacity flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Capacity"
+  end
+  -- Is Tas Restatement Bitfield 2 Reserved 128 flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 2 Reserved 128"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 2 Symbol: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_symbol, range, value)
+
+  -- Tas Restatement Bitfield 2 Symbol Sfx: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_symbol_sfx, range, value)
+
+  -- Tas Restatement Bitfield 2 Currency: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_currency, range, value)
+
+  -- Tas Restatement Bitfield 2 Id Source: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_id_source, range, value)
+
+  -- Tas Restatement Bitfield 2 Security Id: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_security_id, range, value)
+
+  -- Tas Restatement Bitfield 2 Security Exchange: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_security_exchange, range, value)
+
+  -- Tas Restatement Bitfield 2 Capacity: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_capacity, range, value)
+
+  -- Tas Restatement Bitfield 2 Reserved 128: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2_reserved_128, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_2, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Tas Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1 = {}
+
+-- Size: Tas Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.size = 1
+
+-- Display: Tas Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Tas Restatement Bitfield 1 Side flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Side"
+  end
+  -- Is Tas Restatement Bitfield 1 Peg Difference flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Peg Difference"
+  end
+  -- Is Tas Restatement Bitfield 1 Price flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Price"
+  end
+  -- Is Tas Restatement Bitfield 1 Exec Inst flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Exec Inst"
+  end
+  -- Is Tas Restatement Bitfield 1 Order Type flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Order Type"
+  end
+  -- Is Tas Restatement Bitfield 1 Time In Force flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Time In Force"
+  end
+  -- Is Tas Restatement Bitfield 1 Min Qty flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Min Qty"
+  end
+  -- Is Tas Restatement Bitfield 1 Max Remove Pct flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Tas Restatement Bitfield 1 Max Remove Pct"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Tas Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.bits = function(range, value, packet, parent)
+
+  -- Tas Restatement Bitfield 1 Side: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_side, range, value)
+
+  -- Tas Restatement Bitfield 1 Peg Difference: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_peg_difference, range, value)
+
+  -- Tas Restatement Bitfield 1 Price: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_price, range, value)
+
+  -- Tas Restatement Bitfield 1 Exec Inst: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_exec_inst, range, value)
+
+  -- Tas Restatement Bitfield 1 Order Type: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_order_type, range, value)
+
+  -- Tas Restatement Bitfield 1 Time In Force: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_time_in_force, range, value)
+
+  -- Tas Restatement Bitfield 1 Min Qty: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_min_qty, range, value)
+
+  -- Tas Restatement Bitfield 1 Max Remove Pct: 1 Bit
+  parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1_max_remove_pct, range, value)
+end
+
+-- Dissect: Tas Restatement Bitfield 1
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.tas_restatement_bitfield_1, range, display)
+
+  if show.structs then
+    cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
 end
 
 -- Tas Restatement New Order Message Message
@@ -5797,8 +9878,458 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_new_order_message_m
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Return Bitfield 1: Binary
-  index, return_bitfield_1 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.return_bitfield_1.dissect(buffer, index, packet, parent)
+  -- Number Of Tas Restatement Bitfields: Binary
+  index, number_of_tas_restatement_bitfields = cboe_cfefutures_binaryorderentry_boe_v1_3_12.number_of_tas_restatement_bitfields.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Tas Restatement Bitfield 1
+  local tas_restatement_bitfield_1 = nil
+
+  local tas_restatement_bitfield_1_exists = number_of_tas_restatement_bitfields >= 1
+
+  if tas_restatement_bitfield_1_exists then
+
+    -- Tas Restatement Bitfield 1: Struct of 8 fields
+    index, tas_restatement_bitfield_1 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_1.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 2
+  local tas_restatement_bitfield_2 = nil
+
+  local tas_restatement_bitfield_2_exists = number_of_tas_restatement_bitfields >= 2
+
+  if tas_restatement_bitfield_2_exists then
+
+    -- Tas Restatement Bitfield 2: Struct of 8 fields
+    index, tas_restatement_bitfield_2 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 3
+  local tas_restatement_bitfield_3 = nil
+
+  local tas_restatement_bitfield_3_exists = number_of_tas_restatement_bitfields >= 3
+
+  if tas_restatement_bitfield_3_exists then
+
+    -- Tas Restatement Bitfield 3: Struct of 8 fields
+    index, tas_restatement_bitfield_3 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_3.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 4
+  local tas_restatement_bitfield_4 = nil
+
+  local tas_restatement_bitfield_4_exists = number_of_tas_restatement_bitfields >= 4
+
+  if tas_restatement_bitfield_4_exists then
+
+    -- Tas Restatement Bitfield 4: Struct of 8 fields
+    index, tas_restatement_bitfield_4 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_4.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 5
+  local tas_restatement_bitfield_5 = nil
+
+  local tas_restatement_bitfield_5_exists = number_of_tas_restatement_bitfields >= 5
+
+  if tas_restatement_bitfield_5_exists then
+
+    -- Tas Restatement Bitfield 5: Struct of 8 fields
+    index, tas_restatement_bitfield_5 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_5.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 6
+  local tas_restatement_bitfield_6 = nil
+
+  local tas_restatement_bitfield_6_exists = number_of_tas_restatement_bitfields >= 6
+
+  if tas_restatement_bitfield_6_exists then
+
+    -- Tas Restatement Bitfield 6: Struct of 8 fields
+    index, tas_restatement_bitfield_6 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_6.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 7
+  local tas_restatement_bitfield_7 = nil
+
+  local tas_restatement_bitfield_7_exists = number_of_tas_restatement_bitfields >= 7
+
+  if tas_restatement_bitfield_7_exists then
+
+    -- Tas Restatement Bitfield 7: Struct of 8 fields
+    index, tas_restatement_bitfield_7 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_7.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 8
+  local tas_restatement_bitfield_8 = nil
+
+  local tas_restatement_bitfield_8_exists = number_of_tas_restatement_bitfields >= 8
+
+  if tas_restatement_bitfield_8_exists then
+
+    -- Tas Restatement Bitfield 8: Struct of 8 fields
+    index, tas_restatement_bitfield_8 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_8.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 9
+  local tas_restatement_bitfield_9 = nil
+
+  local tas_restatement_bitfield_9_exists = number_of_tas_restatement_bitfields >= 9
+
+  if tas_restatement_bitfield_9_exists then
+
+    -- Tas Restatement Bitfield 9: Struct of 8 fields
+    index, tas_restatement_bitfield_9 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_9.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 10
+  local tas_restatement_bitfield_10 = nil
+
+  local tas_restatement_bitfield_10_exists = number_of_tas_restatement_bitfields >= 10
+
+  if tas_restatement_bitfield_10_exists then
+
+    -- Tas Restatement Bitfield 10: Struct of 8 fields
+    index, tas_restatement_bitfield_10 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_10.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 11
+  local tas_restatement_bitfield_11 = nil
+
+  local tas_restatement_bitfield_11_exists = number_of_tas_restatement_bitfields >= 11
+
+  if tas_restatement_bitfield_11_exists then
+
+    -- Tas Restatement Bitfield 11: Struct of 8 fields
+    index, tas_restatement_bitfield_11 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_11.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 12
+  local tas_restatement_bitfield_12 = nil
+
+  local tas_restatement_bitfield_12_exists = number_of_tas_restatement_bitfields >= 12
+
+  if tas_restatement_bitfield_12_exists then
+
+    -- Tas Restatement Bitfield 12: Struct of 8 fields
+    index, tas_restatement_bitfield_12 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_12.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 13
+  local tas_restatement_bitfield_13 = nil
+
+  local tas_restatement_bitfield_13_exists = number_of_tas_restatement_bitfields >= 13
+
+  if tas_restatement_bitfield_13_exists then
+
+    -- Tas Restatement Bitfield 13: Struct of 8 fields
+    index, tas_restatement_bitfield_13 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_13.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 14
+  local tas_restatement_bitfield_14 = nil
+
+  local tas_restatement_bitfield_14_exists = number_of_tas_restatement_bitfields >= 14
+
+  if tas_restatement_bitfield_14_exists then
+
+    -- Tas Restatement Bitfield 14: Struct of 8 fields
+    index, tas_restatement_bitfield_14 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_14.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 15
+  local tas_restatement_bitfield_15 = nil
+
+  local tas_restatement_bitfield_15_exists = number_of_tas_restatement_bitfields >= 15
+
+  if tas_restatement_bitfield_15_exists then
+
+    -- Tas Restatement Bitfield 15: Struct of 8 fields
+    index, tas_restatement_bitfield_15 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_15.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 16
+  local tas_restatement_bitfield_16 = nil
+
+  local tas_restatement_bitfield_16_exists = number_of_tas_restatement_bitfields >= 16
+
+  if tas_restatement_bitfield_16_exists then
+
+    -- Tas Restatement Bitfield 16: Struct of 8 fields
+    index, tas_restatement_bitfield_16 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_16.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 17
+  local tas_restatement_bitfield_17 = nil
+
+  local tas_restatement_bitfield_17_exists = number_of_tas_restatement_bitfields >= 17
+
+  if tas_restatement_bitfield_17_exists then
+
+    -- Tas Restatement Bitfield 17: Struct of 8 fields
+    index, tas_restatement_bitfield_17 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_17.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Tas Restatement Bitfield 18
+  local tas_restatement_bitfield_18 = nil
+
+  local tas_restatement_bitfield_18_exists = number_of_tas_restatement_bitfields >= 18
+
+  if tas_restatement_bitfield_18_exists then
+
+    -- Tas Restatement Bitfield 18: Struct of 8 fields
+    index, tas_restatement_bitfield_18 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.tas_restatement_bitfield_18.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Side
+  local side = nil
+
+  local side_exists = number_of_tas_restatement_bitfields >= 1 and bit.band(tas_restatement_bitfield_1, 0x01) > 0
+
+  if side_exists then
+    index, side = cboe_cfefutures_binaryorderentry_boe_v1_3_12.side.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Price
+  local price = nil
+
+  local price_exists = number_of_tas_restatement_bitfields >= 1 and bit.band(tas_restatement_bitfield_1, 0x04) > 0
+
+  if price_exists then
+    index, price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Time In Force
+  local time_in_force = nil
+
+  local time_in_force_exists = number_of_tas_restatement_bitfields >= 1 and bit.band(tas_restatement_bitfield_1, 0x20) > 0
+
+  if time_in_force_exists then
+    index, time_in_force = cboe_cfefutures_binaryorderentry_boe_v1_3_12.time_in_force.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Min Qty
+  local min_qty = nil
+
+  local min_qty_exists = number_of_tas_restatement_bitfields >= 1 and bit.band(tas_restatement_bitfield_1, 0x40) > 0
+
+  if min_qty_exists then
+    index, min_qty = cboe_cfefutures_binaryorderentry_boe_v1_3_12.min_qty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Symbol Alphanumeric 8
+  local symbol_alphanumeric_8 = nil
+
+  local symbol_alphanumeric_8_exists = number_of_tas_restatement_bitfields >= 2 and bit.band(tas_restatement_bitfield_2, 0x01) > 0
+
+  if symbol_alphanumeric_8_exists then
+    index, symbol_alphanumeric_8 = cboe_cfefutures_binaryorderentry_boe_v1_3_12.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Capacity
+  local capacity = nil
+
+  local capacity_exists = number_of_tas_restatement_bitfields >= 2 and bit.band(tas_restatement_bitfield_2, 0x40) > 0
+
+  if capacity_exists then
+    index, capacity = cboe_cfefutures_binaryorderentry_boe_v1_3_12.capacity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Account
+  local account = nil
+
+  local account_exists = number_of_tas_restatement_bitfields >= 3 and bit.band(tas_restatement_bitfield_3, 0x01) > 0
+
+  if account_exists then
+    index, account = cboe_cfefutures_binaryorderentry_boe_v1_3_12.account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
+  local clearing_firm_exists = number_of_tas_restatement_bitfields >= 3 and bit.band(tas_restatement_bitfield_3, 0x02) > 0
+
+  if clearing_firm_exists then
+    index, clearing_firm = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_firm.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Account
+  local clearing_account = nil
+
+  local clearing_account_exists = number_of_tas_restatement_bitfields >= 3 and bit.band(tas_restatement_bitfield_3, 0x04) > 0
+
+  if clearing_account_exists then
+    index, clearing_account = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_account.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_tas_restatement_bitfields >= 3 and bit.band(tas_restatement_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cfefutures_binaryorderentry_boe_v1_3_12.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Maturity Date
+  local maturity_date = nil
+
+  local maturity_date_exists = number_of_tas_restatement_bitfields >= 4 and bit.band(tas_restatement_bitfield_4, 0x01) > 0
+
+  if maturity_date_exists then
+    index, maturity_date = cboe_cfefutures_binaryorderentry_boe_v1_3_12.maturity_date.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Open Close
+  local open_close = nil
+
+  local open_close_exists = number_of_tas_restatement_bitfields >= 4 and bit.band(tas_restatement_bitfield_4, 0x08) > 0
+
+  if open_close_exists then
+    index, open_close = cboe_cfefutures_binaryorderentry_boe_v1_3_12.open_close.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Orig Cl Ord Id
+  local orig_cl_ord_id = nil
+
+  local orig_cl_ord_id_exists = number_of_tas_restatement_bitfields >= 5 and bit.band(tas_restatement_bitfield_5, 0x01) > 0
+
+  if orig_cl_ord_id_exists then
+    index, orig_cl_ord_id = cboe_cfefutures_binaryorderentry_boe_v1_3_12.orig_cl_ord_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Shares
+  local last_shares = nil
+
+  local last_shares_exists = number_of_tas_restatement_bitfields >= 5 and bit.band(tas_restatement_bitfield_5, 0x04) > 0
+
+  if last_shares_exists then
+    index, last_shares = cboe_cfefutures_binaryorderentry_boe_v1_3_12.last_shares.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Last Px
+  local last_px = nil
+
+  local last_px_exists = number_of_tas_restatement_bitfields >= 5 and bit.band(tas_restatement_bitfield_5, 0x08) > 0
+
+  if last_px_exists then
+    index, last_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.last_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Fee Code
+  local fee_code = nil
+
+  local fee_code_exists = number_of_tas_restatement_bitfields >= 8 and bit.band(tas_restatement_bitfield_8, 0x01) > 0
+
+  if fee_code_exists then
+    index, fee_code = cboe_cfefutures_binaryorderentry_boe_v1_3_12.fee_code.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
+
+  local stop_px_exists = number_of_tas_restatement_bitfields >= 8 and bit.band(tas_restatement_bitfield_8, 0x04) > 0
+
+  if stop_px_exists then
+    index, stop_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.stop_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cmta Number
+  local cmta_number = nil
+
+  local cmta_number_exists = number_of_tas_restatement_bitfields >= 9 and bit.band(tas_restatement_bitfield_9, 0x20) > 0
+
+  if cmta_number_exists then
+    index, cmta_number = cboe_cfefutures_binaryorderentry_boe_v1_3_12.cmta_number.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cti Code
+  local cti_code = nil
+
+  local cti_code_exists = number_of_tas_restatement_bitfields >= 12 and bit.band(tas_restatement_bitfield_12, 0x01) > 0
+
+  if cti_code_exists then
+    index, cti_code = cboe_cfefutures_binaryorderentry_boe_v1_3_12.cti_code.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Manual Order Indicator
+  local manual_order_indicator = nil
+
+  local manual_order_indicator_exists = number_of_tas_restatement_bitfields >= 12 and bit.band(tas_restatement_bitfield_12, 0x02) > 0
+
+  if manual_order_indicator_exists then
+    index, manual_order_indicator = cboe_cfefutures_binaryorderentry_boe_v1_3_12.manual_order_indicator.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Oeoid
+  local oeoid = nil
+
+  local oeoid_exists = number_of_tas_restatement_bitfields >= 12 and bit.band(tas_restatement_bitfield_12, 0x04) > 0
+
+  if oeoid_exists then
+    index, oeoid = cboe_cfefutures_binaryorderentry_boe_v1_3_12.oeoid.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Trade Date
+  local trade_date = nil
+
+  local trade_date_exists = number_of_tas_restatement_bitfields >= 12 and bit.band(tas_restatement_bitfield_12, 0x08) > 0
+
+  if trade_date_exists then
+    index, trade_date = cboe_cfefutures_binaryorderentry_boe_v1_3_12.trade_date.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Price
+  local clearing_price = nil
+
+  local clearing_price_exists = number_of_tas_restatement_bitfields >= 12 and bit.band(tas_restatement_bitfield_12, 0x10) > 0
+
+  if clearing_price_exists then
+    index, clearing_price = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_price.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Clearing Symbol
+  local clearing_symbol = nil
+
+  local clearing_symbol_exists = number_of_tas_restatement_bitfields >= 12 and bit.band(tas_restatement_bitfield_12, 0x40) > 0
+
+  if clearing_symbol_exists then
+    index, clearing_symbol = cboe_cfefutures_binaryorderentry_boe_v1_3_12.clearing_symbol.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Multileg Reporting Type
+  local multileg_reporting_type = nil
+
+  local multileg_reporting_type_exists = number_of_tas_restatement_bitfields >= 13 and bit.band(tas_restatement_bitfield_13, 0x80) > 0
+
+  if multileg_reporting_type_exists then
+    index, multileg_reporting_type = cboe_cfefutures_binaryorderentry_boe_v1_3_12.multileg_reporting_type.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Secondary Exec Id
+  local secondary_exec_id = nil
+
+  local secondary_exec_id_exists = number_of_tas_restatement_bitfields >= 14 and bit.band(tas_restatement_bitfield_14, 0x10) > 0
+
+  if secondary_exec_id_exists then
+    index, secondary_exec_id = cboe_cfefutures_binaryorderentry_boe_v1_3_12.secondary_exec_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Frequent Trader Id
+  local frequent_trader_id = nil
+
+  local frequent_trader_id_exists = number_of_tas_restatement_bitfields >= 16 and bit.band(tas_restatement_bitfield_16, 0x01) > 0
+
+  if frequent_trader_id_exists then
+    index, frequent_trader_id = cboe_cfefutures_binaryorderentry_boe_v1_3_12.frequent_trader_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Cust Order Handling Inst
+  local cust_order_handling_inst = nil
+
+  local cust_order_handling_inst_exists = number_of_tas_restatement_bitfields >= 17 and bit.band(tas_restatement_bitfield_17, 0x80) > 0
+
+  if cust_order_handling_inst_exists then
+    index, cust_order_handling_inst = cboe_cfefutures_binaryorderentry_boe_v1_3_12.cust_order_handling_inst.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -11924,6 +16455,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_execution_message.fields = fu
 
   if avg_px_exists then
     index, avg_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.avg_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Day Avg Px
+  local day_avg_px = nil
+
+  local day_avg_px_exists = number_of_return_bitfields >= 13 and bit.band(order_execution_return_bitfield_13, 0x10) > 0
+
+  if day_avg_px_exists then
+    index, day_avg_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Pending Status
@@ -24469,6 +29009,15 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_acknowledgment_message.fields
 
   if avg_px_exists then
     index, avg_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.avg_px.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Day Avg Px
+  local day_avg_px = nil
+
+  local day_avg_px_exists = number_of_return_bitfields >= 13 and bit.band(order_acknowledgment_return_bitfield_13, 0x10) > 0
+
+  if day_avg_px_exists then
+    index, day_avg_px = cboe_cfefutures_binaryorderentry_boe_v1_3_12.day_avg_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Frequent Trader Id

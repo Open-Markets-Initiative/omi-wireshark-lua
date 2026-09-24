@@ -2066,6 +2066,23 @@ cboe_bzxoptions_multicasttop_spin_v1_2_54.time_message.dissect = function(buffer
   end
 end
 
+-- Instrument Definition Finished Message
+cboe_bzxoptions_multicasttop_spin_v1_2_54.instrument_definition_finished_message = {}
+
+-- Display: Instrument Definition Finished Message
+cboe_bzxoptions_multicasttop_spin_v1_2_54.instrument_definition_finished_message.display = function(packet, parent, length)
+  return "Instrument Definition Finished Message"
+end
+
+
+-- Dissect: Instrument Definition Finished Message
+cboe_bzxoptions_multicasttop_spin_v1_2_54.instrument_definition_finished_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_bzxoptions_multicasttop_spin_v1_2_54.instrument_definition_finished_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Instrument Definition Response Message
 cboe_bzxoptions_multicasttop_spin_v1_2_54.instrument_definition_response_message = {}
 
@@ -2453,7 +2470,7 @@ cboe_bzxoptions_multicasttop_spin_v1_2_54.payload.dissect = function(buffer, off
   end
   -- Dissect Instrument Definition Finished Message
   if message_type == 0x86 then
-    return offset
+    return cboe_bzxoptions_multicasttop_spin_v1_2_54.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Time Message
   if message_type == 0x20 then

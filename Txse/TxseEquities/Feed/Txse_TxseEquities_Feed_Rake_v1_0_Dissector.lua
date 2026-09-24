@@ -2348,14 +2348,14 @@ txse_txseequities_feed_rake_v1_0.symbol_status_message.size = function(buffer, o
 
   index = index + txse_txseequities_feed_rake_v1_0.short_sale_restriction_state.size
 
-  local has_symbol_status_operational_halt_reason = buffer(offset + 1, 1):le_uint()
+  local has_symbol_status_operational_halt_reason = buffer(offset + 0, 1):le_uint()
 
   if bit.band(symbol_status_presence_bits, 0x01) == 1 then
     index = index + txse_txseequities_feed_rake_v1_0.symbol_status_operational_halt_reason.size
 
   end
 
-  local has_symbol_status_regulatory_halt_reason = buffer(offset + 1, 1):le_uint()
+  local has_symbol_status_regulatory_halt_reason = buffer(offset + 0, 1):le_uint()
 
   if bit.band(symbol_status_presence_bits, 0x02) == 1 then
     index = index + txse_txseequities_feed_rake_v1_0.symbol_status_regulatory_halt_reason.size
@@ -2604,14 +2604,14 @@ txse_txseequities_feed_rake_v1_0.trading_session_status_message.size = function(
 
   index = index + txse_txseequities_feed_rake_v1_0.session_trading_state.size
 
-  local has_trading_session_status_operational_halt_reason = buffer(offset + 1, 1):le_uint()
+  local has_trading_session_status_operational_halt_reason = buffer(offset + 0, 1):le_uint()
 
   if bit.band(trading_session_status_presence_bits, 0x01) == 1 then
     index = index + txse_txseequities_feed_rake_v1_0.trading_session_status_operational_halt_reason.size
 
   end
 
-  local has_trading_session_status_regulatory_halt_reason = buffer(offset + 1, 1):le_uint()
+  local has_trading_session_status_regulatory_halt_reason = buffer(offset + 0, 1):le_uint()
 
   if bit.band(trading_session_status_presence_bits, 0x02) == 1 then
     index = index + txse_txseequities_feed_rake_v1_0.trading_session_status_regulatory_halt_reason.size

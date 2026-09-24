@@ -15,14 +15,14 @@
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11752 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Seed][Txse.TxseEquities.Seed] | [Rake][Omi.Encoding.Rake] | [1.0][Txse.TxseEquities.Seed.Rake.v1.0.Dissector] | 6/12/2026 | 11769 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Seed.Rake.v1.0.Url] - [pdf][Txse.TxseEquities.Seed.Rake.v1.0.Pdf] |
 
 
 ### Protocols
 
 | Division | [Protocol][Omi.Txse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Txse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.TxseEquities.Framing.Tcp.v1.0.Dissector] | 6/12/2026 | 1009 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Tcp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Tcp.v1.0.Pdf] |
+| [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Tcp][Omi.Encoding.Tcp] | [1.0][Txse.TxseEquities.Framing.Tcp.v1.0.Dissector] | 6/12/2026 | 1026 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Tcp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Tcp.v1.0.Pdf] |
 | [TxseEquities][TxseEquities.Exchange] | [Framing][Txse.TxseEquities.Framing] | [Udp][Omi.Encoding.Udp] | [1.0][Txse.TxseEquities.Framing.Udp.v1.0.Dissector] | 6/12/2026 | 491 | [Header][Omi.Glossary.Deployment.Header] | [Untested][Omi.Glossary.Testing.Untested] | [url][Txse.TxseEquities.Framing.Udp.v1.0.Url] - [pdf][Txse.TxseEquities.Framing.Udp.v1.0.Pdf] |
 
 

@@ -9576,7 +9576,7 @@ cboe_c1options_binaryorderentry_boe3_v1_0_10.new_order_cross_multileg_message.si
   index = index + allocation_count * 77
 
   -- Calculate field size from count
-  local leg_position_effect_count = buffer(offset + index - 78, 1):le_uint()
+  local leg_position_effect_count = buffer(offset + 116, 1):le_uint()
   index = index + leg_position_effect_count * 1
 
   return index

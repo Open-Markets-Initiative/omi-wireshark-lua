@@ -1413,6 +1413,7 @@ omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.party_id = ProtoField.n
 omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.party_role = ProtoField.new("Party Role", "cboe.cxeequities.binaryorderentry.boe.v2.0.83.partyrole", ftypes.STRING)
 omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.password = ProtoField.new("Password", "cboe.cxeequities.binaryorderentry.boe.v2.0.83.password", ftypes.STRING)
 omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.peg_difference = ProtoField.new("Peg Difference", "cboe.cxeequities.binaryorderentry.boe.v2.0.83.pegdifference", ftypes.DOUBLE)
+omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.cxeequities.binaryorderentry.boe.v2.0.83.preventmatch", ftypes.STRING)
 omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.price = ProtoField.new("Price", "cboe.cxeequities.binaryorderentry.boe.v2.0.83.price", ftypes.DOUBLE)
 omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.price_formation = ProtoField.new("Price Formation", "cboe.cxeequities.binaryorderentry.boe.v2.0.83.priceformation", ftypes.STRING)
 omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.purge_orders_v_2_bitfield_1 = ProtoField.new("Purge Orders V 2 Bitfield 1", "cboe.cxeequities.binaryorderentry.boe.v2.0.83.purgeordersv2bitfield1", ftypes.STRING)
@@ -5479,6 +5480,45 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.peg_difference.dissect = function(
   local display = cboe_cxeequities_binaryorderentry_boe_v2_0_83.peg_difference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.peg_difference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Prevent Match
+cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match = {}
+
+-- Size: Prevent Match
+cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.size = 3
+
+-- Display: Prevent Match
+cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Prevent Match: No Value"
+  end
+
+  return "Prevent Match: "..value
+end
+
+-- Dissect: Prevent Match
+cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cxeequities_binaryorderentry_boe_v2_0_83.fields.prevent_match, range, value, display)
 
   return offset + length, value
 end
@@ -20207,6 +20247,15 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_execution_v_2_message.fields
     index, order_qty = cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(order_execution_v_2_return_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Secondary Order Id
   local secondary_order_id = nil
 
@@ -24629,6 +24678,15 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_cancelled_v_2_message.fields
     index, order_qty = cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(order_cancelled_v_2_return_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Orig Cl Ord Id
   local orig_cl_ord_id = nil
 
@@ -28883,6 +28941,15 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_restated_v_2_message.fields 
     index, order_qty = cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(order_restated_v_2_return_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Orig Cl Ord Id
   local orig_cl_ord_id = nil
 
@@ -31131,6 +31198,15 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_modified_v_2_message.fields 
 
   if order_qty_exists then
     index, order_qty = cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_qty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(order_modified_v_2_return_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Orig Cl Ord Id
@@ -33440,6 +33516,15 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_rejected_v_2_message.fields 
     index, order_qty = cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_qty.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(order_rejected_v_2_return_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Secondary Order Id
   local secondary_order_id = nil
 
@@ -35652,6 +35737,15 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_acknowledgment_v_2_message.f
 
   if order_qty_exists then
     index, order_qty = cboe_cxeequities_binaryorderentry_boe_v2_0_83.order_qty.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_return_bitfields >= 3 and bit.band(order_acknowledgment_v_2_return_bitfield_3, 0x80) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Orig Cl Ord Id
@@ -38948,6 +39042,15 @@ cboe_cxeequities_binaryorderentry_boe_v2_0_83.new_order_v_2_message.fields = fun
 
   if peg_difference_exists then
     index, peg_difference = cboe_cxeequities_binaryorderentry_boe_v2_0_83.peg_difference.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Prevent Match
+  local prevent_match = nil
+
+  local prevent_match_exists = number_of_new_order_v_2_bitfields >= 3 and bit.band(new_order_v_2_bitfield_3, 0x20) > 0
+
+  if prevent_match_exists then
+    index, prevent_match = cboe_cxeequities_binaryorderentry_boe_v2_0_83.prevent_match.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Expire Time

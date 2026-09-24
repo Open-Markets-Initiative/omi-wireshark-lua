@@ -2225,6 +2225,57 @@ end
 -- Dissect Miax OnyxFutures ExpressInterface Fei 1.0.c
 -----------------------------------------------------------------------
 
+-- Client Heartbeat
+miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- End Of Session
+miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session = {}
+
+-- Display: End Of Session
+miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Goodbye Packet
 miax_onyxfutures_expressinterface_fei_v1_0_c.goodbye_packet = {}
 
@@ -2381,6 +2432,23 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.dissect = fu
     -- Skip element, add fields directly
     return miax_onyxfutures_expressinterface_fei_v1_0_c.retransmission_request.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Synchronization Complete
+miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete = {}
+
+-- Display: Synchronization Complete
+miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete.display = function(packet, parent, length)
+  return "Synchronization Complete"
+end
+
+
+-- Dissect: Synchronization Complete
+miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete.dissect = function(buffer, offset, packet, parent)
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Login Response
@@ -4353,7 +4421,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dissect = function(buf
   end
   -- Dissect Synchronization Complete
   if sesm_packet_type == "C" then
-    return offset
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.synchronization_complete.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Retransmission Request
   if sesm_packet_type == "A" then
@@ -4369,15 +4437,15 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.sesm_payload.dissect = function(buf
   end
   -- Dissect End Of Session
   if sesm_packet_type == "E" then
-    return offset
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.end_of_session.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat
   if sesm_packet_type == "0" then
-    return offset
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat
   if sesm_packet_type == "1" then
-    return offset
+    return miax_onyxfutures_expressinterface_fei_v1_0_c.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
 
   return offset

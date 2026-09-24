@@ -1561,7 +1561,7 @@ cboe_edgxequities_summarydepth_pitch_v1_0_7.adap_message.size = function(buffer,
   index = index + cboe_edgxequities_summarydepth_pitch_v1_0_7.adap_block_size.size
 
   -- Calculate field size from count
-  local adap_block_count = buffer(offset + index - 1, 2):le_uint()
+  local adap_block_count = buffer(offset + index - 2, 1):le_uint()
   for i = 1, adap_block_count do
     index = index + cboe_edgxequities_summarydepth_pitch_v1_0_7.adap_block.size(buffer, offset + index)
   end

@@ -490,6 +490,23 @@ end
 -- Dissect Cboe NeoEquities SpinServer Pitch 1.0.13
 -----------------------------------------------------------------------
 
+-- Trade Replay Finished Message
+cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_finished_message = {}
+
+-- Display: Trade Replay Finished Message
+cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_finished_message.display = function(packet, parent, length)
+  return "Trade Replay Finished Message"
+end
+
+
+-- Dissect: Trade Replay Finished Message
+cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_finished_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_finished_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Trade Replay Response Message
 cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_response_message = {}
 
@@ -576,6 +593,23 @@ cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_request_message.dissect =
     -- Skip element, add fields directly
     return cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_request_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Instrument Definition Finished Message
+cboe_neoequities_spinserver_pitch_v1_0_13.instrument_definition_finished_message = {}
+
+-- Display: Instrument Definition Finished Message
+cboe_neoequities_spinserver_pitch_v1_0_13.instrument_definition_finished_message.display = function(packet, parent, length)
+  return "Instrument Definition Finished Message"
+end
+
+
+-- Dissect: Instrument Definition Finished Message
+cboe_neoequities_spinserver_pitch_v1_0_13.instrument_definition_finished_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_neoequities_spinserver_pitch_v1_0_13.instrument_definition_finished_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Instrument Definition Response Message
@@ -965,7 +999,7 @@ cboe_neoequities_spinserver_pitch_v1_0_13.payload.dissect = function(buffer, off
   end
   -- Dissect Instrument Definition Finished Message
   if message_type == 0x86 then
-    return offset
+    return cboe_neoequities_spinserver_pitch_v1_0_13.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Trade Replay Request Message
   if message_type == 0x87 then
@@ -977,7 +1011,7 @@ cboe_neoequities_spinserver_pitch_v1_0_13.payload.dissect = function(buffer, off
   end
   -- Dissect Trade Replay Finished Message
   if message_type == 0x89 then
-    return offset
+    return cboe_neoequities_spinserver_pitch_v1_0_13.trade_replay_finished_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

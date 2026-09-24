@@ -1471,6 +1471,23 @@ cixats_cixaspen_snapshot_tcpout_v1_1.binary_data_message.dissect = function(buff
   end
 end
 
+-- Server Heartbeat Message
+cixats_cixaspen_snapshot_tcpout_v1_1.server_heartbeat_message = {}
+
+-- Display: Server Heartbeat Message
+cixats_cixaspen_snapshot_tcpout_v1_1.server_heartbeat_message.display = function(packet, parent, length)
+  return "Server Heartbeat Message"
+end
+
+
+-- Dissect: Server Heartbeat Message
+cixats_cixaspen_snapshot_tcpout_v1_1.server_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cixats_cixaspen_snapshot_tcpout_v1_1.server_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Reject Message
 cixats_cixaspen_snapshot_tcpout_v1_1.login_reject_message = {}
 
@@ -1559,6 +1576,23 @@ cixats_cixaspen_snapshot_tcpout_v1_1.successful_login_message.dissect = function
   end
 end
 
+-- Client Heartbeat Message
+cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message = {}
+
+-- Display: Client Heartbeat Message
+cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message.display = function(packet, parent, length)
+  return "Client Heartbeat Message"
+end
+
+
+-- Dissect: Client Heartbeat Message
+cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Message
 cixats_cixaspen_snapshot_tcpout_v1_1.login_message = {}
 
@@ -1626,7 +1660,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dissect = function(buffer, o
   end
   -- Dissect Client Heartbeat Message
   if packet_type == "R" then
-    return offset
+    return cixats_cixaspen_snapshot_tcpout_v1_1.client_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Successful Login Message
   if packet_type == "A" then
@@ -1638,7 +1672,7 @@ cixats_cixaspen_snapshot_tcpout_v1_1.packet_payload.dissect = function(buffer, o
   end
   -- Dissect Server Heartbeat Message
   if packet_type == "H" then
-    return offset
+    return cixats_cixaspen_snapshot_tcpout_v1_1.server_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Binary Data Message
   if packet_type == "S" then

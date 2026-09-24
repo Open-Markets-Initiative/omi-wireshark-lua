@@ -2876,7 +2876,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_finra_adf_quote_message.size = function(buffer
   index = index + odd_lot_bid_extended_quote_appendage_count * 13
 
   -- Calculate field size from count
-  local odd_lot_offer_extended_quote_appendage_count = buffer(offset + index - 14, 1):uint()
+  local odd_lot_offer_extended_quote_appendage_count = buffer(offset + 13, 1):uint()
   index = index + odd_lot_offer_extended_quote_appendage_count * 13
 
   return index
@@ -3054,7 +3054,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_long_quote_message.size = function(buffer, off
   index = index + odd_lot_bid_long_quote_appendage_count * 9
 
   -- Calculate field size from count
-  local odd_lot_offer_long_quote_appendage_count = buffer(offset + index - 10, 1):uint()
+  local odd_lot_offer_long_quote_appendage_count = buffer(offset + 13, 1):uint()
   index = index + odd_lot_offer_long_quote_appendage_count * 9
 
   return index
@@ -3232,7 +3232,7 @@ siac_cqs_input_cta_v2_9_b.odd_lot_short_quote_message.size = function(buffer, of
   index = index + odd_lot_bid_short_quote_appendage_count * 3
 
   -- Calculate field size from count
-  local odd_lot_offer_short_quote_appendage_count = buffer(offset + index - 4, 1):uint()
+  local odd_lot_offer_short_quote_appendage_count = buffer(offset + 7, 1):uint()
   index = index + odd_lot_offer_short_quote_appendage_count * 3
 
   return index
@@ -3407,7 +3407,7 @@ siac_cqs_input_cta_v2_9_b.round_lot_finra_adf_quote_message.size = function(buff
   index = index + odd_lot_bid_extended_quote_appendage_count * 13
 
   -- Calculate field size from count
-  local odd_lot_offer_extended_quote_appendage_count = buffer(offset + index - 14, 1):uint()
+  local odd_lot_offer_extended_quote_appendage_count = buffer(offset + 87, 1):uint()
   index = index + odd_lot_offer_extended_quote_appendage_count * 13
 
   return index
@@ -3561,7 +3561,7 @@ siac_cqs_input_cta_v2_9_b.round_lot_long_quote_message.size = function(buffer, o
   index = index + odd_lot_bid_long_quote_appendage_count * 9
 
   -- Calculate field size from count
-  local odd_lot_offer_long_quote_appendage_count = buffer(offset + index - 10, 1):uint()
+  local odd_lot_offer_long_quote_appendage_count = buffer(offset + 54, 1):uint()
   index = index + odd_lot_offer_long_quote_appendage_count * 9
 
   return index
@@ -3680,7 +3680,7 @@ siac_cqs_input_cta_v2_9_b.round_lot_short_quote_message.size = function(buffer, 
   index = index + odd_lot_bid_short_quote_appendage_count * 3
 
   -- Calculate field size from count
-  local odd_lot_offer_short_quote_appendage_count = buffer(offset + index - 4, 1):uint()
+  local odd_lot_offer_short_quote_appendage_count = buffer(offset + 15, 1):uint()
   index = index + odd_lot_offer_short_quote_appendage_count * 3
 
   return index
@@ -4816,7 +4816,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   if odd_lot_quote_appendage_type == "S" then
     -- Calculate field size from count
-    local partial_reject_odd_lot_offer_short_quote_appendage_count = buffer(offset + index - 4, 1):uint()
+    local partial_reject_odd_lot_offer_short_quote_appendage_count = buffer(offset + 16, 1):uint()
     index = index + partial_reject_odd_lot_offer_short_quote_appendage_count * 3
 
   end
@@ -4825,7 +4825,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   if odd_lot_quote_appendage_type == "L" then
     -- Calculate field size from count
-    local partial_reject_odd_lot_bid_long_quote_appendage_count = buffer(offset + index - 8, 1):uint()
+    local partial_reject_odd_lot_bid_long_quote_appendage_count = buffer(offset + 15, 1):uint()
     index = index + partial_reject_odd_lot_bid_long_quote_appendage_count * 9
 
   end
@@ -4834,7 +4834,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   if odd_lot_quote_appendage_type == "L" then
     -- Calculate field size from count
-    local partial_reject_odd_lot_offer_long_quote_appendage_count = buffer(offset + index - 16, 1):uint()
+    local partial_reject_odd_lot_offer_long_quote_appendage_count = buffer(offset + 16, 1):uint()
     index = index + partial_reject_odd_lot_offer_long_quote_appendage_count * 9
 
   end
@@ -4843,7 +4843,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   if odd_lot_quote_appendage_type == "E" then
     -- Calculate field size from count
-    local partial_reject_odd_lot_bid_extended_quote_appendage_count = buffer(offset + index - 26, 1):uint()
+    local partial_reject_odd_lot_bid_extended_quote_appendage_count = buffer(offset + 15, 1):uint()
     index = index + partial_reject_odd_lot_bid_extended_quote_appendage_count * 13
 
   end
@@ -4852,7 +4852,7 @@ siac_cqs_input_cta_v2_9_b.partial_rejection_message.size = function(buffer, offs
 
   if odd_lot_quote_appendage_type == "E" then
     -- Calculate field size from count
-    local partial_reject_odd_lot_offer_extended_quote_appendage_count = buffer(offset + index - 38, 1):uint()
+    local partial_reject_odd_lot_offer_extended_quote_appendage_count = buffer(offset + 16, 1):uint()
     index = index + partial_reject_odd_lot_offer_extended_quote_appendage_count * 13
 
   end

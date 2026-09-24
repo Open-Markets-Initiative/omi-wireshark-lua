@@ -2694,7 +2694,7 @@ cboe_titaniumconsolidated_tcponeequities_pitch_v1_4_13.expanded_adap_message.siz
   index = index + cboe_titaniumconsolidated_tcponeequities_pitch_v1_4_13.adap_block_size.size
 
   -- Calculate field size from count
-  local adap_block_count = buffer(offset + index - 1, 2):le_uint()
+  local adap_block_count = buffer(offset + index - 2, 1):le_uint()
   for i = 1, adap_block_count do
     index = index + cboe_titaniumconsolidated_tcponeequities_pitch_v1_4_13.adap_block.size(buffer, offset + index)
   end
@@ -2774,7 +2774,7 @@ cboe_titaniumconsolidated_tcponeequities_pitch_v1_4_13.adap_message.size = funct
   index = index + cboe_titaniumconsolidated_tcponeequities_pitch_v1_4_13.adap_block_size.size
 
   -- Calculate field size from count
-  local adap_block_count = buffer(offset + index - 1, 2):le_uint()
+  local adap_block_count = buffer(offset + index - 2, 1):le_uint()
   for i = 1, adap_block_count do
     index = index + cboe_titaniumconsolidated_tcponeequities_pitch_v1_4_13.adap_block.size(buffer, offset + index)
   end

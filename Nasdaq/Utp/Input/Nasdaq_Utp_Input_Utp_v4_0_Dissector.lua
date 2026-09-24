@@ -5928,7 +5928,7 @@ nasdaq_utp_input_utp_v4_0.finra_adf_combined_quote_message_with_bbo.size = funct
   index = index + odd_lot_bid_adf_form_attachment_count * 14
 
   -- Calculate field size from count
-  local odd_lot_ask_adf_form_attachment_count = buffer(offset + index - 16, 2):uint()
+  local odd_lot_ask_adf_form_attachment_count = buffer(offset + 110, 2):uint()
   index = index + odd_lot_ask_adf_form_attachment_count * 14
 
   return index
@@ -6068,7 +6068,7 @@ nasdaq_utp_input_utp_v4_0.finra_adf_odd_lot_quotation_message.size = function(bu
   index = index + odd_lot_bid_adf_form_attachment_count * 14
 
   -- Calculate field size from count
-  local odd_lot_ask_adf_form_attachment_count = buffer(offset + index - 16, 2):uint()
+  local odd_lot_ask_adf_form_attachment_count = buffer(offset + 47, 2):uint()
   index = index + odd_lot_ask_adf_form_attachment_count * 14
 
   return index
@@ -6476,7 +6476,7 @@ nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_long_form_message.size
   index = index + odd_lot_bid_long_form_attachment_count * 10
 
   -- Calculate field size from count
-  local odd_lot_ask_long_form_attachment_count = buffer(offset + index - 12, 2):uint()
+  local odd_lot_ask_long_form_attachment_count = buffer(offset + 65, 2):uint()
   index = index + odd_lot_ask_long_form_attachment_count * 10
 
   return index
@@ -6699,7 +6699,7 @@ nasdaq_utp_input_utp_v4_0.exchange_combined_quote_message_short_form_message.siz
   index = index + odd_lot_bid_short_form_attachment_count * 4
 
   -- Calculate field size from count
-  local odd_lot_ask_short_form_attachment_count = buffer(offset + index - 6, 2):uint()
+  local odd_lot_ask_short_form_attachment_count = buffer(offset + 43, 2):uint()
   index = index + odd_lot_ask_short_form_attachment_count * 4
 
   return index
@@ -6810,7 +6810,7 @@ nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_long_form_message.size 
   index = index + odd_lot_bid_long_form_attachment_count * 10
 
   -- Calculate field size from count
-  local odd_lot_ask_long_form_attachment_count = buffer(offset + index - 12, 2):uint()
+  local odd_lot_ask_long_form_attachment_count = buffer(offset + 39, 2):uint()
   index = index + odd_lot_ask_long_form_attachment_count * 10
 
   return index
@@ -6903,7 +6903,7 @@ nasdaq_utp_input_utp_v4_0.exchange_odd_lot_quote_message_short_form_message.size
   index = index + odd_lot_bid_short_form_attachment_count * 4
 
   -- Calculate field size from count
-  local odd_lot_ask_short_form_attachment_count = buffer(offset + index - 6, 2):uint()
+  local odd_lot_ask_short_form_attachment_count = buffer(offset + 33, 2):uint()
   index = index + odd_lot_ask_short_form_attachment_count * 4
 
   return index

@@ -699,6 +699,23 @@ end
 -- Dissect Cboe TitaniumConsolidated OneOptions Spin 1.0.10
 -----------------------------------------------------------------------
 
+-- Trade Replay Finished Message
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_finished_message = {}
+
+-- Display: Trade Replay Finished Message
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_finished_message.display = function(packet, parent, length)
+  return "Trade Replay Finished Message"
+end
+
+
+-- Dissect: Trade Replay Finished Message
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_finished_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_finished_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Trade Replay Response Message
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_message = {}
 
@@ -837,6 +854,23 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_mapping_message.dissect
     -- Skip element, add fields directly
     return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_mapping_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Instrument Definition Finished Message
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_finished_message = {}
+
+-- Display: Instrument Definition Finished Message
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_finished_message.display = function(packet, parent, length)
+  return "Instrument Definition Finished Message"
+end
+
+
+-- Dissect: Instrument Definition Finished Message
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_finished_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_finished_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Instrument Definition Response Message
@@ -1226,7 +1260,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.payload.dissect = function(buf
   end
   -- Dissect Instrument Definition Finished Message
   if message_type == 0x86 then
-    return offset
+    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Mapping Message
   if message_type == 0x2E then
@@ -1242,7 +1276,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.payload.dissect = function(buf
   end
   -- Dissect Trade Replay Finished Message
   if message_type == 0x89 then
-    return offset
+    return cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_finished_message.dissect(buffer, offset, packet, parent)
   end
 
   return offset

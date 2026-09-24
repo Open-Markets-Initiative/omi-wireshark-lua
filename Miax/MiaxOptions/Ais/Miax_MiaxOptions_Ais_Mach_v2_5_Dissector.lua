@@ -2836,6 +2836,57 @@ miax_miaxoptions_ais_mach_v2_5.test_packet.dissect = function(buffer, offset, pa
   end
 end
 
+-- Client Heartbeat
+miax_miaxoptions_ais_mach_v2_5.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+miax_miaxoptions_ais_mach_v2_5.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+miax_miaxoptions_ais_mach_v2_5.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_miaxoptions_ais_mach_v2_5.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+miax_miaxoptions_ais_mach_v2_5.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+miax_miaxoptions_ais_mach_v2_5.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+miax_miaxoptions_ais_mach_v2_5.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_miaxoptions_ais_mach_v2_5.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Trading Session Update
+miax_miaxoptions_ais_mach_v2_5.trading_session_update = {}
+
+-- Display: Trading Session Update
+miax_miaxoptions_ais_mach_v2_5.trading_session_update.display = function(packet, parent, length)
+  return "Trading Session Update"
+end
+
+
+-- Dissect: Trading Session Update
+miax_miaxoptions_ais_mach_v2_5.trading_session_update.dissect = function(buffer, offset, packet, parent)
+  local display = miax_miaxoptions_ais_mach_v2_5.trading_session_update.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Goodbye Packet
 miax_miaxoptions_ais_mach_v2_5.goodbye_packet = {}
 
@@ -4233,15 +4284,15 @@ miax_miaxoptions_ais_mach_v2_5.sesm_payload.dissect = function(buffer, offset, p
   end
   -- Dissect Trading Session Update
   if sesm_packet_type == "u" then
-    return offset
+    return miax_miaxoptions_ais_mach_v2_5.trading_session_update.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat
   if sesm_packet_type == "0" then
-    return offset
+    return miax_miaxoptions_ais_mach_v2_5.server_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat
   if sesm_packet_type == "1" then
-    return offset
+    return miax_miaxoptions_ais_mach_v2_5.client_heartbeat.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test Packet
   if sesm_packet_type == "T" then

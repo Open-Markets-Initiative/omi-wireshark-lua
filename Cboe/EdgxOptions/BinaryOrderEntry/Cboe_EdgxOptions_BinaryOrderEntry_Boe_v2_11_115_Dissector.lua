@@ -1223,6 +1223,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.logout_reason = Proto
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.logoutreasontext", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.marketing_fee_code = ProtoField.new("Marketing Fee Code", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.marketingfeecode", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.masscancelid", ftypes.STRING)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.masscancelinst", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.mass_cancel_lock_out = ProtoField.new("Mass Cancel Lock Out", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.masscancellockout", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.matchingunit", ftypes.UINT8)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.maturity_date = ProtoField.new("Maturity Date", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.maturitydate", ftypes.UINT32)
@@ -1339,8 +1340,8 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bit
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_reserved_128 = ProtoField.new("New Complex Order Bitfield 9 Reserved 128", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield9reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_reserved_32 = ProtoField.new("New Complex Order Bitfield 9 Reserved 32", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield9reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_reserved_64 = ProtoField.new("New Complex Order Bitfield 9 Reserved 64", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield9reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px_effective_tbd = ProtoField.new("New Complex Order Bitfield 9 Stop Px Effective Tbd", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield9stoppxeffectivetbd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px_type_effective_tbd = ProtoField.new("New Complex Order Bitfield 9 Stop Px Type Effective Tbd", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield9stoppxtypeeffectivetbd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px = ProtoField.new("New Complex Order Bitfield 9 Stop Px", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield9stoppx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px_type = ProtoField.new("New Complex Order Bitfield 9 Stop Px Type", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield9stoppxtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_order_bitfield_1 = ProtoField.new("New Order Bitfield 1", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.neworderbitfield1", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_order_bitfield_1_clearing_account = ProtoField.new("New Order Bitfield 1 Clearing Account", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.neworderbitfield1clearingaccount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_order_bitfield_1_clearing_firm = ProtoField.new("New Order Bitfield 1 Clearing Firm", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.neworderbitfield1clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -1673,7 +1674,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_floor_trade_time = ProtoField.new("Order Acknowledgment Return Bitfield 21 Floor Trade Time", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield21floortradetime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_intra_firm_trade_ind = ProtoField.new("Order Acknowledgment Return Bitfield 21 Intra Firm Trade Ind", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield21intrafirmtradeind", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_reserved_128 = ProtoField.new("Order Acknowledgment Return Bitfield 21 Reserved 128", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield21reserved128", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_stop_px_type_effective = ProtoField.new("Order Acknowledgment Return Bitfield 21 Stop Px Type Effective", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield21stoppxtypeeffective", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_stop_px_type = ProtoField.new("Order Acknowledgment Return Bitfield 21 Stop Px Type", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield21stoppxtype", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_3 = ProtoField.new("Order Acknowledgment Return Bitfield 3", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield3", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_3_account = ProtoField.new("Order Acknowledgment Return Bitfield 3 Account", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield3account", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_3_clearing_account = ProtoField.new("Order Acknowledgment Return Bitfield 3 Clearing Account", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderacknowledgmentreturnbitfield3clearingaccount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
@@ -3099,7 +3100,6 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.side = ProtoField.new
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.source_matching_unit = ProtoField.new("Source Matching Unit", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.sourcematchingunit", ftypes.UINT8)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.startofmessage", ftypes.UINT16)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.stop_px = ProtoField.new("Stop Px", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.stoppx", ftypes.DOUBLE)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.stop_px_typeeffective_tbd = ProtoField.new("Stop Px Typeeffective Tbd", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.stoppxtypeeffectivetbd", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.strategy_id = ProtoField.new("Strategy Id", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.strategyid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.strike_price = ProtoField.new("Strike Price", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.strikeprice", ftypes.DOUBLE)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.sub_liquidity_indicato = ProtoField.new("Sub Liquidity Indicato", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.subliquidityindicato", ftypes.STRING)
@@ -6907,6 +6907,45 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_id.dissect = functio
   return offset + length, value
 end
 
+-- Mass Cancel Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst = {}
+
+-- Size: Mass Cancel Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst.size = 16
+
+-- Display: Mass Cancel Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mass Cancel Inst: No Value"
+  end
+
+  return "Mass Cancel Inst: "..value
+end
+
+-- Dissect: Mass Cancel Inst
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.mass_cancel_inst, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mass Cancel Lock Out
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_lock_out = {}
 
@@ -9775,39 +9814,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px.dissect = function(buffe
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Stop Px Typeeffective Tbd
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd = {}
-
--- Size: Stop Px Typeeffective Tbd
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.size = 1
-
--- Display: Stop Px Typeeffective Tbd
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.display = function(value)
-  if value == "L" then
-    return "Stop Px Typeeffective Tbd: Fixed Limit Price (L)"
-  end
-  if value == "B" then
-    return "Stop Px Typeeffective Tbd: Fixed Underlying Bid Price Or Index Level (B)"
-  end
-  if value == "A" then
-    return "Stop Px Typeeffective Tbd: Fixed Underlying Ask Price Or Index Level (A)"
-  end
-
-  return "Stop Px Typeeffective Tbd: Unknown("..value..")"
-end
-
--- Dissect: Stop Px Typeeffective Tbd
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.stop_px_typeeffective_tbd, range, value, display)
 
   return offset + length, value
 end
@@ -27177,7 +27183,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_order_allo
   index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.size
 
   local number_of_return_bitfields = buffer(offset - 24, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_10_alloc_qty = buffer(offset - 13, 1):le_uint()
+  local cross_order_cancelled_return_bitfield_10_alloc_qty = buffer(offset - 14, 1):le_uint()
 
   if number_of_return_bitfields >= 10 and bit.band(cross_order_cancelled_return_bitfield_10, 0x02) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.alloc_qty.size
@@ -27185,7 +27191,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_order_allo
   end
 
   local number_of_return_bitfields = buffer(offset - 24, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_2_capacity = buffer(offset - 21, 1):le_uint()
+  local cross_order_cancelled_return_bitfield_2_capacity = buffer(offset - 22, 1):le_uint()
 
   if number_of_return_bitfields >= 2 and bit.band(cross_order_cancelled_return_bitfield_2, 0x40) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.capacity.size
@@ -27193,7 +27199,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_order_allo
   end
 
   local number_of_return_bitfields = buffer(offset - 24, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_4_open_close = buffer(offset - 19, 1):le_uint()
+  local cross_order_cancelled_return_bitfield_4_open_close = buffer(offset - 20, 1):le_uint()
 
   if number_of_return_bitfields >= 4 and bit.band(cross_order_cancelled_return_bitfield_4, 0x08) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.size
@@ -27201,7 +27207,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_order_allo
   end
 
   local number_of_return_bitfields = buffer(offset - 24, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_10_give_up_firm_id = buffer(offset - 13, 1):le_uint()
+  local cross_order_cancelled_return_bitfield_10_give_up_firm_id = buffer(offset - 14, 1):le_uint()
 
   if number_of_return_bitfields >= 10 and bit.band(cross_order_cancelled_return_bitfield_10, 0x04) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.give_up_firm_id.size
@@ -27209,7 +27215,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_order_allo
   end
 
   local number_of_return_bitfields = buffer(offset - 24, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_3_account = buffer(offset - 20, 1):le_uint()
+  local cross_order_cancelled_return_bitfield_3_account = buffer(offset - 21, 1):le_uint()
 
   if number_of_return_bitfields >= 3 and bit.band(cross_order_cancelled_return_bitfield_3, 0x01) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.account.size
@@ -27217,7 +27223,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_order_allo
   end
 
   local number_of_return_bitfields = buffer(offset - 24, 1):le_uint()
-  local cross_order_cancelled_return_bitfield_9_cmta_number = buffer(offset - 14, 1):le_uint()
+  local cross_order_cancelled_return_bitfield_9_cmta_number = buffer(offset - 15, 1):le_uint()
 
   if number_of_return_bitfields >= 9 and bit.band(cross_order_cancelled_return_bitfield_9, 0x20) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cmta_number.size
@@ -45016,7 +45022,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_id.size
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_1_side = buffer(offset - 20, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_1_side = buffer(offset - 21, 1):le_uint()
 
   if number_of_return_bitfields >= 1 and bit.band(cross_order_acknowledgment_return_bitfield_1, 0x01) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.size
@@ -45024,7 +45030,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   end
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_11_alloc_qty = buffer(offset - 10, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_11_alloc_qty = buffer(offset - 11, 1):le_uint()
 
   if number_of_return_bitfields >= 11 and bit.band(cross_order_acknowledgment_return_bitfield_11, 0x02) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.alloc_qty.size
@@ -45032,7 +45038,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   end
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_4_capacity = buffer(offset - 17, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_4_capacity = buffer(offset - 18, 1):le_uint()
 
   if number_of_return_bitfields >= 4 and bit.band(cross_order_acknowledgment_return_bitfield_4, 0x40) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.capacity.size
@@ -45040,7 +45046,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   end
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_6_open_close = buffer(offset - 15, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_6_open_close = buffer(offset - 16, 1):le_uint()
 
   if number_of_return_bitfields >= 6 and bit.band(cross_order_acknowledgment_return_bitfield_6, 0x08) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.size
@@ -45048,7 +45054,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   end
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_11_give_up_firm_id = buffer(offset - 10, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_11_give_up_firm_id = buffer(offset - 11, 1):le_uint()
 
   if number_of_return_bitfields >= 11 and bit.band(cross_order_acknowledgment_return_bitfield_11, 0x04) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.give_up_firm_id.size
@@ -45056,7 +45062,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   end
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_5_account = buffer(offset - 16, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_5_account = buffer(offset - 17, 1):le_uint()
 
   if number_of_return_bitfields >= 5 and bit.band(cross_order_acknowledgment_return_bitfield_5, 0x01) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.account.size
@@ -45064,7 +45070,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   end
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_10_cmta_number = buffer(offset - 11, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_10_cmta_number = buffer(offset - 12, 1):le_uint()
 
   if number_of_return_bitfields >= 10 and bit.band(cross_order_acknowledgment_return_bitfield_10, 0x20) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cmta_number.size
@@ -45072,7 +45078,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order
   end
 
   local number_of_return_bitfields = buffer(offset - 22, 1):le_uint()
-  local cross_order_acknowledgment_return_bitfield_5_clearing_account = buffer(offset - 16, 1):le_uint()
+  local cross_order_acknowledgment_return_bitfield_5_clearing_account = buffer(offset - 17, 1):le_uint()
 
   if number_of_return_bitfields >= 5 and bit.band(cross_order_acknowledgment_return_bitfield_5, 0x04) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_account.size
@@ -47386,9 +47392,9 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_acknowledgment_return_bitf
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Order Acknowledgment Return Bitfield 21 Cmc Match Qty"
   end
-  -- Is Order Acknowledgment Return Bitfield 21 Stop Px Type Effective flag set?
+  -- Is Order Acknowledgment Return Bitfield 21 Stop Px Type flag set?
   if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Order Acknowledgment Return Bitfield 21 Stop Px Type Effective"
+    flags[#flags + 1] = "Order Acknowledgment Return Bitfield 21 Stop Px Type"
   end
   -- Is Order Acknowledgment Return Bitfield 21 Reserved 128 flag set?
   if bit.band(value, 0x80) ~= 0 then
@@ -47419,8 +47425,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_acknowledgment_return_bitf
   -- Order Acknowledgment Return Bitfield 21 Cmc Match Qty: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_cmc_match_qty, range, value)
 
-  -- Order Acknowledgment Return Bitfield 21 Stop Px Type Effective: 1 Bit
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_stop_px_type_effective, range, value)
+  -- Order Acknowledgment Return Bitfield 21 Stop Px Type: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_stop_px_type, range, value)
 
   -- Order Acknowledgment Return Bitfield 21 Reserved 128: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_acknowledgment_return_bitfield_21_reserved_128, range, value)
@@ -50901,6 +50907,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.purge_orders_message.fields = fu
     index, clearing_firm = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Mass Cancel Inst
+  local mass_cancel_inst = nil
+
+  local mass_cancel_inst_exists = number_of_purge_orders_bitfields >= 1 and bit.band(purge_orders_bitfield_1, 0x04) > 0
+
+  if mass_cancel_inst_exists then
+    index, mass_cancel_inst = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Risk Root
   local risk_root = nil
 
@@ -52092,6 +52107,15 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cancel_order_message.fields = fu
     index, routing_firm_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.routing_firm_id.dissect(buffer, index, packet, parent)
   end
 
+  -- Runtime optional field: Mass Cancel Inst
+  local mass_cancel_inst = nil
+
+  local mass_cancel_inst_exists = number_of_cancel_order_bitfields >= 2 and bit.band(cancel_order_bitfield_2, 0x01) > 0
+
+  if mass_cancel_inst_exists then
+    index, mass_cancel_inst = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.mass_cancel_inst.dissect(buffer, index, packet, parent)
+  end
+
   -- Runtime optional field: Send Time
   local send_time = nil
 
@@ -52146,7 +52170,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.leg_position_effects.size
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_4_account = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_multileg_bitfield_4_account = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 4 and bit.band(new_order_cross_multileg_bitfield_4, 0x08) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.account.size
@@ -52154,7 +52178,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   end
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_4_cmta_number = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_multileg_bitfield_4_cmta_number = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 4 and bit.band(new_order_cross_multileg_bitfield_4, 0x10) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cmta_number.size
@@ -52162,7 +52186,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   end
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_4_clearing_account = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_multileg_bitfield_4_clearing_account = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 4 and bit.band(new_order_cross_multileg_bitfield_4, 0x20) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_account.size
@@ -52170,7 +52194,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   end
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_4_clearing_optional_data = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_multileg_bitfield_4_clearing_optional_data = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 4 and bit.band(new_order_cross_multileg_bitfield_4, 0x80) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_optional_data.size
@@ -52178,7 +52202,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   end
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_3_equity_party_id = buffer(offset - 5, 1):le_uint()
+  local new_order_cross_multileg_bitfield_3_equity_party_id = buffer(offset - 6, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 3 and bit.band(new_order_cross_multileg_bitfield_3, 0x01) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.equity_party_id.size
@@ -52186,7 +52210,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   end
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_3_equity_leg_short_sell = buffer(offset - 5, 1):le_uint()
+  local new_order_cross_multileg_bitfield_3_equity_leg_short_sell = buffer(offset - 6, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 3 and bit.band(new_order_cross_multileg_bitfield_3, 0x02) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.equity_leg_short_sell.size
@@ -52194,7 +52218,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   end
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_4_frequent_trader_id = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_multileg_bitfield_4_frequent_trader_id = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 4 and bit.band(new_order_cross_multileg_bitfield_4, 0x02) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.frequent_trader_id.size
@@ -52202,7 +52226,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_a
   end
 
   local number_of_new_order_cross_multileg_bitfields = buffer(offset - 9, 1):le_uint()
-  local new_order_cross_multileg_bitfield_6_leg_position_effects_ext = buffer(offset - 2, 1):le_uint()
+  local new_order_cross_multileg_bitfield_6_leg_position_effects_ext = buffer(offset - 3, 1):le_uint()
 
   if number_of_new_order_cross_multileg_bitfields >= 6 and bit.band(new_order_cross_multileg_bitfield_6, 0x08) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.leg_position_effects_ext.size
@@ -53289,13 +53313,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_complex_order_bitfield_9.dis
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "New Complex Order Bitfield 9 Cross On Behalf Of Id"
   end
-  -- Is New Complex Order Bitfield 9 Stop Px Effective Tbd flag set?
+  -- Is New Complex Order Bitfield 9 Stop Px flag set?
   if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "New Complex Order Bitfield 9 Stop Px Effective Tbd"
+    flags[#flags + 1] = "New Complex Order Bitfield 9 Stop Px"
   end
-  -- Is New Complex Order Bitfield 9 Stop Px Type Effective Tbd flag set?
+  -- Is New Complex Order Bitfield 9 Stop Px Type flag set?
   if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "New Complex Order Bitfield 9 Stop Px Type Effective Tbd"
+    flags[#flags + 1] = "New Complex Order Bitfield 9 Stop Px Type"
   end
   -- Is New Complex Order Bitfield 9 Reserved 32 flag set?
   if bit.band(value, 0x20) ~= 0 then
@@ -53325,11 +53349,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_complex_order_bitfield_9.bit
   -- New Complex Order Bitfield 9 Cross On Behalf Of Id: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_cross_on_behalf_of_id, range, value)
 
-  -- New Complex Order Bitfield 9 Stop Px Effective Tbd: 1 Bit
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px_effective_tbd, range, value)
+  -- New Complex Order Bitfield 9 Stop Px: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px, range, value)
 
-  -- New Complex Order Bitfield 9 Stop Px Type Effective Tbd: 1 Bit
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px_type_effective_tbd, range, value)
+  -- New Complex Order Bitfield 9 Stop Px Type: 1 Bit
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_stop_px_type, range, value)
 
   -- New Complex Order Bitfield 9 Reserved 32: 1 Bit
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_9_reserved_32, range, value)
@@ -54596,13 +54620,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields
     index, cross_on_behalf_of_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_on_behalf_of_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Stop Px Typeeffective Tbd
-  local stop_px_typeeffective_tbd = nil
+  -- Runtime optional field: Stop Px
+  local stop_px = nil
 
-  local stop_px_typeeffective_tbd_exists = number_of_new_complex_order_bitfields >= 9 and bit.band(new_complex_order_bitfield_9, 0x10) > 0
+  local stop_px_exists = number_of_new_complex_order_bitfields >= 9 and bit.band(new_complex_order_bitfield_9, 0x08) > 0
 
-  if stop_px_typeeffective_tbd_exists then
-    index, stop_px_typeeffective_tbd = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.dissect(buffer, index, packet, parent)
+  if stop_px_exists then
+    index, stop_px = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.stop_px.dissect(buffer, index, packet, parent)
   end
 
   return index
@@ -54650,7 +54674,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_allocations.size = functio
   index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.give_up_firm_id.size
 
   local number_of_new_order_cross_bitfields = buffer(offset - 7, 1):le_uint()
-  local new_order_cross_bitfield_2_account = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_bitfield_2_account = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_bitfields >= 2 and bit.band(new_order_cross_bitfield_2, 0x08) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.account.size
@@ -54658,7 +54682,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_allocations.size = functio
   end
 
   local number_of_new_order_cross_bitfields = buffer(offset - 7, 1):le_uint()
-  local new_order_cross_bitfield_2_cmta_number = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_bitfield_2_cmta_number = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_bitfields >= 2 and bit.band(new_order_cross_bitfield_2, 0x10) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cmta_number.size
@@ -54666,7 +54690,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_allocations.size = functio
   end
 
   local number_of_new_order_cross_bitfields = buffer(offset - 7, 1):le_uint()
-  local new_order_cross_bitfield_2_clearing_account = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_bitfield_2_clearing_account = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_bitfields >= 2 and bit.band(new_order_cross_bitfield_2, 0x20) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_account.size
@@ -54674,7 +54698,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_allocations.size = functio
   end
 
   local number_of_new_order_cross_bitfields = buffer(offset - 7, 1):le_uint()
-  local new_order_cross_bitfield_2_clearing_optional_data = buffer(offset - 4, 1):le_uint()
+  local new_order_cross_bitfield_2_clearing_optional_data = buffer(offset - 5, 1):le_uint()
 
   if number_of_new_order_cross_bitfields >= 2 and bit.band(new_order_cross_bitfield_2, 0x80) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_optional_data.size
@@ -54682,7 +54706,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_allocations.size = functio
   end
 
   local number_of_new_order_cross_bitfields = buffer(offset - 7, 1):le_uint()
-  local new_order_cross_bitfield_4_frequent_trader_id = buffer(offset - 2, 1):le_uint()
+  local new_order_cross_bitfield_4_frequent_trader_id = buffer(offset - 3, 1):le_uint()
 
   if number_of_new_order_cross_bitfields >= 4 and bit.band(new_order_cross_bitfield_4, 0x04) > 0 then
     index = index + cboe_edgxoptions_binaryorderentry_boe_v2_11_115.frequent_trader_id.size

@@ -2290,6 +2290,23 @@ cboe_c2options_complextop_spin_v1_1_54.time_message.dissect = function(buffer, o
   end
 end
 
+-- Instrument Definition Finished Message
+cboe_c2options_complextop_spin_v1_1_54.instrument_definition_finished_message = {}
+
+-- Display: Instrument Definition Finished Message
+cboe_c2options_complextop_spin_v1_1_54.instrument_definition_finished_message.display = function(packet, parent, length)
+  return "Instrument Definition Finished Message"
+end
+
+
+-- Dissect: Instrument Definition Finished Message
+cboe_c2options_complextop_spin_v1_1_54.instrument_definition_finished_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c2options_complextop_spin_v1_1_54.instrument_definition_finished_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Instrument Definition Response Message
 cboe_c2options_complextop_spin_v1_1_54.instrument_definition_response_message = {}
 
@@ -2677,7 +2694,7 @@ cboe_c2options_complextop_spin_v1_1_54.payload.dissect = function(buffer, offset
   end
   -- Dissect Instrument Definition Finished Message
   if message_type == 0x86 then
-    return offset
+    return cboe_c2options_complextop_spin_v1_1_54.instrument_definition_finished_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Time Message
   if message_type == 0x20 then

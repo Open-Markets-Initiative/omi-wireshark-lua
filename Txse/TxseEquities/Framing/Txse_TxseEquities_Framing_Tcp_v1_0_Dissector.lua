@@ -592,6 +592,23 @@ txse_txseequities_framing_tcp_v1_0.logon_response_message.dissect = function(buf
   end
 end
 
+-- End Of Session Message
+txse_txseequities_framing_tcp_v1_0.end_of_session_message = {}
+
+-- Display: End Of Session Message
+txse_txseequities_framing_tcp_v1_0.end_of_session_message.display = function(packet, parent, length)
+  return "End Of Session Message"
+end
+
+
+-- Dissect: End Of Session Message
+txse_txseequities_framing_tcp_v1_0.end_of_session_message.dissect = function(buffer, offset, packet, parent)
+  local display = txse_txseequities_framing_tcp_v1_0.end_of_session_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Debug Message
 txse_txseequities_framing_tcp_v1_0.debug_message = {}
 
@@ -774,7 +791,7 @@ txse_txseequities_framing_tcp_v1_0.payload.dissect = function(buffer, offset, pa
   end
   -- Dissect End Of Session Message
   if packet_type == 52 then
-    return offset
+    return txse_txseequities_framing_tcp_v1_0.end_of_session_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Logon Response Message
   if packet_type == 49 then
