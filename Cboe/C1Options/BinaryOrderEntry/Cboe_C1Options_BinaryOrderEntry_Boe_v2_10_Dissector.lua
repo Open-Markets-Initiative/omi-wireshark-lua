@@ -22717,6 +22717,40 @@ cboe_c1options_binaryorderentry_boe_v2_10.new_order_message.dissect = function(b
   end
 end
 
+-- Replay Complete Message
+cboe_c1options_binaryorderentry_boe_v2_10.replay_complete_message = {}
+
+-- Display: Replay Complete Message
+cboe_c1options_binaryorderentry_boe_v2_10.replay_complete_message.display = function(packet, parent, length)
+  return "Replay Complete Message"
+end
+
+
+-- Dissect: Replay Complete Message
+cboe_c1options_binaryorderentry_boe_v2_10.replay_complete_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe_v2_10.replay_complete_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Message
+cboe_c1options_binaryorderentry_boe_v2_10.server_heartbeat_message = {}
+
+-- Display: Server Heartbeat Message
+cboe_c1options_binaryorderentry_boe_v2_10.server_heartbeat_message.display = function(packet, parent, length)
+  return "Server Heartbeat Message"
+end
+
+
+-- Dissect: Server Heartbeat Message
+cboe_c1options_binaryorderentry_boe_v2_10.server_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe_v2_10.server_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Unit Sequence
 cboe_c1options_binaryorderentry_boe_v2_10.unit_sequence = {}
 
@@ -22956,6 +22990,40 @@ cboe_c1options_binaryorderentry_boe_v2_10.login_response_message.dissect = funct
   end
 end
 
+-- Client Heartbeat Message
+cboe_c1options_binaryorderentry_boe_v2_10.client_heartbeat_message = {}
+
+-- Display: Client Heartbeat Message
+cboe_c1options_binaryorderentry_boe_v2_10.client_heartbeat_message.display = function(packet, parent, length)
+  return "Client Heartbeat Message"
+end
+
+
+-- Dissect: Client Heartbeat Message
+cboe_c1options_binaryorderentry_boe_v2_10.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe_v2_10.client_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Logout Request Message
+cboe_c1options_binaryorderentry_boe_v2_10.logout_request_message = {}
+
+-- Display: Logout Request Message
+cboe_c1options_binaryorderentry_boe_v2_10.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+cboe_c1options_binaryorderentry_boe_v2_10.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe_v2_10.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Request Message
 cboe_c1options_binaryorderentry_boe_v2_10.login_request_message = {}
 
@@ -23031,11 +23099,11 @@ cboe_c1options_binaryorderentry_boe_v2_10.message.dissect = function(buffer, off
   end
   -- Dissect Logout Request Message
   if message_type == 0x02 then
-    return offset
+    return cboe_c1options_binaryorderentry_boe_v2_10.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat Message
   if message_type == 0x03 then
-    return offset
+    return cboe_c1options_binaryorderentry_boe_v2_10.client_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response Message
   if message_type == 0x24 then
@@ -23047,11 +23115,11 @@ cboe_c1options_binaryorderentry_boe_v2_10.message.dissect = function(buffer, off
   end
   -- Dissect Server Heartbeat Message
   if message_type == 0x09 then
-    return offset
+    return cboe_c1options_binaryorderentry_boe_v2_10.server_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Replay Complete Message
   if message_type == 0x13 then
-    return offset
+    return cboe_c1options_binaryorderentry_boe_v2_10.replay_complete_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Message
   if message_type == 0x38 then

@@ -32789,6 +32789,40 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.new_order_message.dissect = functi
   end
 end
 
+-- Replay Complete Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.replay_complete_message = {}
+
+-- Display: Replay Complete Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.replay_complete_message.display = function(packet, parent, length)
+  return "Replay Complete Message"
+end
+
+
+-- Dissect: Replay Complete Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.replay_complete_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_57.replay_complete_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.server_heartbeat_message = {}
+
+-- Display: Server Heartbeat Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.server_heartbeat_message.display = function(packet, parent, length)
+  return "Server Heartbeat Message"
+end
+
+
+-- Dissect: Server Heartbeat Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.server_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_57.server_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Units
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.units = {}
 
@@ -33028,6 +33062,40 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.login_response_message.dissect = f
   end
 end
 
+-- Client Heartbeat Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.client_heartbeat_message = {}
+
+-- Display: Client Heartbeat Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.client_heartbeat_message.display = function(packet, parent, length)
+  return "Client Heartbeat Message"
+end
+
+
+-- Dissect: Client Heartbeat Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.client_heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_57.client_heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Logout Request Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_request_message = {}
+
+-- Display: Logout Request Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_request_message.display = function(packet, parent, length)
+  return "Logout Request Message"
+end
+
+
+-- Dissect: Logout Request Message
+cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_request_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_request_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Login Request Message
 cboe_bzxequities_binaryorderentry_boe_v2_4_57.login_request_message = {}
 
@@ -33103,11 +33171,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.message.dissect = function(buffer,
   end
   -- Dissect Logout Request Message
   if message_type == 0x02 then
-    return offset
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.logout_request_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Client Heartbeat Message
   if message_type == 0x03 then
-    return offset
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.client_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Login Response Message
   if message_type == 0x24 then
@@ -33119,11 +33187,11 @@ cboe_bzxequities_binaryorderentry_boe_v2_4_57.message.dissect = function(buffer,
   end
   -- Dissect Server Heartbeat Message
   if message_type == 0x09 then
-    return offset
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.server_heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Replay Complete Message
   if message_type == 0x13 then
-    return offset
+    return cboe_bzxequities_binaryorderentry_boe_v2_4_57.replay_complete_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect New Order Message
   if message_type == 0x38 then

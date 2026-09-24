@@ -1543,6 +1543,23 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.index_value_message.dissect = fun
   end
 end
 
+-- Heartbeat Message
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Payload
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.payload = {}
 
@@ -1550,7 +1567,7 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.payload = {}
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.payload.dissect = function(buffer, offset, packet, parent, template_id)
   -- Dissect Heartbeat Message
   if template_id == 0x10 then
-    return offset
+    return cboe_titaniumconsolidated_indices_cgif_v1_4_13.heartbeat_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Index Value Message
   if template_id == 0x16 then
