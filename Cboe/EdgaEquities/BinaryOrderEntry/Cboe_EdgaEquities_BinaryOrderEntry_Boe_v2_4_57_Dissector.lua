@@ -698,7 +698,107 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.cancel_reason.display = function(value)
-  return "Cancel Reason: "..value
+  if value == "A" then
+    return "Cancel Reason: Admin (A)"
+  end
+  if value == "C" then
+    return "Cancel Reason: Capacity Undefined (C)"
+  end
+  if value == "D" then
+    return "Cancel Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Cancel Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Cancel Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Cancel Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Cancel Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Cancel Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Cancel Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Cancel Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Cancel Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Cancel Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Cancel Reason: Risk Management Mpid Or Risk Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Cancel Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "u" then
+    return "Cancel Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Cancel Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Cancel Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Cancel Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -721,7 +821,107 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.cancel_reject_reason.display = function(value)
-  return "Cancel Reject Reason: "..value
+  if value == "A" then
+    return "Cancel Reject Reason: Admin (A)"
+  end
+  if value == "C" then
+    return "Cancel Reject Reason: Capacity Undefined (C)"
+  end
+  if value == "D" then
+    return "Cancel Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Cancel Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Cancel Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Cancel Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Cancel Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Cancel Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Cancel Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Cancel Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Cancel Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Cancel Reject Reason: Risk Management Mpid Or Risk Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Cancel Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "u" then
+    return "Cancel Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Cancel Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Cancel Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Cancel Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reject Reason
@@ -2138,7 +2338,107 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.modify_reject_reason.display = function(value)
-  return "Modify Reject Reason: "..value
+  if value == "A" then
+    return "Modify Reject Reason: Admin (A)"
+  end
+  if value == "C" then
+    return "Modify Reject Reason: Capacity Undefined (C)"
+  end
+  if value == "D" then
+    return "Modify Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Modify Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Modify Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Modify Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Modify Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Modify Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Modify Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Modify Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Modify Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Modify Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Modify Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Modify Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Modify Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Modify Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Modify Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Modify Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Modify Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Modify Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Modify Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Modify Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Modify Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Modify Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Modify Reject Reason: Risk Management Mpid Or Risk Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Modify Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Modify Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Modify Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "u" then
+    return "Modify Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Modify Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Modify Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Modify Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Modify Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Modify Reject Reason
@@ -2430,7 +2730,107 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_reject_reason.display = function(value)
-  return "Order Reject Reason: "..value
+  if value == "A" then
+    return "Order Reject Reason: Admin (A)"
+  end
+  if value == "C" then
+    return "Order Reject Reason: Capacity Undefined (C)"
+  end
+  if value == "D" then
+    return "Order Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Order Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Order Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Order Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Order Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Order Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Order Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Order Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Order Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Order Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Order Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Order Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Order Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Order Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Order Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Order Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Order Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Order Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Order Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Order Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Order Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Order Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Order Reject Reason: Risk Management Mpid Or Risk Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Order Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Order Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Order Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "u" then
+    return "Order Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Order Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Order Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Order Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Reject Reason
@@ -2701,7 +3101,107 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_reject_reason.display = function(value)
-  return "Purge Reject Reason: "..value
+  if value == "A" then
+    return "Purge Reject Reason: Admin (A)"
+  end
+  if value == "C" then
+    return "Purge Reject Reason: Capacity Undefined (C)"
+  end
+  if value == "D" then
+    return "Purge Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "E" then
+    return "Purge Reject Reason: Size Reduction Due To Swp Restatement (E)"
+  end
+  if value == "F" then
+    return "Purge Reject Reason: Failed To Quote (F)"
+  end
+  if value == "H" then
+    return "Purge Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Purge Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Purge Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Purge Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Purge Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Purge Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Purge Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Purge Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Purge Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Purge Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Purge Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "S" then
+    return "Purge Reject Reason: Short Sale Price Violation (S)"
+  end
+  if value == "T" then
+    return "Purge Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Purge Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Purge Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Purge Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Purge Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Purge Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Purge Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "f" then
+    return "Purge Reject Reason: Risk Management Mpid Or Risk Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Purge Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Purge Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Purge Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "u" then
+    return "Purge Reject Reason: Limit Up Limit Down (u)"
+  end
+  if value == "w" then
+    return "Purge Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Purge Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Purge Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Purge Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Purge Reject Reason

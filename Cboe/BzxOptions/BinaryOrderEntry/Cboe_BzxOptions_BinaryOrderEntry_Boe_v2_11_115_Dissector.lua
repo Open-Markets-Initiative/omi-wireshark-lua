@@ -60,6 +60,8 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.client_id_attr = Proto
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.cmtanumber", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.cmta_number_optional = ProtoField.new("Cmta Number Optional", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.cmtanumberoptional", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.combo_order = ProtoField.new("Combo Order", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.comboorder", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg = ProtoField.new("Complex Leg", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.complexleg", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg_order_info = ProtoField.new("Complex Leg Order Info", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.complexlegorderinfo", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.compression = ProtoField.new("Compression", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.compression", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.contra_broker = ProtoField.new("Contra Broker", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.contrabroker", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.contra_capacity = ProtoField.new("Contra Capacity", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.contracapacity", ftypes.STRING)
@@ -107,7 +109,6 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.floor_trader_acronym =
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.frequenttraderid", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.frequent_trader_id_optional = ProtoField.new("Frequent Trader Id Optional", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.frequenttraderidoptional", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.give_up_firm_id = ProtoField.new("Give Up Firm Id", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.giveupfirmid", ftypes.STRING)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.group = ProtoField.new("Group", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.group", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.group_cnt = ProtoField.new("Group Cnt", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.groupcnt", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.held = ProtoField.new("Held", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.held", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.last_priority = ProtoField.new("Last Priority", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.lastpriority", ftypes.STRING)
@@ -117,8 +118,12 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.last_shares = ProtoFie
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leaves_qty = ProtoField.new("Leaves Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.leavesqty", ftypes.UINT32)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_cfi_code = ProtoField.new("Leg Cfi Code", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legcficode", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_maturity_date = ProtoField.new("Leg Maturity Date", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legmaturitydate", ftypes.UINT32)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_position_effect = ProtoField.new("Leg Position Effect", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legpositioneffect", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_position_effects_ext = ProtoField.new("Leg Position Effects Ext", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legpositioneffectsext", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legratioqty", ftypes.UINT32)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_side = ProtoField.new("Leg Side", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legside", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_strike_price = ProtoField.new("Leg Strike Price", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legstrikeprice", ftypes.DOUBLE)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.legsymbol", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.loginresponsestatus", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.login_response_text = ProtoField.new("Login Response Text", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.loginresponsetext", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.logoutreason", ftypes.STRING)
@@ -451,6 +456,7 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_return_bitfi
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.numberofunits", ftypes.UINT8)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.open_close = ProtoField.new("Open Close", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.openclose", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.ord_type = ProtoField.new("Ord Type", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.ordtype", ftypes.STRING)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.order_allocations = ProtoField.new("Order Allocations", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.orderallocations", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.order_id = ProtoField.new("Order Id", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.orderid", ftypes.UINT64)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.order_origin = ProtoField.new("Order Origin", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.orderorigin", ftypes.STRING)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty = ProtoField.new("Order Qty", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.orderqty", ftypes.UINT32)
@@ -790,8 +796,10 @@ omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.trade_cancel_or_correc
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.usermodifyrejectedmessage", ftypes.STRING)
 
 -- Cboe BzxOptions BinaryOrderEntry Boe 2.11.115 Generated Fields
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg_index = ProtoField.new("Complex Leg Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.complexlegindex", ftypes.UINT16)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg_order_info_index = ProtoField.new("Complex Leg Order Info Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.complexlegorderinfoindex", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.custom_group_i_ds_index = ProtoField.new("Custom Group I Ds Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.customgroupidsindex", ftypes.UINT16)
-omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.group_index = ProtoField.new("Group Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.groupindex", ftypes.UINT16)
+omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.order_allocations_index = ProtoField.new("Order Allocations Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.orderallocationsindex", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.paramgroupindex", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.quote_index = ProtoField.new("Quote Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.quoteindex", ftypes.UINT16)
 omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.units_index = ProtoField.new("Units Index", "cboe.bzxoptions.binaryorderentry.boe.v2.11.115.unitsindex", ftypes.UINT16)
@@ -1206,7 +1214,107 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cancel_reason.display = function(value)
-  return "Cancel Reason: "..value
+  if value == "A" then
+    return "Cancel Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Cancel Reason: Duplicate Identifier (D)"
+  end
+  if value == "F" then
+    return "Cancel Reason: Could Not Reflect To Consolidated Quote (F)"
+  end
+  if value == "H" then
+    return "Cancel Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Cancel Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Cancel Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Cancel Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Cancel Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Cancel Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reason: Unforeseen Reason (Z)"
+  end
+  if value == "c" then
+    return "Cancel Reason: Only Close Transactions Accepted (c)"
+  end
+  if value == "f" then
+    return "Cancel Reason: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Cancel Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "w" then
+    return "Cancel Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Cancel Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Cancel Reason: Order Received By Cboe During Replay (y)"
+  end
+  if value == "z" then
+    return "Cancel Reason: Session End (z)"
+  end
+  if value == "+" then
+    return "Cancel Reason: Risk Management Efid Group Level (+)"
+  end
+  if value == "4" then
+    return "Cancel Reason: After Volatility Cutoff (4)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -1229,7 +1337,107 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cancel_reject_reason.display = function(value)
-  return "Cancel Reject Reason: "..value
+  if value == "A" then
+    return "Cancel Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Cancel Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "F" then
+    return "Cancel Reject Reason: Could Not Reflect To Consolidated Quote (F)"
+  end
+  if value == "H" then
+    return "Cancel Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Cancel Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Cancel Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Cancel Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Cancel Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "c" then
+    return "Cancel Reject Reason: Only Close Transactions Accepted (c)"
+  end
+  if value == "f" then
+    return "Cancel Reject Reason: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Cancel Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "w" then
+    return "Cancel Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Cancel Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Cancel Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+  if value == "z" then
+    return "Cancel Reject Reason: Session End (z)"
+  end
+  if value == "+" then
+    return "Cancel Reject Reason: Risk Management Efid Group Level (+)"
+  end
+  if value == "4" then
+    return "Cancel Reject Reason: After Volatility Cutoff (4)"
+  end
+
+  return "Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reject Reason
@@ -1252,7 +1460,44 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cancel_subreason.size = 1
 
 -- Display: Cancel Subreason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cancel_subreason.display = function(value)
-  return "Cancel Subreason: "..value
+  if value == "A" then
+    return "Cancel Subreason: Purgemass Cancel Efid Level By User (A)"
+  end
+  if value == "B" then
+    return "Cancel Subreason: Purgemass Cancel Symbol Level By User (B)"
+  end
+  if value == "C" then
+    return "Cancel Subreason: Purgemass Cancel Custom Group Id Level By User (C)"
+  end
+  if value == "E" then
+    return "Cancel Subreason: Efid Level Lockout By Cboe Trade Desk Admin (E)"
+  end
+  if value == "J" then
+    return "Cancel Subreason: Firm Disconnect (J)"
+  end
+  if value == "K" then
+    return "Cancel Subreason: Me Disconnect (K)"
+  end
+  if value == "L" then
+    return "Cancel Subreason: Unregistered Mm Account (L)"
+  end
+  if value == "S" then
+    return "Cancel Subreason: Minimum Size Requirement Not Met (S)"
+  end
+  if value == "T" then
+    return "Cancel Subreason: Cboe Trade Desk Admin (T)"
+  end
+  if value == "f" then
+    return "Cancel Subreason: Risk Management Efid Level By Rule (f)"
+  end
+  if value == "s" then
+    return "Cancel Subreason: Risk Management Symbol Level By Rule (s)"
+  end
+  if value == "+" then
+    return "Cancel Subreason: Risk Management Efid Group Level By Rule (+)"
+  end
+
+  return "Cancel Subreason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Subreason
@@ -2963,12 +3208,17 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.exec_leg_cfi_code.size = 6
 
 -- Display: Exec Leg Cfi Code
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.exec_leg_cfi_code.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Exec Leg Cfi Code: No Value"
+  if value == "OP" then
+    return "Exec Leg Cfi Code: Options Put (OP)"
+  end
+  if value == "OC" then
+    return "Exec Leg Cfi Code: Options Call (OC)"
+  end
+  if value == "E" then
+    return "Exec Leg Cfi Code: Equity (E)"
   end
 
-  return "Exec Leg Cfi Code: "..value
+  return "Exec Leg Cfi Code: Unknown("..value..")"
 end
 
 -- Dissect: Exec Leg Cfi Code
@@ -3530,12 +3780,17 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_cfi_code.size = 6
 
 -- Display: Leg Cfi Code
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_cfi_code.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Cfi Code: No Value"
+  if value == "OP" then
+    return "Leg Cfi Code: Options Put (OP)"
+  end
+  if value == "OC" then
+    return "Leg Cfi Code: Options Call (OC)"
+  end
+  if value == "E" then
+    return "Leg Cfi Code: Equity (E)"
   end
 
-  return "Leg Cfi Code: "..value
+  return "Leg Cfi Code: Unknown("..value..")"
 end
 
 -- Dissect: Leg Cfi Code
@@ -3587,6 +3842,39 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_maturity_date.dissect = funct
   return offset + length, value
 end
 
+-- Leg Position Effect
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect = {}
+
+-- Size: Leg Position Effect
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect.size = 1
+
+-- Display: Leg Position Effect
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect.display = function(value)
+  if value == "O" then
+    return "Leg Position Effect: Open (O)"
+  end
+  if value == "C" then
+    return "Leg Position Effect: Close (C)"
+  end
+  if value == "N" then
+    return "Leg Position Effect: None (N)"
+  end
+
+  return "Leg Position Effect: Unknown("..value..")"
+end
+
+-- Dissect: Leg Position Effect
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_position_effect, range, value, display)
+
+  return offset + length, value
+end
+
 -- Leg Position Effects Ext
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effects_ext = {}
 
@@ -3626,6 +3914,59 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effects_ext.dissect 
   return offset + length, value
 end
 
+-- Leg Ratio Qty
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty = {}
+
+-- Size: Leg Ratio Qty
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty.size = 4
+
+-- Display: Leg Ratio Qty
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty.display = function(value)
+  return "Leg Ratio Qty: "..value
+end
+
+-- Dissect: Leg Ratio Qty
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side = {}
+
+-- Size: Leg Side
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side.size = 1
+
+-- Display: Leg Side
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side.display = function(value)
+  if value == "1" then
+    return "Leg Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Leg Side: Sell (2)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_side, range, value, display)
+
+  return offset + length, value
+end
+
 -- Leg Strike Price
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_strike_price = {}
 
@@ -3651,6 +3992,45 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_strike_price.dissect = functi
   local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol = {}
+
+-- Size: Leg Symbol
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol.size = 8
+
+-- Display: Leg Symbol
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Symbol: No Value"
+  end
+
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -4234,7 +4614,107 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.modify_reject_reason.display = function(value)
-  return "Modify Reject Reason: "..value
+  if value == "A" then
+    return "Modify Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Modify Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "F" then
+    return "Modify Reject Reason: Could Not Reflect To Consolidated Quote (F)"
+  end
+  if value == "H" then
+    return "Modify Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Modify Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Modify Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Modify Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Modify Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Modify Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Modify Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Modify Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Modify Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Modify Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Modify Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Modify Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Modify Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Modify Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Modify Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Modify Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Modify Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Modify Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "c" then
+    return "Modify Reject Reason: Only Close Transactions Accepted (c)"
+  end
+  if value == "f" then
+    return "Modify Reject Reason: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Modify Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Modify Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Modify Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "w" then
+    return "Modify Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Modify Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Modify Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+  if value == "z" then
+    return "Modify Reject Reason: Session End (z)"
+  end
+  if value == "+" then
+    return "Modify Reject Reason: Risk Management Efid Group Level (+)"
+  end
+  if value == "4" then
+    return "Modify Reject Reason: After Volatility Cutoff (4)"
+  end
+
+  return "Modify Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Modify Reject Reason
@@ -4885,7 +5365,107 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_reject_reason.display = function(value)
-  return "Order Reject Reason: "..value
+  if value == "A" then
+    return "Order Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Order Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "F" then
+    return "Order Reject Reason: Could Not Reflect To Consolidated Quote (F)"
+  end
+  if value == "H" then
+    return "Order Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Order Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Order Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Order Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Order Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Order Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Order Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Order Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Order Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Order Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Order Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Order Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Order Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Order Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Order Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Order Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Order Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Order Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "c" then
+    return "Order Reject Reason: Only Close Transactions Accepted (c)"
+  end
+  if value == "f" then
+    return "Order Reject Reason: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Order Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Order Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Order Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "w" then
+    return "Order Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Order Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Order Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+  if value == "z" then
+    return "Order Reject Reason: Session End (z)"
+  end
+  if value == "+" then
+    return "Order Reject Reason: Risk Management Efid Group Level (+)"
+  end
+  if value == "4" then
+    return "Order Reject Reason: After Volatility Cutoff (4)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Reject Reason
@@ -5229,7 +5809,107 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.purge_reject_reason.display = function(value)
-  return "Purge Reject Reason: "..value
+  if value == "A" then
+    return "Purge Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Purge Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "F" then
+    return "Purge Reject Reason: Could Not Reflect To Consolidated Quote (F)"
+  end
+  if value == "H" then
+    return "Purge Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Purge Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Purge Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Purge Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "L" then
+    return "Purge Reject Reason: Order Would Lock Or Cross Nbbo (L)"
+  end
+  if value == "M" then
+    return "Purge Reject Reason: Order Size Exceeded (M)"
+  end
+  if value == "N" then
+    return "Purge Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Purge Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Purge Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Purge Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Purge Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Purge Reject Reason: Fill Would Trade Through The Nbbo (T)"
+  end
+  if value == "U" then
+    return "Purge Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Purge Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Purge Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Purge Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Purge Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Purge Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "c" then
+    return "Purge Reject Reason: Only Close Transactions Accepted (c)"
+  end
+  if value == "f" then
+    return "Purge Reject Reason: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Purge Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "r" then
+    return "Purge Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Purge Reject Reason: Risk Management Risk Root Level (s)"
+  end
+  if value == "w" then
+    return "Purge Reject Reason: Would Remove On Unslide (w)"
+  end
+  if value == "x" then
+    return "Purge Reject Reason: Crossed Market (x)"
+  end
+  if value == "y" then
+    return "Purge Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+  if value == "z" then
+    return "Purge Reject Reason: Session End (z)"
+  end
+  if value == "+" then
+    return "Purge Reject Reason: Risk Management Efid Group Level (+)"
+  end
+  if value == "4" then
+    return "Purge Reject Reason: After Volatility Cutoff (4)"
+  end
+
+  return "Purge Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Purge Reject Reason
@@ -5305,7 +5985,89 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.quote_reject_reason.size = 1
 
 -- Display: Quote Reject Reason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.quote_reject_reason.display = function(value)
-  return "Quote Reject Reason: "..value
+  if value == "C" then
+    return "Quote Reject Reason: Invalid Efid (C)"
+  end
+  if value == "D" then
+    return "Quote Reject Reason: Invalid Wash Id (D)"
+  end
+  if value == "E" then
+    return "Quote Reject Reason: Invalid Session Eligibility (E)"
+  end
+  if value == "F" then
+    return "Quote Reject Reason: Not Enabled For Quotes (F)"
+  end
+  if value == "I" then
+    return "Quote Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "L" then
+    return "Quote Reject Reason: Invalid Quote Cnt (L)"
+  end
+  if value == "M" then
+    return "Quote Reject Reason: Symbols Not On Same Matching Engine (M)"
+  end
+  if value == "P" then
+    return "Quote Reject Reason: Invalid Posting Instruction (P)"
+  end
+  if value == "Q" then
+    return "Quote Reject Reason: Invalid Quote Update Id (Q)"
+  end
+  if value == "R" then
+    return "Quote Reject Reason: Risk Root Does Not Match Across Quotes (R)"
+  end
+  if value == "S" then
+    return "Quote Reject Reason: Symbol Not Found (S)"
+  end
+  if value == "U" then
+    return "Quote Reject Reason: Message Unable To Be Sent To Matching Engine (U)"
+  end
+  if value == "W" then
+    return "Quote Reject Reason: Invalid Wash Prevent Type (W)"
+  end
+  if value == "a" then
+    return "Quote Reject Reason: Admin (a)"
+  end
+  if value == "c" then
+    return "Quote Reject Reason: Invalid Capacity (c)"
+  end
+  if value == "d" then
+    return "Quote Reject Reason: Close Only (d)"
+  end
+  if value == "f" then
+    return "Quote Reject Reason: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Quote Reject Reason: Invalid Wash Method (m)"
+  end
+  if value == "n" then
+    return "Quote Reject Reason: Exceedes Max Notional Value Per Order (n)"
+  end
+  if value == "o" then
+    return "Quote Reject Reason: Invalid Open Close (o)"
+  end
+  if value == "p" then
+    return "Quote Reject Reason: Risk Management Risk Root Level (p)"
+  end
+  if value == "r" then
+    return "Quote Reject Reason: Invalid Remove (r)"
+  end
+  if value == "s" then
+    return "Quote Reject Reason: Invalid Side (s)"
+  end
+  if value == "t" then
+    return "Quote Reject Reason: Invalid Send Time (t)"
+  end
+  if value == "u" then
+    return "Quote Reject Reason: Symbol Range Unreachable (u)"
+  end
+  if value == "x" then
+    return "Quote Reject Reason: Exceeds Max Size Per Order (x)"
+  end
+  if value == "y" then
+    return "Quote Reject Reason: Quote Received By Cboe During Replay (y)"
+  end
+
+  return "Quote Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Quote Reject Reason
@@ -6480,7 +7242,44 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.subreason.size = 1
 
 -- Display: Subreason
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.subreason.display = function(value)
-  return "Subreason: "..value
+  if value == "A" then
+    return "Subreason: Purgemass Cancel Efid Level By User (A)"
+  end
+  if value == "B" then
+    return "Subreason: Purgemass Cancel Symbol Level By User (B)"
+  end
+  if value == "C" then
+    return "Subreason: Purgemass Cancel Custom Group Id Level By User (C)"
+  end
+  if value == "E" then
+    return "Subreason: Efid Level Lockout By Cboe Trade Desk Admin (E)"
+  end
+  if value == "J" then
+    return "Subreason: Firm Disconnect (J)"
+  end
+  if value == "K" then
+    return "Subreason: Me Disconnect (K)"
+  end
+  if value == "L" then
+    return "Subreason: Unregistered Mm Account (L)"
+  end
+  if value == "S" then
+    return "Subreason: Minimum Size Requirement Not Met (S)"
+  end
+  if value == "T" then
+    return "Subreason: Cboe Trade Desk Admin (T)"
+  end
+  if value == "f" then
+    return "Subreason: Risk Management Efid Level By Rule (f)"
+  end
+  if value == "s" then
+    return "Subreason: Risk Management Symbol Level By Rule (s)"
+  end
+  if value == "+" then
+    return "Subreason: Risk Management Efid Group Level By Rule (+)"
+  end
+
+  return "Subreason: Unknown("..value..")"
 end
 
 -- Dissect: Subreason
@@ -9599,6 +10398,72 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_rejected_messa
   end
 end
 
+-- Complex Leg
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg = {}
+
+-- Size: Complex Leg
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.size =
+  cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol.size + 
+  cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_cfi_code.size + 
+  cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_maturity_date.size + 
+  cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_strike_price.size + 
+  cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty.size + 
+  cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side.size
+
+-- Display: Complex Leg
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Leg
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.fields = function(buffer, offset, packet, parent, complex_leg_index)
+  local index = offset
+
+  -- Implicit Complex Leg Index
+  if complex_leg_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg_index, complex_leg_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Symbol: Alphanumeric
+  index, leg_symbol = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_symbol.dissect(buffer, index, packet, parent)
+
+  -- Leg Cfi Code: Alphanumeric
+  index, leg_cfi_code = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_cfi_code.dissect(buffer, index, packet, parent)
+
+  -- Leg Maturity Date: Date
+  index, leg_maturity_date = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_maturity_date.dissect(buffer, index, packet, parent)
+
+  -- Leg Strike Price: BinaryPrice
+  index, leg_strike_price = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: Binary
+  index, leg_ratio_qty = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: Alphanumeric
+  index, leg_side = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_side.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Leg
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.dissect = function(buffer, offset, packet, parent, complex_leg_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg, buffer(offset, 0))
+    local index = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.fields(buffer, offset, packet, parent, complex_leg_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.fields(buffer, offset, packet, parent, complex_leg_index)
+  end
+end
+
 -- Complex Instrument Accepted Message
 cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_message = {}
 
@@ -9878,6 +10743,11 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_messa
 
   -- No Legs: Binary
   index, no_legs = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Complex Leg
+  for complex_leg_index = 1, no_legs do
+    index, complex_leg = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.dissect(buffer, index, packet, parent, complex_leg_index)
+  end
 
   -- Runtime optional field: Fee Code
   local fee_code = nil
@@ -12547,11 +13417,11 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cancel_rejected_message.dissect =
   end
 end
 
--- Group
-cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group = {}
+-- Order Allocations
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations = {}
 
--- Size: Group
-cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.size =
+-- Size: Order Allocations
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.size =
   cboe_bzxoptions_binaryorderentry_boe_v2_11_115.side.size + 
   cboe_bzxoptions_binaryorderentry_boe_v2_11_115.alloc_qty.size + 
   cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cl_ord_id.size + 
@@ -12564,18 +13434,18 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.size =
   cboe_bzxoptions_binaryorderentry_boe_v2_11_115.clearing_optional_dat_optional.size + 
   cboe_bzxoptions_binaryorderentry_boe_v2_11_115.frequent_trader_id_optional.size
 
--- Display: Group
-cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.display = function(packet, parent, length)
+-- Display: Order Allocations
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Group
-cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.fields = function(buffer, offset, packet, parent, group_index)
+-- Dissect Fields: Order Allocations
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.fields = function(buffer, offset, packet, parent, order_allocations_index)
   local index = offset
 
-  -- Implicit Group Index
-  if group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.group_index, group_index)
+  -- Implicit Order Allocations Index
+  if order_allocations_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.order_allocations_index, order_allocations_index)
     iteration:set_generated()
   end
 
@@ -12615,21 +13485,21 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.fields = function(buffer, o
   return index
 end
 
--- Dissect: Group
-cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.dissect = function(buffer, offset, packet, parent, group_index)
+-- Dissect: Order Allocations
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.dissect = function(buffer, offset, packet, parent, order_allocations_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.group, buffer(offset, 0))
-    local index = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.fields(buffer, offset, packet, parent, group_index)
+    parent = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.order_allocations, buffer(offset, 0))
+    local index = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.fields(buffer, offset, packet, parent, order_allocations_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.display(packet, parent, length)
+    local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.fields(buffer, offset, packet, parent, group_index)
+    return cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.fields(buffer, offset, packet, parent, order_allocations_index)
   end
 end
 
@@ -12904,9 +13774,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fie
   -- Group Cnt: Binary
   index, group_cnt = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Group
-  for group_index = 1, group_cnt do
-    index, group = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
+  -- Repeating: Order Allocations
+  for order_allocations_index = 1, group_cnt do
+    index, order_allocations = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.dissect(buffer, index, packet, parent, order_allocations_index)
   end
 
   -- Runtime optional field: Price
@@ -17127,9 +17997,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_messag
   -- Group Cnt: Binary
   index, group_cnt = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Group
-  for group_index = 1, group_cnt do
-    index, group = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
+  -- Repeating: Order Allocations
+  for order_allocations_index = 1, group_cnt do
+    index, order_allocations = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.dissect(buffer, index, packet, parent, order_allocations_index)
   end
 
   -- Runtime optional field: Side
@@ -18561,6 +19431,11 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.new_complex_instrument_message.fi
 
   -- No Legs: Binary
   index, no_legs = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Complex Leg
+  for complex_leg_index = 1, no_legs do
+    index, complex_leg = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg.dissect(buffer, index, packet, parent, complex_leg_index)
+  end
 
   -- Runtime optional field: Leg Cfi Code
   local leg_cfi_code = nil
@@ -20652,9 +21527,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message.
   -- Group Cnt: Binary
   index, group_cnt = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Group
-  for group_index = 1, group_cnt do
-    index, group = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
+  -- Repeating: Order Allocations
+  for order_allocations_index = 1, group_cnt do
+    index, order_allocations = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.dissect(buffer, index, packet, parent, order_allocations_index)
   end
 
   -- Runtime optional field: Symbol Alphanumeric 8
@@ -20958,6 +21833,52 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message.
     cboe_bzxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message.fields(buffer, offset, packet, parent, size_of_new_order_cross_multileg_message)
 
     return index
+  end
+end
+
+-- Complex Leg Order Info
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info = {}
+
+-- Size: Complex Leg Order Info
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.size =
+  cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect.size
+
+-- Display: Complex Leg Order Info
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Leg Order Info
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.fields = function(buffer, offset, packet, parent, complex_leg_order_info_index)
+  local index = offset
+
+  -- Implicit Complex Leg Order Info Index
+  if complex_leg_order_info_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg_order_info_index, complex_leg_order_info_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Position Effect: Alphanumeric
+  index, leg_position_effect = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.leg_position_effect.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Leg Order Info
+cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.dissect = function(buffer, offset, packet, parent, complex_leg_order_info_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bzxoptions_binaryorderentry_boe_v2_11_115.fields.complex_leg_order_info, buffer(offset, 0))
+    local index = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.fields(buffer, offset, packet, parent, complex_leg_order_info_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.fields(buffer, offset, packet, parent, complex_leg_order_info_index)
   end
 end
 
@@ -21898,6 +22819,11 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields 
   -- No Legs: Binary
   index, no_legs = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
 
+  -- Repeating: Complex Leg Order Info
+  for complex_leg_order_info_index = 1, no_legs do
+    index, complex_leg_order_info = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.complex_leg_order_info.dissect(buffer, index, packet, parent, complex_leg_order_info_index)
+  end
+
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -22762,9 +23688,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_message.fields = 
   -- Group Cnt: Binary
   index, group_cnt = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Group
-  for group_index = 1, group_cnt do
-    index, group = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
+  -- Repeating: Order Allocations
+  for order_allocations_index = 1, group_cnt do
+    index, order_allocations = cboe_bzxoptions_binaryorderentry_boe_v2_11_115.order_allocations.dissect(buffer, index, packet, parent, order_allocations_index)
   end
 
   -- Runtime optional field: Symbol Alphanumeric 8

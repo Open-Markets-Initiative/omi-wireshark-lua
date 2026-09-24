@@ -210,6 +210,8 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.orig_time = ProtoField.
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.param_group = ProtoField.new("Param Group", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.paramgroup", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.paramgrouplength", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.paramgrouptype", ftypes.UINT8)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.party_id = ProtoField.new("Party Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.partyid", ftypes.STRING)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.party_role = ProtoField.new("Party Role", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.partyrole", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.password = ProtoField.new("Password", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.password", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.peg_difference = ProtoField.new("Peg Difference", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.pegdifference", ftypes.DOUBLE)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.price = ProtoField.new("Price", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.price", ftypes.DOUBLE)
@@ -496,6 +498,8 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trade_time = ProtoField
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.tradingsessionsubid", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.transactioncategory", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.transactiontime", ftypes.UINT64)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp = ProtoField.new("Trd Cap Ack Side Grp", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.trdcapacksidegrp", ftypes.STRING)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_rpt_side_grp = ProtoField.new("Trd Cap Rpt Side Grp", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.trdcaprptsidegrp", ftypes.STRING)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.trdsubtype", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.unit_number = ProtoField.new("Unit Number", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.unitnumber", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.unitsequence", ftypes.UINT32)
@@ -541,6 +545,8 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.user_modify_rejected_v_
 -- Cboe BxeEquities BinaryOrderEntry Boe 2.0.83 Generated Fields
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.custom_group_ids_index = ProtoField.new("Custom Group Ids Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.customgroupidsindex", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.paramgroupindex", ftypes.UINT16)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp_index = ProtoField.new("Trd Cap Ack Side Grp Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.trdcapacksidegrpindex", ftypes.UINT16)
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_rpt_side_grp_index = ProtoField.new("Trd Cap Rpt Side Grp Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.trdcaprptsidegrpindex", ftypes.UINT16)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.units_index = ProtoField.new("Units Index", "cboe.bxeequities.binaryorderentry.boe.v2.0.83.unitsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -735,7 +741,98 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.cancel_reason.display = function(value)
-  return "Cancel Reason: "..value
+  if value == "A" then
+    return "Cancel Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Cancel Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Cancel Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "k" then
+    return "Cancel Reason: Pending Periodic Auction (k)"
+  end
+  if value == "L" then
+    return "Cancel Reason: Price Exceeds Cross Range (L)"
+  end
+  if value == "M" then
+    return "Cancel Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Cancel Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Cancel Reason: Routing Order Would Trade Through An Away Destination (T)"
+  end
+  if value == "U" then
+    return "Cancel Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reason: Unforeseen Reason (Z)"
+  end
+  if value == "l" then
+    return "Cancel Reason: Large In Scale (l)"
+  end
+  if value == "m" then
+    return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "p" then
+    return "Cancel Reason: Static Collar Breach (p)"
+  end
+  if value == "r" then
+    return "Cancel Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "x" then
+    return "Cancel Reason: Crossed Market (x)"
+  end
+  if value == "v" then
+    return "Cancel Reason: Mi Fid Ii Double Cap Related (v)"
+  end
+  if value == "y" then
+    return "Cancel Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -758,7 +855,98 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.cancel_reject_reason.display = function(value)
-  return "Cancel Reject Reason: "..value
+  if value == "A" then
+    return "Cancel Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Cancel Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Cancel Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "k" then
+    return "Cancel Reject Reason: Pending Periodic Auction (k)"
+  end
+  if value == "L" then
+    return "Cancel Reject Reason: Price Exceeds Cross Range (L)"
+  end
+  if value == "M" then
+    return "Cancel Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Cancel Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Cancel Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Cancel Reject Reason: Routing Order Would Trade Through An Away Destination (T)"
+  end
+  if value == "U" then
+    return "Cancel Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Cancel Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Cancel Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "l" then
+    return "Cancel Reject Reason: Large In Scale (l)"
+  end
+  if value == "m" then
+    return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "p" then
+    return "Cancel Reject Reason: Static Collar Breach (p)"
+  end
+  if value == "r" then
+    return "Cancel Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Cancel Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "x" then
+    return "Cancel Reject Reason: Crossed Market (x)"
+  end
+  if value == "v" then
+    return "Cancel Reject Reason: Mi Fid Ii Double Cap Related (v)"
+  end
+  if value == "y" then
+    return "Cancel Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reject Reason
@@ -2332,7 +2520,98 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.modify_reject_reason.display = function(value)
-  return "Modify Reject Reason: "..value
+  if value == "A" then
+    return "Modify Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Modify Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Modify Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Modify Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Modify Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Modify Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "k" then
+    return "Modify Reject Reason: Pending Periodic Auction (k)"
+  end
+  if value == "L" then
+    return "Modify Reject Reason: Price Exceeds Cross Range (L)"
+  end
+  if value == "M" then
+    return "Modify Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Modify Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Modify Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Modify Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Modify Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Modify Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Modify Reject Reason: Routing Order Would Trade Through An Away Destination (T)"
+  end
+  if value == "U" then
+    return "Modify Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Modify Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Modify Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Modify Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Modify Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Modify Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "l" then
+    return "Modify Reject Reason: Large In Scale (l)"
+  end
+  if value == "m" then
+    return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Modify Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "p" then
+    return "Modify Reject Reason: Static Collar Breach (p)"
+  end
+  if value == "r" then
+    return "Modify Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Modify Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "x" then
+    return "Modify Reject Reason: Crossed Market (x)"
+  end
+  if value == "v" then
+    return "Modify Reject Reason: Mi Fid Ii Double Cap Related (v)"
+  end
+  if value == "y" then
+    return "Modify Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Modify Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Modify Reject Reason
@@ -2724,7 +3003,98 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_reject_reason.display = function(value)
-  return "Order Reject Reason: "..value
+  if value == "A" then
+    return "Order Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Order Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Order Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Order Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Order Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Order Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "k" then
+    return "Order Reject Reason: Pending Periodic Auction (k)"
+  end
+  if value == "L" then
+    return "Order Reject Reason: Price Exceeds Cross Range (L)"
+  end
+  if value == "M" then
+    return "Order Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Order Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Order Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Order Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Order Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Order Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Order Reject Reason: Routing Order Would Trade Through An Away Destination (T)"
+  end
+  if value == "U" then
+    return "Order Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Order Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Order Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Order Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Order Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Order Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "l" then
+    return "Order Reject Reason: Large In Scale (l)"
+  end
+  if value == "m" then
+    return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Order Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "p" then
+    return "Order Reject Reason: Static Collar Breach (p)"
+  end
+  if value == "r" then
+    return "Order Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Order Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "x" then
+    return "Order Reject Reason: Crossed Market (x)"
+  end
+  if value == "v" then
+    return "Order Reject Reason: Mi Fid Ii Double Cap Related (v)"
+  end
+  if value == "y" then
+    return "Order Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Reject Reason
@@ -2847,6 +3217,78 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.param_group_type.dissect = functio
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.param_group_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.param_group_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Id
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id = {}
+
+-- Size: Party Id
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.size = 4
+
+-- Display: Party Id
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id: No Value"
+  end
+
+  return "Party Id: "..value
+end
+
+-- Dissect: Party Id
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Party Role
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role = {}
+
+-- Size: Party Role
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.size = 1
+
+-- Display: Party Role
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.display = function(value)
+  if value == "1" then
+    return "Party Role: Executing Firm (1)"
+  end
+  if value == "2" then
+    return "Party Role: Entering Firm (2)"
+  end
+  if value == "3" then
+    return "Party Role: Contra Firm (3)"
+  end
+
+  return "Party Role: Unknown("..value..")"
+end
+
+-- Dissect: Party Role
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.party_role, range, value, display)
 
   return offset + length, value
 end
@@ -2986,7 +3428,98 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.purge_reject_reason.display = function(value)
-  return "Purge Reject Reason: "..value
+  if value == "A" then
+    return "Purge Reject Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Purge Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Purge Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Purge Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Purge Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Purge Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "k" then
+    return "Purge Reject Reason: Pending Periodic Auction (k)"
+  end
+  if value == "L" then
+    return "Purge Reject Reason: Price Exceeds Cross Range (L)"
+  end
+  if value == "M" then
+    return "Purge Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Purge Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Purge Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Purge Reject Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Purge Reject Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Purge Reject Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Purge Reject Reason: Routing Order Would Trade Through An Away Destination (T)"
+  end
+  if value == "U" then
+    return "Purge Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Purge Reject Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Purge Reject Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Purge Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Purge Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Purge Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "l" then
+    return "Purge Reject Reason: Large In Scale (l)"
+  end
+  if value == "m" then
+    return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Purge Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "p" then
+    return "Purge Reject Reason: Static Collar Breach (p)"
+  end
+  if value == "r" then
+    return "Purge Reject Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Purge Reject Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "x" then
+    return "Purge Reject Reason: Crossed Market (x)"
+  end
+  if value == "v" then
+    return "Purge Reject Reason: Mi Fid Ii Double Cap Related (v)"
+  end
+  if value == "y" then
+    return "Purge Reject Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Purge Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Purge Reject Reason
@@ -3009,7 +3542,98 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.reason.size = 1
 
 -- Display: Reason
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.reason.display = function(value)
-  return "Reason: "..value
+  if value == "A" then
+    return "Reason: Admin (A)"
+  end
+  if value == "D" then
+    return "Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "k" then
+    return "Reason: Pending Periodic Auction (k)"
+  end
+  if value == "L" then
+    return "Reason: Price Exceeds Cross Range (L)"
+  end
+  if value == "M" then
+    return "Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Reason: Cant Modify An Order That Is Pending Fill (P)"
+  end
+  if value == "Q" then
+    return "Reason: Waiting For First Trade (Q)"
+  end
+  if value == "R" then
+    return "Reason: Routing Unavailable (R)"
+  end
+  if value == "T" then
+    return "Reason: Routing Order Would Trade Through An Away Destination (T)"
+  end
+  if value == "U" then
+    return "Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Reason: Would Wash (V)"
+  end
+  if value == "W" then
+    return "Reason: Add Liquidity Only Order Would Remove (W)"
+  end
+  if value == "X" then
+    return "Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Reason: Unforeseen Reason (Z)"
+  end
+  if value == "l" then
+    return "Reason: Large In Scale (l)"
+  end
+  if value == "m" then
+    return "Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "o" then
+    return "Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "p" then
+    return "Reason: Static Collar Breach (p)"
+  end
+  if value == "r" then
+    return "Reason: Reserve Reload (r)"
+  end
+  if value == "s" then
+    return "Reason: Risk Management Symbol Level (s)"
+  end
+  if value == "x" then
+    return "Reason: Crossed Market (x)"
+  end
+  if value == "v" then
+    return "Reason: Mi Fid Ii Double Cap Related (v)"
+  end
+  if value == "y" then
+    return "Reason: Order Received By Cboe During Replay (y)"
+  end
+
+  return "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -4454,6 +5078,68 @@ end
 -----------------------------------------------------------------------
 -- Dissect Cboe BxeEquities BinaryOrderEntry Boe 2.0.83
 -----------------------------------------------------------------------
+
+-- Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp = {}
+
+-- Size: Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.size =
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.size
+
+-- Display: Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+  local index = offset
+
+  -- Implicit Trd Cap Ack Side Grp Index
+  if trd_cap_ack_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp_index, trd_cap_ack_side_grp_index)
+    iteration:set_generated()
+  end
+
+  -- Side: Alphanumeric
+  index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+
+  -- Account: Text
+  index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+
+  -- Party Id: Alpha
+  index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+
+  -- Party Role: Alphanumeric
+  index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trd Cap Ack Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_ack_side_grp, buffer(offset, 0))
+    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.fields(buffer, offset, packet, parent, trd_cap_ack_side_grp_index)
+  end
+end
 
 -- Return Bitfield 19
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.return_bitfield_19 = {}
@@ -6410,6 +7096,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_decline_v_2_m
   -- No Sides: Binary
   index, no_sides = cboe_bxeequities_binaryorderentry_boe_v2_0_83.no_sides.dissect(buffer, index, packet, parent)
 
+  -- Repeating: Trd Cap Ack Side Grp
+  for trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  end
+
   -- Runtime optional field: Side
   local side = nil
 
@@ -6818,6 +7509,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_confirm_v_2_message.
 
   -- No Sides: Binary
   index, no_sides = cboe_bxeequities_binaryorderentry_boe_v2_0_83.no_sides.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Trd Cap Ack Side Grp
+  for trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  end
 
   -- Runtime optional field: Side
   local side = nil
@@ -7276,6 +7972,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_reject_v_2_me
   -- No Sides: Binary
   index, no_sides = cboe_bxeequities_binaryorderentry_boe_v2_0_83.no_sides.dissect(buffer, index, packet, parent)
 
+  -- Repeating: Trd Cap Ack Side Grp
+  for trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  end
+
   -- Runtime optional field: Side
   local side = nil
 
@@ -7672,6 +8373,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_acknowledgmen
 
   -- No Sides: Binary
   index, no_sides = cboe_bxeequities_binaryorderentry_boe_v2_0_83.no_sides.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Trd Cap Ack Side Grp
+  for trd_cap_ack_side_grp_index = 1, no_sides do
+    index, trd_cap_ack_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index)
+  end
 
   -- Runtime optional field: Side
   local side = nil
@@ -12553,6 +13259,68 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.order_acknowledgment_v_2_message.d
   end
 end
 
+-- Trd Cap Rpt Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp = {}
+
+-- Size: Trd Cap Rpt Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.size =
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.size + 
+  cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.size
+
+-- Display: Trd Cap Rpt Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trd Cap Rpt Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+  local index = offset
+
+  -- Implicit Trd Cap Rpt Side Grp Index
+  if trd_cap_rpt_side_grp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_rpt_side_grp_index, trd_cap_rpt_side_grp_index)
+    iteration:set_generated()
+  end
+
+  -- Side: Alphanumeric
+  index, side = cboe_bxeequities_binaryorderentry_boe_v2_0_83.side.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = cboe_bxeequities_binaryorderentry_boe_v2_0_83.capacity.dissect(buffer, index, packet, parent)
+
+  -- Party Id: Alpha
+  index, party_id = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_id.dissect(buffer, index, packet, parent)
+
+  -- Account: Text
+  index, account = cboe_bxeequities_binaryorderentry_boe_v2_0_83.account.dissect(buffer, index, packet, parent)
+
+  -- Party Role: Alphanumeric
+  index, party_role = cboe_bxeequities_binaryorderentry_boe_v2_0_83.party_role.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trd Cap Rpt Side Grp
+cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.dissect = function(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_83.fields.trd_cap_rpt_side_grp, buffer(offset, 0))
+    local index = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.fields(buffer, offset, packet, parent, trd_cap_rpt_side_grp_index)
+  end
+end
+
 -- Trade Capture Report V 2 Bitfield 6
 cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_v_2_bitfield_6 = {}
 
@@ -13186,6 +13954,11 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_83.trade_capture_report_v_2_message.f
 
   -- No Sides: Binary
   index, no_sides = cboe_bxeequities_binaryorderentry_boe_v2_0_83.no_sides.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Trd Cap Rpt Side Grp
+  for trd_cap_rpt_side_grp_index = 1, no_sides do
+    index, trd_cap_rpt_side_grp = cboe_bxeequities_binaryorderentry_boe_v2_0_83.trd_cap_rpt_side_grp.dissect(buffer, index, packet, parent, trd_cap_rpt_side_grp_index)
+  end
 
   -- Runtime optional field: Symbol
   local symbol = nil

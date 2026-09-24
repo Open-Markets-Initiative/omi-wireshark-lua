@@ -651,7 +651,83 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_reason.size = 1
 
 -- Display: Cancel Reason
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_reason.display = function(value)
-  return "Cancel Reason: "..value
+  if value == "A" then
+    return "Cancel Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Cancel Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Cancel Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Cancel Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Cancel Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Cancel Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Cancel Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reason: Cant Modify An Order That Is Pending (P)"
+  end
+  if value == "U" then
+    return "Cancel Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Cancel Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Cancel Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Cancel Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Cancel Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Cancel Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Cancel Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Cancel Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Cancel Reason: Session End (z)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -674,7 +750,83 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_reject_reason.size = 1
 
 -- Display: Cancel Reject Reason
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_reject_reason.display = function(value)
-  return "Cancel Reject Reason: "..value
+  if value == "A" then
+    return "Cancel Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Cancel Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Cancel Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Cancel Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Cancel Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Cancel Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Cancel Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Cancel Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Cancel Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Cancel Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Cancel Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Cancel Reject Reason: Cant Modify An Order That Is Pending (P)"
+  end
+  if value == "U" then
+    return "Cancel Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Cancel Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Cancel Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Cancel Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Cancel Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Cancel Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Cancel Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Cancel Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Cancel Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Cancel Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Cancel Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Cancel Reject Reason: Session End (z)"
+  end
+
+  return "Cancel Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reject Reason
@@ -2044,7 +2196,83 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.modify_reject_reason.size = 1
 
 -- Display: Modify Reject Reason
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.modify_reject_reason.display = function(value)
-  return "Modify Reject Reason: "..value
+  if value == "A" then
+    return "Modify Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Modify Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Modify Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Modify Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Modify Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Modify Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Modify Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Modify Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Modify Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Modify Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Modify Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Modify Reject Reason: Cant Modify An Order That Is Pending (P)"
+  end
+  if value == "U" then
+    return "Modify Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Modify Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Modify Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Modify Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Modify Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Modify Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Modify Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Modify Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Modify Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Modify Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Modify Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Modify Reject Reason: Session End (z)"
+  end
+
+  return "Modify Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Modify Reject Reason
@@ -2435,7 +2663,83 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_reject_reason.size = 1
 
 -- Display: Order Reject Reason
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_reject_reason.display = function(value)
-  return "Order Reject Reason: "..value
+  if value == "A" then
+    return "Order Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Order Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Order Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Order Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Order Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Order Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Order Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Order Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Order Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Order Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Order Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Order Reject Reason: Cant Modify An Order That Is Pending (P)"
+  end
+  if value == "U" then
+    return "Order Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Order Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Order Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Order Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Order Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Order Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Order Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Order Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Order Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Order Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Order Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Order Reject Reason: Session End (z)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Order Reject Reason
@@ -2746,7 +3050,83 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.purge_reject_reason.size = 1
 
 -- Display: Purge Reject Reason
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.purge_reject_reason.display = function(value)
-  return "Purge Reject Reason: "..value
+  if value == "A" then
+    return "Purge Reject Reason: Admin (A)"
+  end
+  if value == "B" then
+    return "Purge Reject Reason: Unknown Maturity Date (B)"
+  end
+  if value == "C" then
+    return "Purge Reject Reason: Unknown Product Name (C)"
+  end
+  if value == "D" then
+    return "Purge Reject Reason: Duplicate Identifier (D)"
+  end
+  if value == "H" then
+    return "Purge Reject Reason: Halted (H)"
+  end
+  if value == "I" then
+    return "Purge Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "J" then
+    return "Purge Reject Reason: Too Late To Cancel (J)"
+  end
+  if value == "K" then
+    return "Purge Reject Reason: Order Rate Threshold Exceeded (K)"
+  end
+  if value == "M" then
+    return "Purge Reject Reason: Liquidity Available Exceeds Order Size (M)"
+  end
+  if value == "N" then
+    return "Purge Reject Reason: Ran Out Of Liquidity To Execute Against (N)"
+  end
+  if value == "O" then
+    return "Purge Reject Reason: Cl Ord Id Doesnt Match A Known Order (O)"
+  end
+  if value == "P" then
+    return "Purge Reject Reason: Cant Modify An Order That Is Pending (P)"
+  end
+  if value == "U" then
+    return "Purge Reject Reason: User Requested (U)"
+  end
+  if value == "V" then
+    return "Purge Reject Reason: Would Wash (V)"
+  end
+  if value == "X" then
+    return "Purge Reject Reason: Order Expired (X)"
+  end
+  if value == "Y" then
+    return "Purge Reject Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Purge Reject Reason: Unforeseen Reason (Z)"
+  end
+  if value == "h" then
+    return "Purge Reject Reason: Order Persisted (h)"
+  end
+  if value == "f" then
+    return "Purge Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+  end
+  if value == "m" then
+    return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
+  end
+  if value == "n" then
+    return "Purge Reject Reason: Risk Management Configuration Is Insufficient (n)"
+  end
+  if value == "o" then
+    return "Purge Reject Reason: Max Open Orders Count Exceeded (o)"
+  end
+  if value == "s" then
+    return "Purge Reject Reason: Risk Management Product Level (s)"
+  end
+  if value == "y" then
+    return "Purge Reject Reason: Order Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Purge Reject Reason: Session End (z)"
+  end
+
+  return "Purge Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Purge Reject Reason
@@ -2792,7 +3172,89 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.quote_reject_reason.size = 1
 
 -- Display: Quote Reject Reason
 cboe_cfefutures_binaryorderentry_boe_v1_3_12.quote_reject_reason.display = function(value)
-  return "Quote Reject Reason: "..value
+  if value == "C" then
+    return "Quote Reject Reason: Invalid Efid (C)"
+  end
+  if value == "D" then
+    return "Quote Reject Reason: Invalid Wash Id (D)"
+  end
+  if value == "F" then
+    return "Quote Reject Reason: Not Enabled For Quotes (F)"
+  end
+  if value == "I" then
+    return "Quote Reject Reason: Incorrect Data Center (I)"
+  end
+  if value == "K" then
+    return "Quote Reject Reason: Message Rate Threshold (K)"
+  end
+  if value == "L" then
+    return "Quote Reject Reason: Invalid Quote Cnt (L)"
+  end
+  if value == "M" then
+    return "Quote Reject Reason: Symbols Not On Same Matching Engine (M)"
+  end
+  if value == "O" then
+    return "Quote Reject Reason: Invalid Manual Order Indicator (O)"
+  end
+  if value == "Q" then
+    return "Quote Reject Reason: Invalid Quote Update Id (Q)"
+  end
+  if value == "R" then
+    return "Quote Reject Reason: Futures Root Does Not Match Across Quotes (R)"
+  end
+  if value == "S" then
+    return "Quote Reject Reason: Symbol Not Found (S)"
+  end
+  if value == "W" then
+    return "Quote Reject Reason: Invalid Wash Prevent Type (W)"
+  end
+  if value == "a" then
+    return "Quote Reject Reason: Admin (a)"
+  end
+  if value == "c" then
+    return "Quote Reject Reason: Invalid Capacity (c)"
+  end
+  if value == "e" then
+    return "Quote Reject Reason: Invalid Oeoid (e)"
+  end
+  if value == "f" then
+    return "Quote Reject Reason: Risk Management Efid Or Custom Group Id Level (f)"
+  end
+  if value == "i" then
+    return "Quote Reject Reason: Invalid Cti Code (i)"
+  end
+  if value == "m" then
+    return "Quote Reject Reason: Invalid Wash Method (m)"
+  end
+  if value == "n" then
+    return "Quote Reject Reason: Exceedes Max Notional Value Per Order (n)"
+  end
+  if value == "o" then
+    return "Quote Reject Reason: Invalid Open Close (o)"
+  end
+  if value == "p" then
+    return "Quote Reject Reason: Risk Management Product Level (p)"
+  end
+  if value == "r" then
+    return "Quote Reject Reason: Invalid Remove (r)"
+  end
+  if value == "s" then
+    return "Quote Reject Reason: Invalid Side (s)"
+  end
+  if value == "u" then
+    return "Quote Reject Reason: Symbol Range Unreachable (u)"
+  end
+  if value == "x" then
+    return "Quote Reject Reason: Exceedes Max Size Per Order (x)"
+  end
+  if value == "y" then
+    return "Quote Reject Reason: Quote Received By Cfe During Replay (y)"
+  end
+  if value == "z" then
+    return "Quote Reject Reason: Invalid Size Modifier (z)"
+  end
+
+  return "Quote Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Quote Reject Reason
