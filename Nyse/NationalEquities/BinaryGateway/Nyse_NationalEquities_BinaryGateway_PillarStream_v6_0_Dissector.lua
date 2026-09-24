@@ -7105,12 +7105,6 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.execution_report_message.f
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
-
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
-
   -- Runtime optional field: Optional Settlement Type Add On
   local optional_settlement_type_add_on = nil
 
@@ -7652,9 +7646,6 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.order_and_cancel_replace_a
 
   -- User Data: zchar(8)
   index, user_data = nyse_nationalequities_binarygateway_pillarstream_v6_0.user_data.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(offset - 2, 2):le_uint()
@@ -8889,9 +8880,6 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.new_order_single_and_cance
 
   -- User Data: zchar(8)
   index, user_data = nyse_nationalequities_binarygateway_pillarstream_v6_0.user_data.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
   -- Dependency element: Seq Msg Length
   local seq_msg_length = buffer(offset - 2, 2):le_uint()

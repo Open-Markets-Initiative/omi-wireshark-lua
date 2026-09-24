@@ -8994,47 +8994,7 @@ end
 -- Covered
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.covered = {}
 
--- Calculate size of: Covered
-nyse_arcaoptions_binarygateway_pillarstream_v3_27.covered.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.sub_msg_header.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.symbol_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.mpid.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.market_maker.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.mp_sub_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.cl_ord_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.orig_cl_ord_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.bitfield_order_instructions.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.price.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.order_qty.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.min_qty.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.user_data.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.leg_open_close.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.auction_id.size
-
-  local seq_msg_length = buffer(offset - 226, 2):le_uint()
-
-  if seq_msg_length ~= 100 then
-    index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_27.optional_order_add_on.size
-
-  end
-
-  return index
-end
+-- Size of Covered: not written, it needs Seq Msg Length passed down from New Order Cross Message
 
 -- Display: Covered
 nyse_arcaoptions_binarygateway_pillarstream_v3_27.covered.display = function(packet, parent, length)

@@ -1644,6 +1644,57 @@ end
 -- Dissect Miax OnyxFutures DepthOfMarket Mach 1.0.b
 -----------------------------------------------------------------------
 
+-- End Of Session
+miax_onyxfutures_depthofmarket_mach_v1_0_b.end_of_session = {}
+
+-- Display: End Of Session
+miax_onyxfutures_depthofmarket_mach_v1_0_b.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+miax_onyxfutures_depthofmarket_mach_v1_0_b.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Start Of Session
+miax_onyxfutures_depthofmarket_mach_v1_0_b.start_of_session = {}
+
+-- Display: Start Of Session
+miax_onyxfutures_depthofmarket_mach_v1_0_b.start_of_session.display = function(packet, parent, length)
+  return "Start Of Session"
+end
+
+
+-- Dissect: Start Of Session
+miax_onyxfutures_depthofmarket_mach_v1_0_b.start_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.start_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+miax_onyxfutures_depthofmarket_mach_v1_0_b.heartbeat = {}
+
+-- Display: Heartbeat
+miax_onyxfutures_depthofmarket_mach_v1_0_b.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+miax_onyxfutures_depthofmarket_mach_v1_0_b.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Trade Cancel Message
 miax_onyxfutures_depthofmarket_mach_v1_0_b.trade_cancel_message = {}
 
@@ -2842,6 +2893,18 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect = function(buffer, of
   if packet_type == 3 then
     return miax_onyxfutures_depthofmarket_mach_v1_0_b.application_message.dissect(buffer, offset, packet, parent)
   end
+  -- Dissect Heartbeat
+  if packet_type == 0 then
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Start Of Session
+  if packet_type == 1 then
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.start_of_session.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session
+  if packet_type == 2 then
+    return miax_onyxfutures_depthofmarket_mach_v1_0_b.end_of_session.dissect(buffer, offset, packet, parent)
+  end
 
   return offset
 end
@@ -2890,7 +2953,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.mach_message.fields = function(buffer
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
   index, session_number = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_number.dissect(buffer, index, packet, parent)
 
-  -- Payload: Runtime Type with 1 branches
+  -- Payload: Runtime Type with 4 branches
   index = miax_onyxfutures_depthofmarket_mach_v1_0_b.payload.dissect(buffer, index, packet, parent, packet_type)
 
   return index

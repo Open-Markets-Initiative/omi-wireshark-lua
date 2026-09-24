@@ -28,3 +28,13 @@ grep "box.boxoptions.solamulticast.hsvf.v1.8.filler1" Box.BoxOptions.SolaMultica
 grep "box.boxoptions.solamulticast.hsvf.v1.8.instrumentstatusmarker" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.publiccustomerbidsize" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
 grep "box.boxoptions.solamulticast.hsvf.v1.8.publiccustomerasksize" Box.BoxOptions.SolaMulticast.Hsvf.v1.8.OptionQuoteMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Box/BoxOptions.SolaMulticast.Hsvf.v1.8/MultipleMessages.pcap" \
+  -X "lua_script:Box/BoxOptions/SolaMulticast/Box_BoxOptions_SolaMulticast_Hsvf_v1_8_Dissector.lua" \
+  -T json \
+  > Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json 2> Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json.stderr; exit 1; }
+
+grep "box.boxoptions.solamulticast.hsvf.v1.8." Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json
+
+[ "$(grep -c 'box.boxoptions.solamulticast.hsvf.v1.8.' Box.BoxOptions.SolaMulticast.Hsvf.v1.8.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

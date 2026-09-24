@@ -3761,9 +3761,6 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.no_unspecified_unit_replay.display =
   if value == 1 then
     return "No Unspecified Unit Replay: True (1)"
   end
-  if value == T then
-    return "No Unspecified Unit Replay: Test (T)"
-  end
 
   return "No Unspecified Unit Replay: Unknown("..value..")"
 end

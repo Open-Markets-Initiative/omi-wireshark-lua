@@ -17,6 +17,13 @@ grep "miax.onyxfutures.topofmarket.mach.v1.0.b.mbbsize" Miax.OnyxFutures.TopOfMa
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.mboprice" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json
 grep "miax.onyxfutures.topofmarket.mach.v1.0.b.mbosize" Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.BestBidAndOfferMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Miax/OnyxFutures.TopOfMarket.Mach.v1.0.b/Heartbeat.pcap" \
+  -X "lua_script:Miax/OnyxFutures/TopOfMarket/Miax_OnyxFutures_TopOfMarket_Mach_v1_0_b_Dissector.lua" \
+  -T json \
+  > Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.Heartbeat.json 2> Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.Heartbeat.json.stderr \
+  || { echo "--- tshark FAILED (Heartbeat) ---"; cat Miax.OnyxFutures.TopOfMarket.Mach.v1.0.b.Heartbeat.json.stderr; exit 1; }
+
+runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/OnyxFutures.TopOfMarket.Mach.v1.0.b/InstrumentTradingStatusNotificationMessage.pcap" \
   -X "lua_script:Miax/OnyxFutures/TopOfMarket/Miax_OnyxFutures_TopOfMarket_Mach_v1_0_b_Dissector.lua" \
   -T json \
