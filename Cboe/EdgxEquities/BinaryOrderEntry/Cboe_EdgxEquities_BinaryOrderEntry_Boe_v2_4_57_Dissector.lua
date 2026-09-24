@@ -1823,7 +1823,6 @@ omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.side = ProtoField.new(
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.startofmessage", ftypes.UINT16)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.step_up_amount = ProtoField.new("Step Up Amount", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.stepupamount", ftypes.DOUBLE)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.stop_px = ProtoField.new("Stop Px", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.stoppx", ftypes.DOUBLE)
-omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.sub_liquidity_indicato = ProtoField.new("Sub Liquidity Indicato", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.subliquidityindicato", ftypes.STRING)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.subliquidityindicator", ftypes.STRING)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.symbol = ProtoField.new("Symbol", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.symbol", ftypes.STRING)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "cboe.edgxequities.binaryorderentry.boe.v2.4.57.symbolsfx", ftypes.STRING)
@@ -5516,57 +5515,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.stop_px.dissect = function(buffer
   local display = cboe_edgxequities_binaryorderentry_boe_v2_4_57.stop_px.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.stop_px, range, value, display)
-
-  return offset + length, value
-end
-
--- Sub Liquidity Indicato
-cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato = {}
-
--- Size: Sub Liquidity Indicato
-cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.size = 1
-
--- Display: Sub Liquidity Indicato
-cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.display = function(value)
-  if value == "E" then
-    return "Sub Liquidity Indicato: Trade Added Rpi Liquidity (E)"
-  end
-  if value == "H" then
-    return "Sub Liquidity Indicato: Trade Added Hidden Liquidity (H)"
-  end
-  if value == "I" then
-    return "Sub Liquidity Indicato: Trade Added Hidden Liquidity That Was Price (I)"
-  end
-  if value == "J" then
-    return "Sub Liquidity Indicato: Execution From First Order To Join The Nbbo (J)"
-  end
-  if value == "P" then
-    return "Sub Liquidity Indicato: Periodic Auction (P)"
-  end
-  if value == "S" then
-    return "Sub Liquidity Indicato: Nbbo Setter Fee Eligible (S)"
-  end
-  if value == "V" then
-    return "Sub Liquidity Indicato: Visible Liquidity Add Trade That Was Price (V)"
-  end
-  if value == "m" then
-    return "Sub Liquidity Indicato: Midpoint Peg Order (m)"
-  end
-  if value == "s" then
-    return "Sub Liquidity Indicato: Order Set The Nbbo But Is Not Fee Eligible (s)"
-  end
-
-  return "Sub Liquidity Indicato: Unknown("..value..")"
-end
-
--- Dissect: Sub Liquidity Indicato
-cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_4_57.fields.sub_liquidity_indicato, range, value, display)
 
   return offset + length, value
 end
@@ -12295,8 +12243,8 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.order_execution_message.fields = 
   -- Base Liquidity Indicator: Alphanumeric
   index, base_liquidity_indicator = cboe_edgxequities_binaryorderentry_boe_v2_4_57.base_liquidity_indicator.dissect(buffer, index, packet, parent)
 
-  -- Sub Liquidity Indicato: Alphanumeric
-  index, sub_liquidity_indicato = cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.dissect(buffer, index, packet, parent)
+  -- Sub Liquidity Indicator: Alphanumeric
+  index, sub_liquidity_indicator = cboe_edgxequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
 
   -- Contra Broker: Alphanumeric
   index, contra_broker = cboe_edgxequities_binaryorderentry_boe_v2_4_57.contra_broker.dissect(buffer, index, packet, parent)
