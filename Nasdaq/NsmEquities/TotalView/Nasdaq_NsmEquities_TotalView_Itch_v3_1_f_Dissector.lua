@@ -78,12 +78,14 @@ omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.username = ProtoField.new("U
 
 -- Nasdaq NsmEquities TotalView Itch 3.1.f Framing
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.client_packet = ProtoField.new("Client Packet", "nasdaq.nsmequities.totalview.itch.v3.1.f.clientpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.client_packet_header = ProtoField.new("Client Packet Header", "nasdaq.nsmequities.totalview.itch.v3.1.f.clientpacketheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.message = ProtoField.new("Message", "nasdaq.nsmequities.totalview.itch.v3.1.f.message", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.message_header = ProtoField.new("Message Header", "nasdaq.nsmequities.totalview.itch.v3.1.f.messageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.packet = ProtoField.new("Packet", "nasdaq.nsmequities.totalview.itch.v3.1.f.packet", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nsmequities.totalview.itch.v3.1.f.packetheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.sequenced_message_header = ProtoField.new("Sequenced Message Header", "nasdaq.nsmequities.totalview.itch.v3.1.f.sequencedmessageheader", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.server_packet = ProtoField.new("Server Packet", "nasdaq.nsmequities.totalview.itch.v3.1.f.serverpacket", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.server_packet_header = ProtoField.new("Server Packet Header", "nasdaq.nsmequities.totalview.itch.v3.1.f.serverpacketheader", ftypes.STRING)
 
 -- Nasdaq NsmEquities TotalView 3.1.f Application Messages
 omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.add_order_message = ProtoField.new("Add Order Message", "nasdaq.nsmequities.totalview.itch.v3.1.f.addordermessage", ftypes.STRING)
@@ -3610,12 +3612,52 @@ nasdaq_nsmequities_totalview_itch_v3_1_f.server_payload.dissect = function(buffe
   return offset
 end
 
+-- Server Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header = {}
+
+-- Size: Server Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.size =
+  nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_type.size
+
+-- Display: Server Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Server Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, server_packet_type = nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Server Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.server_packet_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Server Packet
 nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet = {}
 
 -- Verify required size of Tcp packet
 nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_type.size
+  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.size
 end
 
 -- Dissect Server Packet
@@ -3627,8 +3669,11 @@ nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet.dissect = function(buffer
 
   while index < end_of_payload do
 
-    -- Server Packet Type: 1 Byte Ascii String Enum with 5 values
-    index, server_packet_type = nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_type.dissect(buffer, index, packet, parent)
+    -- Server Packet Header: Struct of 1 fields
+    index, server_packet_header = nasdaq_nsmequities_totalview_itch_v3_1_f.server_packet_header.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Server Packet Type
+    local server_packet_type = buffer(index - 1, 1):string()
 
     -- Server Payload: Runtime Type with 4 branches
     index = nasdaq_nsmequities_totalview_itch_v3_1_f.server_payload.dissect(buffer, index, packet, parent, server_packet_type)
@@ -3753,12 +3798,52 @@ nasdaq_nsmequities_totalview_itch_v3_1_f.client_payload.dissect = function(buffe
   return offset
 end
 
+-- Client Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header = {}
+
+-- Size: Client Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.size =
+  nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_type.size
+
+-- Display: Client Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
+  index, client_packet_type = nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Packet Header
+nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v3_1_f.fields.client_packet_header, buffer(offset, 0))
+    local index = nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Client Packet
 nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet = {}
 
 -- Verify required size of Tcp packet
 nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet.requiredsize = function(buffer)
-  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_type.size
+  return buffer:len() >= nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.size
 end
 
 -- Dissect Client Packet
@@ -3770,8 +3855,11 @@ nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet.dissect = function(buffer
 
   while index < end_of_payload do
 
-    -- Client Packet Type: 1 Byte Ascii String Enum with 5 values
-    index, client_packet_type = nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_type.dissect(buffer, index, packet, parent)
+    -- Client Packet Header: Struct of 1 fields
+    index, client_packet_header = nasdaq_nsmequities_totalview_itch_v3_1_f.client_packet_header.dissect(buffer, index, packet, parent)
+
+    -- Dependency element: Client Packet Type
+    local client_packet_type = buffer(index - 1, 1):string()
 
     -- Client Payload: Runtime Type with 3 branches
     index = nasdaq_nsmequities_totalview_itch_v3_1_f.client_payload.dissect(buffer, index, packet, parent, client_packet_type)
