@@ -13,6 +13,7 @@
 | [Trace][Trace.Exchange] | [Atds][Finra.Trace.Atds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.Trace.Atds.Dfi.v2.1.Dissector] | 3/21/2024 | 5598 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Trace.Atds.Dfi.v2.1.Url] - [pdf][Finra.Trace.Atds.Dfi.v2.1.Pdf] |
 | [Trace][Trace.Exchange] | [Btds][Finra.Trace.Btds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.Trace.Btds.Dfi.v2.1.Dissector] | 3/21/2024 | 5708 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Trace.Btds.Dfi.v2.1.Url] - [pdf][Finra.Trace.Btds.Dfi.v2.1.Pdf] |
 | [Trace][Trace.Exchange] | [Btds144A][Finra.Trace.Btds144A] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.Trace.Btds144A.Dfi.v2.1.Dissector] | 3/21/2024 | 5708 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Trace.Btds144A.Dfi.v2.1.Url] - [pdf][Finra.Trace.Btds144A.Dfi.v2.1.Pdf] |
+| [Trace][Trace.Exchange] | [Spds][Finra.Trace.Spds] | [Dfi][Omi.Encoding.Dfi] | [2.1][Finra.Trace.Spds.Dfi.v2.1.Dissector] | 11/19/2024 | 4022 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Trace.Spds.Dfi.v2.1.Url] - [pdf][Finra.Trace.Spds.Dfi.v2.1.Pdf] |
 
 
 <p align="center"><a href="https://www.finra.org" title="Financial Industry Regulatory Authority Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/finra" title="Financial Industry Regulatory Authority on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Financial_Industry_Regulatory_Authority" title="Financial Industry Regulatory Authority on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
@@ -43,6 +44,7 @@
 [Finra.Trace.Atds]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Atds.md "Agency Debt Trade Dissemination Service"
 [Finra.Trace.Btds]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Btds.md "Bond Trade Dissemination Service"
 [Finra.Trace.Btds144A]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Btds144A.md "Bond Trade Dissemination Service for 144A Transactions"
+[Finra.Trace.Spds]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Protocols/Trace/Spds.md "Securitized Products Dissemination Service"
 
 [Finra.FinraOrf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Finra/FinraOrf/Tdds/Finra_FinraOrf_Tdds_Dfi_v2_0_Dissector.lua "Finra FinraOrf Tdds Dfi v2.0 Wireshark Dissector"
 [Finra.FinraOrf.Tdds.Dfi.v2.0.Url]: https://www.finra.org/filing-reporting/orf/orf-forms-and-documentation "Financial Industry Regulatory Authority 2.0 Url"
@@ -62,3 +64,6 @@
 [Finra.Trace.Btds144A.Dfi.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Finra/Trace/Btds144A/Finra_Trace_Btds144A_Dfi_v2_1_Dissector.lua "Finra Trace Btds144A Dfi v2.1 Wireshark Dissector"
 [Finra.Trace.Btds144A.Dfi.v2.1.Url]: https://www.finra.org/filing-reporting/trace/documentation "Financial Industry Regulatory Authority 2.1 Url"
 [Finra.Trace.Btds144A.Dfi.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Specifications/Btds/Finra.Trace.Btds144A.Dfi.v2.1.pdf "Financial Industry Regulatory Authority 2.1 Pdf"
+[Finra.Trace.Spds.Dfi.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Finra/Trace/Spds/Finra_Trace_Spds_Dfi_v2_1_Dissector.lua "Finra Trace Spds Dfi v2.1 Wireshark Dissector"
+[Finra.Trace.Spds.Dfi.v2.1.Url]: https://www.finra.org/filing-reporting/trace/documentation "Financial Industry Regulatory Authority 2.1 Url"
+[Finra.Trace.Spds.Dfi.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Finra/Specifications/Spds/Finra.Trace.Spds.Dfi.v2.1.pdf "Financial Industry Regulatory Authority 2.1 Pdf"

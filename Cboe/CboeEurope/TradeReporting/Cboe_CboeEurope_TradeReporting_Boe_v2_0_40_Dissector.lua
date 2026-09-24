@@ -48,6 +48,9 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_return_bitfields
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_trade_capture_report_v_2_bitfields = ProtoField.new("Number Of Trade Capture Report V 2 Bitfields", "cboe.cboeeurope.tradereporting.boe.v2.0.40.numberoftradecapturereportv2bitfields", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.cboeeurope.tradereporting.boe.v2.0.40.numberofunits", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_category = ProtoField.new("Order Category", "cboe.cboeeurope.tradereporting.boe.v2.0.40.ordercategory", ftypes.UINT8)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group = ProtoField.new("Param Group", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgroup", ftypes.STRING)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgrouplength", ftypes.UINT16)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgrouptype", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.password = ProtoField.new("Password", "cboe.cboeeurope.tradereporting.boe.v2.0.40.password", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.price_formation = ProtoField.new("Price Formation", "cboe.cboeeurope.tradereporting.boe.v2.0.40.priceformation", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.quote_cancel_v_2_bitfield_1 = ProtoField.new("Quote Cancel V 2 Bitfield 1", "cboe.cboeeurope.tradereporting.boe.v2.0.40.quotecancelv2bitfield1", ftypes.STRING)
@@ -321,10 +324,9 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trading_session_sub_id = P
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.cboeeurope.tradereporting.boe.v2.0.40.transactioncategory", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cboeeurope.tradereporting.boe.v2.0.40.transactiontime", ftypes.UINT64)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "cboe.cboeeurope.tradereporting.boe.v2.0.40.trdsubtype", ftypes.UINT8)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_number_1 = ProtoField.new("Unit Number 1", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitnumber1", ftypes.UINT8)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_numbern = ProtoField.new("Unit Numbern", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitnumbern", ftypes.UINT8)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_sequence_1 = ProtoField.new("Unit Sequence 1", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitsequence1", ftypes.UINT32)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_sequencen = ProtoField.new("Unit Sequencen", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitsequencen", ftypes.UINT32)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_number = ProtoField.new("Unit Number", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitnumber", ftypes.UINT8)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitsequence", ftypes.UINT32)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.units = ProtoField.new("Units", "cboe.cboeeurope.tradereporting.boe.v2.0.40.units", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.username = ProtoField.new("Username", "cboe.cboeeurope.tradereporting.boe.v2.0.40.username", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.venue_type = ProtoField.new("Venue Type", "cboe.cboeeurope.tradereporting.boe.v2.0.40.venuetype", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.waiver_type = ProtoField.new("Waiver Type", "cboe.cboeeurope.tradereporting.boe.v2.0.40.waivertype", ftypes.STRING)
@@ -351,6 +353,10 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_decli
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_reject_v_2_message = ProtoField.new("Trade Capture Report Reject V 2 Message", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportrejectv2message", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.trade_capture_report_v_2_message = ProtoField.new("Trade Capture Report V 2 Message", "cboe.cboeeurope.tradereporting.boe.v2.0.40.tradecapturereportv2message", ftypes.STRING)
 
+-- Cboe CboeEurope TradeReporting Boe 2.0.40 Generated Fields
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.paramgroupindex", ftypes.UINT16)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.units_index = ProtoField.new("Units Index", "cboe.cboeeurope.tradereporting.boe.v2.0.40.unitsindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -361,11 +367,15 @@ local show = {}
 show.application_messages = true
 show.headers = true
 show.structs = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Cboe CboeEurope TradeReporting Boe 2.0.40 Show Options
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs_changed()
@@ -377,8 +387,14 @@ function omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs_changed()
   if show.headers ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_headers then
     show.headers = omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_headers
   end
+  if show.repeating_groups ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_repeating_groups
+  end
   if show.structs ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_structs then
     show.structs = omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_indexes then
+    show.indexes = omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.prefs.show_indexes
   end
 end
 
@@ -434,7 +450,14 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.size = 1
 
 -- Display: Algorithmic Indicator
 cboe_cboeeurope_tradereporting_boe_v2_0_40.algorithmic_indicator.display = function(value)
-  return "Algorithmic Indicator: "..value
+  if value == "N" then
+    return "Algorithmic Indicator: No Algorithm Was Involved (N)"
+  end
+  if value == "Y" then
+    return "Algorithmic Indicator: Algorithm Was Involved (Y)"
+  end
+
+  return "Algorithmic Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Algorithmic Indicator
@@ -457,7 +480,17 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.size = 1
 
 -- Display: Capacity
 cboe_cboeeurope_tradereporting_boe_v2_0_40.capacity.display = function(value)
-  return "Capacity: "..value
+  if value == "A" then
+    return "Capacity: Agency (A)"
+  end
+  if value == "P" then
+    return "Capacity: Principal (P)"
+  end
+  if value == "R" then
+    return "Capacity: Riskless Principal (R)"
+  end
+
+  return "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -597,7 +630,32 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.size = 1
 
 -- Display: Deferral Reason
 cboe_cboeeurope_tradereporting_boe_v2_0_40.deferral_reason.display = function(value)
-  return "Deferral Reason: "..value
+  if value == "-" then
+    return "Deferral Reason: No Deferral Reason (-)"
+  end
+  if value == "6" then
+    return "Deferral Reason: Deferral For Large In Scale (6)"
+  end
+  if value == "7" then
+    return "Deferral Reason: Deferral For Illiquid Instrument (7)"
+  end
+  if value == "8" then
+    return "Deferral Reason: Deferral For Size Specific (8)"
+  end
+  if value == "C" then
+    return "Deferral Reason: Deferral For Illiquid Instrument (C)"
+  end
+  if value == "D" then
+    return "Deferral Reason: Deferral For Illiquid Instrument (D)"
+  end
+  if value == "G" then
+    return "Deferral Reason: Deferral For Transactions In Et Cs Et Ns Etc (G)"
+  end
+  if value == "V" then
+    return "Deferral Reason: Indicates A Net Asset Value (V)"
+  end
+
+  return "Deferral Reason: Unknown("..value..")"
 end
 
 -- Dissect: Deferral Reason
@@ -620,7 +678,17 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.size = 1
 
 -- Display: Execution Method
 cboe_cboeeurope_tradereporting_boe_v2_0_40.execution_method.display = function(value)
-  return "Execution Method: "..value
+  if value == "A" then
+    return "Execution Method: Automated (A)"
+  end
+  if value == "M" then
+    return "Execution Method: Manual (M)"
+  end
+  if value == "U" then
+    return "Execution Method: Unspecified (U)"
+  end
+
+  return "Execution Method: Unknown("..value..")"
 end
 
 -- Dissect: Execution Method
@@ -672,7 +740,14 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.size = 1
 
 -- Display: Id Source
 cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.display = function(value)
-  return "Id Source: "..value
+  if value == "4" then
+    return "Id Source: Isin (4)"
+  end
+  if value == "5" then
+    return "Id Source: Ric (5)"
+  end
+
+  return "Id Source: Unknown("..value..")"
 end
 
 -- Dissect: Id Source
@@ -695,7 +770,14 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.size = 1
 
 -- Display: Intra Firm Trade Ind
 cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.display = function(value)
-  return "Intra Firm Trade Ind: "..value
+  if value == "N" then
+    return "Intra Firm Trade Ind: Not An Intragroup Transaction (N)"
+  end
+  if value == "Y" then
+    return "Intra Firm Trade Ind: Is An Intragroup Transaction (Y)"
+  end
+
+  return "Intra Firm Trade Ind: Unknown("..value..")"
 end
 
 -- Dissect: Intra Firm Trade Ind
@@ -826,7 +908,35 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_status.size = 1
 
 -- Display: Login Response Status
 cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_status.display = function(value)
-  return "Login Response Status: "..value
+  if value == "A" then
+    return "Login Response Status: Login Accepted (A)"
+  end
+  if value == "N" then
+    return "Login Response Status: Not Authorized (N)"
+  end
+  if value == "D" then
+    return "Login Response Status: Session Is Disabled (D)"
+  end
+  if value == "B" then
+    return "Login Response Status: Session In Use (B)"
+  end
+  if value == "S" then
+    return "Login Response Status: Invalid Session (S)"
+  end
+  if value == "Q" then
+    return "Login Response Status: Sequence Ahead In Login Message (Q)"
+  end
+  if value == "I" then
+    return "Login Response Status: Invalid Unit Given In Login Message (I)"
+  end
+  if value == "F" then
+    return "Login Response Status: Invalid Return Bitfield In Login Message (F)"
+  end
+  if value == "M" then
+    return "Login Response Status: Invalid Login Request Message Structure (M)"
+  end
+
+  return "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -888,7 +998,20 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_reason.size = 1
 
 -- Display: Logout Reason
 cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_reason.display = function(value)
-  return "Logout Reason: "..value
+  if value == "U" then
+    return "Logout Reason: User Requested (U)"
+  end
+  if value == "E" then
+    return "Logout Reason: End Of Day (E)"
+  end
+  if value == "A" then
+    return "Logout Reason: Administrative (A)"
+  end
+  if value == "!" then
+    return "Logout Reason: Protocol Violation (!)"
+  end
+
+  return "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -950,7 +1073,17 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.match_type.size = 1
 
 -- Display: Match Type
 cboe_cboeeurope_tradereporting_boe_v2_0_40.match_type.display = function(value)
-  return "Match Type: "..value
+  if value == 1 then
+    return "Match Type: Trade Reporting (1)"
+  end
+  if value == 3 then
+    return "Match Type: Trade Reporting (3)"
+  end
+  if value == 9 then
+    return "Match Type: Trade Reporting (9)"
+  end
+
+  return "Match Type: Unknown("..value..")"
 end
 
 -- Dissect: Match Type
@@ -1298,7 +1431,14 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.size = 1
 
 -- Display: Order Category
 cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.display = function(value)
-  return "Order Category: "..value
+  if value == 0 then
+    return "Order Category: Not A Negotiated Trade (0)"
+  end
+  if value == 3 then
+    return "Order Category: Privately Negotiated Trade (3)"
+  end
+
+  return "Order Category: Unknown("..value..")"
 end
 
 -- Dissect: Order Category
@@ -1309,6 +1449,52 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.dissect = function(buf
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.order_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.order_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Param Group Length
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length = {}
+
+-- Size: Param Group Length
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length.size = 2
+
+-- Display: Param Group Length
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length.display = function(value)
+  return "Param Group Length: "..value
+end
+
+-- Dissect: Param Group Length
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Param Group Type
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type = {}
+
+-- Size: Param Group Type
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type.size = 1
+
+-- Display: Param Group Type
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type.display = function(value)
+  return "Param Group Type: "..value
+end
+
+-- Dissect: Param Group Type
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_type, range, value, display)
 
   return offset + length, value
 end
@@ -1360,7 +1546,14 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.size = 1
 
 -- Display: Price Formation
 cboe_cboeeurope_tradereporting_boe_v2_0_40.price_formation.display = function(value)
-  return "Price Formation: "..value
+  if value == "J" then
+    return "Price Formation: Trade Not Contributing To The Price Discovery Process (J)"
+  end
+  if value == "N" then
+    return "Price Formation: Price Is Pending (N)"
+  end
+
+  return "Price Formation: Unknown("..value..")"
 end
 
 -- Dissect: Price Formation
@@ -1422,7 +1615,17 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.reason.size = 1
 
 -- Display: Reason
 cboe_cboeeurope_tradereporting_boe_v2_0_40.reason.display = function(value)
-  return "Reason: "..value
+  if value == "A" then
+    return "Reason: Admin (A)"
+  end
+  if value == "Y" then
+    return "Reason: Symbol Not Supported (Y)"
+  end
+  if value == "Z" then
+    return "Reason: Unforseen Reason (Z)"
+  end
+
+  return "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -1658,7 +1861,17 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.side.size = 1
 
 -- Display: Side
 cboe_cboeeurope_tradereporting_boe_v2_0_40.side.display = function(value)
-  return "Side: "..value
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+  if value == "8" then
+    return "Side: Cross (8)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -1704,7 +1917,14 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.status.size = 1
 
 -- Display: Status
 cboe_cboeeurope_tradereporting_boe_v2_0_40.status.display = function(value)
-  return "Status: "..value
+  if value == "0" then
+    return "Status: Accepted In Response To A Quote Message (0)"
+  end
+  if value == "1" then
+    return "Status: Cancelled In Response To A Quote Cancel (1)"
+  end
+
+  return "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -1874,7 +2094,17 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_ind.size = 1
 
 -- Display: Trade Publish Ind
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_ind.display = function(value)
-  return "Trade Publish Ind: "..value
+  if value == 0 then
+    return "Trade Publish Ind: Do Not Publish (0)"
+  end
+  if value == 1 then
+    return "Trade Publish Ind: Publish Trade (1)"
+  end
+  if value == 2 then
+    return "Trade Publish Ind: Deferred Publication (2)"
+  end
+
+  return "Trade Publish Ind: Unknown("..value..")"
 end
 
 -- Dissect: Trade Publish Ind
@@ -1897,7 +2127,17 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_indicator.size = 1
 
 -- Display: Trade Publish Indicator
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_publish_indicator.display = function(value)
-  return "Trade Publish Indicator: "..value
+  if value == 0 then
+    return "Trade Publish Indicator: Do Not Publish (0)"
+  end
+  if value == 1 then
+    return "Trade Publish Indicator: Publish Trade (1)"
+  end
+  if value == 2 then
+    return "Trade Publish Indicator: Deferred Publication (2)"
+  end
+
+  return "Trade Publish Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Trade Publish Indicator
@@ -1998,7 +2238,20 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_trans_type.size = 1
 
 -- Display: Trade Report Trans Type
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_report_trans_type.display = function(value)
-  return "Trade Report Trans Type: "..value
+  if value == 0 then
+    return "Trade Report Trans Type: New (0)"
+  end
+  if value == 1 then
+    return "Trade Report Trans Type: Cancel (1)"
+  end
+  if value == 2 then
+    return "Trade Report Trans Type: Replace (2)"
+  end
+  if value == 3 then
+    return "Trade Report Trans Type: Release (3)"
+  end
+
+  return "Trade Report Trans Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Report Trans Type
@@ -2071,7 +2324,29 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trading_session_sub_id.size = 1
 
 -- Display: Trading Session Sub Id
 cboe_cboeeurope_tradereporting_boe_v2_0_40.trading_session_sub_id.display = function(value)
-  return "Trading Session Sub Id: "..value
+  if value == 2 then
+    return "Trading Session Sub Id: Scheduled Opening Auction (2)"
+  end
+  if value == 4 then
+    return "Trading Session Sub Id: Scheduled Closing Auction (4)"
+  end
+  if value == 6 then
+    return "Trading Session Sub Id: Scheduled Intraday Auction (6)"
+  end
+  if value == 8 then
+    return "Trading Session Sub Id: Unspecified Auction (8)"
+  end
+  if value == 9 then
+    return "Trading Session Sub Id: Unscheduled Auction (9)"
+  end
+  if value == 3 then
+    return "Trading Session Sub Id: Continuous Trading (3)"
+  end
+  if value == 5 then
+    return "Trading Session Sub Id: Post Trading (5)"
+  end
+
+  return "Trading Session Sub Id: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session Sub Id
@@ -2094,7 +2369,26 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.size = 1
 
 -- Display: Transaction Category
 cboe_cboeeurope_tradereporting_boe_v2_0_40.transaction_category.display = function(value)
-  return "Transaction Category: "..value
+  if value == "P" then
+    return "Transaction Category: Regular Trade (P)"
+  end
+  if value == "O" then
+    return "Transaction Category: Portfolio Trade (O)"
+  end
+  if value == "D" then
+    return "Transaction Category: Dark Trade (D)"
+  end
+  if value == "R" then
+    return "Transaction Category: Trade With Price Improvement (R)"
+  end
+  if value == "Y" then
+    return "Transaction Category: Exchange For Physical (Y)"
+  end
+  if value == "Z" then
+    return "Transaction Category: Package Trade (Z)"
+  end
+
+  return "Transaction Category: Unknown("..value..")"
 end
 
 -- Dissect: Transaction Category
@@ -2159,94 +2453,48 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_sub_type.dissect = function(buffe
   return offset + length, value
 end
 
--- Unit Number 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1 = {}
+-- Unit Number
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number = {}
 
--- Size: Unit Number 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1.size = 1
+-- Size: Unit Number
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number.size = 1
 
--- Display: Unit Number 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1.display = function(value)
-  return "Unit Number 1: "..value
+-- Display: Unit Number
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number.display = function(value)
+  return "Unit Number: "..value
 end
 
--- Dissect: Unit Number 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1.size
+-- Dissect: Unit Number
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1.display(value, buffer, offset, packet, parent)
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_number_1, range, value, display)
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_number, range, value, display)
 
   return offset + length, value
 end
 
--- Unit Numbern
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern = {}
+-- Unit Sequence
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence = {}
 
--- Size: Unit Numbern
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern.size = 1
+-- Size: Unit Sequence
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence.size = 4
 
--- Display: Unit Numbern
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern.display = function(value)
-  return "Unit Numbern: "..value
+-- Display: Unit Sequence
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence.display = function(value)
+  return "Unit Sequence: "..value
 end
 
--- Dissect: Unit Numbern
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern.size
+-- Dissect: Unit Sequence
+cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern.display(value, buffer, offset, packet, parent)
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_numbern, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Sequence 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1 = {}
-
--- Size: Unit Sequence 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1.size = 4
-
--- Display: Unit Sequence 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1.display = function(value)
-  return "Unit Sequence 1: "..value
-end
-
--- Dissect: Unit Sequence 1
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_sequence_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Sequencen
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen = {}
-
--- Size: Unit Sequencen
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen.size = 4
-
--- Display: Unit Sequencen
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen.display = function(value)
-  return "Unit Sequencen: "..value
-end
-
--- Dissect: Unit Sequencen
-cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_sequencen, range, value, display)
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.unit_sequence, range, value, display)
 
   return offset + length, value
 end
@@ -2298,7 +2546,32 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.size = 1
 
 -- Display: Venue Type
 cboe_cboeeurope_tradereporting_boe_v2_0_40.venue_type.display = function(value)
-  return "Venue Type: "..value
+  if value == "O" then
+    return "Venue Type: Off Book (O)"
+  end
+  if value == "B" then
+    return "Venue Type: Central Limit Order Book (B)"
+  end
+  if value == "Q" then
+    return "Venue Type: Quote Driven Market (Q)"
+  end
+  if value == "D" then
+    return "Venue Type: Dark Order Book (D)"
+  end
+  if value == "A" then
+    return "Venue Type: Periodic Auction (A)"
+  end
+  if value == "N" then
+    return "Venue Type: Request For Quotes (N)"
+  end
+  if value == "H" then
+    return "Venue Type: Hybrid Market (H)"
+  end
+  if value == "z" then
+    return "Venue Type: Other (z)"
+  end
+
+  return "Venue Type: Unknown("..value..")"
 end
 
 -- Dissect: Venue Type
@@ -2321,7 +2594,38 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.size = 1
 
 -- Display: Waiver Type
 cboe_cboeeurope_tradereporting_boe_v2_0_40.waiver_type.display = function(value)
-  return "Waiver Type: "..value
+  if value == "-" then
+    return "Waiver Type: No Waiver Type (-)"
+  end
+  if value == "0" then
+    return "Waiver Type: Negotiated Trade In Liquid Instrument (0)"
+  end
+  if value == "1" then
+    return "Waiver Type: Negotiated Trade In Illiquid Instrument (1)"
+  end
+  if value == "2" then
+    return "Waiver Type: Negotiated Trade Subject To Conditions Other Than The (2)"
+  end
+  if value == "8" then
+    return "Waiver Type: Negotiated Trade Subject To A Pre Trade Transparency (8)"
+  end
+  if value == "c" then
+    return "Waiver Type: Negotiated Trade Larger Than Lis Brought Onto A (c)"
+  end
+  if value == "3" then
+    return "Waiver Type: Reference Price (3)"
+  end
+  if value == "4" then
+    return "Waiver Type: Pre Trade Transparency Waiver For Illiquid Instrument (4)"
+  end
+  if value == "5" then
+    return "Waiver Type: Pre Trade Transparency Waiver For Above Standard Mar (5)"
+  end
+  if value == "B" then
+    return "Waiver Type: Pre Trade Transparency Waiver For Illiquid Instrument (B)"
+  end
+
+  return "Waiver Type: Unknown("..value..")"
 end
 
 -- Dissect: Waiver Type
@@ -4755,9 +5059,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- No Sides: Binary
-  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
-
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
 
@@ -4969,6 +5270,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
     -- Return Bitfield 19: Struct of 8 fields
     index, return_bitfield_19 = cboe_cboeeurope_tradereporting_boe_v2_0_40.return_bitfield_19.dissect(buffer, index, packet, parent)
   end
+
+  -- No Sides: Binary
+  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Side
   local side = nil
@@ -5182,9 +5486,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- No Sides: Binary
-  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
-
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
 
@@ -5396,6 +5697,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
     -- Return Bitfield 19: Struct of 8 fields
     index, return_bitfield_19 = cboe_cboeeurope_tradereporting_boe_v2_0_40.return_bitfield_19.dissect(buffer, index, packet, parent)
   end
+
+  -- No Sides: Binary
+  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Side
   local side = nil
@@ -5639,9 +5943,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- No Sides: Binary
-  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
-
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
 
@@ -5853,6 +6154,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
     -- Return Bitfield 19: Struct of 8 fields
     index, return_bitfield_19 = cboe_cboeeurope_tradereporting_boe_v2_0_40.return_bitfield_19.dissect(buffer, index, packet, parent)
   end
+
+  -- No Sides: Binary
+  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Side
   local side = nil
@@ -6054,9 +6358,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- No Sides: Binary
-  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
-
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_return_bitfields.dissect(buffer, index, packet, parent)
 
@@ -6268,6 +6569,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
     -- Return Bitfield 19: Struct of 8 fields
     index, return_bitfield_19 = cboe_cboeeurope_tradereporting_boe_v2_0_40.return_bitfield_19.dissect(buffer, index, packet, parent)
   end
+
+  -- No Sides: Binary
+  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Side
   local side = nil
@@ -6561,9 +6865,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   -- Quote Id: Text
   index, quote_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_id.dissect(buffer, index, packet, parent)
 
-  -- No Quote Entries: Binary
-  index, no_quote_entries = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_quote_entries.dissect(buffer, index, packet, parent)
-
   -- Number Of Quote Cancel V 2 Bitfields: Binary
   index, number_of_quote_cancel_v_2_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_quote_cancel_v_2_bitfields.dissect(buffer, index, packet, parent)
 
@@ -6577,6 +6878,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
     -- Quote Cancel V 2 Bitfield 1: Struct of 8 fields
     index, quote_cancel_v_2_bitfield_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_bitfield_1.dissect(buffer, index, packet, parent)
   end
+
+  -- No Quote Entries: Binary
+  index, no_quote_entries = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_quote_entries.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Symbol
   local symbol = nil
@@ -7426,9 +7730,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   -- Last Shares: Binary
   index, last_shares = cboe_cboeeurope_tradereporting_boe_v2_0_40.last_shares.dissect(buffer, index, packet, parent)
 
-  -- No Sides: Binary
-  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
-
   -- Number Of Trade Capture Report V 2 Bitfields: Binary
   index, number_of_trade_capture_report_v_2_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_trade_capture_report_v_2_bitfields.dissect(buffer, index, packet, parent)
 
@@ -7497,6 +7798,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
     -- Trade Capture Report V 2 Bitfield 6: Struct of 8 fields
     index, trade_capture_report_v_2_bitfield_6 = cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_bitfield_6.dissect(buffer, index, packet, parent)
   end
+
+  -- No Sides: Binary
+  index, no_sides = cboe_cboeeurope_tradereporting_boe_v2_0_40.no_sides.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Symbol
   local symbol = nil
@@ -7775,6 +8079,56 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.diss
   end
 end
 
+-- Units
+cboe_cboeeurope_tradereporting_boe_v2_0_40.units = {}
+
+-- Size: Units
+cboe_cboeeurope_tradereporting_boe_v2_0_40.units.size =
+  cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number.size + 
+  cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence.size
+
+-- Display: Units
+cboe_cboeeurope_tradereporting_boe_v2_0_40.units.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Units
+cboe_cboeeurope_tradereporting_boe_v2_0_40.units.fields = function(buffer, offset, packet, parent, units_index)
+  local index = offset
+
+  -- Implicit Units Index
+  if units_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.units_index, units_index)
+    iteration:set_generated()
+  end
+
+  -- Unit Number: Binary
+  index, unit_number = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number.dissect(buffer, index, packet, parent)
+
+  -- Unit Sequence: Binary
+  index, unit_sequence = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Units
+cboe_cboeeurope_tradereporting_boe_v2_0_40.units.dissect = function(buffer, offset, packet, parent, units_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.units, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.units.fields(buffer, offset, packet, parent, units_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.units.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.units.fields(buffer, offset, packet, parent, units_index)
+  end
+end
+
 -- Logout Message
 cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_message = {}
 
@@ -7809,17 +8163,10 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_message.fields = function(buff
   -- Number Of Units: Binary
   index, number_of_units = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_units.dissect(buffer, index, packet, parent)
 
-  -- Unit Number 1: Binary
-  index, unit_number_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequence 1: Binary
-  index, unit_sequence_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Numbern: Binary
-  index, unit_numbern = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequencen: Binary
-  index, unit_sequencen = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen.dissect(buffer, index, packet, parent)
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_cboeeurope_tradereporting_boe_v2_0_40.units.dissect(buffer, index, packet, parent, units_index)
+  end
 
   return index
 end
@@ -7843,6 +8190,56 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_message.dissect = function(buf
     cboe_cboeeurope_tradereporting_boe_v2_0_40.logout_message.fields(buffer, offset, packet, parent, size_of_logout_message)
 
     return index
+  end
+end
+
+-- Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group = {}
+
+-- Size: Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.size =
+  cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length.size + 
+  cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type.size
+
+-- Display: Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.fields = function(buffer, offset, packet, parent, param_group_index)
+  local index = offset
+
+  -- Implicit Param Group Index
+  if param_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group_index, param_group_index)
+    iteration:set_generated()
+  end
+
+  -- Param Group Length: Binary
+  index, param_group_length = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_length.dissect(buffer, index, packet, parent)
+
+  -- Param Group Type: Binary
+  index, param_group_type = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.dissect = function(buffer, offset, packet, parent, param_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_40.fields.param_group, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.fields(buffer, offset, packet, parent, param_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.fields(buffer, offset, packet, parent, param_group_index)
   end
 end
 
@@ -7883,20 +8280,18 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.login_response_v_2_message.fields = f
   -- Number Of Units: Binary
   index, number_of_units = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_units.dissect(buffer, index, packet, parent)
 
-  -- Unit Number 1: Binary
-  index, unit_number_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_number_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequence 1: Binary
-  index, unit_sequence_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequence_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Numbern: Binary
-  index, unit_numbern = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_numbern.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequencen: Binary
-  index, unit_sequencen = cboe_cboeeurope_tradereporting_boe_v2_0_40.unit_sequencen.dissect(buffer, index, packet, parent)
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_cboeeurope_tradereporting_boe_v2_0_40.units.dissect(buffer, index, packet, parent, units_index)
+  end
 
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end
@@ -7956,6 +8351,11 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.login_request_v_2_message.fields = fu
 
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_cboeeurope_tradereporting_boe_v2_0_40.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_cboeeurope_tradereporting_boe_v2_0_40.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end

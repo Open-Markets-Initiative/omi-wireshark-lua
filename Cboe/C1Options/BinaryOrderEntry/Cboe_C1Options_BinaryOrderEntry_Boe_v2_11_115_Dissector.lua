@@ -18,7 +18,6 @@ local cboe_c1options_binaryorderentry_boe_v2_11_115 = {}
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.account = ProtoField.new("Account", "cboe.c1options.binaryorderentry.boe.v2.11.115.account", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.account_optional = ProtoField.new("Account Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.accountoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.alloc_qty = ProtoField.new("Alloc Qty", "cboe.c1options.binaryorderentry.boe.v2.11.115.allocqty", ftypes.UINT32)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.alloc_qty_optional = ProtoField.new("Alloc Qty Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.allocqtyoptional", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.attributed_quote = ProtoField.new("Attributed Quote", "cboe.c1options.binaryorderentry.boe.v2.11.115.attributedquote", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.auctionid", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.auto_match = ProtoField.new("Auto Match", "cboe.c1options.binaryorderentry.boe.v2.11.115.automatch", ftypes.STRING)
@@ -50,7 +49,6 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cancel_reject_reason = 
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cancel_subreason = ProtoField.new("Cancel Subreason", "cboe.c1options.binaryorderentry.boe.v2.11.115.cancelsubreason", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cancelled_order_count = ProtoField.new("Cancelled Order Count", "cboe.c1options.binaryorderentry.boe.v2.11.115.cancelledordercount", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.capacity = ProtoField.new("Capacity", "cboe.c1options.binaryorderentry.boe.v2.11.115.capacity", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.capacity_optional = ProtoField.new("Capacity Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.capacityoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cl_ord = ProtoField.new("Cl Ord", "cboe.c1options.binaryorderentry.boe.v2.11.115.clord", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.clordid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.clearing_account = ProtoField.new("Clearing Account", "cboe.c1options.binaryorderentry.boe.v2.11.115.clearingaccount", ftypes.STRING)
@@ -58,7 +56,6 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.clearing_account_option
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.clearing_firm = ProtoField.new("Clearing Firm", "cboe.c1options.binaryorderentry.boe.v2.11.115.clearingfirm", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.clearing_optional_dat_optional = ProtoField.new("Clearing Optional Dat Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.clearingoptionaldatoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.clearing_optional_data = ProtoField.new("Clearing Optional Data", "cboe.c1options.binaryorderentry.boe.v2.11.115.clearingoptionaldata", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.clearing_optional_data_optional = ProtoField.new("Clearing Optional Data Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.clearingoptionaldataoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.client_id_attr = ProtoField.new("Client Id Attr", "cboe.c1options.binaryorderentry.boe.v2.11.115.clientidattr", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.c1options.binaryorderentry.boe.v2.11.115.cmtanumber", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cmta_number_optional = ProtoField.new("Cmta Number Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.cmtanumberoptional", ftypes.UINT32)
@@ -76,6 +73,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cross_on_behalf_of_id =
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cross_prioritization = ProtoField.new("Cross Prioritization", "cboe.c1options.binaryorderentry.boe.v2.11.115.crossprioritization", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cross_type = ProtoField.new("Cross Type", "cboe.c1options.binaryorderentry.boe.v2.11.115.crosstype", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.c1options.binaryorderentry.boe.v2.11.115.cumqty", ftypes.UINT32)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.custom_group_i_ds = ProtoField.new("Custom Group I Ds", "cboe.c1options.binaryorderentry.boe.v2.11.115.customgroupids", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.customgroupid", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.custom_group_id_cnt = ProtoField.new("Custom Group Id Cnt", "cboe.c1options.binaryorderentry.boe.v2.11.115.customgroupidcnt", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.day_avg_px = ProtoField.new("Day Avg Px", "cboe.c1options.binaryorderentry.boe.v2.11.115.dayavgpx", ftypes.DOUBLE)
@@ -89,9 +87,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.echo_text = ProtoField.
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_buy_clearing_firm = ProtoField.new("Equity Buy Clearing Firm", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitybuyclearingfirm", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_ex_destination = ProtoField.new("Equity Ex Destination", "cboe.c1options.binaryorderentry.boe.v2.11.115.equityexdestination", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_leg_short_sell = ProtoField.new("Equity Leg Short Sell", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitylegshortsell", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_leg_short_sell_optional = ProtoField.new("Equity Leg Short Sell Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitylegshortselloptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_party_id = ProtoField.new("Equity Party Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitypartyid", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_party_id_optional = ProtoField.new("Equity Party Id Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitypartyidoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_sell_clearing_firm = ProtoField.new("Equity Sell Clearing Firm", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitysellclearingfirm", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_trade_price = ProtoField.new("Equity Trade Price", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytradeprice", ftypes.DOUBLE)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_trade_size = ProtoField.new("Equity Trade Size", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytradesize", ftypes.UINT32)
@@ -111,7 +107,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.floor_trader_acronym = 
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.frequenttraderid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.frequent_trader_id_optional = ProtoField.new("Frequent Trader Id Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.frequenttraderidoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.give_up_firm_id = ProtoField.new("Give Up Firm Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.giveupfirmid", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.give_up_firm_id_optional = ProtoField.new("Give Up Firm Id Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.giveupfirmidoptional", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.group = ProtoField.new("Group", "cboe.c1options.binaryorderentry.boe.v2.11.115.group", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.group_cnt = ProtoField.new("Group Cnt", "cboe.c1options.binaryorderentry.boe.v2.11.115.groupcnt", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.held = ProtoField.new("Held", "cboe.c1options.binaryorderentry.boe.v2.11.115.held", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.last_priority = ProtoField.new("Last Priority", "cboe.c1options.binaryorderentry.boe.v2.11.115.lastpriority", ftypes.STRING)
@@ -121,9 +117,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.last_shares = ProtoFiel
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leaves_qty = ProtoField.new("Leaves Qty", "cboe.c1options.binaryorderentry.boe.v2.11.115.leavesqty", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_cfi_code = ProtoField.new("Leg Cfi Code", "cboe.c1options.binaryorderentry.boe.v2.11.115.legcficode", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_maturity_date = ProtoField.new("Leg Maturity Date", "cboe.c1options.binaryorderentry.boe.v2.11.115.legmaturitydate", ftypes.UINT32)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_position_effects = ProtoField.new("Leg Position Effects", "cboe.c1options.binaryorderentry.boe.v2.11.115.legpositioneffects", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_position_effects_ext = ProtoField.new("Leg Position Effects Ext", "cboe.c1options.binaryorderentry.boe.v2.11.115.legpositioneffectsext", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_position_effects_ext_optional = ProtoField.new("Leg Position Effects Ext Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.legpositioneffectsextoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_strike_price = ProtoField.new("Leg Strike Price", "cboe.c1options.binaryorderentry.boe.v2.11.115.legstrikeprice", ftypes.DOUBLE)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.c1options.binaryorderentry.boe.v2.11.115.loginresponsestatus", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.login_response_text = ProtoField.new("Login Response Text", "cboe.c1options.binaryorderentry.boe.v2.11.115.loginresponsetext", ftypes.STRING)
@@ -170,7 +164,6 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_instrument_
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_instrument_bitfield_1_reserved_16 = ProtoField.new("New Complex Instrument Bitfield 1 Reserved 16", "cboe.c1options.binaryorderentry.boe.v2.11.115.newcomplexinstrumentbitfield1reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_instrument_bitfield_1_reserved_32 = ProtoField.new("New Complex Instrument Bitfield 1 Reserved 32", "cboe.c1options.binaryorderentry.boe.v2.11.115.newcomplexinstrumentbitfield1reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_instrument_bitfield_1_reserved_64 = ProtoField.new("New Complex Instrument Bitfield 1 Reserved 64", "cboe.c1options.binaryorderentry.boe.v2.11.115.newcomplexinstrumentbitfield1reserved64", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bi = ProtoField.new("New Complex Order Bi", "cboe.c1options.binaryorderentry.boe.v2.11.115.newcomplexorderbi", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_1 = ProtoField.new("New Complex Order Bitfield 1", "cboe.c1options.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield1", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_1_clearing_account = ProtoField.new("New Complex Order Bitfield 1 Clearing Account", "cboe.c1options.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield1clearingaccount", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bitfield_1_clearing_f_irm = ProtoField.new("New Complex Order Bitfield 1 Clearing F Irm", "cboe.c1options.binaryorderentry.boe.v2.11.115.newcomplexorderbitfield1clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -351,7 +344,6 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_bitfield_9_ex
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_bitfield_9_investor_id = ProtoField.new("New Order Bitfield 9 Investor Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.neworderbitfield9investorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_bitfield_9_order_origination = ProtoField.new("New Order Bitfield 9 Order Origination", "cboe.c1options.binaryorderentry.boe.v2.11.115.neworderbitfield9orderorigination", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_bitfield_9_session_eligibility = ProtoField.new("New Order Bitfield 9 Session Eligibility", "cboe.c1options.binaryorderentry.boe.v2.11.115.neworderbitfield9sessioneligibility", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_cross_bitfie = ProtoField.new("New Order Cross Bitfie", "cboe.c1options.binaryorderentry.boe.v2.11.115.newordercrossbitfie", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_cross_bitfield_1 = ProtoField.new("New Order Cross Bitfield 1", "cboe.c1options.binaryorderentry.boe.v2.11.115.newordercrossbitfield1", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_cross_bitfield_1_attributed_quote = ProtoField.new("New Order Cross Bitfield 1 Attributed Quote", "cboe.c1options.binaryorderentry.boe.v2.11.115.newordercrossbitfield1attributedquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_cross_bitfield_1_exec_inst = ProtoField.new("New Order Cross Bitfield 1 Exec Inst", "cboe.c1options.binaryorderentry.boe.v2.11.115.newordercrossbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
@@ -454,24 +446,25 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_new_order_cro
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_new_order_cross_multileg_bitfields = ProtoField.new("Number Of New Order Cross Multileg Bitfields", "cboe.c1options.binaryorderentry.boe.v2.11.115.numberofnewordercrossmultilegbitfields", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_param_groups = ProtoField.new("Number Of Param Groups", "cboe.c1options.binaryorderentry.boe.v2.11.115.numberofparamgroups", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_purge_orders_bitfields = ProtoField.new("Number Of Purge Orders Bitfields", "cboe.c1options.binaryorderentry.boe.v2.11.115.numberofpurgeordersbitfields", ftypes.UINT8)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_return_bitf = ProtoField.new("Number Of Return Bitf", "cboe.c1options.binaryorderentry.boe.v2.11.115.numberofreturnbitf", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_return_bitfields = ProtoField.new("Number Of Return Bitfields", "cboe.c1options.binaryorderentry.boe.v2.11.115.numberofreturnbitfields", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_units = ProtoField.new("Number Of Units", "cboe.c1options.binaryorderentry.boe.v2.11.115.numberofunits", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.open_close = ProtoField.new("Open Close", "cboe.c1options.binaryorderentry.boe.v2.11.115.openclose", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.open_close_optional = ProtoField.new("Open Close Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.opencloseoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.ord_type = ProtoField.new("Ord Type", "cboe.c1options.binaryorderentry.boe.v2.11.115.ordtype", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_id = ProtoField.new("Order Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderid", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_origin = ProtoField.new("Order Origin", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderorigin", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_2 = ProtoField.new("Order Qty Binary 2", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderqtybinary2", ftypes.UINT16)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_4 = ProtoField.new("Order Qty Binary 4", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderqtybinary4", ftypes.UINT32)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_qty = ProtoField.new("Order Qty", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderqty", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderrejectreason", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.origclordid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.orig_time = ProtoField.new("Orig Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.origtime", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.ors = ProtoField.new("Ors", "cboe.c1options.binaryorderentry.boe.v2.11.115.ors", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group = ProtoField.new("Param Group", "cboe.c1options.binaryorderentry.boe.v2.11.115.paramgroup", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.c1options.binaryorderentry.boe.v2.11.115.paramgrouplength", ftypes.UINT16)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.c1options.binaryorderentry.boe.v2.11.115.paramgrouptype", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.password = ProtoField.new("Password", "cboe.c1options.binaryorderentry.boe.v2.11.115.password", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.posting_instruction = ProtoField.new("Posting Instruction", "cboe.c1options.binaryorderentry.boe.v2.11.115.postinginstruction", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.c1options.binaryorderentry.boe.v2.11.115.preventmatch", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.price_binary_price_4 = ProtoField.new("Price Binary Price 4", "cboe.c1options.binaryorderentry.boe.v2.11.115.pricebinaryprice4", ftypes.DOUBLE)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.price_binary_price_8 = ProtoField.new("Price Binary Price 8", "cboe.c1options.binaryorderentry.boe.v2.11.115.pricebinaryprice8", ftypes.DOUBLE)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.price = ProtoField.new("Price", "cboe.c1options.binaryorderentry.boe.v2.11.115.price", ftypes.DOUBLE)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.price_type = ProtoField.new("Price Type", "cboe.c1options.binaryorderentry.boe.v2.11.115.pricetype", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.purge_orders_bitfield_1 = ProtoField.new("Purge Orders Bitfield 1", "cboe.c1options.binaryorderentry.boe.v2.11.115.purgeordersbitfield1", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.purge_orders_bitfield_1_clearing_firm = ProtoField.new("Purge Orders Bitfield 1 Clearing Firm", "cboe.c1options.binaryorderentry.boe.v2.11.115.purgeordersbitfield1clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -493,9 +486,9 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.purge_orders_bitfield_2
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.purge_orders_bitfield_2_symbol_sfx = ProtoField.new("Purge Orders Bitfield 2 Symbol Sfx", "cboe.c1options.binaryorderentry.boe.v2.11.115.purgeordersbitfield2symbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.c1options.binaryorderentry.boe.v2.11.115.purgerejectreason", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.put_or_call = ProtoField.new("Put Or Call", "cboe.c1options.binaryorderentry.boe.v2.11.115.putorcall", ftypes.STRING)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote = ProtoField.new("Quote", "cboe.c1options.binaryorderentry.boe.v2.11.115.quote", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_cnt = ProtoField.new("Quote Cnt", "cboe.c1options.binaryorderentry.boe.v2.11.115.quotecnt", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cboe.c1options.binaryorderentry.boe.v2.11.115.quoterejectreason", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_result = ProtoField.new("Quote Result", "cboe.c1options.binaryorderentry.boe.v2.11.115.quoteresult", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_update_id = ProtoField.new("Quote Update Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.quoteupdateid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reject_text = ProtoField.new("Reject Text", "cboe.c1options.binaryorderentry.boe.v2.11.115.rejecttext", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.c1options.binaryorderentry.boe.v2.11.115.reserved1", ftypes.BYTES)
@@ -503,9 +496,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_12 = ProtoFiel
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_15 = ProtoField.new("Reserved 15", "cboe.c1options.binaryorderentry.boe.v2.11.115.reserved15", ftypes.BYTES)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_16 = ProtoField.new("Reserved 16", "cboe.c1options.binaryorderentry.boe.v2.11.115.reserved16", ftypes.BYTES)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_17 = ProtoField.new("Reserved 17", "cboe.c1options.binaryorderentry.boe.v2.11.115.reserved17", ftypes.BYTES)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.c1options.binaryorderentry.boe.v2.11.115.reserved2", ftypes.BYTES)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.c1options.binaryorderentry.boe.v2.11.115.reserved3", ftypes.BYTES)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_5 = ProtoField.new("Reserved 5", "cboe.c1options.binaryorderentry.boe.v2.11.115.reserved5", ftypes.BYTES)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.c1options.binaryorderentry.boe.v2.11.115.restatementreason", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.return_bitfield_1 = ProtoField.new("Return Bitfield 1", "cboe.c1options.binaryorderentry.boe.v2.11.115.returnbitfield1", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.return_bitfield_1_exec_inst = ProtoField.new("Return Bitfield 1 Exec Inst", "cboe.c1options.binaryorderentry.boe.v2.11.115.returnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -713,7 +704,6 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.sequence_number = Proto
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.session_eligibility = ProtoField.new("Session Eligibility", "cboe.c1options.binaryorderentry.boe.v2.11.115.sessioneligibility", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.sessionsubid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.side = ProtoField.new("Side", "cboe.c1options.binaryorderentry.boe.v2.11.115.side", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.side_optional = ProtoField.new("Side Optional", "cboe.c1options.binaryorderentry.boe.v2.11.115.sideoptional", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.source_matching_unit = ProtoField.new("Source Matching Unit", "cboe.c1options.binaryorderentry.boe.v2.11.115.sourcematchingunit", ftypes.UINT8)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.c1options.binaryorderentry.boe.v2.11.115.startofmessage", ftypes.UINT16)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.stop_px = ProtoField.new("Stop Px", "cboe.c1options.binaryorderentry.boe.v2.11.115.stoppx", ftypes.DOUBLE)
@@ -734,10 +724,9 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_date = ProtoField
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_through_alert_typ = ProtoField.new("Trade Through Alert Typ", "cboe.c1options.binaryorderentry.boe.v2.11.115.tradethroughalerttyp", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_through_alert_type = ProtoField.new("Trade Through Alert Type", "cboe.c1options.binaryorderentry.boe.v2.11.115.tradethroughalerttype", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.transactiontime", ftypes.UINT64)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_number_1 = ProtoField.new("Unit Number 1", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitnumber1", ftypes.UINT8)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_numbern = ProtoField.new("Unit Numbern", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitnumbern", ftypes.UINT8)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_sequence_1 = ProtoField.new("Unit Sequence 1", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitsequence1", ftypes.UINT32)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_sequencen = ProtoField.new("Unit Sequencen", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitsequencen", ftypes.UINT32)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_number = ProtoField.new("Unit Number", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitnumber", ftypes.UINT8)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitsequence", ftypes.UINT32)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.units = ProtoField.new("Units", "cboe.c1options.binaryorderentry.boe.v2.11.115.units", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.username = ProtoField.new("Username", "cboe.c1options.binaryorderentry.boe.v2.11.115.username", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.working_price_binary_8 = ProtoField.new("Working Price Binary 8", "cboe.c1options.binaryorderentry.boe.v2.11.115.workingpricebinary8", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.working_price_binary_price_8 = ProtoField.new("Working Price Binary Price 8", "cboe.c1options.binaryorderentry.boe.v2.11.115.workingpricebinaryprice8", ftypes.DOUBLE)
@@ -800,6 +789,13 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.server_heartbeat_messag
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.c1options.binaryorderentry.boe.v2.11.115.tradecancelorcorrectmessage", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.c1options.binaryorderentry.boe.v2.11.115.usermodifyrejectedmessage", ftypes.STRING)
 
+-- Cboe C1Options BinaryOrderEntry Boe 2.11.115 Generated Fields
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.custom_group_i_ds_index = ProtoField.new("Custom Group I Ds Index", "cboe.c1options.binaryorderentry.boe.v2.11.115.customgroupidsindex", ftypes.UINT16)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.group_index = ProtoField.new("Group Index", "cboe.c1options.binaryorderentry.boe.v2.11.115.groupindex", ftypes.UINT16)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.c1options.binaryorderentry.boe.v2.11.115.paramgroupindex", ftypes.UINT16)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_index = ProtoField.new("Quote Index", "cboe.c1options.binaryorderentry.boe.v2.11.115.quoteindex", ftypes.UINT16)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.units_index = ProtoField.new("Units Index", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitsindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -809,12 +805,16 @@ local show = {}
 -- Cboe C1Options BinaryOrderEntry Boe 2.11.115 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.repeating_groups = true
 show.headers = true
+show.indexes = true
 
 -- Register Cboe C1Options BinaryOrderEntry Boe 2.11.115 Show Options
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs_changed()
@@ -826,8 +826,14 @@ function omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs_changed()
   if show.headers ~= omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_headers then
     show.headers = omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_headers
   end
+  if show.repeating_groups ~= omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_repeating_groups
+  end
   if show.structs ~= omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_structs then
     show.structs = omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_indexes then
+    show.indexes = omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_indexes
   end
 end
 
@@ -937,29 +943,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty.dissect = function(buffe
   return offset + length, value
 end
 
--- Alloc Qty Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional = {}
-
--- Size: Alloc Qty Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional.size = 4
-
--- Display: Alloc Qty Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional.display = function(value)
-  return "Alloc Qty Optional: "..value
-end
-
--- Dissect: Alloc Qty Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.alloc_qty_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Attributed Quote
 cboe_c1options_binaryorderentry_boe_v2_11_115.attributed_quote = {}
 
@@ -968,7 +951,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.attributed_quote.size = 1
 
 -- Display: Attributed Quote
 cboe_c1options_binaryorderentry_boe_v2_11_115.attributed_quote.display = function(value)
-  return "Attributed Quote: "..value
+  if value == "N" then
+    return "Attributed Quote: Do Not Attribute Firm Executing Broker Id To This Order (N)"
+  end
+  if value == "Y" then
+    return "Attributed Quote: Attribute Firm Executing Broker Id To This Order (Y)"
+  end
+  if value == "C" then
+    return "Attributed Quote: Attribute Client Id Only (C)"
+  end
+  if value == "Z" then
+    return "Attributed Quote: Attribute Both Clearing Firm (Z)"
+  end
+
+  return "Attributed Quote: Unknown("..value..")"
 end
 
 -- Dissect: Attributed Quote
@@ -1014,7 +1010,23 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.auto_match.size = 1
 
 -- Display: Auto Match
 cboe_c1options_binaryorderentry_boe_v2_11_115.auto_match.display = function(value)
-  return "Auto Match: "..value
+  if value == "0" then
+    return "Auto Match: Disabled (0)"
+  end
+  if value == "1" then
+    return "Auto Match: Market (1)"
+  end
+  if value == "2" then
+    return "Auto Match: Limit (2)"
+  end
+  if value == "3" then
+    return "Auto Match: Market (3)"
+  end
+  if value == "4" then
+    return "Auto Match: Limit (4)"
+  end
+
+  return "Auto Match: Unknown("..value..")"
 end
 
 -- Dissect: Auto Match
@@ -1095,7 +1107,17 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.base_liquidity_indicat.size = 1
 
 -- Display: Base Liquidity Indicat
 cboe_c1options_binaryorderentry_boe_v2_11_115.base_liquidity_indicat.display = function(value)
-  return "Base Liquidity Indicat: "..value
+  if value == "A" then
+    return "Base Liquidity Indicat: Added Liquidity (A)"
+  end
+  if value == "R" then
+    return "Base Liquidity Indicat: Removed Liquidity (R)"
+  end
+  if value == "C" then
+    return "Base Liquidity Indicat: Auction Uncrossing (C)"
+  end
+
+  return "Base Liquidity Indicat: Unknown("..value..")"
 end
 
 -- Dissect: Base Liquidity Indicat
@@ -1118,7 +1140,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
 cboe_c1options_binaryorderentry_boe_v2_11_115.base_liquidity_indicator.display = function(value)
-  return "Base Liquidity Indicator: "..value
+  if value == "A" then
+    return "Base Liquidity Indicator: Added Liquidity (A)"
+  end
+  if value == "R" then
+    return "Base Liquidity Indicator: Removed Liquidity (R)"
+  end
+  if value == "X" then
+    return "Base Liquidity Indicator: Routed To Another Market (X)"
+  end
+  if value == "C" then
+    return "Base Liquidity Indicator: Auction Uncrossing (C)"
+  end
+
+  return "Base Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Base Liquidity Indicator
@@ -1141,7 +1176,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
 cboe_c1options_binaryorderentry_boe_v2_11_115.cancel_orig_on_reject.display = function(value)
-  return "Cancel Orig On Reject: "..value
+  if value == "N" then
+    return "Cancel Orig On Reject: Leave Original Order Alone (N)"
+  end
+  if value == "Y" then
+    return "Cancel Orig On Reject: Cancel Original Order If Modification Fails (Y)"
+  end
+
+  return "Cancel Orig On Reject: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Orig On Reject
@@ -1256,7 +1298,32 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.size = 1
 
 -- Display: Capacity
 cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.display = function(value)
-  return "Capacity: "..value
+  if value == "C" then
+    return "Capacity: Customer (C)"
+  end
+  if value == "M" then
+    return "Capacity: Market Maker (M)"
+  end
+  if value == "F" then
+    return "Capacity: Firm (F)"
+  end
+  if value == "U" then
+    return "Capacity: Professional Customer (U)"
+  end
+  if value == "N" then
+    return "Capacity: Away Market Maker (N)"
+  end
+  if value == "B" then
+    return "Capacity: Broker Dealer (B)"
+  end
+  if value == "J" then
+    return "Capacity: Joint Back Office (J)"
+  end
+  if value == "L" then
+    return "Capacity: Non Trading Permit Holder Affiliate (L)"
+  end
+
+  return "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -1267,29 +1334,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.dissect = function(buffer
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.capacity, range, value, display)
-
-  return offset + length, value
-end
-
--- Capacity Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional = {}
-
--- Size: Capacity Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional.size = 1
-
--- Display: Capacity Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional.display = function(value)
-  return "Capacity Optional: "..value
-end
-
--- Dissect: Capacity Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.capacity_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1567,45 +1611,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data.dissect = f
   return offset + length, value
 end
 
--- Clearing Optional Data Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data_optional = {}
-
--- Size: Clearing Optional Data Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data_optional.size = 16
-
--- Display: Clearing Optional Data Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Clearing Optional Data Optional: No Value"
-  end
-
-  return "Clearing Optional Data Optional: "..value
-end
-
--- Dissect: Clearing Optional Data Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.clearing_optional_data_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Client Id Attr
 cboe_c1options_binaryorderentry_boe_v2_11_115.client_id_attr = {}
 
@@ -1699,7 +1704,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.combo_order.size = 1
 
 -- Display: Combo Order
 cboe_c1options_binaryorderentry_boe_v2_11_115.combo_order.display = function(value)
-  return "Combo Order: "..value
+  if value == "N" then
+    return "Combo Order: Default No (N)"
+  end
+  if value == "Y" then
+    return "Combo Order: Yes (Y)"
+  end
+
+  return "Combo Order: Unknown("..value..")"
 end
 
 -- Dissect: Combo Order
@@ -1722,7 +1734,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.compression.size = 1
 
 -- Display: Compression
 cboe_c1options_binaryorderentry_boe_v2_11_115.compression.display = function(value)
-  return "Compression: "..value
+  if value == "N" then
+    return "Compression: Default No (N)"
+  end
+  if value == "Y" then
+    return "Compression: Yes (Y)"
+  end
+
+  return "Compression: Unknown("..value..")"
 end
 
 -- Dissect: Compression
@@ -1745,12 +1764,68 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.contra_broker.size = 4
 
 -- Display: Contra Broker
 cboe_c1options_binaryorderentry_boe_v2_11_115.contra_broker.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contra Broker: No Value"
+  if value == "AMEX" then
+    return "Contra Broker: Routed To Nyse American (AMEX)"
+  end
+  if value == "ARCA" then
+    return "Contra Broker: Routed To Nyse Arca (ARCA)"
+  end
+  if value == "BATS" then
+    return "Contra Broker: Routed To Cboe Bzx Options (BATS)"
+  end
+  if value == "BOX" then
+    return "Contra Broker: Routed To Box (BOX)"
+  end
+  if value == "CBOE" then
+    return "Contra Broker: Routed To Cboe Options (CBOE)"
+  end
+  if value == "CTWO" then
+    return "Contra Broker: Routed To C 2 Options (CTWO)"
+  end
+  if value == "EDGX" then
+    return "Contra Broker: Routed To Cboe Edgx Options (EDGX)"
+  end
+  if value == "EMLD" then
+    return "Contra Broker: Routed To Miax Emerald (EMLD)"
+  end
+  if value == "GMNI" then
+    return "Contra Broker: Routed To Nasdaq Gemx (GMNI)"
+  end
+  if value == "IEX" then
+    return "Contra Broker: Routed To Iex Options (IEX)"
+  end
+  if value == "ISE" then
+    return "Contra Broker: Routed To Nasdaq Ise (ISE)"
+  end
+  if value == "MEMX" then
+    return "Contra Broker: Routed To Memx (MEMX)"
+  end
+  if value == "MERC" then
+    return "Contra Broker: Routed To Nasdaq Mrx (MERC)"
+  end
+  if value == "MIAX" then
+    return "Contra Broker: Routed To Miax Options Exchange (MIAX)"
+  end
+  if value == "MXTO" then
+    return "Contra Broker: Routed To Mx 2 Options (MXTO)"
+  end
+  if value == "NOMX" then
+    return "Contra Broker: Routed To Nasdaq (NOMX)"
+  end
+  if value == "NOBX" then
+    return "Contra Broker: Routed To Nasdaq Texas (NOBX)"
+  end
+  if value == "PERL" then
+    return "Contra Broker: Routed To Miax Pearl (PERL)"
+  end
+  if value == "PHLX" then
+    return "Contra Broker: Routed To Nasdaq Phlx (PHLX)"
+  end
+  if value == "SPHR" then
+    return "Contra Broker: Routed To Miax Sapphire (SPHR)"
   end
 
-  return "Contra Broker: "..value
+  return "Contra Broker: Unknown("..value..")"
 end
 
 -- Dissect: Contra Broker
@@ -1898,7 +1973,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_exclusion_indicator.size = 1
 
 -- Display: Cross Exclusion Indicator
 cboe_c1options_binaryorderentry_boe_v2_11_115.cross_exclusion_indicator.display = function(value)
-  return "Cross Exclusion Indicator: "..value
+  if value == "N" then
+    return "Cross Exclusion Indicator: Contracts Were Executed In Auction Against Contra Party Or (N)"
+  end
+  if value == "Y" then
+    return "Cross Exclusion Indicator: Contracts Were Executed In Auction Against Another Party (Y)"
+  end
+
+  return "Cross Exclusion Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Cross Exclusion Indicator
@@ -2038,7 +2120,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_prioritization.size = 1
 
 -- Display: Cross Prioritization
 cboe_c1options_binaryorderentry_boe_v2_11_115.cross_prioritization.display = function(value)
-  return "Cross Prioritization: "..value
+  if value == "1" then
+    return "Cross Prioritization: Buy (1)"
+  end
+  if value == "2" then
+    return "Cross Prioritization: Sell (2)"
+  end
+
+  return "Cross Prioritization: Unknown("..value..")"
 end
 
 -- Dissect: Cross Prioritization
@@ -2061,7 +2150,23 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_type.size = 1
 
 -- Display: Cross Type
 cboe_c1options_binaryorderentry_boe_v2_11_115.cross_type.display = function(value)
-  return "Cross Type: "..value
+  if value == "1" then
+    return "Cross Type: Automated Improvement Mechamism (1)"
+  end
+  if value == "2" then
+    return "Cross Type: Qualified Contingent Cross (2)"
+  end
+  if value == "3" then
+    return "Cross Type: Solicitation Cross (3)"
+  end
+  if value == "4" then
+    return "Cross Type: Position Compression Cross (4)"
+  end
+  if value == "5" then
+    return "Cross Type: Related Futures Cross (5)"
+  end
+
+  return "Cross Type: Unknown("..value..")"
 end
 
 -- Dissect: Cross Type
@@ -2228,7 +2333,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.display_indicator.size = 1
 
 -- Display: Display Indicator
 cboe_c1options_binaryorderentry_boe_v2_11_115.display_indicator.display = function(value)
-  return "Display Indicator: "..value
+  if value == "V" then
+    return "Display Indicator: Default (V)"
+  end
+  if value == "P" then
+    return "Display Indicator: Price Adjust (P)"
+  end
+  if value == "m" then
+    return "Display Indicator: Multiple Price Adjust (m)"
+  end
+  if value == "R" then
+    return "Display Indicator: Reject The Order If It Cannot Be Booked And Displayed (R)"
+  end
+
+  return "Display Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Display Indicator
@@ -2410,7 +2528,23 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.equity_ex_destination.size = 1
 
 -- Display: Equity Ex Destination
 cboe_c1options_binaryorderentry_boe_v2_11_115.equity_ex_destination.display = function(value)
-  return "Equity Ex Destination: "..value
+  if value == "C" then
+    return "Equity Ex Destination: Td Securities (C)"
+  end
+  if value == "P" then
+    return "Equity Ex Destination: Penserra Via Nyse Chicago (P)"
+  end
+  if value == "F" then
+    return "Equity Ex Destination: Fog Equities Via Nyse Chicago (F)"
+  end
+  if value == "L" then
+    return "Equity Ex Destination: Libucki Co (L)"
+  end
+  if value == "S" then
+    return "Equity Ex Destination: Srt Securities Via Nyse Chicago (S)"
+  end
+
+  return "Equity Ex Destination: Unknown("..value..")"
 end
 
 -- Dissect: Equity Ex Destination
@@ -2433,7 +2567,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell.size = 1
 
 -- Display: Equity Leg Short Sell
 cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell.display = function(value)
-  return "Equity Leg Short Sell: "..value
+  if value == "5" then
+    return "Equity Leg Short Sell: Sell Short (5)"
+  end
+  if value == "6" then
+    return "Equity Leg Short Sell: Sell Short Exempt (6)"
+  end
+
+  return "Equity Leg Short Sell: Unknown("..value..")"
 end
 
 -- Dissect: Equity Leg Short Sell
@@ -2444,29 +2585,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell.dissect = fu
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_leg_short_sell, range, value, display)
-
-  return offset + length, value
-end
-
--- Equity Leg Short Sell Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell_optional = {}
-
--- Size: Equity Leg Short Sell Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell_optional.size = 1
-
--- Display: Equity Leg Short Sell Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell_optional.display = function(value)
-  return "Equity Leg Short Sell Optional: "..value
-end
-
--- Dissect: Equity Leg Short Sell Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell_optional.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_leg_short_sell_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2506,45 +2624,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id.dissect = function
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_party_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Equity Party Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id_optional = {}
-
--- Size: Equity Party Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id_optional.size = 4
-
--- Display: Equity Party Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Equity Party Id Optional: No Value"
-  end
-
-  return "Equity Party Id Optional: "..value
-end
-
--- Dissect: Equity Party Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_party_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2648,7 +2727,47 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.equity_trade_venue.size = 1
 
 -- Display: Equity Trade Venue
 cboe_c1options_binaryorderentry_boe_v2_11_115.equity_trade_venue.display = function(value)
-  return "Equity Trade Venue: "..value
+  if value == "A" then
+    return "Equity Trade Venue: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Equity Trade Venue: Nasdaq Texas (B)"
+  end
+  if value == "C" then
+    return "Equity Trade Venue: Nyse National (C)"
+  end
+  if value == "I" then
+    return "Equity Trade Venue: Investors Exchange (I)"
+  end
+  if value == "J" then
+    return "Equity Trade Venue: Cboe Edga Exchange (J)"
+  end
+  if value == "K" then
+    return "Equity Trade Venue: Cboe Edgx Exchange (K)"
+  end
+  if value == "M" then
+    return "Equity Trade Venue: Chx (M)"
+  end
+  if value == "N" then
+    return "Equity Trade Venue: Nyse (N)"
+  end
+  if value == "P" then
+    return "Equity Trade Venue: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Equity Trade Venue: Nasdaq (Q)"
+  end
+  if value == "X" then
+    return "Equity Trade Venue: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Equity Trade Venue: Cboe Byx Exchange (Y)"
+  end
+  if value == "Z" then
+    return "Equity Trade Venue: Cboe Bzx Exchange (Z)"
+  end
+
+  return "Equity Trade Venue: Unknown("..value..")"
 end
 
 -- Dissect: Equity Trade Venue
@@ -2698,7 +2817,68 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.ex_destination.size = 1
 
 -- Display: Ex Destination
 cboe_c1options_binaryorderentry_boe_v2_11_115.ex_destination.display = function(value)
-  return "Ex Destination: "..value
+  if value == "A" then
+    return "Ex Destination: Nyse Arca (A)"
+  end
+  if value == "E" then
+    return "Ex Destination: Nasdaq Ise (E)"
+  end
+  if value == "F" then
+    return "Ex Destination: Miax (F)"
+  end
+  if value == "P" then
+    return "Ex Destination: Miax Pearl (P)"
+  end
+  if value == "D" then
+    return "Ex Destination: Miax Emerald (D)"
+  end
+  if value == "G" then
+    return "Ex Destination: Edgx Options (G)"
+  end
+  if value == "H" then
+    return "Ex Destination: C 2 (H)"
+  end
+  if value == "I" then
+    return "Ex Destination: Iex Options (I)"
+  end
+  if value == "J" then
+    return "Ex Destination: Mx 2 Options (J)"
+  end
+  if value == "K" then
+    return "Ex Destination: Box (K)"
+  end
+  if value == "M" then
+    return "Ex Destination: Memx (M)"
+  end
+  if value == "N" then
+    return "Ex Destination: Nasdaq (N)"
+  end
+  if value == "S" then
+    return "Ex Destination: Nasdaq Texas (S)"
+  end
+  if value == "U" then
+    return "Ex Destination: Nyse American (U)"
+  end
+  if value == "W" then
+    return "Ex Destination: Cboe Options (W)"
+  end
+  if value == "X" then
+    return "Ex Destination: Nasdaq Phlx (X)"
+  end
+  if value == "Z" then
+    return "Ex Destination: Bzx Options (Z)"
+  end
+  if value == "g" then
+    return "Ex Destination: Nasdaq Gemx (g)"
+  end
+  if value == "m" then
+    return "Ex Destination: Nasdaq Mrx (m)"
+  end
+  if value == "w" then
+    return "Ex Destination: Miax Sapphire (w)"
+  end
+
+  return "Ex Destination: Unknown("..value..")"
 end
 
 -- Dissect: Ex Destination
@@ -2744,7 +2924,23 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.exec_inst.size = 1
 
 -- Display: Exec Inst
 cboe_c1options_binaryorderentry_boe_v2_11_115.exec_inst.display = function(value)
-  return "Exec Inst: "..value
+  if value == "1" then
+    return "Exec Inst: Not Held (1)"
+  end
+  if value == "f" then
+    return "Exec Inst: Intermarket Sweep (f)"
+  end
+  if value == "r" then
+    return "Exec Inst: Settlement Liquidity 1 (r)"
+  end
+  if value == "G" then
+    return "Exec Inst: All Or None (G)"
+  end
+  if value == "s" then
+    return "Exec Inst: Sweep 2 (s)"
+  end
+
+  return "Exec Inst: Unknown("..value..")"
 end
 
 -- Dissect: Exec Inst
@@ -2934,7 +3130,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.floor_routing_inst.size = 1
 
 -- Display: Floor Routing Inst
 cboe_c1options_binaryorderentry_boe_v2_11_115.floor_routing_inst.display = function(value)
-  return "Floor Routing Inst: "..value
+  if value == "D" then
+    return "Floor Routing Inst: Direct (D)"
+  end
+  if value == "E" then
+    return "Floor Routing Inst: Electronic Only (E)"
+  end
+  if value == "X" then
+    return "Floor Routing Inst: Route To Floor If Unable To Process Electronically (X)"
+  end
+  if value == " " then
+    return "Floor Routing Inst: Port Level Default (<whitespace>)"
+  end
+
+  return "Floor Routing Inst: Unknown("..value..")"
 end
 
 -- Dissect: Floor Routing Inst
@@ -3132,45 +3341,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id.dissect = function
   return offset + length, value
 end
 
--- Give Up Firm Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional = {}
-
--- Size: Give Up Firm Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional.size = 4
-
--- Display: Give Up Firm Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Give Up Firm Id Optional: No Value"
-  end
-
-  return "Give Up Firm Id Optional: "..value
-end
-
--- Dissect: Give Up Firm Id Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.give_up_firm_id_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Group Cnt
 cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt = {}
 
@@ -3202,7 +3372,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.held.size = 1
 
 -- Display: Held
 cboe_c1options_binaryorderentry_boe_v2_11_115.held.display = function(value)
-  return "Held: "..value
+  if value == "N" then
+    return "Held: Mark Order As Not Held (N)"
+  end
+  if value == "Y" then
+    return "Held: Mark Order As Held (Y)"
+  end
+
+  return "Held: Unknown("..value..")"
 end
 
 -- Dissect: Held
@@ -3225,7 +3402,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.last_priority.size = 1
 
 -- Display: Last Priority
 cboe_c1options_binaryorderentry_boe_v2_11_115.last_priority.display = function(value)
-  return "Last Priority: "..value
+  if value == "0" then
+    return "Last Priority: Disabled (0)"
+  end
+  if value == "1" then
+    return "Last Priority: Enabled (1)"
+  end
+
+  return "Last Priority: Unknown("..value..")"
 end
 
 -- Dissect: Last Priority
@@ -3403,45 +3587,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.leg_maturity_date.dissect = functi
   return offset + length, value
 end
 
--- Leg Position Effects
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects = {}
-
--- Size: Leg Position Effects
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects.size = 12
-
--- Display: Leg Position Effects
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Position Effects: No Value"
-  end
-
-  return "Leg Position Effects: "..value
-end
-
--- Dissect: Leg Position Effects
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_position_effects, range, value, display)
-
-  return offset + length, value
-end
-
 -- Leg Position Effects Ext
 cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext = {}
 
@@ -3477,45 +3622,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext.dissect =
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_position_effects_ext, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Position Effects Ext Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext_optional = {}
-
--- Size: Leg Position Effects Ext Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext_optional.size = 16
-
--- Display: Leg Position Effects Ext Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext_optional.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Leg Position Effects Ext Optional: No Value"
-  end
-
-  return "Leg Position Effects Ext Optional: "..value
-end
-
--- Dissect: Leg Position Effects Ext Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext_optional.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.leg_position_effects_ext_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3557,7 +3663,35 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.login_response_status.size = 1
 
 -- Display: Login Response Status
 cboe_c1options_binaryorderentry_boe_v2_11_115.login_response_status.display = function(value)
-  return "Login Response Status: "..value
+  if value == "A" then
+    return "Login Response Status: Login Accepted (A)"
+  end
+  if value == "N" then
+    return "Login Response Status: Not Authorized (N)"
+  end
+  if value == "D" then
+    return "Login Response Status: Session Is Disabled (D)"
+  end
+  if value == "B" then
+    return "Login Response Status: Session In Use (B)"
+  end
+  if value == "S" then
+    return "Login Response Status: Invalid Session (S)"
+  end
+  if value == "Q" then
+    return "Login Response Status: Sequence Ahead In Login Message (Q)"
+  end
+  if value == "I" then
+    return "Login Response Status: Invalid Unit Given In Login Message (I)"
+  end
+  if value == "F" then
+    return "Login Response Status: Invalid Return Bit Field In Login Message (F)"
+  end
+  if value == "M" then
+    return "Login Response Status: Invalid Login Request Message Structure (M)"
+  end
+
+  return "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -3619,7 +3753,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.logout_reason.size = 1
 
 -- Display: Logout Reason
 cboe_c1options_binaryorderentry_boe_v2_11_115.logout_reason.display = function(value)
-  return "Logout Reason: "..value
+  if value == "U" then
+    return "Logout Reason: User Requested (U)"
+  end
+  if value == "E" then
+    return "Logout Reason: End Of Day (E)"
+  end
+  if value == "A" then
+    return "Logout Reason: Administrative (A)"
+  end
+  if value == "!" then
+    return "Logout Reason: Protocol Violation (!)"
+  end
+
+  return "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -3759,7 +3906,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.mass_cancel_lock_out.size = 1
 
 -- Display: Mass Cancel Lock Out
 cboe_c1options_binaryorderentry_boe_v2_11_115.mass_cancel_lock_out.display = function(value)
-  return "Mass Cancel Lock Out: "..value
+  if value == "Y" then
+    return "Mass Cancel Lock Out: Lockout (Y)"
+  end
+  if value == "N" then
+    return "Mass Cancel Lock Out: No Lockout (N)"
+  end
+
+  return "Mass Cancel Lock Out: Unknown("..value..")"
 end
 
 -- Dissect: Mass Cancel Lock Out
@@ -4103,7 +4257,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.multi_class_sprd.size = 1
 
 -- Display: Multi Class Sprd
 cboe_c1options_binaryorderentry_boe_v2_11_115.multi_class_sprd.display = function(value)
-  return "Multi Class Sprd: "..value
+  if value == "N" then
+    return "Multi Class Sprd: Default No (N)"
+  end
+  if value == "Y" then
+    return "Multi Class Sprd: Yes (Y)"
+  end
+
+  return "Multi Class Sprd: Unknown("..value..")"
 end
 
 -- Dissect: Multi Class Sprd
@@ -4126,7 +4287,17 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_ty.size = 1
 
 -- Display: Multileg Reporting Ty
 cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_ty.display = function(value)
-  return "Multileg Reporting Ty: "..value
+  if value == "2" then
+    return "Multileg Reporting Ty: Individual Leg Of Mutilleg Instrument (2)"
+  end
+  if value == "3" then
+    return "Multileg Reporting Ty: Entire Multileg Instrument Package (3)"
+  end
+  if value == "4" then
+    return "Multileg Reporting Ty: Last Individual Leg Of A Multileg Instrument (4)"
+  end
+
+  return "Multileg Reporting Ty: Unknown("..value..")"
 end
 
 -- Dissect: Multileg Reporting Ty
@@ -4149,7 +4320,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_typ.size = 1
 
 -- Display: Multileg Reporting Typ
 cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_typ.display = function(value)
-  return "Multileg Reporting Typ: "..value
+  if value == "1" then
+    return "Multileg Reporting Typ: Singleleg Instrument (1)"
+  end
+  if value == "2" then
+    return "Multileg Reporting Typ: Individual Leg Of Multileg Instrument (2)"
+  end
+
+  return "Multileg Reporting Typ: Unknown("..value..")"
 end
 
 -- Dissect: Multileg Reporting Typ
@@ -4172,7 +4350,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_type.size = 1
 
 -- Display: Multileg Reporting Type
 cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_type.display = function(value)
-  return "Multileg Reporting Type: "..value
+  if value == "1" then
+    return "Multileg Reporting Type: Singleleg Instrument (1)"
+  end
+  if value == "2" then
+    return "Multileg Reporting Type: Individual Leg Of Multileg Instrument (2)"
+  end
+  if value == "3" then
+    return "Multileg Reporting Type: Entire Multileg Instrument Package (3)"
+  end
+  if value == "4" then
+    return "Multileg Reporting Type: Last Individual Leg Of Multileg Instrument (4)"
+  end
+
+  return "Multileg Reporting Type: Unknown("..value..")"
 end
 
 -- Dissect: Multileg Reporting Type
@@ -4183,52 +4374,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_type.dissect = 
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.multileg_reporting_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.multileg_reporting_type, range, value, display)
-
-  return offset + length, value
-end
-
--- New Complex Order Bi
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bi = {}
-
--- Size: New Complex Order Bi
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bi.size = 1
-
--- Display: New Complex Order Bi
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bi.display = function(value)
-  return "New Complex Order Bi: "..value
-end
-
--- Dissect: New Complex Order Bi
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bi.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bi.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bi.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_complex_order_bi, range, value, display)
-
-  return offset + length, value
-end
-
--- New Order Cross Bitfie
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfie = {}
-
--- Size: New Order Cross Bitfie
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfie.size = 1
-
--- Display: New Order Cross Bitfie
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfie.display = function(value)
-  return "New Order Cross Bitfie: "..value
-end
-
--- Dissect: New Order Cross Bitfie
-cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfie.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfie.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfie.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.new_order_cross_bitfie, range, value, display)
 
   return offset + length, value
 end
@@ -4509,6 +4654,29 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_purge_orders_bitfields.d
   return offset + length, value
 end
 
+-- Number Of Return Bitf
+cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf = {}
+
+-- Size: Number Of Return Bitf
+cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.size = 1
+
+-- Display: Number Of Return Bitf
+cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.display = function(value)
+  return "Number Of Return Bitf: "..value
+end
+
+-- Dissect: Number Of Return Bitf
+cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.number_of_return_bitf, range, value, display)
+
+  return offset + length, value
+end
+
 -- Number Of Return Bitfields
 cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitfields = {}
 
@@ -4563,7 +4731,17 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.size = 1
 
 -- Display: Open Close
 cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.display = function(value)
-  return "Open Close: "..value
+  if value == "O" then
+    return "Open Close: Open (O)"
+  end
+  if value == "C" then
+    return "Open Close: Close (C)"
+  end
+  if value == "N" then
+    return "Open Close: None (N)"
+  end
+
+  return "Open Close: Unknown("..value..")"
 end
 
 -- Dissect: Open Close
@@ -4578,29 +4756,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect = function(buff
   return offset + length, value
 end
 
--- Open Close Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional = {}
-
--- Size: Open Close Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional.size = 1
-
--- Display: Open Close Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional.display = function(value)
-  return "Open Close Optional: "..value
-end
-
--- Dissect: Open Close Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.open_close_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Ord Type
 cboe_c1options_binaryorderentry_boe_v2_11_115.ord_type = {}
 
@@ -4609,7 +4764,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.ord_type.size = 1
 
 -- Display: Ord Type
 cboe_c1options_binaryorderentry_boe_v2_11_115.ord_type.display = function(value)
-  return "Ord Type: "..value
+  if value == "1" then
+    return "Ord Type: Market (1)"
+  end
+  if value == "2" then
+    return "Ord Type: Limit (2)"
+  end
+  if value == "3" then
+    return "Ord Type: Stop (3)"
+  end
+  if value == "4" then
+    return "Ord Type: Stop Limit (4)"
+  end
+
+  return "Ord Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type
@@ -4686,48 +4854,25 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_origin.dissect = function(bu
   return offset + length, value
 end
 
--- Order Qty Binary 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2 = {}
+-- Order Qty
+cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty = {}
 
--- Size: Order Qty Binary 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2.size = 2
+-- Size: Order Qty
+cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.size = 4
 
--- Display: Order Qty Binary 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2.display = function(value)
-  return "Order Qty Binary 2: "..value
+-- Display: Order Qty
+cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.display = function(value)
+  return "Order Qty: "..value
 end
 
--- Dissect: Order Qty Binary 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2.size
+-- Dissect: Order Qty
+cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Order Qty Binary 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4 = {}
-
--- Size: Order Qty Binary 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.size = 4
-
--- Display: Order Qty Binary 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.display = function(value)
-  return "Order Qty Binary 4: "..value
-end
-
--- Dissect: Order Qty Binary 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_4, range, value, display)
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
@@ -4829,7 +4974,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.ors.size = 1
 
 -- Display: Ors
 cboe_c1options_binaryorderentry_boe_v2_11_115.ors.display = function(value)
-  return "Ors: "..value
+  if value == "N" then
+    return "Ors: Default No (N)"
+  end
+  if value == "Y" then
+    return "Ors: Yes (Y)"
+  end
+
+  return "Ors: Unknown("..value..")"
 end
 
 -- Dissect: Ors
@@ -4840,6 +4992,52 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.ors.dissect = function(buffer, off
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.ors.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.ors, range, value, display)
+
+  return offset + length, value
+end
+
+-- Param Group Length
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length = {}
+
+-- Size: Param Group Length
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length.size = 2
+
+-- Display: Param Group Length
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length.display = function(value)
+  return "Param Group Length: "..value
+end
+
+-- Dissect: Param Group Length
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Param Group Type
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type = {}
+
+-- Size: Param Group Type
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type.size = 1
+
+-- Display: Param Group Type
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type.display = function(value)
+  return "Param Group Type: "..value
+end
+
+-- Dissect: Param Group Type
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group_type, range, value, display)
 
   return offset + length, value
 end
@@ -4891,7 +5089,23 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.posting_instruction.size = 1
 
 -- Display: Posting Instruction
 cboe_c1options_binaryorderentry_boe_v2_11_115.posting_instruction.display = function(value)
-  return "Posting Instruction: "..value
+  if value == "P" then
+    return "Posting Instruction: Post Only (P)"
+  end
+  if value == "B" then
+    return "Posting Instruction: Book Only (B)"
+  end
+  if value == "N" then
+    return "Posting Instruction: Book Only No Slide (N)"
+  end
+  if value == "R" then
+    return "Posting Instruction: Post Only No Slide (R)"
+  end
+  if value == "I" then
+    return "Posting Instruction: Book Only Ioc (I)"
+  end
+
+  return "Posting Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Posting Instruction
@@ -4945,60 +5159,31 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.prevent_match.dissect = function(b
   return offset + length, value
 end
 
--- Price Binary Price 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4 = {}
+-- Price
+cboe_c1options_binaryorderentry_boe_v2_11_115.price = {}
 
--- Size: Price Binary Price 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.size = 4
+-- Size: Price
+cboe_c1options_binaryorderentry_boe_v2_11_115.price.size = 8
 
--- Display: Price Binary Price 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.display = function(value)
-  return "Price Binary Price 4: "..value
+-- Display: Price
+cboe_c1options_binaryorderentry_boe_v2_11_115.price.display = function(value)
+  return "Price: "..value
 end
 
--- Translate: Price Binary Price 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.translate = function(raw)
-  return raw/10000
-end
-
--- Dissect: Price Binary Price 4
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.size
-  local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.translate(raw)
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.price_binary_price_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Binary Price 8
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8 = {}
-
--- Size: Price Binary Price 8
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.size = 8
-
--- Display: Price Binary Price 8
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.display = function(value)
-  return "Price Binary Price 8: "..value
-end
-
--- Translate: Price Binary Price 8
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.translate = function(raw)
+-- Translate: Price
+cboe_c1options_binaryorderentry_boe_v2_11_115.price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Price Binary Price 8
-cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.size
+-- Dissect: Price
+cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.translate(raw)
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_c1options_binaryorderentry_boe_v2_11_115.price.translate(raw)
+  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -5011,7 +5196,17 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.price_type.size = 1
 
 -- Display: Price Type
 cboe_c1options_binaryorderentry_boe_v2_11_115.price_type.display = function(value)
-  return "Price Type: "..value
+  if value == "0" then
+    return "Price Type: Fixed Cabinet Trade Price (0)"
+  end
+  if value == "2" then
+    return "Price Type: Default Price Per Unit Contract (2)"
+  end
+  if value == "3" then
+    return "Price Type: Fixed Amount (3)"
+  end
+
+  return "Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Price Type
@@ -5057,7 +5252,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.put_or_call.size = 1
 
 -- Display: Put Or Call
 cboe_c1options_binaryorderentry_boe_v2_11_115.put_or_call.display = function(value)
-  return "Put Or Call: "..value
+  if value == "0" then
+    return "Put Or Call: Put (0)"
+  end
+  if value == "1" then
+    return "Put Or Call: Call (1)"
+  end
+
+  return "Put Or Call: Unknown("..value..")"
 end
 
 -- Dissect: Put Or Call
@@ -5114,29 +5316,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.quote_reject_reason.dissect = func
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Quote Result
-cboe_c1options_binaryorderentry_boe_v2_11_115.quote_result = {}
-
--- Size: Quote Result
-cboe_c1options_binaryorderentry_boe_v2_11_115.quote_result.size = 1
-
--- Display: Quote Result
-cboe_c1options_binaryorderentry_boe_v2_11_115.quote_result.display = function(value)
-  return "Quote Result: "..value
-end
-
--- Dissect: Quote Result
-cboe_c1options_binaryorderentry_boe_v2_11_115.quote_result.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_result.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_result.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_result, range, value, display)
 
   return offset + length, value
 end
@@ -5334,29 +5513,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_17.dissect = function(buf
   return offset + length, value
 end
 
--- Reserved 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2 = {}
-
--- Size: Reserved 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2.size = 2
-
--- Display: Reserved 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2.display = function(value)
-  return "Reserved 2: "..value
-end
-
--- Dissect: Reserved 2
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_2, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reserved 3
 cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_3 = {}
 
@@ -5380,29 +5536,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_3.dissect = function(buff
   return offset + length, value
 end
 
--- Reserved 5
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_5 = {}
-
--- Size: Reserved 5
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_5.size = 5
-
--- Display: Reserved 5
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_5.display = function(value)
-  return "Reserved 5: "..value
-end
-
--- Dissect: Reserved 5
-cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_5.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_5.size
-  local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_5.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.reserved_5, range, value, display)
-
-  return offset + length, value
-end
-
 -- Restatement Reason
 cboe_c1options_binaryorderentry_boe_v2_11_115.restatement_reason = {}
 
@@ -5411,7 +5544,35 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.restatement_reason.size = 1
 
 -- Display: Restatement Reason
 cboe_c1options_binaryorderentry_boe_v2_11_115.restatement_reason.display = function(value)
-  return "Restatement Reason: "..value
+  if value == "E" then
+    return "Restatement Reason: Reduction Of Ord Qty Due To Equity Leg Reject (E)"
+  end
+  if value == "F" then
+    return "Restatement Reason: Represented On Floor (F)"
+  end
+  if value == "L" then
+    return "Restatement Reason: Reload (L)"
+  end
+  if value == "P" then
+    return "Restatement Reason: Price Sliding Reprice (P)"
+  end
+  if value == "Q" then
+    return "Restatement Reason: Liquidity Updated (Q)"
+  end
+  if value == "R" then
+    return "Restatement Reason: Reroute (R)"
+  end
+  if value == "S" then
+    return "Restatement Reason: Ship And Post (S)"
+  end
+  if value == "W" then
+    return "Restatement Reason: Wash (W)"
+  end
+  if value == "f" then
+    return "Restatement Reason: Unsolicited Floor Action (f)"
+  end
+
+  return "Restatement Reason: Unknown("..value..")"
 end
 
 -- Dissect: Restatement Reason
@@ -5434,7 +5595,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.revised_legs.size = 1
 
 -- Display: Revised Legs
 cboe_c1options_binaryorderentry_boe_v2_11_115.revised_legs.display = function(value)
-  return "Revised Legs: "..value
+  if value == "1" then
+    return "Revised Legs: Legs Were Not Reordered (1)"
+  end
+  if value == "2" then
+    return "Revised Legs: Legs Were Reordered (2)"
+  end
+
+  return "Revised Legs: Unknown("..value..")"
 end
 
 -- Dissect: Revised Legs
@@ -5496,7 +5664,44 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.risk_reset_result.size = 1
 
 -- Display: Risk Reset Result
 cboe_c1options_binaryorderentry_boe_v2_11_115.risk_reset_result.display = function(value)
-  return "Risk Reset Result: "..value
+  if value == " " then
+    return "Risk Reset Result: Ignored (<whitespace>)"
+  end
+  if value == "C" then
+    return "Risk Reset Result: Rejected (C)"
+  end
+  if value == "D" then
+    return "Risk Reset Result: Rejected (D)"
+  end
+  if value == "E" then
+    return "Risk Reset Result: Rejected (E)"
+  end
+  if value == "F" then
+    return "Risk Reset Result: Rejected (F)"
+  end
+  if value == "I" then
+    return "Risk Reset Result: Rejected (I)"
+  end
+  if value == "M" then
+    return "Risk Reset Result: Rejected (M)"
+  end
+  if value == "S" then
+    return "Risk Reset Result: Rejected (S)"
+  end
+  if value == "U" then
+    return "Risk Reset Result: Rejected (U)"
+  end
+  if value == "Y" then
+    return "Risk Reset Result: Success (Y)"
+  end
+  if value == "c" then
+    return "Risk Reset Result: Rejected (c)"
+  end
+  if value == "y" then
+    return "Risk Reset Result: Rejected (y)"
+  end
+
+  return "Risk Reset Result: Unknown("..value..")"
 end
 
 -- Dissect: Risk Reset Result
@@ -5597,12 +5802,17 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.rout_strategy.size = 6
 
 -- Display: Rout Strategy
 cboe_c1options_binaryorderentry_boe_v2_11_115.rout_strategy.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Rout Strategy: No Value"
+  if value == "ROUT" then
+    return "Rout Strategy: Book Street (ROUT)"
+  end
+  if value == "DIRC" then
+    return "Rout Strategy: Book Directed Ioc Or Directed Iso If Exec Inst F (DIRC)"
+  end
+  if value == "SWPA" then
+    return "Rout Strategy: Default Book Sweep Street (SWPA)"
   end
 
-  return "Rout Strategy: "..value
+  return "Rout Strategy: Unknown("..value..")"
 end
 
 -- Dissect: Rout Strategy
@@ -5636,12 +5846,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.route_delivery_method.size = 3
 
 -- Display: Route Delivery Method
 cboe_c1options_binaryorderentry_boe_v2_11_115.route_delivery_method.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Route Delivery Method: No Value"
+  if value == "RTI" then
+    return "Route Delivery Method: Route To Improve (RTI)"
+  end
+  if value == "RTF" then
+    return "Route Delivery Method: Route To Fill (RTF)"
   end
 
-  return "Route Delivery Method: "..value
+  return "Route Delivery Method: Unknown("..value..")"
 end
 
 -- Dissect: Route Delivery Method
@@ -5826,7 +6038,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.sender_location_id.size = 1
 
 -- Display: Sender Location Id
 cboe_c1options_binaryorderentry_boe_v2_11_115.sender_location_id.display = function(value)
-  return "Sender Location Id: "..value
+  if value == "F" then
+    return "Sender Location Id: Floor (F)"
+  end
+  if value == " " then
+    return "Sender Location Id: Or Not Present For Electronic Execution (<whitespace>)"
+  end
+
+  return "Sender Location Id: Unknown("..value..")"
 end
 
 -- Dissect: Sender Location Id
@@ -5872,7 +6091,17 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.session_eligibility.size = 1
 
 -- Display: Session Eligibility
 cboe_c1options_binaryorderentry_boe_v2_11_115.session_eligibility.display = function(value)
-  return "Session Eligibility: "..value
+  if value == "R" then
+    return "Session Eligibility: Default Order Participates In Regular Trading Hours (R)"
+  end
+  if value == "A" then
+    return "Session Eligibility: Order Participates In Both Global And Regular Trading (A)"
+  end
+  if value == "B" then
+    return "Session Eligibility: Order Participates In Both Rth And Curb Session (B)"
+  end
+
+  return "Session Eligibility: Unknown("..value..")"
 end
 
 -- Dissect: Session Eligibility
@@ -5934,7 +6163,20 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.side.size = 1
 
 -- Display: Side
 cboe_c1options_binaryorderentry_boe_v2_11_115.side.display = function(value)
-  return "Side: "..value
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+  if value == "5" then
+    return "Side: Sell Short (5)"
+  end
+  if value == "6" then
+    return "Side: Sell Short Exempt (6)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -5945,29 +6187,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect = function(buffer, of
   local display = cboe_c1options_binaryorderentry_boe_v2_11_115.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Side Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional = {}
-
--- Size: Side Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional.size = 1
-
--- Display: Side Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional.display = function(value)
-  return "Side Optional: "..value
-end
-
--- Dissect: Side Optional
-cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.side_optional, range, value, display)
 
   return offset + length, value
 end
@@ -6055,7 +6274,17 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.size = 1
 
 -- Display: Stop Px Typeeffective Tbd
 cboe_c1options_binaryorderentry_boe_v2_11_115.stop_px_typeeffective_tbd.display = function(value)
-  return "Stop Px Typeeffective Tbd: "..value
+  if value == "L" then
+    return "Stop Px Typeeffective Tbd: Fixed Limit Price (L)"
+  end
+  if value == "B" then
+    return "Stop Px Typeeffective Tbd: Fixed Underlying Bid Price Or Index Level (B)"
+  end
+  if value == "A" then
+    return "Stop Px Typeeffective Tbd: Fixed Underlying Ask Price Or Index Level (A)"
+  end
+
+  return "Stop Px Typeeffective Tbd: Unknown("..value..")"
 end
 
 -- Dissect: Stop Px Typeeffective Tbd
@@ -6078,7 +6307,32 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.strategy_id.size = 1
 
 -- Display: Strategy Id
 cboe_c1options_binaryorderentry_boe_v2_11_115.strategy_id.display = function(value)
-  return "Strategy Id: "..value
+  if value == "C" then
+    return "Strategy Id: Conversion (C)"
+  end
+  if value == "R" then
+    return "Strategy Id: Reversal (R)"
+  end
+  if value == "M" then
+    return "Strategy Id: Merger (M)"
+  end
+  if value == "S" then
+    return "Strategy Id: Short Stock Interest (S)"
+  end
+  if value == "J" then
+    return "Strategy Id: Jelly Roll (J)"
+  end
+  if value == "F" then
+    return "Strategy Id: Compression Forum (F)"
+  end
+  if value == "B" then
+    return "Strategy Id: Box Spread (B)"
+  end
+  if value == "A" then
+    return "Strategy Id: Box Swap (A)"
+  end
+
+  return "Strategy Id: Unknown("..value..")"
 end
 
 -- Dissect: Strategy Id
@@ -6130,7 +6384,32 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.sub_liquidity_indicato.size = 1
 
 -- Display: Sub Liquidity Indicato
 cboe_c1options_binaryorderentry_boe_v2_11_115.sub_liquidity_indicato.display = function(value)
-  return "Sub Liquidity Indicato: "..value
+  if value == "S" then
+    return "Sub Liquidity Indicato: Execution From Order That Set The Nbbo (S)"
+  end
+  if value == "B" then
+    return "Sub Liquidity Indicato: Step Up Mechanism (B)"
+  end
+  if value == "U" then
+    return "Sub Liquidity Indicato: Market Turner (U)"
+  end
+  if value == "b" then
+    return "Sub Liquidity Indicato: Aim (b)"
+  end
+  if value == "Q" then
+    return "Sub Liquidity Indicato: Qcc (Q)"
+  end
+  if value == "s" then
+    return "Sub Liquidity Indicato: Sam (s)"
+  end
+  if value == "P" then
+    return "Sub Liquidity Indicato: Pcc (P)"
+  end
+  if value == "F" then
+    return "Sub Liquidity Indicato: Rfc (F)"
+  end
+
+  return "Sub Liquidity Indicato: Unknown("..value..")"
 end
 
 -- Dissect: Sub Liquidity Indicato
@@ -6153,7 +6432,32 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
 cboe_c1options_binaryorderentry_boe_v2_11_115.sub_liquidity_indicator.display = function(value)
-  return "Sub Liquidity Indicator: "..value
+  if value == "S" then
+    return "Sub Liquidity Indicator: Execution From Order That Set The Nbbo (S)"
+  end
+  if value == "B" then
+    return "Sub Liquidity Indicator: Step Up Mechanism (B)"
+  end
+  if value == "U" then
+    return "Sub Liquidity Indicator: Market Turner (U)"
+  end
+  if value == "b" then
+    return "Sub Liquidity Indicator: Aim (b)"
+  end
+  if value == "C" then
+    return "Sub Liquidity Indicator: Carried (C)"
+  end
+  if value == "D" then
+    return "Sub Liquidity Indicator: Done For Day (D)"
+  end
+  if value == "Q" then
+    return "Sub Liquidity Indicator: Qcc (Q)"
+  end
+  if value == "s" then
+    return "Sub Liquidity Indicator: Sam (s)"
+  end
+
+  return "Sub Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Sub Liquidity Indicator
@@ -6378,7 +6682,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.tied_hedge.size = 1
 
 -- Display: Tied Hedge
 cboe_c1options_binaryorderentry_boe_v2_11_115.tied_hedge.display = function(value)
-  return "Tied Hedge: "..value
+  if value == "N" then
+    return "Tied Hedge: Default No (N)"
+  end
+  if value == "Y" then
+    return "Tied Hedge: Yes (Y)"
+  end
+
+  return "Tied Hedge: Unknown("..value..")"
 end
 
 -- Dissect: Tied Hedge
@@ -6401,7 +6712,29 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.time_in_force.size = 1
 
 -- Display: Time In Force
 cboe_c1options_binaryorderentry_boe_v2_11_115.time_in_force.display = function(value)
-  return "Time In Force: "..value
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "1" then
+    return "Time In Force: Gtc Remains In System Until Executed Cancelled Or (1)"
+  end
+  if value == "2" then
+    return "Time In Force: At The Open Will Remain Queued And Only Interact In The (2)"
+  end
+  if value == "3" then
+    return "Time In Force: Ioc Portion Not Filled Immediately Is Cancelled (3)"
+  end
+  if value == "4" then
+    return "Time In Force: Fok An Ioc Where The Entire Size Must Be Filled Else The (4)"
+  end
+  if value == "6" then
+    return "Time In Force: Gtd Expires At Specified Expire Time For A Specified Day (6)"
+  end
+  if value == "7" then
+    return "Time In Force: At The Close Orders Held For Execution Until 180 Seconds (7)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -6450,7 +6783,26 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.trade_through_alert_typ.size = 1
 
 -- Display: Trade Through Alert Typ
 cboe_c1options_binaryorderentry_boe_v2_11_115.trade_through_alert_typ.display = function(value)
-  return "Trade Through Alert Typ: "..value
+  if value == "0" then
+    return "Trade Through Alert Typ: No Trade Through (0)"
+  end
+  if value == "1" then
+    return "Trade Through Alert Typ: Nbbo (1)"
+  end
+  if value == "2" then
+    return "Trade Through Alert Typ: Bbo (2)"
+  end
+  if value == "3" then
+    return "Trade Through Alert Typ: Sbbo (3)"
+  end
+  if value == "4" then
+    return "Trade Through Alert Typ: Book Trade Through (4)"
+  end
+  if value == "5" then
+    return "Trade Through Alert Typ: Due Dilligence Trade Through (5)"
+  end
+
+  return "Trade Through Alert Typ: Unknown("..value..")"
 end
 
 -- Dissect: Trade Through Alert Typ
@@ -6473,7 +6825,26 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.trade_through_alert_type.size = 1
 
 -- Display: Trade Through Alert Type
 cboe_c1options_binaryorderentry_boe_v2_11_115.trade_through_alert_type.display = function(value)
-  return "Trade Through Alert Type: "..value
+  if value == "0" then
+    return "Trade Through Alert Type: No Trade Through (0)"
+  end
+  if value == "1" then
+    return "Trade Through Alert Type: Nbbo (1)"
+  end
+  if value == "2" then
+    return "Trade Through Alert Type: Bbo (2)"
+  end
+  if value == "3" then
+    return "Trade Through Alert Type: Sbbo (3)"
+  end
+  if value == "4" then
+    return "Trade Through Alert Type: Book Trade Through (4)"
+  end
+  if value == "5" then
+    return "Trade Through Alert Type: Due Dilligence Trade Through (5)"
+  end
+
+  return "Trade Through Alert Type: Unknown("..value..")"
 end
 
 -- Dissect: Trade Through Alert Type
@@ -6515,94 +6886,48 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.transaction_time.dissect = functio
   return offset + length, value
 end
 
--- Unit Number 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1 = {}
+-- Unit Number
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number = {}
 
--- Size: Unit Number 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1.size = 1
+-- Size: Unit Number
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number.size = 1
 
--- Display: Unit Number 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1.display = function(value)
-  return "Unit Number 1: "..value
+-- Display: Unit Number
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number.display = function(value)
+  return "Unit Number: "..value
 end
 
--- Dissect: Unit Number 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1.size
+-- Dissect: Unit Number
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_number_1, range, value, display)
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_number, range, value, display)
 
   return offset + length, value
 end
 
--- Unit Numbern
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern = {}
+-- Unit Sequence
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence = {}
 
--- Size: Unit Numbern
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern.size = 1
+-- Size: Unit Sequence
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence.size = 4
 
--- Display: Unit Numbern
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern.display = function(value)
-  return "Unit Numbern: "..value
+-- Display: Unit Sequence
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence.display = function(value)
+  return "Unit Sequence: "..value
 end
 
--- Dissect: Unit Numbern
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern.size
+-- Dissect: Unit Sequence
+cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_numbern, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Sequence 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1 = {}
-
--- Size: Unit Sequence 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1.size = 4
-
--- Display: Unit Sequence 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1.display = function(value)
-  return "Unit Sequence 1: "..value
-end
-
--- Dissect: Unit Sequence 1
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_sequence_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Sequencen
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen = {}
-
--- Size: Unit Sequencen
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen.size = 4
-
--- Display: Unit Sequencen
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen.display = function(value)
-  return "Unit Sequencen: "..value
-end
-
--- Dissect: Unit Sequencen
-cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_sequencen, range, value, display)
+  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_sequence, range, value, display)
 
   return offset + length, value
 end
@@ -6971,11 +7296,11 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.add_floor_trade_rejected_message.f
   -- Side: Alphanumeric
   index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price: BinaryPrice
+  index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_c1options_binaryorderentry_boe_v2_11_115.transaction_time.dissect(buffer, index, packet, parent)
@@ -7057,11 +7382,11 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.floor_trade_notification_message.f
   -- Maturity Date: Date
   index, maturity_date = cboe_c1options_binaryorderentry_boe_v2_11_115.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price: BinaryPrice
+  index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
@@ -9314,8 +9639,8 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_messag
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- No Legs: Binary
-  index, no_legs = cboe_c1options_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
+  -- Number Of Return Bitf: Binary
+  index, number_of_return_bitf = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.dissect(buffer, index, packet, parent)
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -9551,6 +9876,9 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_messag
     index, return_bitfield_21 = cboe_c1options_binaryorderentry_boe_v2_11_115.return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 
+  -- No Legs: Binary
+  index, no_legs = cboe_c1options_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
+
   -- Runtime optional field: Fee Code
   local fee_code = nil
 
@@ -9648,6 +9976,9 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.purge_notification_message.fields 
 
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Number Of Return Bitf: Binary
+  index, number_of_return_bitf = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.dissect(buffer, index, packet, parent)
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -10385,6 +10716,9 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.trade_cancel_or_correct_message.fi
 
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_1.dissect(buffer, index, packet, parent)
+
+  -- Number Of Return Bitf: Binary
+  index, number_of_return_bitf = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.dissect(buffer, index, packet, parent)
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -11271,13 +11605,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_execution_message.fields = f
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -11343,13 +11677,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_execution_message.fields = f
     index, max_floor = cboe_c1options_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_exists then
+    index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Maturity Date
@@ -11999,13 +12333,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cancel_rejected_message.fields = f
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -12213,6 +12547,92 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cancel_rejected_message.dissect = 
   end
 end
 
+-- Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.group = {}
+
+-- Size: Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.group.size =
+  cboe_c1options_binaryorderentry_boe_v2_11_115.side.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.cl_ord_id.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.account_optional.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.cmta_number_optional.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account_optional.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_dat_optional.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.frequent_trader_id_optional.size
+
+-- Display: Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.group.fields = function(buffer, offset, packet, parent, group_index)
+  local index = offset
+
+  -- Implicit Group Index
+  if group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.group_index, group_index)
+    iteration:set_generated()
+  end
+
+  -- Side: Alphanumeric
+  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
+
+  -- Alloc Qty: Binary
+  index, alloc_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty.dissect(buffer, index, packet, parent)
+
+  -- Cl Ord Id: Text
+  index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alpha
+  index, capacity = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.dissect(buffer, index, packet, parent)
+
+  -- Open Close: Alphanumeric
+  index, open_close = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
+
+  -- Give Up Firm Id: Alpha
+  index, give_up_firm_id = cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id.dissect(buffer, index, packet, parent)
+
+  -- Account Optional: Text
+  index, account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.account_optional.dissect(buffer, index, packet, parent)
+
+  -- Cmta Number Optional: Binary
+  index, cmta_number_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.cmta_number_optional.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account Optional: Text
+  index, clearing_account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account_optional.dissect(buffer, index, packet, parent)
+
+  -- Clearing Optional Dat Optional: Text
+  index, clearing_optional_dat_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_dat_optional.dissect(buffer, index, packet, parent)
+
+  -- Frequent Trader Id Optional: Text
+  index, frequent_trader_id_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.frequent_trader_id_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.group.dissect = function(buffer, offset, packet, parent, group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.group, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe_v2_11_115.group.fields(buffer, offset, packet, parent, group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe_v2_11_115.group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe_v2_11_115.group.fields(buffer, offset, packet, parent, group_index)
+  end
+end
+
 -- Cross Order Cancelled Message
 cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message = {}
 
@@ -12246,39 +12666,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fiel
 
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_1.dissect(buffer, index, packet, parent)
-
-  -- Group Cnt: Binary
-  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: Text
-  index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Order Id: Binary
-  index, order_id = cboe_c1options_binaryorderentry_boe_v2_11_115.order_id.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: Alphanumeric
-  index, side_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Alloc Qty Optional: Binary
-  index, alloc_qty_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional.dissect(buffer, index, packet, parent)
-
-  -- Capacity Optional: Alpha
-  index, capacity_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional.dissect(buffer, index, packet, parent)
-
-  -- Open Close Optional: Alphanumeric
-  index, open_close_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional.dissect(buffer, index, packet, parent)
-
-  -- Give Up Firm Id Optional: Alpha
-  index, give_up_firm_id_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Account Optional: Text
-  index, account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.account_optional.dissect(buffer, index, packet, parent)
-
-  -- Cmta Number Optional: Binary
-  index, cmta_number_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.cmta_number_optional.dissect(buffer, index, packet, parent)
-
-  -- Clearing Account Optional: Text
-  index, clearing_account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account_optional.dissect(buffer, index, packet, parent)
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -12514,13 +12901,21 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fiel
     index, return_bitfield_21 = cboe_c1options_binaryorderentry_boe_v2_11_115.return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Group Cnt: Binary
+  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  -- Repeating: Group
+  for group_index = 1, group_cnt do
+    index, group = cboe_c1options_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
+  end
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Price
+  local price = nil
+
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -12568,13 +12963,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fiel
     index, clearing_firm = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_exists then
+    index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -13082,13 +13477,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_cancelled_message.fields = f
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -14168,13 +14563,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_restated_message.fields = fu
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -14785,13 +15180,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_modified_message.fields = fu
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -14884,13 +15279,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_modified_message.fields = fu
     index, max_floor = cboe_c1options_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_exists then
+    index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -15428,13 +15823,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_rejected_message.field
     index, return_bitfield_21 = cboe_c1options_binaryorderentry_boe_v2_11_115.return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -15868,13 +16263,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_rejected_message.fields = fu
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -15976,13 +16371,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_rejected_message.fields = fu
     index, max_floor = cboe_c1options_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_exists then
+    index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -16325,6 +16720,72 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_rejected_message.dissect = f
   end
 end
 
+-- Quote
+cboe_c1options_binaryorderentry_boe_v2_11_115.quote = {}
+
+-- Size: Quote
+cboe_c1options_binaryorderentry_boe_v2_11_115.quote.size =
+  cboe_c1options_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.side.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.price.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_12.size
+
+-- Display: Quote
+cboe_c1options_binaryorderentry_boe_v2_11_115.quote.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote
+cboe_c1options_binaryorderentry_boe_v2_11_115.quote.fields = function(buffer, offset, packet, parent, quote_index)
+  local index = offset
+
+  -- Implicit Quote Index
+  if quote_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote_index, quote_index)
+    iteration:set_generated()
+  end
+
+  -- Symbol Alphanumeric 6: Alphanumeric
+  index, symbol_alphanumeric_6 = cboe_c1options_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+
+  -- Side: Alphanumeric
+  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
+
+  -- Open Close: Alphanumeric
+  index, open_close = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
+
+  -- Price: BinaryPrice
+  index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
+
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
+
+  -- Reserved 12: Reserved
+  index, reserved_12 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_12.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote
+cboe_c1options_binaryorderentry_boe_v2_11_115.quote.dissect = function(buffer, offset, packet, parent, quote_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.quote, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe_v2_11_115.quote.fields(buffer, offset, packet, parent, quote_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe_v2_11_115.quote.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe_v2_11_115.quote.fields(buffer, offset, packet, parent, quote_index)
+  end
+end
+
 -- Quote Update Acknowledgment Message
 cboe_c1options_binaryorderentry_boe_v2_11_115.quote_update_acknowledgment_message = {}
 
@@ -16362,20 +16823,10 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.quote_update_acknowledgment_messag
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_cnt.dissect(buffer, index, packet, parent)
 
-  -- Order Id: Binary
-  index, order_id = cboe_c1options_binaryorderentry_boe_v2_11_115.order_id.dissect(buffer, index, packet, parent)
-
-  -- Quote Result: Text
-  index, quote_result = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_result.dissect(buffer, index, packet, parent)
-
-  -- Sub Liquidity Indicator: Alphanumeric
-  index, sub_liquidity_indicator = cboe_c1options_binaryorderentry_boe_v2_11_115.sub_liquidity_indicator.dissect(buffer, index, packet, parent)
-
-  -- Subreason: Text
-  index, subreason = cboe_c1options_binaryorderentry_boe_v2_11_115.subreason.dissect(buffer, index, packet, parent)
-
-  -- Reserved 5: Reserved
-  index, reserved_5 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_5.dissect(buffer, index, packet, parent)
+  -- Repeating: Quote
+  for quote_index = 1, quote_cnt do
+    index, quote = cboe_c1options_binaryorderentry_boe_v2_11_115.quote.dissect(buffer, index, packet, parent, quote_index)
+  end
 
   return index
 end
@@ -16436,38 +16887,8 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_message
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Group Cnt: Binary
-  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: Text
-  index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Order Id: Binary
-  index, order_id = cboe_c1options_binaryorderentry_boe_v2_11_115.order_id.dissect(buffer, index, packet, parent)
-
-  -- Side Optional: Alphanumeric
-  index, side_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.side_optional.dissect(buffer, index, packet, parent)
-
-  -- Alloc Qty Optional: Binary
-  index, alloc_qty_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty_optional.dissect(buffer, index, packet, parent)
-
-  -- Capacity Optional: Alpha
-  index, capacity_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity_optional.dissect(buffer, index, packet, parent)
-
-  -- Open Close Optional: Alphanumeric
-  index, open_close_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close_optional.dissect(buffer, index, packet, parent)
-
-  -- Give Up Firm Id Optional: Alpha
-  index, give_up_firm_id_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Account Optional: Text
-  index, account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.account_optional.dissect(buffer, index, packet, parent)
-
-  -- Cmta Number Optional: Binary
-  index, cmta_number_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.cmta_number_optional.dissect(buffer, index, packet, parent)
-
-  -- Clearing Account Optional: Text
-  index, clearing_account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account_optional.dissect(buffer, index, packet, parent)
+  -- Number Of Return Bitf: Binary
+  index, number_of_return_bitf = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.dissect(buffer, index, packet, parent)
 
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.dissect(buffer, index, packet, parent)
@@ -16703,6 +17124,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_message
     index, return_bitfield_21 = cboe_c1options_binaryorderentry_boe_v2_11_115.return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 
+  -- Group Cnt: Binary
+  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Group
+  for group_index = 1, group_cnt do
+    index, group = cboe_c1options_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
+  end
+
   -- Runtime optional field: Side
   local side = nil
 
@@ -16712,13 +17141,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_message
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -16915,6 +17344,9 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_acknowledgment_message.field
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_1.dissect(buffer, index, packet, parent)
 
+  -- Number Of Return Bitf: Binary
+  index, number_of_return_bitf = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitf.dissect(buffer, index, packet, parent)
+
   -- Number Of Return Bitfields: Binary
   index, number_of_return_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.dissect(buffer, index, packet, parent)
 
@@ -17158,13 +17590,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_acknowledgment_message.field
     index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
+  local price_exists = number_of_return_bitfields >= 1 and bit.band(return_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -17266,13 +17698,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.order_acknowledgment_message.field
     index, max_floor = cboe_c1options_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty
+  local order_qty = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
+  local order_qty_exists = number_of_return_bitfields >= 3 and bit.band(return_bitfield_3, 0x40) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_exists then
+    index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -17956,11 +18388,11 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.add_floor_trade_message.fields = f
   -- Side: Alphanumeric
   index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price: BinaryPrice
+  index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_c1options_binaryorderentry_boe_v2_11_115.transaction_time.dissect(buffer, index, packet, parent)
@@ -18113,9 +18545,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_instrument_message.fie
   -- Cl Ord Id: Text
   index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- No Legs: Binary
-  index, no_legs = cboe_c1options_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
-
   -- Number Of New Complex Instrument Bitfields: Binary
   index, number_of_new_complex_instrument_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_new_complex_instrument_bitfields.dissect(buffer, index, packet, parent)
 
@@ -18129,6 +18558,9 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_instrument_message.fie
     -- New Complex Instrument Bitfield 1: Struct of 8 fields
     index, new_complex_instrument_bitfield_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_instrument_bitfield_1.dissect(buffer, index, packet, parent)
   end
+
+  -- No Legs: Binary
+  index, no_legs = cboe_c1options_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
 
   -- Runtime optional field: Leg Cfi Code
   local leg_cfi_code = nil
@@ -18256,6 +18688,52 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.reset_risk_message.dissect = funct
     cboe_c1options_binaryorderentry_boe_v2_11_115.reset_risk_message.fields(buffer, offset, packet, parent, size_of_reset_risk_message)
 
     return index
+  end
+end
+
+-- Custom Group I Ds
+cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds = {}
+
+-- Size: Custom Group I Ds
+cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.size =
+  cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_id.size
+
+-- Display: Custom Group I Ds
+cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Custom Group I Ds
+cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.fields = function(buffer, offset, packet, parent, custom_group_i_ds_index)
+  local index = offset
+
+  -- Implicit Custom Group I Ds Index
+  if custom_group_i_ds_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.custom_group_i_ds_index, custom_group_i_ds_index)
+    iteration:set_generated()
+  end
+
+  -- Custom Group Id: Binary
+  index, custom_group_id = cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Custom Group I Ds
+cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.dissect = function(buffer, offset, packet, parent, custom_group_i_ds_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.custom_group_i_ds, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.fields(buffer, offset, packet, parent, custom_group_i_ds_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.fields(buffer, offset, packet, parent, custom_group_i_ds_index)
   end
 end
 
@@ -18462,12 +18940,6 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.purge_orders_message.fields = func
   -- Reserved 1: Reserved
   index, reserved_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_1.dissect(buffer, index, packet, parent)
 
-  -- Custom Group Id Cnt: Binary
-  index, custom_group_id_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_id_cnt.dissect(buffer, index, packet, parent)
-
-  -- Custom Group Id: Binary
-  index, custom_group_id = cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_id.dissect(buffer, index, packet, parent)
-
   -- Number Of Purge Orders Bitfields: Binary
   index, number_of_purge_orders_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_purge_orders_bitfields.dissect(buffer, index, packet, parent)
 
@@ -18491,6 +18963,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.purge_orders_message.fields = func
 
     -- Purge Orders Bitfield 2: Struct of 8 fields
     index, purge_orders_bitfield_2 = cboe_c1options_binaryorderentry_boe_v2_11_115.purge_orders_bitfield_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Custom Group Id Cnt: Binary
+  index, custom_group_id_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_id_cnt.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Custom Group I Ds
+  for custom_group_i_ds_index = 1, custom_group_id_cnt do
+    index, custom_group_i_ds = cboe_c1options_binaryorderentry_boe_v2_11_115.custom_group_i_ds.dissect(buffer, index, packet, parent, custom_group_i_ds_index)
   end
 
   -- Runtime optional field: Clearing Firm
@@ -18624,23 +19104,10 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.complex_quote_update_short_message
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_cnt.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_c1options_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Side: Alphanumeric
-  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
-
-  -- Open Close: Alphanumeric
-  index, open_close = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
-
-  -- Price Binary Price 4: BinaryPrice
-  index, price_binary_price_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Binary 2: Binary
-  index, order_qty_binary_2 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2.dissect(buffer, index, packet, parent)
-
-  -- Reserved 2: Reserved
-  index, reserved_2 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2.dissect(buffer, index, packet, parent)
+  -- Repeating: Quote
+  for quote_index = 1, quote_cnt do
+    index, quote = cboe_c1options_binaryorderentry_boe_v2_11_115.quote.dissect(buffer, index, packet, parent, quote_index)
+  end
 
   return index
 end
@@ -18725,23 +19192,10 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.complex_quote_update_message.field
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_cnt.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_c1options_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Side: Alphanumeric
-  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
-
-  -- Open Close: Alphanumeric
-  index, open_close = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
-
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
-
-  -- Reserved 12: Reserved
-  index, reserved_12 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_12.dissect(buffer, index, packet, parent)
+  -- Repeating: Quote
+  for quote_index = 1, quote_cnt do
+    index, quote = cboe_c1options_binaryorderentry_boe_v2_11_115.quote.dissect(buffer, index, packet, parent, quote_index)
+  end
 
   return index
 end
@@ -18820,23 +19274,10 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.quote_update_short_message.fields 
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_cnt.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_c1options_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Side: Alphanumeric
-  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
-
-  -- Open Close: Alphanumeric
-  index, open_close = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
-
-  -- Price Binary Price 4: BinaryPrice
-  index, price_binary_price_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_4.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Binary 2: Binary
-  index, order_qty_binary_2 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_2.dissect(buffer, index, packet, parent)
-
-  -- Reserved 2: Reserved
-  index, reserved_2 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_2.dissect(buffer, index, packet, parent)
+  -- Repeating: Quote
+  for quote_index = 1, quote_cnt do
+    index, quote = cboe_c1options_binaryorderentry_boe_v2_11_115.quote.dissect(buffer, index, packet, parent, quote_index)
+  end
 
   return index
 end
@@ -18921,23 +19362,10 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.quote_update_message.fields = func
   -- Quote Cnt: Binary
   index, quote_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.quote_cnt.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_c1options_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
-
-  -- Side: Alphanumeric
-  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
-
-  -- Open Close: Alphanumeric
-  index, open_close = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
-
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
-
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
-
-  -- Reserved 12: Reserved
-  index, reserved_12 = cboe_c1options_binaryorderentry_boe_v2_11_115.reserved_12.dissect(buffer, index, packet, parent)
+  -- Repeating: Quote
+  for quote_index = 1, quote_cnt do
+    index, quote = cboe_c1options_binaryorderentry_boe_v2_11_115.quote.dissect(buffer, index, packet, parent, quote_index)
+  end
 
   return index
 end
@@ -19195,13 +19623,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.modify_order_message.fields = func
     index, modify_order_bitfield_2 = cboe_c1options_binaryorderentry_boe_v2_11_115.modify_order_bitfield_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x08) > 0
+  local price_exists = number_of_modify_order_bitfields >= 1 and bit.band(modify_order_bitfield_1, 0x08) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Ord Type
@@ -20146,56 +20574,11 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message.f
   -- Cross Prioritization: Alphanumeric
   index, cross_prioritization = cboe_c1options_binaryorderentry_boe_v2_11_115.cross_prioritization.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price: BinaryPrice
+  index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
-
-  -- Group Cnt: Binary
-  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
-
-  -- Side: Alphanumeric
-  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
-
-  -- Alloc Qty: Binary
-  index, alloc_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: Text
-  index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Capacity: Alpha
-  index, capacity = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.dissect(buffer, index, packet, parent)
-
-  -- Give Up Firm Id: Alpha
-  index, give_up_firm_id = cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id.dissect(buffer, index, packet, parent)
-
-  -- Leg Position Effects: Alpha
-  index, leg_position_effects = cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects.dissect(buffer, index, packet, parent)
-
-  -- Account Optional: Text
-  index, account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.account_optional.dissect(buffer, index, packet, parent)
-
-  -- Cmta Number Optional: Binary
-  index, cmta_number_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.cmta_number_optional.dissect(buffer, index, packet, parent)
-
-  -- Clearing Account Optional: Text
-  index, clearing_account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account_optional.dissect(buffer, index, packet, parent)
-
-  -- Clearing Optional Data Optional: Text
-  index, clearing_optional_data_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_data_optional.dissect(buffer, index, packet, parent)
-
-  -- Equity Party Id Optional: Alpha
-  index, equity_party_id_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_party_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Equity Leg Short Sell Optional: Alpha
-  index, equity_leg_short_sell_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.equity_leg_short_sell_optional.dissect(buffer, index, packet, parent)
-
-  -- Frequent Trader Id Optional: Text
-  index, frequent_trader_id_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.frequent_trader_id_optional.dissect(buffer, index, packet, parent)
-
-  -- Leg Position Effects Ext Optional: Alpha
-  index, leg_position_effects_ext_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.leg_position_effects_ext_optional.dissect(buffer, index, packet, parent)
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
 
   -- Number Of New Order Cross Multileg Bitfields: Binary
   index, number_of_new_order_cross_multileg_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_multileg_bitfields.dissect(buffer, index, packet, parent)
@@ -20264,6 +20647,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message.f
 
     -- New Order Cross Multileg Bitfield 6: Struct of 8 fields
     index, new_order_cross_multileg_bitfield_6 = cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_bitfield_6.dissect(buffer, index, packet, parent)
+  end
+
+  -- Group Cnt: Binary
+  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Group
+  for group_index = 1, group_cnt do
+    index, group = cboe_c1options_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
   end
 
   -- Runtime optional field: Symbol Alphanumeric 8
@@ -21399,14 +21790,8 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields =
   -- Side: Alphanumeric
   index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
-
-  -- New Complex Order Bi: Binary
-  index, new_complex_order_bi = cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bi.dissect(buffer, index, packet, parent)
-
-  -- No Legs: Binary
-  index, no_legs = cboe_c1options_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
 
   -- Number Of New Complex Order Bitfields: Binary
   index, number_of_new_complex_order_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_new_complex_order_bitfields.dissect(buffer, index, packet, parent)
@@ -21510,6 +21895,9 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields =
     index, new_complex_order_bitfield_9 = cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_bitfield_9.dissect(buffer, index, packet, parent)
   end
 
+  -- No Legs: Binary
+  index, no_legs = cboe_c1options_binaryorderentry_boe_v2_11_115.no_legs.dissect(buffer, index, packet, parent)
+
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -21528,13 +21916,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields =
     index, clearing_account = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_new_complex_order_bitfields >= 1 and bit.band(new_complex_order_bitfield_1, 0x04) > 0
+  local price_exists = number_of_new_complex_order_bitfields >= 1 and bit.band(new_complex_order_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Ord Type
@@ -22318,50 +22706,11 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_message.fields = f
   -- Cross Prioritization: Alphanumeric
   index, cross_prioritization = cboe_c1options_binaryorderentry_boe_v2_11_115.cross_prioritization.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price: BinaryPrice
+  index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
-
-  -- New Order Cross Bitfie: Binary
-  index, new_order_cross_bitfie = cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfie.dissect(buffer, index, packet, parent)
-
-  -- Group Cnt: Binary
-  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
-
-  -- Side: Alphanumeric
-  index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
-
-  -- Alloc Qty: Binary
-  index, alloc_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.alloc_qty.dissect(buffer, index, packet, parent)
-
-  -- Cl Ord Id: Text
-  index, cl_ord_id = cboe_c1options_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
-
-  -- Capacity: Alpha
-  index, capacity = cboe_c1options_binaryorderentry_boe_v2_11_115.capacity.dissect(buffer, index, packet, parent)
-
-  -- Open Close: Alphanumeric
-  index, open_close = cboe_c1options_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
-
-  -- Give Up Firm Id: Alpha
-  index, give_up_firm_id = cboe_c1options_binaryorderentry_boe_v2_11_115.give_up_firm_id.dissect(buffer, index, packet, parent)
-
-  -- Account Optional: Text
-  index, account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.account_optional.dissect(buffer, index, packet, parent)
-
-  -- Cmta Number Optional: Binary
-  index, cmta_number_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.cmta_number_optional.dissect(buffer, index, packet, parent)
-
-  -- Clearing Account Optional: Text
-  index, clearing_account_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account_optional.dissect(buffer, index, packet, parent)
-
-  -- Clearing Optional Dat Optional: Text
-  index, clearing_optional_dat_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_optional_dat_optional.dissect(buffer, index, packet, parent)
-
-  -- Frequent Trader Id Optional: Text
-  index, frequent_trader_id_optional = cboe_c1options_binaryorderentry_boe_v2_11_115.frequent_trader_id_optional.dissect(buffer, index, packet, parent)
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
 
   -- Number Of New Order Cross Bitfields: Binary
   index, number_of_new_order_cross_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_bitfields.dissect(buffer, index, packet, parent)
@@ -22408,6 +22757,14 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_message.fields = f
 
     -- New Order Cross Bitfield 4: Struct of 8 fields
     index, new_order_cross_bitfield_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_cross_bitfield_4.dissect(buffer, index, packet, parent)
+  end
+
+  -- Group Cnt: Binary
+  index, group_cnt = cboe_c1options_binaryorderentry_boe_v2_11_115.group_cnt.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Group
+  for group_index = 1, group_cnt do
+    index, group = cboe_c1options_binaryorderentry_boe_v2_11_115.group.dissect(buffer, index, packet, parent, group_index)
   end
 
   -- Runtime optional field: Symbol Alphanumeric 8
@@ -23685,8 +24042,8 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_message.fields = functio
   -- Side: Alphanumeric
   index, side = cboe_c1options_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty: Binary
+  index, order_qty = cboe_c1options_binaryorderentry_boe_v2_11_115.order_qty.dissect(buffer, index, packet, parent)
 
   -- Number Of New Order Bitfields: Binary
   index, number_of_new_order_bitfields = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_new_order_bitfields.dissect(buffer, index, packet, parent)
@@ -23830,13 +24187,13 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_message.fields = functio
     index, clearing_account = cboe_c1options_binaryorderentry_boe_v2_11_115.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price
+  local price = nil
 
-  local price_binary_price_8_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x04) > 0
+  local price_exists = number_of_new_order_bitfields >= 1 and bit.band(new_order_bitfield_1, 0x04) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_c1options_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_exists then
+    index, price = cboe_c1options_binaryorderentry_boe_v2_11_115.price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -24224,6 +24581,56 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.new_order_message.dissect = functi
   end
 end
 
+-- Units
+cboe_c1options_binaryorderentry_boe_v2_11_115.units = {}
+
+-- Size: Units
+cboe_c1options_binaryorderentry_boe_v2_11_115.units.size =
+  cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence.size
+
+-- Display: Units
+cboe_c1options_binaryorderentry_boe_v2_11_115.units.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Units
+cboe_c1options_binaryorderentry_boe_v2_11_115.units.fields = function(buffer, offset, packet, parent, units_index)
+  local index = offset
+
+  -- Implicit Units Index
+  if units_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.units_index, units_index)
+    iteration:set_generated()
+  end
+
+  -- Unit Number: Binary
+  index, unit_number = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number.dissect(buffer, index, packet, parent)
+
+  -- Unit Sequence: Binary
+  index, unit_sequence = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Units
+cboe_c1options_binaryorderentry_boe_v2_11_115.units.dissect = function(buffer, offset, packet, parent, units_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.units, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe_v2_11_115.units.fields(buffer, offset, packet, parent, units_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe_v2_11_115.units.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe_v2_11_115.units.fields(buffer, offset, packet, parent, units_index)
+  end
+end
+
 -- Logout Message
 cboe_c1options_binaryorderentry_boe_v2_11_115.logout_message = {}
 
@@ -24258,17 +24665,10 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.logout_message.fields = function(b
   -- Number Of Units: Binary
   index, number_of_units = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_units.dissect(buffer, index, packet, parent)
 
-  -- Unit Number 1: Binary
-  index, unit_number_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequence 1: Binary
-  index, unit_sequence_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Numbern: Binary
-  index, unit_numbern = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequencen: Binary
-  index, unit_sequencen = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen.dissect(buffer, index, packet, parent)
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_c1options_binaryorderentry_boe_v2_11_115.units.dissect(buffer, index, packet, parent, units_index)
+  end
 
   return index
 end
@@ -24292,6 +24692,56 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.logout_message.dissect = function(
     cboe_c1options_binaryorderentry_boe_v2_11_115.logout_message.fields(buffer, offset, packet, parent, size_of_logout_message)
 
     return index
+  end
+end
+
+-- Param Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group = {}
+
+-- Size: Param Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.size =
+  cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length.size + 
+  cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type.size
+
+-- Display: Param Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Param Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.fields = function(buffer, offset, packet, parent, param_group_index)
+  local index = offset
+
+  -- Implicit Param Group Index
+  if param_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group_index, param_group_index)
+    iteration:set_generated()
+  end
+
+  -- Param Group Length: Binary
+  index, param_group_length = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_length.dissect(buffer, index, packet, parent)
+
+  -- Param Group Type: Binary
+  index, param_group_type = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Param Group
+cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.dissect = function(buffer, offset, packet, parent, param_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group, buffer(offset, 0))
+    local index = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.fields(buffer, offset, packet, parent, param_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.fields(buffer, offset, packet, parent, param_group_index)
   end
 end
 
@@ -24332,20 +24782,18 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.login_response_message.fields = fu
   -- Number Of Units: Binary
   index, number_of_units = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_units.dissect(buffer, index, packet, parent)
 
-  -- Unit Number 1: Binary
-  index, unit_number_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_number_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequence 1: Binary
-  index, unit_sequence_1 = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequence_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Numbern: Binary
-  index, unit_numbern = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_numbern.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequencen: Binary
-  index, unit_sequencen = cboe_c1options_binaryorderentry_boe_v2_11_115.unit_sequencen.dissect(buffer, index, packet, parent)
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_c1options_binaryorderentry_boe_v2_11_115.units.dissect(buffer, index, packet, parent, units_index)
+  end
 
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end
@@ -24405,6 +24853,11 @@ cboe_c1options_binaryorderentry_boe_v2_11_115.login_request_message.fields = fun
 
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_c1options_binaryorderentry_boe_v2_11_115.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_c1options_binaryorderentry_boe_v2_11_115.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end

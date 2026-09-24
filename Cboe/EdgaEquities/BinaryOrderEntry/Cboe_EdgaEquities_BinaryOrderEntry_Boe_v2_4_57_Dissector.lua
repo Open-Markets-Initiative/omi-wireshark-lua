@@ -70,6 +70,7 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.login_response_text = 
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.logout_reason = ProtoField.new("Logout Reason", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.logoutreason", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.logout_reason_text = ProtoField.new("Logout Reason Text", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.logoutreasontext", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.masscancelid", ftypes.STRING)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.masscancelinst", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.matching_unit = ProtoField.new("Matching Unit", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.matchingunit", ftypes.UINT8)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.max_floor = ProtoField.new("Max Floor", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.maxfloor", ftypes.UINT32)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.message_length = ProtoField.new("Message Length", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.messagelength", ftypes.UINT16)
@@ -216,12 +217,31 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_qty = ProtoField
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.orderrejectreason", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.origclordid", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.orig_time = ProtoField.new("Orig Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.origtime", ftypes.UINT64)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group = ProtoField.new("Param Group", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.paramgroup", ftypes.STRING)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.paramgrouplength", ftypes.UINT16)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.paramgrouptype", ftypes.UINT8)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.password = ProtoField.new("Password", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.password", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.peg_difference = ProtoField.new("Peg Difference", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.pegdifference", ftypes.DOUBLE)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.preventmatch", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.price = ProtoField.new("Price", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.price", ftypes.DOUBLE)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1 = ProtoField.new("Purge Orders Bitfield 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1", ftypes.UINT8)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfieldn = ProtoField.new("Purge Orders Bitfieldn", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfieldn", ftypes.UINT8)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1 = ProtoField.new("Purge Orders Bitfield 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1", ftypes.STRING)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_clearing_firm = ProtoField.new("Purge Orders Bitfield 1 Clearing Firm", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1clearingfirm", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_manual_order_indicator = ProtoField.new("Purge Orders Bitfield 1 Manual Order Indicator", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1manualorderindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_mass_cancel_id = ProtoField.new("Purge Orders Bitfield 1 Mass Cancel Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1masscancelid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_mass_cancel_inst = ProtoField.new("Purge Orders Bitfield 1 Mass Cancel Inst", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1masscancelinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_mass_cancel_lockout = ProtoField.new("Purge Orders Bitfield 1 Mass Cancel Lockout", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1masscancellockout", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_operator_id = ProtoField.new("Purge Orders Bitfield 1 Operator Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1operatorid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_risk_root = ProtoField.new("Purge Orders Bitfield 1 Risk Root", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1riskroot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_routing_firm_id = ProtoField.new("Purge Orders Bitfield 1 Routing Firm Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield1routingfirmid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2 = ProtoField.new("Purge Orders Bitfield 2", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2", ftypes.STRING)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_matching_unit = ProtoField.new("Purge Orders Bitfield 2 Matching Unit", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2matchingunit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_16 = ProtoField.new("Purge Orders Bitfield 2 Reserved 16", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2reserved16", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_32 = ProtoField.new("Purge Orders Bitfield 2 Reserved 32", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2reserved32", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_4 = ProtoField.new("Purge Orders Bitfield 2 Reserved 4", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2reserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_8 = ProtoField.new("Purge Orders Bitfield 2 Reserved 8", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_send_time = ProtoField.new("Purge Orders Bitfield 2 Send Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2sendtime", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_symbol = ProtoField.new("Purge Orders Bitfield 2 Symbol", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_symbol_sfx = ProtoField.new("Purge Orders Bitfield 2 Symbol Sfx", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgeordersbitfield2symbolsfx", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.purgerejectreason", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.reserved1", ftypes.BYTES)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.restatementreason", ftypes.STRING)
@@ -423,9 +443,8 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.return_bitfield_9_cont
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.return_bitfield_9_cross_id = ProtoField.new("Return Bitfield 9 Cross Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.returnbitfield9crossid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.return_bitfield_9_ext_exec_inst = ProtoField.new("Return Bitfield 9 Ext Exec Inst", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.returnbitfield9extexecinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.return_bitfield_9_party_role = ProtoField.new("Return Bitfield 9 Party Role", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.returnbitfield9partyrole", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_i_dn = ProtoField.new("Risk Group I Dn", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupidn", ftypes.UINT16)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_i_ds = ProtoField.new("Risk Group I Ds", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupids", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_id = ProtoField.new("Risk Group Id", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupid", ftypes.UINT16)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_id_1 = ProtoField.new("Risk Group Id 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupid1", ftypes.UINT16)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_id_cnt = ProtoField.new("Risk Group Id Cnt", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupidcnt", ftypes.UINT8)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskreset", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.routstrategy", ftypes.STRING)
@@ -445,10 +464,9 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.symbol_sfx = ProtoFiel
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.text = ProtoField.new("Text", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.text", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.time_in_force = ProtoField.new("Time In Force", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.timeinforce", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.transactiontime", ftypes.UINT64)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_number_1 = ProtoField.new("Unit Number 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitnumber1", ftypes.UINT8)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_numbern = ProtoField.new("Unit Numbern", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitnumbern", ftypes.UINT8)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequence_1 = ProtoField.new("Unit Sequence 1", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitsequence1", ftypes.UINT32)
-omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequencen = ProtoField.new("Unit Sequencen", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitsequencen", ftypes.UINT32)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_number = ProtoField.new("Unit Number", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitnumber", ftypes.UINT8)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitsequence", ftypes.UINT32)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.units = ProtoField.new("Units", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.units", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.username = ProtoField.new("Username", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.username", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.working_price = ProtoField.new("Working Price", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.workingprice", ftypes.DOUBLE)
 
@@ -480,6 +498,11 @@ omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.server_heartbeat_messa
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.tradecancelorcorrectmessage", ftypes.STRING)
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.user_modify_rejected_message = ProtoField.new("User Modify Rejected Message", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.usermodifyrejectedmessage", ftypes.STRING)
 
+-- Cboe EdgaEquities BinaryOrderEntry Boe 2.4.57 Generated Fields
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.paramgroupindex", ftypes.UINT16)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_i_ds_index = ProtoField.new("Risk Group I Ds Index", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.riskgroupidsindex", ftypes.UINT16)
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.units_index = ProtoField.new("Units Index", "cboe.edgaequities.binaryorderentry.boe.v2.4.57.unitsindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -490,11 +513,15 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.repeating_groups = true
+show.indexes = true
 
 -- Register Cboe EdgaEquities BinaryOrderEntry Boe 2.4.57 Show Options
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs_changed()
@@ -506,8 +533,14 @@ function omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs_changed()
   if show.headers ~= omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_headers then
     show.headers = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_headers
   end
+  if show.repeating_groups ~= omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_repeating_groups
+  end
   if show.structs ~= omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_structs then
     show.structs = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_indexes then
+    show.indexes = omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.prefs.show_indexes
   end
 end
 
@@ -563,7 +596,17 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.attributed_quote.size = 1
 
 -- Display: Attributed Quote
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.attributed_quote.display = function(value)
-  return "Attributed Quote: "..value
+  if value == "N" then
+    return "Attributed Quote: Do Not Attribute Firm Mpid To This Order (N)"
+  end
+  if value == "Y" then
+    return "Attributed Quote: Attribute Firm Mpid To This Order (Y)"
+  end
+  if value == "R" then
+    return "Attributed Quote: Attribute Rtal To This Order (R)"
+  end
+
+  return "Attributed Quote: Unknown("..value..")"
 end
 
 -- Dissect: Attributed Quote
@@ -586,7 +629,23 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.base_liquidity_indicator.size = 1
 
 -- Display: Base Liquidity Indicator
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.base_liquidity_indicator.display = function(value)
-  return "Base Liquidity Indicator: "..value
+  if value == "A" then
+    return "Base Liquidity Indicator: Added Liquidity (A)"
+  end
+  if value == "C" then
+    return "Base Liquidity Indicator: Auction Uncrossing (C)"
+  end
+  if value == "R" then
+    return "Base Liquidity Indicator: Removed Liquidity (R)"
+  end
+  if value == "W" then
+    return "Base Liquidity Indicator: Waiting For Execution At Premarket Time As (W)"
+  end
+  if value == "X" then
+    return "Base Liquidity Indicator: Routed To Another Market (X)"
+  end
+
+  return "Base Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Base Liquidity Indicator
@@ -609,7 +668,14 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.cancel_orig_on_reject.size = 1
 
 -- Display: Cancel Orig On Reject
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.cancel_orig_on_reject.display = function(value)
-  return "Cancel Orig On Reject: "..value
+  if value == "N" then
+    return "Cancel Orig On Reject: Leave Original Order Alone (N)"
+  end
+  if value == "Y" then
+    return "Cancel Orig On Reject: Cancel Original Order If Modification Fails (Y)"
+  end
+
+  return "Cancel Orig On Reject: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Orig On Reject
@@ -701,7 +767,17 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.capacity.size = 1
 
 -- Display: Capacity
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.capacity.display = function(value)
-  return "Capacity: "..value
+  if value == "A" then
+    return "Capacity: Agency (A)"
+  end
+  if value == "P" then
+    return "Capacity: Principal (P)"
+  end
+  if value == "R" then
+    return "Capacity: Riskless Principal (R)"
+  end
+
+  return "Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Capacity
@@ -880,12 +956,68 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.contra_broker.size = 4
 
 -- Display: Contra Broker
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.contra_broker.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Contra Broker: No Value"
+  if value == "AMEX" then
+    return "Contra Broker: Routed To Nyse American (AMEX)"
+  end
+  if value == "ARCA" then
+    return "Contra Broker: Routed To Nyse Arca (ARCA)"
+  end
+  if value == "BEX" then
+    return "Contra Broker: Routed To Nasdaq Texas (BEX)"
+  end
+  if value == "CHX" then
+    return "Contra Broker: Routed To Nyse Texas (CHX)"
+  end
+  if value == "ICRS" then
+    return "Contra Broker: Routed To Intelligent Cross (ICRS)"
+  end
+  if value == "IEX" then
+    return "Contra Broker: Routed To Investors Exchange (IEX)"
+  end
+  if value == "INET" then
+    return "Contra Broker: Routed To Nasdaq (INET)"
+  end
+  if value == "LTSE" then
+    return "Contra Broker: Routed To Long Term Stock Exchange (LTSE)"
+  end
+  if value == "MEMX" then
+    return "Contra Broker: Routed To Members Exchange (MEMX)"
+  end
+  if value == "NYSE" then
+    return "Contra Broker: Routed To Nyse (NYSE)"
+  end
+  if value == "PERL" then
+    return "Contra Broker: Routed To Miax Pearl Exchange (PERL)"
+  end
+  if value == "PSX" then
+    return "Contra Broker: Routed To Nasdaq Psx (PSX)"
+  end
+  if value == "NSX" then
+    return "Contra Broker: Routed To Nyse National (NSX)"
+  end
+  if value == "DRT" then
+    return "Contra Broker: Routed To Drt Pool (DRT)"
+  end
+  if value == "TFXE" then
+    return "Contra Broker: Routed To 24 X National Exchange (TFXE)"
+  end
+  if value == "TXSE" then
+    return "Contra Broker: Routed To Texas Stock Exchange (TXSE)"
+  end
+  if value == "BATS" then
+    return "Contra Broker: Routed To Cboe Bzx Exchange (BATS)"
+  end
+  if value == "BYXX" then
+    return "Contra Broker: Routed To Cboe Byx Exchange (BYXX)"
+  end
+  if value == "EDGA" then
+    return "Contra Broker: Routed To Cboe Edga Exchange (EDGA)"
+  end
+  if value == "EDGX" then
+    return "Contra Broker: Routed To Cboe Edgx Exchange (EDGX)"
   end
 
-  return "Contra Broker: "..value
+  return "Contra Broker: Unknown("..value..")"
 end
 
 -- Dissect: Contra Broker
@@ -948,7 +1080,17 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.cross_trade_flag.size = 1
 
 -- Display: Cross Trade Flag
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.cross_trade_flag.display = function(value)
-  return "Cross Trade Flag: "..value
+  if value == "0" then
+    return "Cross Trade Flag: None (0)"
+  end
+  if value == "1" then
+    return "Cross Trade Flag: Periodic Auction Only (1)"
+  end
+  if value == "2" then
+    return "Cross Trade Flag: Periodic Auction Eligible (2)"
+  end
+
+  return "Cross Trade Flag: Unknown("..value..")"
 end
 
 -- Dissect: Cross Trade Flag
@@ -994,7 +1136,44 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.display_indicator.size = 1
 
 -- Display: Display Indicator
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.display_indicator.display = function(value)
-  return "Display Indicator: "..value
+  if value == "V" then
+    return "Display Indicator: Default (V)"
+  end
+  if value == "P" then
+    return "Display Indicator: Price Adjust (P)"
+  end
+  if value == "m" then
+    return "Display Indicator: Multiple Price Adjust (m)"
+  end
+  if value == "R" then
+    return "Display Indicator: Cancel Back The Order If It Cannot Be Booked And Displayed (R)"
+  end
+  if value == "r" then
+    return "Display Indicator: Hidden (r)"
+  end
+  if value == "S" then
+    return "Display Indicator: Display Price Sliding (S)"
+  end
+  if value == "L" then
+    return "Display Indicator: Display Price Sliding But Cancel Back If Order Crosses The (L)"
+  end
+  if value == "M" then
+    return "Display Indicator: Multiple Display Price Sliding (M)"
+  end
+  if value == "h" then
+    return "Display Indicator: Hidden Multiple Price Slide (h)"
+  end
+  if value == "v" then
+    return "Display Indicator: Visible (v)"
+  end
+  if value == "I" then
+    return "Display Indicator: Invisible (I)"
+  end
+  if value == "N" then
+    return "Display Indicator: No Rescrape At Limit (N)"
+  end
+
+  return "Display Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Display Indicator
@@ -1108,7 +1287,65 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.ex_destination.size = 1
 
 -- Display: Ex Destination
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.ex_destination.display = function(value)
-  return "Ex Destination: "..value
+  if value == "A" then
+    return "Ex Destination: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Ex Destination: Nasdaq Texas (B)"
+  end
+  if value == "C" then
+    return "Ex Destination: Nyse National (C)"
+  end
+  if value == "F" then
+    return "Ex Destination: Texas Stock Exchange (F)"
+  end
+  if value == "G" then
+    return "Ex Destination: N 24 X National Exchange (G)"
+  end
+  if value == "H" then
+    return "Ex Destination: Miax Pearl (H)"
+  end
+  if value == "I" then
+    return "Ex Destination: Investors Exchange (I)"
+  end
+  if value == "J" then
+    return "Ex Destination: Edga (J)"
+  end
+  if value == "K" then
+    return "Ex Destination: Edgx (K)"
+  end
+  if value == "L" then
+    return "Ex Destination: Long Term Stock Exchange (L)"
+  end
+  if value == "M" then
+    return "Ex Destination: Nyse Texas (M)"
+  end
+  if value == "N" then
+    return "Ex Destination: Nyse (N)"
+  end
+  if value == "P" then
+    return "Ex Destination: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Ex Destination: Nasdaq (Q)"
+  end
+  if value == "T" then
+    return "Ex Destination: Intelligent Cross (T)"
+  end
+  if value == "U" then
+    return "Ex Destination: Memx (U)"
+  end
+  if value == "X" then
+    return "Ex Destination: Nasdaq Psx (X)"
+  end
+  if value == "Y" then
+    return "Ex Destination: Byx 1 (Y)"
+  end
+  if value == "Z" then
+    return "Ex Destination: Bzx 1 (Z)"
+  end
+
+  return "Ex Destination: Unknown("..value..")"
 end
 
 -- Dissect: Ex Destination
@@ -1154,7 +1391,50 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.exec_inst.size = 1
 
 -- Display: Exec Inst
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.exec_inst.display = function(value)
-  return "Exec Inst: "..value
+  if value == "f" then
+    return "Exec Inst: Intermarket Sweep (f)"
+  end
+  if value == "P" then
+    return "Exec Inst: Market Peg (P)"
+  end
+  if value == "Q" then
+    return "Exec Inst: Market Maker Peg (Q)"
+  end
+  if value == "R" then
+    return "Exec Inst: Primary Peg (R)"
+  end
+  if value == "U" then
+    return "Exec Inst: Supplemental Peg Order (U)"
+  end
+  if value == "M" then
+    return "Exec Inst: Midpoint (M)"
+  end
+  if value == "m" then
+    return "Exec Inst: Midpoint (m)"
+  end
+  if value == "L" then
+    return "Exec Inst: Alternate Midpoint (L)"
+  end
+  if value == "d" then
+    return "Exec Inst: Midpoint Discretionary Order (d)"
+  end
+  if value == "e" then
+    return "Exec Inst: Midpoint Discretionary Order With Quote Depletion Protection (e)"
+  end
+  if value == "r" then
+    return "Exec Inst: Late (r)"
+  end
+  if value == "o" then
+    return "Exec Inst: Listing Market Opening (o)"
+  end
+  if value == "c" then
+    return "Exec Inst: Listing Market Close (c)"
+  end
+  if value == "a" then
+    return "Exec Inst: Both Listing Market Open And Close (a)"
+  end
+
+  return "Exec Inst: Unknown("..value..")"
 end
 
 -- Dissect: Exec Inst
@@ -1227,7 +1507,23 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.ext_exec_inst.size = 1
 
 -- Display: Ext Exec Inst
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.ext_exec_inst.display = function(value)
-  return "Ext Exec Inst: "..value
+  if value == "N" then
+    return "Ext Exec Inst: None (N)"
+  end
+  if value == "R" then
+    return "Ext Exec Inst: Retail Order Eligible For Retail Rebate (R)"
+  end
+  if value == "P" then
+    return "Ext Exec Inst: Retail Order (P)"
+  end
+  if value == "T" then
+    return "Ext Exec Inst: Retail Price Improving Order (T)"
+  end
+  if value == "X" then
+    return "Ext Exec Inst: Retail Priority Order (X)"
+  end
+
+  return "Ext Exec Inst: Unknown("..value..")"
 end
 
 -- Dissect: Ext Exec Inst
@@ -1387,7 +1683,14 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.locate_reqd.size = 1
 
 -- Display: Locate Reqd
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.locate_reqd.display = function(value)
-  return "Locate Reqd: "..value
+  if value == "N" then
+    return "Locate Reqd: Client Affirms Ability To Borrow (N)"
+  end
+  if value == "Y" then
+    return "Locate Reqd: Client Does Not Affirm Ability To Borrow (Y)"
+  end
+
+  return "Locate Reqd: Unknown("..value..")"
 end
 
 -- Dissect: Locate Reqd
@@ -1410,7 +1713,35 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.login_response_status.size = 1
 
 -- Display: Login Response Status
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.login_response_status.display = function(value)
-  return "Login Response Status: "..value
+  if value == "A" then
+    return "Login Response Status: Login Accepted (A)"
+  end
+  if value == "N" then
+    return "Login Response Status: Not Authorized (N)"
+  end
+  if value == "D" then
+    return "Login Response Status: Session Is Disabled (D)"
+  end
+  if value == "B" then
+    return "Login Response Status: Session In Use (B)"
+  end
+  if value == "S" then
+    return "Login Response Status: Invalid Session (S)"
+  end
+  if value == "Q" then
+    return "Login Response Status: Sequence Ahead In Login Message (Q)"
+  end
+  if value == "I" then
+    return "Login Response Status: Invalid Unit Given In Login Message (I)"
+  end
+  if value == "F" then
+    return "Login Response Status: Invalid Return Bit Field In Login Message (F)"
+  end
+  if value == "M" then
+    return "Login Response Status: Invalid Login Request Message Structure (M)"
+  end
+
+  return "Login Response Status: Unknown("..value..")"
 end
 
 -- Dissect: Login Response Status
@@ -1472,7 +1803,20 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.logout_reason.size = 1
 
 -- Display: Logout Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.logout_reason.display = function(value)
-  return "Logout Reason: "..value
+  if value == "U" then
+    return "Logout Reason: User Requested (U)"
+  end
+  if value == "E" then
+    return "Logout Reason: End Of Day (E)"
+  end
+  if value == "A" then
+    return "Logout Reason: Administrative (A)"
+  end
+  if value == "!" then
+    return "Logout Reason: Protocol Violation (!)"
+  end
+
+  return "Logout Reason: Unknown("..value..")"
 end
 
 -- Dissect: Logout Reason
@@ -1561,6 +1905,45 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_id.dissect = function
   local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.mass_cancel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Inst
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst = {}
+
+-- Size: Mass Cancel Inst
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst.size = 16
+
+-- Display: Mass Cancel Inst
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mass Cancel Inst: No Value"
+  end
+
+  return "Mass Cancel Inst: "..value
+end
+
+-- Dissect: Mass Cancel Inst
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.mass_cancel_inst, range, value, display)
 
   return offset + length, value
 end
@@ -1962,7 +2345,23 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.ord_type.size = 1
 
 -- Display: Ord Type
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.ord_type.display = function(value)
-  return "Ord Type: "..value
+  if value == "1" then
+    return "Ord Type: Market (1)"
+  end
+  if value == "2" then
+    return "Ord Type: Limit (2)"
+  end
+  if value == "3" then
+    return "Ord Type: Stop (3)"
+  end
+  if value == "4" then
+    return "Ord Type: Stop Limit (4)"
+  end
+  if value == "P" then
+    return "Ord Type: Pegged (P)"
+  end
+
+  return "Ord Type: Unknown("..value..")"
 end
 
 -- Dissect: Ord Type
@@ -2112,6 +2511,52 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.orig_time.dissect = function(buff
   return offset + length, value
 end
 
+-- Param Group Length
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length = {}
+
+-- Size: Param Group Length
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.size = 2
+
+-- Display: Param Group Length
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.display = function(value)
+  return "Param Group Length: "..value
+end
+
+-- Dissect: Param Group Length
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Param Group Type
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type = {}
+
+-- Size: Param Group Type
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.size = 1
+
+-- Display: Param Group Type
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.display = function(value)
+  return "Param Group Type: "..value
+end
+
+-- Dissect: Param Group Type
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Password
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.password = {}
 
@@ -2248,52 +2693,6 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.price.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Purge Orders Bitfield 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1 = {}
-
--- Size: Purge Orders Bitfield 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.size = 1
-
--- Display: Purge Orders Bitfield 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.display = function(value)
-  return "Purge Orders Bitfield 1: "..value
-end
-
--- Dissect: Purge Orders Bitfield 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Purge Orders Bitfieldn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfieldn = {}
-
--- Size: Purge Orders Bitfieldn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfieldn.size = 1
-
--- Display: Purge Orders Bitfieldn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfieldn.display = function(value)
-  return "Purge Orders Bitfieldn: "..value
-end
-
--- Dissect: Purge Orders Bitfieldn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfieldn.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfieldn.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfieldn.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfieldn, range, value, display)
-
-  return offset + length, value
-end
-
 -- Purge Reject Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_reject_reason = {}
 
@@ -2348,7 +2747,29 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.restatement_reason.size = 1
 
 -- Display: Restatement Reason
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.restatement_reason.display = function(value)
-  return "Restatement Reason: "..value
+  if value == "C" then
+    return "Restatement Reason: Cboe Market Close (C)"
+  end
+  if value == "L" then
+    return "Restatement Reason: Reload (L)"
+  end
+  if value == "P" then
+    return "Restatement Reason: Peg Or Price Sliding Reprice (P)"
+  end
+  if value == "Q" then
+    return "Restatement Reason: Liquidity Updated (Q)"
+  end
+  if value == "R" then
+    return "Restatement Reason: Reroute (R)"
+  end
+  if value == "S" then
+    return "Restatement Reason: Reduction Of Order Qty Due To Swp (S)"
+  end
+  if value == "W" then
+    return "Restatement Reason: Wash Or Mtp Decrement (W)"
+  end
+
+  return "Restatement Reason: Unknown("..value..")"
 end
 
 -- Dissect: Restatement Reason
@@ -2359,29 +2780,6 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.restatement_reason.dissect = func
   local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Group I Dn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_dn = {}
-
--- Size: Risk Group I Dn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_dn.size = 2
-
--- Display: Risk Group I Dn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_dn.display = function(value)
-  return "Risk Group I Dn: "..value
-end
-
--- Dissect: Risk Group I Dn
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_dn.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_dn.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_dn.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_i_dn, range, value, display)
 
   return offset + length, value
 end
@@ -2405,29 +2803,6 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id.dissect = function(
   local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Risk Group Id 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_1 = {}
-
--- Size: Risk Group Id 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_1.size = 2
-
--- Display: Risk Group Id 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_1.display = function(value)
-  return "Risk Group Id 1: "..value
-end
-
--- Dissect: Risk Group Id 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_id_1, range, value, display)
 
   return offset + length, value
 end
@@ -2502,12 +2877,50 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.rout_strategy.size = 6
 
 -- Display: Rout Strategy
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.rout_strategy.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Rout Strategy: No Value"
+  if value == "ALLB" then
+    return "Rout Strategy: Book Ioc Other Cboe Exchanges (ALLB)"
+  end
+  if value == "RDOT" then
+    return "Rout Strategy: Book Drt Ioc Day Nyse (RDOT)"
+  end
+  if value == "ROUT" then
+    return "Rout Strategy: Book Drt Street (ROUT)"
+  end
+  if value == "ROUX" then
+    return "Rout Strategy: Book Street (ROUX)"
+  end
+  if value == "ROUZ" then
+    return "Rout Strategy: Book Drt (ROUZ)"
+  end
+  if value == "SWPA" then
+    return "Rout Strategy: Iso Sweep Of All Protected Markets (SWPA)"
+  end
+  if value == "ROUC" then
+    return "Rout Strategy: Book Drt Lcpmc All Other Protected Markets (ROUC)"
+  end
+  if value == "DIRC" then
+    return "Rout Strategy: Book Drt Directed Ioc Or Directed Iso If Exec Inst (DIRC)"
+  end
+  if value == "RMPT" then
+    return "Rout Strategy: Book Midpoint Ioc Select Drt Lit Venues Post To (RMPT)"
+  end
+  if value == "RMPL" then
+    return "Rout Strategy: Book Midpoint Ioc Rmpt Venues Midpoint Ioc Rmpl (RMPL)"
+  end
+  if value == "TRIM" then
+    return "Rout Strategy: Book Nyse National Nasdaq Texas (TRIM)"
+  end
+  if value == "SLIM" then
+    return "Rout Strategy: Book Lcpmc (SLIM)"
+  end
+  if value == "SLIM+" then
+    return "Rout Strategy: Byx 1 Bzx Lcpmc (SLIM+)"
+  end
+  if value == "ROOC" then
+    return "Rout Strategy: Listing Market Open Book Drt Street Listing (ROOC)"
   end
 
-  return "Rout Strategy: "..value
+  return "Rout Strategy: Unknown("..value..")"
 end
 
 -- Dissect: Rout Strategy
@@ -2541,12 +2954,14 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.route_delivery_method.size = 3
 
 -- Display: Route Delivery Method
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.route_delivery_method.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Route Delivery Method: No Value"
+  if value == "RTI" then
+    return "Route Delivery Method: Route To Improve (RTI)"
+  end
+  if value == "RTF" then
+    return "Route Delivery Method: Route To Fill (RTF)"
   end
 
-  return "Route Delivery Method: "..value
+  return "Route Delivery Method: Unknown("..value..")"
 end
 
 -- Dissect: Route Delivery Method
@@ -2704,7 +3119,20 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.side.size = 1
 
 -- Display: Side
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.side.display = function(value)
-  return "Side: "..value
+  if value == "1" then
+    return "Side: Buy (1)"
+  end
+  if value == "2" then
+    return "Side: Sell (2)"
+  end
+  if value == "5" then
+    return "Side: Sell Short (5)"
+  end
+  if value == "6" then
+    return "Side: Sell Short Exempt (6)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -2808,7 +3236,35 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.size = 1
 
 -- Display: Sub Liquidity Indicato
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicato.display = function(value)
-  return "Sub Liquidity Indicato: "..value
+  if value == "E" then
+    return "Sub Liquidity Indicato: Trade Added Rpi Liquidity (E)"
+  end
+  if value == "H" then
+    return "Sub Liquidity Indicato: Trade Added Hidden Liquidity (H)"
+  end
+  if value == "I" then
+    return "Sub Liquidity Indicato: Trade Added Hidden Liquidity That Was Price (I)"
+  end
+  if value == "J" then
+    return "Sub Liquidity Indicato: Execution From First Order To Join The Nbbo (J)"
+  end
+  if value == "P" then
+    return "Sub Liquidity Indicato: Periodic Auction (P)"
+  end
+  if value == "S" then
+    return "Sub Liquidity Indicato: Nbbo Setter Fee Eligible (S)"
+  end
+  if value == "V" then
+    return "Sub Liquidity Indicato: Visible Liquidity Add Trade That Was Price (V)"
+  end
+  if value == "m" then
+    return "Sub Liquidity Indicato: Midpoint Peg Order (m)"
+  end
+  if value == "s" then
+    return "Sub Liquidity Indicato: Order Set The Nbbo But Is Not Fee Eligible (s)"
+  end
+
+  return "Sub Liquidity Indicato: Unknown("..value..")"
 end
 
 -- Dissect: Sub Liquidity Indicato
@@ -2831,7 +3287,35 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicator.size = 1
 
 -- Display: Sub Liquidity Indicator
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.sub_liquidity_indicator.display = function(value)
-  return "Sub Liquidity Indicator: "..value
+  if value == "E" then
+    return "Sub Liquidity Indicator: Trade Added Rpi Liquidity (E)"
+  end
+  if value == "H" then
+    return "Sub Liquidity Indicator: Trade Added Hidden Liquidity (H)"
+  end
+  if value == "I" then
+    return "Sub Liquidity Indicator: Trade Added Hidden Liquidity That Was Price Improved (I)"
+  end
+  if value == "J" then
+    return "Sub Liquidity Indicator: Execution From First Order To Join The Nbbo (J)"
+  end
+  if value == "P" then
+    return "Sub Liquidity Indicator: Periodic Auction (P)"
+  end
+  if value == "S" then
+    return "Sub Liquidity Indicator: Nbbo Setter Fee Eligible (S)"
+  end
+  if value == "V" then
+    return "Sub Liquidity Indicator: Visible Liquidity Add Trade That Was Price Improved (V)"
+  end
+  if value == "m" then
+    return "Sub Liquidity Indicator: Midpoint Peg Order (m)"
+  end
+  if value == "s" then
+    return "Sub Liquidity Indicator: Order Set The Nbbo But Is Not Fee Eligible (s)"
+  end
+
+  return "Sub Liquidity Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Sub Liquidity Indicator
@@ -2971,7 +3455,47 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.time_in_force.size = 1
 
 -- Display: Time In Force
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.time_in_force.display = function(value)
-  return "Time In Force: "..value
+  if value == "0" then
+    return "Time In Force: Day (0)"
+  end
+  if value == "1" then
+    return "Time In Force: Gtc (1)"
+  end
+  if value == "2" then
+    return "Time In Force: At The Open (2)"
+  end
+  if value == "3" then
+    return "Time In Force: Ioc (3)"
+  end
+  if value == "4" then
+    return "Time In Force: Fok (4)"
+  end
+  if value == "5" then
+    return "Time In Force: Gtx (5)"
+  end
+  if value == "6" then
+    return "Time In Force: Gtd (6)"
+  end
+  if value == "7" then
+    return "Time In Force: At The Close (7)"
+  end
+  if value == "E" then
+    return "Time In Force: Pre (E)"
+  end
+  if value == "P" then
+    return "Time In Force: Rtp (P)"
+  end
+  if value == "R" then
+    return "Time In Force: Rho (R)"
+  end
+  if value == "T" then
+    return "Time In Force: Ptd (T)"
+  end
+  if value == "X" then
+    return "Time In Force: Ptx (X)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -3013,94 +3537,48 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.transaction_time.dissect = functi
   return offset + length, value
 end
 
--- Unit Number 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1 = {}
+-- Unit Number
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number = {}
 
--- Size: Unit Number 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1.size = 1
+-- Size: Unit Number
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number.size = 1
 
--- Display: Unit Number 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1.display = function(value)
-  return "Unit Number 1: "..value
+-- Display: Unit Number
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number.display = function(value)
+  return "Unit Number: "..value
 end
 
--- Dissect: Unit Number 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1.size
+-- Dissect: Unit Number
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_number_1, range, value, display)
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_number, range, value, display)
 
   return offset + length, value
 end
 
--- Unit Numbern
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern = {}
+-- Unit Sequence
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence = {}
 
--- Size: Unit Numbern
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern.size = 1
+-- Size: Unit Sequence
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence.size = 4
 
--- Display: Unit Numbern
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern.display = function(value)
-  return "Unit Numbern: "..value
+-- Display: Unit Sequence
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence.display = function(value)
+  return "Unit Sequence: "..value
 end
 
--- Dissect: Unit Numbern
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern.size
+-- Dissect: Unit Sequence
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_numbern, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Sequence 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1 = {}
-
--- Size: Unit Sequence 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1.size = 4
-
--- Display: Unit Sequence 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1.display = function(value)
-  return "Unit Sequence 1: "..value
-end
-
--- Dissect: Unit Sequence 1
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequence_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Unit Sequencen
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen = {}
-
--- Size: Unit Sequencen
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen.size = 4
-
--- Display: Unit Sequencen
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen.display = function(value)
-  return "Unit Sequencen: "..value
-end
-
--- Dissect: Unit Sequencen
-cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequencen, range, value, display)
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.unit_sequence, range, value, display)
 
   return offset + length, value
 end
@@ -9516,6 +9994,230 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.order_acknowledgment_message.diss
   end
 end
 
+-- Risk Group I Ds
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds = {}
+
+-- Size: Risk Group I Ds
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.size =
+  cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id.size
+
+-- Display: Risk Group I Ds
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Risk Group I Ds
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.fields = function(buffer, offset, packet, parent, risk_group_i_ds_index)
+  local index = offset
+
+  -- Implicit Risk Group I Ds Index
+  if risk_group_i_ds_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_i_ds_index, risk_group_i_ds_index)
+    iteration:set_generated()
+  end
+
+  -- Risk Group Id: Binary
+  index, risk_group_id = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Risk Group I Ds
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.dissect = function(buffer, offset, packet, parent, risk_group_i_ds_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.risk_group_i_ds, buffer(offset, 0))
+    local index = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.fields(buffer, offset, packet, parent, risk_group_i_ds_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.fields(buffer, offset, packet, parent, risk_group_i_ds_index)
+  end
+end
+
+-- Purge Orders Bitfield 2
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2 = {}
+
+-- Size: Purge Orders Bitfield 2
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.size = 1
+
+-- Display: Purge Orders Bitfield 2
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Purge Orders Bitfield 2 Symbol flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Symbol"
+  end
+  -- Is Purge Orders Bitfield 2 Symbol Sfx flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Symbol Sfx"
+  end
+  -- Is Purge Orders Bitfield 2 Reserved 4 flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Reserved 4"
+  end
+  -- Is Purge Orders Bitfield 2 Reserved 8 flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Reserved 8"
+  end
+  -- Is Purge Orders Bitfield 2 Reserved 16 flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Reserved 16"
+  end
+  -- Is Purge Orders Bitfield 2 Reserved 32 flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Reserved 32"
+  end
+  -- Is Purge Orders Bitfield 2 Send Time flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Send Time"
+  end
+  -- Is Purge Orders Bitfield 2 Matching Unit flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 2 Matching Unit"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Purge Orders Bitfield 2
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.bits = function(range, value, packet, parent)
+
+  -- Purge Orders Bitfield 2 Symbol: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_symbol, range, value)
+
+  -- Purge Orders Bitfield 2 Symbol Sfx: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_symbol_sfx, range, value)
+
+  -- Purge Orders Bitfield 2 Reserved 4: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_4, range, value)
+
+  -- Purge Orders Bitfield 2 Reserved 8: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_8, range, value)
+
+  -- Purge Orders Bitfield 2 Reserved 16: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_16, range, value)
+
+  -- Purge Orders Bitfield 2 Reserved 32: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_reserved_32, range, value)
+
+  -- Purge Orders Bitfield 2 Send Time: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_send_time, range, value)
+
+  -- Purge Orders Bitfield 2 Matching Unit: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2_matching_unit, range, value)
+end
+
+-- Dissect: Purge Orders Bitfield 2
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_2, range, display)
+
+  if show.structs then
+    cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Purge Orders Bitfield 1
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1 = {}
+
+-- Size: Purge Orders Bitfield 1
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.size = 1
+
+-- Display: Purge Orders Bitfield 1
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Purge Orders Bitfield 1 Clearing Firm flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Clearing Firm"
+  end
+  -- Is Purge Orders Bitfield 1 Mass Cancel Lockout flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Mass Cancel Lockout"
+  end
+  -- Is Purge Orders Bitfield 1 Mass Cancel Inst flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Mass Cancel Inst"
+  end
+  -- Is Purge Orders Bitfield 1 Risk Root flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Risk Root"
+  end
+  -- Is Purge Orders Bitfield 1 Mass Cancel Id flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Mass Cancel Id"
+  end
+  -- Is Purge Orders Bitfield 1 Routing Firm Id flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Routing Firm Id"
+  end
+  -- Is Purge Orders Bitfield 1 Manual Order Indicator flag set?
+  if bit.band(value, 0x40) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Manual Order Indicator"
+  end
+  -- Is Purge Orders Bitfield 1 Operator Id flag set?
+  if bit.band(value, 0x80) ~= 0 then
+    flags[#flags + 1] = "Purge Orders Bitfield 1 Operator Id"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Purge Orders Bitfield 1
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.bits = function(range, value, packet, parent)
+
+  -- Purge Orders Bitfield 1 Clearing Firm: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_clearing_firm, range, value)
+
+  -- Purge Orders Bitfield 1 Mass Cancel Lockout: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_mass_cancel_lockout, range, value)
+
+  -- Purge Orders Bitfield 1 Mass Cancel Inst: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_mass_cancel_inst, range, value)
+
+  -- Purge Orders Bitfield 1 Risk Root: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_risk_root, range, value)
+
+  -- Purge Orders Bitfield 1 Mass Cancel Id: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_mass_cancel_id, range, value)
+
+  -- Purge Orders Bitfield 1 Routing Firm Id: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_routing_firm_id, range, value)
+
+  -- Purge Orders Bitfield 1 Manual Order Indicator: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_manual_order_indicator, range, value)
+
+  -- Purge Orders Bitfield 1 Operator Id: 1 Bit
+  parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1_operator_id, range, value)
+end
+
+-- Dissect: Purge Orders Bitfield 1
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.purge_orders_bitfield_1, range, display)
+
+  if show.structs then
+    cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Purge Order Message
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_order_message = {}
 
@@ -9544,20 +10246,89 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_order_message.fields = func
   -- Number Of Purge Orders Bitfields: Binary
   index, number_of_purge_orders_bitfields = cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_purge_orders_bitfields.dissect(buffer, index, packet, parent)
 
-  -- Purge Orders Bitfield 1: Binary
-  index, purge_orders_bitfield_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Purge Orders Bitfield 1
+  local purge_orders_bitfield_1 = nil
 
-  -- Purge Orders Bitfieldn: Binary
-  index, purge_orders_bitfieldn = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfieldn.dissect(buffer, index, packet, parent)
+  local purge_orders_bitfield_1_exists = number_of_purge_orders_bitfields >= 1
+
+  if purge_orders_bitfield_1_exists then
+
+    -- Purge Orders Bitfield 1: Struct of 8 fields
+    index, purge_orders_bitfield_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_1.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Purge Orders Bitfield 2
+  local purge_orders_bitfield_2 = nil
+
+  local purge_orders_bitfield_2_exists = number_of_purge_orders_bitfields >= 2
+
+  if purge_orders_bitfield_2_exists then
+
+    -- Purge Orders Bitfield 2: Struct of 8 fields
+    index, purge_orders_bitfield_2 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.purge_orders_bitfield_2.dissect(buffer, index, packet, parent)
+  end
 
   -- Risk Group Id Cnt: Binary
   index, risk_group_id_cnt = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_cnt.dissect(buffer, index, packet, parent)
 
-  -- Risk Group Id 1: Binary
-  index, risk_group_id_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_id_1.dissect(buffer, index, packet, parent)
+  -- Repeating: Risk Group I Ds
+  for risk_group_i_ds_index = 1, risk_group_id_cnt do
+    index, risk_group_i_ds = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.dissect(buffer, index, packet, parent, risk_group_i_ds_index)
+  end
 
-  -- Risk Group I Dn: Binary
-  index, risk_group_i_dn = cboe_edgaequities_binaryorderentry_boe_v2_4_57.risk_group_i_dn.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Clearing Firm
+  local clearing_firm = nil
+
+  local clearing_firm_exists = number_of_purge_orders_bitfields >= 1 and bit.band(purge_orders_bitfield_1, 0x01) > 0
+
+  if clearing_firm_exists then
+    index, clearing_firm = cboe_edgaequities_binaryorderentry_boe_v2_4_57.clearing_firm.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Mass Cancel Inst
+  local mass_cancel_inst = nil
+
+  local mass_cancel_inst_exists = number_of_purge_orders_bitfields >= 1 and bit.band(purge_orders_bitfield_1, 0x04) > 0
+
+  if mass_cancel_inst_exists then
+    index, mass_cancel_inst = cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Mass Cancel Id
+  local mass_cancel_id = nil
+
+  local mass_cancel_id_exists = number_of_purge_orders_bitfields >= 1 and bit.band(purge_orders_bitfield_1, 0x10) > 0
+
+  if mass_cancel_id_exists then
+    index, mass_cancel_id = cboe_edgaequities_binaryorderentry_boe_v2_4_57.mass_cancel_id.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Symbol
+  local symbol = nil
+
+  local symbol_exists = number_of_purge_orders_bitfields >= 2 and bit.band(purge_orders_bitfield_2, 0x01) > 0
+
+  if symbol_exists then
+    index, symbol = cboe_edgaequities_binaryorderentry_boe_v2_4_57.symbol.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Symbol Sfx
+  local symbol_sfx = nil
+
+  local symbol_sfx_exists = number_of_purge_orders_bitfields >= 2 and bit.band(purge_orders_bitfield_2, 0x02) > 0
+
+  if symbol_sfx_exists then
+    index, symbol_sfx = cboe_edgaequities_binaryorderentry_boe_v2_4_57.symbol_sfx.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Matching Unit
+  local matching_unit = nil
+
+  local matching_unit_exists = number_of_purge_orders_bitfields >= 2 and bit.band(purge_orders_bitfield_2, 0x80) > 0
+
+  if matching_unit_exists then
+    index, matching_unit = cboe_edgaequities_binaryorderentry_boe_v2_4_57.matching_unit.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -11730,6 +12501,56 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.new_order_message.dissect = funct
   end
 end
 
+-- Units
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.units = {}
+
+-- Size: Units
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.size =
+  cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number.size + 
+  cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence.size
+
+-- Display: Units
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Units
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.fields = function(buffer, offset, packet, parent, units_index)
+  local index = offset
+
+  -- Implicit Units Index
+  if units_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.units_index, units_index)
+    iteration:set_generated()
+  end
+
+  -- Unit Number: Binary
+  index, unit_number = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number.dissect(buffer, index, packet, parent)
+
+  -- Unit Sequence: Binary
+  index, unit_sequence = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Units
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.dissect = function(buffer, offset, packet, parent, units_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.units, buffer(offset, 0))
+    local index = cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.fields(buffer, offset, packet, parent, units_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.fields(buffer, offset, packet, parent, units_index)
+  end
+end
+
 -- Logout Message
 cboe_edgaequities_binaryorderentry_boe_v2_4_57.logout_message = {}
 
@@ -11764,17 +12585,10 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.logout_message.fields = function(
   -- Number Of Units: Binary
   index, number_of_units = cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_units.dissect(buffer, index, packet, parent)
 
-  -- Unit Number 1: Binary
-  index, unit_number_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequence 1: Binary
-  index, unit_sequence_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Numbern: Binary
-  index, unit_numbern = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequencen: Binary
-  index, unit_sequencen = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen.dissect(buffer, index, packet, parent)
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.dissect(buffer, index, packet, parent, units_index)
+  end
 
   return index
 end
@@ -11798,6 +12612,56 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.logout_message.dissect = function
     cboe_edgaequities_binaryorderentry_boe_v2_4_57.logout_message.fields(buffer, offset, packet, parent, size_of_logout_message)
 
     return index
+  end
+end
+
+-- Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group = {}
+
+-- Size: Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.size =
+  cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.size + 
+  cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.size
+
+-- Display: Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.fields = function(buffer, offset, packet, parent, param_group_index)
+  local index = offset
+
+  -- Implicit Param Group Index
+  if param_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group_index, param_group_index)
+    iteration:set_generated()
+  end
+
+  -- Param Group Length: Binary
+  index, param_group_length = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_length.dissect(buffer, index, packet, parent)
+
+  -- Param Group Type: Binary
+  index, param_group_type = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Param Group
+cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.dissect = function(buffer, offset, packet, parent, param_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_edgaequities_binaryorderentry_boe_v2_4_57.fields.param_group, buffer(offset, 0))
+    local index = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.fields(buffer, offset, packet, parent, param_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.fields(buffer, offset, packet, parent, param_group_index)
   end
 end
 
@@ -11838,20 +12702,18 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.login_response_message.fields = f
   -- Number Of Units: Binary
   index, number_of_units = cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_units.dissect(buffer, index, packet, parent)
 
-  -- Unit Number 1: Binary
-  index, unit_number_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_number_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequence 1: Binary
-  index, unit_sequence_1 = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequence_1.dissect(buffer, index, packet, parent)
-
-  -- Unit Numbern: Binary
-  index, unit_numbern = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_numbern.dissect(buffer, index, packet, parent)
-
-  -- Unit Sequencen: Binary
-  index, unit_sequencen = cboe_edgaequities_binaryorderentry_boe_v2_4_57.unit_sequencen.dissect(buffer, index, packet, parent)
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_edgaequities_binaryorderentry_boe_v2_4_57.units.dissect(buffer, index, packet, parent, units_index)
+  end
 
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end
@@ -11911,6 +12773,11 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.login_request_message.fields = fu
 
   -- Number Of Param Groups: Binary
   index, number_of_param_groups = cboe_edgaequities_binaryorderentry_boe_v2_4_57.number_of_param_groups.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Param Group
+  for param_group_index = 1, number_of_param_groups do
+    index, param_group = cboe_edgaequities_binaryorderentry_boe_v2_4_57.param_group.dissect(buffer, index, packet, parent, param_group_index)
+  end
 
   return index
 end
@@ -12063,7 +12930,7 @@ cboe_edgaequities_binaryorderentry_boe_v2_4_57.message_header.fields = function(
   -- Message Type: Binary
   index, message_type = cboe_edgaequities_binaryorderentry_boe_v2_4_57.message_type.dissect(buffer, index, packet, parent)
 
-  -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
+  -- Matching Unit: Binary
   index, matching_unit = cboe_edgaequities_binaryorderentry_boe_v2_4_57.matching_unit.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer

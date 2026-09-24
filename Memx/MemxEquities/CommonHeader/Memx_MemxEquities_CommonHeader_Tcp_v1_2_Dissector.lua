@@ -575,14 +575,14 @@ end
 -- Sequenced Message
 memx_memxequities_commonheader_tcp_v1_2.sequenced_message = {}
 
--- Calculate size of: Sequenced Message
+-- Read runtime size of: Sequenced Message
 memx_memxequities_commonheader_tcp_v1_2.sequenced_message.size = function(buffer, offset)
-  local index = 0
+  local index = offset
 
-  -- Remaining size of: Sbe Message
-  index = index + (buffer:len() - (offset + index))
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 2, 2):uint()
 
-  return index
+  return message_length
 end
 
 -- Display: Sequenced Message
@@ -591,11 +591,11 @@ memx_memxequities_commonheader_tcp_v1_2.sequenced_message.display = function(pac
 end
 
 -- Dissect Fields: Sequenced Message
-memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields = function(buffer, offset, packet, parent)
+memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields = function(buffer, offset, packet, parent, size_of_sequenced_message)
   local index = offset
 
   -- Runtime Size Of: Sbe Message
-  local size_of_sbe_message = buffer:len() - (offset + index)
+  local size_of_sbe_message = offset + size_of_sequenced_message - index
 
   -- Sbe Message: 0 Byte
   index, sbe_message = memx_memxequities_commonheader_tcp_v1_2.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
@@ -604,20 +604,24 @@ memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields = function(buff
 end
 
 -- Dissect: Sequenced Message
-memx_memxequities_commonheader_tcp_v1_2.sequenced_message.dissect = function(buffer, offset, packet, parent)
+memx_memxequities_commonheader_tcp_v1_2.sequenced_message.dissect = function(buffer, offset, packet, parent, size_of_sequenced_message)
+  local size_of_sequenced_message = memx_memxequities_commonheader_tcp_v1_2.sequenced_message.size(buffer, offset)
+  local index = offset + size_of_sequenced_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.session_messages then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.sequenced_message, buffer(offset, 0))
-    local index = memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxequities_commonheader_tcp_v1_2.sequenced_message.display(packet, parent, length)
+    local current = memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields(buffer, offset, packet, parent, size_of_sequenced_message)
+    parent:set_len(size_of_sequenced_message)
+    local display = memx_memxequities_commonheader_tcp_v1_2.sequenced_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields(buffer, offset, packet, parent)
+    memx_memxequities_commonheader_tcp_v1_2.sequenced_message.fields(buffer, offset, packet, parent, size_of_sequenced_message)
+
+    return index
   end
 end
 
@@ -1109,14 +1113,14 @@ end
 -- Unsequenced Message
 memx_memxequities_commonheader_tcp_v1_2.unsequenced_message = {}
 
--- Calculate size of: Unsequenced Message
+-- Read runtime size of: Unsequenced Message
 memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.size = function(buffer, offset)
-  local index = 0
+  local index = offset
 
-  -- Remaining size of: Sbe Message
-  index = index + (buffer:len() - (offset + index))
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 2, 2):uint()
 
-  return index
+  return message_length
 end
 
 -- Display: Unsequenced Message
@@ -1125,11 +1129,11 @@ memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.display = function(p
 end
 
 -- Dissect Fields: Unsequenced Message
-memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields = function(buffer, offset, packet, parent)
+memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields = function(buffer, offset, packet, parent, size_of_unsequenced_message)
   local index = offset
 
   -- Runtime Size Of: Sbe Message
-  local size_of_sbe_message = buffer:len() - (offset + index)
+  local size_of_sbe_message = offset + size_of_unsequenced_message - index
 
   -- Sbe Message: 0 Byte
   index, sbe_message = memx_memxequities_commonheader_tcp_v1_2.sbe_message.dissect(buffer, index, packet, parent, size_of_sbe_message)
@@ -1138,20 +1142,24 @@ memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields = function(bu
 end
 
 -- Dissect: Unsequenced Message
-memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.dissect = function(buffer, offset, packet, parent)
+memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_message)
+  local size_of_unsequenced_message = memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.size(buffer, offset)
+  local index = offset + size_of_unsequenced_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.session_messages then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.unsequenced_message, buffer(offset, 0))
-    local index = memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.display(packet, parent, length)
+    local current = memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields(buffer, offset, packet, parent, size_of_unsequenced_message)
+    parent:set_len(size_of_unsequenced_message)
+    local display = memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields(buffer, offset, packet, parent)
+    memx_memxequities_commonheader_tcp_v1_2.unsequenced_message.fields(buffer, offset, packet, parent, size_of_unsequenced_message)
+
+    return index
   end
 end
 
