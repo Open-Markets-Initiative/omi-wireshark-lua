@@ -197,6 +197,7 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.system_timestamp_message = Pro
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.complex_market_depth_level_index = ProtoField.new("Complex Market Depth Level Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.complexmarketdepthlevelindex", ftypes.UINT16)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.instrumentlegindex", ftypes.UINT16)
 omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.marketdepthlevelindex", ftypes.UINT16)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_classes_requested_index = ProtoField.new("Option Classes Requested Index", "box.boxoptions.solaunicast.hsvf.v4.5.1.optionclassesrequestedindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -2912,29 +2913,6 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_sign.dissect = function(buffer
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.open_price_sign.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.open_price_sign, range, value, display)
-
-  return offset + length, value
-end
-
--- Option Classes Requested
-box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested = {}
-
--- Size: Option Classes Requested
-box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.size = 0
-
--- Display: Option Classes Requested
-box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.display = function(value)
-  return "Option Classes Requested: "..value
-end
-
--- Dissect: Option Classes Requested
-box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.dissect = function(buffer, offset, packet, parent)
-  local length = box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_classes_requested, range, value, display)
 
   return offset + length, value
 end
@@ -6698,21 +6676,83 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.end_of_transmission_message.dissect = fun
   end
 end
 
+-- Option Classes Requested
+box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested = {}
+
+-- Size: Option Classes Requested
+box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.size =
+  box_boxoptions_solaunicast_hsvf_v4_5_1.root_symbol.size
+
+-- Display: Option Classes Requested
+box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Option Classes Requested
+box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.fields = function(buffer, offset, packet, parent, option_classes_requested_index)
+  local index = offset
+
+  -- Implicit Option Classes Requested Index
+  if option_classes_requested_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_classes_requested_index, option_classes_requested_index)
+    iteration:set_generated()
+  end
+
+  -- Root Symbol: X
+  index, root_symbol = box_boxoptions_solaunicast_hsvf_v4_5_1.root_symbol.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Option Classes Requested
+box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.dissect = function(buffer, offset, packet, parent, option_classes_requested_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.option_classes_requested, buffer(offset, 0))
+    local index = box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.fields(buffer, offset, packet, parent, option_classes_requested_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.fields(buffer, offset, packet, parent, option_classes_requested_index)
+  end
+end
+
 -- Connection Message
 box_boxoptions_solaunicast_hsvf_v4_5_1.connection_message = {}
 
--- Size: Connection Message
-box_boxoptions_solaunicast_hsvf_v4_5_1.connection_message.size =
-  box_boxoptions_solaunicast_hsvf_v4_5_1.reset_sequence.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.system_default.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.system_value.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_market_data.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.market_summaries.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.gap_control.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_protocol.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_option_classes_requested.size + 
-  box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.size
+-- Calculate size of: Connection Message
+box_boxoptions_solaunicast_hsvf_v4_5_1.connection_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.reset_sequence.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.system_default.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.system_value.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.type_of_market_data.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.complex_order.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.market_summaries.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.gap_control.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.hsvf_protocol.size
+
+  index = index + box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_option_classes_requested.size
+
+  -- Calculate field size from count
+  local option_classes_requested_count = buffer(offset + index - 3, 3):string()
+  index = index + option_classes_requested_count * 6
+
+  return index
+end
 
 -- Display: Connection Message
 box_boxoptions_solaunicast_hsvf_v4_5_1.connection_message.display = function(packet, parent, length)
@@ -6750,8 +6790,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.connection_message.fields = function(buff
   -- Number Of Option Classes Requested: N
   index, number_of_option_classes_requested = box_boxoptions_solaunicast_hsvf_v4_5_1.number_of_option_classes_requested.dissect(buffer, index, packet, parent)
 
-  -- Option Classes Requested: 0 Byte Ascii String
-  index, option_classes_requested = box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.dissect(buffer, index, packet, parent)
+  -- Repeating: Option Classes Requested
+  for option_classes_requested_index = 1, number_of_option_classes_requested do
+    index, option_classes_requested = box_boxoptions_solaunicast_hsvf_v4_5_1.option_classes_requested.dissect(buffer, index, packet, parent, option_classes_requested_index)
+  end
 
   return index
 end
