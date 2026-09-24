@@ -30,6 +30,7 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.buy_firm_id = ProtoFiel
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.client_packet_type = ProtoField.new("Packet Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.clientpackettype", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.cross_type = ProtoField.new("Cross Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.crosstype", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.currency = ProtoField.new("Currency", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.currency", ftypes.STRING)
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.debug_text = ProtoField.new("Debug Text", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.debugtext", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.event_code = ProtoField.new("Event Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.eventcode", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.event_status = ProtoField.new("Event Status", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.eventstatus", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.executed_quantity = ProtoField.new("Executed Quantity", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.executedquantity", ftypes.UINT64)
@@ -79,7 +80,6 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sell_firm_id = ProtoFie
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.sequencedmessagetype", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.server_packet_type = ProtoField.new("Packet Type", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.serverpackettype", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.settle_date = ProtoField.new("Settle Date", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.settledate", ftypes.UINT32)
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.text = ProtoField.new("Text", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.text", ftypes.STRING)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.theoretical_opening_price = ProtoField.new("Theoretical Opening Price", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.theoreticalopeningprice", ftypes.INT64)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.theoretical_opening_quantity = ProtoField.new("Theoretical Opening Quantity", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.theoreticalopeningquantity", ftypes.UINT64)
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.tick_size = ProtoField.new("Tick Size", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.ticksize", ftypes.UINT64)
@@ -665,6 +665,29 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.currency.dissect = function(buffer
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text = {}
+
+-- Size: Debug Text
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text.size = 1
+
+-- Display: Debug Text
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -2019,29 +2042,6 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.settle_date.dissect = function(buf
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.settle_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.settle_date, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text = {}
-
--- Size: Text
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text.size = 1
-
--- Display: Text
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text.dissect = function(buffer, offset, packet, parent)
-  local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -3909,7 +3909,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet = {}
 
 -- Size: Debug Packet
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.size =
-  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text.size
+  nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text.size
 
 -- Display: Debug Packet
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.display = function(packet, parent, length)
@@ -3920,8 +3920,8 @@ end
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

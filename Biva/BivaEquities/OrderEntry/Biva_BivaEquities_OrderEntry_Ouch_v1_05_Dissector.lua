@@ -24,6 +24,7 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.fields.canceled_reason = ProtoField.
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_id = ProtoField.new("Client Id", "biva.bivaequities.orderentry.ouch.v1.05.clientid", ftypes.UINT32)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_packet_type = ProtoField.new("Packet Type", "biva.bivaequities.orderentry.ouch.v1.05.clientpackettype", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.counter_party_id = ProtoField.new("Counter Party Id", "biva.bivaequities.orderentry.ouch.v1.05.counterpartyid", ftypes.UINT32)
+omi_biva_bivaequities_orderentry_ouch_v1_05.fields.debug_text = ProtoField.new("Debug Text", "biva.bivaequities.orderentry.ouch.v1.05.debugtext", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.event_code = ProtoField.new("Event Code", "biva.bivaequities.orderentry.ouch.v1.05.eventcode", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.executed_price = ProtoField.new("Executed Price", "biva.bivaequities.orderentry.ouch.v1.05.executedprice", ftypes.UINT32)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.executed_quantity = ProtoField.new("Executed Quantity", "biva.bivaequities.orderentry.ouch.v1.05.executedquantity", ftypes.UINT64)
@@ -48,7 +49,6 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.fields.requested_sequence_number = P
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.requested_session = ProtoField.new("Requested Session", "biva.bivaequities.orderentry.ouch.v1.05.requestedsession", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "biva.bivaequities.orderentry.ouch.v1.05.sequencedmessagetype", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.server_packet_type = ProtoField.new("Packet Type", "biva.bivaequities.orderentry.ouch.v1.05.serverpackettype", ftypes.STRING)
-omi_biva_bivaequities_orderentry_ouch_v1_05.fields.text = ProtoField.new("Text", "biva.bivaequities.orderentry.ouch.v1.05.text", ftypes.STRING)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.time_in_force = ProtoField.new("Time In Force", "biva.bivaequities.orderentry.ouch.v1.05.timeinforce", ftypes.UINT32)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.timestamp = ProtoField.new("Timestamp", "biva.bivaequities.orderentry.ouch.v1.05.timestamp", ftypes.UINT64)
 omi_biva_bivaequities_orderentry_ouch_v1_05.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "biva.bivaequities.orderentry.ouch.v1.05.unsequencedmessagetype", ftypes.STRING)
@@ -510,6 +510,29 @@ biva_bivaequities_orderentry_ouch_v1_05.counter_party_id.dissect = function(buff
   local display = biva_bivaequities_orderentry_ouch_v1_05.counter_party_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.counter_party_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+biva_bivaequities_orderentry_ouch_v1_05.debug_text = {}
+
+-- Size: Debug Text
+biva_bivaequities_orderentry_ouch_v1_05.debug_text.size = 1
+
+-- Display: Debug Text
+biva_bivaequities_orderentry_ouch_v1_05.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+biva_bivaequities_orderentry_ouch_v1_05.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = biva_bivaequities_orderentry_ouch_v1_05.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = biva_bivaequities_orderentry_ouch_v1_05.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1177,29 +1200,6 @@ biva_bivaequities_orderentry_ouch_v1_05.server_packet_type.dissect = function(bu
   local display = biva_bivaequities_orderentry_ouch_v1_05.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-biva_bivaequities_orderentry_ouch_v1_05.text = {}
-
--- Size: Text
-biva_bivaequities_orderentry_ouch_v1_05.text.size = 1
-
--- Display: Text
-biva_bivaequities_orderentry_ouch_v1_05.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-biva_bivaequities_orderentry_ouch_v1_05.text.dissect = function(buffer, offset, packet, parent)
-  local length = biva_bivaequities_orderentry_ouch_v1_05.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = biva_bivaequities_orderentry_ouch_v1_05.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2018,7 +2018,7 @@ biva_bivaequities_orderentry_ouch_v1_05.debug_packet = {}
 
 -- Size: Debug Packet
 biva_bivaequities_orderentry_ouch_v1_05.debug_packet.size =
-  biva_bivaequities_orderentry_ouch_v1_05.text.size
+  biva_bivaequities_orderentry_ouch_v1_05.debug_text.size
 
 -- Display: Debug Packet
 biva_bivaequities_orderentry_ouch_v1_05.debug_packet.display = function(packet, parent, length)
@@ -2029,8 +2029,8 @@ end
 biva_bivaequities_orderentry_ouch_v1_05.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = biva_bivaequities_orderentry_ouch_v1_05.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = biva_bivaequities_orderentry_ouch_v1_05.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -30,6 +30,7 @@ omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.bid_size_short = ProtoFi
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.clientpackettype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.closing_type = ProtoField.new("Closing Type", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.closingtype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.currenttradingstate", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.debugtext", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.eventcode", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.expirationdate", ftypes.UINT8)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.expirationmonth", ftypes.UINT8)
@@ -59,7 +60,6 @@ omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.security_symbol = ProtoF
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.sequencenumber", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.serverpackettype", ftypes.STRING)
-omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.text = ProtoField.new("Text", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.text", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.tick_size_table_id = ProtoField.new("Tick Size Table Id", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.ticksizetableid", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.ntxoptions.depthofmarket.glimpse.v2.1.trackingnumber", ftypes.UINT16)
@@ -634,6 +634,29 @@ nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.current_trading_state.dissect = fun
   local display = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.current_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1412,29 +1435,6 @@ nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.server_packet_type.dissect = functi
   local display = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text = {}
-
--- Size: Text
-nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text.size = 1
-
--- Display: Text
-nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2556,7 +2556,7 @@ nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_packet.size =
-  nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text.size
+  nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_packet.display = function(packet, parent, length)
@@ -2567,8 +2567,8 @@ end
 nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_ntxoptions_depthofmarket_glimpse_v2_1.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

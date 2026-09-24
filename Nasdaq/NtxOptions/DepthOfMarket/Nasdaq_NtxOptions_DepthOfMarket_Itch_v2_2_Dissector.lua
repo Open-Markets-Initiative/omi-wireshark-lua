@@ -41,6 +41,7 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.cross_number = ProtoField.n
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.crosstype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.currenttradingstate", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.customerfirmindicator", ftypes.STRING)
+omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.debugtext", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.endofreplaysequencenumber", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.eventcode", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.executed_volume = ProtoField.new("Executed Volume", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.executedvolume", ftypes.UINT32)
@@ -86,7 +87,6 @@ omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.security_symbol = ProtoFiel
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.serverpackettype", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.strategyid", ftypes.UINT32)
-omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.text = ProtoField.new("Text", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.text", ftypes.STRING)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tick_size_table_id = ProtoField.new("Tick Size Table Id", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.ticksizetableid", ftypes.UINT16)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.timestamp", ftypes.UINT64)
 omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.ntxoptions.depthofmarket.itch.v2.2.trackingnumber", ftypes.UINT16)
@@ -970,6 +970,29 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.customer_firm_indicator.dissect = func
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.customer_firm_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.customer_firm_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -2219,29 +2242,6 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.strategy_id.dissect = function(buffer,
   local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.strategy_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.strategy_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.text = {}
-
--- Size: Text
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.text.size = 1
-
--- Display: Text
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -4666,7 +4666,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.size =
-  nasdaq_ntxoptions_depthofmarket_itch_v2_2.text.size
+  nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.display = function(packet, parent, length)
@@ -4677,8 +4677,8 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_ntxoptions_depthofmarket_itch_v2_2.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

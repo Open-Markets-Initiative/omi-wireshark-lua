@@ -24,6 +24,7 @@ omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.cross_price = ProtoField.new
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.nsmequities.totalview.itch.v4.0.f.crossshares", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.totalview.itch.v4.0.f.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.totalview.itch.v4.0.f.currentreferenceprice", ftypes.DOUBLE)
+omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nsmequities.totalview.itch.v4.0.f.debugtext", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.totalview.itch.v4.0.f.display", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.itch.v4.0.f.eventcode", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.nsmequities.totalview.itch.v4.0.f.executedshares", ftypes.UINT32)
@@ -67,7 +68,6 @@ omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.session = ProtoField.new("Se
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.itch.v4.0.f.shares", ftypes.UINT32)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.itch.v4.0.f.side", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v4.0.f.stock", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.itch.v4.0.f.text", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.totalview.itch.v4.0.f.tradingstate", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.itch.v4.0.f.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.totalview.itch.v4.0.f.unsequencedmessagetype", ftypes.STRING)
@@ -518,6 +518,29 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.current_reference_price.dissect = funct
   local display = nasdaq_nsmequities_totalview_itch_v4_0_f.current_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.current_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1908,29 +1931,6 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.stock.dissect = function(buffer, offset
   local display = nasdaq_nsmequities_totalview_itch_v4_0_f.stock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.stock, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_nsmequities_totalview_itch_v4_0_f.text = {}
-
--- Size: Text
-nasdaq_nsmequities_totalview_itch_v4_0_f.text.size = 1
-
--- Display: Text
-nasdaq_nsmequities_totalview_itch_v4_0_f.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_nsmequities_totalview_itch_v4_0_f.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v4_0_f.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v4_0_f.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -3658,7 +3658,7 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_nsmequities_totalview_itch_v4_0_f.debug_packet.size =
-  nasdaq_nsmequities_totalview_itch_v4_0_f.text.size
+  nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_nsmequities_totalview_itch_v4_0_f.debug_packet.display = function(packet, parent, length)
@@ -3669,8 +3669,8 @@ end
 nasdaq_nsmequities_totalview_itch_v4_0_f.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_nsmequities_totalview_itch_v4_0_f.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_nsmequities_totalview_itch_v4_0_f.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

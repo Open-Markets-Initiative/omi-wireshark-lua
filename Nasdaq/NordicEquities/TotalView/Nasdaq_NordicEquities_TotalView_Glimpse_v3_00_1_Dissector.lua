@@ -28,6 +28,7 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.client_packet_type = 
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.cs_cent_shares = ProtoField.new("Cs Cent Shares", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.cscentshares", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.currency = ProtoField.new("Currency", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.currency", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.da_digital_asset = ProtoField.new("Da Digital Asset", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.dadigitalasset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.debugtext", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.em_exceptional_circumstances_related_to_market_maker = ProtoField.new("Em Exceptional Circumstances Related To Market Maker", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.emexceptionalcircumstancesrelatedtomarketmaker", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.eventcode", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.ew_marketwide_exceptional_circumstance = ProtoField.new("Ew Marketwide Exceptional Circumstance", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.ewmarketwideexceptionalcircumstance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -87,7 +88,6 @@ omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.ss_excluding_comb_spl
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.su_suspension = ProtoField.new("Su Suspension", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.sususpension", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.symbol = ProtoField.new("Symbol", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.symbol", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.symbol_state = ProtoField.new("Symbol State", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.symbolstate", ftypes.STRING)
-omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.text = ProtoField.new("Text", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.text", ftypes.STRING)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.timestamp", ftypes.UINT64)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.to_a_significant_reverse_takeover_pending = ProtoField.new("To A Significant Reverse Takeover Pending", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.toasignificantreversetakeoverpending", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
 omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nordicequities.totalview.glimpse.v3.00.1.trackingnumber", ftypes.UINT16)
@@ -452,6 +452,29 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.currency.dissect = function(buff
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1257,29 +1280,6 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state.dissect = function(
   local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.symbol_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.symbol_state, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.text = {}
-
--- Size: Text
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.text.size = 1
-
--- Display: Text
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_nordicequities_totalview_glimpse_v3_00_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_totalview_glimpse_v3_00_1.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nordicequities_totalview_glimpse_v3_00_1.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2629,7 +2629,7 @@ nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet.size =
-  nasdaq_nordicequities_totalview_glimpse_v3_00_1.text.size
+  nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet.display = function(packet, parent, length)
@@ -2640,8 +2640,8 @@ end
 nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_nordicequities_totalview_glimpse_v3_00_1.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_nordicequities_totalview_glimpse_v3_00_1.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

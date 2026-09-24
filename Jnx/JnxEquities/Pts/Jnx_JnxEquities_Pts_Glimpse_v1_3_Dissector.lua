@@ -20,6 +20,7 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.fields.accepted_session = ProtoField.new("A
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.attribution = ProtoField.new("Attribution", "jnx.jnxequities.pts.glimpse.v1.3.attribution", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.glimpse.v1.3.buysellindicator", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.glimpse.v1.3.clientpackettype", ftypes.STRING)
+omi_jnx_jnxequities_pts_glimpse_v1_3.fields.debug_text = ProtoField.new("Debug Text", "jnx.jnxequities.pts.glimpse.v1.3.debugtext", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.jnxequities.pts.glimpse.v1.3.executedquantity", ftypes.UINT32)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.group = ProtoField.new("Group", "jnx.jnxequities.pts.glimpse.v1.3.group", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.jnxequities.pts.glimpse.v1.3.lowerpricelimit", ftypes.DOUBLE)
@@ -48,7 +49,6 @@ omi_jnx_jnxequities_pts_glimpse_v1_3.fields.sequenced_message_type = ProtoField.
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.server_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.glimpse.v1.3.serverpackettype", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.short_selling_state = ProtoField.new("Short Selling State", "jnx.jnxequities.pts.glimpse.v1.3.shortsellingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event = ProtoField.new("System Event", "jnx.jnxequities.pts.glimpse.v1.3.systemevent", ftypes.STRING)
-omi_jnx_jnxequities_pts_glimpse_v1_3.fields.text = ProtoField.new("Text", "jnx.jnxequities.pts.glimpse.v1.3.text", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.glimpse.v1.3.tradingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "jnx.jnxequities.pts.glimpse.v1.3.unsequencedmessage", ftypes.BYTES)
 omi_jnx_jnxequities_pts_glimpse_v1_3.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxequities.pts.glimpse.v1.3.unsequencedmessagetype", ftypes.STRING)
@@ -367,6 +367,29 @@ jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.dissect = function(buffer, o
   local display = jnx_jnxequities_pts_glimpse_v1_3.client_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+jnx_jnxequities_pts_glimpse_v1_3.debug_text = {}
+
+-- Size: Debug Text
+jnx_jnxequities_pts_glimpse_v1_3.debug_text.size = 1
+
+-- Display: Debug Text
+jnx_jnxequities_pts_glimpse_v1_3.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+jnx_jnxequities_pts_glimpse_v1_3.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_glimpse_v1_3.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_glimpse_v1_3.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1141,29 +1164,6 @@ jnx_jnxequities_pts_glimpse_v1_3.system_event.dissect = function(buffer, offset,
   local display = jnx_jnxequities_pts_glimpse_v1_3.system_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.system_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-jnx_jnxequities_pts_glimpse_v1_3.text = {}
-
--- Size: Text
-jnx_jnxequities_pts_glimpse_v1_3.text.size = 1
-
--- Display: Text
-jnx_jnxequities_pts_glimpse_v1_3.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-jnx_jnxequities_pts_glimpse_v1_3.text.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxequities_pts_glimpse_v1_3.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_jnxequities_pts_glimpse_v1_3.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxequities_pts_glimpse_v1_3.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2240,7 +2240,7 @@ jnx_jnxequities_pts_glimpse_v1_3.debug_packet = {}
 
 -- Size: Debug Packet
 jnx_jnxequities_pts_glimpse_v1_3.debug_packet.size =
-  jnx_jnxequities_pts_glimpse_v1_3.text.size
+  jnx_jnxequities_pts_glimpse_v1_3.debug_text.size
 
 -- Display: Debug Packet
 jnx_jnxequities_pts_glimpse_v1_3.debug_packet.display = function(packet, parent, length)
@@ -2251,8 +2251,8 @@ end
 jnx_jnxequities_pts_glimpse_v1_3.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = jnx_jnxequities_pts_glimpse_v1_3.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = jnx_jnxequities_pts_glimpse_v1_3.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

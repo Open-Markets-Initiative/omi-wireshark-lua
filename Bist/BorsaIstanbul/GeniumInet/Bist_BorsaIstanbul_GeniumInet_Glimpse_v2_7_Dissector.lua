@@ -21,6 +21,7 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.bait_implied_order = Proto
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.block_lot_size = ProtoField.new("Block Lot Size", "bist.borsaistanbul.geniuminet.glimpse.v2.7.blocklotsize", ftypes.UINT32)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.client_packet_type = ProtoField.new("Packet Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.clientpackettype", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.combination_order_book_id = ProtoField.new("Combination Order Book Id", "bist.borsaistanbul.geniuminet.glimpse.v2.7.combinationorderbookid", ftypes.UINT32)
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.debug_text = ProtoField.new("Debug Text", "bist.borsaistanbul.geniuminet.glimpse.v2.7.debugtext", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.decimals_in_nominal_value = ProtoField.new("Decimals In Nominal Value", "bist.borsaistanbul.geniuminet.glimpse.v2.7.decimalsinnominalvalue", ftypes.UINT16)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.decimals_in_price = ProtoField.new("Decimals In Price", "bist.borsaistanbul.geniuminet.glimpse.v2.7.decimalsinprice", ftypes.UINT16)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.decimals_in_strike_price = ProtoField.new("Decimals In Strike Price", "bist.borsaistanbul.geniuminet.glimpse.v2.7.decimalsinstrikeprice", ftypes.UINT16)
@@ -66,7 +67,6 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.side = ProtoField.new("Sid
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.state_name = ProtoField.new("State Name", "bist.borsaistanbul.geniuminet.glimpse.v2.7.statename", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.strike_price = ProtoField.new("Strike Price", "bist.borsaistanbul.geniuminet.glimpse.v2.7.strikeprice", ftypes.INT32)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.symbol = ProtoField.new("Symbol", "bist.borsaistanbul.geniuminet.glimpse.v2.7.symbol", ftypes.STRING)
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.text = ProtoField.new("Text", "bist.borsaistanbul.geniuminet.glimpse.v2.7.text", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.tick_size = ProtoField.new("Tick Size", "bist.borsaistanbul.geniuminet.glimpse.v2.7.ticksize", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.trading_currency = ProtoField.new("Trading Currency", "bist.borsaistanbul.geniuminet.glimpse.v2.7.tradingcurrency", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.underlying_order_book_id = ProtoField.new("Underlying Order Book Id", "bist.borsaistanbul.geniuminet.glimpse.v2.7.underlyingorderbookid", ftypes.UINT32)
@@ -360,6 +360,29 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.combination_order_book_id.dissect = f
   local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.combination_order_book_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.combination_order_book_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text = {}
+
+-- Size: Debug Text
+bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.size = 1
+
+-- Display: Debug Text
+bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1495,29 +1518,6 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.symbol.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Text
-bist_borsaistanbul_geniuminet_glimpse_v2_7.text = {}
-
--- Size: Text
-bist_borsaistanbul_geniuminet_glimpse_v2_7.text.size = 1
-
--- Display: Text
-bist_borsaistanbul_geniuminet_glimpse_v2_7.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-bist_borsaistanbul_geniuminet_glimpse_v2_7.text.dissect = function(buffer, offset, packet, parent)
-  local length = bist_borsaistanbul_geniuminet_glimpse_v2_7.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bist_borsaistanbul_geniuminet_glimpse_v2_7.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tick Size
 bist_borsaistanbul_geniuminet_glimpse_v2_7.tick_size = {}
 
@@ -2574,7 +2574,7 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet = {}
 
 -- Size: Debug Packet
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.size =
-  bist_borsaistanbul_geniuminet_glimpse_v2_7.text.size
+  bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.size
 
 -- Display: Debug Packet
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.display = function(packet, parent, length)
@@ -2585,8 +2585,8 @@ end
 bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = bist_borsaistanbul_geniuminet_glimpse_v2_7.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = bist_borsaistanbul_geniuminet_glimpse_v2_7.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

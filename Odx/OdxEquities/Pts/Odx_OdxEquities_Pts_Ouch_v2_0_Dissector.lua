@@ -22,6 +22,7 @@ omi_odx_odxequities_pts_ouch_v2_0.fields.capacity = ProtoField.new("Capacity", "
 omi_odx_odxequities_pts_ouch_v2_0.fields.cash_margin_type = ProtoField.new("Cash Margin Type", "odx.odxequities.pts.ouch.v2.0.cashmargintype", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.client_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.ouch.v2.0.clientpackettype", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.client_reference = ProtoField.new("Client Reference", "odx.odxequities.pts.ouch.v2.0.clientreference", ftypes.STRING)
+omi_odx_odxequities_pts_ouch_v2_0.fields.debug_text = ProtoField.new("Debug Text", "odx.odxequities.pts.ouch.v2.0.debugtext", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "odx.odxequities.pts.ouch.v2.0.decrementquantity", ftypes.UINT32)
 omi_odx_odxequities_pts_ouch_v2_0.fields.display = ProtoField.new("Display", "odx.odxequities.pts.ouch.v2.0.display", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.executed_quantity = ProtoField.new("Executed Quantity", "odx.odxequities.pts.ouch.v2.0.executedquantity", ftypes.UINT32)
@@ -52,7 +53,6 @@ omi_odx_odxequities_pts_ouch_v2_0.fields.requested_session = ProtoField.new("Req
 omi_odx_odxequities_pts_ouch_v2_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "odx.odxequities.pts.ouch.v2.0.sequencedmessagetype", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.server_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.ouch.v2.0.serverpackettype", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.system_event = ProtoField.new("System Event", "odx.odxequities.pts.ouch.v2.0.systemevent", ftypes.STRING)
-omi_odx_odxequities_pts_ouch_v2_0.fields.text = ProtoField.new("Text", "odx.odxequities.pts.ouch.v2.0.text", ftypes.STRING)
 omi_odx_odxequities_pts_ouch_v2_0.fields.time_in_force = ProtoField.new("Time In Force", "odx.odxequities.pts.ouch.v2.0.timeinforce", ftypes.UINT32)
 omi_odx_odxequities_pts_ouch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "odx.odxequities.pts.ouch.v2.0.timestamp", ftypes.UINT64)
 omi_odx_odxequities_pts_ouch_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "odx.odxequities.pts.ouch.v2.0.unsequencedmessagetype", ftypes.STRING)
@@ -441,6 +441,29 @@ odx_odxequities_pts_ouch_v2_0.client_reference.dissect = function(buffer, offset
   local display = odx_odxequities_pts_ouch_v2_0.client_reference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_ouch_v2_0.fields.client_reference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+odx_odxequities_pts_ouch_v2_0.debug_text = {}
+
+-- Size: Debug Text
+odx_odxequities_pts_ouch_v2_0.debug_text.size = 1
+
+-- Display: Debug Text
+odx_odxequities_pts_ouch_v2_0.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+odx_odxequities_pts_ouch_v2_0.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_ouch_v2_0.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = odx_odxequities_pts_ouch_v2_0.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_ouch_v2_0.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1336,29 +1359,6 @@ odx_odxequities_pts_ouch_v2_0.system_event.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Text
-odx_odxequities_pts_ouch_v2_0.text = {}
-
--- Size: Text
-odx_odxequities_pts_ouch_v2_0.text.size = 1
-
--- Display: Text
-odx_odxequities_pts_ouch_v2_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-odx_odxequities_pts_ouch_v2_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxequities_pts_ouch_v2_0.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = odx_odxequities_pts_ouch_v2_0.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxequities_pts_ouch_v2_0.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Time In Force
 odx_odxequities_pts_ouch_v2_0.time_in_force = {}
 
@@ -2210,7 +2210,7 @@ odx_odxequities_pts_ouch_v2_0.debug_packet = {}
 
 -- Size: Debug Packet
 odx_odxequities_pts_ouch_v2_0.debug_packet.size =
-  odx_odxequities_pts_ouch_v2_0.text.size
+  odx_odxequities_pts_ouch_v2_0.debug_text.size
 
 -- Display: Debug Packet
 odx_odxequities_pts_ouch_v2_0.debug_packet.display = function(packet, parent, length)
@@ -2221,8 +2221,8 @@ end
 odx_odxequities_pts_ouch_v2_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = odx_odxequities_pts_ouch_v2_0.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = odx_odxequities_pts_ouch_v2_0.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

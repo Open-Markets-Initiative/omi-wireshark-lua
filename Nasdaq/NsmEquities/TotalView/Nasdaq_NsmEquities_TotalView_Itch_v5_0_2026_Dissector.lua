@@ -29,6 +29,7 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.cross_price = ProtoField.
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.nsmequities.totalview.itch.v5.0.2026.crossshares", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.totalview.itch.v5.0.2026.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.totalview.itch.v5.0.2026.currentreferenceprice", ftypes.DOUBLE)
+omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nsmequities.totalview.itch.v5.0.2026.debugtext", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.nsmequities.totalview.itch.v5.0.2026.etpflag", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.nsmequities.totalview.itch.v5.0.2026.etpleveragefactor", ftypes.UINT32)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.itch.v5.0.2026.eventcode", ftypes.STRING)
@@ -93,7 +94,6 @@ omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.shares = ProtoField.new("
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.totalview.itch.v5.0.2026.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v5.0.2026.stock", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.stock_locate = ProtoField.new("Stock Locate", "nasdaq.nsmequities.totalview.itch.v5.0.2026.stocklocate", ftypes.UINT16)
-omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.itch.v5.0.2026.text", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.itch.v5.0.2026.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.totalview.itch.v5.0.2026.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.totalview.itch.v5.0.2026.tradingstate", ftypes.STRING)
@@ -694,6 +694,29 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.current_reference_price.dissect = fu
   local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.current_reference_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.current_reference_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -3201,29 +3224,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.stock_locate.dissect = function(buff
   return offset + length, value, record
 end
 
--- Text
-nasdaq_nsmequities_totalview_itch_v5_0_2026.text = {}
-
--- Size: Text
-nasdaq_nsmequities_totalview_itch_v5_0_2026.text.size = 1
-
--- Display: Text
-nasdaq_nsmequities_totalview_itch_v5_0_2026.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_nsmequities_totalview_itch_v5_0_2026.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v5_0_2026.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_totalview_itch_v5_0_2026.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2026.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Timestamp
 nasdaq_nsmequities_totalview_itch_v5_0_2026.timestamp = {}
 
@@ -5715,7 +5715,7 @@ nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_packet.size =
-  nasdaq_nsmequities_totalview_itch_v5_0_2026.text.size
+  nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_packet.display = function(packet, parent, length)
@@ -5726,8 +5726,8 @@ end
 nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_nsmequities_totalview_itch_v5_0_2026.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_nsmequities_totalview_itch_v5_0_2026.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

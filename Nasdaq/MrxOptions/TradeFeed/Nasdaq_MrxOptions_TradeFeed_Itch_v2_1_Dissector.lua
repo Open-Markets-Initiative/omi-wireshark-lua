@@ -21,6 +21,7 @@ omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.client_packet_type = ProtoField
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.closing_type = ProtoField.new("Closing Type", "nasdaq.mrxoptions.tradefeed.itch.v2.1.closingtype", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.mrxoptions.tradefeed.itch.v2.1.crossid", ftypes.UINT32)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.mrxoptions.tradefeed.itch.v2.1.currenttradingstate", ftypes.STRING)
+omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.mrxoptions.tradefeed.itch.v2.1.debugtext", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.mrxoptions.tradefeed.itch.v2.1.endofreplaysequencenumber", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.mrxoptions.tradefeed.itch.v2.1.eventcode", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.mrxoptions.tradefeed.itch.v2.1.expirationday", ftypes.UINT8)
@@ -46,7 +47,6 @@ omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.reserved_16 = ProtoField.new("R
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.tradefeed.itch.v2.1.securitysymbol", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.tradefeed.itch.v2.1.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.tradefeed.itch.v2.1.serverpackettype", ftypes.STRING)
-omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.text = ProtoField.new("Text", "nasdaq.mrxoptions.tradefeed.itch.v2.1.text", ftypes.STRING)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.mrxoptions.tradefeed.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.mrxoptions.tradefeed.itch.v2.1.trackingnumber", ftypes.UINT16)
 omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.mrxoptions.tradefeed.itch.v2.1.tradable", ftypes.STRING)
@@ -422,6 +422,29 @@ nasdaq_mrxoptions_tradefeed_itch_v2_1.current_trading_state.dissect = function(b
   local display = nasdaq_mrxoptions_tradefeed_itch_v2_1.current_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1103,29 +1126,6 @@ nasdaq_mrxoptions_tradefeed_itch_v2_1.server_packet_type.dissect = function(buff
   local display = nasdaq_mrxoptions_tradefeed_itch_v2_1.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_mrxoptions_tradefeed_itch_v2_1.text = {}
-
--- Size: Text
-nasdaq_mrxoptions_tradefeed_itch_v2_1.text.size = 1
-
--- Display: Text
-nasdaq_mrxoptions_tradefeed_itch_v2_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_mrxoptions_tradefeed_itch_v2_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_tradefeed_itch_v2_1.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_mrxoptions_tradefeed_itch_v2_1.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_mrxoptions_tradefeed_itch_v2_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2318,7 +2318,7 @@ nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_packet.size =
-  nasdaq_mrxoptions_tradefeed_itch_v2_1.text.size
+  nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_packet.display = function(packet, parent, length)
@@ -2329,8 +2329,8 @@ end
 nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_mrxoptions_tradefeed_itch_v2_1.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_mrxoptions_tradefeed_itch_v2_1.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

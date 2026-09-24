@@ -39,6 +39,7 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cross_number = ProtoField.new("Cross
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nomoptions.itto.itch.v4.0.crosstype", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.nomoptions.itto.itch.v4.0.currenttradingstate", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.nomoptions.itto.itch.v4.0.customerfirmindicator", ftypes.STRING)
+omi_nasdaq_nomoptions_itto_itch_v4_0.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nomoptions.itto.itch.v4.0.debugtext", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.nomoptions.itto.itch.v4.0.eventcode", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.executed_contracts = ProtoField.new("Executed Contracts", "nasdaq.nomoptions.itto.itch.v4.0.executedcontracts", ftypes.UINT32)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.nomoptions.itto.itch.v4.0.expirationdate", ftypes.UINT8)
@@ -78,7 +79,6 @@ omi_nasdaq_nomoptions_itto_itch_v4_0.fields.security_symbol = ProtoField.new("Se
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nomoptions.itto.itch.v4.0.sequencedmessagetype", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nomoptions.itto.itch.v4.0.serverpackettype", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.source = ProtoField.new("Source", "nasdaq.nomoptions.itto.itch.v4.0.source", ftypes.UINT8)
-omi_nasdaq_nomoptions_itto_itch_v4_0.fields.text = ProtoField.new("Text", "nasdaq.nomoptions.itto.itch.v4.0.text", ftypes.STRING)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nomoptions.itto.itch.v4.0.timestamp", ftypes.UINT64)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nomoptions.itto.itch.v4.0.trackingnumber", ftypes.UINT16)
 omi_nasdaq_nomoptions_itto_itch_v4_0.fields.tradable = ProtoField.new("Tradable", "nasdaq.nomoptions.itto.itch.v4.0.tradable", ftypes.STRING)
@@ -939,6 +939,29 @@ nasdaq_nomoptions_itto_itch_v4_0.customer_firm_indicator.dissect = function(buff
   local display = nasdaq_nomoptions_itto_itch_v4_0.customer_firm_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.customer_firm_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_nomoptions_itto_itch_v4_0.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_nomoptions_itto_itch_v4_0.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_nomoptions_itto_itch_v4_0.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_nomoptions_itto_itch_v4_0.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nomoptions_itto_itch_v4_0.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nomoptions_itto_itch_v4_0.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -2094,29 +2117,6 @@ nasdaq_nomoptions_itto_itch_v4_0.source.dissect = function(buffer, offset, packe
   local display = nasdaq_nomoptions_itto_itch_v4_0.source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.source, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_nomoptions_itto_itch_v4_0.text = {}
-
--- Size: Text
-nasdaq_nomoptions_itto_itch_v4_0.text.size = 1
-
--- Display: Text
-nasdaq_nomoptions_itto_itch_v4_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_nomoptions_itto_itch_v4_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_itto_itch_v4_0.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nomoptions_itto_itch_v4_0.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nomoptions_itto_itch_v4_0.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -4477,7 +4477,7 @@ nasdaq_nomoptions_itto_itch_v4_0.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_nomoptions_itto_itch_v4_0.debug_packet.size =
-  nasdaq_nomoptions_itto_itch_v4_0.text.size
+  nasdaq_nomoptions_itto_itch_v4_0.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_nomoptions_itto_itch_v4_0.debug_packet.display = function(packet, parent, length)
@@ -4488,8 +4488,8 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_nomoptions_itto_itch_v4_0.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_nomoptions_itto_itch_v4_0.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

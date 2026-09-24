@@ -23,6 +23,7 @@ omi_jnx_jnxbonds_pts_ouch_v2_01.fields.cash_margin_type = ProtoField.new("Cash M
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.client_packet_type = ProtoField.new("Packet Type", "jnx.jnxbonds.pts.ouch.v2.01.clientpackettype", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.client_reference = ProtoField.new("Client Reference", "jnx.jnxbonds.pts.ouch.v2.01.clientreference", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.counter_party = ProtoField.new("Counter Party", "jnx.jnxbonds.pts.ouch.v2.01.counterparty", ftypes.STRING)
+omi_jnx_jnxbonds_pts_ouch_v2_01.fields.debug_text = ProtoField.new("Debug Text", "jnx.jnxbonds.pts.ouch.v2.01.debugtext", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "jnx.jnxbonds.pts.ouch.v2.01.decrementquantity", ftypes.UINT32)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.display = ProtoField.new("Display", "jnx.jnxbonds.pts.ouch.v2.01.display", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.jnxbonds.pts.ouch.v2.01.executedquantity", ftypes.UINT32)
@@ -53,7 +54,6 @@ omi_jnx_jnxbonds_pts_ouch_v2_01.fields.requested_session = ProtoField.new("Reque
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jnx.jnxbonds.pts.ouch.v2.01.sequencedmessagetype", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.server_packet_type = ProtoField.new("Packet Type", "jnx.jnxbonds.pts.ouch.v2.01.serverpackettype", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.system_event = ProtoField.new("System Event", "jnx.jnxbonds.pts.ouch.v2.01.systemevent", ftypes.STRING)
-omi_jnx_jnxbonds_pts_ouch_v2_01.fields.text = ProtoField.new("Text", "jnx.jnxbonds.pts.ouch.v2.01.text", ftypes.STRING)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.time_in_force = ProtoField.new("Time In Force", "jnx.jnxbonds.pts.ouch.v2.01.timeinforce", ftypes.UINT32)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.timestamp = ProtoField.new("Timestamp", "jnx.jnxbonds.pts.ouch.v2.01.timestamp", ftypes.UINT64)
 omi_jnx_jnxbonds_pts_ouch_v2_01.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "jnx.jnxbonds.pts.ouch.v2.01.unsequencedmessagetype", ftypes.STRING)
@@ -447,6 +447,29 @@ jnx_jnxbonds_pts_ouch_v2_01.counter_party.dissect = function(buffer, offset, pac
   local display = jnx_jnxbonds_pts_ouch_v2_01.counter_party.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxbonds_pts_ouch_v2_01.fields.counter_party, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+jnx_jnxbonds_pts_ouch_v2_01.debug_text = {}
+
+-- Size: Debug Text
+jnx_jnxbonds_pts_ouch_v2_01.debug_text.size = 1
+
+-- Display: Debug Text
+jnx_jnxbonds_pts_ouch_v2_01.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+jnx_jnxbonds_pts_ouch_v2_01.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxbonds_pts_ouch_v2_01.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxbonds_pts_ouch_v2_01.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxbonds_pts_ouch_v2_01.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1337,29 +1360,6 @@ jnx_jnxbonds_pts_ouch_v2_01.system_event.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Text
-jnx_jnxbonds_pts_ouch_v2_01.text = {}
-
--- Size: Text
-jnx_jnxbonds_pts_ouch_v2_01.text.size = 1
-
--- Display: Text
-jnx_jnxbonds_pts_ouch_v2_01.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-jnx_jnxbonds_pts_ouch_v2_01.text.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxbonds_pts_ouch_v2_01.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_jnxbonds_pts_ouch_v2_01.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxbonds_pts_ouch_v2_01.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Time In Force
 jnx_jnxbonds_pts_ouch_v2_01.time_in_force = {}
 
@@ -2215,7 +2215,7 @@ jnx_jnxbonds_pts_ouch_v2_01.debug_packet = {}
 
 -- Size: Debug Packet
 jnx_jnxbonds_pts_ouch_v2_01.debug_packet.size =
-  jnx_jnxbonds_pts_ouch_v2_01.text.size
+  jnx_jnxbonds_pts_ouch_v2_01.debug_text.size
 
 -- Display: Debug Packet
 jnx_jnxbonds_pts_ouch_v2_01.debug_packet.display = function(packet, parent, length)
@@ -2226,8 +2226,8 @@ end
 jnx_jnxbonds_pts_ouch_v2_01.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = jnx_jnxbonds_pts_ouch_v2_01.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = jnx_jnxbonds_pts_ouch_v2_01.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -25,6 +25,7 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.crossing_dealing_capacity = ProtoFi
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.crossing_key = ProtoField.new("Crossing Key", "asx.asxsecurities.trade.ouch.v3.6.crossingkey", ftypes.UINT32)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.customer_info = ProtoField.new("Customer Info", "asx.asxsecurities.trade.ouch.v3.6.customerinfo", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.deal_source = ProtoField.new("Deal Source", "asx.asxsecurities.trade.ouch.v3.6.dealsource", ftypes.UINT16)
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.debug_text = ProtoField.new("Debug Text", "asx.asxsecurities.trade.ouch.v3.6.debugtext", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.directed_wholesale = ProtoField.new("Directed Wholesale", "asx.asxsecurities.trade.ouch.v3.6.directedwholesale", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.exchange_info = ProtoField.new("Exchange Info", "asx.asxsecurities.trade.ouch.v3.6.exchangeinfo", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.execution_venue = ProtoField.new("Execution Venue", "asx.asxsecurities.trade.ouch.v3.6.executionvenue", ftypes.STRING)
@@ -59,7 +60,6 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.sequenced_message_type = ProtoField
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_packet_type = ProtoField.new("Packet Type", "asx.asxsecurities.trade.ouch.v3.6.serverpackettype", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.short_sell_quantity = ProtoField.new("Short Sell Quantity", "asx.asxsecurities.trade.ouch.v3.6.shortsellquantity", ftypes.UINT64)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.side = ProtoField.new("Side", "asx.asxsecurities.trade.ouch.v3.6.side", ftypes.STRING)
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.text = ProtoField.new("Text", "asx.asxsecurities.trade.ouch.v3.6.text", ftypes.STRING)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.time_in_force = ProtoField.new("Time In Force", "asx.asxsecurities.trade.ouch.v3.6.timeinforce", ftypes.UINT8)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.asxsecurities.trade.ouch.v3.6.timestampnanoseconds", ftypes.UINT64)
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.trade_price = ProtoField.new("Trade Price", "asx.asxsecurities.trade.ouch.v3.6.tradeprice", ftypes.DOUBLE)
@@ -487,6 +487,29 @@ asx_asxsecurities_trade_ouch_v3_6.deal_source.dissect = function(buffer, offset,
   local display = asx_asxsecurities_trade_ouch_v3_6.deal_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.deal_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+asx_asxsecurities_trade_ouch_v3_6.debug_text = {}
+
+-- Size: Debug Text
+asx_asxsecurities_trade_ouch_v3_6.debug_text.size = 1
+
+-- Display: Debug Text
+asx_asxsecurities_trade_ouch_v3_6.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+asx_asxsecurities_trade_ouch_v3_6.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = asx_asxsecurities_trade_ouch_v3_6.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = asx_asxsecurities_trade_ouch_v3_6.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1310,29 +1333,6 @@ asx_asxsecurities_trade_ouch_v3_6.side.dissect = function(buffer, offset, packet
   local display = asx_asxsecurities_trade_ouch_v3_6.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.side, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-asx_asxsecurities_trade_ouch_v3_6.text = {}
-
--- Size: Text
-asx_asxsecurities_trade_ouch_v3_6.text.size = 1
-
--- Display: Text
-asx_asxsecurities_trade_ouch_v3_6.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-asx_asxsecurities_trade_ouch_v3_6.text.dissect = function(buffer, offset, packet, parent)
-  local length = asx_asxsecurities_trade_ouch_v3_6.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = asx_asxsecurities_trade_ouch_v3_6.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2268,7 +2268,7 @@ asx_asxsecurities_trade_ouch_v3_6.debug_packet = {}
 
 -- Size: Debug Packet
 asx_asxsecurities_trade_ouch_v3_6.debug_packet.size =
-  asx_asxsecurities_trade_ouch_v3_6.text.size
+  asx_asxsecurities_trade_ouch_v3_6.debug_text.size
 
 -- Display: Debug Packet
 asx_asxsecurities_trade_ouch_v3_6.debug_packet.display = function(packet, parent, length)
@@ -2279,8 +2279,8 @@ end
 asx_asxsecurities_trade_ouch_v3_6.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = asx_asxsecurities_trade_ouch_v3_6.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = asx_asxsecurities_trade_ouch_v3_6.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

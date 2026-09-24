@@ -46,6 +46,7 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.customer_order_capacit
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.customer_order_capacity_value = ProtoField.new("Customer Order Capacity Value", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.customerordercapacityvalue", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.dea_indicator = ProtoField.new("Dea Indicator", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.deaindicator", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.dea_indicator_value = ProtoField.new("Dea Indicator Value", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.deaindicatorvalue", ftypes.STRING)
+omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.debugtext", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.decrement_quantity = ProtoField.new("Decrement Quantity", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.decrementquantity", ftypes.UINT32)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.display = ProtoField.new("Display", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.display", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.display_price = ProtoField.new("Display Price", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.displayprice", ftypes.STRING)
@@ -127,7 +128,6 @@ omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.stp_trader_group = Pro
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.stp_trader_group_value = ProtoField.new("Stp Trader Group Value", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.stptradergroupvalue", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.tag = ProtoField.new("Tag", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.tag", ftypes.UINT8)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.tagvalue = ProtoField.new("TagValue", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.tagvalue", ftypes.STRING)
-omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.text = ProtoField.new("Text", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.text", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.timeinforce", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.time_in_force_value = ProtoField.new("Time In Force Value", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.timeinforcevalue", ftypes.STRING)
 omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nordicequities.orderentry.ouch.v5.01.14.timestamp", ftypes.UINT64)
@@ -964,6 +964,29 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value.dissect = fun
   local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.dea_indicator_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.dea_indicator_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -2318,29 +2341,6 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.tag.dissect = function(buffer, of
   local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.tag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.tag, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.text = {}
-
--- Size: Text
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.text.size = 1
-
--- Display: Text
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_nordicequities_orderentry_ouch_v5_01_14.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nordicequities_orderentry_ouch_v5_01_14.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nordicequities_orderentry_ouch_v5_01_14.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nordicequities_orderentry_ouch_v5_01_14.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -5313,7 +5313,7 @@ nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.size =
-  nasdaq_nordicequities_orderentry_ouch_v5_01_14.text.size
+  nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.display = function(packet, parent, length)
@@ -5324,8 +5324,8 @@ end
 nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_nordicequities_orderentry_ouch_v5_01_14.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_nordicequities_orderentry_ouch_v5_01_14.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

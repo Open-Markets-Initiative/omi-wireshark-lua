@@ -24,6 +24,7 @@ omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.auction_type = ProtoField.ne
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.spreadorders.itch.v2.1.clientpackettype", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.cmta = ProtoField.new("Cmta", "nasdaq.mrxoptions.spreadorders.itch.v2.1.cmta", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.mrxoptions.spreadorders.itch.v2.1.currenttradingstate", ftypes.STRING)
+omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.mrxoptions.spreadorders.itch.v2.1.debugtext", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.mrxoptions.spreadorders.itch.v2.1.endofreplaysequencenumber", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.mrxoptions.spreadorders.itch.v2.1.eventcode", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.mrxoptions.spreadorders.itch.v2.1.execflag", ftypes.STRING)
@@ -69,7 +70,6 @@ omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.side = ProtoField.new("Side"
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.size = ProtoField.new("Size", "nasdaq.mrxoptions.spreadorders.itch.v2.1.size", ftypes.UINT32)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.mrxoptions.spreadorders.itch.v2.1.strategyid", ftypes.UINT32)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.mrxoptions.spreadorders.itch.v2.1.strategytype", ftypes.STRING)
-omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.text = ProtoField.new("Text", "nasdaq.mrxoptions.spreadorders.itch.v2.1.text", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.mrxoptions.spreadorders.itch.v2.1.timeinforce", ftypes.STRING)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.mrxoptions.spreadorders.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.mrxoptions.spreadorders.itch.v2.1.trackingnumber", ftypes.UINT16)
@@ -534,6 +534,29 @@ nasdaq_mrxoptions_spreadorders_itch_v2_1.current_trading_state.dissect = functio
   local display = nasdaq_mrxoptions_spreadorders_itch_v2_1.current_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1737,29 +1760,6 @@ nasdaq_mrxoptions_spreadorders_itch_v2_1.strategy_type.dissect = function(buffer
   local display = nasdaq_mrxoptions_spreadorders_itch_v2_1.strategy_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.strategy_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_mrxoptions_spreadorders_itch_v2_1.text = {}
-
--- Size: Text
-nasdaq_mrxoptions_spreadorders_itch_v2_1.text.size = 1
-
--- Display: Text
-nasdaq_mrxoptions_spreadorders_itch_v2_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_mrxoptions_spreadorders_itch_v2_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_mrxoptions_spreadorders_itch_v2_1.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_mrxoptions_spreadorders_itch_v2_1.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_mrxoptions_spreadorders_itch_v2_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -3148,7 +3148,7 @@ nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_packet.size =
-  nasdaq_mrxoptions_spreadorders_itch_v2_1.text.size
+  nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_packet.display = function(packet, parent, length)
@@ -3159,8 +3159,8 @@ end
 nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_mrxoptions_spreadorders_itch_v2_1.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_mrxoptions_spreadorders_itch_v2_1.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

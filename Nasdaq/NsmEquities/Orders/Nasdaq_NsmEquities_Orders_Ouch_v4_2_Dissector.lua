@@ -25,6 +25,7 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.capacity = ProtoField.new("Capaci
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v4.2.clientpackettype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.orders.ouch.v4.2.crosstype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type = ProtoField.new("Customer Type", "nasdaq.nsmequities.orders.ouch.v4.2.customertype", ftypes.STRING)
+omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.nsmequities.orders.ouch.v4.2.debugtext", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.decrement_shares = ProtoField.new("Decrement Shares", "nasdaq.nsmequities.orders.ouch.v4.2.decrementshares", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.display = ProtoField.new("Display", "nasdaq.nsmequities.orders.ouch.v4.2.display", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.orders.ouch.v4.2.eventcode", ftypes.STRING)
@@ -57,7 +58,6 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.sequenced_message_type = ProtoFie
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nsmequities.orders.ouch.v4.2.serverpackettype", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.orders.ouch.v4.2.shares", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.orders.ouch.v4.2.stock", ftypes.STRING)
-omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.orders.ouch.v4.2.text", ftypes.STRING)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.nsmequities.orders.ouch.v4.2.timeinforce", ftypes.UINT32)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.orders.ouch.v4.2.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.nsmequities.orders.ouch.v4.2.unsequencedmessagetype", ftypes.STRING)
@@ -587,6 +587,29 @@ nasdaq_nsmequities_orders_ouch_v4_2.customer_type.dissect = function(buffer, off
   local display = nasdaq_nsmequities_orders_ouch_v4_2.customer_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.customer_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_nsmequities_orders_ouch_v4_2.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_nsmequities_orders_ouch_v4_2.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_nsmequities_orders_ouch_v4_2.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_nsmequities_orders_ouch_v4_2.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_orders_ouch_v4_2.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_nsmequities_orders_ouch_v4_2.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1561,29 +1584,6 @@ nasdaq_nsmequities_orders_ouch_v4_2.stock.dissect = function(buffer, offset, pac
   local display = nasdaq_nsmequities_orders_ouch_v4_2.stock.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.stock, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_nsmequities_orders_ouch_v4_2.text = {}
-
--- Size: Text
-nasdaq_nsmequities_orders_ouch_v4_2.text.size = 1
-
--- Display: Text
-nasdaq_nsmequities_orders_ouch_v4_2.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_nsmequities_orders_ouch_v4_2.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_orders_ouch_v4_2.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_nsmequities_orders_ouch_v4_2.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_orders_ouch_v4_2.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2886,7 +2886,7 @@ nasdaq_nsmequities_orders_ouch_v4_2.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_nsmequities_orders_ouch_v4_2.debug_packet.size =
-  nasdaq_nsmequities_orders_ouch_v4_2.text.size
+  nasdaq_nsmequities_orders_ouch_v4_2.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_nsmequities_orders_ouch_v4_2.debug_packet.display = function(packet, parent, length)
@@ -2897,8 +2897,8 @@ end
 nasdaq_nsmequities_orders_ouch_v4_2.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_nsmequities_orders_ouch_v4_2.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_nsmequities_orders_ouch_v4_2.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -34,6 +34,7 @@ omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.bid_size = ProtoField.
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.client_packet_type = ProtoField.new("Packet Type", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.clientpackettype", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.currenttradingstate", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.cust_size = ProtoField.new("Cust Size", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.custsize", ftypes.UINT32)
+omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.debugtext", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.dntt_market_size = ProtoField.new("Dntt Market Size", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.dnttmarketsize", ftypes.UINT32)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.dntt_size = ProtoField.new("Dntt Size", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.dnttsize", ftypes.UINT32)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.endofreplaysequencenumber", ftypes.STRING)
@@ -67,7 +68,6 @@ omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.side = ProtoField.new(
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.size = ProtoField.new("Size", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.size", ftypes.UINT32)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.strategyid", ftypes.UINT32)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.strategy_type = ProtoField.new("Strategy Type", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.strategytype", ftypes.STRING)
-omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.text = ProtoField.new("Text", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.text", ftypes.STRING)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.trackingnumber", ftypes.UINT16)
 omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "nasdaq.phlxoptions.spreadtopofmarket.itch.v2.1.udpsequencenumber", ftypes.UINT64)
@@ -730,6 +730,29 @@ nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.cust_size.dissect = function(buff
   local display = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.cust_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.cust_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1621,29 +1644,6 @@ nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.strategy_type.dissect = function(
   local display = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.strategy_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.strategy_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text = {}
-
--- Size: Text
-nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text.size = 1
-
--- Display: Text
-nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2978,7 +2978,7 @@ nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_packet.size =
-  nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text.size
+  nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_packet.display = function(packet, parent, length)
@@ -2989,8 +2989,8 @@ end
 nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_phlxoptions_spreadtopofmarket_itch_v2_1.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -22,6 +22,7 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.best_offer = ProtoField.new
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.client_packet_type = ProtoField.new("Packet Type", "biva.bivaequities.totalview.glimpse.v1.12.clientpackettype", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.cross_type = ProtoField.new("Cross Type", "biva.bivaequities.totalview.glimpse.v1.12.crosstype", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.currency = ProtoField.new("Currency", "biva.bivaequities.totalview.glimpse.v1.12.currency", ftypes.STRING)
+omi_biva_bivaequities_totalview_glimpse_v1_12.fields.debug_text = ProtoField.new("Debug Text", "biva.bivaequities.totalview.glimpse.v1.12.debugtext", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.delisting_or_maturity_date = ProtoField.new("Delisting Or Maturity Date", "biva.bivaequities.totalview.glimpse.v1.12.delistingormaturitydate", ftypes.UINT32)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.delisting_time = ProtoField.new("Delisting Time", "biva.bivaequities.totalview.glimpse.v1.12.delistingtime", ftypes.UINT32)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.event_code = ProtoField.new("Event Code", "biva.bivaequities.totalview.glimpse.v1.12.eventcode", ftypes.STRING)
@@ -61,7 +62,6 @@ omi_biva_bivaequities_totalview_glimpse_v1_12.fields.second = ProtoField.new("Se
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequence_number = ProtoField.new("Sequence Number", "biva.bivaequities.totalview.glimpse.v1.12.sequencenumber", ftypes.UINT64)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "biva.bivaequities.totalview.glimpse.v1.12.sequencedmessagetype", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.server_packet_type = ProtoField.new("Packet Type", "biva.bivaequities.totalview.glimpse.v1.12.serverpackettype", ftypes.STRING)
-omi_biva_bivaequities_totalview_glimpse_v1_12.fields.text = ProtoField.new("Text", "biva.bivaequities.totalview.glimpse.v1.12.text", ftypes.STRING)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.theoretical_opening_price = ProtoField.new("Theoretical Opening Price", "biva.bivaequities.totalview.glimpse.v1.12.theoreticalopeningprice", ftypes.UINT32)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.theoretical_opening_quantity = ProtoField.new("Theoretical Opening Quantity", "biva.bivaequities.totalview.glimpse.v1.12.theoreticalopeningquantity", ftypes.UINT64)
 omi_biva_bivaequities_totalview_glimpse_v1_12.fields.tick_size_table_id = ProtoField.new("Tick Size Table Id", "biva.bivaequities.totalview.glimpse.v1.12.ticksizetableid", ftypes.UINT32)
@@ -435,6 +435,29 @@ biva_bivaequities_totalview_glimpse_v1_12.currency.dissect = function(buffer, of
   local display = biva_bivaequities_totalview_glimpse_v1_12.currency.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+biva_bivaequities_totalview_glimpse_v1_12.debug_text = {}
+
+-- Size: Debug Text
+biva_bivaequities_totalview_glimpse_v1_12.debug_text.size = 1
+
+-- Display: Debug Text
+biva_bivaequities_totalview_glimpse_v1_12.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+biva_bivaequities_totalview_glimpse_v1_12.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = biva_bivaequities_totalview_glimpse_v1_12.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = biva_bivaequities_totalview_glimpse_v1_12.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1469,29 +1492,6 @@ biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.dissect = function(
   local display = biva_bivaequities_totalview_glimpse_v1_12.server_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.server_packet_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-biva_bivaequities_totalview_glimpse_v1_12.text = {}
-
--- Size: Text
-biva_bivaequities_totalview_glimpse_v1_12.text.size = 1
-
--- Display: Text
-biva_bivaequities_totalview_glimpse_v1_12.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-biva_bivaequities_totalview_glimpse_v1_12.text.dissect = function(buffer, offset, packet, parent)
-  local length = biva_bivaequities_totalview_glimpse_v1_12.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = biva_bivaequities_totalview_glimpse_v1_12.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_biva_bivaequities_totalview_glimpse_v1_12.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2715,7 +2715,7 @@ biva_bivaequities_totalview_glimpse_v1_12.debug_packet = {}
 
 -- Size: Debug Packet
 biva_bivaequities_totalview_glimpse_v1_12.debug_packet.size =
-  biva_bivaequities_totalview_glimpse_v1_12.text.size
+  biva_bivaequities_totalview_glimpse_v1_12.debug_text.size
 
 -- Display: Debug Packet
 biva_bivaequities_totalview_glimpse_v1_12.debug_packet.display = function(packet, parent, length)
@@ -2726,8 +2726,8 @@ end
 biva_bivaequities_totalview_glimpse_v1_12.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = biva_bivaequities_totalview_glimpse_v1_12.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = biva_bivaequities_totalview_glimpse_v1_12.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

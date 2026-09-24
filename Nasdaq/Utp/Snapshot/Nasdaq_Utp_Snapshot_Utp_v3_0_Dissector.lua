@@ -46,6 +46,7 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.collar_up_price = ProtoField.new("Collar
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.consolidated_prior_day_close_price = ProtoField.new("Consolidated Prior Day Close Price", "nasdaq.utp.snapshot.utp.v3.0.consolidatedpriordaycloseprice", ftypes.DOUBLE)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.control_message = ProtoField.new("Control Message", "nasdaq.utp.snapshot.utp.v3.0.controlmessage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.utp.snapshot.utp.v3.0.controlmessagetype", ftypes.STRING)
+omi_nasdaq_utp_snapshot_utp_v3_0.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.utp.snapshot.utp.v3.0.debugtext", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.etp_indicator = ProtoField.new("Etp Indicator", "nasdaq.utp.snapshot.utp.v3.0.etpindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.utp.snapshot.utp.v3.0.financialstatusindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.finra_adf_mpid_appendage = ProtoField.new("Finra Adf Mpid Appendage", "nasdaq.utp.snapshot.utp.v3.0.finraadfmpidappendage", ftypes.STRING)
@@ -103,7 +104,6 @@ omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_generated_update_flag = ProtoField.n
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v3.0.siptimestamp", ftypes.UINT64)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.utp.snapshot.utp.v3.0.submarketcenterid", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.symbol = ProtoField.new("Symbol", "nasdaq.utp.snapshot.utp.v3.0.symbol", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v3_0.fields.text = ProtoField.new("Text", "nasdaq.utp.snapshot.utp.v3.0.text", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.snapshot.utp.v3.0.timestamp1", ftypes.UINT64)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_action_code = ProtoField.new("Trading Action Code", "nasdaq.utp.snapshot.utp.v3.0.tradingactioncode", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v3_0.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.utp.snapshot.utp.v3.0.tradingactionsequencenumber", ftypes.UINT32)
@@ -957,6 +957,29 @@ nasdaq_utp_snapshot_utp_v3_0.control_message_type.dissect = function(buffer, off
   local display = nasdaq_utp_snapshot_utp_v3_0.control_message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.control_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_utp_snapshot_utp_v3_0.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_utp_snapshot_utp_v3_0.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_utp_snapshot_utp_v3_0.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_utp_snapshot_utp_v3_0.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_snapshot_utp_v3_0.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utp_snapshot_utp_v3_0.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -2907,29 +2930,6 @@ nasdaq_utp_snapshot_utp_v3_0.symbol.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Text
-nasdaq_utp_snapshot_utp_v3_0.text = {}
-
--- Size: Text
-nasdaq_utp_snapshot_utp_v3_0.text.size = 1
-
--- Display: Text
-nasdaq_utp_snapshot_utp_v3_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_utp_snapshot_utp_v3_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_utp_snapshot_utp_v3_0.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_utp_snapshot_utp_v3_0.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_utp_snapshot_utp_v3_0.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Timestamp 1
 nasdaq_utp_snapshot_utp_v3_0.timestamp_1 = {}
 
@@ -3220,7 +3220,7 @@ nasdaq_utp_snapshot_utp_v3_0.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_utp_snapshot_utp_v3_0.debug_packet.size =
-  nasdaq_utp_snapshot_utp_v3_0.text.size
+  nasdaq_utp_snapshot_utp_v3_0.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_utp_snapshot_utp_v3_0.debug_packet.display = function(packet, parent, length)
@@ -3231,8 +3231,8 @@ end
 nasdaq_utp_snapshot_utp_v3_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_utp_snapshot_utp_v3_0.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_utp_snapshot_utp_v3_0.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

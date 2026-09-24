@@ -23,6 +23,7 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.client_account = ProtoF
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.client_category = ProtoField.new("Client Category", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.clientcategory", ftypes.UINT8)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.client_packet_type = ProtoField.new("Packet Type", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.clientpackettype", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.customer_info = ProtoField.new("Customer Info", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.customerinfo", ftypes.STRING)
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.debug_text = ProtoField.new("Debug Text", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.debugtext", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.display_quantity = ProtoField.new("Display Quantity", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.displayquantity", ftypes.UINT64)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_16 = ProtoField.new("Exchange Info Alpha 16", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.exchangeinfoalpha16", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_32 = ProtoField.new("Exchange Info Alpha 32", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.exchangeinfoalpha32", ftypes.STRING)
@@ -63,7 +64,6 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.side = ProtoField.new("
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.smp_id = ProtoField.new("Smp Id", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.smpid", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.smp_level = ProtoField.new("Smp Level", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.smplevel", ftypes.UINT8)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.smp_method = ProtoField.new("Smp Method", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.smpmethod", ftypes.UINT8)
-omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.text = ProtoField.new("Text", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.text", ftypes.STRING)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.time_in_force = ProtoField.new("Time In Force", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.timeinforce", ftypes.UINT8)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.trade_price = ProtoField.new("Trade Price", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.tradeprice", ftypes.DOUBLE)
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.traded_quantity = ProtoField.new("Traded Quantity", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.tradedquantity", ftypes.UINT64)
@@ -459,6 +459,29 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.customer_info.dissect = function(b
   local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.customer_info.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.customer_info, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text = {}
+
+-- Size: Debug Text
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text.size = 1
+
+-- Display: Debug Text
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1688,29 +1711,6 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.smp_method.dissect = function(buff
   return offset + length, value
 end
 
--- Text
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.text = {}
-
--- Size: Text
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.text.size = 1
-
--- Display: Text
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.text.dissect = function(buffer, offset, packet, parent)
-  local length = bist_borsaistanbul_geniuminet_ouch_v2025_0206.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = bist_borsaistanbul_geniuminet_ouch_v2025_0206.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Time In Force
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.time_in_force = {}
 
@@ -2636,7 +2636,7 @@ bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet = {}
 
 -- Size: Debug Packet
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.size =
-  bist_borsaistanbul_geniuminet_ouch_v2025_0206.text.size
+  bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text.size
 
 -- Display: Debug Packet
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.display = function(packet, parent, length)
@@ -2647,8 +2647,8 @@ end
 bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = bist_borsaistanbul_geniuminet_ouch_v2025_0206.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = bist_borsaistanbul_geniuminet_ouch_v2025_0206.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

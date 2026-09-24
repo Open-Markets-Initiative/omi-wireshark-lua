@@ -42,6 +42,7 @@ omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.closing_type = ProtoField.
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.currenttradingstate", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.cust_size_long = ProtoField.new("Cust Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.custsizelong", ftypes.UINT32)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.cust_size_short = ProtoField.new("Cust Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.custsizeshort", ftypes.UINT16)
+omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.debugtext", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.eventcode", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.expirationdate", ftypes.UINT8)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.expirationmonth", ftypes.UINT8)
@@ -74,7 +75,6 @@ omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.server_packet_type = Proto
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.size_long = ProtoField.new("Size Long", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.sizelong", ftypes.UINT32)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.size_short = ProtoField.new("Size Short", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.sizeshort", ftypes.UINT16)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.snapshot_sequence_number = ProtoField.new("Snapshot Sequence Number", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.snapshotsequencenumber", ftypes.STRING)
-omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.text = ProtoField.new("Text", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.text", ftypes.STRING)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.tick_size_table_id = ProtoField.new("Tick Size Table Id", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.ticksizetableid", ftypes.UINT16)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.timestamp", ftypes.UINT64)
 omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.ntxoptions.topofmarket.glimpse.v1.1.trackingnumber", ftypes.UINT16)
@@ -927,6 +927,29 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.cust_size_short.dissect = function(bu
   return offset + length, value
 end
 
+-- Debug Text
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.debug_text, range, value, display)
+
+  return offset + length, value
+end
+
 -- Event Code
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.event_code = {}
 
@@ -1767,29 +1790,6 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.snapshot_sequence_number.dissect = fu
   local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.snapshot_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.snapshot_sequence_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text = {}
-
--- Size: Text
-nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text.size = 1
-
--- Display: Text
-nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxoptions_topofmarket_glimpse_v1_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2905,7 +2905,7 @@ nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_packet.size =
-  nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text.size
+  nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_packet.display = function(packet, parent, length)
@@ -2916,8 +2916,8 @@ end
 nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_ntxoptions_topofmarket_glimpse_v1_1.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

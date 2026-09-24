@@ -23,6 +23,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_packet_type = ProtoFie
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.combo_group_id = ProtoField.new("Combo Group Id", "jpx.osederivatives.geniuminet.ouch.v5.0.combogroupid", ftypes.UINT32)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.customer_info = ProtoField.new("Customer Info", "jpx.osederivatives.geniuminet.ouch.v5.0.customerinfo", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.deal_source = ProtoField.new("Deal Source", "jpx.osederivatives.geniuminet.ouch.v5.0.dealsource", ftypes.UINT8)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_text = ProtoField.new("Debug Text", "jpx.osederivatives.geniuminet.ouch.v5.0.debugtext", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.exchange_info = ProtoField.new("Exchange Info", "jpx.osederivatives.geniuminet.ouch.v5.0.exchangeinfo", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.existing_order_token = ProtoField.new("Existing Order Token", "jpx.osederivatives.geniuminet.ouch.v5.0.existingordertoken", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.match_id = ProtoField.new("Match Id", "jpx.osederivatives.geniuminet.ouch.v5.0.matchid", ftypes.UINT64)
@@ -46,7 +47,6 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_message_type = Prot
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.ouch.v5.0.serverpackettype", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.side = ProtoField.new("Side", "jpx.osederivatives.geniuminet.ouch.v5.0.side", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.status = ProtoField.new("Status", "jpx.osederivatives.geniuminet.ouch.v5.0.status", ftypes.UINT32)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.text = ProtoField.new("Text", "jpx.osederivatives.geniuminet.ouch.v5.0.text", ftypes.STRING)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.time_in_force = ProtoField.new("Time In Force", "jpx.osederivatives.geniuminet.ouch.v5.0.timeinforce", ftypes.UINT8)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds", ftypes.UINT64)
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.ouch.v5.0.tradeprice", ftypes.DOUBLE)
@@ -452,6 +452,29 @@ jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.dissect = function(buffer, o
   local display = jpx_osederivatives_geniuminet_ouch_v5_0.deal_source.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.deal_source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+jpx_osederivatives_geniuminet_ouch_v5_0.debug_text = {}
+
+-- Size: Debug Text
+jpx_osederivatives_geniuminet_ouch_v5_0.debug_text.size = 1
+
+-- Display: Debug Text
+jpx_osederivatives_geniuminet_ouch_v5_0.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+jpx_osederivatives_geniuminet_ouch_v5_0.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_osederivatives_geniuminet_ouch_v5_0.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jpx_osederivatives_geniuminet_ouch_v5_0.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1595,29 +1618,6 @@ jpx_osederivatives_geniuminet_ouch_v5_0.status.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Text
-jpx_osederivatives_geniuminet_ouch_v5_0.text = {}
-
--- Size: Text
-jpx_osederivatives_geniuminet_ouch_v5_0.text.size = 1
-
--- Display: Text
-jpx_osederivatives_geniuminet_ouch_v5_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-jpx_osederivatives_geniuminet_ouch_v5_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_osederivatives_geniuminet_ouch_v5_0.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jpx_osederivatives_geniuminet_ouch_v5_0.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Time In Force
 jpx_osederivatives_geniuminet_ouch_v5_0.time_in_force = {}
 
@@ -2480,7 +2480,7 @@ jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet = {}
 
 -- Size: Debug Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.size =
-  jpx_osederivatives_geniuminet_ouch_v5_0.text.size
+  jpx_osederivatives_geniuminet_ouch_v5_0.debug_text.size
 
 -- Display: Debug Packet
 jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.display = function(packet, parent, length)
@@ -2491,8 +2491,8 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = jpx_osederivatives_geniuminet_ouch_v5_0.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = jpx_osederivatives_geniuminet_ouch_v5_0.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

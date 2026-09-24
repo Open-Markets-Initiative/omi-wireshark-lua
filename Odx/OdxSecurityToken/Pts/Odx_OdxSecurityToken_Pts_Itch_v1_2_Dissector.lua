@@ -20,6 +20,7 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.accepted_session = ProtoField.new(
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.attention_flag = ProtoField.new("Attention Flag", "odx.odxsecuritytoken.pts.itch.v1.2.attentionflag", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxsecuritytoken.pts.itch.v1.2.buysellindicator", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_packet_type = ProtoField.new("Packet Type", "odx.odxsecuritytoken.pts.itch.v1.2.clientpackettype", ftypes.STRING)
+omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.debug_text = ProtoField.new("Debug Text", "odx.odxsecuritytoken.pts.itch.v1.2.debugtext", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.equilibrium_price = ProtoField.new("Equilibrium Price", "odx.odxsecuritytoken.pts.itch.v1.2.equilibriumprice", ftypes.DOUBLE)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.exchange_symbol = ProtoField.new("Exchange Symbol", "odx.odxsecuritytoken.pts.itch.v1.2.exchangesymbol", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.executed_quantity = ProtoField.new("Executed Quantity", "odx.odxsecuritytoken.pts.itch.v1.2.executedquantity", ftypes.UINT32)
@@ -52,7 +53,6 @@ omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.server_packet_type = ProtoField.ne
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.state_name = ProtoField.new("State Name", "odx.odxsecuritytoken.pts.itch.v1.2.statename", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.system_event = ProtoField.new("System Event", "odx.odxsecuritytoken.pts.itch.v1.2.systemevent", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.termination_flag = ProtoField.new("Termination Flag", "odx.odxsecuritytoken.pts.itch.v1.2.terminationflag", ftypes.STRING)
-omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.text = ProtoField.new("Text", "odx.odxsecuritytoken.pts.itch.v1.2.text", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.trade_price = ProtoField.new("Trade Price", "odx.odxsecuritytoken.pts.itch.v1.2.tradeprice", ftypes.DOUBLE)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.trading_state = ProtoField.new("Trading State", "odx.odxsecuritytoken.pts.itch.v1.2.tradingstate", ftypes.STRING)
 omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "odx.odxsecuritytoken.pts.itch.v1.2.unsequencedmessage", ftypes.BYTES)
@@ -384,6 +384,29 @@ odx_odxsecuritytoken_pts_itch_v1_2.client_packet_type.dissect = function(buffer,
   local display = odx_odxsecuritytoken_pts_itch_v1_2.client_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+odx_odxsecuritytoken_pts_itch_v1_2.debug_text = {}
+
+-- Size: Debug Text
+odx_odxsecuritytoken_pts_itch_v1_2.debug_text.size = 1
+
+-- Display: Debug Text
+odx_odxsecuritytoken_pts_itch_v1_2.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+odx_odxsecuritytoken_pts_itch_v1_2.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxsecuritytoken_pts_itch_v1_2.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = odx_odxsecuritytoken_pts_itch_v1_2.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1275,29 +1298,6 @@ odx_odxsecuritytoken_pts_itch_v1_2.termination_flag.dissect = function(buffer, o
   local display = odx_odxsecuritytoken_pts_itch_v1_2.termination_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.termination_flag, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-odx_odxsecuritytoken_pts_itch_v1_2.text = {}
-
--- Size: Text
-odx_odxsecuritytoken_pts_itch_v1_2.text.size = 1
-
--- Display: Text
-odx_odxsecuritytoken_pts_itch_v1_2.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-odx_odxsecuritytoken_pts_itch_v1_2.text.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxsecuritytoken_pts_itch_v1_2.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = odx_odxsecuritytoken_pts_itch_v1_2.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxsecuritytoken_pts_itch_v1_2.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2399,7 +2399,7 @@ odx_odxsecuritytoken_pts_itch_v1_2.debug_packet = {}
 
 -- Size: Debug Packet
 odx_odxsecuritytoken_pts_itch_v1_2.debug_packet.size =
-  odx_odxsecuritytoken_pts_itch_v1_2.text.size
+  odx_odxsecuritytoken_pts_itch_v1_2.debug_text.size
 
 -- Display: Debug Packet
 odx_odxsecuritytoken_pts_itch_v1_2.debug_packet.display = function(packet, parent, length)
@@ -2410,8 +2410,8 @@ end
 odx_odxsecuritytoken_pts_itch_v1_2.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = odx_odxsecuritytoken_pts_itch_v1_2.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = odx_odxsecuritytoken_pts_itch_v1_2.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

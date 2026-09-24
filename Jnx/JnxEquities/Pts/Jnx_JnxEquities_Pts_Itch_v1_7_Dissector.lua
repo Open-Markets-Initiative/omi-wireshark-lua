@@ -20,6 +20,7 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.accepted_session = ProtoField.new("Acce
 omi_jnx_jnxequities_pts_itch_v1_7.fields.attribution = ProtoField.new("Attribution", "jnx.jnxequities.pts.itch.v1.7.attribution", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.jnxequities.pts.itch.v1.7.buysellindicator", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.client_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.itch.v1.7.clientpackettype", ftypes.STRING)
+omi_jnx_jnxequities_pts_itch_v1_7.fields.debug_text = ProtoField.new("Debug Text", "jnx.jnxequities.pts.itch.v1.7.debugtext", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.jnxequities.pts.itch.v1.7.executedquantity", ftypes.UINT32)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.group = ProtoField.new("Group", "jnx.jnxequities.pts.itch.v1.7.group", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.jnxequities.pts.itch.v1.7.lowerpricelimit", ftypes.DOUBLE)
@@ -51,7 +52,6 @@ omi_jnx_jnxequities_pts_itch_v1_7.fields.sequenced_message_type = ProtoField.new
 omi_jnx_jnxequities_pts_itch_v1_7.fields.server_packet_type = ProtoField.new("Packet Type", "jnx.jnxequities.pts.itch.v1.7.serverpackettype", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.short_selling_state = ProtoField.new("Short Selling State", "jnx.jnxequities.pts.itch.v1.7.shortsellingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.system_event = ProtoField.new("System Event", "jnx.jnxequities.pts.itch.v1.7.systemevent", ftypes.STRING)
-omi_jnx_jnxequities_pts_itch_v1_7.fields.text = ProtoField.new("Text", "jnx.jnxequities.pts.itch.v1.7.text", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.trading_state = ProtoField.new("Trading State", "jnx.jnxequities.pts.itch.v1.7.tradingstate", ftypes.STRING)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_sequence_number = ProtoField.new("Udp Sequence Number", "jnx.jnxequities.pts.itch.v1.7.udpsequencenumber", ftypes.UINT64)
 omi_jnx_jnxequities_pts_itch_v1_7.fields.udp_session = ProtoField.new("Udp Session", "jnx.jnxequities.pts.itch.v1.7.udpsession", ftypes.STRING)
@@ -385,6 +385,29 @@ jnx_jnxequities_pts_itch_v1_7.client_packet_type.dissect = function(buffer, offs
   local display = jnx_jnxequities_pts_itch_v1_7.client_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+jnx_jnxequities_pts_itch_v1_7.debug_text = {}
+
+-- Size: Debug Text
+jnx_jnxequities_pts_itch_v1_7.debug_text.size = 1
+
+-- Display: Debug Text
+jnx_jnxequities_pts_itch_v1_7.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+jnx_jnxequities_pts_itch_v1_7.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = jnx_jnxequities_pts_itch_v1_7.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = jnx_jnxequities_pts_itch_v1_7.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1262,29 +1285,6 @@ jnx_jnxequities_pts_itch_v1_7.system_event.dissect = function(buffer, offset, pa
   local display = jnx_jnxequities_pts_itch_v1_7.system_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.system_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-jnx_jnxequities_pts_itch_v1_7.text = {}
-
--- Size: Text
-jnx_jnxequities_pts_itch_v1_7.text.size = 1
-
--- Display: Text
-jnx_jnxequities_pts_itch_v1_7.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-jnx_jnxequities_pts_itch_v1_7.text.dissect = function(buffer, offset, packet, parent)
-  local length = jnx_jnxequities_pts_itch_v1_7.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = jnx_jnxequities_pts_itch_v1_7.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jnx_jnxequities_pts_itch_v1_7.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2733,7 +2733,7 @@ jnx_jnxequities_pts_itch_v1_7.debug_packet = {}
 
 -- Size: Debug Packet
 jnx_jnxequities_pts_itch_v1_7.debug_packet.size =
-  jnx_jnxequities_pts_itch_v1_7.text.size
+  jnx_jnxequities_pts_itch_v1_7.debug_text.size
 
 -- Display: Debug Packet
 jnx_jnxequities_pts_itch_v1_7.debug_packet.display = function(packet, parent, length)
@@ -2744,8 +2744,8 @@ end
 jnx_jnxequities_pts_itch_v1_7.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = jnx_jnxequities_pts_itch_v1_7.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = jnx_jnxequities_pts_itch_v1_7.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -20,6 +20,7 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.accepted_session = ProtoField.new("A
 omi_odx_odxequities_pts_glimpse_v2_0.fields.attribution = ProtoField.new("Attribution", "odx.odxequities.pts.glimpse.v2.0.attribution", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "odx.odxequities.pts.glimpse.v2.0.buysellindicator", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.glimpse.v2.0.clientpackettype", ftypes.STRING)
+omi_odx_odxequities_pts_glimpse_v2_0.fields.debug_text = ProtoField.new("Debug Text", "odx.odxequities.pts.glimpse.v2.0.debugtext", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.group = ProtoField.new("Group", "odx.odxequities.pts.glimpse.v2.0.group", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "odx.odxequities.pts.glimpse.v2.0.lowerpricelimit", ftypes.DOUBLE)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "odx.odxequities.pts.glimpse.v2.0.nanoseconds", ftypes.UINT32)
@@ -45,7 +46,6 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.sequenced_message_type = ProtoField.
 omi_odx_odxequities_pts_glimpse_v2_0.fields.server_packet_type = ProtoField.new("Packet Type", "odx.odxequities.pts.glimpse.v2.0.serverpackettype", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.short_selling_state = ProtoField.new("Short Selling State", "odx.odxequities.pts.glimpse.v2.0.shortsellingstate", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.system_event = ProtoField.new("System Event", "odx.odxequities.pts.glimpse.v2.0.systemevent", ftypes.STRING)
-omi_odx_odxequities_pts_glimpse_v2_0.fields.text = ProtoField.new("Text", "odx.odxequities.pts.glimpse.v2.0.text", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.trading_state = ProtoField.new("Trading State", "odx.odxequities.pts.glimpse.v2.0.tradingstate", ftypes.STRING)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "odx.odxequities.pts.glimpse.v2.0.unsequencedmessage", ftypes.BYTES)
 omi_odx_odxequities_pts_glimpse_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "odx.odxequities.pts.glimpse.v2.0.unsequencedmessagetype", ftypes.STRING)
@@ -367,6 +367,29 @@ odx_odxequities_pts_glimpse_v2_0.client_packet_type.dissect = function(buffer, o
   local display = odx_odxequities_pts_glimpse_v2_0.client_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+odx_odxequities_pts_glimpse_v2_0.debug_text = {}
+
+-- Size: Debug Text
+odx_odxequities_pts_glimpse_v2_0.debug_text.size = 1
+
+-- Display: Debug Text
+odx_odxequities_pts_glimpse_v2_0.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+odx_odxequities_pts_glimpse_v2_0.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = odx_odxequities_pts_glimpse_v2_0.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = odx_odxequities_pts_glimpse_v2_0.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1053,29 +1076,6 @@ odx_odxequities_pts_glimpse_v2_0.system_event.dissect = function(buffer, offset,
   local display = odx_odxequities_pts_glimpse_v2_0.system_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.system_event, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-odx_odxequities_pts_glimpse_v2_0.text = {}
-
--- Size: Text
-odx_odxequities_pts_glimpse_v2_0.text.size = 1
-
--- Display: Text
-odx_odxequities_pts_glimpse_v2_0.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-odx_odxequities_pts_glimpse_v2_0.text.dissect = function(buffer, offset, packet, parent)
-  local length = odx_odxequities_pts_glimpse_v2_0.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = odx_odxequities_pts_glimpse_v2_0.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -2032,7 +2032,7 @@ odx_odxequities_pts_glimpse_v2_0.debug_packet = {}
 
 -- Size: Debug Packet
 odx_odxequities_pts_glimpse_v2_0.debug_packet.size =
-  odx_odxequities_pts_glimpse_v2_0.text.size
+  odx_odxequities_pts_glimpse_v2_0.debug_text.size
 
 -- Display: Debug Packet
 odx_odxequities_pts_glimpse_v2_0.debug_packet.display = function(packet, parent, length)
@@ -2043,8 +2043,8 @@ end
 odx_odxequities_pts_glimpse_v2_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = odx_odxequities_pts_glimpse_v2_0.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = odx_odxequities_pts_glimpse_v2_0.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

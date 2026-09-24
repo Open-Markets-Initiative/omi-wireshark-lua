@@ -45,6 +45,7 @@ omi_nasdaq_utp_input_utp_v4_0.fields.collar_extension = ProtoField.new("Collar E
 omi_nasdaq_utp_input_utp_v4_0.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.utp.input.utp.v4.0.collarreferenceprice", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.utp.input.utp.v4.0.collarupprice", ftypes.DOUBLE)
 omi_nasdaq_utp_input_utp_v4_0.fields.cond = ProtoField.new("Cond", "nasdaq.utp.input.utp.v4.0.cond", ftypes.STRING)
+omi_nasdaq_utp_input_utp_v4_0.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.utp.input.utp.v4.0.debugtext", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.feed_sequence = ProtoField.new("Feed Sequence", "nasdaq.utp.input.utp.v4.0.feedsequence", ftypes.UINT64)
 omi_nasdaq_utp_input_utp_v4_0.fields.first_security = ProtoField.new("First Security", "nasdaq.utp.input.utp.v4.0.firstsecurity", ftypes.STRING)
 omi_nasdaq_utp_input_utp_v4_0.fields.inbound_administrative_messages_message = ProtoField.new("Inbound Administrative Messages Message", "nasdaq.utp.input.utp.v4.0.inboundadministrativemessagesmessage", ftypes.STRING)
@@ -1122,6 +1123,29 @@ nasdaq_utp_input_utp_v4_0.cond.dissect = function(buffer, offset, packet, parent
   local display = nasdaq_utp_input_utp_v4_0.cond.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.cond, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+nasdaq_utp_input_utp_v4_0.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_utp_input_utp_v4_0.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_utp_input_utp_v4_0.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_utp_input_utp_v4_0.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_utp_input_utp_v4_0.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_utp_input_utp_v4_0.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_utp_input_utp_v4_0.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -3159,7 +3183,7 @@ nasdaq_utp_input_utp_v4_0.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_utp_input_utp_v4_0.debug_packet.size =
-  nasdaq_utp_input_utp_v4_0.text.size
+  nasdaq_utp_input_utp_v4_0.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_utp_input_utp_v4_0.debug_packet.display = function(packet, parent, length)
@@ -3170,8 +3194,8 @@ end
 nasdaq_utp_input_utp_v4_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: varbyte[]
-  index, text = nasdaq_utp_input_utp_v4_0.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_utp_input_utp_v4_0.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

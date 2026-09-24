@@ -42,6 +42,7 @@ omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.closing_type = ProtoField.new
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.iseoptions.topofmarket.itch.v2.1.currenttradingstate", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.cust_size_long = ProtoField.new("Cust Size Long", "nasdaq.iseoptions.topofmarket.itch.v2.1.custsizelong", ftypes.UINT32)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.cust_size_short = ProtoField.new("Cust Size Short", "nasdaq.iseoptions.topofmarket.itch.v2.1.custsizeshort", ftypes.UINT16)
+omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.debug_text = ProtoField.new("Debug Text", "nasdaq.iseoptions.topofmarket.itch.v2.1.debugtext", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.end_of_replay_sequence_number = ProtoField.new("End Of Replay Sequence Number", "nasdaq.iseoptions.topofmarket.itch.v2.1.endofreplaysequencenumber", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.iseoptions.topofmarket.itch.v2.1.eventcode", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.iseoptions.topofmarket.itch.v2.1.expirationday", ftypes.UINT8)
@@ -72,7 +73,6 @@ omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.sequenced_message_type = Prot
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.iseoptions.topofmarket.itch.v2.1.serverpackettype", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.size_long = ProtoField.new("Size Long", "nasdaq.iseoptions.topofmarket.itch.v2.1.sizelong", ftypes.UINT32)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.size_short = ProtoField.new("Size Short", "nasdaq.iseoptions.topofmarket.itch.v2.1.sizeshort", ftypes.UINT16)
-omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.text = ProtoField.new("Text", "nasdaq.iseoptions.topofmarket.itch.v2.1.text", ftypes.STRING)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.iseoptions.topofmarket.itch.v2.1.timestamp", ftypes.UINT64)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.iseoptions.topofmarket.itch.v2.1.trackingnumber", ftypes.UINT16)
 omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.tradable = ProtoField.new("Tradable", "nasdaq.iseoptions.topofmarket.itch.v2.1.tradable", ftypes.STRING)
@@ -937,6 +937,29 @@ nasdaq_iseoptions_topofmarket_itch_v2_1.cust_size_short.dissect = function(buffe
   return offset + length, value
 end
 
+-- Debug Text
+nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text = {}
+
+-- Size: Debug Text
+nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text.size = 1
+
+-- Display: Debug Text
+nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.debug_text, range, value, display)
+
+  return offset + length, value
+end
+
 -- End Of Replay Sequence Number
 nasdaq_iseoptions_topofmarket_itch_v2_1.end_of_replay_sequence_number = {}
 
@@ -1763,29 +1786,6 @@ nasdaq_iseoptions_topofmarket_itch_v2_1.size_short.dissect = function(buffer, of
   local display = nasdaq_iseoptions_topofmarket_itch_v2_1.size_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.size_short, range, value, display)
-
-  return offset + length, value
-end
-
--- Text
-nasdaq_iseoptions_topofmarket_itch_v2_1.text = {}
-
--- Size: Text
-nasdaq_iseoptions_topofmarket_itch_v2_1.text.size = 1
-
--- Display: Text
-nasdaq_iseoptions_topofmarket_itch_v2_1.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-nasdaq_iseoptions_topofmarket_itch_v2_1.text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_iseoptions_topofmarket_itch_v2_1.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nasdaq_iseoptions_topofmarket_itch_v2_1.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_iseoptions_topofmarket_itch_v2_1.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -3308,7 +3308,7 @@ nasdaq_iseoptions_topofmarket_itch_v2_1.debug_packet = {}
 
 -- Size: Debug Packet
 nasdaq_iseoptions_topofmarket_itch_v2_1.debug_packet.size =
-  nasdaq_iseoptions_topofmarket_itch_v2_1.text.size
+  nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text.size
 
 -- Display: Debug Packet
 nasdaq_iseoptions_topofmarket_itch_v2_1.debug_packet.display = function(packet, parent, length)
@@ -3319,8 +3319,8 @@ end
 nasdaq_iseoptions_topofmarket_itch_v2_1.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = nasdaq_iseoptions_topofmarket_itch_v2_1.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = nasdaq_iseoptions_topofmarket_itch_v2_1.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end
