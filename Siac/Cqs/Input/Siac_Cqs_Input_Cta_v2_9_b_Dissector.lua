@@ -4236,6 +4236,40 @@ siac_cqs_input_cta_v2_9_b.test_message.dissect = function(buffer, offset, packet
   end
 end
 
+-- End Of Day Message
+siac_cqs_input_cta_v2_9_b.end_of_day_message = {}
+
+-- Display: End Of Day Message
+siac_cqs_input_cta_v2_9_b.end_of_day_message.display = function(packet, parent, length)
+  return "End Of Day Message"
+end
+
+
+-- Dissect: End Of Day Message
+siac_cqs_input_cta_v2_9_b.end_of_day_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cqs_input_cta_v2_9_b.end_of_day_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Line Integrity Message
+siac_cqs_input_cta_v2_9_b.line_integrity_message = {}
+
+-- Display: Line Integrity Message
+siac_cqs_input_cta_v2_9_b.line_integrity_message.display = function(packet, parent, length)
+  return "Line Integrity Message"
+end
+
+
+-- Dissect: Line Integrity Message
+siac_cqs_input_cta_v2_9_b.line_integrity_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cqs_input_cta_v2_9_b.line_integrity_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Odd Lot Refresh Request Message
 siac_cqs_input_cta_v2_9_b.odd_lot_refresh_request_message = {}
 
@@ -4282,6 +4316,23 @@ siac_cqs_input_cta_v2_9_b.odd_lot_refresh_request_message.dissect = function(buf
     -- Skip element, add fields directly
     return siac_cqs_input_cta_v2_9_b.odd_lot_refresh_request_message.fields(buffer, offset, packet, parent)
   end
+end
+
+-- Finra Open Message
+siac_cqs_input_cta_v2_9_b.finra_open_message = {}
+
+-- Display: Finra Open Message
+siac_cqs_input_cta_v2_9_b.finra_open_message.display = function(packet, parent, length)
+  return "Finra Open Message"
+end
+
+
+-- Dissect: Finra Open Message
+siac_cqs_input_cta_v2_9_b.finra_open_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cqs_input_cta_v2_9_b.finra_open_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
 end
 
 -- Sequence Information And Message Count Response Message
@@ -4332,6 +4383,57 @@ siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_response_messag
   end
 end
 
+-- Sequence Information And Message Count Inquiry Message
+siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_inquiry_message = {}
+
+-- Display: Sequence Information And Message Count Inquiry Message
+siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_inquiry_message.display = function(packet, parent, length)
+  return "Sequence Information And Message Count Inquiry Message"
+end
+
+
+-- Dissect: Sequence Information And Message Count Inquiry Message
+siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_inquiry_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_inquiry_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Finra Close Message
+siac_cqs_input_cta_v2_9_b.finra_close_message = {}
+
+-- Display: Finra Close Message
+siac_cqs_input_cta_v2_9_b.finra_close_message.display = function(packet, parent, length)
+  return "Finra Close Message"
+end
+
+
+-- Dissect: Finra Close Message
+siac_cqs_input_cta_v2_9_b.finra_close_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cqs_input_cta_v2_9_b.finra_close_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Start Of Day Message
+siac_cqs_input_cta_v2_9_b.start_of_day_message = {}
+
+-- Display: Start Of Day Message
+siac_cqs_input_cta_v2_9_b.start_of_day_message.display = function(packet, parent, length)
+  return "Start Of Day Message"
+end
+
+
+-- Dissect: Start Of Day Message
+siac_cqs_input_cta_v2_9_b.start_of_day_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cqs_input_cta_v2_9_b.start_of_day_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Control Message Payload
 siac_cqs_input_cta_v2_9_b.control_message_payload = {}
 
@@ -4339,15 +4441,15 @@ siac_cqs_input_cta_v2_9_b.control_message_payload = {}
 siac_cqs_input_cta_v2_9_b.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "A" then
-    return offset
+    return siac_cqs_input_cta_v2_9_b.start_of_day_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Finra Close Message
   if control_message_type == "C" then
-    return offset
+    return siac_cqs_input_cta_v2_9_b.finra_close_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Information And Message Count Inquiry Message
   if control_message_type == "I" then
-    return offset
+    return siac_cqs_input_cta_v2_9_b.sequence_information_and_message_count_inquiry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Information And Message Count Response Message
   if control_message_type == "N" then
@@ -4355,7 +4457,7 @@ siac_cqs_input_cta_v2_9_b.control_message_payload.dissect = function(buffer, off
   end
   -- Dissect Finra Open Message
   if control_message_type == "O" then
-    return offset
+    return siac_cqs_input_cta_v2_9_b.finra_open_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Odd Lot Refresh Request Message
   if control_message_type == "R" then
@@ -4363,11 +4465,11 @@ siac_cqs_input_cta_v2_9_b.control_message_payload.dissect = function(buffer, off
   end
   -- Dissect Line Integrity Message
   if control_message_type == "T" then
-    return offset
+    return siac_cqs_input_cta_v2_9_b.line_integrity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Message
   if control_message_type == "Z" then
-    return offset
+    return siac_cqs_input_cta_v2_9_b.end_of_day_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test Message
   if control_message_type == "5" then

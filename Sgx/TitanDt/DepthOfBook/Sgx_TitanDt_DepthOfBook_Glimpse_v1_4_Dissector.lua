@@ -19,6 +19,7 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_sequence_number = Proto
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.accepted_session = ProtoField.new("Accepted Session", "sgx.titandt.depthofbook.glimpse.v1.4.acceptedsession", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.bait_implied_order = ProtoField.new("Bait Implied Order", "sgx.titandt.depthofbook.glimpse.v1.4.baitimpliedorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.client_packet_type = ProtoField.new("Packet Type", "sgx.titandt.depthofbook.glimpse.v1.4.clientpackettype", ftypes.STRING)
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.debug_text = ProtoField.new("Debug Text", "sgx.titandt.depthofbook.glimpse.v1.4.debugtext", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.financial_product = ProtoField.new("Financial Product", "sgx.titandt.depthofbook.glimpse.v1.4.financialproduct", ftypes.UINT8)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.itch_sequence_number = ProtoField.new("Itch Sequence Number", "sgx.titandt.depthofbook.glimpse.v1.4.itchsequencenumber", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.leg_1_ratio = ProtoField.new("Leg 1 Ratio", "sgx.titandt.depthofbook.glimpse.v1.4.leg1ratio", ftypes.UINT32)
@@ -64,7 +65,6 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.server_packet_type = ProtoField.
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.side = ProtoField.new("Side", "sgx.titandt.depthofbook.glimpse.v1.4.side", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.state_name = ProtoField.new("State Name", "sgx.titandt.depthofbook.glimpse.v1.4.statename", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.symbol = ProtoField.new("Symbol", "sgx.titandt.depthofbook.glimpse.v1.4.symbol", ftypes.STRING)
-omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.text = ProtoField.new("Text", "sgx.titandt.depthofbook.glimpse.v1.4.text", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.tick_size = ProtoField.new("Tick Size", "sgx.titandt.depthofbook.glimpse.v1.4.ticksize", ftypes.UINT64)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.trading_currency = ProtoField.new("Trading Currency", "sgx.titandt.depthofbook.glimpse.v1.4.tradingcurrency", ftypes.STRING)
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "sgx.titandt.depthofbook.glimpse.v1.4.unsequencedmessage", ftypes.BYTES)
@@ -309,6 +309,29 @@ sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type.dissect = function(buffe
   local display = sgx_titandt_depthofbook_glimpse_v1_4.client_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.client_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debug Text
+sgx_titandt_depthofbook_glimpse_v1_4.debug_text = {}
+
+-- Size: Debug Text
+sgx_titandt_depthofbook_glimpse_v1_4.debug_text.size = 1
+
+-- Display: Debug Text
+sgx_titandt_depthofbook_glimpse_v1_4.debug_text.display = function(value)
+  return "Debug Text: "..value
+end
+
+-- Dissect: Debug Text
+sgx_titandt_depthofbook_glimpse_v1_4.debug_text.dissect = function(buffer, offset, packet, parent)
+  local length = sgx_titandt_depthofbook_glimpse_v1_4.debug_text.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = sgx_titandt_depthofbook_glimpse_v1_4.debug_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.debug_text, range, value, display)
 
   return offset + length, value
 end
@@ -1443,29 +1466,6 @@ sgx_titandt_depthofbook_glimpse_v1_4.symbol.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Text
-sgx_titandt_depthofbook_glimpse_v1_4.text = {}
-
--- Size: Text
-sgx_titandt_depthofbook_glimpse_v1_4.text.size = 1
-
--- Display: Text
-sgx_titandt_depthofbook_glimpse_v1_4.text.display = function(value)
-  return "Text: "..value
-end
-
--- Dissect: Text
-sgx_titandt_depthofbook_glimpse_v1_4.text.dissect = function(buffer, offset, packet, parent)
-  local length = sgx_titandt_depthofbook_glimpse_v1_4.text.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = sgx_titandt_depthofbook_glimpse_v1_4.text.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.text, range, value, display)
-
-  return offset + length, value
-end
-
 -- Tick Size
 sgx_titandt_depthofbook_glimpse_v1_4.tick_size = {}
 
@@ -2415,7 +2415,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.debug_packet = {}
 
 -- Size: Debug Packet
 sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.size =
-  sgx_titandt_depthofbook_glimpse_v1_4.text.size
+  sgx_titandt_depthofbook_glimpse_v1_4.debug_text.size
 
 -- Display: Debug Packet
 sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.display = function(packet, parent, length)
@@ -2426,8 +2426,8 @@ end
 sgx_titandt_depthofbook_glimpse_v1_4.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 1 Byte Ascii String
-  index, text = sgx_titandt_depthofbook_glimpse_v1_4.text.dissect(buffer, index, packet, parent)
+  -- Debug Text: 1 Byte Ascii String
+  index, debug_text = sgx_titandt_depthofbook_glimpse_v1_4.debug_text.dissect(buffer, index, packet, parent)
 
   return index
 end

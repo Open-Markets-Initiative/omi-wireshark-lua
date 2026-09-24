@@ -8824,7 +8824,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.display = function(pac
 end
 
 -- Dissect Fields: Covered
-nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields = function(buffer, offset, packet, parent)
+nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields = function(buffer, offset, packet, parent, seq_msg_length)
   local index = offset
 
   -- Sub Msg Header: Struct of 2 fields
@@ -8869,9 +8869,6 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields = function(buff
   -- Auction Id: u64
   index, auction_id = nyse_amexoptions_binarygateway_pillarstream_v3_27.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 226, 2):le_uint()
-
   -- Runtime optional field: Optional Order Add On
   local optional_order_add_on = nil
 
@@ -8885,11 +8882,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields = function(buff
 end
 
 -- Dissect: Covered
-nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.dissect = function(buffer, offset, packet, parent)
+nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.dissect = function(buffer, offset, packet, parent, seq_msg_length)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_27.fields.covered, buffer(offset, 0))
-    local index = nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields(buffer, offset, packet, parent)
+    local index = nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields(buffer, offset, packet, parent, seq_msg_length)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.display(packet, parent, length)
@@ -8898,7 +8895,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.dissect = function(buf
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields(buffer, offset, packet, parent)
+    return nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.fields(buffer, offset, packet, parent, seq_msg_length)
   end
 end
 
@@ -9052,6 +9049,7 @@ end
 -- Dissect Fields: New Order Cross Message
 nyse_amexoptions_binarygateway_pillarstream_v3_27.new_order_cross_message.fields = function(buffer, offset, packet, parent, size_of_new_order_cross_message)
   local index = offset
+  local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
   -- Cross Id: u64
   index, cross_id = nyse_amexoptions_binarygateway_pillarstream_v3_27.cross_id.dissect(buffer, index, packet, parent)
@@ -9084,7 +9082,7 @@ nyse_amexoptions_binarygateway_pillarstream_v3_27.new_order_cross_message.fields
   index, exposed = nyse_amexoptions_binarygateway_pillarstream_v3_27.exposed.dissect(buffer, index, packet, parent)
 
   -- Covered: Struct of 15 fields
-  index, covered = nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.dissect(buffer, index, packet, parent)
+  index, covered = nyse_amexoptions_binarygateway_pillarstream_v3_27.covered.dissect(buffer, index, packet, parent, seq_msg_length)
 
   return index
 end

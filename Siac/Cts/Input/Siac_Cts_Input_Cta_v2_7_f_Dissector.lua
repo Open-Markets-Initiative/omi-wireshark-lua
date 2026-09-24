@@ -4359,6 +4359,40 @@ siac_cts_input_cta_v2_7_f.test_message.dissect = function(buffer, offset, packet
   end
 end
 
+-- End Of Day Message
+siac_cts_input_cta_v2_7_f.end_of_day_message = {}
+
+-- Display: End Of Day Message
+siac_cts_input_cta_v2_7_f.end_of_day_message.display = function(packet, parent, length)
+  return "End Of Day Message"
+end
+
+
+-- Dissect: End Of Day Message
+siac_cts_input_cta_v2_7_f.end_of_day_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cts_input_cta_v2_7_f.end_of_day_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Line Integrity Message
+siac_cts_input_cta_v2_7_f.line_integrity_message = {}
+
+-- Display: Line Integrity Message
+siac_cts_input_cta_v2_7_f.line_integrity_message.display = function(packet, parent, length)
+  return "Line Integrity Message"
+end
+
+
+-- Dissect: Line Integrity Message
+siac_cts_input_cta_v2_7_f.line_integrity_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cts_input_cta_v2_7_f.line_integrity_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Sequence Information And Message Count Response Message
 siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_response_message = {}
 
@@ -4407,6 +4441,40 @@ siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_response_messag
   end
 end
 
+-- Sequence Information And Message Count Inquiry Message
+siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_inquiry_message = {}
+
+-- Display: Sequence Information And Message Count Inquiry Message
+siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_inquiry_message.display = function(packet, parent, length)
+  return "Sequence Information And Message Count Inquiry Message"
+end
+
+
+-- Dissect: Sequence Information And Message Count Inquiry Message
+siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_inquiry_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_inquiry_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Start Of Day Message
+siac_cts_input_cta_v2_7_f.start_of_day_message = {}
+
+-- Display: Start Of Day Message
+siac_cts_input_cta_v2_7_f.start_of_day_message.display = function(packet, parent, length)
+  return "Start Of Day Message"
+end
+
+
+-- Dissect: Start Of Day Message
+siac_cts_input_cta_v2_7_f.start_of_day_message.dissect = function(buffer, offset, packet, parent)
+  local display = siac_cts_input_cta_v2_7_f.start_of_day_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Control Message Payload
 siac_cts_input_cta_v2_7_f.control_message_payload = {}
 
@@ -4414,11 +4482,11 @@ siac_cts_input_cta_v2_7_f.control_message_payload = {}
 siac_cts_input_cta_v2_7_f.control_message_payload.dissect = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "A" then
-    return offset
+    return siac_cts_input_cta_v2_7_f.start_of_day_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Information And Message Count Inquiry Message
   if control_message_type == "I" then
-    return offset
+    return siac_cts_input_cta_v2_7_f.sequence_information_and_message_count_inquiry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Information And Message Count Response Message
   if control_message_type == "N" then
@@ -4426,11 +4494,11 @@ siac_cts_input_cta_v2_7_f.control_message_payload.dissect = function(buffer, off
   end
   -- Dissect Line Integrity Message
   if control_message_type == "T" then
-    return offset
+    return siac_cts_input_cta_v2_7_f.line_integrity_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Message
   if control_message_type == "Z" then
-    return offset
+    return siac_cts_input_cta_v2_7_f.end_of_day_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Test Message
   if control_message_type == "5" then
