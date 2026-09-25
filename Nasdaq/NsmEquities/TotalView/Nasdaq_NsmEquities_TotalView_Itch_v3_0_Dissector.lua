@@ -109,10 +109,27 @@ omi_nasdaq_nsmequities_totalview_itch_v3_0.fields.heartbeat = ProtoField.new("He
 
 -- Nasdaq NsmEquities TotalView Itch 3.0 Generated Fields
 omi_nasdaq_nsmequities_totalview_itch_v3_0.fields.message_index = ProtoField.new("Message Index", "nasdaq.nsmequities.totalview.itch.v3.0.messageindex", ftypes.UINT16)
+omi_nasdaq_nsmequities_totalview_itch_v3_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.itch.v3.0.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Itch 3.0 Formatting
 -----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_nsmequities_totalview_itch_v3_0.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_nsmequities_totalview_itch_v3_0.utc_offset_hours = 5
+
+-- Timestamp format (true = decimal-scaled, false = raw mantissa)
+nasdaq_nsmequities_totalview_itch_v3_0.format_timestamp = true
 
 -- assumed connection role
 local role_enum = {
@@ -142,6 +159,10 @@ omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.show_application_messages = Pre
 omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
+
+omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.timestamp_format = Pref.enum("Millisecond Format", 2, "Millisecond display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs_changed()
@@ -159,7 +180,46 @@ function omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs_changed()
   if show.indexes ~= omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.show_indexes then
     show.indexes = omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.show_indexes
   end
+  if nasdaq_nsmequities_totalview_itch_v3_0.format_timestamp ~= omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.format_timestamp then
+    nasdaq_nsmequities_totalview_itch_v3_0.format_timestamp = omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.format_timestamp
+  end
+  if nasdaq_nsmequities_totalview_itch_v3_0.timestamp_format ~= omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.timestamp_format then
+    nasdaq_nsmequities_totalview_itch_v3_0.timestamp_format = omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.timestamp_format
+  end
+  if nasdaq_nsmequities_totalview_itch_v3_0.utc_offset_hours ~= omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.utc_offset_hours then
+    nasdaq_nsmequities_totalview_itch_v3_0.utc_offset_hours = omi_nasdaq_nsmequities_totalview_itch_v3_0.prefs.utc_offset_hours
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nasdaq_nsmequities_totalview_itch_v3_0.conversation = {}
+nasdaq_nsmequities_totalview_itch_v3_0.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_nsmequities_totalview_itch_v3_0.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nasdaq_nsmequities_totalview_itch_v3_0.conversation.data = function(packet)
+  local key = nasdaq_nsmequities_totalview_itch_v3_0.conversation.key(packet)
+  local data = nasdaq_nsmequities_totalview_itch_v3_0.conversation.flows[key]
+  if data == nil then
+    data = { second = { last = nil, frames = {} } }
+    nasdaq_nsmequities_totalview_itch_v3_0.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_nsmequities_totalview_itch_v3_0.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1946,6 +2006,65 @@ nasdaq_nsmequities_totalview_itch_v3_0.username.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Timestamp
+nasdaq_nsmequities_totalview_itch_v3_0.timestamp = {}
+
+-- Translate: Timestamp
+nasdaq_nsmequities_totalview_itch_v3_0.timestamp.translate = function(millisecond, stored_second)
+  return UInt64.new(stored_second * 1000 + millisecond)
+end
+
+-- Display: Timestamp
+nasdaq_nsmequities_totalview_itch_v3_0.timestamp.display = function(millisecond, stored_second, packet)
+  -- Raw display mode
+  if nasdaq_nsmequities_totalview_itch_v3_0.timestamp_format == 0 then
+    return "Timestamp: "..(stored_second * 1000000000 + millisecond)
+  end
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_nsmequities_totalview_itch_v3_0.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_nsmequities_totalview_itch_v3_0.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400
+    local full_seconds = local_midnight + stored_second
+
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds)..string.format("%09d", millisecond)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", stored_second)..string.format("%09d", millisecond)
+end
+
+-- Composite: Timestamp
+nasdaq_nsmequities_totalview_itch_v3_0.timestamp.composite = function(buffer, offset, stored_second, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v3_0.millisecond.size
+  local range = buffer(offset, length)
+  local millisecond = range:string()
+  local value = nasdaq_nsmequities_totalview_itch_v3_0.timestamp.translate(millisecond, stored_second)
+  local display = nasdaq_nsmequities_totalview_itch_v3_0.timestamp.display(millisecond, stored_second, packet)
+  parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v3_0.fields.timestamp, range, value, display)
+
+  nasdaq_nsmequities_totalview_itch_v3_0.second.generated(stored_second, range, packet, parent)
+
+  display = nasdaq_nsmequities_totalview_itch_v3_0.millisecond.display(millisecond)
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v3_0.fields.millisecond, range, millisecond, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nasdaq_nsmequities_totalview_itch_v3_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  if nasdaq_nsmequities_totalview_itch_v3_0.format_timestamp then
+    local stored_second = nasdaq_nsmequities_totalview_itch_v3_0.second.current
+
+    if stored_second ~= nil then
+      return nasdaq_nsmequities_totalview_itch_v3_0.timestamp.composite(buffer, offset, stored_second, packet, parent)
+    end
+  end
+
+  return nasdaq_nsmequities_totalview_itch_v3_0.millisecond.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nasdaq NsmEquities TotalView Itch 3.0
@@ -2704,7 +2823,7 @@ nasdaq_nsmequities_totalview_itch_v3_0.milliseconds_message.fields = function(bu
   local index = offset
 
   -- Millisecond: Numeric
-  index, millisecond = nasdaq_nsmequities_totalview_itch_v3_0.millisecond.dissect(buffer, index, packet, parent)
+  index, millisecond = nasdaq_nsmequities_totalview_itch_v3_0.timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2745,6 +2864,13 @@ nasdaq_nsmequities_totalview_itch_v3_0.seconds_message.fields = function(buffer,
 
   -- Second: Numeric
   index, second = nasdaq_nsmequities_totalview_itch_v3_0.second.dissect(buffer, index, packet, parent)
+
+  -- Store Second Value
+  nasdaq_nsmequities_totalview_itch_v3_0.second.current = second
+
+  if not packet.visited then
+    nasdaq_nsmequities_totalview_itch_v3_0.conversation.current.second.last = second
+  end
 
   return index
 end
@@ -3066,6 +3192,14 @@ end
 
 -- Dissect Packet
 nasdaq_nsmequities_totalview_itch_v3_0.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_nsmequities_totalview_itch_v3_0.conversation.data(packet)
+  if not packet.visited then
+    data.second.frames[packet.number] = data.second.last
+  end
+  nasdaq_nsmequities_totalview_itch_v3_0.second.current = data.second.frames[packet.number]
+  nasdaq_nsmequities_totalview_itch_v3_0.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields
@@ -3664,6 +3798,9 @@ end
 
 -- Initialize Dissector
 function omi_nasdaq_nsmequities_totalview_itch_v3_0.init()
+  nasdaq_nsmequities_totalview_itch_v3_0.second.current = nil
+  nasdaq_nsmequities_totalview_itch_v3_0.conversation.current = nil
+  nasdaq_nsmequities_totalview_itch_v3_0.conversation.flows = {}
 end
 
 -- Connection roles for Nasdaq NsmEquities TotalView Itch 3.0: Client is the initiator, Server is the acceptor

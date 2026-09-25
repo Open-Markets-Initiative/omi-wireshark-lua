@@ -42,7 +42,7 @@ omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.side = ProtoField.new("Side", 
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.itch.v1.0.souplf", ftypes.INT8)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v1.0.stock", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.itch.v1.0.text", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.time_stamp = ProtoField.new("Time Stamp", "nasdaq.nsmequities.totalview.itch.v1.0.timestamp", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.itch.v1.0.timestamp", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.totalview.itch.v1.0.unsequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.itch.v1.0.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.itch.v1.0.username", ftypes.STRING)
@@ -733,20 +733,20 @@ nasdaq_nsmequities_totalview_itch_v1_0.text.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Time Stamp
-nasdaq_nsmequities_totalview_itch_v1_0.time_stamp = {}
+-- Timestamp
+nasdaq_nsmequities_totalview_itch_v1_0.timestamp = {}
 
--- Size: Time Stamp
-nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.size = 7
+-- Size: Timestamp
+nasdaq_nsmequities_totalview_itch_v1_0.timestamp.size = 7
 
--- Display: Time Stamp
-nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.display = function(value)
-  return "Time Stamp: "..value
+-- Display: Timestamp
+nasdaq_nsmequities_totalview_itch_v1_0.timestamp.display = function(value)
+  return "Timestamp: "..value
 end
 
--- Dissect: Time Stamp
-nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.size
+-- Dissect: Timestamp
+nasdaq_nsmequities_totalview_itch_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v1_0.timestamp.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -754,9 +754,9 @@ nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.dissect = function(buffer, off
     value =  "Not Applicable"
   end
 
-  local display = nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v1_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.time_stamp, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v1_0.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1150,7 +1150,7 @@ nasdaq_nsmequities_totalview_itch_v1_0.sequenced_message_header = {}
 
 -- Size: Sequenced Message Header
 nasdaq_nsmequities_totalview_itch_v1_0.sequenced_message_header.size =
-  nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.size + 
+  nasdaq_nsmequities_totalview_itch_v1_0.timestamp.size + 
   nasdaq_nsmequities_totalview_itch_v1_0.message_type.size
 
 -- Display: Sequenced Message Header
@@ -1162,8 +1162,8 @@ end
 nasdaq_nsmequities_totalview_itch_v1_0.sequenced_message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Stamp: 7 Byte Ascii String
-  index, time_stamp = nasdaq_nsmequities_totalview_itch_v1_0.time_stamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 7 Byte Ascii String
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v1_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 6 values
   index, message_type = nasdaq_nsmequities_totalview_itch_v1_0.message_type.dissect(buffer, index, packet, parent)

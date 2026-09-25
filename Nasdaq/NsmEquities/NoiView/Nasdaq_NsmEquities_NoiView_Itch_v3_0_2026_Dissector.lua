@@ -1404,7 +1404,7 @@ nasdaq_nsmequities_noiview_itch_v3_0_2026.price_variation_indicator.size = 1
 -- Display: Price Variation Indicator
 nasdaq_nsmequities_noiview_itch_v3_0_2026.price_variation_indicator.display = function(value)
   if value == "L" then
-    return "Price Variation Indicator: Less Than 1 (L)"
+    return "Price Variation Indicator: Less Than 1% (L)"
   end
   if value == "1" then
     return "Price Variation Indicator: One To One Point Nine Nine Percent (1)"

@@ -1889,13 +1889,13 @@ nasdaq_utdf_output_utp_v3_0_c.mwcb_status_level_indicator.size = 1
 -- Display: Mwcb Status Level Indicator
 nasdaq_utdf_output_utp_v3_0_c.mwcb_status_level_indicator.display = function(value)
   if value == "1" then
-    return "Mwcb Status Level Indicator: Market Wide Circuit Breaker Decline Level 1 Breached 7 Decline (1)"
+    return "Mwcb Status Level Indicator: Market Wide Circuit Breaker Decline Level 1 Breached 7% Decline (1)"
   end
   if value == "2" then
-    return "Mwcb Status Level Indicator: Market Wide Circuit Breaker Decline Level 2 Breached 13 Decline (2)"
+    return "Mwcb Status Level Indicator: Market Wide Circuit Breaker Decline Level 2 Breached 13% Decline (2)"
   end
   if value == "3" then
-    return "Mwcb Status Level Indicator: Market Wide Circuit Breaker Decline Level 3 Breached 20 Decline (3)"
+    return "Mwcb Status Level Indicator: Market Wide Circuit Breaker Decline Level 3 Breached 20% Decline (3)"
   end
 
   return "Mwcb Status Level Indicator: Unknown("..value..")"

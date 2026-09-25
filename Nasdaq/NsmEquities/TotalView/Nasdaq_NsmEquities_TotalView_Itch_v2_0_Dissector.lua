@@ -44,7 +44,7 @@ omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.side = ProtoField.new("Side", 
 omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.itch.v2.0.souplf", ftypes.INT8)
 omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.itch.v2.0.stock", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.itch.v2.0.text", ftypes.STRING)
-omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.time_stamp = ProtoField.new("Time Stamp", "nasdaq.nsmequities.totalview.itch.v2.0.timestamp", ftypes.STRING)
+omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.totalview.itch.v2.0.timestamp", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.nsmequities.totalview.itch.v2.0.unsequenceddatapacket", ftypes.STRING)
 omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.itch.v2.0.unsequencedmessage", ftypes.BYTES)
 omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.username = ProtoField.new("Username", "nasdaq.nsmequities.totalview.itch.v2.0.username", ftypes.STRING)
@@ -79,6 +79,19 @@ omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.message_index = ProtoField.new
 -- Nasdaq NsmEquities TotalView Itch 2.0 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_nsmequities_totalview_itch_v2_0.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_nsmequities_totalview_itch_v2_0.utc_offset_hours = 5
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -108,6 +121,9 @@ omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.show_structs = Pref.bool("Show 
 omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs_changed()
 
@@ -123,6 +139,12 @@ function omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs_changed()
   end
   if show.indexes ~= omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.show_indexes then
     show.indexes = omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.show_indexes
+  end
+  if nasdaq_nsmequities_totalview_itch_v2_0.timestamp_format ~= omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.timestamp_format then
+    nasdaq_nsmequities_totalview_itch_v2_0.timestamp_format = omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.timestamp_format
+  end
+  if nasdaq_nsmequities_totalview_itch_v2_0.utc_offset_hours ~= omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.utc_offset_hours then
+    nasdaq_nsmequities_totalview_itch_v2_0.utc_offset_hours = omi_nasdaq_nsmequities_totalview_itch_v2_0.prefs.utc_offset_hours
   end
 end
 
@@ -820,20 +842,44 @@ nasdaq_nsmequities_totalview_itch_v2_0.text.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Time Stamp
-nasdaq_nsmequities_totalview_itch_v2_0.time_stamp = {}
+-- Timestamp
+nasdaq_nsmequities_totalview_itch_v2_0.timestamp = {}
 
--- Size: Time Stamp
-nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.size = 8
+-- Size: Timestamp
+nasdaq_nsmequities_totalview_itch_v2_0.timestamp.size = 8
 
--- Display: Time Stamp
-nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.display = function(value)
-  return "Time Stamp: "..value
+-- Display: Timestamp
+nasdaq_nsmequities_totalview_itch_v2_0.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode (or unparsable ASCII fell back to a non-number)
+  if type(value) ~= "number" then
+    return "Timestamp: "..tostring(value)
+  end
+
+  if nasdaq_nsmequities_totalview_itch_v2_0.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (calculate from capture date + UTC offset)
+  if nasdaq_nsmequities_totalview_itch_v2_0.timestamp_format == 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+    local utc_offset_seconds = nasdaq_nsmequities_totalview_itch_v2_0.utc_offset_hours * 3600
+    local local_midnight = math.floor((capture_time - utc_offset_seconds) / 86400) * 86400 + utc_offset_seconds
+    local full_seconds = local_midnight + seconds
+
+    return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", full_seconds + utc_offset_seconds)..string.format("%03d", milliseconds)
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
--- Dissect: Time Stamp
-nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.size
+-- Dissect: Timestamp
+nasdaq_nsmequities_totalview_itch_v2_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_itch_v2_0.timestamp.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -841,9 +887,9 @@ nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.dissect = function(buffer, off
     value =  "Not Applicable"
   end
 
-  local display = nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_itch_v2_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.time_stamp, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v2_0.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -1230,7 +1276,7 @@ nasdaq_nsmequities_totalview_itch_v2_0.message_header = {}
 -- Size: Message Header
 nasdaq_nsmequities_totalview_itch_v2_0.message_header.size =
   nasdaq_nsmequities_totalview_itch_v2_0.length.size + 
-  nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.size + 
+  nasdaq_nsmequities_totalview_itch_v2_0.timestamp.size + 
   nasdaq_nsmequities_totalview_itch_v2_0.message_type.size
 
 -- Display: Message Header
@@ -1245,8 +1291,8 @@ nasdaq_nsmequities_totalview_itch_v2_0.message_header.fields = function(buffer, 
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = nasdaq_nsmequities_totalview_itch_v2_0.length.dissect(buffer, index, packet, parent)
 
-  -- Time Stamp: 8 Byte Ascii String
-  index, time_stamp = nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Ascii String
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v2_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 6 values
   index, message_type = nasdaq_nsmequities_totalview_itch_v2_0.message_type.dissect(buffer, index, packet, parent)
@@ -1506,7 +1552,7 @@ nasdaq_nsmequities_totalview_itch_v2_0.sequenced_message_header = {}
 
 -- Size: Sequenced Message Header
 nasdaq_nsmequities_totalview_itch_v2_0.sequenced_message_header.size =
-  nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.size + 
+  nasdaq_nsmequities_totalview_itch_v2_0.timestamp.size + 
   nasdaq_nsmequities_totalview_itch_v2_0.message_type.size
 
 -- Display: Sequenced Message Header
@@ -1518,8 +1564,8 @@ end
 nasdaq_nsmequities_totalview_itch_v2_0.sequenced_message_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Time Stamp: 8 Byte Ascii String
-  index, time_stamp = nasdaq_nsmequities_totalview_itch_v2_0.time_stamp.dissect(buffer, index, packet, parent)
+  -- Timestamp: 8 Byte Ascii String
+  index, timestamp = nasdaq_nsmequities_totalview_itch_v2_0.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 6 values
   index, message_type = nasdaq_nsmequities_totalview_itch_v2_0.message_type.dissect(buffer, index, packet, parent)

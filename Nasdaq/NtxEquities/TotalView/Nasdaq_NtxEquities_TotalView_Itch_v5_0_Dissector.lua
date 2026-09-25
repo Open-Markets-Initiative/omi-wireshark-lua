@@ -1976,7 +1976,7 @@ nasdaq_ntxequities_totalview_itch_v5_0.price_variation_indicator.size = 1
 -- Display: Price Variation Indicator
 nasdaq_ntxequities_totalview_itch_v5_0.price_variation_indicator.display = function(value)
   if value == "L" then
-    return "Price Variation Indicator: Less Than 1 (L)"
+    return "Price Variation Indicator: Less Than 1% (L)"
   end
   if value == "1" then
     return "Price Variation Indicator: One To One Point Nine Nine Percent (1)"
