@@ -2315,10 +2315,10 @@ siac_cts_output_cta_v2_11_b.minimum_price_increment_indicator.size = 1
 -- Display: Minimum Price Increment Indicator
 siac_cts_output_cta_v2_11_b.minimum_price_increment_indicator.display = function(value)
   if value == "1" then
-    return "Minimum Price Increment Indicator: Penny Mpi 001 (1)"
+    return "Minimum Price Increment Indicator: Penny Mpi 0.01 (1)"
   end
   if value == "2" then
-    return "Minimum Price Increment Indicator: Half Penny Mpi 0005 (2)"
+    return "Minimum Price Increment Indicator: Half Penny Mpi 0.005 (2)"
   end
 
   return "Minimum Price Increment Indicator: Unknown("..value..")"
