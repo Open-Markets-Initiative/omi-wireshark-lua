@@ -31,7 +31,9 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.expected_event_time_seconds
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.expiration_date = ProtoField.new("Expiration Date", "miax.emeraldoptions.orderfeed.mach.v1.1.a.expirationdate", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.emeraldoptions.orderfeed.mach.v1.1.a.goodbyepacket", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.emeraldoptions.orderfeed.mach.v1.1.a.highestsequencenumber", ftypes.UINT64)
-omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_definition_0 = ProtoField.new("Leg Definition 0", "miax.emeraldoptions.orderfeed.mach.v1.1.a.legdefinition0", ftypes.STRING)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_definition = ProtoField.new("Leg Definition", "miax.emeraldoptions.orderfeed.mach.v1.1.a.legdefinition", ftypes.STRING)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.emeraldoptions.orderfeed.mach.v1.1.a.legratioqty", ftypes.UINT16)
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_side = ProtoField.new("Leg Side", "miax.emeraldoptions.orderfeed.mach.v1.1.a.legside", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.emeraldoptions.orderfeed.mach.v1.1.a.liquidityacceptanceincrementindicator", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.login_request = ProtoField.new("Login Request", "miax.emeraldoptions.orderfeed.mach.v1.1.a.loginrequest", ftypes.STRING)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.login_response = ProtoField.new("Login Response", "miax.emeraldoptions.orderfeed.mach.v1.1.a.loginresponse", ftypes.STRING)
@@ -120,6 +122,7 @@ omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.system_time_message = Proto
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.emeraldoptions.orderfeed.mach.v1.1.a.underlyingtradingstatusnotificationmessage", ftypes.STRING)
 
 -- Miax EmeraldOptions OrderFeed Mach 1.1.a Generated Fields
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.emeraldoptions.orderfeed.mach.v1.1.a.legdefinitionindex", ftypes.UINT16)
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.timestamp = ProtoField.new("Timestamp", "miax.emeraldoptions.orderfeed.mach.v1.1.a.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
@@ -139,12 +142,16 @@ local show = {}
 -- Miax EmeraldOptions OrderFeed Mach 1.1.a Element Dissection Options
 show.structs = true
 show.application_messages = true
+show.repeating_groups = true
 show.headers = true
+show.indexes = true
 
 -- Register Miax EmeraldOptions OrderFeed Mach 1.1.a Show Options
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.format_timestamp = Pref.bool("Format Timestamp", true, "Compose Timestamp with the stored seconds anchor (off = raw nanoseconds)")
 
 -- Handle changed preferences
@@ -157,8 +164,14 @@ function omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs_changed()
   if show.headers ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_headers then
     show.headers = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_headers
   end
+  if show.repeating_groups ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_repeating_groups then
+    show.repeating_groups = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_repeating_groups
+  end
   if show.structs ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_structs then
     show.structs = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_structs
+  end
+  if show.indexes ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_indexes then
+    show.indexes = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.show_indexes
   end
   if miax_emeraldoptions_orderfeed_mach_v1_1_a.format_timestamp ~= omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.format_timestamp then
     miax_emeraldoptions_orderfeed_mach_v1_1_a.format_timestamp = omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.prefs.format_timestamp
@@ -573,25 +586,55 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.highest_sequence_number.dissect = func
   return offset + length, value
 end
 
--- Leg Definition 0
-miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0 = {}
+-- Leg Ratio Qty
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty = {}
 
--- Size: Leg Definition 0
-miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0.size = 0
+-- Size: Leg Ratio Qty
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty.size = 2
 
--- Display: Leg Definition 0
-miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0.display = function(value)
-  return "Leg Definition 0: "..value
+-- Display: Leg Ratio Qty
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty.display = function(value)
+  return "Leg Ratio Qty: "..value
 end
 
--- Dissect: Leg Definition 0
-miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0.dissect = function(buffer, offset, packet, parent)
-  local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0.size
+-- Dissect: Leg Ratio Qty
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_ratio_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Side
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side = {}
+
+-- Size: Leg Side
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side.size = 1
+
+-- Display: Leg Side
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side.display = function(value)
+  if value == "B" then
+    return "Leg Side: Bid (B)"
+  end
+  if value == "A" then
+    return "Leg Side: Ask (A)"
+  end
+
+  return "Leg Side: Unknown("..value..")"
+end
+
+-- Dissect: Leg Side
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side.dissect = function(buffer, offset, packet, parent)
+  local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0.display(value, buffer, offset, packet, parent)
+  local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_definition_0, range, value, display)
+  parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_side, range, value, display)
 
   return offset + length, value
 end
@@ -2927,20 +2970,93 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.complex_order_message.dissect = functi
   end
 end
 
+-- Leg Definition
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition = {}
+
+-- Size: Leg Definition
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.size =
+  miax_emeraldoptions_orderfeed_mach_v1_1_a.product_id.size + 
+  miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty.size + 
+  miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side.size + 
+  miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_8.size
+
+-- Display: Leg Definition
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Leg Definition
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.fields = function(buffer, offset, packet, parent, leg_definition_index)
+  local index = offset
+
+  -- Implicit Leg Definition Index
+  if leg_definition_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_definition_index, leg_definition_index)
+    iteration:set_generated()
+  end
+
+  -- Product Id: BinaryU
+  index, product_id = miax_emeraldoptions_orderfeed_mach_v1_1_a.product_id.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio Qty: BinaryU
+  index, leg_ratio_qty = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_ratio_qty.dissect(buffer, index, packet, parent)
+
+  -- Leg Side: Alphanumeric
+  index, leg_side = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_side.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: BinaryU
+  index, reserved_8 = miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_8.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Leg Definition
+miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.dissect = function(buffer, offset, packet, parent, leg_definition_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.leg_definition, buffer(offset, 0))
+    local index = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.fields(buffer, offset, packet, parent, leg_definition_index)
+  end
+end
+
 -- Complex Strategy Definition Update Message
 miax_emeraldoptions_orderfeed_mach_v1_1_a.complex_strategy_definition_update_message = {}
 
--- Size: Complex Strategy Definition Update Message
-miax_emeraldoptions_orderfeed_mach_v1_1_a.complex_strategy_definition_update_message.size =
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.nanoseconds.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.strategy_id.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.underlying_symbol.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.active_on_emerald.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_1.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.update_reason.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_10.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.number_of_legs.size + 
-  miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0.size
+-- Calculate size of: Complex Strategy Definition Update Message
+miax_emeraldoptions_orderfeed_mach_v1_1_a.complex_strategy_definition_update_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.nanoseconds.size
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.strategy_id.size
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.underlying_symbol.size
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.active_on_emerald.size
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_1.size
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.update_reason.size
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.reserved_10.size
+
+  index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.number_of_legs.size
+
+  -- Calculate field size from count
+  local leg_definition_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + leg_definition_count * 15
+
+  return index
+end
 
 -- Display: Complex Strategy Definition Update Message
 miax_emeraldoptions_orderfeed_mach_v1_1_a.complex_strategy_definition_update_message.display = function(packet, parent, length)
@@ -2975,8 +3091,10 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.complex_strategy_definition_update_mes
   -- Number Of Legs: BinaryU
   index, number_of_legs = miax_emeraldoptions_orderfeed_mach_v1_1_a.number_of_legs.dissect(buffer, index, packet, parent)
 
-  -- Leg Definition 0: 0 Byte Ascii String
-  index, leg_definition_0 = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition_0.dissect(buffer, index, packet, parent)
+  -- Repeating: Leg Definition
+  for leg_definition_index = 1, number_of_legs do
+    index, leg_definition = miax_emeraldoptions_orderfeed_mach_v1_1_a.leg_definition.dissect(buffer, index, packet, parent, leg_definition_index)
+  end
 
   return index
 end
