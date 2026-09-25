@@ -2285,7 +2285,7 @@ hkex_hkexsecurities_fulltick_omd_v1_44.spread_table_code.display = function(valu
     return "Spread Table Code: Part B (03)"
   end
   if value == "04" then
-    return "Spread Table Code: For Inline Warrant Same As Part A Up To And Include Hk 100 As Per Sehk (04)"
+    return "Spread Table Code: For Inline Warrant Same As Part A Up To And Include Hk 1.00 As Per Sehk (04)"
   end
   if value == "05" then
     return "Spread Table Code: Part D (05)"
