@@ -941,8 +941,8 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.size = 1
 
 -- Display: Clearing Operation Mode
 box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.display = function(value)
-  if value == "Space" then
-    return "Clearing Operation Mode: No Clearing Operation (Space)"
+  if value == " " then
+    return "Clearing Operation Mode: No Clearing Operation (<whitespace>)"
   end
   if value == "C" then
     return "Clearing Operation Mode: Cmta Clearing Member Trading Agreement Firm Will Be Defined In The Clearing Destination Field (C)"
@@ -3989,8 +3989,8 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_term_quantity_term_1.display =
   if value == "J" then
     return "Quantity Term Quantity Term 1: Indicates That The Auction Type As Mip (J)"
   end
-  if value == "Space" then
-    return "Quantity Term Quantity Term 1: None The Above Value Indicates That The Init O Is Willing To Surrender A Portion Of The Total Number Of Contracts (Space)"
+  if value == " " then
+    return "Quantity Term Quantity Term 1: None The Above Value Indicates That The Init O Is Willing To Surrender A Portion Of The Total Number Of Contracts (<whitespace>)"
   end
 
   return "Quantity Term Quantity Term 1: Unknown("..value..")"
