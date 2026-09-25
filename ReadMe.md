@@ -37,7 +37,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 1123 | 7,857,821 |
+| 1140 | 7,913,520 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -116,6 +116,8 @@ Enjoy.
 [Omi.Encoding.Glimpse]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Glimpse.md "Glimpse Encoding"
 [Omi.Encoding.Udp]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Udp.md "Udp Encoding"
 [Omi.Encoding.Hsvf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Hsvf.md "Hsvf Encoding"
+[Omi.Encoding.Sail]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Sail.md "Sail Encoding"
+[Omi.Encoding.Atr]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Atr.md "Atr Encoding"
 [Omi.Encoding.Fbe]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Fbe.md "Fbe Encoding"
 [Omi.Encoding.AsciiPitch]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/AsciiPitch.md "AsciiPitch Encoding"
 [Omi.Encoding.Boe]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Boe.md "Boe Encoding"
@@ -158,6 +160,7 @@ Enjoy.
 [Omi.Encoding.Obi]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Obi.md "Obi Encoding"
 [Omi.Encoding.Xmt]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Xmt.md "Xmt Encoding"
 [Omi.Encoding.Rake]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Rake.md "Rake Encoding"
+[Omi.Encoding.Tip]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Tip.md "Tip Encoding"
 
 [24X.24XEquities.Memo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/24X/Protocols/24XEquities/Memo.md "Members Orders"
 [24X.24XEquities.MemoirDepthFeed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/24X/Protocols/24XEquities/MemoirDepthFeed.md "Member Order Information Record Depth Feed"
@@ -190,6 +193,8 @@ Enjoy.
 [BlueOceanAts.BlueEquities.MemoirTopOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Protocols/BlueEquities/MemoirTopOfBook.md "Member Order Information Record Top Of Book"
 [BlueOceanAts.CommonHeader]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BlueOceanAts/Protocols/CommonHeader.md "Common Header"
 [Box.BoxOptions.SolaMulticast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Box/Protocols/BoxOptions/SolaMulticast.md "Sola Multicast"
+[Box.BoxOptions.SolaOrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Box/Protocols/BoxOptions/SolaOrderEntry.md "Sola Order Entry"
+[Box.BoxOptions.SolaTradeReporting]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Box/Protocols/BoxOptions/SolaTradeReporting.md "Sola Trade Reporting"
 [Box.BoxOptions.SolaUnicast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Box/Protocols/BoxOptions/SolaUnicast.md "Sola Unicast"
 [BruceAts.BruceEquities.BestBidAndOffer]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BruceAts/Protocols/BruceEquities/BestBidAndOffer.md "Best Bid And Offer"
 [BruceAts.BruceEquities.DepthOfBook]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/BruceAts/Protocols/BruceEquities/DepthOfBook.md "Depth Of Book"
@@ -657,6 +662,7 @@ Enjoy.
 [Txse.TxseEquities.Feed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Txse/Protocols/TxseEquities/Feed.md "FEED Full-Depth Market Data"
 [Txse.TxseEquities.Framing]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Txse/Protocols/TxseEquities/Framing.md ""
 [Txse.TxseEquities.Seed]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Txse/Protocols/TxseEquities/Seed.md "Session Enabled Entry Daemon"
+[Bist.BorsaIstanbul.MarketInfo]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Bist/Protocols/BorsaIstanbul/MarketInfo.md ""
 
 [24X.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/24X "24 National Exchange"
 [A2X.Directory]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/tree/main/A2X "A2X Markets"

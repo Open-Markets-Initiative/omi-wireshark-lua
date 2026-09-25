@@ -35,12 +35,14 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.bulk_quote_occurrence = Prot
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_additional_client_memo = ProtoField.new("Buying Additional Client Memo", "box.boxoptions.solaorderentry.sail.v2.25.buyingadditionalclientmemo", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_clearing_data = ProtoField.new("Buying Clearing Data", "box.boxoptions.solaorderentry.sail.v2.25.buyingclearingdata", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_owner_data = ProtoField.new("Buying Owner Data", "box.boxoptions.solaorderentry.sail.v2.25.buyingownerdata", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_post_trading_instruction = ProtoField.new("Buying Post Trading Instruction", "box.boxoptions.solaorderentry.sail.v2.25.buyingposttradinginstruction", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.calculation_time_interval = ProtoField.new("Calculation Time Interval", "box.boxoptions.solaorderentry.sail.v2.25.calculationtimeinterval", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.cancelled_order_id = ProtoField.new("Cancelled Order Id", "box.boxoptions.solaorderentry.sail.v2.25.cancelledorderid", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_data = ProtoField.new("Clearing Data", "box.boxoptions.solaorderentry.sail.v2.25.clearingdata", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_data_dealer = ProtoField.new("Clearing Data Dealer", "box.boxoptions.solaorderentry.sail.v2.25.clearingdatadealer", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_destination = ProtoField.new("Clearing Destination", "box.boxoptions.solaorderentry.sail.v2.25.clearingdestination", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_instruction = ProtoField.new("Clearing Instruction", "box.boxoptions.solaorderentry.sail.v2.25.clearinginstruction", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_operation_mode = ProtoField.new("Clearing Operation Mode", "box.boxoptions.solaorderentry.sail.v2.25.clearingoperationmode", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.client_order_id = ProtoField.new("Client Order Id", "box.boxoptions.solaorderentry.sail.v2.25.clientorderid", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.complex_order_auction_entry_occurrence = ProtoField.new("Complex Order Auction Entry Occurrence", "box.boxoptions.solaorderentry.sail.v2.25.complexorderauctionentryoccurrence", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.counterpart_account_type = ProtoField.new("Counterpart Account Type", "box.boxoptions.solaorderentry.sail.v2.25.counterpartaccounttype", ftypes.STRING)
@@ -92,6 +94,7 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.last_user_sequence_id_receiv
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_group = ProtoField.new("Leg Group", "box.boxoptions.solaorderentry.sail.v2.25.leggroup", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_instrument = ProtoField.new("Leg Instrument", "box.boxoptions.solaorderentry.sail.v2.25.leginstrument", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_instrument_id = ProtoField.new("Leg Instrument Id", "box.boxoptions.solaorderentry.sail.v2.25.leginstrumentid", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_number = ProtoField.new("Leg Number", "box.boxoptions.solaorderentry.sail.v2.25.legnumber", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_quantity_ratio = ProtoField.new("Leg Quantity Ratio", "box.boxoptions.solaorderentry.sail.v2.25.legquantityratio", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_verb = ProtoField.new("Leg Verb", "box.boxoptions.solaorderentry.sail.v2.25.legverb", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.liquidity_status = ProtoField.new("Liquidity Status", "box.boxoptions.solaorderentry.sail.v2.25.liquiditystatus", ftypes.STRING)
@@ -132,6 +135,8 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.owner_data = ProtoField.new(
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.owner_data_dealer = ProtoField.new("Owner Data Dealer", "box.boxoptions.solaorderentry.sail.v2.25.ownerdatadealer", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.password_md_5_encryption = ProtoField.new("Password Md 5 Encryption", "box.boxoptions.solaorderentry.sail.v2.25.passwordmd5encryption", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.percent_of_quote = ProtoField.new("Percent Of Quote", "box.boxoptions.solaorderentry.sail.v2.25.percentofquote", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instruction = ProtoField.new("Post Trading Instruction", "box.boxoptions.solaorderentry.sail.v2.25.posttradinginstruction", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instructions = ProtoField.new("Post Trading Instructions", "box.boxoptions.solaorderentry.sail.v2.25.posttradinginstructions", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.pound_sign = ProtoField.new("Pound Sign", "box.boxoptions.solaorderentry.sail.v2.25.poundsign", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.preceding_user_sequence_id_received_zeroes_if_none = ProtoField.new("Preceding User Sequence Id Received Zeroes If None", "box.boxoptions.solaorderentry.sail.v2.25.precedingusersequenceidreceivedzeroesifnone", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.previous_price = ProtoField.new("Previous Price", "box.boxoptions.solaorderentry.sail.v2.25.previousprice", ftypes.STRING)
@@ -155,16 +160,20 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quote_quantity = ProtoField.
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.received_message_type = ProtoField.new("Received Message Type", "box.boxoptions.solaorderentry.sail.v2.25.receivedmessagetype", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.received_user_sequence_id = ProtoField.new("Received User Sequence Id", "box.boxoptions.solaorderentry.sail.v2.25.receivedusersequenceid", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reference_id = ProtoField.new("Reference Id", "box.boxoptions.solaorderentry.sail.v2.25.referenceid", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reference_id_order_id_or_quote_id = ProtoField.new("Reference Id Order Id Or Quote Id", "box.boxoptions.solaorderentry.sail.v2.25.referenceidorderidorquoteid", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reference_id_quote = ProtoField.new("Reference Id Quote", "box.boxoptions.solaorderentry.sail.v2.25.referenceidquote", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.referenced_order_id = ProtoField.new("Referenced Order Id", "box.boxoptions.solaorderentry.sail.v2.25.referencedorderid", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.rejection_code = ProtoField.new("Rejection Code", "box.boxoptions.solaorderentry.sail.v2.25.rejectioncode", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.risk_team_lock_out = ProtoField.new("Risk Team Lock Out", "box.boxoptions.solaorderentry.sail.v2.25.riskteamlockout", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_additional_client_memo = ProtoField.new("Selling Additional Client Memo", "box.boxoptions.solaorderentry.sail.v2.25.sellingadditionalclientmemo", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_clearing_data = ProtoField.new("Selling Clearing Data", "box.boxoptions.solaorderentry.sail.v2.25.sellingclearingdata", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_owner_data = ProtoField.new("Selling Owner Data", "box.boxoptions.solaorderentry.sail.v2.25.sellingownerdata", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_post_trading_instruction = ProtoField.new("Selling Post Trading Instruction", "box.boxoptions.solaorderentry.sail.v2.25.sellingposttradinginstruction", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.session_id = ProtoField.new("Session Id", "box.boxoptions.solaorderentry.sail.v2.25.sessionid", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.special_price_term = ProtoField.new("Special Price Term", "box.boxoptions.solaorderentry.sail.v2.25.specialpriceterm", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.special_trade_indicator = ProtoField.new("Special Trade Indicator", "box.boxoptions.solaorderentry.sail.v2.25.specialtradeindicator", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.start_of_message_in_error = ProtoField.new("Start Of Message In Error", "box.boxoptions.solaorderentry.sail.v2.25.startofmessageinerror", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.status = ProtoField.new("Status", "box.boxoptions.solaorderentry.sail.v2.25.status", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_group = ProtoField.new("Strategy Group", "box.boxoptions.solaorderentry.sail.v2.25.strategygroup", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_instrument_id = ProtoField.new("Strategy Instrument Id", "box.boxoptions.solaorderentry.sail.v2.25.strategyinstrumentid", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_trade_number = ProtoField.new("Strategy Trade Number", "box.boxoptions.solaorderentry.sail.v2.25.strategytradenumber", ftypes.STRING)
@@ -182,6 +191,7 @@ omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_number = ProtoField.ne
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_price = ProtoField.new("Trade Price", "box.boxoptions.solaorderentry.sail.v2.25.tradeprice", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trade_type = ProtoField.new("Trade Type", "box.boxoptions.solaorderentry.sail.v2.25.tradetype", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trader_id = ProtoField.new("Trader Id", "box.boxoptions.solaorderentry.sail.v2.25.traderid", ftypes.STRING)
+omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trader_lock_out = ProtoField.new("Trader Lock Out", "box.boxoptions.solaorderentry.sail.v2.25.traderlockout", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.type_of_cancellation = ProtoField.new("Type Of Cancellation", "box.boxoptions.solaorderentry.sail.v2.25.typeofcancellation", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.type_of_cancellation_only_q_quotes_only_can_be_returned = ProtoField.new("Type Of Cancellation Only Q Quotes Only Can Be Returned", "box.boxoptions.solaorderentry.sail.v2.25.typeofcancellationonlyqquotesonlycanbereturned", ftypes.STRING)
 omi_box_boxoptions_solaorderentry_sail_v2_25.fields.type_of_cancellation_q_quotes_only = ProtoField.new("Type Of Cancellation Q Quotes Only", "box.boxoptions.solaorderentry.sail.v2.25.typeofcancellationqquotesonly", ftypes.STRING)
@@ -525,6 +535,11 @@ box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_additional_quantity
 
 -- Display: Additional Quantity Additional Quantity 8
 box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_additional_quantity_8.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Additional Quantity Additional Quantity 8: No Value"
+  end
+
   return "Additional Quantity Additional Quantity 8: "..value
 end
 
@@ -553,6 +568,11 @@ box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.size = 8
 
 -- Display: Additional Quantity Quantity 8
 box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Additional Quantity Quantity 8: No Value"
+  end
+
   return "Additional Quantity Quantity 8: "..value
 end
 
@@ -604,6 +624,11 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_id.size = 6
 
 -- Display: Auction Id
 box_boxoptions_solaorderentry_sail_v2_25.auction_id.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Auction Id: No Value"
+  end
+
   return "Auction Id: "..value
 end
 
@@ -749,6 +774,60 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.dissect =
   return offset + length, value
 end
 
+-- Buying Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction = {}
+
+-- Size: Buying Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.size = 50
+
+-- Display: Buying Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.display = function(value)
+  if value == "1" then
+    return "Buying Post Trading Instruction: Open Leg (1)"
+  end
+  if value == "2" then
+    return "Buying Post Trading Instruction: Open Leg (2)"
+  end
+  if value == "3" then
+    return "Buying Post Trading Instruction: Close Leg (3)"
+  end
+  if value == "4" then
+    return "Buying Post Trading Instruction: Close Leg (4)"
+  end
+  if value == "5" then
+    return "Buying Post Trading Instruction: Open Leg (5)"
+  end
+  if value == "6" then
+    return "Buying Post Trading Instruction: Close Leg (6)"
+  end
+  if value == "7" then
+    return "Buying Post Trading Instruction: Open Leg (7)"
+  end
+  if value == "8" then
+    return "Buying Post Trading Instruction: Close Leg (8)"
+  end
+  if value == "9" then
+    return "Buying Post Trading Instruction: Close Leg (9)"
+  end
+  if value == "10" then
+    return "Buying Post Trading Instruction: Close (10)"
+  end
+
+  return "Buying Post Trading Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Buying Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.buying_post_trading_instruction, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculation Time Interval
 box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval = {}
 
@@ -757,6 +836,11 @@ box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.size = 8
 
 -- Display: Calculation Time Interval
 box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Calculation Time Interval: No Value"
+  end
+
   return "Calculation Time Interval: "..value
 end
 
@@ -846,6 +930,42 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_instruction.dissect = function
   return offset + length, value
 end
 
+-- Clearing Operation Mode
+box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode = {}
+
+-- Size: Clearing Operation Mode
+box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.size = 1
+
+-- Display: Clearing Operation Mode
+box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.display = function(value)
+  if value == "Space" then
+    return "Clearing Operation Mode: No Clearing Operation (Space)"
+  end
+  if value == "C" then
+    return "Clearing Operation Mode: Cmta Clearing Member Trading Agreement Firm Will Be Defined In The Clearing Destination Field (C)"
+  end
+  if value == "G" then
+    return "Clearing Operation Mode: Give Up Firm Will Be Defined In The Clearing Destination Field (G)"
+  end
+  if value == "I" then
+    return "Clearing Operation Mode: Both Cmta And Give Up Firms Will Be Defined In The Post Trading Instruction Field The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (I)"
+  end
+
+  return "Clearing Operation Mode: Unknown("..value..")"
+end
+
+-- Dissect: Clearing Operation Mode
+box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.clearing_operation_mode, range, value, display)
+
+  return offset + length, value
+end
+
 -- Client Order Id
 box_boxoptions_solaorderentry_sail_v2_25.client_order_id = {}
 
@@ -903,7 +1023,15 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.counterpart_account_type, range, value, display)
@@ -1894,6 +2022,11 @@ box_boxoptions_solaorderentry_sail_v2_25.iml_handling.size = 1
 
 -- Display: Iml Handling
 box_boxoptions_solaorderentry_sail_v2_25.iml_handling.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Iml Handling: No Value"
+  end
+
   return "Iml Handling: "..value
 end
 
@@ -1901,7 +2034,15 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.iml_handling.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.iml_handling.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = box_boxoptions_solaorderentry_sail_v2_25.iml_handling.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.iml_handling, range, value, display)
@@ -1917,6 +2058,11 @@ box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.size = 2
 
 -- Display: Inactivity Interval
 box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Inactivity Interval: No Value"
+  end
+
   return "Inactivity Interval: "..value
 end
 
@@ -1991,6 +2137,11 @@ box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.size = 8
 
 -- Display: Last User Sequence Id Received
 box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Last User Sequence Id Received: No Value"
+  end
+
   return "Last User Sequence Id Received: "..value
 end
 
@@ -2019,6 +2170,11 @@ box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received_if_no_bu
 
 -- Display: Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes
 box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received_if_no_business_message_has_been_received_on_this_connection_this_field_is_equal_to_zeroes.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes: No Value"
+  end
+
   return "Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes: "..value
 end
 
@@ -2104,6 +2260,39 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_instrument_id.dissect = function(bu
   local display = box_boxoptions_solaorderentry_sail_v2_25.leg_instrument_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Number
+box_boxoptions_solaorderentry_sail_v2_25.leg_number = {}
+
+-- Size: Leg Number
+box_boxoptions_solaorderentry_sail_v2_25.leg_number.size = 2
+
+-- Display: Leg Number
+box_boxoptions_solaorderentry_sail_v2_25.leg_number.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Leg Number: No Value"
+  end
+
+  return "Leg Number: "..value
+end
+
+-- Dissect: Leg Number
+box_boxoptions_solaorderentry_sail_v2_25.leg_number.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.leg_number.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
+  local display = box_boxoptions_solaorderentry_sail_v2_25.leg_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.leg_number, range, value, display)
 
   return offset + length, value
 end
@@ -2204,6 +2393,11 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.size = 8
 
 -- Display: Maximum Delta Value
 box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Maximum Delta Value: No Value"
+  end
+
   return "Maximum Delta Value: "..value
 end
 
@@ -2232,6 +2426,11 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.size = 8
 
 -- Display: Maximum Delta Volume
 box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Maximum Delta Volume: No Value"
+  end
+
   return "Maximum Delta Volume: "..value
 end
 
@@ -2260,6 +2459,11 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.size = 8
 
 -- Display: Maximum Total Value
 box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Maximum Total Value: No Value"
+  end
+
   return "Maximum Total Value: "..value
 end
 
@@ -2288,6 +2492,11 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.size = 8
 
 -- Display: Maximum Total Volume
 box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Maximum Total Volume: No Value"
+  end
+
   return "Maximum Total Volume: "..value
 end
 
@@ -3253,6 +3462,11 @@ box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.size = 8
 
 -- Display: Percent Of Quote
 box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Percent Of Quote: No Value"
+  end
+
   return "Percent Of Quote: "..value
 end
 
@@ -3273,6 +3487,114 @@ box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.dissect = function(buf
   return offset + length, value
 end
 
+-- Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction = {}
+
+-- Size: Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.size = 50
+
+-- Display: Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.display = function(value)
+  if value == "1" then
+    return "Post Trading Instruction: Open Leg (1)"
+  end
+  if value == "2" then
+    return "Post Trading Instruction: Open Leg (2)"
+  end
+  if value == "3" then
+    return "Post Trading Instruction: Close Leg (3)"
+  end
+  if value == "4" then
+    return "Post Trading Instruction: Close Leg (4)"
+  end
+  if value == "5" then
+    return "Post Trading Instruction: Open Leg (5)"
+  end
+  if value == "6" then
+    return "Post Trading Instruction: Close Leg (6)"
+  end
+  if value == "7" then
+    return "Post Trading Instruction: Open Leg (7)"
+  end
+  if value == "8" then
+    return "Post Trading Instruction: Close Leg (8)"
+  end
+  if value == "9" then
+    return "Post Trading Instruction: Close Leg (9)"
+  end
+  if value == "10" then
+    return "Post Trading Instruction: Close (10)"
+  end
+
+  return "Post Trading Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Post Trading Instructions
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions = {}
+
+-- Size: Post Trading Instructions
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.size = 50
+
+-- Display: Post Trading Instructions
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.display = function(value)
+  if value == "1" then
+    return "Post Trading Instructions: Open Leg (1)"
+  end
+  if value == "2" then
+    return "Post Trading Instructions: Open Leg (2)"
+  end
+  if value == "3" then
+    return "Post Trading Instructions: Close Leg (3)"
+  end
+  if value == "4" then
+    return "Post Trading Instructions: Close Leg (4)"
+  end
+  if value == "5" then
+    return "Post Trading Instructions: Open Leg (5)"
+  end
+  if value == "6" then
+    return "Post Trading Instructions: Close Leg (6)"
+  end
+  if value == "7" then
+    return "Post Trading Instructions: Open Leg (7)"
+  end
+  if value == "8" then
+    return "Post Trading Instructions: Close Leg (8)"
+  end
+  if value == "9" then
+    return "Post Trading Instructions: Close Leg (9)"
+  end
+  if value == "10" then
+    return "Post Trading Instructions: Close (10)"
+  end
+
+  return "Post Trading Instructions: Unknown("..value..")"
+end
+
+-- Dissect: Post Trading Instructions
+box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.post_trading_instructions, range, value, display)
+
+  return offset + length, value
+end
+
 -- Pound Sign
 box_boxoptions_solaorderentry_sail_v2_25.pound_sign = {}
 
@@ -3281,6 +3603,11 @@ box_boxoptions_solaorderentry_sail_v2_25.pound_sign.size = 1
 
 -- Display: Pound Sign
 box_boxoptions_solaorderentry_sail_v2_25.pound_sign.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Pound Sign: No Value"
+  end
+
   return "Pound Sign: "..value
 end
 
@@ -3288,7 +3615,15 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.pound_sign.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.pound_sign.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = box_boxoptions_solaorderentry_sail_v2_25.pound_sign.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.pound_sign, range, value, display)
@@ -3527,6 +3862,11 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity.size = 8
 
 -- Display: Quantity
 box_boxoptions_solaorderentry_sail_v2_25.quantity.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Quantity: No Value"
+  end
+
   return "Quantity: "..value
 end
 
@@ -3555,6 +3895,11 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_1.size = 8
 
 -- Display: Quantity 1
 box_boxoptions_solaorderentry_sail_v2_25.quantity_1.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Quantity 1: No Value"
+  end
+
   return "Quantity 1: "..value
 end
 
@@ -3646,7 +3991,15 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.quantity_term_quantity_term_1.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.quantity_term_quantity_term_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = box_boxoptions_solaorderentry_sail_v2_25.quantity_term_quantity_term_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.quantity_term_quantity_term_1, range, value, display)
@@ -3662,6 +4015,11 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.size = 8
 
 -- Display: Quantity Traded
 box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Quantity Traded: No Value"
+  end
+
   return "Quantity Traded: "..value
 end
 
@@ -3836,6 +4194,11 @@ box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.size = 8
 
 -- Display: Quote Quantity
 box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Quote Quantity: No Value"
+  end
+
   return "Quote Quantity: "..value
 end
 
@@ -3930,6 +4293,29 @@ box_boxoptions_solaorderentry_sail_v2_25.reference_id.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Reference Id Order Id Or Quote Id
+box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id = {}
+
+-- Size: Reference Id Order Id Or Quote Id
+box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.size = 8
+
+-- Display: Reference Id Order Id Or Quote Id
+box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.display = function(value)
+  return "Reference Id Order Id Or Quote Id: "..value
+end
+
+-- Dissect: Reference Id Order Id Or Quote Id
+box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.reference_id_order_id_or_quote_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reference Id Quote
 box_boxoptions_solaorderentry_sail_v2_25.reference_id_quote = {}
 
@@ -4011,6 +4397,36 @@ box_boxoptions_solaorderentry_sail_v2_25.rejection_code.dissect = function(buffe
   return offset + length, value
 end
 
+-- Risk Team Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out = {}
+
+-- Size: Risk Team Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.size = 1
+
+-- Display: Risk Team Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.display = function(value)
+  if value == "L" then
+    return "Risk Team Lock Out: Locked (L)"
+  end
+  if value == "U" then
+    return "Risk Team Lock Out: Unlocked The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (U)"
+  end
+
+  return "Risk Team Lock Out: Unknown("..value..")"
+end
+
+-- Dissect: Risk Team Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.risk_team_lock_out, range, value, display)
+
+  return offset + length, value
+end
+
 -- Selling Additional Client Memo
 box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo = {}
 
@@ -4030,6 +4446,60 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.dissect 
   local display = box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_additional_client_memo, range, value, display)
+
+  return offset + length, value
+end
+
+-- Selling Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction = {}
+
+-- Size: Selling Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.size = 50
+
+-- Display: Selling Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.display = function(value)
+  if value == "1" then
+    return "Selling Post Trading Instruction: Open Leg (1)"
+  end
+  if value == "2" then
+    return "Selling Post Trading Instruction: Open Leg (2)"
+  end
+  if value == "3" then
+    return "Selling Post Trading Instruction: Close Leg (3)"
+  end
+  if value == "4" then
+    return "Selling Post Trading Instruction: Close Leg (4)"
+  end
+  if value == "5" then
+    return "Selling Post Trading Instruction: Open Leg (5)"
+  end
+  if value == "6" then
+    return "Selling Post Trading Instruction: Close Leg (6)"
+  end
+  if value == "7" then
+    return "Selling Post Trading Instruction: Open Leg (7)"
+  end
+  if value == "8" then
+    return "Selling Post Trading Instruction: Close Leg (8)"
+  end
+  if value == "9" then
+    return "Selling Post Trading Instruction: Close Leg (9)"
+  end
+  if value == "10" then
+    return "Selling Post Trading Instruction: Close (10)"
+  end
+
+  return "Selling Post Trading Instruction: Unknown("..value..")"
+end
+
+-- Dissect: Selling Post Trading Instruction
+box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.selling_post_trading_instruction, range, value, display)
 
   return offset + length, value
 end
@@ -4145,7 +4615,15 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = box_boxoptions_solaorderentry_sail_v2_25.special_trade_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.special_trade_indicator, range, value, display)
@@ -4172,6 +4650,78 @@ box_boxoptions_solaorderentry_sail_v2_25.start_of_message_in_error.dissect = fun
   local display = box_boxoptions_solaorderentry_sail_v2_25.start_of_message_in_error.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.start_of_message_in_error, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+box_boxoptions_solaorderentry_sail_v2_25.status = {}
+
+-- Size: Status
+box_boxoptions_solaorderentry_sail_v2_25.status.size = 1
+
+-- Display: Status
+box_boxoptions_solaorderentry_sail_v2_25.status.display = function(value)
+  if value == "A" then
+    return "Status: Order Cancelled By The Trader Or At The End Of The Exposition Phase (A)"
+  end
+  if value == "B" then
+    return "Status: Order Has Been Eliminated By The Trading System Due To Invalid Out Of Limits Price (B)"
+  end
+  if value == "D" then
+    return "Status: The Order Is A Directed Routed Order And Has Been Received By Executing Participant (D)"
+  end
+  if value == "E" then
+    return "Status: The Order Has Been Eliminated By The Trading System (E)"
+  end
+  if value == "G" then
+    return "Status: Cancelled By Supervisor (G)"
+  end
+  if value == "I" then
+    return "Status: Session Order Has Been Cancelled When The Participant Closes Or Loses His Connection To The Sola Trading System (I)"
+  end
+  if value == "J" then
+    return "Status: Eliminated Due To Maximum Nb Triggers Limit Exceeded (J)"
+  end
+  if value == "K" then
+    return "Status: Eliminated Due To Trade Activity Limit Exceeded (K)"
+  end
+  if value == "L" then
+    return "Status: Order Has Been Sent To The Away Exchange (L)"
+  end
+  if value == "M" then
+    return "Status: Cancelled By The Box Market Operations Center Moc (M)"
+  end
+  if value == "O" then
+    return "Status: Eliminated Due To Drill Through Protection (O)"
+  end
+  if value == "P" then
+    return "Status: Order Is Being Exposed (P)"
+  end
+  if value == "R" then
+    return "Status: Order Is Eliminated Due To Trading Restriction (R)"
+  end
+  if value == "T" then
+    return "Status: Eliminated Due To Trade Limit Exceeded (T)"
+  end
+  if value == "W" then
+    return "Status: Cancel Pending (W)"
+  end
+  if value == "X" then
+    return "Status: Order Executed In Full Or Partially And The Remaining Part Could Not Be Put In The Order Book Fill Kill The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (X)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+box_boxoptions_solaorderentry_sail_v2_25.status.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -4230,6 +4780,11 @@ box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.size = 8
 
 -- Display: Strategy Trade Number
 box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.display = function(value)
+  -- Check if field has value
+  if value ==  then
+    return "Strategy Trade Number: No Value"
+  end
+
   return "Strategy Trade Number: "..value
 end
 
@@ -4272,7 +4827,15 @@ end
 box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.strategy_verb_side, range, value, display)
@@ -4628,6 +5191,36 @@ box_boxoptions_solaorderentry_sail_v2_25.trader_id.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Trader Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out = {}
+
+-- Size: Trader Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.size = 1
+
+-- Display: Trader Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.display = function(value)
+  if value == "L" then
+    return "Trader Lock Out: Locked (L)"
+  end
+  if value == "U" then
+    return "Trader Lock Out: Unlocked The Guide States No Width For This Type One Character Is Inferred From The Values It States Each Of Which Is One Character Wide (U)"
+  end
+
+  return "Trader Lock Out: Unknown("..value..")"
+end
+
+-- Dissect: Trader Lock Out
+box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.dissect = function(buffer, offset, packet, parent)
+  local length = box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.trader_lock_out, range, value, display)
+
+  return offset + length, value
+end
+
 -- Type Of Cancellation
 box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation = {}
 
@@ -4965,6 +5558,7 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_data.size =
   box_boxoptions_solaorderentry_sail_v2_25.account_type.size + 
   box_boxoptions_solaorderentry_sail_v2_25.open_close.size + 
   box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.size + 
   box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.size
 
 -- Display: Clearing Data
@@ -4979,7 +5573,7 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_data.fields = function(buffer,
   -- Clearing Instruction: Clearing Instruction
   index, clearing_instruction = box_boxoptions_solaorderentry_sail_v2_25.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Account Type: AccountType
+  -- Account Type: Account Type
   index, account_type = box_boxoptions_solaorderentry_sail_v2_25.account_type.dissect(buffer, index, packet, parent)
 
   -- Open Close: Open/Close
@@ -4987,6 +5581,9 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_data.fields = function(buffer,
 
   -- Hedge Spec: Hedge/Spec
   index, hedge_spec = box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.dissect(buffer, index, packet, parent)
+
+  -- Clearing Operation Mode: Clearing Operation Mode
+  index, clearing_operation_mode = box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.dissect(buffer, index, packet, parent)
 
   -- Clearing Destination: Firm ID
   index, clearing_destination = box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.dissect(buffer, index, packet, parent)
@@ -5021,6 +5618,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_notice_by_system.siz
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.status.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.assigned_price.size + 
@@ -5052,6 +5650,9 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_notice_by_system.fie
   -- Order Id Order Id 8: Order ID
   index, order_id_order_id_8 = box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.dissect(buffer, index, packet, parent)
 
+  -- Status: Status
+  index, status = box_boxoptions_solaorderentry_sail_v2_25.status.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -5061,7 +5662,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_notice_by_system.fie
   -- Assigned Price: Assigned Price
   index, assigned_price = box_boxoptions_solaorderentry_sail_v2_25.assigned_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -5128,6 +5729,7 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_cancellation_notice.size 
   box_boxoptions_solaorderentry_sail_v2_25.strategy_instrument_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.leg_number.size + 
   box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size + 
   box_boxoptions_solaorderentry_sail_v2_25.filler_must_be_blank_string_11.size + 
@@ -5166,7 +5768,7 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_cancellation_notice.field
   -- Time Trade Hhmmss: Time
   index, time_trade_hhmmss = box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -5211,6 +5813,9 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_cancellation_notice.field
   -- Strategy Trade Number: Trade Number
   index, strategy_trade_number = box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.dissect(buffer, index, packet, parent)
 
+  -- Leg Number: Leg Number
+  index, leg_number = box_boxoptions_solaorderentry_sail_v2_25.leg_number.dissect(buffer, index, packet, parent)
+
   -- Counterpart Account Type: Account Type
   index, counterpart_account_type = box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.dissect(buffer, index, packet, parent)
 
@@ -5252,6 +5857,7 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_cancellation_notice.size =
   box_boxoptions_solaorderentry_sail_v2_25.group.size + 
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trade_price.size + 
@@ -5290,6 +5896,9 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_cancellation_notice.fields = 
   -- Trader Id: Trader ID
   index, trader_id = box_boxoptions_solaorderentry_sail_v2_25.trader_id.dissect(buffer, index, packet, parent)
 
+  -- Reference Id Order Id Or Quote Id: Order ID
+  index, reference_id_order_id_or_quote_id = box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -5302,7 +5911,7 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_cancellation_notice.fields = 
   -- Time Of The Trade Hhmmss: Time
   index, time_of_the_trade_hhmmss = box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -5464,6 +6073,7 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_notice.size =
   box_boxoptions_solaorderentry_sail_v2_25.group.size + 
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trade_price.size + 
@@ -5502,6 +6112,9 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_notice.fields = function(buff
   -- Trader Id: Trader ID
   index, trader_id = box_boxoptions_solaorderentry_sail_v2_25.trader_id.dissect(buffer, index, packet, parent)
 
+  -- Reference Id Order Id Or Quote Id: Order ID
+  index, reference_id_order_id_or_quote_id = box_boxoptions_solaorderentry_sail_v2_25.reference_id_order_id_or_quote_id.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -5514,7 +6127,7 @@ box_boxoptions_solaorderentry_sail_v2_25.execution_notice.fields = function(buff
   -- Time Of The Trade Hhmmss: Time
   index, time_of_the_trade_hhmmss = box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -5736,6 +6349,7 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_notice.size =
   box_boxoptions_solaorderentry_sail_v2_25.strategy_instrument_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.strategy_verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.leg_number.size + 
   box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size + 
   box_boxoptions_solaorderentry_sail_v2_25.filler_must_be_blank_string_11.size + 
@@ -5774,7 +6388,7 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_notice.fields = function(
   -- Time Trade Hhmmss: Time
   index, time_trade_hhmmss = box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -5818,6 +6432,9 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_execution_notice.fields = function(
 
   -- Strategy Trade Number: Trade Number
   index, strategy_trade_number = box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.dissect(buffer, index, packet, parent)
+
+  -- Leg Number: Leg Number
+  index, leg_number = box_boxoptions_solaorderentry_sail_v2_25.leg_number.dissect(buffer, index, packet, parent)
 
   -- Counterpart Account Type: Account Type
   index, counterpart_account_type = box_boxoptions_solaorderentry_sail_v2_25.counterpart_account_type.dissect(buffer, index, packet, parent)
@@ -6089,7 +6706,9 @@ box_boxoptions_solaorderentry_sail_v2_25.trader_status = {}
 
 -- Size: Trader Status
 box_boxoptions_solaorderentry_sail_v2_25.trader_status.size =
-  box_boxoptions_solaorderentry_sail_v2_25.trader_id.size
+  box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.size
 
 -- Display: Trader Status
 box_boxoptions_solaorderentry_sail_v2_25.trader_status.display = function(packet, parent, length)
@@ -6102,6 +6721,12 @@ box_boxoptions_solaorderentry_sail_v2_25.trader_status.fields = function(buffer,
 
   -- Trader Id: Trader ID
   index, trader_id = box_boxoptions_solaorderentry_sail_v2_25.trader_id.dissect(buffer, index, packet, parent)
+
+  -- Trader Lock Out: Trader Lock Status
+  index, trader_lock_out = box_boxoptions_solaorderentry_sail_v2_25.trader_lock_out.dissect(buffer, index, packet, parent)
+
+  -- Risk Team Lock Out: Trader Lock Status
+  index, risk_team_lock_out = box_boxoptions_solaorderentry_sail_v2_25.risk_team_lock_out.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6247,6 +6872,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_acknowledgement.size
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.status.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.assigned_price.size + 
@@ -6278,6 +6904,9 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_acknowledgement.fiel
   -- Order Id Order Id 8: Order ID
   index, order_id_order_id_8 = box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.dissect(buffer, index, packet, parent)
 
+  -- Status: Status
+  index, status = box_boxoptions_solaorderentry_sail_v2_25.status.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -6287,7 +6916,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_cancellation_acknowledgement.fiel
   -- Assigned Price: Assigned Price
   index, assigned_price = box_boxoptions_solaorderentry_sail_v2_25.assigned_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -6335,6 +6964,7 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_or_improvement_cancellation_ack
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.status.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.assigned_price.size + 
@@ -6364,6 +6994,9 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_or_improvement_cancellation_ack
   -- Order Id Order Id 8: Order ID
   index, order_id_order_id_8 = box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.dissect(buffer, index, packet, parent)
 
+  -- Status: Status
+  index, status = box_boxoptions_solaorderentry_sail_v2_25.status.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -6373,7 +7006,7 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_or_improvement_cancellation_ack
   -- Assigned Price: Assigned Price
   index, assigned_price = box_boxoptions_solaorderentry_sail_v2_25.assigned_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -6415,6 +7048,7 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_acknowledgement.s
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.status.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.assigned_price.size + 
@@ -6446,6 +7080,9 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_acknowledgement.f
   -- Order Id Order Id 8: Order ID
   index, order_id_order_id_8 = box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.dissect(buffer, index, packet, parent)
 
+  -- Status: Status
+  index, status = box_boxoptions_solaorderentry_sail_v2_25.status.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -6455,7 +7092,7 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_acknowledgement.f
   -- Assigned Price: Assigned Price
   index, assigned_price = box_boxoptions_solaorderentry_sail_v2_25.assigned_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -6678,6 +7315,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification_acknowledgement.size
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.status.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.assigned_price.size + 
@@ -6709,6 +7347,9 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification_acknowledgement.fiel
   -- Order Id Order Id 8: Order ID
   index, order_id_order_id_8 = box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.dissect(buffer, index, packet, parent)
 
+  -- Status: Status
+  index, status = box_boxoptions_solaorderentry_sail_v2_25.status.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -6718,7 +7359,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification_acknowledgement.fiel
   -- Assigned Price: Assigned Price
   index, assigned_price = box_boxoptions_solaorderentry_sail_v2_25.assigned_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -6766,6 +7407,7 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_acknowlegment.size =
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.status.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.assigned_price.size + 
@@ -6797,6 +7439,9 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_acknowlegment.fields 
   -- Order Id Order Id 8: Order ID
   index, order_id_order_id_8 = box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.dissect(buffer, index, packet, parent)
 
+  -- Status: Status
+  index, status = box_boxoptions_solaorderentry_sail_v2_25.status.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -6806,7 +7451,7 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_acknowlegment.fields 
   -- Assigned Price: Assigned Price
   index, assigned_price = box_boxoptions_solaorderentry_sail_v2_25.assigned_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -6869,7 +7514,7 @@ box_boxoptions_solaorderentry_sail_v2_25.global_cancellation_confirmation.fields
   -- Trader Id: Trader ID
   index, trader_id = box_boxoptions_solaorderentry_sail_v2_25.trader_id.dissect(buffer, index, packet, parent)
 
-  -- Type Of Cancellation Only Q Quotes Only Can Be Returned: CancellationType
+  -- Type Of Cancellation Only Q Quotes Only Can Be Returned: Cancellation Type
   index, type_of_cancellation_only_q_quotes_only_can_be_returned = box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation_only_q_quotes_only_can_be_returned.dissect(buffer, index, packet, parent)
 
   return index
@@ -6902,6 +7547,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_acknowledgement.size =
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.trader_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.status.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.assigned_price.size + 
@@ -6933,6 +7579,9 @@ box_boxoptions_solaorderentry_sail_v2_25.order_acknowledgement.fields = function
   -- Order Id Order Id 8: Order ID
   index, order_id_order_id_8 = box_boxoptions_solaorderentry_sail_v2_25.order_id_order_id_8.dissect(buffer, index, packet, parent)
 
+  -- Status: Status
+  index, status = box_boxoptions_solaorderentry_sail_v2_25.status.dissect(buffer, index, packet, parent)
+
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
 
@@ -6942,7 +7591,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_acknowledgement.fields = function
   -- Assigned Price: Assigned Price
   index, assigned_price = box_boxoptions_solaorderentry_sail_v2_25.assigned_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -7989,7 +8638,7 @@ box_boxoptions_solaorderentry_sail_v2_25.bulk_quote.fields = function(buffer, of
   -- Quote Id Identifies Traders Quote On This Group: Quote ID
   index, quote_id_identifies_traders_quote_on_this_group = box_boxoptions_solaorderentry_sail_v2_25.quote_id_identifies_traders_quote_on_this_group.dissect(buffer, index, packet, parent)
 
-  -- Mm Cat User Time: MM CAT UserTime
+  -- Mm Cat User Time: MM CAT Usertime
   index, mm_cat_user_time = box_boxoptions_solaorderentry_sail_v2_25.mm_cat_user_time.dissect(buffer, index, packet, parent)
 
   -- Number Of Quotes: Numeric (3)
@@ -8180,6 +8829,7 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_clearing_data.size =
   box_boxoptions_solaorderentry_sail_v2_25.account_type.size + 
   box_boxoptions_solaorderentry_sail_v2_25.open_close.size + 
   box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.size + 
   box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.size
 
 -- Display: Selling Clearing Data
@@ -8194,7 +8844,7 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_clearing_data.fields = function
   -- Clearing Instruction: Clearing Instruction
   index, clearing_instruction = box_boxoptions_solaorderentry_sail_v2_25.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Account Type: AccountType
+  -- Account Type: Account Type
   index, account_type = box_boxoptions_solaorderentry_sail_v2_25.account_type.dissect(buffer, index, packet, parent)
 
   -- Open Close: Open/Close
@@ -8202,6 +8852,9 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_clearing_data.fields = function
 
   -- Hedge Spec: Hedge/Spec
   index, hedge_spec = box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.dissect(buffer, index, packet, parent)
+
+  -- Clearing Operation Mode: Clearing Operation Mode
+  index, clearing_operation_mode = box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.dissect(buffer, index, packet, parent)
 
   -- Clearing Destination: Firm ID
   index, clearing_destination = box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.dissect(buffer, index, packet, parent)
@@ -8236,6 +8889,7 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_clearing_data.size =
   box_boxoptions_solaorderentry_sail_v2_25.account_type.size + 
   box_boxoptions_solaorderentry_sail_v2_25.open_close.size + 
   box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.size + 
   box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.size
 
 -- Display: Buying Clearing Data
@@ -8250,7 +8904,7 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_clearing_data.fields = function(
   -- Clearing Instruction: Clearing Instruction
   index, clearing_instruction = box_boxoptions_solaorderentry_sail_v2_25.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Account Type: AccountType
+  -- Account Type: Account Type
   index, account_type = box_boxoptions_solaorderentry_sail_v2_25.account_type.dissect(buffer, index, packet, parent)
 
   -- Open Close: Open/Close
@@ -8258,6 +8912,9 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_clearing_data.fields = function(
 
   -- Hedge Spec: Hedge/Spec
   index, hedge_spec = box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.dissect(buffer, index, packet, parent)
+
+  -- Clearing Operation Mode: Clearing Operation Mode
+  index, clearing_operation_mode = box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.dissect(buffer, index, packet, parent)
 
   -- Clearing Destination: Firm ID
   index, clearing_destination = box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.dissect(buffer, index, packet, parent)
@@ -8318,6 +8975,10 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_entry.size = func
 
   index = index + box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.size
 
+  index = index + box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.size
+
+  index = index + box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.size
+
   index = index + box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.size
 
   index = index + box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.size
@@ -8357,10 +9018,10 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_entry.fields = fu
   -- Price: Price
   index, price = box_boxoptions_solaorderentry_sail_v2_25.price.dissect(buffer, index, packet, parent)
 
-  -- Buying Clearing Data: Struct of 5 fields
+  -- Buying Clearing Data: Struct of 6 fields
   index, buying_clearing_data = box_boxoptions_solaorderentry_sail_v2_25.buying_clearing_data.dissect(buffer, index, packet, parent)
 
-  -- Selling Clearing Data: Struct of 5 fields
+  -- Selling Clearing Data: Struct of 6 fields
   index, selling_clearing_data = box_boxoptions_solaorderentry_sail_v2_25.selling_clearing_data.dissect(buffer, index, packet, parent)
 
   -- Buying Owner Data: Struct of 3 fields
@@ -8383,6 +9044,12 @@ box_boxoptions_solaorderentry_sail_v2_25.complex_order_auction_entry.fields = fu
 
   -- Additional Quantity Quantity 8: Quantity
   index, additional_quantity_quantity_8 = box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.dissect(buffer, index, packet, parent)
+
+  -- Buying Post Trading Instruction: Post Trade Instruction
+  index, buying_post_trading_instruction = box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.dissect(buffer, index, packet, parent)
+
+  -- Selling Post Trading Instruction: Post Trade Instruction
+  index, selling_post_trading_instruction = box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.dissect(buffer, index, packet, parent)
 
   -- Buying Additional Client Memo: Additional Client Memo
   index, buying_additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.dissect(buffer, index, packet, parent)
@@ -8566,6 +9233,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification.size =
   box_boxoptions_solaorderentry_sail_v2_25.modified_order_id.size + 
   box_boxoptions_solaorderentry_sail_v2_25.clearing_data.size + 
   box_boxoptions_solaorderentry_sail_v2_25.owner_data.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size + 
   box_boxoptions_solaorderentry_sail_v2_25.filler_must_be_blank_4.size
 
@@ -8626,11 +9294,14 @@ box_boxoptions_solaorderentry_sail_v2_25.order_modification.fields = function(bu
   -- Modified Order Id: Order ID
   index, modified_order_id = box_boxoptions_solaorderentry_sail_v2_25.modified_order_id.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
   index, owner_data = box_boxoptions_solaorderentry_sail_v2_25.owner_data.dissect(buffer, index, packet, parent)
+
+  -- Post Trading Instruction: Post Trade Instruction
+  index, post_trading_instruction = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.dissect(buffer, index, packet, parent)
 
   -- Additional Client Memo: Additional Client Memo
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
@@ -8674,6 +9345,7 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_entry.size =
   box_boxoptions_solaorderentry_sail_v2_25.filler_string_1717.size + 
   box_boxoptions_solaorderentry_sail_v2_25.clearing_data.size + 
   box_boxoptions_solaorderentry_sail_v2_25.owner_data.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size + 
   box_boxoptions_solaorderentry_sail_v2_25.filler_must_be_blank_string_44.size
 
@@ -8710,11 +9382,14 @@ box_boxoptions_solaorderentry_sail_v2_25.improvement_order_entry.fields = functi
   -- Filler String 1717: String (17)
   index, filler_string_1717 = box_boxoptions_solaorderentry_sail_v2_25.filler_string_1717.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
   index, owner_data = box_boxoptions_solaorderentry_sail_v2_25.owner_data.dissect(buffer, index, packet, parent)
+
+  -- Post Trading Instructions: Post Trade Instruction
+  index, post_trading_instructions = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.dissect(buffer, index, packet, parent)
 
   -- Additional Client Memo: Additional Client Memo
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
@@ -8752,6 +9427,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_entry.size =
   box_boxoptions_solaorderentry_sail_v2_25.instrument.size + 
   box_boxoptions_solaorderentry_sail_v2_25.price_type.size + 
   box_boxoptions_solaorderentry_sail_v2_25.verb_side.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.quantity.size + 
   box_boxoptions_solaorderentry_sail_v2_25.price.size + 
   box_boxoptions_solaorderentry_sail_v2_25.special_price_term.size + 
   box_boxoptions_solaorderentry_sail_v2_25.filler_must_be_blank_string_1010.size + 
@@ -8763,6 +9439,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_entry.size =
   box_boxoptions_solaorderentry_sail_v2_25.iml_handling.size + 
   box_boxoptions_solaorderentry_sail_v2_25.clearing_data.size + 
   box_boxoptions_solaorderentry_sail_v2_25.owner_data.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size + 
   box_boxoptions_solaorderentry_sail_v2_25.filler_must_be_blank_2_string_44.size
 
@@ -8786,6 +9463,9 @@ box_boxoptions_solaorderentry_sail_v2_25.order_entry.fields = function(buffer, o
 
   -- Verb Side: Verb
   index, verb_side = box_boxoptions_solaorderentry_sail_v2_25.verb_side.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Quantity
+  index, quantity = box_boxoptions_solaorderentry_sail_v2_25.quantity.dissect(buffer, index, packet, parent)
 
   -- Price: Price
   index, price = box_boxoptions_solaorderentry_sail_v2_25.price.dissect(buffer, index, packet, parent)
@@ -8814,11 +9494,14 @@ box_boxoptions_solaorderentry_sail_v2_25.order_entry.fields = function(buffer, o
   -- Iml Handling: IML Handling
   index, iml_handling = box_boxoptions_solaorderentry_sail_v2_25.iml_handling.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
   index, owner_data = box_boxoptions_solaorderentry_sail_v2_25.owner_data.dissect(buffer, index, packet, parent)
+
+  -- Post Trading Instructions: Post Trade Instruction
+  index, post_trading_instructions = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.dissect(buffer, index, packet, parent)
 
   -- Additional Client Memo: Additional Client Memo
   index, additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.dissect(buffer, index, packet, parent)
@@ -8904,6 +9587,7 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_data_dealer.size =
   box_boxoptions_solaorderentry_sail_v2_25.account_type.size + 
   box_boxoptions_solaorderentry_sail_v2_25.open_close.size + 
   box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.size + 
   box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.size
 
 -- Display: Clearing Data Dealer
@@ -8918,7 +9602,7 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_data_dealer.fields = function(
   -- Clearing Instruction: Clearing Instruction
   index, clearing_instruction = box_boxoptions_solaorderentry_sail_v2_25.clearing_instruction.dissect(buffer, index, packet, parent)
 
-  -- Account Type: AccountType
+  -- Account Type: Account Type
   index, account_type = box_boxoptions_solaorderentry_sail_v2_25.account_type.dissect(buffer, index, packet, parent)
 
   -- Open Close: Open/Close
@@ -8926,6 +9610,9 @@ box_boxoptions_solaorderentry_sail_v2_25.clearing_data_dealer.fields = function(
 
   -- Hedge Spec: Hedge/Spec
   index, hedge_spec = box_boxoptions_solaorderentry_sail_v2_25.hedge_spec.dissect(buffer, index, packet, parent)
+
+  -- Clearing Operation Mode: Clearing Operation Mode
+  index, clearing_operation_mode = box_boxoptions_solaorderentry_sail_v2_25.clearing_operation_mode.dissect(buffer, index, packet, parent)
 
   -- Clearing Destination: Firm ID
   index, clearing_destination = box_boxoptions_solaorderentry_sail_v2_25.clearing_destination.dissect(buffer, index, packet, parent)
@@ -8964,6 +9651,7 @@ box_boxoptions_solaorderentry_sail_v2_25.directed_order_acceptation.size =
   box_boxoptions_solaorderentry_sail_v2_25.owner_data_dealer.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_price.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity_term_quantity_term_1.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_client_memo.size
 
@@ -8988,7 +9676,7 @@ box_boxoptions_solaorderentry_sail_v2_25.directed_order_acceptation.fields = fun
   -- Auction Starting Price: Price
   index, auction_starting_price = box_boxoptions_solaorderentry_sail_v2_25.auction_starting_price.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data Dealer: Struct of 5 fields
+  -- Clearing Data Dealer: Struct of 6 fields
   index, clearing_data_dealer = box_boxoptions_solaorderentry_sail_v2_25.clearing_data_dealer.dissect(buffer, index, packet, parent)
 
   -- Owner Data Dealer: Struct of 3 fields
@@ -8999,6 +9687,9 @@ box_boxoptions_solaorderentry_sail_v2_25.directed_order_acceptation.fields = fun
 
   -- Quantity Term Quantity Term 1: Quantity Term
   index, quantity_term_quantity_term_1 = box_boxoptions_solaorderentry_sail_v2_25.quantity_term_quantity_term_1.dissect(buffer, index, packet, parent)
+
+  -- Post Trading Instruction: Post Trade Instruction
+  index, post_trading_instruction = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.dissect(buffer, index, packet, parent)
 
   -- Additional Quantity Quantity 8: Quantity
   index, additional_quantity_quantity_8 = box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.dissect(buffer, index, packet, parent)
@@ -9046,6 +9737,8 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_entry.size =
   box_boxoptions_solaorderentry_sail_v2_25.additional_price.size + 
   box_boxoptions_solaorderentry_sail_v2_25.quantity_term_quantity_term_1.size + 
   box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_additional_quantity_8.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.size + 
   box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.size + 
   box_boxoptions_solaorderentry_sail_v2_25.selling_additional_client_memo.size + 
   box_boxoptions_solaorderentry_sail_v2_25.filler_must_be_blank_string_44.size
@@ -9074,10 +9767,10 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_entry.fields = function(buffer,
   -- Price: Price
   index, price = box_boxoptions_solaorderentry_sail_v2_25.price.dissect(buffer, index, packet, parent)
 
-  -- Buying Clearing Data: Struct of 5 fields
+  -- Buying Clearing Data: Struct of 6 fields
   index, buying_clearing_data = box_boxoptions_solaorderentry_sail_v2_25.buying_clearing_data.dissect(buffer, index, packet, parent)
 
-  -- Selling Clearing Data: Struct of 5 fields
+  -- Selling Clearing Data: Struct of 6 fields
   index, selling_clearing_data = box_boxoptions_solaorderentry_sail_v2_25.selling_clearing_data.dissect(buffer, index, packet, parent)
 
   -- Buying Owner Data: Struct of 3 fields
@@ -9100,6 +9793,12 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_entry.fields = function(buffer,
 
   -- Additional Quantity Additional Quantity 8: Additional Quantity
   index, additional_quantity_additional_quantity_8 = box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_additional_quantity_8.dissect(buffer, index, packet, parent)
+
+  -- Buying Post Trading Instruction: Post Trade Instruction
+  index, buying_post_trading_instruction = box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.dissect(buffer, index, packet, parent)
+
+  -- Selling Post Trading Instruction: Post Trade Instruction
+  index, selling_post_trading_instruction = box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.dissect(buffer, index, packet, parent)
 
   -- Buying Additional Client Memo: Additional Client Memo
   index, buying_additional_client_memo = box_boxoptions_solaorderentry_sail_v2_25.buying_additional_client_memo.dissect(buffer, index, packet, parent)
@@ -9221,13 +9920,13 @@ box_boxoptions_solaorderentry_sail_v2_25.user_global_cancellation.fields = funct
   -- Instrument: Instrument ID
   index, instrument = box_boxoptions_solaorderentry_sail_v2_25.instrument.dissect(buffer, index, packet, parent)
 
-  -- Type Of Cancellation: CancellationType
+  -- Type Of Cancellation: Cancellation Type
   index, type_of_cancellation = box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation.dissect(buffer, index, packet, parent)
 
   -- Account Type Filter: String (8)
   index, account_type_filter = box_boxoptions_solaorderentry_sail_v2_25.account_type_filter.dissect(buffer, index, packet, parent)
 
-  -- Mm Cat User Time: MM CAT UserTime
+  -- Mm Cat User Time: MM CAT Usertime
   index, mm_cat_user_time = box_boxoptions_solaorderentry_sail_v2_25.mm_cat_user_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -9272,10 +9971,10 @@ box_boxoptions_solaorderentry_sail_v2_25.global_cancellation.fields = function(b
   -- Group: Group ID
   index, group = box_boxoptions_solaorderentry_sail_v2_25.group.dissect(buffer, index, packet, parent)
 
-  -- Type Of Cancellation Q Quotes Only: CancellationType
+  -- Type Of Cancellation Q Quotes Only: Cancellation Type
   index, type_of_cancellation_q_quotes_only = box_boxoptions_solaorderentry_sail_v2_25.type_of_cancellation_q_quotes_only.dissect(buffer, index, packet, parent)
 
-  -- Mm Cat User Time: MM CAT UserTime
+  -- Mm Cat User Time: MM CAT Usertime
   index, mm_cat_user_time = box_boxoptions_solaorderentry_sail_v2_25.mm_cat_user_time.dissect(buffer, index, packet, parent)
 
   return index
@@ -9315,7 +10014,8 @@ box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data.size =
   box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.size + 
   box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.size + 
   box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.size + 
-  box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.size
+  box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.size + 
+  box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.size
 
 -- Display: Bulk Quote Data
 box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data.display = function(packet, parent, length)
@@ -9329,7 +10029,7 @@ box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data.fields = function(buffe
   -- Group: Group ID
   index, group = box_boxoptions_solaorderentry_sail_v2_25.group.dissect(buffer, index, packet, parent)
 
-  -- Clearing Data: Struct of 5 fields
+  -- Clearing Data: Struct of 6 fields
   index, clearing_data = box_boxoptions_solaorderentry_sail_v2_25.clearing_data.dissect(buffer, index, packet, parent)
 
   -- Owner Data: Struct of 3 fields
@@ -9361,6 +10061,9 @@ box_boxoptions_solaorderentry_sail_v2_25.bulk_quote_data.fields = function(buffe
 
   -- Percent Of Quote: Numeric (8)
   index, percent_of_quote = box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.dissect(buffer, index, packet, parent)
+
+  -- Post Trading Instructions: Post Trade Instruction
+  index, post_trading_instructions = box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9458,7 +10161,7 @@ box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_occurrence.fi
   -- Trader Id: Trader ID
   index, trader_id = box_boxoptions_solaorderentry_sail_v2_25.trader_id.dissect(buffer, index, packet, parent)
 
-  -- Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: CancellationType
+  -- Disconnection Instruction Note Cancel Quotes Only Q Quotes Only: Cancellation Type
   index, disconnection_instruction_note_cancel_quotes_only_q_quotes_only = box_boxoptions_solaorderentry_sail_v2_25.disconnection_instruction_note_cancel_quotes_only_q_quotes_only.dissect(buffer, index, packet, parent)
 
   -- Active Y On N Off: YesNoFlag
