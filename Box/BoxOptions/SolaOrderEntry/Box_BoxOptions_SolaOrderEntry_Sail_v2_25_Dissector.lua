@@ -536,7 +536,7 @@ box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_additional_quantity
 -- Display: Additional Quantity Additional Quantity 8
 box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_additional_quantity_8.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Additional Quantity Additional Quantity 8: No Value"
   end
 
@@ -569,7 +569,7 @@ box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.size = 8
 -- Display: Additional Quantity Quantity 8
 box_boxoptions_solaorderentry_sail_v2_25.additional_quantity_quantity_8.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Additional Quantity Quantity 8: No Value"
   end
 
@@ -625,7 +625,7 @@ box_boxoptions_solaorderentry_sail_v2_25.auction_id.size = 6
 -- Display: Auction Id
 box_boxoptions_solaorderentry_sail_v2_25.auction_id.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Auction Id: No Value"
   end
 
@@ -812,6 +812,9 @@ box_boxoptions_solaorderentry_sail_v2_25.buying_post_trading_instruction.display
   if value == "10" then
     return "Buying Post Trading Instruction: Close (10)"
   end
+  if value == 0 then
+    return "Buying Post Trading Instruction: No Value"
+  end
 
   return "Buying Post Trading Instruction: Unknown("..value..")"
 end
@@ -837,7 +840,7 @@ box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.size = 8
 -- Display: Calculation Time Interval
 box_boxoptions_solaorderentry_sail_v2_25.calculation_time_interval.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Calculation Time Interval: No Value"
   end
 
@@ -2059,7 +2062,7 @@ box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.size = 2
 -- Display: Inactivity Interval
 box_boxoptions_solaorderentry_sail_v2_25.inactivity_interval.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Inactivity Interval: No Value"
   end
 
@@ -2138,7 +2141,7 @@ box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.size = 8
 -- Display: Last User Sequence Id Received
 box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Last User Sequence Id Received: No Value"
   end
 
@@ -2171,7 +2174,7 @@ box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received_if_no_bu
 -- Display: Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes
 box_boxoptions_solaorderentry_sail_v2_25.last_user_sequence_id_received_if_no_business_message_has_been_received_on_this_connection_this_field_is_equal_to_zeroes.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Last User Sequence Id Received If No Business Message Has Been Received On This Connection This Field Is Equal To Zeroes: No Value"
   end
 
@@ -2273,7 +2276,7 @@ box_boxoptions_solaorderentry_sail_v2_25.leg_number.size = 2
 -- Display: Leg Number
 box_boxoptions_solaorderentry_sail_v2_25.leg_number.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Leg Number: No Value"
   end
 
@@ -2394,7 +2397,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.size = 8
 -- Display: Maximum Delta Value
 box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_value.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Maximum Delta Value: No Value"
   end
 
@@ -2427,7 +2430,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.size = 8
 -- Display: Maximum Delta Volume
 box_boxoptions_solaorderentry_sail_v2_25.maximum_delta_volume.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Maximum Delta Volume: No Value"
   end
 
@@ -2460,7 +2463,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.size = 8
 -- Display: Maximum Total Value
 box_boxoptions_solaorderentry_sail_v2_25.maximum_total_value.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Maximum Total Value: No Value"
   end
 
@@ -2493,7 +2496,7 @@ box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.size = 8
 -- Display: Maximum Total Volume
 box_boxoptions_solaorderentry_sail_v2_25.maximum_total_volume.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Maximum Total Volume: No Value"
   end
 
@@ -3463,7 +3466,7 @@ box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.size = 8
 -- Display: Percent Of Quote
 box_boxoptions_solaorderentry_sail_v2_25.percent_of_quote.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Percent Of Quote: No Value"
   end
 
@@ -3525,6 +3528,9 @@ box_boxoptions_solaorderentry_sail_v2_25.post_trading_instruction.display = func
   if value == "10" then
     return "Post Trading Instruction: Close (10)"
   end
+  if value == 0 then
+    return "Post Trading Instruction: No Value"
+  end
 
   return "Post Trading Instruction: Unknown("..value..")"
 end
@@ -3578,6 +3584,9 @@ box_boxoptions_solaorderentry_sail_v2_25.post_trading_instructions.display = fun
   end
   if value == "10" then
     return "Post Trading Instructions: Close (10)"
+  end
+  if value == 0 then
+    return "Post Trading Instructions: No Value"
   end
 
   return "Post Trading Instructions: Unknown("..value..")"
@@ -3863,7 +3872,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity.size = 8
 -- Display: Quantity
 box_boxoptions_solaorderentry_sail_v2_25.quantity.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Quantity: No Value"
   end
 
@@ -3896,7 +3905,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_1.size = 8
 -- Display: Quantity 1
 box_boxoptions_solaorderentry_sail_v2_25.quantity_1.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Quantity 1: No Value"
   end
 
@@ -4016,7 +4025,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.size = 8
 -- Display: Quantity Traded
 box_boxoptions_solaorderentry_sail_v2_25.quantity_traded.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Quantity Traded: No Value"
   end
 
@@ -4195,7 +4204,7 @@ box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.size = 8
 -- Display: Quote Quantity
 box_boxoptions_solaorderentry_sail_v2_25.quote_quantity.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Quote Quantity: No Value"
   end
 
@@ -4487,6 +4496,9 @@ box_boxoptions_solaorderentry_sail_v2_25.selling_post_trading_instruction.displa
   end
   if value == "10" then
     return "Selling Post Trading Instruction: Close (10)"
+  end
+  if value == 0 then
+    return "Selling Post Trading Instruction: No Value"
   end
 
   return "Selling Post Trading Instruction: Unknown("..value..")"
@@ -4781,7 +4793,7 @@ box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.size = 8
 -- Display: Strategy Trade Number
 box_boxoptions_solaorderentry_sail_v2_25.strategy_trade_number.display = function(value)
   -- Check if field has value
-  if value ==  then
+  if value == 0 then
     return "Strategy Trade Number: No Value"
   end
 
