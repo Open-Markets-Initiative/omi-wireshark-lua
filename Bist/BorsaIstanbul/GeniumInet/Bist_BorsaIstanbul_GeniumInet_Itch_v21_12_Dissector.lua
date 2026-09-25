@@ -3296,6 +3296,7 @@ udp_table:add_for_decode_as(omi_bist_borsaistanbul_geniuminet_itch_v21_12)
 --   Version: 21.12
 --   Date: Friday, February 28, 2025
 --   Specification: bistech-itch-protocol-specification.pdf
+--   Specification: moldudp64-protocol-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -3437,6 +3437,7 @@ tcp_table:add_for_decode_as(omi_bist_borsaistanbul_geniuminet_glimpse_v2_7)
 --   Version: 2.7
 --   Date: Friday, January 17, 2025
 --   Specification: bistech-glimpse-protocol-specification.pdf
+--   Specification: soupbintcp-protocol-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

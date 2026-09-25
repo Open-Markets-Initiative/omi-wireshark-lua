@@ -3948,6 +3948,7 @@ tcp_table:add_for_decode_as(omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206)
 --   Version: 2025.0206
 --   Date: Thursday, February 6, 2025
 --   Specification: bistech-ouch-protocol-specification.pdf
+--   Specification: soupbintcp-protocol-specification.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
