@@ -1279,7 +1279,7 @@ box_boxoptions_solamulticast_hsvf_v1_5.improvement_order_side.display = function
   if value == "S" then
     return "Improvement Order Side: Sell (S)"
   end
-  if value == "" then
+  if value == " " then
     return "Improvement Order Side: All (<whitespace>)"
   end
 
@@ -2935,7 +2935,7 @@ box_boxoptions_solamulticast_hsvf_v1_5.price_indicator_marker.display = function
   if value == "P" then
     return "Price Indicator Marker: Trade Done On A Complex Order Instrument (P)"
   end
-  if value == "" then
+  if value == " " then
     return "Price Indicator Marker: Actual Transaction Took Place (<whitespace>)"
   end
 
@@ -3637,7 +3637,7 @@ box_boxoptions_solamulticast_hsvf_v1_5.type_of_options.size = 1
 
 -- Display: Type Of Options
 box_boxoptions_solamulticast_hsvf_v1_5.type_of_options.display = function(value)
-  if value == "" then
+  if value == " " then
     return "Type Of Options: Regular (<whitespace>)"
   end
 
