@@ -2700,7 +2700,7 @@ finra_finraorf_tdds_dfi_v2_0.general_administrative_message.fields = function(bu
   index, message_header = finra_finraorf_tdds_dfi_v2_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Runtime Size Of: Text
-  local size_of_text = math.min(buffer:len() - (offset + index), 300)
+  local size_of_text = math.min(buffer:len() - index, 300)
 
   -- Text: Alphanumeric
   index, text = finra_finraorf_tdds_dfi_v2_0.text.dissect(buffer, index, packet, parent, size_of_text)

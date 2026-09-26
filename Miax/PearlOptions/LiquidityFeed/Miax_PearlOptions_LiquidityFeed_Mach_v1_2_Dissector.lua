@@ -795,7 +795,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.openclose_indicator.display = function
   if value == "C" then
     return "Openclose Indicator: Close (C)"
   end
-  if value == "" then
+  if value == " " then
     return "Openclose Indicator: Not Applicable (<whitespace>)"
   end
 

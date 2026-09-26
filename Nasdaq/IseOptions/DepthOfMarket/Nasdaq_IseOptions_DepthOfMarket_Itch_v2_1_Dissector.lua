@@ -1392,7 +1392,7 @@ nasdaq_iseoptions_depthofmarket_itch_v2_1.order_capacity.display = function(valu
   if value == "J" then
     return "Order Capacity: Joint Back Office (J)"
   end
-  if value == "" then
+  if value == " " then
     return "Order Capacity: Na (<whitespace>)"
   end
 

@@ -1062,7 +1062,7 @@ nasdaq_iseoptions_orderfeed_itch_v2_1.open_close_indicator.display = function(va
   if value == "C" then
     return "Open Close Indicator: Closes Position (C)"
   end
-  if value == "" then
+  if value == " " then
     return "Open Close Indicator: Na (<whitespace>)"
   end
 
@@ -1143,7 +1143,7 @@ nasdaq_iseoptions_orderfeed_itch_v2_1.order_capacity.display = function(value)
   if value == "J" then
     return "Order Capacity: Joint Back Office (J)"
   end
-  if value == "" then
+  if value == " " then
     return "Order Capacity: Na (<whitespace>)"
   end
 
@@ -1176,7 +1176,7 @@ nasdaq_iseoptions_orderfeed_itch_v2_1.order_qualifier.display = function(value)
   if value == "I" then
     return "Order Qualifier: Implied Order (I)"
   end
-  if value == "" then
+  if value == " " then
     return "Order Qualifier: Na (<whitespace>)"
   end
 

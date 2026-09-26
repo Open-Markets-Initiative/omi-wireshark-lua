@@ -901,7 +901,7 @@ miax_sapphireoptions_liquidityfeed_mach_v1_0_a.openclose_indicator.display = fun
   if value == "C" then
     return "Openclose Indicator: Close (C)"
   end
-  if value == "" then
+  if value == " " then
     return "Openclose Indicator: Not Applicable (<whitespace>)"
   end
 

@@ -1597,7 +1597,7 @@ jpx_tseequities_marketbyorder_flex_v1_1.message_response_message.fields = functi
   local index = offset
 
   -- Runtime Size Of: Data
-  local size_of_data = buffer:len() - (offset + index)
+  local size_of_data = buffer:len() - index
 
   -- Data: Char
   index, data = jpx_tseequities_marketbyorder_flex_v1_1.data.dissect(buffer, index, packet, parent, size_of_data)

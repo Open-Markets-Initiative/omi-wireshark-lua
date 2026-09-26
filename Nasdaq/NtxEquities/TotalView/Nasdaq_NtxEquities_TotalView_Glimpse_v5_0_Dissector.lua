@@ -552,7 +552,7 @@ nasdaq_ntxequities_totalview_glimpse_v5_0.financial_status_indicator.display = f
   if value == "N" then
     return "Financial Status Indicator: Normal (N)"
   end
-  if value == "" then
+  if value == " " then
     return "Financial Status Indicator: Not Available (<whitespace>)"
   end
 
@@ -780,7 +780,7 @@ nasdaq_ntxequities_totalview_glimpse_v5_0.market_category.display = function(val
   if value == "V" then
     return "Market Category: Investors Exchange Llc (V)"
   end
-  if value == "" then
+  if value == " " then
     return "Market Category: Not Available (<whitespace>)"
   end
 

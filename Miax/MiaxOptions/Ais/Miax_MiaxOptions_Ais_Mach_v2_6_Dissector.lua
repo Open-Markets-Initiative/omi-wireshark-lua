@@ -1475,7 +1475,7 @@ miax_miaxoptions_ais_mach_v2_6.origin.display = function(value)
   if value == "6" then
     return "Origin: Non Priority Customer (6)"
   end
-  if value == "" then
+  if value == " " then
     return "Origin: Multiple Initiators Of Varying Origin (<whitespace>)"
   end
 

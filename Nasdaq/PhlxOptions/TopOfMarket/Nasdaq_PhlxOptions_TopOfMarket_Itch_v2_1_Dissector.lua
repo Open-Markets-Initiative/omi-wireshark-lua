@@ -1501,7 +1501,7 @@ nasdaq_phlxoptions_topofmarket_itch_v2_1.quote_condition.size = 1
 
 -- Display: Quote Condition
 nasdaq_phlxoptions_topofmarket_itch_v2_1.quote_condition.display = function(value)
-  if value == "" then
+  if value == " " then
     return "Quote Condition: Regular Quote Autox Eligible (<whitespace>)"
   end
   if value == "X" then

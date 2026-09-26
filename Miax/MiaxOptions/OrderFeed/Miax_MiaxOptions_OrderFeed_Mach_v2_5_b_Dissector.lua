@@ -982,7 +982,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.openclose_indicator.display = function(va
   if value == "C" then
     return "Openclose Indicator: Close (C)"
   end
-  if value == "" then
+  if value == " " then
     return "Openclose Indicator: Not Applicable (<whitespace>)"
   end
 
@@ -1301,7 +1301,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.origin.display = function(value)
   if value == "8" then
     return "Origin: Non Priority Customer (8)"
   end
-  if value == "" then
+  if value == " " then
     return "Origin: Not Applicable (<whitespace>)"
   end
 

@@ -1266,7 +1266,7 @@ nasdaq_iseoptions_spreaddepthofmarket_itch_v2_1.option_type.display = function(v
   if value == "P" then
     return "Option Type: Put Option (P)"
   end
-  if value == "" then
+  if value == " " then
     return "Option Type: Stock Leg (<whitespace>)"
   end
 

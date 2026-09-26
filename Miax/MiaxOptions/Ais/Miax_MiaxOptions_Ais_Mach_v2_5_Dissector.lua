@@ -695,7 +695,7 @@ miax_miaxoptions_ais_mach_v2_5.imbalance_side.display = function(value)
   if value == "A" then
     return "Imbalance Side: Ask (A)"
   end
-  if value == "" then
+  if value == " " then
     return "Imbalance Side: No Imbalance (<whitespace>)"
   end
 
