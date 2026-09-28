@@ -1589,6 +1589,14 @@ end
 -- Scaled Price
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price = {}
 
+-- Display: Scaled Price in fractions
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display_fraction = function(value)
+  local text = string.format("%.8f", value)
+  text = text:gsub("0+$", "")
+  text = text:gsub("%.$", "")
+  return "Scaled Price: " .. text
+end
+
 -- Display: Scaled Price
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display = function(value)
   return "Scaled Price: " .. string.format("%g", value)
@@ -1600,12 +1608,14 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.composite = function
   local range = buffer(offset, length)
   local mantissa = range:int()
   local value
+  local display
   if record.number_of_decimals_in_price == 256 then
     value = mantissa / 256
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display_fraction(value)
   else
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display(value)
   end
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display(value)
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price.display(mantissa)
 
@@ -1632,6 +1642,14 @@ end
 -- Scaled Price From
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from = {}
 
+-- Display: Scaled Price From in fractions
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display_fraction = function(value)
+  local text = string.format("%.8f", value)
+  text = text:gsub("0+$", "")
+  text = text:gsub("%.$", "")
+  return "Scaled Price From: " .. text
+end
+
 -- Display: Scaled Price From
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display = function(value)
   return "Scaled Price From: " .. string.format("%g", value)
@@ -1643,12 +1661,14 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.composite = fun
   local range = buffer(offset, length)
   local mantissa = range:int()
   local value
+  local display
   if record.number_of_decimals_in_price == 256 then
     value = mantissa / 256
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display_fraction(value)
   else
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display(value)
   end
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display(value)
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_from, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_from.display(mantissa)
 
@@ -1675,6 +1695,14 @@ end
 -- Scaled Price To
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to = {}
 
+-- Display: Scaled Price To in fractions
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display_fraction = function(value)
+  local text = string.format("%.8f", value)
+  text = text:gsub("0+$", "")
+  text = text:gsub("%.$", "")
+  return "Scaled Price To: " .. text
+end
+
 -- Display: Scaled Price To
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display = function(value)
   return "Scaled Price To: " .. string.format("%g", value)
@@ -1686,12 +1714,14 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.composite = funct
   local range = buffer(offset, length)
   local mantissa = range:int()
   local value
+  local display
   if record.number_of_decimals_in_price == 256 then
     value = mantissa / 256
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display_fraction(value)
   else
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display(value)
   end
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display(value)
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_to, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_to.display(mantissa)
 
@@ -1718,6 +1748,14 @@ end
 -- Scaled Tick Size
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size = {}
 
+-- Display: Scaled Tick Size in fractions
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display_fraction = function(value)
+  local text = string.format("%.8f", value)
+  text = text:gsub("0+$", "")
+  text = text:gsub("%.$", "")
+  return "Scaled Tick Size: " .. text
+end
+
 -- Display: Scaled Tick Size
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display = function(value)
   return "Scaled Tick Size: " .. string.format("%g", value)
@@ -1729,12 +1767,14 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.composite = func
   local range = buffer(offset, length)
   local mantissa = range:int64()
   local value
+  local display
   if record.number_of_decimals_in_price == 256 then
     value = mantissa / 256
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display_fraction(value)
   else
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display(value)
   end
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display(value)
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_tick_size, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size.display(mantissa)
 
@@ -1761,6 +1801,14 @@ end
 -- Scaled Trade Price
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price = {}
 
+-- Display: Scaled Trade Price in fractions
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display_fraction = function(value)
+  local text = string.format("%.8f", value)
+  text = text:gsub("0+$", "")
+  text = text:gsub("%.$", "")
+  return "Scaled Trade Price: " .. text
+end
+
 -- Display: Scaled Trade Price
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display = function(value)
   return "Scaled Trade Price: " .. string.format("%g", value)
@@ -1772,12 +1820,14 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.composite = fu
   local range = buffer(offset, length)
   local mantissa = range:int()
   local value
+  local display
   if record.number_of_decimals_in_price == 256 then
     value = mantissa / 256
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display_fraction(value)
   else
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
+    display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display(value)
   end
-  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display(value)
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_trade_price, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_price.display(mantissa)
 

@@ -1803,7 +1803,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nordicequities_lastsale_itch_v1_2_11)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.2.11
 --   Date: Tuesday, June 2, 2026
---   Specification: Nasdaq Nordic INET Equity Last Sale NLS (1.2.11).pdf
+--   Specification: Nordic-Equity-Last-Sale-1.2.11.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -58,11 +58,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.headers = true
+show.sequences = true
 
 -- Register Nse NseFo Mtbt Binary 6.9 Show Options
 omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 -- Handle changed preferences
 function omi_nse_nsefo_mtbt_binary_v6_9.prefs_changed()
@@ -77,7 +79,45 @@ function omi_nse_nsefo_mtbt_binary_v6_9.prefs_changed()
   if show.structs ~= omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_structs then
     show.structs = omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_structs
   end
+  if show.sequences ~= omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_sequences then
+    show.sequences = omi_nse_nsefo_mtbt_binary_v6_9.prefs.show_sequences
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nse_nsefo_mtbt_binary_v6_9.conversation = {}
+nse_nsefo_mtbt_binary_v6_9.conversation.flows = {}
+
+-- Revisit replay cursor for stream sequences: which frame is being
+-- re-dissected and which memoized occurrence within it is next
+nse_nsefo_mtbt_binary_v6_9.stream_frame = nil
+nse_nsefo_mtbt_binary_v6_9.stream_occurrence = 0
+
+-- Conversation key for the current packet (src/dst tuple)
+nse_nsefo_mtbt_binary_v6_9.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nse_nsefo_mtbt_binary_v6_9.conversation.data = function(packet)
+  local key = nse_nsefo_mtbt_binary_v6_9.conversation.key(packet)
+  local data = nse_nsefo_mtbt_binary_v6_9.conversation.flows[key]
+  if data == nil then
+    data = { sequence = { next = nil, frames = {} } }
+    nse_nsefo_mtbt_binary_v6_9.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nse_nsefo_mtbt_binary_v6_9.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1127,27 +1167,20 @@ end
 -- Message
 nse_nsefo_mtbt_binary_v6_9.message = {}
 
--- Size: Message
-nse_nsefo_mtbt_binary_v6_9.message.size = function(buffer, offset)
-  local index = 0
-
-  return buffer:len() - (offset + index)
-end
-
 -- Display: Message
 nse_nsefo_mtbt_binary_v6_9.message.display = function(packet, parent, length)
   return ""
 end
 
 -- Dissect Fields: Message
-nse_nsefo_mtbt_binary_v6_9.message.fields = function(buffer, offset, packet, parent)
+nse_nsefo_mtbt_binary_v6_9.message.fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Type: Char
   index, message_type = nse_nsefo_mtbt_binary_v6_9.message_type.dissect(buffer, index, packet, parent)
 
   -- Dependency for Payload
-  local end_of_payload = buffer:len()
+  local end_of_payload = offset + size_of_message
 
   -- Payload: Runtime Type with 10 branches
   local message_index = 0
@@ -1162,20 +1195,23 @@ nse_nsefo_mtbt_binary_v6_9.message.fields = function(buffer, offset, packet, par
 end
 
 -- Dissect: Message
-nse_nsefo_mtbt_binary_v6_9.message.dissect = function(buffer, offset, packet, parent)
+nse_nsefo_mtbt_binary_v6_9.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
   if show.structs then
-    -- Optionally add element to protocol tree
     parent = parent:add(omi_nse_nsefo_mtbt_binary_v6_9.fields.message, buffer(offset, 0))
-    local index = nse_nsefo_mtbt_binary_v6_9.message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_mtbt_binary_v6_9.message.display(packet, parent, length)
+    local current = nse_nsefo_mtbt_binary_v6_9.message.fields(buffer, offset, packet, parent, size_of_message)
+    parent:set_len(size_of_message)
+    local display = nse_nsefo_mtbt_binary_v6_9.message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_mtbt_binary_v6_9.message.fields(buffer, offset, packet, parent)
+    nse_nsefo_mtbt_binary_v6_9.message.fields(buffer, offset, packet, parent, size_of_message)
+
+    return index
   end
 end
 
@@ -1232,7 +1268,7 @@ nse_nsefo_mtbt_binary_v6_9.packet = {}
 
 -- Verify required size of Udp packet
 nse_nsefo_mtbt_binary_v6_9.packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nsefo_mtbt_binary_v6_9.stream_header.size + nse_nsefo_mtbt_binary_v6_9.message_type.size
+  return buffer:len() >= nse_nsefo_mtbt_binary_v6_9.stream_header.size
 end
 
 -- Dissect Packet
@@ -1242,8 +1278,14 @@ nse_nsefo_mtbt_binary_v6_9.packet.dissect = function(buffer, packet, parent)
   -- Stream Header: Struct of 3 fields
   index, stream_header = nse_nsefo_mtbt_binary_v6_9.stream_header.dissect(buffer, index, packet, parent)
 
+  -- Dependency element: Message Length
+  local message_length = buffer(index - 8, 2):le_int()
+
+  -- Runtime Size Of: Message
+  local size_of_message = message_length - 8
+
   -- Message: Struct of 2 fields
-  index, message = nse_nsefo_mtbt_binary_v6_9.message.dissect(buffer, index, packet, parent)
+  index, message = nse_nsefo_mtbt_binary_v6_9.message.dissect(buffer, index, packet, parent, size_of_message)
 
   return index
 end

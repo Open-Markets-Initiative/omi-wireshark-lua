@@ -448,7 +448,12 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.market_statistics_report_message
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.message_record_message = ProtoField.new("Message Record Message", "nse.nsefo.orderentry.nnfdirect.v9.50.messagerecordmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.normal_order_limit_update_message = ProtoField.new("Normal Order Limit Update Message", "nse.nsefo.orderentry.nnfdirect.v9.50.normalorderlimitupdatemessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_cancellation_confirmation_message = ProtoField.new("Order Cancellation Confirmation Message", "nse.nsefo.orderentry.nnfdirect.v9.50.ordercancellationconfirmationmessage", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_cancellation_request_message = ProtoField.new("Order Cancellation Request Message", "nse.nsefo.orderentry.nnfdirect.v9.50.ordercancellationrequestmessage", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_confirmation_message = ProtoField.new("Order Confirmation Message", "nse.nsefo.orderentry.nnfdirect.v9.50.orderconfirmationmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_entry_message = ProtoField.new("Order Entry Message", "nse.nsefo.orderentry.nnfdirect.v9.50.orderentrymessage", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_entry_request_message = ProtoField.new("Order Entry Request Message", "nse.nsefo.orderentry.nnfdirect.v9.50.orderentryrequestmessage", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_modification_confirmation_message = ProtoField.new("Order Modification Confirmation Message", "nse.nsefo.orderentry.nnfdirect.v9.50.ordermodificationconfirmationmessage", ftypes.STRING)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_modification_request_message = ProtoField.new("Order Modification Request Message", "nse.nsefo.orderentry.nnfdirect.v9.50.ordermodificationrequestmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.price_modification_message = ProtoField.new("Price Modification Message", "nse.nsefo.orderentry.nnfdirect.v9.50.pricemodificationmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.reset_user_password_message = ProtoField.new("Reset User Password Message", "nse.nsefo.orderentry.nnfdirect.v9.50.resetuserpasswordmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.sector_index_report_message = ProtoField.new("Sector Index Report Message", "nse.nsefo.orderentry.nnfdirect.v9.50.sectorindexreportmessage", ftypes.STRING)
@@ -474,17 +479,6 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_order_limit_update_message 
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_order_value_limit_update_message = ProtoField.new("User Order Value Limit Update Message", "nse.nsefo.orderentry.nnfdirect.v9.50.userordervaluelimitupdatemessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_trade_modify_cancel_status_change_request_message = ProtoField.new("User Trade Modify Cancel Status Change Request Message", "nse.nsefo.orderentry.nnfdirect.v9.50.usertrademodifycancelstatuschangerequestmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_trade_modify_cancel_status_change_response_message = ProtoField.new("User Trade Modify Cancel Status Change Response Message", "nse.nsefo.orderentry.nnfdirect.v9.50.usertrademodifycancelstatuschangeresponsemessage", ftypes.STRING)
-
--- Nse NseFo OrderEntry NnfDirect 9.50 Generated Fields
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.branch_limits_index = ProtoField.new("Branch Limits Index", "nse.nsefo.orderentry.nnfdirect.v9.50.branchlimitsindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.enhncd_mkt_stats_data_index = ProtoField.new("Enhncd Mkt Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.enhncdmktstatsdataindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.index_data_index = ProtoField.new("Index Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.indexdataindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.industry_index_index = ProtoField.new("Industry Index Index", "nse.nsefo.orderentry.nnfdirect.v9.50.industryindexindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.instrument_user_index = ProtoField.new("Instrument User Index", "nse.nsefo.orderentry.nnfdirect.v9.50.instrumentuserindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.mkt_stats_data_index = ProtoField.new("Mkt Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.mktstatsdataindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info_index = ProtoField.new("Ms Spd Leg Info Index", "nse.nsefo.orderentry.nnfdirect.v9.50.msspdleginfoindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.spd_stats_data_index = ProtoField.new("Spd Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.spdstatsdataindex", ftypes.UINT16)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_limits_index = ProtoField.new("User Limits Index", "nse.nsefo.orderentry.nnfdirect.v9.50.userlimitsindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -1970,24 +1964,20 @@ end
 -- Data Payload
 nse_nsefo_orderentry_nnfdirect_v9_50.data_payload = {}
 
--- Size: Data Payload
-nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.size = 0
-
 -- Display: Data Payload
 nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.display = function(value)
   return "Data Payload: "..value
 end
 
--- Dissect: Data Payload
-nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Data Payload
+nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.display(value, buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.display(value, packet, parent, size)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.data_payload, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Default Settlement Period Auction
@@ -2246,24 +2236,20 @@ end
 -- Download Payload
 nse_nsefo_orderentry_nnfdirect_v9_50.download_payload = {}
 
--- Size: Download Payload
-nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.size = 0
-
 -- Display: Download Payload
 nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.display = function(value)
   return "Download Payload: "..value
 end
 
--- Dissect: Download Payload
-nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Download Payload
+nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.display(value, buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.display(value, packet, parent, size)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.download_payload, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Dynamic Cryptographic Iv
@@ -9179,13 +9165,22 @@ nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code.display = function(value)
     return "Transaction Code: Trailer Record Message (7031)"
   end
   if value == 2000 then
-    return "Transaction Code: Order Entry Message (2000)"
+    return "Transaction Code: Order Entry Request Message (2000)"
+  end
+  if value == 2040 then
+    return "Transaction Code: Order Modification Request Message (2040)"
+  end
+  if value == 2070 then
+    return "Transaction Code: Order Cancellation Request Message (2070)"
+  end
+  if value == 2073 then
+    return "Transaction Code: Order Confirmation Message (2073)"
+  end
+  if value == 2074 then
+    return "Transaction Code: Order Modification Confirmation Message (2074)"
   end
   if value == 2012 then
     return "Transaction Code: Order Entry Message (2012)"
-  end
-  if value == 2040 then
-    return "Transaction Code: Order Entry Message (2040)"
   end
   if value == 2042 then
     return "Transaction Code: Order Entry Message (2042)"
@@ -9193,17 +9188,8 @@ nse_nsefo_orderentry_nnfdirect_v9_50.transaction_code.display = function(value)
   if value == 2062 then
     return "Transaction Code: Order Entry Message (2062)"
   end
-  if value == 2070 then
-    return "Transaction Code: Order Entry Message (2070)"
-  end
   if value == 2072 then
     return "Transaction Code: Order Entry Message (2072)"
-  end
-  if value == 2073 then
-    return "Transaction Code: Order Entry Message (2073)"
-  end
-  if value == 2074 then
-    return "Transaction Code: Order Entry Message (2074)"
   end
   if value == 2170 then
     return "Transaction Code: Order Entry Message (2170)"
@@ -14203,6 +14189,206 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect = function(buff
   end
 end
 
+-- Order Modification Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message = {}
+
+-- Size: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size
+
+-- Display: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_modification_confirmation_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message = {}
+
+-- Size: Order Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size
+
+-- Display: Order Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Confirmation Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_confirmation_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Cancellation Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message = {}
+
+-- Size: Order Cancellation Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size
+
+-- Display: Order Cancellation Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Cancellation Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Cancellation Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_cancellation_request_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Modification Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message = {}
+
+-- Size: Order Modification Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size
+
+-- Display: Order Modification Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Modification Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Modification Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_modification_request_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Entry Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message = {}
+
+-- Size: Order Entry Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.size =
+  nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.size
+
+-- Display: Order Entry Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Entry Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Entry Request Message
+nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.order_entry_request_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Trailer Record Message
 nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message = {}
 
@@ -14232,8 +14418,15 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.message_download_data.fields = function(buffer, offset, packet, parent, size_of_message_download_data)
   local index = offset
 
+  -- Dependency for Download Payload
+  local end_of_payload = offset + size_of_message_download_data
+
   -- Download Payload: 0 Byte
-  index, download_payload = nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.dissect(buffer, index, packet, parent)
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, download_payload = nse_nsefo_orderentry_nnfdirect_v9_50.download_payload.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -14417,8 +14610,15 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.local_database_data.fields = function(buffer, offset, packet, parent, size_of_local_database_data)
   local index = offset
 
+  -- Dependency for Data Payload
+  local end_of_payload = offset + size_of_local_database_data
+
   -- Data Payload: 0 Byte
-  index, data_payload = nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.dissect(buffer, index, packet, parent)
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, data_payload = nse_nsefo_orderentry_nnfdirect_v9_50.data_payload.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -15835,16 +16035,28 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect = function(buffer, 
   if transaction_code == 7031 then
     return nse_nsefo_orderentry_nnfdirect_v9_50.trailer_record_message.dissect(buffer, offset, packet, parent)
   end
-  -- Dissect Order Entry Message
+  -- Dissect Order Entry Request Message
   if transaction_code == 2000 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modification Request Message
+  if transaction_code == 2040 then
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Cancellation Request Message
+  if transaction_code == 2070 then
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_cancellation_request_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Confirmation Message
+  if transaction_code == 2073 then
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_confirmation_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Order Modification Confirmation Message
+  if transaction_code == 2074 then
+    return nse_nsefo_orderentry_nnfdirect_v9_50.order_modification_confirmation_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Entry Message
   if transaction_code == 2012 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2040 then
     return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Entry Message
@@ -15856,19 +16068,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect = function(buffer, 
     return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Entry Message
-  if transaction_code == 2070 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
   if transaction_code == 2072 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2073 then
-    return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Order Entry Message
-  if transaction_code == 2074 then
     return nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_message.dissect(buffer, offset, packet, parent)
   end
   -- Dissect Order Entry Message
@@ -16300,7 +16500,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.direct_packet.fields = function(buffer, off
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Message Payload: Runtime Type with 53 branches
+  -- Message Payload: Runtime Type with 58 branches
   index = nse_nsefo_orderentry_nnfdirect_v9_50.message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index

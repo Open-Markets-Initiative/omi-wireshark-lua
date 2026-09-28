@@ -72,9 +72,6 @@ omi_currenex_currenexforex_now_cbp_v10.fields.subscription_reply_message = Proto
 omi_currenex_currenexforex_now_cbp_v10.fields.subscription_request_message = ProtoField.new("Subscription Request Message", "currenex.currenexforex.now.cbp.v10.subscriptionrequestmessage", ftypes.STRING)
 omi_currenex_currenexforex_now_cbp_v10.fields.wamr_with_confidence_factor_message = ProtoField.new("Wamr With Confidence Factor Message", "currenex.currenexforex.now.cbp.v10.wamrwithconfidencefactormessage", ftypes.STRING)
 
--- Currenex CurrenexForex Now Cbp 10 Generated Fields
-omi_currenex_currenexforex_now_cbp_v10.fields.level_index = ProtoField.new("Level Index", "currenex.currenexforex.now.cbp.v10.levelindex", ftypes.UINT16)
-
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------

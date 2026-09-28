@@ -3473,7 +3473,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_nordicequities_totalview_glimpse_v3_00_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.00.1
 --   Date: Tuesday, December 1, 2015
---   Specification: Nasdaq Nordic INET Equity GLIMPSE (3.00.1).pdf
+--   Specification: Nordic-Equity---Glimpse-3.00.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

@@ -2731,7 +2731,7 @@ udp_table:add_for_decode_as(omi_nasdaq_ntxequities_qbbo_itch_v2_1)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 2.1
 --   Date: Friday, August 2, 2024
---   Specification: Nasdaq.NtxEquities.Bbo.Itch.v2.1.20240802.pdf
+--   Specification: NQ_QBBO_Specification__1_.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

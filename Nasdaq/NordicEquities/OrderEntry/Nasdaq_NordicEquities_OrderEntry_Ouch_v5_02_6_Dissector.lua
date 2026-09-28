@@ -7131,7 +7131,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_nordicequities_orderentry_ouch_v5_02_6)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 5.02.6
 --   Date: Wednesday, November 12, 2025
---   Specification: Nasdaq Nordic INET OUCH5 PureStream (5.02.6).pdf
+--   Specification: OUCH5-for-Nasdaq-Nordic-5.02.6.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

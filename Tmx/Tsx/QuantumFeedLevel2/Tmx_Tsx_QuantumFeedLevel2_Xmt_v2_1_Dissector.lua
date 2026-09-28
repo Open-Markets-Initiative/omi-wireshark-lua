@@ -118,8 +118,6 @@ omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.trade_report_terms_message = Proto
 
 -- Tmx Tsx QuantumFeedLevel2 Xmt 2.1 Generated Fields
 omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.body_index = ProtoField.new("Body Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.bodyindex", ftypes.UINT16)
-omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_limit_index = ProtoField.new("Cop Limit Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coplimitindex", ftypes.UINT16)
-omi_tmx_tsx_quantumfeedlevel2_xmt_v2_1.fields.cop_order_index = ProtoField.new("Cop Order Index", "tmx.tsx.quantumfeedlevel2.xmt.v2.1.coporderindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options

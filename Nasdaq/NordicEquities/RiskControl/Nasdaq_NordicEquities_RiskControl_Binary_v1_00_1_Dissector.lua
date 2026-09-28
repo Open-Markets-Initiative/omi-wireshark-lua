@@ -3761,8 +3761,8 @@ tcp_table:add_for_decode_as(omi_nasdaq_nordicequities_riskcontrol_binary_v1_00_1
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 1.00.1
 --   Date: Tuesday, February 10, 2026
---   Specification: Nasdaq Nordic INET Pre-Trade Risk Management PRM Admin (1.00.1).pdf
---   Specification: Nasdaq Nordic INET SoupBinTCP (3.00.4).pdf
+--   Specification: Nasdaq-Nordic---PRM-v.1.00.1.pdf
+--   Specification: SoupBinTCP-for-Nasdaq-Nordic-v.3.00.4.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

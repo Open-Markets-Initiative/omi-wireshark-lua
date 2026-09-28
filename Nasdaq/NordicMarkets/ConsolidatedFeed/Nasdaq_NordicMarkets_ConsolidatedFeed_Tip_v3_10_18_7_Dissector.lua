@@ -26878,7 +26878,7 @@ tcp_table:add_for_decode_as(omi_nasdaq_nordicmarkets_consolidatedfeed_tip_v3_10_
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.10.18.7
 --   Date: Tuesday, June 16, 2026
---   Specification: Nasdaq Nordic GCF SoupBinTCP (3.00.2).pdf
+--   Specification: soupbintcp-for-nasdaq-nordic-v.3.00.2.pdf
 --
 -- Script:
 --   Generator: 0.1.0.0

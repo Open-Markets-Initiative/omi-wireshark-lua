@@ -300,32 +300,7 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.ticker_and_market_index_message = 
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.turnover_exceeded_message = ProtoField.new("Turnover Exceeded Message", "nse.nsefo.broadcast.nnfbcast.v9.50.turnoverexceededmessage", ftypes.STRING)
 
 -- Nse NseFo Broadcast NnfBcast 9.50 Generated Fields
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.asset_open_interest_index = ProtoField.new("Asset Open Interest Index", "nse.nsefo.broadcast.nnfbcast.v9.50.assetopeninterestindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.enhncd_interactive_only_mbp_data_index = ProtoField.new("Enhncd Interactive Only Mbp Data Index", "nse.nsefo.broadcast.nnfbcast.v9.50.enhncdinteractiveonlymbpdataindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.enhncd_mbp_buys_index = ProtoField.new("Enhncd Mbp Buys Index", "nse.nsefo.broadcast.nnfbcast.v9.50.enhncdmbpbuysindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.enhncd_mbp_information_index = ProtoField.new("Enhncd Mbp Information Index", "nse.nsefo.broadcast.nnfbcast.v9.50.enhncdmbpinformationindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.enhncd_mbp_sells_index = ProtoField.new("Enhncd Mbp Sells Index", "nse.nsefo.broadcast.nnfbcast.v9.50.enhncdmbpsellsindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.enhncd_open_interest_index = ProtoField.new("Enhncd Open Interest Index", "nse.nsefo.broadcast.nnfbcast.v9.50.enhncdopeninterestindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.industry_indices_index = ProtoField.new("Industry Indices Index", "nse.nsefo.broadcast.nnfbcast.v9.50.industryindicesindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.interactive_only_mbp_data_index = ProtoField.new("Interactive Only Mbp Data Index", "nse.nsefo.broadcast.nnfbcast.v9.50.interactiveonlymbpdataindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.limit_price_protection_range_detail_index = ProtoField.new("Limit Price Protection Range Detail Index", "nse.nsefo.broadcast.nnfbcast.v9.50.limitpriceprotectionrangedetailindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.mbp_buys_index = ProtoField.new("Mbp Buys Index", "nse.nsefo.broadcast.nnfbcast.v9.50.mbpbuysindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.mbp_information_index = ProtoField.new("Mbp Information Index", "nse.nsefo.broadcast.nnfbcast.v9.50.mbpinformationindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.mbp_sells_index = ProtoField.new("Mbp Sells Index", "nse.nsefo.broadcast.nnfbcast.v9.50.mbpsellsindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.ms_indices_index = ProtoField.new("Ms Indices Index", "nse.nsefo.broadcast.nnfbcast.v9.50.msindicesindex", ftypes.UINT16)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.packed_packet_index = ProtoField.new("Packed Packet Index", "nse.nsefo.broadcast.nnfbcast.v9.50.packedpacketindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_enhncd_market_watch_bcast_index = ProtoField.new("St Enhncd Market Watch Bcast Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stenhncdmarketwatchbcastindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_enhncd_mkt_wise_info_index = ProtoField.new("St Enhncd Mkt Wise Info Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stenhncdmktwiseinfoindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_enhncd_ticker_index_info_index = ProtoField.new("St Enhncd Ticker Index Info Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stenhncdtickerindexinfoindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_market_watch_bcast_index = ProtoField.new("St Market Watch Bcast Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stmarketwatchbcastindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_mbo_info_index = ProtoField.new("St Mbo Info Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stmboinfoindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_mbp_info_index = ProtoField.new("St Mbp Info Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stmbpinfoindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_mkt_wise_info_index = ProtoField.new("St Mkt Wise Info Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stmktwiseinfoindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_sec_eligibility_per_mkt_index = ProtoField.new("St Sec Eligibility Per Mkt Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stseceligibilitypermktindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_sec_status_per_market_index = ProtoField.new("St Sec Status Per Market Index", "nse.nsefo.broadcast.nnfbcast.v9.50.stsecstatuspermarketindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.st_ticker_index_info_index = ProtoField.new("St Ticker Index Info Index", "nse.nsefo.broadcast.nnfbcast.v9.50.sttickerindexinfoindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.token_and_eligibility_index = ProtoField.new("Token And Eligibility Index", "nse.nsefo.broadcast.nnfbcast.v9.50.tokenandeligibilityindex", ftypes.UINT16)
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.token_and_ref_price_index = ProtoField.new("Token And Ref Price Index", "nse.nsefo.broadcast.nnfbcast.v9.50.tokenandrefpriceindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
