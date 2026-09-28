@@ -164,6 +164,7 @@ omi_asx_asxderivatives_t24_itch_v1_13.fields.end_of_session = ProtoField.new("En
 omi_asx_asxderivatives_t24_itch_v1_13.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxderivatives.t24.itch.v1.13.heartbeat", ftypes.BYTES)
 
 -- Asx AsxDerivatives T24 Itch 1.13 Generated Fields
+omi_asx_asxderivatives_t24_itch_v1_13.fields.contract_legs_index = ProtoField.new("Contract Legs Index", "asx.asxderivatives.t24.itch.v1.13.contractlegsindex", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_index = ProtoField.new("Message Index", "asx.asxderivatives.t24.itch.v1.13.messageindex", ftypes.UINT16)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "asx.asxderivatives.t24.itch.v1.13.messagesequencenumber", ftypes.UINT64)
 omi_asx_asxderivatives_t24_itch_v1_13.fields.timestamp = ProtoField.new("Timestamp", "asx.asxderivatives.t24.itch.v1.13.timestamp", ftypes.UINT64)

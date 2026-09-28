@@ -151,6 +151,8 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.end_of_session = ProtoField.new("En
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.heartbeat = ProtoField.new("Heartbeat", "asx.asxderivatives.ntp.itch.v1.05.heartbeat", ftypes.BYTES)
 
 -- Asx AsxDerivatives Ntp Itch 1.05 Generated Fields
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.bundle_leg_index = ProtoField.new("Bundle Leg Index", "asx.asxderivatives.ntp.itch.v1.05.bundlelegindex", ftypes.UINT16)
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.combination_leg_index = ProtoField.new("Combination Leg Index", "asx.asxderivatives.ntp.itch.v1.05.combinationlegindex", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_index = ProtoField.new("Message Index", "asx.asxderivatives.ntp.itch.v1.05.messageindex", ftypes.UINT16)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "asx.asxderivatives.ntp.itch.v1.05.messagesequencenumber", ftypes.UINT64)
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timestamp", "asx.asxderivatives.ntp.itch.v1.05.timestamp", ftypes.UINT64)

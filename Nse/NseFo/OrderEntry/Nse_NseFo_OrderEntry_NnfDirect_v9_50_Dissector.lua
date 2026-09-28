@@ -480,6 +480,17 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_order_value_limit_update_me
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_trade_modify_cancel_status_change_request_message = ProtoField.new("User Trade Modify Cancel Status Change Request Message", "nse.nsefo.orderentry.nnfdirect.v9.50.usertrademodifycancelstatuschangerequestmessage", ftypes.STRING)
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_trade_modify_cancel_status_change_response_message = ProtoField.new("User Trade Modify Cancel Status Change Response Message", "nse.nsefo.orderentry.nnfdirect.v9.50.usertrademodifycancelstatuschangeresponsemessage", ftypes.STRING)
 
+-- Nse NseFo OrderEntry NnfDirect 9.50 Generated Fields
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.branch_limits_index = ProtoField.new("Branch Limits Index", "nse.nsefo.orderentry.nnfdirect.v9.50.branchlimitsindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.enhncd_mkt_stats_data_index = ProtoField.new("Enhncd Mkt Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.enhncdmktstatsdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.index_data_index = ProtoField.new("Index Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.indexdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.industry_index_index = ProtoField.new("Industry Index Index", "nse.nsefo.orderentry.nnfdirect.v9.50.industryindexindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.instrument_user_index = ProtoField.new("Instrument User Index", "nse.nsefo.orderentry.nnfdirect.v9.50.instrumentuserindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.mkt_stats_data_index = ProtoField.new("Mkt Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.mktstatsdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.ms_spd_leg_info_index = ProtoField.new("Ms Spd Leg Info Index", "nse.nsefo.orderentry.nnfdirect.v9.50.msspdleginfoindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.spd_stats_data_index = ProtoField.new("Spd Stats Data Index", "nse.nsefo.orderentry.nnfdirect.v9.50.spdstatsdataindex", ftypes.UINT16)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.user_limits_index = ProtoField.new("User Limits Index", "nse.nsefo.orderentry.nnfdirect.v9.50.userlimitsindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------

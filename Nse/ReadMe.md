@@ -63,8 +63,8 @@
 
 | Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [Nnf][Omi.Encoding.Nnf] | [9.50][Nse.NseFo.OrderEntry.Nnf.v9.50.Dissector] | 7/27/2026 | 16535 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.OrderEntry.Nnf.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.Nnf.v9.50.Pdf] |
-| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfDirect][Omi.Encoding.NnfDirect] | [9.50][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Dissector] | 7/27/2026 | 16659 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Pdf] |
+| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [Nnf][Omi.Encoding.Nnf] | [9.50][Nse.NseFo.OrderEntry.Nnf.v9.50.Dissector] | 7/27/2026 | 16546 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.OrderEntry.Nnf.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.Nnf.v9.50.Pdf] |
+| [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfDirect][Omi.Encoding.NnfDirect] | [9.50][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Dissector] | 7/27/2026 | 16670 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfDirect.v9.50.Pdf] |
 | [NseFo][NseFo.Exchange] | [OrderEntry][Nse.NseFo.OrderEntry] | [NnfTrimmed][Omi.Encoding.NnfTrimmed] | [9.50][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Dissector] | 7/27/2026 | 2910 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Url] - [pdf][Nse.NseFo.OrderEntry.NnfTrimmed.v9.50.Pdf] |
 
 
@@ -72,7 +72,7 @@
 
 | Division | [Protocol][Omi.Nse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Nse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [NseFo][NseFo.Exchange] | [Broadcast][Nse.NseFo.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [9.50][Nse.NseFo.Broadcast.NnfBcast.v9.50.Dissector] | 7/27/2026 | 9278 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Broadcast.NnfBcast.v9.50.Url] - [pdf][Nse.NseFo.Broadcast.NnfBcast.v9.50.Pdf] |
+| [NseFo][NseFo.Exchange] | [Broadcast][Nse.NseFo.Broadcast] | [NnfBcast][Omi.Encoding.NnfBcast] | [9.50][Nse.NseFo.Broadcast.NnfBcast.v9.50.Dissector] | 7/27/2026 | 9303 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nse.NseFo.Broadcast.NnfBcast.v9.50.Url] - [pdf][Nse.NseFo.Broadcast.NnfBcast.v9.50.Pdf] |
 
 
 <p align="center"><a href="https://www.nseindia.com" title="National Stock Exchange of India Ltd Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://www.linkedin.com/company/nseindia" title="National Stock Exchange of India Ltd on LinkedIn"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/LinkedIn.png" alt="LinkedIn" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/National_Stock_Exchange_of_India" title="National Stock Exchange of India Ltd on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
