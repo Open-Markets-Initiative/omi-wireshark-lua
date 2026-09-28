@@ -94,6 +94,19 @@ omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.heartbeat = ProtoField
 -- Nasdaq NfxFutures MarketData GeniumAmd 2.30.7 Generated Fields
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.message_index = ProtoField.new("Message Index", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.messageindex", ftypes.UINT16)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.messagesequencenumber", ftypes.UINT64)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price = ProtoField.new("Scaled Price", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.scaledprice", ftypes.DOUBLE)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_from = ProtoField.new("Scaled Price From", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.scaledpricefrom", ftypes.DOUBLE)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_to = ProtoField.new("Scaled Price To", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.scaledpriceto", ftypes.DOUBLE)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_tick_size = ProtoField.new("Scaled Tick Size", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.scaledticksize", ftypes.DOUBLE)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_trade_price = ProtoField.new("Scaled Trade Price", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.scaledtradeprice", ftypes.DOUBLE)
+
+-----------------------------------------------------------------------
+-- Nasdaq NfxFutures MarketData GeniumAmd 2.30.7 Formatting
+-----------------------------------------------------------------------
+
+-- Scaled Tick Size format (true = decimal-scaled, false = raw mantissa)
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals = true
+
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -102,6 +115,7 @@ omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.message_sequence_numbe
 local show = {}
 
 -- Nasdaq NfxFutures MarketData GeniumAmd 2.30.7 Element Dissection Options
+show.records = true
 show.application_messages = true
 show.structs = true
 show.headers = true
@@ -109,16 +123,21 @@ show.indexes = true
 show.sequences = true
 
 -- Register Nasdaq NfxFutures MarketData GeniumAmd 2.30.7 Show Options
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.resolve_records = Pref.bool("Order Book Directory", show.records, "Cache records and resolve cross-packet lookups")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
 -- Handle changed preferences
 function omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.resolve_records then
+    show.records = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_application_messages then
     show.application_messages = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_application_messages
   end
@@ -134,7 +153,40 @@ function omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs_changed()
   if show.sequences ~= omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_sequences then
     show.sequences = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_sequences
   end
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals ~= omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.format_decimals then
+    nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.format_decimals
+  end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation = {}
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.data = function(packet)
+  local key = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.key(packet)
+  local data = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.flows[key]
+  if data == nil then
+    data = { order_book_directory = {} }
+    nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -855,9 +907,38 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect = function(
   local value = range:uint()
   local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.order_book_id, range, value, display)
+  if not show.records then
+    parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.order_book_id, range, value, display)
 
-  return offset + length, value
+    return offset + length, value
+  end
+
+  -- Lookup Order Book Directory record
+  local record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.current.order_book_directory[value]
+
+  local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.order_book_id, range, value, display)
+
+  if record ~= nil then
+    nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.current = record
+    if record.order_book_id ~= nil then
+      local entry_order_book_id = field_tree:add("Order Book Id: " .. tostring(record.order_book_id))
+      entry_order_book_id:set_generated()
+    end
+    if record.number_of_decimals_in_price ~= nil then
+      local entry_number_of_decimals_in_price = field_tree:add("Number Of Decimals In Price: " .. tostring(record.number_of_decimals_in_price))
+      entry_number_of_decimals_in_price:set_generated()
+    end
+    if record.number_of_decimals_in_strike_price ~= nil then
+      local entry_number_of_decimals_in_strike_price = field_tree:add("Number Of Decimals In Strike Price: " .. tostring(record.number_of_decimals_in_strike_price))
+      entry_number_of_decimals_in_strike_price:set_generated()
+    end
+    if record.number_of_decimals_in_nominal_value ~= nil then
+      local entry_number_of_decimals_in_nominal_value = field_tree:add("Number Of Decimals In Nominal Value: " .. tostring(record.number_of_decimals_in_nominal_value))
+      entry_number_of_decimals_in_nominal_value:set_generated()
+    end
+  end
+
+  return offset + length, value, record
 end
 
 -- Price
@@ -1505,6 +1586,221 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.underlying_order_book_id.dissect 
   return offset + length, value
 end
 
+-- Scaled Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price = {}
+
+-- Display: Scaled Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display = function(value)
+  return "Scaled Price: " .. string.format("%g", value)
+end
+
+-- Composite: Scaled Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.composite = function(buffer, offset, record, packet, parent)
+  local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price.size
+  local range = buffer(offset, length)
+  local mantissa = range:int()
+  local value
+  if record.number_of_decimals_in_price == 256 then
+    value = mantissa / 256
+  else
+    value = mantissa / (10 ^ record.number_of_decimals_in_price)
+  end
+  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display(value)
+  local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price, range, value, display)
+  local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price.display(mantissa)
+
+  field_tree:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.price, range, mantissa, mantissa_display)
+
+  local number_of_decimals_in_price_entry = field_tree:add("Number Of Decimals In Price: " .. tostring(record.number_of_decimals_in_price))
+  number_of_decimals_in_price_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Scaled Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.dissect = function(buffer, offset, packet, parent)
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals then
+    local record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.current
+    if record ~= nil and record.number_of_decimals_in_price ~= nil then
+      return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price.dissect(buffer, offset, packet, parent)
+end
+
+-- Scaled Price From
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from = {}
+
+-- Display: Scaled Price From
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display = function(value)
+  return "Scaled Price From: " .. string.format("%g", value)
+end
+
+-- Composite: Scaled Price From
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.composite = function(buffer, offset, record, packet, parent)
+  local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_from.size
+  local range = buffer(offset, length)
+  local mantissa = range:int()
+  local value
+  if record.number_of_decimals_in_price == 256 then
+    value = mantissa / 256
+  else
+    value = mantissa / (10 ^ record.number_of_decimals_in_price)
+  end
+  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display(value)
+  local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_from, range, value, display)
+  local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_from.display(mantissa)
+
+  field_tree:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.price_from, range, mantissa, mantissa_display)
+
+  local number_of_decimals_in_price_entry = field_tree:add("Number Of Decimals In Price: " .. tostring(record.number_of_decimals_in_price))
+  number_of_decimals_in_price_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Scaled Price From
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.dissect = function(buffer, offset, packet, parent)
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals then
+    local record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.current
+    if record ~= nil and record.number_of_decimals_in_price ~= nil then
+      return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_from.dissect(buffer, offset, packet, parent)
+end
+
+-- Scaled Price To
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to = {}
+
+-- Display: Scaled Price To
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display = function(value)
+  return "Scaled Price To: " .. string.format("%g", value)
+end
+
+-- Composite: Scaled Price To
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.composite = function(buffer, offset, record, packet, parent)
+  local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_to.size
+  local range = buffer(offset, length)
+  local mantissa = range:int()
+  local value
+  if record.number_of_decimals_in_price == 256 then
+    value = mantissa / 256
+  else
+    value = mantissa / (10 ^ record.number_of_decimals_in_price)
+  end
+  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display(value)
+  local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_to, range, value, display)
+  local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_to.display(mantissa)
+
+  field_tree:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.price_to, range, mantissa, mantissa_display)
+
+  local number_of_decimals_in_price_entry = field_tree:add("Number Of Decimals In Price: " .. tostring(record.number_of_decimals_in_price))
+  number_of_decimals_in_price_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Scaled Price To
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.dissect = function(buffer, offset, packet, parent)
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals then
+    local record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.current
+    if record ~= nil and record.number_of_decimals_in_price ~= nil then
+      return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_to.dissect(buffer, offset, packet, parent)
+end
+
+-- Scaled Tick Size
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size = {}
+
+-- Display: Scaled Tick Size
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display = function(value)
+  return "Scaled Tick Size: " .. string.format("%g", value)
+end
+
+-- Composite: Scaled Tick Size
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.composite = function(buffer, offset, record, packet, parent)
+  local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size.size
+  local range = buffer(offset, length)
+  local mantissa = range:int64()
+  local value
+  if record.number_of_decimals_in_price == 256 then
+    value = mantissa / 256
+  else
+    value = mantissa / (10 ^ record.number_of_decimals_in_price)
+  end
+  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display(value)
+  local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_tick_size, range, value, display)
+  local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size.display(mantissa)
+
+  field_tree:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.tick_size, range, mantissa, mantissa_display)
+
+  local number_of_decimals_in_price_entry = field_tree:add("Number Of Decimals In Price: " .. tostring(record.number_of_decimals_in_price))
+  number_of_decimals_in_price_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Scaled Tick Size
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.dissect = function(buffer, offset, packet, parent)
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals then
+    local record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.current
+    if record ~= nil and record.number_of_decimals_in_price ~= nil then
+      return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size.dissect(buffer, offset, packet, parent)
+end
+
+-- Scaled Trade Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price = {}
+
+-- Display: Scaled Trade Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display = function(value)
+  return "Scaled Trade Price: " .. string.format("%g", value)
+end
+
+-- Composite: Scaled Trade Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.composite = function(buffer, offset, record, packet, parent)
+  local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:int()
+  local value
+  if record.number_of_decimals_in_price == 256 then
+    value = mantissa / 256
+  else
+    value = mantissa / (10 ^ record.number_of_decimals_in_price)
+  end
+  local display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display(value)
+  local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_trade_price, range, value, display)
+  local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_price.display(mantissa)
+
+  field_tree:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.trade_price, range, mantissa, mantissa_display)
+
+  local number_of_decimals_in_price_entry = field_tree:add("Number Of Decimals In Price: " .. tostring(record.number_of_decimals_in_price))
+  number_of_decimals_in_price_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Scaled Trade Price
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.dissect = function(buffer, offset, packet, parent)
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals then
+    local record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.current
+    if record ~= nil and record.number_of_decimals_in_price ~= nil then
+      return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_price.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nasdaq NfxFutures MarketData GeniumAmd 2.30.7
@@ -1535,11 +1831,11 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_message.fields = function(b
   -- Price Type: Alpha
   index, price_type = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_type.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric
-  index, order_book_id = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric (record lookup)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- Price: Price
-  index, price = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price.dissect(buffer, index, packet, parent)
+  index, price = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1583,8 +1879,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.open_interest_message.fields = fu
   -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric
-  index, order_book_id = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric (record lookup)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- Open Interest: Numeric
   index, open_interest = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.open_interest.dissect(buffer, index, packet, parent)
@@ -1684,8 +1980,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.reported_trade.fields = function(
   -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric
-  index, order_book_id = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric (record lookup)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- Traded Quantity: Numeric
   index, traded_quantity = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.traded_quantity.dissect(buffer, index, packet, parent)
@@ -1706,7 +2002,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.reported_trade.fields = function(
   index, time_of_trade_dissemination = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.dissect(buffer, index, packet, parent)
 
   -- Trade Price: Price
-  index, trade_price = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_price.dissect(buffer, index, packet, parent)
+  index, trade_price = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.dissect(buffer, index, packet, parent)
 
   -- Trade Type: Numeric
   index, trade_type = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_type.dissect(buffer, index, packet, parent)
@@ -1759,8 +2055,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_state_message.fields =
   -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric
-  index, order_book_id = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric (record lookup)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- State Name: Alpha
   index, state_name = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.state_name.dissect(buffer, index, packet, parent)
@@ -1853,17 +2149,17 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size_table_entry.fields = fu
   -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric
-  index, order_book_id = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric (record lookup)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- Tick Size: Price
-  index, tick_size = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size.dissect(buffer, index, packet, parent)
+  index, tick_size = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.dissect(buffer, index, packet, parent)
 
   -- Price From: Price
-  index, price_from = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_from.dissect(buffer, index, packet, parent)
+  index, price_from = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.dissect(buffer, index, packet, parent)
 
   -- Price To: Price
-  index, price_to = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_to.dissect(buffer, index, packet, parent)
+  index, price_to = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1994,8 +2290,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.fields = fun
   -- Timestamp Nanoseconds: Numeric
   index, timestamp_nanoseconds = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_nanoseconds.dissect(buffer, index, packet, parent)
 
-  -- Order Book Id: Numeric
-  index, order_book_id = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
+  -- Order Book Id: Numeric (record lookup)
+  index, order_book_id, order_book_id_record = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect(buffer, index, packet, parent)
 
   -- Symbol: Alpha
   index, symbol = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.symbol.dissect(buffer, index, packet, parent)
@@ -2056,6 +2352,16 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.fields = fun
 
   -- Minimum Quantity And Multiple: Numeric
   index, minimum_quantity_and_multiple = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.minimum_quantity_and_multiple.dissect(buffer, index, packet, parent)
+
+  -- Cache Order Book Directory record by order_book_id
+  if show.records and not packet.visited then
+    nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.current.order_book_directory[order_book_id] = {
+      order_book_id = order_book_id,
+      number_of_decimals_in_price = number_of_decimals_in_price,
+      number_of_decimals_in_strike_price = number_of_decimals_in_strike_price,
+      number_of_decimals_in_nominal_value = number_of_decimals_in_nominal_value,
+    }
+  end
 
   return index
 end
@@ -2402,6 +2708,12 @@ end
 
 -- Dissect Packet
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.data(packet)
+  if not packet.visited then
+  end
+  nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 3 fields
