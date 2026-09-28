@@ -2151,7 +2151,7 @@ bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.size =
   bse_bseindia_eobi_fbe_v1_4.implied_market_indicator.size + 
   bse_bseindia_eobi_fbe_v1_4.no_legs.size + 
   bse_bseindia_eobi_fbe_v1_4.pad_1.size + 
-  bse_bseindia_eobi_fbe_v1_4.instrmt_leg_grp.size
+  5 * bse_bseindia_eobi_fbe_v1_4.instrmt_leg_grp.size
 
 -- Display: Add Complex Instrument Message
 bse_bseindia_eobi_fbe_v1_4.add_complex_instrument_message.display = function(packet, parent, length)
@@ -2577,7 +2577,7 @@ bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.size =
   bse_bseindia_eobi_fbe_v1_4.trd_reg_ts_execution_time.size + 
   bse_bseindia_eobi_fbe_v1_4.no_md_entries.size + 
   bse_bseindia_eobi_fbe_v1_4.pad_7.size + 
-  bse_bseindia_eobi_fbe_v1_4.md_trade_entry_grp.size
+  15 * bse_bseindia_eobi_fbe_v1_4.md_trade_entry_grp.size
 
 -- Display: Trade Reversal Message
 bse_bseindia_eobi_fbe_v1_4.trade_reversal_message.display = function(packet, parent, length)
@@ -3331,7 +3331,7 @@ bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.size =
   bse_bseindia_eobi_fbe_v1_4.trade_volume.size + 
   bse_bseindia_eobi_fbe_v1_4.no_of_trades.size + 
   bse_bseindia_eobi_fbe_v1_4.pad_4.size + 
-  bse_bseindia_eobi_fbe_v1_4.md_instrument_entry_grp.size
+  15 * bse_bseindia_eobi_fbe_v1_4.md_instrument_entry_grp.size
 
 -- Display: Instrument Summary Message
 bse_bseindia_eobi_fbe_v1_4.instrument_summary_message.display = function(packet, parent, length)

@@ -10393,7 +10393,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.last_activity_reference.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_52.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.price_diff.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size
+  2 * nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.size
 
 -- Display: Spread Order Body
 nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.display = function(packet, parent, length)
@@ -11558,7 +11558,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_value_limit_update_message.size 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_26.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_2.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.size
+  2 * nse_nsefo_orderentry_nnfdirect_v9_50.user_limits.size
 
 -- Display: User Order Value Limit Update Message
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_value_limit_update_message.display = function(packet, parent, length)
@@ -11675,7 +11675,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.branch_order_value_limit_update_message.siz
   nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_25.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.branch_id.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.size
+  2 * nse_nsefo_orderentry_nnfdirect_v9_50.branch_limits.size
 
 -- Display: Branch Order Value Limit Update Message
 nse_nsefo_orderentry_nnfdirect_v9_50.branch_order_value_limit_update_message.display = function(packet, parent, length)
@@ -12448,7 +12448,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.no_of_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.size
+  3 * nse_nsefo_orderentry_nnfdirect_v9_50.spd_stats_data.size
 
 -- Display: Spread Report Statistics Body
 nse_nsefo_orderentry_nnfdirect_v9_50.spread_report_statistics_body.display = function(packet, parent, length)
@@ -12711,7 +12711,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.sector_index_report_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.message_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.industry_name.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_industry_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size
+  10 * nse_nsefo_orderentry_nnfdirect_v9_50.index_data.size
 
 -- Display: Sector Index Report Message
 nse_nsefo_orderentry_nnfdirect_v9_50.sector_index_report_message.display = function(packet, parent, length)
@@ -12831,7 +12831,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.industry_index_report_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.message_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_industry_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size
+  10 * nse_nsefo_orderentry_nnfdirect_v9_50.industry_index.size
 
 -- Display: Industry Index Report Message
 nse_nsefo_orderentry_nnfdirect_v9_50.industry_index_report_message.display = function(packet, parent, length)
@@ -13079,7 +13079,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.enhanced_market_statistics_report_message.s
   nse_nsefo_orderentry_nnfdirect_v9_50.message_type.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.size
+  4 * nse_nsefo_orderentry_nnfdirect_v9_50.enhncd_mkt_stats_data.size
 
 -- Display: Enhanced Market Statistics Report Message
 nse_nsefo_orderentry_nnfdirect_v9_50.enhanced_market_statistics_report_message.display = function(packet, parent, length)
@@ -13222,7 +13222,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.number_of_records.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.size
+  4 * nse_nsefo_orderentry_nnfdirect_v9_50.mkt_stats_data.size
 
 -- Display: Report Statistics Body
 nse_nsefo_orderentry_nnfdirect_v9_50.report_statistics_body.display = function(packet, parent, length)
@@ -13671,7 +13671,7 @@ nse_nsefo_orderentry_nnfdirect_v9_50.user_order_limit_update_message.size =
   nse_nsefo_orderentry_nnfdirect_v9_50.user_name.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_id.size + 
   nse_nsefo_orderentry_nnfdirect_v9_50.user_type.size + 
-  nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.size
+  2 * nse_nsefo_orderentry_nnfdirect_v9_50.instrument_user.size
 
 -- Display: User Order Limit Update Message
 nse_nsefo_orderentry_nnfdirect_v9_50.user_order_limit_update_message.display = function(packet, parent, length)

@@ -5417,7 +5417,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.cas_reference_price_message = {}
 -- Size: Cas Reference Price Message
 nse_nsefo_broadcast_nnfbcast_v9_50.cas_reference_price_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.number_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.token_and_ref_price.size
+  10 * nse_nsefo_broadcast_nnfbcast_v9_50.token_and_ref_price.size
 
 -- Display: Cas Reference Price Message
 nse_nsefo_broadcast_nnfbcast_v9_50.cas_reference_price_message.display = function(packet, parent, length)
@@ -5517,7 +5517,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.limit_price_protection_range_data = {}
 -- Size: Limit Price Protection Range Data
 nse_nsefo_broadcast_nnfbcast_v9_50.limit_price_protection_range_data.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.msg_count.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.limit_price_protection_range_detail.size
+  25 * nse_nsefo_broadcast_nnfbcast_v9_50.limit_price_protection_range_detail.size
 
 -- Display: Limit Price Protection Range Data
 nse_nsefo_broadcast_nnfbcast_v9_50.limit_price_protection_range_data.display = function(packet, parent, length)
@@ -5652,7 +5652,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_asset_open_interest_message = {}
 
 -- Size: Enhanced Asset Open Interest Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_asset_open_interest_message.size =
-  nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_open_interest.size
+  39 * nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_open_interest.size
 
 -- Display: Enhanced Asset Open Interest Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_asset_open_interest_message.display = function(packet, parent, length)
@@ -5744,7 +5744,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.asset_open_interest_message = {}
 
 -- Size: Asset Open Interest Message
 nse_nsefo_broadcast_nnfbcast_v9_50.asset_open_interest_message.size =
-  nse_nsefo_broadcast_nnfbcast_v9_50.asset_open_interest.size
+  58 * nse_nsefo_broadcast_nnfbcast_v9_50.asset_open_interest.size
 
 -- Display: Asset Open Interest Message
 nse_nsefo_broadcast_nnfbcast_v9_50.asset_open_interest_message.display = function(packet, parent, length)
@@ -5945,8 +5945,8 @@ nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_spread_market_by_price_delta_message
   nse_nsefo_broadcast_nnfbcast_v9_50.last_active_time.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.traded_volume_long.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_traded_value.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_mbp_buys.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_mbp_sells.size + 
+  5 * nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_mbp_buys.size + 
+  5 * nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_mbp_sells.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_order_volume.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.size + 
@@ -6153,8 +6153,8 @@ nse_nsefo_broadcast_nnfbcast_v9_50.spread_market_by_price_delta_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.last_active_time.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.traded_volume_short.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_traded_value.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.mbp_buys.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.mbp_sells.size + 
+  5 * nse_nsefo_broadcast_nnfbcast_v9_50.mbp_buys.size + 
+  5 * nse_nsefo_broadcast_nnfbcast_v9_50.mbp_sells.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_order_volume.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.open_price_difference.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.day_high_price_difference.size + 
@@ -6297,7 +6297,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.industry_index_update_message = {}
 -- Size: Industry Index Update Message
 nse_nsefo_broadcast_nnfbcast_v9_50.industry_index_update_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.no_of_recs.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.industry_indices.size
+  20 * nse_nsefo_broadcast_nnfbcast_v9_50.industry_indices.size
 
 -- Display: Industry Index Update Message
 nse_nsefo_broadcast_nnfbcast_v9_50.industry_index_update_message.display = function(packet, parent, length)
@@ -6441,7 +6441,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.indices_message = {}
 -- Size: Indices Message
 nse_nsefo_broadcast_nnfbcast_v9_50.indices_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.number_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.ms_indices.size
+  6 * nse_nsefo_broadcast_nnfbcast_v9_50.ms_indices.size
 
 -- Display: Indices Message
 nse_nsefo_broadcast_nnfbcast_v9_50.indices_message.display = function(packet, parent, length)
@@ -6621,7 +6621,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_market_watch_bcast = {}
 -- Size: St Enhncd Market Watch Bcast
 nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_market_watch_bcast.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.token.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_mkt_wise_info.size + 
+  3 * nse_nsefo_broadcast_nnfbcast_v9_50.st_mkt_wise_info.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.open_interest_long.size
 
 -- Display: St Enhncd Market Watch Bcast
@@ -6677,7 +6677,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_market_watch_round_robin_message = {
 -- Size: Enhanced Market Watch Round Robin Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_market_watch_round_robin_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.no_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_market_watch_bcast.size
+  5 * nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_market_watch_bcast.size
 
 -- Display: Enhanced Market Watch Round Robin Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_market_watch_round_robin_message.display = function(packet, parent, length)
@@ -6793,7 +6793,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.st_market_watch_bcast = {}
 -- Size: St Market Watch Bcast
 nse_nsefo_broadcast_nnfbcast_v9_50.st_market_watch_bcast.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.token.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_mkt_wise_info.size + 
+  3 * nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_mkt_wise_info.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.open_interest_long.size
 
 -- Display: St Market Watch Bcast
@@ -6849,7 +6849,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.market_watch_round_robin_message = {}
 -- Size: Market Watch Round Robin Message
 nse_nsefo_broadcast_nnfbcast_v9_50.market_watch_round_robin_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.no_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_market_watch_bcast.size
+  4 * nse_nsefo_broadcast_nnfbcast_v9_50.st_market_watch_bcast.size
 
 -- Display: Market Watch Round Robin Message
 nse_nsefo_broadcast_nnfbcast_v9_50.market_watch_round_robin_message.display = function(packet, parent, length)
@@ -6965,7 +6965,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_ticker_and_market_index_message = {}
 -- Size: Enhanced Ticker And Market Index Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_ticker_and_market_index_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.number_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_ticker_index_info.size
+  12 * nse_nsefo_broadcast_nnfbcast_v9_50.st_enhncd_ticker_index_info.size
 
 -- Display: Enhanced Ticker And Market Index Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_ticker_and_market_index_message.display = function(packet, parent, length)
@@ -7081,7 +7081,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.ticker_and_market_index_message = {}
 -- Size: Ticker And Market Index Message
 nse_nsefo_broadcast_nnfbcast_v9_50.ticker_and_market_index_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.number_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_ticker_index_info.size
+  17 * nse_nsefo_broadcast_nnfbcast_v9_50.st_ticker_index_info.size
 
 -- Display: Ticker And Market Index Message
 nse_nsefo_broadcast_nnfbcast_v9_50.ticker_and_market_index_message.display = function(packet, parent, length)
@@ -7197,7 +7197,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_interactive_only_mbp_data.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.average_trade_price.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.reserved_14.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.imbalance_qty_at_iop.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_mbp_information.size + 
+  10 * nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_mbp_information.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.bb_total_buy_flag.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.bb_total_sell_flag.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_buy_quantity_long.size + 
@@ -7321,7 +7321,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_only_market_by_price_message = {}
 -- Size: Enhanced Only Market By Price Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_only_market_by_price_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.no_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_interactive_only_mbp_data.size
+  2 * nse_nsefo_broadcast_nnfbcast_v9_50.enhncd_interactive_only_mbp_data.size
 
 -- Display: Enhanced Only Market By Price Message
 nse_nsefo_broadcast_nnfbcast_v9_50.enhanced_only_market_by_price_message.display = function(packet, parent, length)
@@ -7442,7 +7442,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.interactive_only_mbp_data.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.initiator_quantity.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.auction_quantity.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.mbp_information.size + 
+  10 * nse_nsefo_broadcast_nnfbcast_v9_50.mbp_information.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.bb_total_buy_flag.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.bb_total_sell_flag.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_buy_quantity_double.size + 
@@ -7581,7 +7581,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.only_market_by_price_message = {}
 -- Size: Only Market By Price Message
 nse_nsefo_broadcast_nnfbcast_v9_50.only_market_by_price_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.no_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.interactive_only_mbp_data.size
+  2 * nse_nsefo_broadcast_nnfbcast_v9_50.interactive_only_mbp_data.size
 
 -- Display: Only Market By Price Message
 nse_nsefo_broadcast_nnfbcast_v9_50.only_market_by_price_message.display = function(packet, parent, length)
@@ -7809,7 +7809,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.st_interactive_mbo_data.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.initiator_quantity.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.auction_price.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.auction_quantity.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_mbo_info.size
+  10 * nse_nsefo_broadcast_nnfbcast_v9_50.st_mbo_info.size
 
 -- Display: St Interactive Mbo Data
 nse_nsefo_broadcast_nnfbcast_v9_50.st_interactive_mbo_data.display = function(packet, parent, length)
@@ -7903,7 +7903,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.market_by_order_and_market_by_price_message =
 -- Size: Market By Order And Market By Price Message
 nse_nsefo_broadcast_nnfbcast_v9_50.market_by_order_and_market_by_price_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.st_interactive_mbo_data.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_mbp_info.size + 
+  10 * nse_nsefo_broadcast_nnfbcast_v9_50.st_mbp_info.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_buy_quantity_double.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.total_sell_quantity_double.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.st_indicator.size + 
@@ -8023,7 +8023,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.token_and_eligibility = {}
 -- Size: Token And Eligibility
 nse_nsefo_broadcast_nnfbcast_v9_50.token_and_eligibility.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.token.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_sec_status_per_market.size
+  4 * nse_nsefo_broadcast_nnfbcast_v9_50.st_sec_status_per_market.size
 
 -- Display: Token And Eligibility
 nse_nsefo_broadcast_nnfbcast_v9_50.token_and_eligibility.display = function(packet, parent, length)
@@ -8075,7 +8075,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.security_status_change_message = {}
 -- Size: Security Status Change Message
 nse_nsefo_broadcast_nnfbcast_v9_50.security_status_change_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.number_of_records.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.token_and_eligibility.size
+  35 * nse_nsefo_broadcast_nnfbcast_v9_50.token_and_eligibility.size
 
 -- Display: Security Status Change Message
 nse_nsefo_broadcast_nnfbcast_v9_50.security_status_change_message.display = function(packet, parent, length)
@@ -8520,7 +8520,7 @@ nse_nsefo_broadcast_nnfbcast_v9_50.security_master_change_message.size =
   nse_nsefo_broadcast_nnfbcast_v9_50.warning_quantity.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.freeze_quantity.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.credit_rating.size + 
-  nse_nsefo_broadcast_nnfbcast_v9_50.st_sec_eligibility_per_mkt.size + 
+  4 * nse_nsefo_broadcast_nnfbcast_v9_50.st_sec_eligibility_per_mkt.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.issue_rate.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.issue_start_date.size + 
   nse_nsefo_broadcast_nnfbcast_v9_50.interest_payment_date.size + 

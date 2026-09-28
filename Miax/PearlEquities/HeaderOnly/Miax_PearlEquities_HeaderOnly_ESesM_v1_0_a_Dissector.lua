@@ -30,7 +30,9 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_reason = ProtoField
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.headeronly.esesm.v1.0.a.logoutrequest", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.headeronly.esesm.v1.0.a.logouttext", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingengineid", ftypes.UINT8)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status = ProtoField.new("Matching Engine Status", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingenginestatus", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearlequities.headeronly.esesm.v1.0.a.numberofmatchingengines", ftypes.UINT8)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine = ProtoField.new("Requested Matching Engine", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedmatchingengine", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedsequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedtradingsessionid", ftypes.UINT8)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.headeronly.esesm.v1.0.a.retransmissionrequest", ftypes.STRING)
@@ -53,6 +55,10 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_packet_header = Prot
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.esesmtcppacket", ftypes.STRING)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.packet = ProtoField.new("Packet", "miax.pearlequities.headeronly.esesm.v1.0.a.packet", ftypes.STRING)
 
+-- Miax PearlEquities HeaderOnly ESesM 1.0.a Generated Fields
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status_index = ProtoField.new("Matching Engine Status Index", "miax.pearlequities.headeronly.esesm.v1.0.a.matchingenginestatusindex", ftypes.UINT16)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedmatchingengineindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -62,10 +68,12 @@ local show = {}
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Element Dissection Options
 show.headers = true
 show.structs = true
+show.indexes = true
 
 -- Register Miax PearlEquities HeaderOnly ESesM 1.0.a Show Options
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs_changed()
@@ -76,6 +84,9 @@ function omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs_changed()
   end
   if show.structs ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs then
     show.structs = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_structs
+  end
+  if show.indexes ~= omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_indexes then
+    show.indexes = omi_miax_pearlequities_headeronly_esesm_v1_0_a.prefs.show_indexes
   end
 end
 
@@ -1002,15 +1013,75 @@ miax_pearlequities_headeronly_esesm_v1_0_a.synchronization_complete.dissect = fu
   end
 end
 
--- Login Response
-miax_pearlequities_headeronly_esesm_v1_0_a.login_response = {}
+-- Matching Engine Status
+miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status = {}
 
--- Size: Login Response
-miax_pearlequities_headeronly_esesm_v1_0_a.login_response.size =
-  miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.size + 
+-- Size: Matching Engine Status
+miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.size =
   miax_pearlequities_headeronly_esesm_v1_0_a.login_status.size + 
   miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_id.size + 
   miax_pearlequities_headeronly_esesm_v1_0_a.highest_sequence_number.size
+
+-- Display: Matching Engine Status
+miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Matching Engine Status
+miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.fields = function(buffer, offset, packet, parent, matching_engine_status_index)
+  local index = offset
+
+  -- Implicit Matching Engine Status Index
+  if matching_engine_status_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status_index, matching_engine_status_index)
+    iteration:set_generated()
+  end
+
+  -- Login Status: 1 Byte Ascii String Enum with 8 values
+  index, login_status = miax_pearlequities_headeronly_esesm_v1_0_a.login_status.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, highest_sequence_number = miax_pearlequities_headeronly_esesm_v1_0_a.highest_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Matching Engine Status
+miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.dissect = function(buffer, offset, packet, parent, matching_engine_status_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.matching_engine_status, buffer(offset, 0))
+    local index = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
+  end
+end
+
+-- Login Response
+miax_pearlequities_headeronly_esesm_v1_0_a.login_response = {}
+
+-- Calculate size of: Login Response
+miax_pearlequities_headeronly_esesm_v1_0_a.login_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local matching_engine_status_count = buffer(offset + index - 1, 1):uint()
+  index = index + matching_engine_status_count * 10
+
+  return index
+end
 
 -- Display: Login Response
 miax_pearlequities_headeronly_esesm_v1_0_a.login_response.display = function(packet, parent, length)
@@ -1024,14 +1095,10 @@ miax_pearlequities_headeronly_esesm_v1_0_a.login_response.fields = function(buff
   -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
   index, number_of_matching_engines = miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Login Status: 1 Byte Ascii String Enum with 8 values
-  index, login_status = miax_pearlequities_headeronly_esesm_v1_0_a.login_status.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, trading_session_id = miax_pearlequities_headeronly_esesm_v1_0_a.trading_session_id.dissect(buffer, index, packet, parent)
-
-  -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, highest_sequence_number = miax_pearlequities_headeronly_esesm_v1_0_a.highest_sequence_number.dissect(buffer, index, packet, parent)
+  -- Repeating: Matching Engine Status
+  for matching_engine_status_index = 1, number_of_matching_engines do
+    index, matching_engine_status = miax_pearlequities_headeronly_esesm_v1_0_a.matching_engine_status.dissect(buffer, index, packet, parent, matching_engine_status_index)
+  end
 
   return index
 end
@@ -1054,17 +1121,79 @@ miax_pearlequities_headeronly_esesm_v1_0_a.login_response.dissect = function(buf
   end
 end
 
+-- Requested Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine = {}
+
+-- Size: Requested Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.size =
+  miax_pearlequities_headeronly_esesm_v1_0_a.requested_trading_session_id.size + 
+  miax_pearlequities_headeronly_esesm_v1_0_a.requested_sequence_number.size
+
+-- Display: Requested Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Requested Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.fields = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  local index = offset
+
+  -- Implicit Requested Matching Engine Index
+  if requested_matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine_index, requested_matching_engine_index)
+    iteration:set_generated()
+  end
+
+  -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, requested_trading_session_id = miax_pearlequities_headeronly_esesm_v1_0_a.requested_trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, requested_sequence_number = miax_pearlequities_headeronly_esesm_v1_0_a.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Requested Matching Engine
+miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.dissect = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+  end
+end
+
 -- Login Request
 miax_pearlequities_headeronly_esesm_v1_0_a.login_request = {}
 
--- Size: Login Request
-miax_pearlequities_headeronly_esesm_v1_0_a.login_request.size =
-  miax_pearlequities_headeronly_esesm_v1_0_a.esesm_version.size + 
-  miax_pearlequities_headeronly_esesm_v1_0_a.username.size + 
-  miax_pearlequities_headeronly_esesm_v1_0_a.computer_id.size + 
-  miax_pearlequities_headeronly_esesm_v1_0_a.application_protocol.size + 
-  miax_pearlequities_headeronly_esesm_v1_0_a.requested_trading_session_id.size + 
-  miax_pearlequities_headeronly_esesm_v1_0_a.requested_sequence_number.size
+-- Calculate size of: Login Request
+miax_pearlequities_headeronly_esesm_v1_0_a.login_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.esesm_version.size
+
+  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.username.size
+
+  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.computer_id.size
+
+  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.application_protocol.size
+
+  index = index + miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local requested_matching_engine_count = buffer(offset + index - 1, 1):uint()
+  index = index + requested_matching_engine_count * 9
+
+  return index
+end
 
 -- Display: Login Request
 miax_pearlequities_headeronly_esesm_v1_0_a.login_request.display = function(packet, parent, length)
@@ -1087,11 +1216,13 @@ miax_pearlequities_headeronly_esesm_v1_0_a.login_request.fields = function(buffe
   -- Application Protocol: 8 Byte Ascii String
   index, application_protocol = miax_pearlequities_headeronly_esesm_v1_0_a.application_protocol.dissect(buffer, index, packet, parent)
 
-  -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, requested_trading_session_id = miax_pearlequities_headeronly_esesm_v1_0_a.requested_trading_session_id.dissect(buffer, index, packet, parent)
+  -- Number Of Matching Engines: 1 Byte Unsigned Fixed Width Integer
+  index, number_of_matching_engines = miax_pearlequities_headeronly_esesm_v1_0_a.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, requested_sequence_number = miax_pearlequities_headeronly_esesm_v1_0_a.requested_sequence_number.dissect(buffer, index, packet, parent)
+  -- Repeating: Requested Matching Engine
+  for requested_matching_engine_index = 1, number_of_matching_engines do
+    index, requested_matching_engine = miax_pearlequities_headeronly_esesm_v1_0_a.requested_matching_engine.dissect(buffer, index, packet, parent, requested_matching_engine_index)
+  end
 
   return index
 end

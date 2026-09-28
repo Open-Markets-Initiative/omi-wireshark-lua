@@ -4142,7 +4142,7 @@ eurex_t7_eobi_fbe_v11_0.trade_reversal.size =
   eurex_t7_eobi_fbe_v11_0.trade_condition.size + 
   eurex_t7_eobi_fbe_v11_0.md_origin_type.size + 
   eurex_t7_eobi_fbe_v11_0.no_md_entries.size + 
-  eurex_t7_eobi_fbe_v11_0.md_trade_entry_grp_comp.size
+  15 * eurex_t7_eobi_fbe_v11_0.md_trade_entry_grp_comp.size
 
 -- Display: Trade Reversal
 eurex_t7_eobi_fbe_v11_0.trade_reversal.display = function(packet, parent, length)
@@ -5177,7 +5177,7 @@ eurex_t7_eobi_fbe_v11_0.mass_instrument_state_change.size =
   eurex_t7_eobi_fbe_v11_0.last_fragment.size + 
   eurex_t7_eobi_fbe_v11_0.no_related_sym.size + 
   eurex_t7_eobi_fbe_v11_0.pad6.size + 
-  eurex_t7_eobi_fbe_v11_0.sec_mass_stat_grp_comp.size
+  24 * eurex_t7_eobi_fbe_v11_0.sec_mass_stat_grp_comp.size
 
 -- Display: Mass Instrument State Change
 eurex_t7_eobi_fbe_v11_0.mass_instrument_state_change.display = function(packet, parent, length)
@@ -5349,7 +5349,7 @@ eurex_t7_eobi_fbe_v11_0.instrument_summary.size =
   eurex_t7_eobi_fbe_v11_0.no_md_entries.size + 
   eurex_t7_eobi_fbe_v11_0.tes_security_status.size + 
   eurex_t7_eobi_fbe_v11_0.pad5.size + 
-  eurex_t7_eobi_fbe_v11_0.md_instrument_entry_grp_comp.size
+  15 * eurex_t7_eobi_fbe_v11_0.md_instrument_entry_grp_comp.size
 
 -- Display: Instrument Summary
 eurex_t7_eobi_fbe_v11_0.instrument_summary.display = function(packet, parent, length)
@@ -6112,7 +6112,7 @@ eurex_t7_eobi_fbe_v11_0.add_complex_instrument.size =
   eurex_t7_eobi_fbe_v11_0.leg_ratio_multiplier.size + 
   eurex_t7_eobi_fbe_v11_0.no_legs.size + 
   eurex_t7_eobi_fbe_v11_0.pad3.size + 
-  eurex_t7_eobi_fbe_v11_0.instrmt_leg_grp_comp.size
+  20 * eurex_t7_eobi_fbe_v11_0.instrmt_leg_grp_comp.size
 
 -- Display: Add Complex Instrument
 eurex_t7_eobi_fbe_v11_0.add_complex_instrument.display = function(packet, parent, length)

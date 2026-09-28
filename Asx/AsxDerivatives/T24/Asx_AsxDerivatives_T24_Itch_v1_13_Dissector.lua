@@ -4156,7 +4156,7 @@ asx_asxderivatives_t24_itch_v1_13.custom_market_order_added_message.size =
   asx_asxderivatives_t24_itch_v1_13.order_book_priority.size + 
   asx_asxderivatives_t24_itch_v1_13.quantity.size + 
   asx_asxderivatives_t24_itch_v1_13.legs.size + 
-  asx_asxderivatives_t24_itch_v1_13.contract_legs.size
+  6 * asx_asxderivatives_t24_itch_v1_13.contract_legs.size
 
 -- Display: Custom Market Order Added Message
 asx_asxderivatives_t24_itch_v1_13.custom_market_order_added_message.display = function(packet, parent, length)

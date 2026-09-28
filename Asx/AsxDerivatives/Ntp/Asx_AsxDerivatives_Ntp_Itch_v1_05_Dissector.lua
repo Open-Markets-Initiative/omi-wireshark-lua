@@ -4276,7 +4276,7 @@ asx_asxderivatives_ntp_itch_v1_05.bundles_symbol_directory.size =
   asx_asxderivatives_ntp_itch_v1_05.price_fractional_denominator.size + 
   asx_asxderivatives_ntp_itch_v1_05.price_minimum_tick.size + 
   asx_asxderivatives_ntp_itch_v1_05.legs.size + 
-  asx_asxderivatives_ntp_itch_v1_05.bundle_leg.size
+  20 * asx_asxderivatives_ntp_itch_v1_05.bundle_leg.size
 
 -- Display: Bundles Symbol Directory
 asx_asxderivatives_ntp_itch_v1_05.bundles_symbol_directory.display = function(packet, parent, length)
@@ -4420,7 +4420,7 @@ asx_asxderivatives_ntp_itch_v1_05.combination_symbol_directory_message.size =
   asx_asxderivatives_ntp_itch_v1_05.price_fractional_denominator.size + 
   asx_asxderivatives_ntp_itch_v1_05.price_minimum_tick.size + 
   asx_asxderivatives_ntp_itch_v1_05.legs.size + 
-  asx_asxderivatives_ntp_itch_v1_05.combination_leg.size
+  6 * asx_asxderivatives_ntp_itch_v1_05.combination_leg.size
 
 -- Display: Combination Symbol Directory Message
 asx_asxderivatives_ntp_itch_v1_05.combination_symbol_directory_message.display = function(packet, parent, length)

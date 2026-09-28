@@ -31,7 +31,6 @@ grep "txse.txseequities.seed.rake.v1.0.orderqty" Txse.TxseEquities.Seed.Rake.v1.
 grep "txse.txseequities.seed.rake.v1.0.limitorderbitfields" Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json
 grep "txse.txseequities.seed.rake.v1.0.symbolid" Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json
 grep "txse.txseequities.seed.rake.v1.0.price" Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json
-grep "txse.txseequities.seed.rake.v1.0.selfmatchscope" Txse.TxseEquities.Seed.Rake.v1.0.LimitOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Txse/TxseEquities.Seed.Rake.v1.0/Reassembly.pcap" \
   -X "lua_script:Txse/TxseEquities/Seed/Txse_TxseEquities_Seed_Rake_v1_0_Dissector.lua" \

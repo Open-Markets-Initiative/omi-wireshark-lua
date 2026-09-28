@@ -87,6 +87,7 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.price = ProtoField.new("Pri
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.price_sliding_and_reprice_frequency = ProtoField.new("Price Sliding And Reprice Frequency", "miax.pearlequities.expressorders.meo.v2.6.priceslidingandrepricefrequency", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.expressorders.meo.v2.6.primarymarketcode", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.purge_group = ProtoField.new("Purge Group", "miax.pearlequities.expressorders.meo.v2.6.purgegroup", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.requested_matching_engine = ProtoField.new("Requested Matching Engine", "miax.pearlequities.expressorders.meo.v2.6.requestedmatchingengine", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.expressorders.meo.v2.6.requestedsequencenumber", ftypes.UINT64)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.expressorders.meo.v2.6.requestedtradingsessionid", ftypes.UINT8)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.expressorders.meo.v2.6.reserved1", ftypes.BYTES)
@@ -163,6 +164,10 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserve_order_replenishment
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.symbol_update = ProtoField.new("Symbol Update", "miax.pearlequities.expressorders.meo.v2.6.symbolupdate", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.system_state_notification = ProtoField.new("System State Notification", "miax.pearlequities.expressorders.meo.v2.6.systemstatenotification", ftypes.STRING)
 
+-- Miax PearlEquities ExpressOrders Meo 2.6 Generated Fields
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.matching_engine_status_index = ProtoField.new("Matching Engine Status Index", "miax.pearlequities.expressorders.meo.v2.6.matchingenginestatusindex", ftypes.UINT16)
+omi_miax_pearlequities_expressorders_meo_v2_6.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.expressorders.meo.v2.6.requestedmatchingengineindex", ftypes.UINT16)
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -173,11 +178,13 @@ local show = {}
 show.structs = true
 show.application_messages = true
 show.headers = true
+show.indexes = true
 
 -- Register Miax PearlEquities ExpressOrders Meo 2.6 Show Options
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
@@ -191,6 +198,9 @@ function omi_miax_pearlequities_expressorders_meo_v2_6.prefs_changed()
   end
   if show.structs ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs then
     show.structs = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_structs
+  end
+  if show.indexes ~= omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_indexes then
+    show.indexes = omi_miax_pearlequities_expressorders_meo_v2_6.prefs.show_indexes
   end
 end
 
@@ -1356,66 +1366,6 @@ miax_pearlequities_expressorders_meo_v2_6.matching_engine_id.dissect = function(
   local display = miax_pearlequities_expressorders_meo_v2_6.matching_engine_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.matching_engine_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Matching Engine Status
-miax_pearlequities_expressorders_meo_v2_6.matching_engine_status = {}
-
--- Size: Matching Engine Status
-miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.size = 24
-
--- Display: Matching Engine Status
-miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.display = function(value)
-  if value == "“ “" then
-    return "Matching Engine Status: Successful (“ “)"
-  end
-  if value == "I" then
-    return "Matching Engine Status: Invalid Mpid (I)"
-  end
-  if value == "X" then
-    return "Matching Engine Status: Mpid Not Permitted (X)"
-  end
-  if value == "P" then
-    return "Matching Engine Status: Request Is Not Permitted For This Session (P)"
-  end
-  if value == "R" then
-    return "Matching Engine Status: Invalid Scope (R)"
-  end
-  if value == "A" then
-    return "Matching Engine Status: Invalid Action (A)"
-  end
-  if value == "C" then
-    return "Matching Engine Status: Matching Engine Not Available (C)"
-  end
-  if value == "U" then
-    return "Matching Engine Status: State Of The Request For This Matching Engine (U)"
-  end
-  if value == "O" then
-    return "Matching Engine Status: Invalid Client Order Id (O)"
-  end
-  if value == "Z" then
-    return "Matching Engine Status: Undefined Reason (Z)"
-  end
-  if value == "6" then
-    return "Matching Engine Status: Invalid Purge Group Specified (6)"
-  end
-  if value == "*" then
-    return "Matching Engine Status: Downgraded From Older Version (*)"
-  end
-
-  return "Matching Engine Status: Unknown("..value..")"
-end
-
--- Dissect: Matching Engine Status
-miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.matching_engine_status, range, value, display)
 
   return offset + length, value
 end
@@ -3607,15 +3557,75 @@ miax_pearlequities_expressorders_meo_v2_6.synchronization_complete.dissect = fun
   end
 end
 
--- Login Response
-miax_pearlequities_expressorders_meo_v2_6.login_response = {}
+-- Matching Engine Status
+miax_pearlequities_expressorders_meo_v2_6.matching_engine_status = {}
 
--- Size: Login Response
-miax_pearlequities_expressorders_meo_v2_6.login_response.size =
-  miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size + 
+-- Size: Matching Engine Status
+miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.size =
   miax_pearlequities_expressorders_meo_v2_6.login_status.size + 
   miax_pearlequities_expressorders_meo_v2_6.trading_session_id.size + 
   miax_pearlequities_expressorders_meo_v2_6.highest_sequence_number.size
+
+-- Display: Matching Engine Status
+miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.display = function(buffer, offset, value, packet, parent)
+  return ""..value
+end
+
+-- Dissect Fields: Matching Engine Status
+miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.fields = function(buffer, offset, packet, parent, matching_engine_status_index)
+  local index = offset
+
+  -- Implicit Matching Engine Status Index
+  if matching_engine_status_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.matching_engine_status_index, matching_engine_status_index)
+    iteration:set_generated()
+  end
+
+  -- Login Status: 1 Byte Ascii String Enum with 8 values
+  index, login_status = miax_pearlequities_expressorders_meo_v2_6.login_status.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_expressorders_meo_v2_6.trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, highest_sequence_number = miax_pearlequities_expressorders_meo_v2_6.highest_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Matching Engine Status
+miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.dissect = function(buffer, offset, packet, parent, matching_engine_status_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.matching_engine_status, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, value
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.fields(buffer, offset, packet, parent, matching_engine_status_index)
+  end
+end
+
+-- Login Response
+miax_pearlequities_expressorders_meo_v2_6.login_response = {}
+
+-- Calculate size of: Login Response
+miax_pearlequities_expressorders_meo_v2_6.login_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local matching_engine_status_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + matching_engine_status_count * 10
+
+  return index
+end
 
 -- Display: Login Response
 miax_pearlequities_expressorders_meo_v2_6.login_response.display = function(packet, parent, length)
@@ -3629,14 +3639,10 @@ miax_pearlequities_expressorders_meo_v2_6.login_response.fields = function(buffe
   -- Number Of Matching Engines: BinaryU
   index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Login Status: 1 Byte Ascii String Enum with 8 values
-  index, login_status = miax_pearlequities_expressorders_meo_v2_6.login_status.dissect(buffer, index, packet, parent)
-
-  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, trading_session_id = miax_pearlequities_expressorders_meo_v2_6.trading_session_id.dissect(buffer, index, packet, parent)
-
-  -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, highest_sequence_number = miax_pearlequities_expressorders_meo_v2_6.highest_sequence_number.dissect(buffer, index, packet, parent)
+  -- Repeating: Matching Engine Status
+  for matching_engine_status_index = 1, number_of_matching_engines do
+    index, matching_engine_status = miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.dissect(buffer, index, packet, parent, matching_engine_status_index)
+  end
 
   return index
 end
@@ -3659,17 +3665,79 @@ miax_pearlequities_expressorders_meo_v2_6.login_response.dissect = function(buff
   end
 end
 
+-- Requested Matching Engine
+miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine = {}
+
+-- Size: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.size =
+  miax_pearlequities_expressorders_meo_v2_6.requested_trading_session_id.size + 
+  miax_pearlequities_expressorders_meo_v2_6.requested_sequence_number.size
+
+-- Display: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.fields = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  local index = offset
+
+  -- Implicit Requested Matching Engine Index
+  if requested_matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.requested_matching_engine_index, requested_matching_engine_index)
+    iteration:set_generated()
+  end
+
+  -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, requested_trading_session_id = miax_pearlequities_expressorders_meo_v2_6.requested_trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, requested_sequence_number = miax_pearlequities_expressorders_meo_v2_6.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.dissect = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.requested_matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+  end
+end
+
 -- Login Request
 miax_pearlequities_expressorders_meo_v2_6.login_request = {}
 
--- Size: Login Request
-miax_pearlequities_expressorders_meo_v2_6.login_request.size =
-  miax_pearlequities_expressorders_meo_v2_6.esesm_version.size + 
-  miax_pearlequities_expressorders_meo_v2_6.username.size + 
-  miax_pearlequities_expressorders_meo_v2_6.computer_id.size + 
-  miax_pearlequities_expressorders_meo_v2_6.application_protocol.size + 
-  miax_pearlequities_expressorders_meo_v2_6.requested_trading_session_id.size + 
-  miax_pearlequities_expressorders_meo_v2_6.requested_sequence_number.size
+-- Calculate size of: Login Request
+miax_pearlequities_expressorders_meo_v2_6.login_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.esesm_version.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.username.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.computer_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.application_protocol.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local requested_matching_engine_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + requested_matching_engine_count * 9
+
+  return index
+end
 
 -- Display: Login Request
 miax_pearlequities_expressorders_meo_v2_6.login_request.display = function(packet, parent, length)
@@ -3692,11 +3760,13 @@ miax_pearlequities_expressorders_meo_v2_6.login_request.fields = function(buffer
   -- Application Protocol: 8 Byte Ascii String
   index, application_protocol = miax_pearlequities_expressorders_meo_v2_6.application_protocol.dissect(buffer, index, packet, parent)
 
-  -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, requested_trading_session_id = miax_pearlequities_expressorders_meo_v2_6.requested_trading_session_id.dissect(buffer, index, packet, parent)
+  -- Number Of Matching Engines: BinaryU
+  index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, requested_sequence_number = miax_pearlequities_expressorders_meo_v2_6.requested_sequence_number.dissect(buffer, index, packet, parent)
+  -- Repeating: Requested Matching Engine
+  for requested_matching_engine_index = 1, number_of_matching_engines do
+    index, requested_matching_engine = miax_pearlequities_expressorders_meo_v2_6.requested_matching_engine.dissect(buffer, index, packet, parent, requested_matching_engine_index)
+  end
 
   return index
 end
@@ -3976,14 +4046,26 @@ end
 -- Mass Cancel Response
 miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response = {}
 
--- Size: Mass Cancel Response
-miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response.size =
-  miax_pearlequities_expressorders_meo_v2_6.notification_time.size + 
-  miax_pearlequities_expressorders_meo_v2_6.mpid.size + 
-  miax_pearlequities_expressorders_meo_v2_6.client_order_id.size + 
-  miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size + 
-  miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.size + 
-  miax_pearlequities_expressorders_meo_v2_6.reserved_10.size
+-- Calculate size of: Mass Cancel Response
+miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.notification_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local matching_engine_status_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + matching_engine_status_count * 10
+
+  index = index + miax_pearlequities_expressorders_meo_v2_6.reserved_10.size
+
+  return index
+end
 
 -- Display: Mass Cancel Response
 miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response.display = function(packet, parent, length)
@@ -4006,8 +4088,10 @@ miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response.fields = function
   -- Number Of Matching Engines: BinaryU
   index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.dissect(buffer, index, packet, parent)
 
-  -- Matching Engine Status: Alphanumeric
-  index, matching_engine_status = miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.dissect(buffer, index, packet, parent)
+  -- Repeating: Matching Engine Status
+  for matching_engine_status_index = 1, number_of_matching_engines do
+    index, matching_engine_status = miax_pearlequities_expressorders_meo_v2_6.matching_engine_status.dissect(buffer, index, packet, parent, matching_engine_status_index)
+  end
 
   -- Reserved 10: BinaryU
   index, reserved_10 = miax_pearlequities_expressorders_meo_v2_6.reserved_10.dissect(buffer, index, packet, parent)

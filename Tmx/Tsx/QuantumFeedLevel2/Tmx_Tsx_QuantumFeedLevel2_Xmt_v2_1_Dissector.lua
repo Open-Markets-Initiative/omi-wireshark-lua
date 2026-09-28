@@ -3263,7 +3263,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.assign_limit_message.size =
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.symbol.size + 
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.calculated_opening_price.size + 
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.order_side.size + 
-  tmx_tsx_quantumfeedlevel2_xmt_v2_1.cop_limit.size + 
+  15 * tmx_tsx_quantumfeedlevel2_xmt_v2_1.cop_limit.size + 
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.trading_system_time_stamp.size
 
 -- Display: Assign Limit Message
@@ -3419,7 +3419,7 @@ tmx_tsx_quantumfeedlevel2_xmt_v2_1.assign_cop_orders_message.size =
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.symbol.size + 
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.calculated_opening_price.size + 
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.order_side.size + 
-  tmx_tsx_quantumfeedlevel2_xmt_v2_1.cop_order.size + 
+  15 * tmx_tsx_quantumfeedlevel2_xmt_v2_1.cop_order.size + 
   tmx_tsx_quantumfeedlevel2_xmt_v2_1.trading_system_time_stamp.size
 
 -- Display: Assign Cop Orders Message

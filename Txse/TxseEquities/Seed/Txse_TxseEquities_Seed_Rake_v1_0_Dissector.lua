@@ -65,13 +65,16 @@ omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_mpid = Prot
 omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_price_slide_instruction = ProtoField.new("Has Limit Order Rejected Price Slide Instruction", "txse.txseequities.seed.rake.v1.0.haslimitorderrejectedpriceslideinstruction", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000004)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_reference_price_target = ProtoField.new("Has Limit Order Rejected Reference Price Target", "txse.txseequities.seed.rake.v1.0.haslimitorderrejectedreferencepricetarget", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000080)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_self_match_instruction = ProtoField.new("Has Limit Order Rejected Self Match Instruction", "txse.txseequities.seed.rake.v1.0.haslimitorderrejectedselfmatchinstruction", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000002)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_self_match_scope = ProtoField.new("Has Limit Order Rejected Self Match Scope", "txse.txseequities.seed.rake.v1.0.haslimitorderrejectedselfmatchscope", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000001)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_user_data = ProtoField.new("Has Limit Order Rejected User Data", "txse.txseequities.seed.rake.v1.0.haslimitorderrejecteduserdata", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000200)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_self_match_instruction = ProtoField.new("Has Limit Order Self Match Instruction", "txse.txseequities.seed.rake.v1.0.haslimitorderselfmatchinstruction", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000002)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_self_match_scope = ProtoField.new("Has Limit Order Self Match Scope", "txse.txseequities.seed.rake.v1.0.haslimitorderselfmatchscope", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000001)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_user_data = ProtoField.new("Has Limit Order User Data", "txse.txseequities.seed.rake.v1.0.haslimitorderuserdata", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000200)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_locate_broker = ProtoField.new("Has Market Order Accepted Locate Broker", "txse.txseequities.seed.rake.v1.0.hasmarketorderacceptedlocatebroker", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_member_group = ProtoField.new("Has Market Order Accepted Member Group", "txse.txseequities.seed.rake.v1.0.hasmarketorderacceptedmembergroup", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_mpid = ProtoField.new("Has Market Order Accepted Mpid", "txse.txseequities.seed.rake.v1.0.hasmarketorderacceptedmpid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_self_match_instruction = ProtoField.new("Has Market Order Accepted Self Match Instruction", "txse.txseequities.seed.rake.v1.0.hasmarketorderacceptedselfmatchinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_self_match_scope = ProtoField.new("Has Market Order Accepted Self Match Scope", "txse.txseequities.seed.rake.v1.0.hasmarketorderacceptedselfmatchscope", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_user_data = ProtoField.new("Has Market Order Accepted User Data", "txse.txseequities.seed.rake.v1.0.hasmarketorderaccepteduserdata", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_locate_broker = ProtoField.new("Has Market Order Locate Broker", "txse.txseequities.seed.rake.v1.0.hasmarketorderlocatebroker", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_member_group = ProtoField.new("Has Market Order Member Group", "txse.txseequities.seed.rake.v1.0.hasmarketordermembergroup", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
@@ -80,8 +83,10 @@ omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_locate_bro
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_member_group = ProtoField.new("Has Market Order Rejected Member Group", "txse.txseequities.seed.rake.v1.0.hasmarketorderrejectedmembergroup", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_mpid = ProtoField.new("Has Market Order Rejected Mpid", "txse.txseequities.seed.rake.v1.0.hasmarketorderrejectedmpid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_self_match_instruction = ProtoField.new("Has Market Order Rejected Self Match Instruction", "txse.txseequities.seed.rake.v1.0.hasmarketorderrejectedselfmatchinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_self_match_scope = ProtoField.new("Has Market Order Rejected Self Match Scope", "txse.txseequities.seed.rake.v1.0.hasmarketorderrejectedselfmatchscope", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_user_data = ProtoField.new("Has Market Order Rejected User Data", "txse.txseequities.seed.rake.v1.0.hasmarketorderrejecteduserdata", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_self_match_instruction = ProtoField.new("Has Market Order Self Match Instruction", "txse.txseequities.seed.rake.v1.0.hasmarketorderselfmatchinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_self_match_scope = ProtoField.new("Has Market Order Self Match Scope", "txse.txseequities.seed.rake.v1.0.hasmarketorderselfmatchscope", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_user_data = ProtoField.new("Has Market Order User Data", "txse.txseequities.seed.rake.v1.0.hasmarketorderuserdata", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_mass_cancel_accepted_cl_ord_id = ProtoField.new("Has Mass Cancel Accepted Cl Ord Id", "txse.txseequities.seed.rake.v1.0.hasmasscancelacceptedclordid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_mass_cancel_accepted_member_group = ProtoField.new("Has Mass Cancel Accepted Member Group", "txse.txseequities.seed.rake.v1.0.hasmasscancelacceptedmembergroup", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
@@ -113,6 +118,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_price_slide_instr
 omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_rank_price = ProtoField.new("Has Order Replaced Rank Price", "txse.txseequities.seed.rake.v1.0.hasorderreplacedrankprice", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_reference_price_target = ProtoField.new("Has Order Replaced Reference Price Target", "txse.txseequities.seed.rake.v1.0.hasorderreplacedreferencepricetarget", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_self_match_instruction = ProtoField.new("Has Order Replaced Self Match Instruction", "txse.txseequities.seed.rake.v1.0.hasorderreplacedselfmatchinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_self_match_scope = ProtoField.new("Has Order Replaced Self Match Scope", "txse.txseequities.seed.rake.v1.0.hasorderreplacedselfmatchscope", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_order_restated_display_price = ProtoField.new("Has Order Restated Display Price", "txse.txseequities.seed.rake.v1.0.hasorderrestateddisplayprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_order_restated_rank_price = ProtoField.new("Has Order Restated Rank Price", "txse.txseequities.seed.rake.v1.0.hasorderrestatedrankprice", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_locate_broker = ProtoField.new("Has Replace Order Locate Broker", "txse.txseequities.seed.rake.v1.0.hasreplaceorderlocatebroker", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
@@ -122,6 +128,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_price = ProtoField
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_price_slide_instruction = ProtoField.new("Has Replace Order Price Slide Instruction", "txse.txseequities.seed.rake.v1.0.hasreplaceorderpriceslideinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_reference_price_target = ProtoField.new("Has Replace Order Reference Price Target", "txse.txseequities.seed.rake.v1.0.hasreplaceorderreferencepricetarget", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_self_match_instruction = ProtoField.new("Has Replace Order Self Match Instruction", "txse.txseequities.seed.rake.v1.0.hasreplaceorderselfmatchinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_self_match_scope = ProtoField.new("Has Replace Order Self Match Scope", "txse.txseequities.seed.rake.v1.0.hasreplaceorderselfmatchscope", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_locate_broker = ProtoField.new("Has Replace Rejected Locate Broker", "txse.txseequities.seed.rake.v1.0.hasreplacerejectedlocatebroker", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_max_floor_qty = ProtoField.new("Has Replace Rejected Max Floor Qty", "txse.txseequities.seed.rake.v1.0.hasreplacerejectedmaxfloorqty", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_order_qty = ProtoField.new("Has Replace Rejected Order Qty", "txse.txseequities.seed.rake.v1.0.hasreplacerejectedorderqty", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
@@ -129,6 +136,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_price = ProtoFi
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_price_slide_instruction = ProtoField.new("Has Replace Rejected Price Slide Instruction", "txse.txseequities.seed.rake.v1.0.hasreplacerejectedpriceslideinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_reference_price_target = ProtoField.new("Has Replace Rejected Reference Price Target", "txse.txseequities.seed.rake.v1.0.hasreplacerejectedreferencepricetarget", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_self_match_instruction = ProtoField.new("Has Replace Rejected Self Match Instruction", "txse.txseequities.seed.rake.v1.0.hasreplacerejectedselfmatchinstruction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
+omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_self_match_scope = ProtoField.new("Has Replace Rejected Self Match Scope", "txse.txseequities.seed.rake.v1.0.hasreplacerejectedselfmatchscope", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_symbol_status_operational_halt_reason = ProtoField.new("Has Symbol Status Operational Halt Reason", "txse.txseequities.seed.rake.v1.0.hassymbolstatusoperationalhaltreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_symbol_status_regulatory_halt_reason = ProtoField.new("Has Symbol Status Regulatory Halt Reason", "txse.txseequities.seed.rake.v1.0.hassymbolstatusregulatoryhaltreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_txse_txseequities_seed_rake_v1_0.fields.has_trading_session_status_operational_halt_reason = ProtoField.new("Has Trading Session Status Operational Halt Reason", "txse.txseequities.seed.rake.v1.0.hastradingsessionstatusoperationalhaltreason", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -156,6 +164,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_price_slide_ins
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_rank_price = ProtoField.new("Limit Order Accepted Rank Price", "txse.txseequities.seed.rake.v1.0.limitorderacceptedrankprice", ftypes.DOUBLE)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_reference_price_target = ProtoField.new("Limit Order Accepted Reference Price Target", "txse.txseequities.seed.rake.v1.0.limitorderacceptedreferencepricetarget", ftypes.INT16)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_self_match_instruction = ProtoField.new("Limit Order Accepted Self Match Instruction", "txse.txseequities.seed.rake.v1.0.limitorderacceptedselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_self_match_scope = ProtoField.new("Limit Order Accepted Self Match Scope", "txse.txseequities.seed.rake.v1.0.limitorderacceptedselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_user_data = ProtoField.new("Limit Order Accepted User Data", "txse.txseequities.seed.rake.v1.0.limitorderaccepteduserdata", ftypes.INT64)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_bit_fields = ProtoField.new("Limit Order Bit Fields", "txse.txseequities.seed.rake.v1.0.limitorderbitfields", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_expire_time = ProtoField.new("Limit Order Expire Time", "txse.txseequities.seed.rake.v1.0.limitorderexpiretime", ftypes.INT64)
@@ -183,8 +192,10 @@ omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_price_slide_ins
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_reason = ProtoField.new("Limit Order Rejected Reason", "txse.txseequities.seed.rake.v1.0.limitorderrejectedreason", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_reference_price_target = ProtoField.new("Limit Order Rejected Reference Price Target", "txse.txseequities.seed.rake.v1.0.limitorderrejectedreferencepricetarget", ftypes.INT16)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_self_match_instruction = ProtoField.new("Limit Order Rejected Self Match Instruction", "txse.txseequities.seed.rake.v1.0.limitorderrejectedselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_self_match_scope = ProtoField.new("Limit Order Rejected Self Match Scope", "txse.txseequities.seed.rake.v1.0.limitorderrejectedselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_user_data = ProtoField.new("Limit Order Rejected User Data", "txse.txseequities.seed.rake.v1.0.limitorderrejecteduserdata", ftypes.INT64)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_self_match_instruction = ProtoField.new("Limit Order Self Match Instruction", "txse.txseequities.seed.rake.v1.0.limitorderselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_self_match_scope = ProtoField.new("Limit Order Self Match Scope", "txse.txseequities.seed.rake.v1.0.limitorderselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_user_data = ProtoField.new("Limit Order User Data", "txse.txseequities.seed.rake.v1.0.limitorderuserdata", ftypes.INT64)
 omi_txse_txseequities_seed_rake_v1_0.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "txse.txseequities.seed.rake.v1.0.liquidityindicator", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.listing_market = ProtoField.new("Listing Market", "txse.txseequities.seed.rake.v1.0.listingmarket", ftypes.INT8)
@@ -199,6 +210,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_member_group =
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_mpid = ProtoField.new("Market Order Accepted Mpid", "txse.txseequities.seed.rake.v1.0.marketorderacceptedmpid", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_presence_bits = ProtoField.new("Market Order Accepted Presence Bits", "txse.txseequities.seed.rake.v1.0.marketorderacceptedpresencebits", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_self_match_instruction = ProtoField.new("Market Order Accepted Self Match Instruction", "txse.txseequities.seed.rake.v1.0.marketorderacceptedselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_self_match_scope = ProtoField.new("Market Order Accepted Self Match Scope", "txse.txseequities.seed.rake.v1.0.marketorderacceptedselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_user_data = ProtoField.new("Market Order Accepted User Data", "txse.txseequities.seed.rake.v1.0.marketorderaccepteduserdata", ftypes.INT64)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_bit_fields = ProtoField.new("Market Order Bit Fields", "txse.txseequities.seed.rake.v1.0.marketorderbitfields", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_locate_broker = ProtoField.new("Market Order Locate Broker", "txse.txseequities.seed.rake.v1.0.marketorderlocatebroker", ftypes.STRING)
@@ -212,8 +224,10 @@ omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_mpid = ProtoFi
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_presence_bits = ProtoField.new("Market Order Rejected Presence Bits", "txse.txseequities.seed.rake.v1.0.marketorderrejectedpresencebits", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_reason = ProtoField.new("Market Order Rejected Reason", "txse.txseequities.seed.rake.v1.0.marketorderrejectedreason", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_self_match_instruction = ProtoField.new("Market Order Rejected Self Match Instruction", "txse.txseequities.seed.rake.v1.0.marketorderrejectedselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_self_match_scope = ProtoField.new("Market Order Rejected Self Match Scope", "txse.txseequities.seed.rake.v1.0.marketorderrejectedselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_user_data = ProtoField.new("Market Order Rejected User Data", "txse.txseequities.seed.rake.v1.0.marketorderrejecteduserdata", ftypes.INT64)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_self_match_instruction = ProtoField.new("Market Order Self Match Instruction", "txse.txseequities.seed.rake.v1.0.marketorderselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.market_order_self_match_scope = ProtoField.new("Market Order Self Match Scope", "txse.txseequities.seed.rake.v1.0.marketorderselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.market_order_user_data = ProtoField.new("Market Order User Data", "txse.txseequities.seed.rake.v1.0.marketorderuserdata", ftypes.INT64)
 omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_accepted_bit_fields = ProtoField.new("Mass Cancel Accepted Bit Fields", "txse.txseequities.seed.rake.v1.0.masscancelacceptedbitfields", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_accepted_cl_ord_id = ProtoField.new("Mass Cancel Accepted Cl Ord Id", "txse.txseequities.seed.rake.v1.0.masscancelacceptedclordid", ftypes.INT64)
@@ -271,6 +285,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_price_slide_instructi
 omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_rank_price = ProtoField.new("Order Replaced Rank Price", "txse.txseequities.seed.rake.v1.0.orderreplacedrankprice", ftypes.DOUBLE)
 omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_reference_price_target = ProtoField.new("Order Replaced Reference Price Target", "txse.txseequities.seed.rake.v1.0.orderreplacedreferencepricetarget", ftypes.INT16)
 omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_self_match_instruction = ProtoField.new("Order Replaced Self Match Instruction", "txse.txseequities.seed.rake.v1.0.orderreplacedselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_self_match_scope = ProtoField.new("Order Replaced Self Match Scope", "txse.txseequities.seed.rake.v1.0.orderreplacedselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.order_restated_display_price = ProtoField.new("Order Restated Display Price", "txse.txseequities.seed.rake.v1.0.orderrestateddisplayprice", ftypes.DOUBLE)
 omi_txse_txseequities_seed_rake_v1_0.fields.order_restated_presence_bits = ProtoField.new("Order Restated Presence Bits", "txse.txseequities.seed.rake.v1.0.orderrestatedpresencebits", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.order_restated_rank_price = ProtoField.new("Order Restated Rank Price", "txse.txseequities.seed.rake.v1.0.orderrestatedrankprice", ftypes.DOUBLE)
@@ -286,6 +301,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_price = ProtoField.new
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_price_slide_instruction = ProtoField.new("Replace Order Price Slide Instruction", "txse.txseequities.seed.rake.v1.0.replaceorderpriceslideinstruction", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_reference_price_target = ProtoField.new("Replace Order Reference Price Target", "txse.txseequities.seed.rake.v1.0.replaceorderreferencepricetarget", ftypes.INT16)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_self_match_instruction = ProtoField.new("Replace Order Self Match Instruction", "txse.txseequities.seed.rake.v1.0.replaceorderselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_self_match_scope = ProtoField.new("Replace Order Self Match Scope", "txse.txseequities.seed.rake.v1.0.replaceorderselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_bit_fields = ProtoField.new("Replace Rejected Bit Fields", "txse.txseequities.seed.rake.v1.0.replacerejectedbitfields", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_locate_broker = ProtoField.new("Replace Rejected Locate Broker", "txse.txseequities.seed.rake.v1.0.replacerejectedlocatebroker", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_max_floor_qty = ProtoField.new("Replace Rejected Max Floor Qty", "txse.txseequities.seed.rake.v1.0.replacerejectedmaxfloorqty", ftypes.INT32)
@@ -296,6 +312,7 @@ omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_price_slide_instruc
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_reason = ProtoField.new("Replace Rejected Reason", "txse.txseequities.seed.rake.v1.0.replacerejectedreason", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_reference_price_target = ProtoField.new("Replace Rejected Reference Price Target", "txse.txseequities.seed.rake.v1.0.replacerejectedreferencepricetarget", ftypes.INT16)
 omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_self_match_instruction = ProtoField.new("Replace Rejected Self Match Instruction", "txse.txseequities.seed.rake.v1.0.replacerejectedselfmatchinstruction", ftypes.INT8)
+omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_self_match_scope = ProtoField.new("Replace Rejected Self Match Scope", "txse.txseequities.seed.rake.v1.0.replacerejectedselfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.reserved_10 = ProtoField.new("Reserved 10", "txse.txseequities.seed.rake.v1.0.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0)
 omi_txse_txseequities_seed_rake_v1_0.fields.reserved_17 = ProtoField.new("Reserved 17", "txse.txseequities.seed.rake.v1.0.reserved17", ftypes.UINT32, nil, base.DEC, 0xFFFF8000)
 omi_txse_txseequities_seed_rake_v1_0.fields.reserved_19 = ProtoField.new("Reserved 19", "txse.txseequities.seed.rake.v1.0.reserved19", ftypes.UINT32, nil, base.DEC, 0xFFFFE000)
@@ -306,8 +323,6 @@ omi_txse_txseequities_seed_rake_v1_0.fields.reserved_7 = ProtoField.new("Reserve
 omi_txse_txseequities_seed_rake_v1_0.fields.reserved_8 = ProtoField.new("Reserved 8", "txse.txseequities.seed.rake.v1.0.reserved8", ftypes.UINT16, nil, base.DEC, 0xFF00)
 omi_txse_txseequities_seed_rake_v1_0.fields.reserved_9 = ProtoField.new("Reserved 9", "txse.txseequities.seed.rake.v1.0.reserved9", ftypes.UINT16, nil, base.DEC, 0xFF80)
 omi_txse_txseequities_seed_rake_v1_0.fields.restatement_reason = ProtoField.new("Restatement Reason", "txse.txseequities.seed.rake.v1.0.restatementreason", ftypes.INT8)
-omi_txse_txseequities_seed_rake_v1_0.fields.scope = ProtoField.new("Scope", "txse.txseequities.seed.rake.v1.0.scope", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000001)
-omi_txse_txseequities_seed_rake_v1_0.fields.self_match_scope = ProtoField.new("Self Match Scope", "txse.txseequities.seed.rake.v1.0.selfmatchscope", ftypes.INT8)
 omi_txse_txseequities_seed_rake_v1_0.fields.sender_comp = ProtoField.new("Sender Comp", "txse.txseequities.seed.rake.v1.0.sendercomp", ftypes.STRING)
 omi_txse_txseequities_seed_rake_v1_0.fields.session = ProtoField.new("Session", "txse.txseequities.seed.rake.v1.0.session", ftypes.UINT64)
 omi_txse_txseequities_seed_rake_v1_0.fields.session_trading_state = ProtoField.new("Session Trading State", "txse.txseequities.seed.rake.v1.0.sessiontradingstate", ftypes.INT8)
@@ -1217,6 +1232,29 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.dis
   return offset + length, value
 end
 
+-- Limit Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope = {}
+
+-- Size: Limit Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.size = 1
+
+-- Display: Limit Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.display = function(value)
+  return "Limit Order Accepted Self Match Scope: "..value
+end
+
+-- Dissect: Limit Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_self_match_scope, range, value, display)
+
+  return offset + length, value
+end
+
 -- Limit Order Accepted User Data
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_user_data = {}
 
@@ -1917,6 +1955,29 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.dis
   return offset + length, value
 end
 
+-- Limit Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope = {}
+
+-- Size: Limit Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.size = 1
+
+-- Display: Limit Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.display = function(value)
+  return "Limit Order Rejected Self Match Scope: "..value
+end
+
+-- Dissect: Limit Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_self_match_scope, range, value, display)
+
+  return offset + length, value
+end
+
 -- Limit Order Rejected User Data
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_user_data = {}
 
@@ -1978,6 +2039,29 @@ txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.dissect = fu
   local display = txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_self_match_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope = {}
+
+-- Size: Limit Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.size = 1
+
+-- Display: Limit Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.display = function(value)
+  return "Limit Order Self Match Scope: "..value
+end
+
+-- Dissect: Limit Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_self_match_scope, range, value, display)
 
   return offset + length, value
 end
@@ -2285,6 +2369,29 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.di
   local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_self_match_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope = {}
+
+-- Size: Market Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.size = 1
+
+-- Display: Market Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.display = function(value)
+  return "Market Order Accepted Self Match Scope: "..value
+end
+
+-- Dissect: Market Order Accepted Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_self_match_scope, range, value, display)
 
   return offset + length, value
 end
@@ -2633,6 +2740,29 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.di
   return offset + length, value
 end
 
+-- Market Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope = {}
+
+-- Size: Market Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.size = 1
+
+-- Display: Market Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.display = function(value)
+  return "Market Order Rejected Self Match Scope: "..value
+end
+
+-- Dissect: Market Order Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_self_match_scope, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Order Rejected User Data
 txse_txseequities_seed_rake_v1_0.market_order_rejected_user_data = {}
 
@@ -2694,6 +2824,29 @@ txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.dissect = f
   local display = txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_self_match_instruction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_self_match_scope = {}
+
+-- Size: Market Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.size = 1
+
+-- Display: Market Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.display = function(value)
+  return "Market Order Self Match Scope: "..value
+end
+
+-- Dissect: Market Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_self_match_scope, range, value, display)
 
   return offset + length, value
 end
@@ -4047,6 +4200,29 @@ txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.dissect =
   return offset + length, value
 end
 
+-- Order Replaced Self Match Scope
+txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope = {}
+
+-- Size: Order Replaced Self Match Scope
+txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.size = 1
+
+-- Display: Order Replaced Self Match Scope
+txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.display = function(value)
+  return "Order Replaced Self Match Scope: "..value
+end
+
+-- Dissect: Order Replaced Self Match Scope
+txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_self_match_scope, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Restated Display Price
 txse_txseequities_seed_rake_v1_0.order_restated_display_price = {}
 
@@ -4404,6 +4580,29 @@ txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.dissect = 
   return offset + length, value
 end
 
+-- Replace Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope = {}
+
+-- Size: Replace Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.size = 1
+
+-- Display: Replace Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.display = function(value)
+  return "Replace Order Self Match Scope: "..value
+end
+
+-- Dissect: Replace Order Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_self_match_scope, range, value, display)
+
+  return offset + length, value
+end
+
 -- Replace Rejected Locate Broker
 txse_txseequities_seed_rake_v1_0.replace_rejected_locate_broker = {}
 
@@ -4744,6 +4943,29 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.dissect
   return offset + length, value
 end
 
+-- Replace Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope = {}
+
+-- Size: Replace Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.size = 1
+
+-- Display: Replace Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.display = function(value)
+  return "Replace Rejected Self Match Scope: "..value
+end
+
+-- Dissect: Replace Rejected Self Match Scope
+txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.dissect = function(buffer, offset, packet, parent)
+  local length = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_self_match_scope, range, value, display)
+
+  return offset + length, value
+end
+
 -- Restatement Reason
 txse_txseequities_seed_rake_v1_0.restatement_reason = {}
 
@@ -4773,42 +4995,6 @@ txse_txseequities_seed_rake_v1_0.restatement_reason.dissect = function(buffer, o
   local display = txse_txseequities_seed_rake_v1_0.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.restatement_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Self Match Scope
-txse_txseequities_seed_rake_v1_0.self_match_scope = {}
-
--- Size: Self Match Scope
-txse_txseequities_seed_rake_v1_0.self_match_scope.size = 1
-
--- Display: Self Match Scope
-txse_txseequities_seed_rake_v1_0.self_match_scope.display = function(value)
-  if value == 0 then
-    return "Self Match Scope: By Member (0)"
-  end
-  if value == 1 then
-    return "Self Match Scope: By Mpid (1)"
-  end
-  if value == 2 then
-    return "Self Match Scope: By Member Group (2)"
-  end
-  if value == 3 then
-    return "Self Match Scope: By Mpid And Member Group (3)"
-  end
-
-  return "Self Match Scope: Unknown("..value..")"
-end
-
--- Dissect: Self Match Scope
-txse_txseequities_seed_rake_v1_0.self_match_scope.dissect = function(buffer, offset, packet, parent)
-  local length = txse_txseequities_seed_rake_v1_0.self_match_scope.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = txse_txseequities_seed_rake_v1_0.self_match_scope.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.self_match_scope, range, value, display)
 
   return offset + length, value
 end
@@ -6160,7 +6346,12 @@ txse_txseequities_seed_rake_v1_0.order_restated_message.size = function(buffer, 
 
   end
 
-  index = index + txse_txseequities_seed_rake_v1_0.display_qty.size
+  local order_restated_presence_bits = buffer(offset + 0, 1):le_uint()
+
+  if bit.band(order_restated_presence_bits, 0x04) == 4 then
+    index = index + txse_txseequities_seed_rake_v1_0.display_qty.size
+
+  end
 
   return index
 end
@@ -6207,8 +6398,14 @@ txse_txseequities_seed_rake_v1_0.order_restated_message.fields = function(buffer
     index, order_restated_display_price = txse_txseequities_seed_rake_v1_0.order_restated_display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Display Qty: Int
-  index, display_qty = txse_txseequities_seed_rake_v1_0.display_qty.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Display Qty
+  local display_qty = nil
+
+  local display_qty_exists = bit.band(order_restated_presence_bits, 0x04) == 4
+
+  if display_qty_exists then
+    index, display_qty = txse_txseequities_seed_rake_v1_0.display_qty.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -6388,9 +6585,9 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.display = functi
   if bit.band(value, 0x0004) ~= 0 then
     flags[#flags + 1] = "Has Replace Rejected Max Floor Qty"
   end
-  -- Is Scope flag set?
+  -- Is Has Replace Rejected Self Match Scope flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Replace Rejected Self Match Scope"
   end
   -- Is Has Replace Rejected Self Match Instruction flag set?
   if bit.band(value, 0x0010) ~= 0 then
@@ -6424,8 +6621,8 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_presence_bits.bits = function(
   -- Has Replace Rejected Max Floor Qty: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_max_floor_qty, range, value)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Replace Rejected Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_self_match_scope, range, value)
 
   -- Has Replace Rejected Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_rejected_self_match_instruction, range, value)
@@ -6498,7 +6695,12 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.size = function(buffer
 
   end
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
+
+  if bit.band(replace_rejected_presence_bits, 0x0008) == 8 then
+    index = index + txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.size
+
+  end
 
   local replace_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
@@ -6585,8 +6787,14 @@ txse_txseequities_seed_rake_v1_0.replace_rejected_message.fields = function(buff
     index, replace_rejected_max_floor_qty = txse_txseequities_seed_rake_v1_0.replace_rejected_max_floor_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Replace Rejected Self Match Scope
+  local replace_rejected_self_match_scope = nil
+
+  local replace_rejected_self_match_scope_exists = bit.band(replace_rejected_presence_bits, 0x0008) == 8
+
+  if replace_rejected_self_match_scope_exists then
+    index, replace_rejected_self_match_scope = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Replace Rejected Self Match Instruction
   local replace_rejected_self_match_instruction = nil
@@ -6734,9 +6942,9 @@ txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.display = function
   if bit.band(value, 0x0004) ~= 0 then
     flags[#flags + 1] = "Has Order Replaced Max Floor Qty"
   end
-  -- Is Scope flag set?
+  -- Is Has Order Replaced Self Match Scope flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Order Replaced Self Match Scope"
   end
   -- Is Has Order Replaced Self Match Instruction flag set?
   if bit.band(value, 0x0010) ~= 0 then
@@ -6778,8 +6986,8 @@ txse_txseequities_seed_rake_v1_0.order_replaced_presence_bits.bits = function(ra
   -- Has Order Replaced Max Floor Qty: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_max_floor_qty, range, value)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Order Replaced Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_self_match_scope, range, value)
 
   -- Has Order Replaced Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_order_replaced_self_match_instruction, range, value)
@@ -6860,7 +7068,12 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.size = function(buffer, 
 
   end
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
+
+  if bit.band(order_replaced_presence_bits, 0x0008) == 8 then
+    index = index + txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.size
+
+  end
 
   local order_replaced_presence_bits = buffer(offset + 0, 2):le_uint()
 
@@ -6964,8 +7177,14 @@ txse_txseequities_seed_rake_v1_0.order_replaced_message.fields = function(buffer
     index, order_replaced_max_floor_qty = txse_txseequities_seed_rake_v1_0.order_replaced_max_floor_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Replaced Self Match Scope
+  local order_replaced_self_match_scope = nil
+
+  local order_replaced_self_match_scope_exists = bit.band(order_replaced_presence_bits, 0x0008) == 8
+
+  if order_replaced_self_match_scope_exists then
+    index, order_replaced_self_match_scope = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Order Replaced Self Match Instruction
   local order_replaced_self_match_instruction = nil
@@ -7169,7 +7388,12 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_message.size = function(buffer,
 
   end
 
-  index = index + txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.size
+  local modify_rejected_presence_bits = buffer(offset + 0, 1):le_uint()
+
+  if bit.band(modify_rejected_presence_bits, 0x02) == 2 then
+    index = index + txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.size
+
+  end
 
   local modify_rejected_presence_bits = buffer(offset + 0, 1):le_uint()
 
@@ -7214,8 +7438,16 @@ txse_txseequities_seed_rake_v1_0.modify_rejected_message.fields = function(buffe
     index, modify_rejected_order_qty = txse_txseequities_seed_rake_v1_0.modify_rejected_order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Modify Rejected Bit Fields: Struct of 3 fields
-  index, modify_rejected_bit_fields = txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Modify Rejected Bit Fields
+  local modify_rejected_bit_fields = nil
+
+  local modify_rejected_bit_fields_exists = bit.band(modify_rejected_presence_bits, 0x02) == 2
+
+  if modify_rejected_bit_fields_exists then
+
+    -- Modify Rejected Bit Fields: Struct of 3 fields
+    index, modify_rejected_bit_fields = txse_txseequities_seed_rake_v1_0.modify_rejected_bit_fields.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Modify Rejected Locate Broker
   local modify_rejected_locate_broker = nil
@@ -7376,7 +7608,12 @@ txse_txseequities_seed_rake_v1_0.order_modified_message.size = function(buffer, 
 
   end
 
-  index = index + txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.size
+  local order_modified_presence_bits = buffer(offset + 0, 1):le_uint()
+
+  if bit.band(order_modified_presence_bits, 0x02) == 2 then
+    index = index + txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.size
+
+  end
 
   local order_modified_presence_bits = buffer(offset + 0, 1):le_uint()
 
@@ -7424,8 +7661,16 @@ txse_txseequities_seed_rake_v1_0.order_modified_message.fields = function(buffer
     index, order_modified_order_qty = txse_txseequities_seed_rake_v1_0.order_modified_order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Order Modified Bit Fields: Struct of 3 fields
-  index, order_modified_bit_fields = txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Order Modified Bit Fields
+  local order_modified_bit_fields = nil
+
+  local order_modified_bit_fields_exists = bit.band(order_modified_presence_bits, 0x02) == 2
+
+  if order_modified_bit_fields_exists then
+
+    -- Order Modified Bit Fields: Struct of 3 fields
+    index, order_modified_bit_fields = txse_txseequities_seed_rake_v1_0.order_modified_bit_fields.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Order Modified Locate Broker
   local order_modified_locate_broker = nil
@@ -7619,9 +7864,9 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.size = 2
 txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Scope flag set?
+  -- Is Has Market Order Rejected Self Match Scope flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Market Order Rejected Self Match Scope"
   end
   -- Is Has Market Order Rejected Self Match Instruction flag set?
   if bit.band(value, 0x0002) ~= 0 then
@@ -7650,8 +7895,8 @@ end
 -- Dissect Bit Fields: Market Order Rejected Presence Bits
 txse_txseequities_seed_rake_v1_0.market_order_rejected_presence_bits.bits = function(range, value, packet, parent)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Market Order Rejected Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_self_match_scope, range, value)
 
   -- Has Market Order Rejected Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_rejected_self_match_instruction, range, value)
@@ -7708,7 +7953,12 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.size = function(b
 
   index = index + txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.size
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local market_order_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
+
+  if bit.band(market_order_rejected_presence_bits, 0x0001) == 1 then
+    index = index + txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.size
+
+  end
 
   local market_order_rejected_presence_bits = buffer(offset + 0, 2):le_uint()
 
@@ -7778,8 +8028,14 @@ txse_txseequities_seed_rake_v1_0.market_order_rejected_message.fields = function
   -- Market Order Rejected Reason: Enum
   index, market_order_rejected_reason = txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.dissect(buffer, index, packet, parent)
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Market Order Rejected Self Match Scope
+  local market_order_rejected_self_match_scope = nil
+
+  local market_order_rejected_self_match_scope_exists = bit.band(market_order_rejected_presence_bits, 0x0001) == 1
+
+  if market_order_rejected_self_match_scope_exists then
+    index, market_order_rejected_self_match_scope = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Market Order Rejected Self Match Instruction
   local market_order_rejected_self_match_instruction = nil
@@ -7909,9 +8165,9 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.size = 2
 txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Scope flag set?
+  -- Is Has Market Order Accepted Self Match Scope flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Market Order Accepted Self Match Scope"
   end
   -- Is Has Market Order Accepted Self Match Instruction flag set?
   if bit.band(value, 0x0002) ~= 0 then
@@ -7940,8 +8196,8 @@ end
 -- Dissect Bit Fields: Market Order Accepted Presence Bits
 txse_txseequities_seed_rake_v1_0.market_order_accepted_presence_bits.bits = function(range, value, packet, parent)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Market Order Accepted Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_self_match_scope, range, value)
 
   -- Has Market Order Accepted Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_accepted_self_match_instruction, range, value)
@@ -7998,7 +8254,12 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.size = function(b
 
   index = index + txse_txseequities_seed_rake_v1_0.symbol_id.size
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local market_order_accepted_presence_bits = buffer(offset + 0, 2):le_uint()
+
+  if bit.band(market_order_accepted_presence_bits, 0x0001) == 1 then
+    index = index + txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.size
+
+  end
 
   local market_order_accepted_presence_bits = buffer(offset + 0, 2):le_uint()
 
@@ -8068,8 +8329,14 @@ txse_txseequities_seed_rake_v1_0.market_order_accepted_message.fields = function
   -- Symbol Id: Short
   index, symbol_id = txse_txseequities_seed_rake_v1_0.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Market Order Accepted Self Match Scope
+  local market_order_accepted_self_match_scope = nil
+
+  local market_order_accepted_self_match_scope_exists = bit.band(market_order_accepted_presence_bits, 0x0001) == 1
+
+  if market_order_accepted_self_match_scope_exists then
+    index, market_order_accepted_self_match_scope = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Market Order Accepted Self Match Instruction
   local market_order_accepted_self_match_instruction = nil
@@ -8227,9 +8494,9 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.size = 4
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Scope flag set?
+  -- Is Has Limit Order Rejected Self Match Scope flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Limit Order Rejected Self Match Scope"
   end
   -- Is Has Limit Order Rejected Self Match Instruction flag set?
   if bit.band(value, 0x00000002) ~= 0 then
@@ -8286,8 +8553,8 @@ end
 -- Dissect Bit Fields: Limit Order Rejected Presence Bits
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_presence_bits.bits = function(range, value, packet, parent)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Limit Order Rejected Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_self_match_scope, range, value)
 
   -- Has Limit Order Rejected Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_rejected_self_match_instruction, range, value)
@@ -8367,7 +8634,12 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.size = function(bu
 
   index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.size
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
+
+  if bit.band(limit_order_rejected_presence_bits, 0x00000001) == 1 then
+    index = index + txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.size
+
+  end
 
   local limit_order_rejected_presence_bits = buffer(offset + 0, 4):le_uint()
 
@@ -8489,8 +8761,14 @@ txse_txseequities_seed_rake_v1_0.limit_order_rejected_message.fields = function(
   -- Limit Order Rejected Reason: Enum
   index, limit_order_rejected_reason = txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.dissect(buffer, index, packet, parent)
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Limit Order Rejected Self Match Scope
+  local limit_order_rejected_self_match_scope = nil
+
+  local limit_order_rejected_self_match_scope_exists = bit.band(limit_order_rejected_presence_bits, 0x00000001) == 1
+
+  if limit_order_rejected_self_match_scope_exists then
+    index, limit_order_rejected_self_match_scope = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Limit Order Rejected Self Match Instruction
   local limit_order_rejected_self_match_instruction = nil
@@ -8865,7 +9143,12 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.size = function(bu
 
   index = index + txse_txseequities_seed_rake_v1_0.price.size
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
+
+  if bit.band(limit_order_accepted_presence_bits, 0x00000001) == 1 then
+    index = index + txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.size
+
+  end
 
   local limit_order_accepted_presence_bits = buffer(offset + 0, 4):le_uint()
 
@@ -9001,8 +9284,14 @@ txse_txseequities_seed_rake_v1_0.limit_order_accepted_message.fields = function(
   -- Price: Price
   index, price = txse_txseequities_seed_rake_v1_0.price.dissect(buffer, index, packet, parent)
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Limit Order Accepted Self Match Scope
+  local limit_order_accepted_self_match_scope = nil
+
+  local limit_order_accepted_self_match_scope_exists = bit.band(limit_order_accepted_presence_bits, 0x00000001) == 1
+
+  if limit_order_accepted_self_match_scope_exists then
+    index, limit_order_accepted_self_match_scope = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Limit Order Accepted Self Match Instruction
   local limit_order_accepted_self_match_instruction = nil
@@ -10141,9 +10430,9 @@ txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.display = function(
   if bit.band(value, 0x0004) ~= 0 then
     flags[#flags + 1] = "Has Replace Order Max Floor Qty"
   end
-  -- Is Scope flag set?
+  -- Is Has Replace Order Self Match Scope flag set?
   if bit.band(value, 0x0008) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Replace Order Self Match Scope"
   end
   -- Is Has Replace Order Self Match Instruction flag set?
   if bit.band(value, 0x0010) ~= 0 then
@@ -10177,8 +10466,8 @@ txse_txseequities_seed_rake_v1_0.replace_order_presence_bits.bits = function(ran
   -- Has Replace Order Max Floor Qty: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_max_floor_qty, range, value)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Replace Order Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_self_match_scope, range, value)
 
   -- Has Replace Order Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_replace_order_self_match_instruction, range, value)
@@ -10247,7 +10536,12 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.size = function(buffer, o
 
   end
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
+
+  if bit.band(replace_order_presence_bits, 0x0008) == 8 then
+    index = index + txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.size
+
+  end
 
   local replace_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
@@ -10328,8 +10622,14 @@ txse_txseequities_seed_rake_v1_0.replace_order_message.fields = function(buffer,
     index, replace_order_max_floor_qty = txse_txseequities_seed_rake_v1_0.replace_order_max_floor_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Replace Order Self Match Scope
+  local replace_order_self_match_scope = nil
+
+  local replace_order_self_match_scope_exists = bit.band(replace_order_presence_bits, 0x0008) == 8
+
+  if replace_order_self_match_scope_exists then
+    index, replace_order_self_match_scope = txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Replace Order Self Match Instruction
   local replace_order_self_match_instruction = nil
@@ -10511,7 +10811,12 @@ txse_txseequities_seed_rake_v1_0.modify_order_message.size = function(buffer, of
 
   end
 
-  index = index + txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.size
+  local modify_order_presence_bits = buffer(offset + 0, 1):le_uint()
+
+  if bit.band(modify_order_presence_bits, 0x02) == 2 then
+    index = index + txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.size
+
+  end
 
   local modify_order_presence_bits = buffer(offset + 0, 1):le_uint()
 
@@ -10550,8 +10855,16 @@ txse_txseequities_seed_rake_v1_0.modify_order_message.fields = function(buffer, 
     index, modify_order_order_qty = txse_txseequities_seed_rake_v1_0.modify_order_order_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Modify Order Bit Fields: Struct of 3 fields
-  index, modify_order_bit_fields = txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Modify Order Bit Fields
+  local modify_order_bit_fields = nil
+
+  local modify_order_bit_fields_exists = bit.band(modify_order_presence_bits, 0x02) == 2
+
+  if modify_order_bit_fields_exists then
+
+    -- Modify Order Bit Fields: Struct of 3 fields
+    index, modify_order_bit_fields = txse_txseequities_seed_rake_v1_0.modify_order_bit_fields.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Modify Order Locate Broker
   local modify_order_locate_broker = nil
@@ -10685,9 +10998,9 @@ txse_txseequities_seed_rake_v1_0.market_order_presence_bits.size = 2
 txse_txseequities_seed_rake_v1_0.market_order_presence_bits.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Scope flag set?
+  -- Is Has Market Order Self Match Scope flag set?
   if bit.band(value, 0x0001) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Market Order Self Match Scope"
   end
   -- Is Has Market Order Self Match Instruction flag set?
   if bit.band(value, 0x0002) ~= 0 then
@@ -10716,8 +11029,8 @@ end
 -- Dissect Bit Fields: Market Order Presence Bits
 txse_txseequities_seed_rake_v1_0.market_order_presence_bits.bits = function(range, value, packet, parent)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Market Order Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_self_match_scope, range, value)
 
   -- Has Market Order Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_market_order_self_match_instruction, range, value)
@@ -10770,7 +11083,12 @@ txse_txseequities_seed_rake_v1_0.market_order_message.size = function(buffer, of
 
   index = index + txse_txseequities_seed_rake_v1_0.symbol_id.size
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local market_order_presence_bits = buffer(offset + 0, 2):le_uint()
+
+  if bit.band(market_order_presence_bits, 0x0001) == 1 then
+    index = index + txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.size
+
+  end
 
   local market_order_presence_bits = buffer(offset + 0, 2):le_uint()
 
@@ -10834,8 +11152,14 @@ txse_txseequities_seed_rake_v1_0.market_order_message.fields = function(buffer, 
   -- Symbol Id: Short
   index, symbol_id = txse_txseequities_seed_rake_v1_0.symbol_id.dissect(buffer, index, packet, parent)
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Market Order Self Match Scope
+  local market_order_self_match_scope = nil
+
+  local market_order_self_match_scope_exists = bit.band(market_order_presence_bits, 0x0001) == 1
+
+  if market_order_self_match_scope_exists then
+    index, market_order_self_match_scope = txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Market Order Self Match Instruction
   local market_order_self_match_instruction = nil
@@ -10993,9 +11317,9 @@ txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.size = 4
 txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.display = function(range, value, packet, parent)
   local flags = {}
 
-  -- Is Scope flag set?
+  -- Is Has Limit Order Self Match Scope flag set?
   if bit.band(value, 0x00000001) ~= 0 then
-    flags[#flags + 1] = "Scope"
+    flags[#flags + 1] = "Has Limit Order Self Match Scope"
   end
   -- Is Has Limit Order Self Match Instruction flag set?
   if bit.band(value, 0x00000002) ~= 0 then
@@ -11052,8 +11376,8 @@ end
 -- Dissect Bit Fields: Limit Order Presence Bits
 txse_txseequities_seed_rake_v1_0.limit_order_presence_bits.bits = function(range, value, packet, parent)
 
-  -- Scope: 1 Bit
-  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.scope, range, value)
+  -- Has Limit Order Self Match Scope: 1 Bit
+  parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_self_match_scope, range, value)
 
   -- Has Limit Order Self Match Instruction: 1 Bit
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.has_limit_order_self_match_instruction, range, value)
@@ -11129,7 +11453,12 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.size = function(buffer, off
 
   index = index + txse_txseequities_seed_rake_v1_0.price.size
 
-  index = index + txse_txseequities_seed_rake_v1_0.self_match_scope.size
+  local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
+
+  if bit.band(limit_order_presence_bits, 0x00000001) == 1 then
+    index = index + txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.size
+
+  end
 
   local limit_order_presence_bits = buffer(offset + 0, 4):le_uint()
 
@@ -11245,8 +11574,14 @@ txse_txseequities_seed_rake_v1_0.limit_order_message.fields = function(buffer, o
   -- Price: Price
   index, price = txse_txseequities_seed_rake_v1_0.price.dissect(buffer, index, packet, parent)
 
-  -- Self Match Scope: Enum
-  index, self_match_scope = txse_txseequities_seed_rake_v1_0.self_match_scope.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Limit Order Self Match Scope
+  local limit_order_self_match_scope = nil
+
+  local limit_order_self_match_scope_exists = bit.band(limit_order_presence_bits, 0x00000001) == 1
+
+  if limit_order_self_match_scope_exists then
+    index, limit_order_self_match_scope = txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.dissect(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field: Limit Order Self Match Instruction
   local limit_order_self_match_instruction = nil

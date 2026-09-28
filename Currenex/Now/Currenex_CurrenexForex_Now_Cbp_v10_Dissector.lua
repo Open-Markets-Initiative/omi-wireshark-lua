@@ -1536,7 +1536,7 @@ currenex_currenexforex_now_cbp_v10.depth_of_book_message = {}
 -- Size: Depth Of Book Message
 currenex_currenexforex_now_cbp_v10.depth_of_book_message.size =
   currenex_currenexforex_now_cbp_v10.instrument_index.size + 
-  currenex_currenexforex_now_cbp_v10.level.size
+  20 * currenex_currenexforex_now_cbp_v10.level.size
 
 -- Display: Depth Of Book Message
 currenex_currenexforex_now_cbp_v10.depth_of_book_message.display = function(packet, parent, length)

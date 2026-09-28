@@ -50,8 +50,7 @@ grep "miax.pearlequities.expressorders.meo.v2.6.esesmversion" Miax.PearlEquities
 grep "miax.pearlequities.expressorders.meo.v2.6.username" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
 grep "miax.pearlequities.expressorders.meo.v2.6.computerid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
 grep "miax.pearlequities.expressorders.meo.v2.6.applicationprotocol" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
-grep "miax.pearlequities.expressorders.meo.v2.6.requestedtradingsessionid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
-grep "miax.pearlequities.expressorders.meo.v2.6.requestedsequencenumber" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
+grep "miax.pearlequities.expressorders.meo.v2.6.numberofmatchingengines" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginRequest.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/LoginResponse.pcap" \
   -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
@@ -60,9 +59,6 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (LoginResponse) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json.stderr; exit 1; }
 
 grep "miax.pearlequities.expressorders.meo.v2.6.numberofmatchingengines" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
-grep "miax.pearlequities.expressorders.meo.v2.6.loginstatus" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
-grep "miax.pearlequities.expressorders.meo.v2.6.tradingsessionid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
-grep "miax.pearlequities.expressorders.meo.v2.6.highestsequencenumber" Miax.PearlEquities.ExpressOrders.Meo.v2.6.LoginResponse.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/NewOrderNotification.pcap" \
   -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \

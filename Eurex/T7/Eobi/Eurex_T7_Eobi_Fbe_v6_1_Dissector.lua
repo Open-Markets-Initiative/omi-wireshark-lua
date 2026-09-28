@@ -2551,7 +2551,7 @@ eurex_t7_eobi_fbe_v6_1.trade_reversal.size =
   eurex_t7_eobi_fbe_v6_1.trade_condition.size + 
   eurex_t7_eobi_fbe_v6_1.pad6.size + 
   eurex_t7_eobi_fbe_v6_1.no_md_entries.size + 
-  eurex_t7_eobi_fbe_v6_1.md_trade_entry_grp_comp.size
+  15 * eurex_t7_eobi_fbe_v6_1.md_trade_entry_grp_comp.size
 
 -- Display: Trade Reversal
 eurex_t7_eobi_fbe_v6_1.trade_reversal.display = function(packet, parent, length)
@@ -3448,7 +3448,7 @@ eurex_t7_eobi_fbe_v6_1.instrument_summary.size =
   eurex_t7_eobi_fbe_v6_1.fast_market_indicator.size + 
   eurex_t7_eobi_fbe_v6_1.security_trading_event.size + 
   eurex_t7_eobi_fbe_v6_1.no_md_entries.size + 
-  eurex_t7_eobi_fbe_v6_1.md_instrument_entry_grp_comp.size
+  15 * eurex_t7_eobi_fbe_v6_1.md_instrument_entry_grp_comp.size
 
 -- Display: Instrument Summary
 eurex_t7_eobi_fbe_v6_1.instrument_summary.display = function(packet, parent, length)
@@ -4049,7 +4049,7 @@ eurex_t7_eobi_fbe_v6_1.add_complex_instrument.size =
   eurex_t7_eobi_fbe_v6_1.implied_market_indicator.size + 
   eurex_t7_eobi_fbe_v6_1.no_legs.size + 
   eurex_t7_eobi_fbe_v6_1.pad_1.size + 
-  eurex_t7_eobi_fbe_v6_1.instrmt_leg_grp_comp.size
+  20 * eurex_t7_eobi_fbe_v6_1.instrmt_leg_grp_comp.size
 
 -- Display: Add Complex Instrument
 eurex_t7_eobi_fbe_v6_1.add_complex_instrument.display = function(packet, parent, length)
