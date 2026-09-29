@@ -1,0 +1,2940 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Nasdaq PhlxOptions Orders Itch 1.91 Protocol
+local omi_nasdaq_phlxoptions_orders_itch_v1_91 = Proto("Omi.Nasdaq.PhlxOptions.Orders.Itch.v1.91", "Nasdaq PhlxOptions Orders Itch 1.91")
+
+-- Protocol table
+local nasdaq_phlxoptions_orders_itch_v1_91 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Nasdaq PhlxOptions Orders Itch 1.91 Fields
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.action = ProtoField.new("Action", "nasdaq.phlxoptions.orders.itch.v1.91.action", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.all_or_none = ProtoField.new("All Or None", "nasdaq.phlxoptions.orders.itch.v1.91.allornone", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.phlxoptions.orders.itch.v1.91.auctionid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_side = ProtoField.new("Auction Side", "nasdaq.phlxoptions.orders.itch.v1.91.auctionside", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.phlxoptions.orders.itch.v1.91.auctiontype", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_leg = ProtoField.new("Complex Order Leg", "nasdaq.phlxoptions.orders.itch.v1.91.complexorderleg", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_strategy_leg = ProtoField.new("Complex Order Strategy Leg", "nasdaq.phlxoptions.orders.itch.v1.91.complexorderstrategyleg", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.count = ProtoField.new("Count", "nasdaq.phlxoptions.orders.itch.v1.91.count", ftypes.UINT16)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlxoptions.orders.itch.v1.91.currenttradingstate", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.phlxoptions.orders.itch.v1.91.customerfirmindicator", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.day = ProtoField.new("Day", "nasdaq.phlxoptions.orders.itch.v1.91.day", ftypes.UINT16, nil, base.DEC, 0x001F)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.debit_or_credit = ProtoField.new("Debit Or Credit", "nasdaq.phlxoptions.orders.itch.v1.91.debitorcredit", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlxoptions.orders.itch.v1.91.eventcode", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.executable_order_volume = ProtoField.new("Executable Order Volume", "nasdaq.phlxoptions.orders.itch.v1.91.executableordervolume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.expiration = ProtoField.new("Expiration", "nasdaq.phlxoptions.orders.itch.v1.91.expiration", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlxoptions.orders.itch.v1.91.explicitstrikeprice", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlxoptions.orders.itch.v1.91.imbalancevolume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.leg_open_close_indicator = ProtoField.new("Leg Open Close Indicator", "nasdaq.phlxoptions.orders.itch.v1.91.legopencloseindicator", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.phlxoptions.orders.itch.v1.91.legratio", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.length = ProtoField.new("Length", "nasdaq.phlxoptions.orders.itch.v1.91.length", ftypes.UINT16)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.phlxoptions.orders.itch.v1.91.limitprice", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.market_qualifier = ProtoField.new("Market Qualifier", "nasdaq.phlxoptions.orders.itch.v1.91.marketqualifier", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.matched_volume = ProtoField.new("Matched Volume", "nasdaq.phlxoptions.orders.itch.v1.91.matchedvolume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message_type = ProtoField.new("Message Type", "nasdaq.phlxoptions.orders.itch.v1.91.messagetype", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.month = ProtoField.new("Month", "nasdaq.phlxoptions.orders.itch.v1.91.month", ftypes.UINT16, nil, base.DEC, 0x01E0)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlxoptions.orders.itch.v1.91.nanoseconds", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.phlxoptions.orders.itch.v1.91.numberoflegs", ftypes.UINT8)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "nasdaq.phlxoptions.orders.itch.v1.91.opencloseindicator", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.open_state = ProtoField.new("Open State", "nasdaq.phlxoptions.orders.itch.v1.91.openstate", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.phlxoptions.orders.itch.v1.91.optionclosingtype", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlxoptions.orders.itch.v1.91.optionid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlxoptions.orders.itch.v1.91.optiontype", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.order_id = ProtoField.new("Order Id", "nasdaq.phlxoptions.orders.itch.v1.91.orderid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.order_status = ProtoField.new("Order Status", "nasdaq.phlxoptions.orders.itch.v1.91.orderstatus", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.order_type = ProtoField.new("Order Type", "nasdaq.phlxoptions.orders.itch.v1.91.ordertype", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.original_order_volume = ProtoField.new("Original Order Volume", "nasdaq.phlxoptions.orders.itch.v1.91.originalordervolume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlxoptions.orders.itch.v1.91.phlxtradable", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.price = ProtoField.new("Price", "nasdaq.phlxoptions.orders.itch.v1.91.price", ftypes.DOUBLE)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.reserved_3 = ProtoField.new("Reserved 3", "nasdaq.phlxoptions.orders.itch.v1.91.reserved3", ftypes.BYTES)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlxoptions.orders.itch.v1.91.seconds", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.phlxoptions.orders.itch.v1.91.securitysymbol", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.sequence = ProtoField.new("Sequence", "nasdaq.phlxoptions.orders.itch.v1.91.sequence", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.session = ProtoField.new("Session", "nasdaq.phlxoptions.orders.itch.v1.91.session", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.side = ProtoField.new("Side", "nasdaq.phlxoptions.orders.itch.v1.91.side", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.source = ProtoField.new("Source", "nasdaq.phlxoptions.orders.itch.v1.91.source", ftypes.UINT8)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.strategy_id = ProtoField.new("Strategy Id", "nasdaq.phlxoptions.orders.itch.v1.91.strategyid", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.time_in_force = ProtoField.new("Time In Force", "nasdaq.phlxoptions.orders.itch.v1.91.timeinforce", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.phlxoptions.orders.itch.v1.91.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.timestamp_utc = ProtoField.new("Timestamp", "nasdaq.phlxoptions.orders.itch.v1.91.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.phlxoptions.orders.itch.v1.91.underlyingsymbol", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.version = ProtoField.new("Version", "nasdaq.phlxoptions.orders.itch.v1.91.version", ftypes.UINT8)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.volume = ProtoField.new("Volume", "nasdaq.phlxoptions.orders.itch.v1.91.volume", ftypes.UINT32)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.year = ProtoField.new("Year", "nasdaq.phlxoptions.orders.itch.v1.91.year", ftypes.UINT16, nil, base.DEC, 0xFE00)
+
+-- Nasdaq PhlxOptions Orders Itch 1.91 Framing
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message = ProtoField.new("Message", "nasdaq.phlxoptions.orders.itch.v1.91.message", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message_header = ProtoField.new("Message Header", "nasdaq.phlxoptions.orders.itch.v1.91.messageheader", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.packet = ProtoField.new("Packet", "nasdaq.phlxoptions.orders.itch.v1.91.packet", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlxoptions.orders.itch.v1.91.packetheader", ftypes.STRING)
+
+-- Nasdaq PhlxOptions Orders 1.91 Application Messages
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "nasdaq.phlxoptions.orders.itch.v1.91.auctionnotificationmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_auction_notification_message = ProtoField.new("Complex Auction Notification Message", "nasdaq.phlxoptions.orders.itch.v1.91.complexauctionnotificationmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_message = ProtoField.new("Complex Order Message", "nasdaq.phlxoptions.orders.itch.v1.91.complexordermessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_strategy_message = ProtoField.new("Complex Order Strategy Message", "nasdaq.phlxoptions.orders.itch.v1.91.complexorderstrategymessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_trading_action_message = ProtoField.new("Complex Trading Action Message", "nasdaq.phlxoptions.orders.itch.v1.91.complextradingactionmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.phlxoptions.orders.itch.v1.91.optionsdirectorymessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlxoptions.orders.itch.v1.91.securityopenclosedmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.security_trading_action_message = ProtoField.new("Security Trading Action Message", "nasdaq.phlxoptions.orders.itch.v1.91.securitytradingactionmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.simple_order_message = ProtoField.new("Simple Order Message", "nasdaq.phlxoptions.orders.itch.v1.91.simpleordermessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.strategy_open_closed_message = ProtoField.new("Strategy Open Closed Message", "nasdaq.phlxoptions.orders.itch.v1.91.strategyopenclosedmessage", ftypes.STRING)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlxoptions.orders.itch.v1.91.systemeventmessage", ftypes.STRING)
+
+-- Nasdaq PhlxOptions Orders 1.91 Session Messages
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.end_of_session = ProtoField.new("End Of Session", "nasdaq.phlxoptions.orders.itch.v1.91.endofsession", ftypes.BYTES)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.heartbeat = ProtoField.new("Heartbeat", "nasdaq.phlxoptions.orders.itch.v1.91.heartbeat", ftypes.BYTES)
+
+-- Nasdaq PhlxOptions Orders Itch 1.91 Generated Fields
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_leg_index = ProtoField.new("Complex Order Leg Index", "nasdaq.phlxoptions.orders.itch.v1.91.complexorderlegindex", ftypes.UINT16)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_strategy_leg_index = ProtoField.new("Complex Order Strategy Leg Index", "nasdaq.phlxoptions.orders.itch.v1.91.complexorderstrategylegindex", ftypes.UINT16)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message_index = ProtoField.new("Message Index", "nasdaq.phlxoptions.orders.itch.v1.91.messageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Nasdaq PhlxOptions Orders Itch 1.91 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime", 2 }
+}
+
+-- 0=Raw, 1=TimeOfDay, 2=FullDateTime
+nasdaq_phlxoptions_orders_itch_v1_91.timestamp_format = 2
+
+-- Hours behind UTC (EST) for midnight calculation
+nasdaq_phlxoptions_orders_itch_v1_91.utc_offset_hours = 5
+
+-- absolute time base
+local absolute_time_base_enum = {
+  { 1, "Local", 0 },
+  { 2, "Utc", 1 }
+}
+
+-- 0=Local, 1=Utc
+nasdaq_phlxoptions_orders_itch_v1_91.absolute_time_base = 0
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Nasdaq PhlxOptions Orders Itch 1.91 Element Dissection Options
+show.application_messages = true
+show.repeating_groups = true
+show.structs = true
+show.headers = true
+show.indexes = true
+
+-- Register Nasdaq PhlxOptions Orders Itch 1.91 Show Options
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Timestamp display format", timestamp_format_enum, false)
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.utc_offset_hours = Pref.uint("UTC Offset (hours)", 5, "Hours behind UTC (EST) for midnight calculation")
+omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.absolute_time_base = Pref.enum("Absolute Time Base", 0, "Render absolute times in Utc or in the reader's local time", absolute_time_base_enum, false)
+
+-- Handle changed preferences
+function omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_application_messages then
+    show.application_messages = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_headers then
+    show.headers = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_repeating_groups then
+    show.repeating_groups = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_repeating_groups
+  end
+  if show.structs ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_structs then
+    show.structs = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_structs
+  end
+  if show.indexes ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_indexes then
+    show.indexes = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.show_indexes
+  end
+  if nasdaq_phlxoptions_orders_itch_v1_91.timestamp_format ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.timestamp_format then
+    nasdaq_phlxoptions_orders_itch_v1_91.timestamp_format = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.timestamp_format
+  end
+  if nasdaq_phlxoptions_orders_itch_v1_91.utc_offset_hours ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.utc_offset_hours then
+    nasdaq_phlxoptions_orders_itch_v1_91.utc_offset_hours = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.utc_offset_hours
+  end
+  if nasdaq_phlxoptions_orders_itch_v1_91.absolute_time_base ~= omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.absolute_time_base then
+    nasdaq_phlxoptions_orders_itch_v1_91.absolute_time_base = omi_nasdaq_phlxoptions_orders_itch_v1_91.prefs.absolute_time_base
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
+-- Nasdaq PhlxOptions Orders Itch 1.91 Fields
+-----------------------------------------------------------------------
+
+-- Action
+nasdaq_phlxoptions_orders_itch_v1_91.action = {}
+
+-- Size: Action
+nasdaq_phlxoptions_orders_itch_v1_91.action.size = 1
+
+-- Display: Action
+nasdaq_phlxoptions_orders_itch_v1_91.action.display = function(value)
+  if value == "A" then
+    return "Action: Add (A)"
+  end
+  if value == "D" then
+    return "Action: Delete (D)"
+  end
+
+  return "Action: Unknown("..value..")"
+end
+
+-- Dissect: Action
+nasdaq_phlxoptions_orders_itch_v1_91.action.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.action, range, value, display)
+
+  return offset + length, value
+end
+
+-- All Or None
+nasdaq_phlxoptions_orders_itch_v1_91.all_or_none = {}
+
+-- Size: All Or None
+nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.size = 1
+
+-- Display: All Or None
+nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.display = function(value)
+  if value == "Y" then
+    return "All Or None: All Or None Order (Y)"
+  end
+  if value == "N" then
+    return "All Or None: Not All Or None Order (N)"
+  end
+
+  return "All Or None: Unknown("..value..")"
+end
+
+-- Dissect: All Or None
+nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.all_or_none, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Id
+nasdaq_phlxoptions_orders_itch_v1_91.auction_id = {}
+
+-- Size: Auction Id
+nasdaq_phlxoptions_orders_itch_v1_91.auction_id.size = 4
+
+-- Display: Auction Id
+nasdaq_phlxoptions_orders_itch_v1_91.auction_id.display = function(value)
+  return "Auction Id: "..value
+end
+
+-- Dissect: Auction Id
+nasdaq_phlxoptions_orders_itch_v1_91.auction_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.auction_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.auction_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Side
+nasdaq_phlxoptions_orders_itch_v1_91.auction_side = {}
+
+-- Size: Auction Side
+nasdaq_phlxoptions_orders_itch_v1_91.auction_side.size = 1
+
+-- Display: Auction Side
+nasdaq_phlxoptions_orders_itch_v1_91.auction_side.display = function(value)
+  if value == "B" then
+    return "Auction Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Auction Side: Sell (S)"
+  end
+  if value == "*" then
+    return "Auction Side: Solicitation Auction (*)"
+  end
+
+  return "Auction Side: Unknown("..value..")"
+end
+
+-- Dissect: Auction Side
+nasdaq_phlxoptions_orders_itch_v1_91.auction_side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.auction_side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.auction_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+nasdaq_phlxoptions_orders_itch_v1_91.auction_type = {}
+
+-- Size: Auction Type
+nasdaq_phlxoptions_orders_itch_v1_91.auction_type.size = 1
+
+-- Display: Auction Type
+nasdaq_phlxoptions_orders_itch_v1_91.auction_type.display = function(value)
+  if value == "C" then
+    return "Auction Type: Cola (C)"
+  end
+  if value == "O" then
+    return "Auction Type: Opening (O)"
+  end
+  if value == "R" then
+    return "Auction Type: Reopening (R)"
+  end
+  if value == "P" then
+    return "Auction Type: Pixl (P)"
+  end
+  if value == "S" then
+    return "Auction Type: Solicitation (S)"
+  end
+  if value == "I" then
+    return "Auction Type: Order Exposure (I)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+nasdaq_phlxoptions_orders_itch_v1_91.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.auction_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Count
+nasdaq_phlxoptions_orders_itch_v1_91.count = {}
+
+-- Size: Count
+nasdaq_phlxoptions_orders_itch_v1_91.count.size = 2
+
+-- Display: Count
+nasdaq_phlxoptions_orders_itch_v1_91.count.display = function(value)
+  return "Count: "..value
+end
+
+-- Dissect: Count
+nasdaq_phlxoptions_orders_itch_v1_91.count.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state = {}
+
+-- Size: Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.size = 1
+
+-- Display: Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.display = function(value)
+  if value == "H" then
+    return "Current Trading State: Halt In Effect (H)"
+  end
+  if value == "T" then
+    return "Current Trading State: Phlx Trading Resumed (T)"
+  end
+
+  return "Current Trading State: Unknown("..value..")"
+end
+
+-- Dissect: Current Trading State
+nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.current_trading_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator = {}
+
+-- Size: Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.size = 1
+
+-- Display: Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.display = function(value)
+  if value == "C" then
+    return "Customer Firm Indicator: Customer Order (C)"
+  end
+  if value == "F" then
+    return "Customer Firm Indicator: Firm Order (F)"
+  end
+  if value == "M" then
+    return "Customer Firm Indicator: Onfloor Market Maker (M)"
+  end
+  if value == "B" then
+    return "Customer Firm Indicator: Broker Dealer Order (B)"
+  end
+  if value == "P" then
+    return "Customer Firm Indicator: Professional Order (P)"
+  end
+  if value == " " then
+    return "Customer Firm Indicator: Na For Implied Order (<whitespace>)"
+  end
+
+  return "Customer Firm Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Customer Firm Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.customer_firm_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit = {}
+
+-- Size: Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.size = 1
+
+-- Display: Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.display = function(value)
+  if value == "D" then
+    return "Debit Or Credit: Net Debit (D)"
+  end
+  if value == "C" then
+    return "Debit Or Credit: Net Credit (C)"
+  end
+  if value == " " then
+    return "Debit Or Credit: Even Or Market Order (<whitespace>)"
+  end
+  if value == "*" then
+    return "Debit Or Credit: Anonymous (*)"
+  end
+
+  return "Debit Or Credit: Unknown("..value..")"
+end
+
+-- Dissect: Debit Or Credit
+nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.debit_or_credit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+nasdaq_phlxoptions_orders_itch_v1_91.event_code = {}
+
+-- Size: Event Code
+nasdaq_phlxoptions_orders_itch_v1_91.event_code.size = 1
+
+-- Display: Event Code
+nasdaq_phlxoptions_orders_itch_v1_91.event_code.display = function(value)
+  if value == "O" then
+    return "Event Code: Start Of Messages (O)"
+  end
+  if value == "S" then
+    return "Event Code: Start Of System Hours (S)"
+  end
+  if value == "Q" then
+    return "Event Code: Start Of Opening Process (Q)"
+  end
+  if value == "N" then
+    return "Event Code: Start Of Normal Hours Closing Process (N)"
+  end
+  if value == "L" then
+    return "Event Code: Start Of Late Hours Closing Process (L)"
+  end
+  if value == "E" then
+    return "Event Code: End Of System Hours (E)"
+  end
+  if value == "C" then
+    return "Event Code: End Of Messages (C)"
+  end
+  if value == "W" then
+    return "Event Code: End Of Wco Early Closing (W)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+nasdaq_phlxoptions_orders_itch_v1_91.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.event_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume = {}
+
+-- Size: Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.size = 4
+
+-- Display: Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.display = function(value)
+  return "Executable Order Volume: "..value
+end
+
+-- Dissect: Executable Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.executable_order_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price = {}
+
+-- Size: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size = 4
+
+-- Display: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.display = function(value)
+  return "Explicit Strike Price: "..value
+end
+
+-- Translate: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Explicit Strike Price
+nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.translate(raw)
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.explicit_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume = {}
+
+-- Size: Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume.size = 4
+
+-- Display: Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume.display = function(value)
+  return "Imbalance Volume: "..value
+end
+
+-- Dissect: Imbalance Volume
+nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.imbalance_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator = {}
+
+-- Size: Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator.size = 1
+
+-- Display: Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator.display = function(value)
+  if value == "O" then
+    return "Leg Open Close Indicator: Opens Position (O)"
+  end
+  if value == "C" then
+    return "Leg Open Close Indicator: Closes Position (C)"
+  end
+  if value == " " then
+    return "Leg Open Close Indicator: Stock Leg (<whitespace>)"
+  end
+
+  return "Leg Open Close Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Leg Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.leg_open_close_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio = {}
+
+-- Size: Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+nasdaq_phlxoptions_orders_itch_v1_91.length = {}
+
+-- Size: Length
+nasdaq_phlxoptions_orders_itch_v1_91.length.size = 2
+
+-- Display: Length
+nasdaq_phlxoptions_orders_itch_v1_91.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+nasdaq_phlxoptions_orders_itch_v1_91.length.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Price
+nasdaq_phlxoptions_orders_itch_v1_91.limit_price = {}
+
+-- Size: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_91.limit_price.size = 4
+
+-- Display: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_91.limit_price.display = function(value)
+  return "Limit Price: "..value
+end
+
+-- Translate: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_91.limit_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Limit Price
+nasdaq_phlxoptions_orders_itch_v1_91.limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.limit_price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_phlxoptions_orders_itch_v1_91.limit_price.translate(raw)
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.limit_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.limit_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier = {}
+
+-- Size: Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier.size = 1
+
+-- Display: Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier.display = function(value)
+  if value == "O" then
+    return "Market Qualifier: Opening Order (O)"
+  end
+  if value == "I" then
+    return "Market Qualifier: Implied Order (I)"
+  end
+  if value == " " then
+    return "Market Qualifier: Na (<whitespace>)"
+  end
+
+  return "Market Qualifier: Unknown("..value..")"
+end
+
+-- Dissect: Market Qualifier
+nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.market_qualifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_91.matched_volume = {}
+
+-- Size: Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_91.matched_volume.size = 4
+
+-- Display: Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_91.matched_volume.display = function(value)
+  return "Matched Volume: "..value
+end
+
+-- Dissect: Matched Volume
+nasdaq_phlxoptions_orders_itch_v1_91.matched_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.matched_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.matched_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.matched_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nasdaq_phlxoptions_orders_itch_v1_91.message_type = {}
+
+-- Size: Message Type
+nasdaq_phlxoptions_orders_itch_v1_91.message_type.size = 1
+
+-- Display: Message Type
+nasdaq_phlxoptions_orders_itch_v1_91.message_type.display = function(value)
+  if value == "S" then
+    return "Message Type: System Event Message (S)"
+  end
+  if value == "D" then
+    return "Message Type: Options Directory Message (D)"
+  end
+  if value == "R" then
+    return "Message Type: Complex Order Strategy Message (R)"
+  end
+  if value == "H" then
+    return "Message Type: Security Trading Action Message (H)"
+  end
+  if value == "I" then
+    return "Message Type: Complex Trading Action Message (I)"
+  end
+  if value == "P" then
+    return "Message Type: Security Open Closed Message (P)"
+  end
+  if value == "Q" then
+    return "Message Type: Strategy Open Closed Message (Q)"
+  end
+  if value == "O" then
+    return "Message Type: Simple Order Message (O)"
+  end
+  if value == "X" then
+    return "Message Type: Complex Order Message (X)"
+  end
+  if value == "A" then
+    return "Message Type: Auction Notification Message (A)"
+  end
+  if value == "C" then
+    return "Message Type: Complex Auction Notification Message (C)"
+  end
+
+  return "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nasdaq_phlxoptions_orders_itch_v1_91.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds = {}
+
+-- Size: Nanoseconds
+nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs = {}
+
+-- Size: Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.size = 1
+
+-- Display: Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.display = function(value)
+  return "Number Of Legs: "..value
+end
+
+-- Dissect: Number Of Legs
+nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.number_of_legs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator = {}
+
+-- Size: Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator.size = 1
+
+-- Display: Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator.display = function(value)
+  if value == "O" then
+    return "Open Close Indicator: Opens Position (O)"
+  end
+  if value == "C" then
+    return "Open Close Indicator: Closes Position (C)"
+  end
+  if value == " " then
+    return "Open Close Indicator: Na (<whitespace>)"
+  end
+
+  return "Open Close Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Open Close Indicator
+nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.open_close_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open State
+nasdaq_phlxoptions_orders_itch_v1_91.open_state = {}
+
+-- Size: Open State
+nasdaq_phlxoptions_orders_itch_v1_91.open_state.size = 1
+
+-- Display: Open State
+nasdaq_phlxoptions_orders_itch_v1_91.open_state.display = function(value)
+  if value == "Y" then
+    return "Open State: Open For Auto Execution (Y)"
+  end
+  if value == "N" then
+    return "Open State: Closed For Auto Execution (N)"
+  end
+
+  return "Open State: Unknown("..value..")"
+end
+
+-- Dissect: Open State
+nasdaq_phlxoptions_orders_itch_v1_91.open_state.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.open_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.open_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.open_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type = {}
+
+-- Size: Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type.size = 1
+
+-- Display: Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type.display = function(value)
+  if value == "N" then
+    return "Option Closing Type: Normal (N)"
+  end
+  if value == "L" then
+    return "Option Closing Type: Late (L)"
+  end
+  if value == "W" then
+    return "Option Closing Type: Wco Early Closing (W)"
+  end
+
+  return "Option Closing Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Closing Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.option_closing_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Id
+nasdaq_phlxoptions_orders_itch_v1_91.option_id = {}
+
+-- Size: Option Id
+nasdaq_phlxoptions_orders_itch_v1_91.option_id.size = 4
+
+-- Display: Option Id
+nasdaq_phlxoptions_orders_itch_v1_91.option_id.display = function(value)
+  return "Option Id: "..value
+end
+
+-- Dissect: Option Id
+nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.option_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.option_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.option_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Option Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_type = {}
+
+-- Size: Option Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_type.size = 1
+
+-- Display: Option Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_type.display = function(value)
+  if value == "C" then
+    return "Option Type: Call (C)"
+  end
+  if value == "P" then
+    return "Option Type: Put (P)"
+  end
+  if value == " " then
+    return "Option Type: Stock (<whitespace>)"
+  end
+
+  return "Option Type: Unknown("..value..")"
+end
+
+-- Dissect: Option Type
+nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.option_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.option_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.option_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+nasdaq_phlxoptions_orders_itch_v1_91.order_id = {}
+
+-- Size: Order Id
+nasdaq_phlxoptions_orders_itch_v1_91.order_id.size = 4
+
+-- Display: Order Id
+nasdaq_phlxoptions_orders_itch_v1_91.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+nasdaq_phlxoptions_orders_itch_v1_91.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.order_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Status
+nasdaq_phlxoptions_orders_itch_v1_91.order_status = {}
+
+-- Size: Order Status
+nasdaq_phlxoptions_orders_itch_v1_91.order_status.size = 1
+
+-- Display: Order Status
+nasdaq_phlxoptions_orders_itch_v1_91.order_status.display = function(value)
+  if value == "O" then
+    return "Order Status: Open (O)"
+  end
+  if value == "F" then
+    return "Order Status: Filled (F)"
+  end
+  if value == "C" then
+    return "Order Status: Cancelled (C)"
+  end
+  if value == "R" then
+    return "Order Status: Renotification (R)"
+  end
+
+  return "Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Order Status
+nasdaq_phlxoptions_orders_itch_v1_91.order_status.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.order_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.order_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.order_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+nasdaq_phlxoptions_orders_itch_v1_91.order_type = {}
+
+-- Size: Order Type
+nasdaq_phlxoptions_orders_itch_v1_91.order_type.size = 1
+
+-- Display: Order Type
+nasdaq_phlxoptions_orders_itch_v1_91.order_type.display = function(value)
+  if value == "M" then
+    return "Order Type: Market (M)"
+  end
+  if value == "L" then
+    return "Order Type: Limit (L)"
+  end
+  if value == "*" then
+    return "Order Type: Anonymous (*)"
+  end
+
+  return "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+nasdaq_phlxoptions_orders_itch_v1_91.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume = {}
+
+-- Size: Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.size = 4
+
+-- Display: Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.display = function(value)
+  return "Original Order Volume: "..value
+end
+
+-- Dissect: Original Order Volume
+nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.original_order_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable = {}
+
+-- Size: Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable.size = 1
+
+-- Display: Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable.display = function(value)
+  if value == "Y" then
+    return "Phlx Tradable: Tradable (Y)"
+  end
+  if value == "N" then
+    return "Phlx Tradable: Not Tradable (N)"
+  end
+
+  return "Phlx Tradable: Unknown("..value..")"
+end
+
+-- Dissect: Phlx Tradable
+nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.phlx_tradable, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+nasdaq_phlxoptions_orders_itch_v1_91.price = {}
+
+-- Size: Price
+nasdaq_phlxoptions_orders_itch_v1_91.price.size = 4
+
+-- Display: Price
+nasdaq_phlxoptions_orders_itch_v1_91.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+nasdaq_phlxoptions_orders_itch_v1_91.price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Price
+nasdaq_phlxoptions_orders_itch_v1_91.price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.price.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_phlxoptions_orders_itch_v1_91.price.translate(raw)
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 3
+nasdaq_phlxoptions_orders_itch_v1_91.reserved_3 = {}
+
+-- Size: Reserved 3
+nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.size = 3
+
+-- Display: Reserved 3
+nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.display = function(value)
+  return "Reserved 3: "..value
+end
+
+-- Dissect: Reserved 3
+nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.reserved_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nasdaq_phlxoptions_orders_itch_v1_91.seconds = {}
+
+-- Size: Seconds
+nasdaq_phlxoptions_orders_itch_v1_91.seconds.size = 4
+
+-- Display: Seconds
+nasdaq_phlxoptions_orders_itch_v1_91.seconds.display = function(value)
+  return "Seconds: "..value
+end
+
+-- Dissect: Seconds
+nasdaq_phlxoptions_orders_itch_v1_91.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.seconds.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.seconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.security_symbol = {}
+
+-- Size: Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size = 5
+
+-- Display: Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.display = function(value)
+  return "Security Symbol: "..value
+end
+
+-- Dissect: Security Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.security_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+nasdaq_phlxoptions_orders_itch_v1_91.sequence = {}
+
+-- Size: Sequence
+nasdaq_phlxoptions_orders_itch_v1_91.sequence.size = 4
+
+-- Display: Sequence
+nasdaq_phlxoptions_orders_itch_v1_91.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+nasdaq_phlxoptions_orders_itch_v1_91.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.sequence.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session
+nasdaq_phlxoptions_orders_itch_v1_91.session = {}
+
+-- Size: Session
+nasdaq_phlxoptions_orders_itch_v1_91.session.size = 10
+
+-- Display: Session
+nasdaq_phlxoptions_orders_itch_v1_91.session.display = function(value)
+  return "Session: "..value
+end
+
+-- Dissect: Session
+nasdaq_phlxoptions_orders_itch_v1_91.session.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.session.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.session.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.session, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+nasdaq_phlxoptions_orders_itch_v1_91.side = {}
+
+-- Size: Side
+nasdaq_phlxoptions_orders_itch_v1_91.side.size = 1
+
+-- Display: Side
+nasdaq_phlxoptions_orders_itch_v1_91.side.display = function(value)
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+  if value == "*" then
+    return "Side: Hidden (*)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+nasdaq_phlxoptions_orders_itch_v1_91.side.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source
+nasdaq_phlxoptions_orders_itch_v1_91.source = {}
+
+-- Size: Source
+nasdaq_phlxoptions_orders_itch_v1_91.source.size = 1
+
+-- Display: Source
+nasdaq_phlxoptions_orders_itch_v1_91.source.display = function(value)
+  return "Source: "..value
+end
+
+-- Dissect: Source
+nasdaq_phlxoptions_orders_itch_v1_91.source.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.source, range, value, display)
+
+  return offset + length, value
+end
+
+-- Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_id = {}
+
+-- Size: Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.size = 4
+
+-- Display: Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.display = function(value)
+  return "Strategy Id: "..value
+end
+
+-- Dissect: Strategy Id
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.strategy_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+nasdaq_phlxoptions_orders_itch_v1_91.time_in_force = {}
+
+-- Size: Time In Force
+nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.size = 1
+
+-- Display: Time In Force
+nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.display = function(value)
+  if value == "D" then
+    return "Time In Force: Day Order (D)"
+  end
+  if value == "G" then
+    return "Time In Force: Gtc (G)"
+  end
+  if value == "I" then
+    return "Time In Force: Ioc (I)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol = {}
+
+-- Size: Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.size = 13
+
+-- Display: Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.display = function(value)
+  return "Underlying Symbol: "..value
+end
+
+-- Dissect: Underlying Symbol
+nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.underlying_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Version
+nasdaq_phlxoptions_orders_itch_v1_91.version = {}
+
+-- Size: Version
+nasdaq_phlxoptions_orders_itch_v1_91.version.size = 1
+
+-- Display: Version
+nasdaq_phlxoptions_orders_itch_v1_91.version.display = function(value)
+  return "Version: "..value
+end
+
+-- Dissect: Version
+nasdaq_phlxoptions_orders_itch_v1_91.version.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Volume
+nasdaq_phlxoptions_orders_itch_v1_91.volume = {}
+
+-- Size: Volume
+nasdaq_phlxoptions_orders_itch_v1_91.volume.size = 4
+
+-- Display: Volume
+nasdaq_phlxoptions_orders_itch_v1_91.volume.display = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+nasdaq_phlxoptions_orders_itch_v1_91.volume.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlxoptions_orders_itch_v1_91.volume.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nasdaq PhlxOptions Orders Itch 1.91
+-----------------------------------------------------------------------
+
+-- Timestamp
+nasdaq_phlxoptions_orders_itch_v1_91.timestamp = {}
+
+-- Size: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.seconds.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds.size
+
+-- Display: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_91.timestamp.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  return os.date("%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_91.timestamp.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: Integer
+  index, seconds = nasdaq_phlxoptions_orders_itch_v1_91.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: Integer
+  index, nanoseconds = nasdaq_phlxoptions_orders_itch_v1_91.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local timestamp = UInt64.new(seconds * 1000000000 + nanoseconds)
+
+  return index, timestamp
+end
+
+-- Dissect: Timestamp
+nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):uint()
+    local nanoseconds = buffer(offset + 4, 4):uint()
+    local length = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.timestamp
+    if nasdaq_phlxoptions_orders_itch_v1_91.absolute_time_base == 1 then field = omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.timestamp_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.timestamp.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Complex Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message = {}
+
+-- Size: Complex Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.auction_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.auction_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.auction_side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.volume.size
+
+-- Display: Complex Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Strategy Id: Integer
+  index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_phlxoptions_orders_itch_v1_91.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_phlxoptions_orders_itch_v1_91.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_phlxoptions_orders_itch_v1_91.price.dissect(buffer, index, packet, parent)
+
+  -- Auction Side: Alpha
+  index, auction_side = nasdaq_phlxoptions_orders_itch_v1_91.auction_side.dissect(buffer, index, packet, parent)
+
+  -- Debit Or Credit: Alpha
+  index, debit_or_credit = nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.dissect(buffer, index, packet, parent)
+
+  -- Volume: Integer
+  index, volume = nasdaq_phlxoptions_orders_itch_v1_91.volume.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_auction_notification_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Expiration
+nasdaq_phlxoptions_orders_itch_v1_91.expiration = {}
+
+-- Size: Expiration
+nasdaq_phlxoptions_orders_itch_v1_91.expiration.size = 2
+
+-- Display: Expiration
+nasdaq_phlxoptions_orders_itch_v1_91.expiration.display = function(range, value, packet, parent)
+  local flags = {}
+
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Expiration
+nasdaq_phlxoptions_orders_itch_v1_91.expiration.bits = function(range, value, packet, parent)
+
+  -- Day: 5 Bit Unsigned Fixed Width Integer
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.day, range, value)
+
+  -- Month: 4 Bit Unsigned Fixed Width Integer
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.month, range, value)
+
+  -- Year: 7 Bit Unsigned Fixed Width Integer
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.year, range, value)
+end
+
+-- Dissect: Expiration
+nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect = function(buffer, offset, packet, parent)
+  local size = nasdaq_phlxoptions_orders_itch_v1_91.expiration.size
+  local range = buffer(offset, size)
+  local value = range:uint()
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.expiration.display(range, value, packet, parent)
+  local element = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.expiration, range, display)
+
+  if show.structs then
+    nasdaq_phlxoptions_orders_itch_v1_91.expiration.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message = {}
+
+-- Size: Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.auction_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.auction_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.auction_side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.matched_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.size
+
+-- Display: Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration: Struct of 3 fields
+  index, expiration = nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Id: Integer
+  index, auction_id = nasdaq_phlxoptions_orders_itch_v1_91.auction_id.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Alpha
+  index, auction_type = nasdaq_phlxoptions_orders_itch_v1_91.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Integer
+  index, price = nasdaq_phlxoptions_orders_itch_v1_91.price.dissect(buffer, index, packet, parent)
+
+  -- Auction Side: Alpha
+  index, auction_side = nasdaq_phlxoptions_orders_itch_v1_91.auction_side.dissect(buffer, index, packet, parent)
+
+  -- Matched Volume: Integer
+  index, matched_volume = nasdaq_phlxoptions_orders_itch_v1_91.matched_volume.dissect(buffer, index, packet, parent)
+
+  -- Imbalance Volume: Integer
+  index, imbalance_volume = nasdaq_phlxoptions_orders_itch_v1_91.imbalance_volume.dissect(buffer, index, packet, parent)
+
+  -- Customer Firm Indicator: Alpha
+  index, customer_firm_indicator = nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.dissect(buffer, index, packet, parent)
+
+  -- Reserved 3: N/A
+  index, reserved_3 = nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Auction Notification Message
+nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.auction_notification_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Complex Order Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg = {}
+
+-- Size: Complex Order Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.size
+
+-- Display: Complex Order Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Order Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.fields = function(buffer, offset, packet, parent, complex_order_leg_index)
+  local index = offset
+
+  -- Implicit Complex Order Leg Index
+  if complex_order_leg_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_leg_index, complex_order_leg_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Open Close Indicator: Alpha
+  index, leg_open_close_indicator = nasdaq_phlxoptions_orders_itch_v1_91.leg_open_close_indicator.dissect(buffer, index, packet, parent)
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration: Struct of 3 fields
+  index, expiration = nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_phlxoptions_orders_itch_v1_91.side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio: Integer
+  index, leg_ratio = nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Order Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.dissect = function(buffer, offset, packet, parent, complex_order_leg_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_leg, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.fields(buffer, offset, packet, parent, complex_order_leg_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.fields(buffer, offset, packet, parent, complex_order_leg_index)
+  end
+end
+
+-- Complex Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message = {}
+
+-- Calculate size of: Complex Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.order_id.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.side.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.order_status.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.order_type.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.limit_price.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.size
+
+  -- Calculate field size from count
+  local complex_order_leg_count = buffer(offset + index - 1, 1):uint()
+  index = index + complex_order_leg_count * 22
+
+  return index
+end
+
+-- Display: Complex Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Strategy Id: Integer
+  index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_phlxoptions_orders_itch_v1_91.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_phlxoptions_orders_itch_v1_91.side.dissect(buffer, index, packet, parent)
+
+  -- Original Order Volume: Integer
+  index, original_order_volume = nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.dissect(buffer, index, packet, parent)
+
+  -- Executable Order Volume: Integer
+  index, executable_order_volume = nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.dissect(buffer, index, packet, parent)
+
+  -- Order Status: Alpha
+  index, order_status = nasdaq_phlxoptions_orders_itch_v1_91.order_status.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_phlxoptions_orders_itch_v1_91.order_type.dissect(buffer, index, packet, parent)
+
+  -- Limit Price: Integer
+  index, limit_price = nasdaq_phlxoptions_orders_itch_v1_91.limit_price.dissect(buffer, index, packet, parent)
+
+  -- Debit Or Credit: Alpha
+  index, debit_or_credit = nasdaq_phlxoptions_orders_itch_v1_91.debit_or_credit.dissect(buffer, index, packet, parent)
+
+  -- All Or None: Alpha
+  index, all_or_none = nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: Alpha
+  index, time_in_force = nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Customer Firm Indicator: Alpha
+  index, customer_firm_indicator = nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.dissect(buffer, index, packet, parent)
+
+  -- Underlying Symbol: Alphanumeric
+  index, underlying_symbol = nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.dissect(buffer, index, packet, parent)
+
+  -- Number Of Legs: Integer
+  index, number_of_legs = nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Complex Order Leg
+  for complex_order_leg_index = 1, number_of_legs do
+    index, complex_order_leg = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_leg.dissect(buffer, index, packet, parent, complex_order_leg_index)
+  end
+
+  return index
+end
+
+-- Dissect: Complex Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Simple Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message = {}
+
+-- Size: Simple Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.order_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.order_status.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.order_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.limit_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator.size
+
+-- Display: Simple Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Simple Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration: Struct of 3 fields
+  index, expiration = nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect(buffer, index, packet, parent)
+
+  -- Order Id: Integer
+  index, order_id = nasdaq_phlxoptions_orders_itch_v1_91.order_id.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_phlxoptions_orders_itch_v1_91.side.dissect(buffer, index, packet, parent)
+
+  -- Original Order Volume: Integer
+  index, original_order_volume = nasdaq_phlxoptions_orders_itch_v1_91.original_order_volume.dissect(buffer, index, packet, parent)
+
+  -- Executable Order Volume: Integer
+  index, executable_order_volume = nasdaq_phlxoptions_orders_itch_v1_91.executable_order_volume.dissect(buffer, index, packet, parent)
+
+  -- Order Status: Alpha
+  index, order_status = nasdaq_phlxoptions_orders_itch_v1_91.order_status.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alpha
+  index, order_type = nasdaq_phlxoptions_orders_itch_v1_91.order_type.dissect(buffer, index, packet, parent)
+
+  -- Market Qualifier: Alpha
+  index, market_qualifier = nasdaq_phlxoptions_orders_itch_v1_91.market_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Limit Price: Integer
+  index, limit_price = nasdaq_phlxoptions_orders_itch_v1_91.limit_price.dissect(buffer, index, packet, parent)
+
+  -- All Or None: Alpha
+  index, all_or_none = nasdaq_phlxoptions_orders_itch_v1_91.all_or_none.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: Alpha
+  index, time_in_force = nasdaq_phlxoptions_orders_itch_v1_91.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Customer Firm Indicator: Alpha
+  index, customer_firm_indicator = nasdaq_phlxoptions_orders_itch_v1_91.customer_firm_indicator.dissect(buffer, index, packet, parent)
+
+  -- Open Close Indicator: Alpha
+  index, open_close_indicator = nasdaq_phlxoptions_orders_itch_v1_91.open_close_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Simple Order Message
+nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.simple_order_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Strategy Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message = {}
+
+-- Size: Strategy Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.open_state.size
+
+-- Display: Strategy Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Strategy Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Strategy Id: Integer
+  index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.dissect(buffer, index, packet, parent)
+
+  -- Open State: Alpha
+  index, open_state = nasdaq_phlxoptions_orders_itch_v1_91.open_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Strategy Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.strategy_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message = {}
+
+-- Size: Security Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.open_state.size
+
+-- Display: Security Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration: Struct of 3 fields
+  index, expiration = nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect(buffer, index, packet, parent)
+
+  -- Open State: Alpha
+  index, open_state = nasdaq_phlxoptions_orders_itch_v1_91.open_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Open Closed Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.security_open_closed_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Complex Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message = {}
+
+-- Size: Complex Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.size
+
+-- Display: Complex Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Strategy Id: Integer
+  index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.dissect(buffer, index, packet, parent)
+
+  -- Current Trading State: Alpha
+  index, current_trading_state = nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Security Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message = {}
+
+-- Size: Security Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.size
+
+-- Display: Security Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Security Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration: Struct of 3 fields
+  index, expiration = nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect(buffer, index, packet, parent)
+
+  -- Current Trading State: Alpha
+  index, current_trading_state = nasdaq_phlxoptions_orders_itch_v1_91.current_trading_state.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Security Trading Action Message
+nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.security_trading_action_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Complex Order Strategy Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg = {}
+
+-- Size: Complex Order Strategy Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.side.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.size
+
+-- Display: Complex Order Strategy Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Order Strategy Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.fields = function(buffer, offset, packet, parent, complex_order_strategy_leg_index)
+  local index = offset
+
+  -- Implicit Complex Order Strategy Leg Index
+  if complex_order_strategy_leg_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_strategy_leg_index, complex_order_strategy_leg_index)
+    iteration:set_generated()
+  end
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration: Struct of 3 fields
+  index, expiration = nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect(buffer, index, packet, parent)
+
+  -- Side: Alpha
+  index, side = nasdaq_phlxoptions_orders_itch_v1_91.side.dissect(buffer, index, packet, parent)
+
+  -- Leg Ratio: Integer
+  index, leg_ratio = nasdaq_phlxoptions_orders_itch_v1_91.leg_ratio.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Complex Order Strategy Leg
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.dissect = function(buffer, offset, packet, parent, complex_order_strategy_leg_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_strategy_leg, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.fields(buffer, offset, packet, parent, complex_order_strategy_leg_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.fields(buffer, offset, packet, parent, complex_order_strategy_leg_index)
+  end
+end
+
+-- Complex Order Strategy Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message = {}
+
+-- Calculate size of: Complex Order Strategy Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.source.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.action.size
+
+  index = index + nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.size
+
+  -- Calculate field size from count
+  local complex_order_strategy_leg_count = buffer(offset + index - 1, 1):uint()
+  index = index + complex_order_strategy_leg_count * 21
+
+  return index
+end
+
+-- Display: Complex Order Strategy Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Complex Order Strategy Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Strategy Id: Integer
+  index, strategy_id = nasdaq_phlxoptions_orders_itch_v1_91.strategy_id.dissect(buffer, index, packet, parent)
+
+  -- Source: Integer
+  index, source = nasdaq_phlxoptions_orders_itch_v1_91.source.dissect(buffer, index, packet, parent)
+
+  -- Underlying Symbol: Alphanumeric
+  index, underlying_symbol = nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.dissect(buffer, index, packet, parent)
+
+  -- Action: Alphanumeric
+  index, action = nasdaq_phlxoptions_orders_itch_v1_91.action.dissect(buffer, index, packet, parent)
+
+  -- Number Of Legs: Integer
+  index, number_of_legs = nasdaq_phlxoptions_orders_itch_v1_91.number_of_legs.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Complex Order Strategy Leg
+  for complex_order_strategy_leg_index = 1, number_of_legs do
+    index, complex_order_strategy_leg = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_leg.dissect(buffer, index, packet, parent, complex_order_strategy_leg_index)
+  end
+
+  return index
+end
+
+-- Dissect: Complex Order Strategy Message
+nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.complex_order_strategy_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Options Directory Message
+nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message = {}
+
+-- Size: Options Directory Message
+nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_id.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.expiration.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.source.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable.size
+
+-- Display: Options Directory Message
+nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Options Directory Message
+nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Option Id: Integer
+  index, option_id = nasdaq_phlxoptions_orders_itch_v1_91.option_id.dissect(buffer, index, packet, parent)
+
+  -- Security Symbol: Alphanumeric
+  index, security_symbol = nasdaq_phlxoptions_orders_itch_v1_91.security_symbol.dissect(buffer, index, packet, parent)
+
+  -- Expiration: Struct of 3 fields
+  index, expiration = nasdaq_phlxoptions_orders_itch_v1_91.expiration.dissect(buffer, index, packet, parent)
+
+  -- Explicit Strike Price: Integer
+  index, explicit_strike_price = nasdaq_phlxoptions_orders_itch_v1_91.explicit_strike_price.dissect(buffer, index, packet, parent)
+
+  -- Option Type: Alpha
+  index, option_type = nasdaq_phlxoptions_orders_itch_v1_91.option_type.dissect(buffer, index, packet, parent)
+
+  -- Source: Integer
+  index, source = nasdaq_phlxoptions_orders_itch_v1_91.source.dissect(buffer, index, packet, parent)
+
+  -- Underlying Symbol: Alphanumeric
+  index, underlying_symbol = nasdaq_phlxoptions_orders_itch_v1_91.underlying_symbol.dissect(buffer, index, packet, parent)
+
+  -- Option Closing Type: Alpha
+  index, option_closing_type = nasdaq_phlxoptions_orders_itch_v1_91.option_closing_type.dissect(buffer, index, packet, parent)
+
+  -- Phlx Tradable: Alpha
+  index, phlx_tradable = nasdaq_phlxoptions_orders_itch_v1_91.phlx_tradable.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Options Directory Message
+nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.options_directory_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Event Message
+nasdaq_phlxoptions_orders_itch_v1_91.system_event_message = {}
+
+-- Size: System Event Message
+nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.timestamp.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.event_code.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.version.size
+
+-- Display: System Event Message
+nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Event Message
+nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: Struct of 2 fields
+  index, timestamp = nasdaq_phlxoptions_orders_itch_v1_91.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Event Code: Alpha
+  index, event_code = nasdaq_phlxoptions_orders_itch_v1_91.event_code.dissect(buffer, index, packet, parent)
+
+  -- Version: Integer
+  index, version = nasdaq_phlxoptions_orders_itch_v1_91.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Event Message
+nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.system_event_message, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+nasdaq_phlxoptions_orders_itch_v1_91.payload = {}
+
+-- Dissect: Payload
+nasdaq_phlxoptions_orders_itch_v1_91.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect System Event Message
+  if message_type == "S" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Options Directory Message
+  if message_type == "D" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.options_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Order Strategy Message
+  if message_type == "R" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_order_strategy_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security Trading Action Message
+  if message_type == "H" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.security_trading_action_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Trading Action Message
+  if message_type == "I" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_trading_action_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Security Open Closed Message
+  if message_type == "P" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.security_open_closed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Strategy Open Closed Message
+  if message_type == "Q" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.strategy_open_closed_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Simple Order Message
+  if message_type == "O" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.simple_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Order Message
+  if message_type == "X" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_order_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Auction Notification Message
+  if message_type == "A" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.auction_notification_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Complex Auction Notification Message
+  if message_type == "C" then
+    return nasdaq_phlxoptions_orders_itch_v1_91.complex_auction_notification_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+nasdaq_phlxoptions_orders_itch_v1_91.message_header = {}
+
+-- Size: Message Header
+nasdaq_phlxoptions_orders_itch_v1_91.message_header.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.length.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.message_type.size
+
+-- Display: Message Header
+nasdaq_phlxoptions_orders_itch_v1_91.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+nasdaq_phlxoptions_orders_itch_v1_91.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = nasdaq_phlxoptions_orders_itch_v1_91.length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Ascii String Enum with 11 values
+  index, message_type = nasdaq_phlxoptions_orders_itch_v1_91.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+nasdaq_phlxoptions_orders_itch_v1_91.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+nasdaq_phlxoptions_orders_itch_v1_91.message = {}
+
+-- Read runtime size of: Message
+nasdaq_phlxoptions_orders_itch_v1_91.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Length
+  local length = buffer(offset, 2):uint()
+
+  return length + 2
+end
+
+-- Display: Message
+nasdaq_phlxoptions_orders_itch_v1_91.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+nasdaq_phlxoptions_orders_itch_v1_91.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nasdaq_phlxoptions_orders_itch_v1_91.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- Payload: Runtime Type with 11 branches
+  index = nasdaq_phlxoptions_orders_itch_v1_91.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+nasdaq_phlxoptions_orders_itch_v1_91.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = nasdaq_phlxoptions_orders_itch_v1_91.message.size(buffer, offset)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.message, buffer(offset, 0))
+    local current = nasdaq_phlxoptions_orders_itch_v1_91.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nasdaq_phlxoptions_orders_itch_v1_91.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- End Of Session
+nasdaq_phlxoptions_orders_itch_v1_91.end_of_session = {}
+
+-- Display: End Of Session
+nasdaq_phlxoptions_orders_itch_v1_91.end_of_session.display = function(packet, parent, length)
+  return "End Of Session"
+end
+
+
+-- Dissect: End Of Session
+nasdaq_phlxoptions_orders_itch_v1_91.end_of_session.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.end_of_session.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Heartbeat
+nasdaq_phlxoptions_orders_itch_v1_91.heartbeat = {}
+
+-- Display: Heartbeat
+nasdaq_phlxoptions_orders_itch_v1_91.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+nasdaq_phlxoptions_orders_itch_v1_91.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = nasdaq_phlxoptions_orders_itch_v1_91.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+nasdaq_phlxoptions_orders_itch_v1_91.messages = {}
+
+-- Dissect: Messages
+nasdaq_phlxoptions_orders_itch_v1_91.messages.dissect = function(buffer, offset, packet, parent, count)
+  -- Dissect Heartbeat
+  if count == 0 then
+    return nasdaq_phlxoptions_orders_itch_v1_91.heartbeat.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session
+  if count == 65535 then
+    return nasdaq_phlxoptions_orders_itch_v1_91.end_of_session.dissect(buffer, offset, packet, parent)
+  end
+
+  -- Repeating: Message
+  for message_index = 1, count do
+
+    -- Dependency element: Length
+    local length = buffer(offset, 2):uint()
+
+    -- Runtime Size Of: Message
+    local size_of_message = length + 2
+
+    -- Message: Struct of 2 fields
+    offset = nasdaq_phlxoptions_orders_itch_v1_91.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+end
+
+-- Packet Header
+nasdaq_phlxoptions_orders_itch_v1_91.packet_header = {}
+
+-- Size: Packet Header
+nasdaq_phlxoptions_orders_itch_v1_91.packet_header.size =
+  nasdaq_phlxoptions_orders_itch_v1_91.session.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.sequence.size + 
+  nasdaq_phlxoptions_orders_itch_v1_91.count.size
+
+-- Display: Packet Header
+nasdaq_phlxoptions_orders_itch_v1_91.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+nasdaq_phlxoptions_orders_itch_v1_91.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Session: 10 Byte Ascii String
+  index, session = nasdaq_phlxoptions_orders_itch_v1_91.session.dissect(buffer, index, packet, parent)
+
+  -- Sequence: 4 Byte Unsigned Fixed Width Integer
+  index, sequence = nasdaq_phlxoptions_orders_itch_v1_91.sequence.dissect(buffer, index, packet, parent)
+
+  -- Count: 2 Byte Unsigned Fixed Width Integer
+  index, count = nasdaq_phlxoptions_orders_itch_v1_91.count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+nasdaq_phlxoptions_orders_itch_v1_91.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.packet_header, buffer(offset, 0))
+    local index = nasdaq_phlxoptions_orders_itch_v1_91.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nasdaq_phlxoptions_orders_itch_v1_91.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nasdaq_phlxoptions_orders_itch_v1_91.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+nasdaq_phlxoptions_orders_itch_v1_91.packet = {}
+
+-- Verify required size of Udp packet
+nasdaq_phlxoptions_orders_itch_v1_91.packet.requiredsize = function(buffer)
+  return buffer:len() >= nasdaq_phlxoptions_orders_itch_v1_91.packet_header.size
+end
+
+-- Dissect Packet
+nasdaq_phlxoptions_orders_itch_v1_91.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 3 fields
+  index, packet_header = nasdaq_phlxoptions_orders_itch_v1_91.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Count
+  local count = buffer(index - 2, 2):le_uint()
+
+  -- Messages: Runtime Type with 3 branches
+  index = nasdaq_phlxoptions_orders_itch_v1_91.messages.dissect(buffer, index, packet, parent, count)
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_nasdaq_phlxoptions_orders_itch_v1_91.init()
+end
+
+-- Dissector for Nasdaq PhlxOptions Orders Itch 1.91
+function omi_nasdaq_phlxoptions_orders_itch_v1_91.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_nasdaq_phlxoptions_orders_itch_v1_91.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91, buffer(), omi_nasdaq_phlxoptions_orders_itch_v1_91.description, "("..buffer:len().." Bytes)")
+  return nasdaq_phlxoptions_orders_itch_v1_91.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Nasdaq PhlxOptions Orders Itch 1.91 (Udp)
+local function omi_nasdaq_phlxoptions_orders_itch_v1_91_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nasdaq_phlxoptions_orders_itch_v1_91.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nasdaq_phlxoptions_orders_itch_v1_91
+  omi_nasdaq_phlxoptions_orders_itch_v1_91.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Nasdaq PhlxOptions Orders Itch 1.91
+omi_nasdaq_phlxoptions_orders_itch_v1_91:register_heuristic("udp", omi_nasdaq_phlxoptions_orders_itch_v1_91_udp_heuristic)
+
+-- Register Nasdaq PhlxOptions Orders Itch 1.91 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_nasdaq_phlxoptions_orders_itch_v1_91)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
+--   Version: 1.91
+--   Date: Monday, October 29, 2018
+--   Specification: PHLX Orders Interface Specifications.pdf
+--
+-- Script:
+--   Generator: 1.5.0.0
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

@@ -314,7 +314,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp = {}
 
 -- Size: Client Timestamp
-nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.size = 6
+nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.size = 8
 
 -- Display: Client Timestamp
 nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.display = function(value, buffer, offset, packet, parent)
@@ -2740,7 +2740,7 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.trade_correction_message.fields = function(
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Timestamp
+  -- Client Timestamp: Integer
   index, client_timestamp = nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric
@@ -2832,7 +2832,7 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.trade_cancel_error_message.fields = functio
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Timestamp
+  -- Client Timestamp: Integer
   index, client_timestamp = nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric
@@ -2912,7 +2912,7 @@ nasdaq_nsmequities_nlsplus_itch_v4_0.trade_report_message.fields = function(buff
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_nlsplus_itch_v4_0.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Client Timestamp: Timestamp
+  -- Client Timestamp: Integer
   index, client_timestamp = nasdaq_nsmequities_nlsplus_itch_v4_0.client_timestamp.dissect(buffer, index, packet, parent)
 
   -- Originating Market Center Identifier: Alphanumeric

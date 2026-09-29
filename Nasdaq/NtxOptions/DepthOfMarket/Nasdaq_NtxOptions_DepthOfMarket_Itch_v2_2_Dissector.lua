@@ -5604,7 +5604,6 @@ udp_table:add_for_decode_as(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2)
 --   Version: 2.2
 --   Date: Thursday, December 18, 2025
 --   Specification: Nasdaq_Texas_Options_Depth_of_Market.pdf
---   Specification: Nasdaq_Texas_Options_Depth_of_Market_SoupBinTcp.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

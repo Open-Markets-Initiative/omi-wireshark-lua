@@ -6810,7 +6810,7 @@ udp_table:add_for_decode_as(omi_nasdaq_uqdf_output_utp_v3_0_c)
 --   Organization: National Association of Securities Dealers Automated Quotations (Nasdaq)
 --   Version: 3.0.c
 --   Date: Sunday, February 1, 2026
---   Specification: UtpBinaryOutputSpec.pdf
+--   Specification: UTP Data Feed Services (3.0c).pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
