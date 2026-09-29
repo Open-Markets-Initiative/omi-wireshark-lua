@@ -2106,6 +2106,12 @@ bse_bseindia_eobi_fbe_v1_4.instrmt_leg_grp.fields = function(buffer, offset, pac
     iteration:set_generated()
   end
 
+  -- Entries beyond No Legs are filler the record carries
+  if instrmt_leg_grp_index ~= nil and instrmt_leg_grp_index > no_legs then
+    local unused = parent:add("Unused: beyond No Legs")
+    unused:set_generated()
+  end
+
   -- Leg Security Id: signed int
   index, leg_security_id = bse_bseindia_eobi_fbe_v1_4.leg_security_id.dissect(buffer, index, packet, parent)
 
@@ -2528,6 +2534,12 @@ bse_bseindia_eobi_fbe_v1_4.md_trade_entry_grp.fields = function(buffer, offset, 
   if md_trade_entry_grp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.md_trade_entry_grp_index, md_trade_entry_grp_index)
     iteration:set_generated()
+  end
+
+  -- Entries beyond No Md Entries are filler the record carries
+  if md_trade_entry_grp_index ~= nil and md_trade_entry_grp_index > no_md_entries then
+    local unused = parent:add("Unused: beyond No Md Entries")
+    unused:set_generated()
   end
 
   -- Md Entry Px: PriceType
@@ -3280,6 +3292,12 @@ bse_bseindia_eobi_fbe_v1_4.md_instrument_entry_grp.fields = function(buffer, off
   if md_instrument_entry_grp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.md_instrument_entry_grp_index, md_instrument_entry_grp_index)
     iteration:set_generated()
+  end
+
+  -- Entries beyond No Md Entries are filler the record carries
+  if md_instrument_entry_grp_index ~= nil and md_instrument_entry_grp_index > no_md_entries then
+    local unused = parent:add("Unused: beyond No Md Entries")
+    unused:set_generated()
   end
 
   -- Md Entry Px: PriceType

@@ -4477,6 +4477,12 @@ eurex_t7_eobi_fbe_v15_0.md_trade_entry_grp_comp.fields = function(buffer, offset
     iteration:set_generated()
   end
 
+  -- Entries beyond No Md Entries are filler the record carries
+  if md_trade_entry_grp_comp_index ~= nil and md_trade_entry_grp_comp_index > no_md_entries then
+    local unused = parent:add("Unused: beyond No Md Entries")
+    unused:set_generated()
+  end
+
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_entry_px = eurex_t7_eobi_fbe_v15_0.md_entry_px.dissect(buffer, index, packet, parent)
 
@@ -5507,6 +5513,12 @@ eurex_t7_eobi_fbe_v15_0.sec_mass_stat_grp_comp.fields = function(buffer, offset,
     iteration:set_generated()
   end
 
+  -- Entries beyond No Related Sym are filler the record carries
+  if sec_mass_stat_grp_comp_index ~= nil and sec_mass_stat_grp_comp_index > no_related_sym then
+    local unused = parent:add("Unused: beyond No Related Sym")
+    unused:set_generated()
+  end
+
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = eurex_t7_eobi_fbe_v15_0.security_id.dissect(buffer, index, packet, parent)
 
@@ -5676,6 +5688,12 @@ eurex_t7_eobi_fbe_v15_0.md_instrument_entry_grp_comp.fields = function(buffer, o
   if md_instrument_entry_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eobi_fbe_v15_0.fields.md_instrument_entry_grp_comp_index, md_instrument_entry_grp_comp_index)
     iteration:set_generated()
+  end
+
+  -- Entries beyond No Md Entries are filler the record carries
+  if md_instrument_entry_grp_comp_index ~= nil and md_instrument_entry_grp_comp_index > no_md_entries then
+    local unused = parent:add("Unused: beyond No Md Entries")
+    unused:set_generated()
   end
 
   -- Md Entry Px: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -6617,6 +6635,12 @@ eurex_t7_eobi_fbe_v15_0.instrmt_leg_grp_comp.fields = function(buffer, offset, p
   if instrmt_leg_grp_comp_index ~= nil and show.indexes then
     local iteration = parent:add(omi_eurex_t7_eobi_fbe_v15_0.fields.instrmt_leg_grp_comp_index, instrmt_leg_grp_comp_index)
     iteration:set_generated()
+  end
+
+  -- Entries beyond No Legs are filler the record carries
+  if instrmt_leg_grp_comp_index ~= nil and instrmt_leg_grp_comp_index > no_legs then
+    local unused = parent:add("Unused: beyond No Legs")
+    unused:set_generated()
   end
 
   -- Leg Symbol: 4 Byte Signed Fixed Width Integer Nullable
