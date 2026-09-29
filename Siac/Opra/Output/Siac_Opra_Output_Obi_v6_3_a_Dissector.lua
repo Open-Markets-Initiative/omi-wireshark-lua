@@ -91,7 +91,7 @@ omi_siac_opra_output_obi_v6_3_a.fields.series_mapping_message_type = ProtoField.
 omi_siac_opra_output_obi_v6_3_a.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.output.obi.v6.3.a.sessionindicator", ftypes.UINT8)
 omi_siac_opra_output_obi_v6_3_a.fields.short_equity_and_index_quote_category = ProtoField.new("Short Equity And Index Quote Category", "siac.opra.output.obi.v6.3.a.shortequityandindexquotecategory", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.short_equity_and_index_quote_message_type = ProtoField.new("Short Equity And Index Quote Message Type", "siac.opra.output.obi.v6.3.a.shortequityandindexquotemessagetype", ftypes.STRING)
-omi_siac_opra_output_obi_v6_3_a.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.output.obi.v6.3.a.strikeprice", ftypes.UINT32)
+omi_siac_opra_output_obi_v6_3_a.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.output.obi.v6.3.a.strikeprice", ftypes.INT32)
 omi_siac_opra_output_obi_v6_3_a.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.output.obi.v6.3.a.strikepricedenominatorcode", ftypes.STRING)
 omi_siac_opra_output_obi_v6_3_a.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.output.obi.v6.3.a.strikepriceshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v6_3_a.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.output.obi.v6.3.a.tradeidentifier", ftypes.UINT32)
@@ -2365,7 +2365,7 @@ end
 siac_opra_output_obi_v6_3_a.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.strike_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = siac_opra_output_obi_v6_3_a.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_3_a.fields.strike_price, range, value, display)
@@ -2635,6 +2635,11 @@ siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display = function(value)
   return "Scaled Best Bid Price: " .. string.format("%g", value)
 end
 
+-- Display: Scaled Best Bid Price with an unrecognised code
+siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display_uncoded = function(value)
+  return "Scaled Best Bid Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
 -- Composite: Scaled Best Bid Price
 siac_opra_output_obi_v6_3_a.scaled_best_bid_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.best_bid_price.size
@@ -2642,29 +2647,39 @@ siac_opra_output_obi_v6_3_a.scaled_best_bid_price.dissect = function(buffer, off
   local mantissa = range:int()
 
   local value
+  local display
   if best_bid_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "B" then
     value = mantissa / (10 ^ 2)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "C" then
     value = mantissa / (10 ^ 3)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "D" then
     value = mantissa / (10 ^ 4)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "E" then
     value = mantissa / (10 ^ 5)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "F" then
     value = mantissa / (10 ^ 6)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "G" then
     value = mantissa / (10 ^ 7)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "H" then
     value = mantissa / (10 ^ 8)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   elseif best_bid_denominator_code == "I" then
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   else
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display_uncoded(value)
   end
 
-  local display = siac_opra_output_obi_v6_3_a.scaled_best_bid_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.scaled_best_bid_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_3_a.best_bid_price.display(mantissa)
 
@@ -2684,6 +2699,11 @@ siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display = function(value)
   return "Scaled Best Offer Price: " .. string.format("%g", value)
 end
 
+-- Display: Scaled Best Offer Price with an unrecognised code
+siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display_uncoded = function(value)
+  return "Scaled Best Offer Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
 -- Composite: Scaled Best Offer Price
 siac_opra_output_obi_v6_3_a.scaled_best_offer_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.best_offer_price.size
@@ -2691,29 +2711,39 @@ siac_opra_output_obi_v6_3_a.scaled_best_offer_price.dissect = function(buffer, o
   local mantissa = range:int()
 
   local value
+  local display
   if best_offer_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "B" then
     value = mantissa / (10 ^ 2)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "C" then
     value = mantissa / (10 ^ 3)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "D" then
     value = mantissa / (10 ^ 4)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "E" then
     value = mantissa / (10 ^ 5)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "F" then
     value = mantissa / (10 ^ 6)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "G" then
     value = mantissa / (10 ^ 7)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "H" then
     value = mantissa / (10 ^ 8)
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   elseif best_offer_denominator_code == "I" then
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   else
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display_uncoded(value)
   end
 
-  local display = siac_opra_output_obi_v6_3_a.scaled_best_offer_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.scaled_best_offer_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_3_a.best_offer_price.display(mantissa)
 
@@ -2733,6 +2763,11 @@ siac_opra_output_obi_v6_3_a.scaled_index_value.display = function(value)
   return "Scaled Index Value: " .. string.format("%g", value)
 end
 
+-- Display: Scaled Index Value with an unrecognised code
+siac_opra_output_obi_v6_3_a.scaled_index_value.display_uncoded = function(value)
+  return "Scaled Index Value: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
 -- Composite: Scaled Index Value
 siac_opra_output_obi_v6_3_a.scaled_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.index_value.size
@@ -2740,27 +2775,36 @@ siac_opra_output_obi_v6_3_a.scaled_index_value.dissect = function(buffer, offset
   local mantissa = range:int()
 
   local value
+  local display
   if index_value_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   elseif index_value_denominator_code == "B" then
     value = mantissa / (10 ^ 2)
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   elseif index_value_denominator_code == "C" then
     value = mantissa / (10 ^ 3)
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   elseif index_value_denominator_code == "D" then
     value = mantissa / (10 ^ 4)
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   elseif index_value_denominator_code == "E" then
     value = mantissa / (10 ^ 5)
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   elseif index_value_denominator_code == "F" then
     value = mantissa / (10 ^ 6)
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   elseif index_value_denominator_code == "G" then
     value = mantissa / (10 ^ 7)
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   elseif index_value_denominator_code == "I" then
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   else
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_index_value.display_uncoded(value)
   end
 
-  local display = siac_opra_output_obi_v6_3_a.scaled_index_value.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.scaled_index_value, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_3_a.index_value.display(mantissa)
 
@@ -2780,6 +2824,11 @@ siac_opra_output_obi_v6_3_a.scaled_premium_price.display = function(value)
   return "Scaled Premium Price: " .. string.format("%g", value)
 end
 
+-- Display: Scaled Premium Price with an unrecognised code
+siac_opra_output_obi_v6_3_a.scaled_premium_price.display_uncoded = function(value)
+  return "Scaled Premium Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
 -- Composite: Scaled Premium Price
 siac_opra_output_obi_v6_3_a.scaled_premium_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.premium_price.size
@@ -2787,27 +2836,36 @@ siac_opra_output_obi_v6_3_a.scaled_premium_price.dissect = function(buffer, offs
   local mantissa = range:int()
 
   local value
+  local display
   if premium_price_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   elseif premium_price_denominator_code == "B" then
     value = mantissa / (10 ^ 2)
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   elseif premium_price_denominator_code == "C" then
     value = mantissa / (10 ^ 3)
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   elseif premium_price_denominator_code == "D" then
     value = mantissa / (10 ^ 4)
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   elseif premium_price_denominator_code == "E" then
     value = mantissa / (10 ^ 5)
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   elseif premium_price_denominator_code == "F" then
     value = mantissa / (10 ^ 6)
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   elseif premium_price_denominator_code == "G" then
     value = mantissa / (10 ^ 7)
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   elseif premium_price_denominator_code == "I" then
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   else
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display_uncoded(value)
   end
 
-  local display = siac_opra_output_obi_v6_3_a.scaled_premium_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.scaled_premium_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_3_a.premium_price.display(mantissa)
 
@@ -2827,30 +2885,42 @@ siac_opra_output_obi_v6_3_a.scaled_strike_price.display = function(value)
   return "Scaled Strike Price: " .. string.format("%g", value)
 end
 
+-- Display: Scaled Strike Price with an unrecognised code
+siac_opra_output_obi_v6_3_a.scaled_strike_price.display_uncoded = function(value)
+  return "Scaled Strike Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
 -- Composite: Scaled Strike Price
 siac_opra_output_obi_v6_3_a.scaled_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.strike_price.size
   local range = buffer(offset, length)
-  local mantissa = range:uint()
+  local mantissa = range:int()
 
   local value
+  local display
   if strike_price_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
+    display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display(value)
   elseif strike_price_denominator_code == "B" then
     value = mantissa / (10 ^ 2)
+    display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display(value)
   elseif strike_price_denominator_code == "C" then
     value = mantissa / (10 ^ 3)
+    display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display(value)
   elseif strike_price_denominator_code == "D" then
     value = mantissa / (10 ^ 4)
+    display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display(value)
   elseif strike_price_denominator_code == "E" then
     value = mantissa / (10 ^ 5)
+    display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display(value)
   elseif strike_price_denominator_code == "I" then
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display(value)
   else
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display_uncoded(value)
   end
 
-  local display = siac_opra_output_obi_v6_3_a.scaled_strike_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.scaled_strike_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_3_a.strike_price.display(mantissa)
 
@@ -2870,6 +2940,11 @@ siac_opra_output_obi_v6_3_a.scaled_underlying_price.display = function(value)
   return "Scaled Underlying Price: " .. string.format("%g", value)
 end
 
+-- Display: Scaled Underlying Price with an unrecognised code
+siac_opra_output_obi_v6_3_a.scaled_underlying_price.display_uncoded = function(value)
+  return "Scaled Underlying Price: " .. string.format("%g", value) .. " (unscaled: denominator code not recognised)"
+end
+
 -- Composite: Scaled Underlying Price
 siac_opra_output_obi_v6_3_a.scaled_underlying_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_3_a.underlying_price.size
@@ -2877,29 +2952,39 @@ siac_opra_output_obi_v6_3_a.scaled_underlying_price.dissect = function(buffer, o
   local mantissa = range:int64()
 
   local value
+  local display
   if underlying_price_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "B" then
     value = mantissa / (10 ^ 2)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "C" then
     value = mantissa / (10 ^ 3)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "D" then
     value = mantissa / (10 ^ 4)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "E" then
     value = mantissa / (10 ^ 5)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "F" then
     value = mantissa / (10 ^ 6)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "G" then
     value = mantissa / (10 ^ 7)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "H" then
     value = mantissa / (10 ^ 8)
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   elseif underlying_price_denominator_code == "I" then
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   else
     value = mantissa
+    display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display_uncoded(value)
   end
 
-  local display = siac_opra_output_obi_v6_3_a.scaled_underlying_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_3_a.fields.scaled_underlying_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_3_a.underlying_price.display(mantissa)
 
@@ -3212,7 +3297,7 @@ siac_opra_output_obi_v6_3_a.series_mapping_message.fields = function(buffer, off
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_3_a.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_3_a.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Multicast Line Number: unsigned integer
@@ -3771,7 +3856,7 @@ siac_opra_output_obi_v6_3_a.long_equity_and_index_quote_message.fields = functio
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_3_a.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_3_a.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: alphabetic
@@ -3959,7 +4044,7 @@ siac_opra_output_obi_v6_3_a.equity_and_index_end_of_day_summary_message.fields =
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_3_a.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_3_a.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Volume: unsigned integer
@@ -4130,7 +4215,7 @@ siac_opra_output_obi_v6_3_a.open_interest_message.fields = function(buffer, offs
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_3_a.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_3_a.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Open Interest Volume: unsigned integer
@@ -4272,7 +4357,7 @@ siac_opra_output_obi_v6_3_a.equity_and_index_last_sale_message.fields = function
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_3_a.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_3_a.scaled_strike_price.dissect(buffer, index, packet, parent)
 
   -- Volume: unsigned integer

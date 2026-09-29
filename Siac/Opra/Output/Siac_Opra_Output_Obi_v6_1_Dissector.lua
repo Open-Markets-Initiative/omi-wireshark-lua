@@ -31,7 +31,7 @@ omi_siac_opra_output_obi_v6_1.fields.best_offer_price = ProtoField.new("Best Off
 omi_siac_opra_output_obi_v6_1.fields.best_offer_size = ProtoField.new("Best Offer Size", "siac.opra.output.obi.v6.1.bestoffersize", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_1.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.opra.output.obi.v6.1.bidindexvalue", ftypes.INT32)
 omi_siac_opra_output_obi_v6_1.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.output.obi.v6.1.bidprice", ftypes.INT32)
-omi_siac_opra_output_obi_v6_1.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.output.obi.v6.1.bidpriceshort", ftypes.INT16)
+omi_siac_opra_output_obi_v6_1.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.output.obi.v6.1.bidpriceshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v6_1.fields.bid_size = ProtoField.new("Bid Size", "siac.opra.output.obi.v6.1.bidsize", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_1.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.opra.output.obi.v6.1.bidsizeshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v6_1.fields.block_checksum = ProtoField.new("Block Checksum", "siac.opra.output.obi.v6.1.blockchecksum", ftypes.UINT16)
@@ -68,7 +68,7 @@ omi_siac_opra_output_obi_v6_1.fields.nanoseconds = ProtoField.new("Nanoseconds",
 omi_siac_opra_output_obi_v6_1.fields.net_change = ProtoField.new("Net Change", "siac.opra.output.obi.v6.1.netchange", ftypes.INT32)
 omi_siac_opra_output_obi_v6_1.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.opra.output.obi.v6.1.offerindexvalue", ftypes.INT64)
 omi_siac_opra_output_obi_v6_1.fields.offer_price = ProtoField.new("Offer Price", "siac.opra.output.obi.v6.1.offerprice", ftypes.INT32)
-omi_siac_opra_output_obi_v6_1.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.output.obi.v6.1.offerpriceshort", ftypes.INT16)
+omi_siac_opra_output_obi_v6_1.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.opra.output.obi.v6.1.offerpriceshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v6_1.fields.offer_size = ProtoField.new("Offer Size", "siac.opra.output.obi.v6.1.offersize", ftypes.UINT32)
 omi_siac_opra_output_obi_v6_1.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.opra.output.obi.v6.1.offersizeshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v6_1.fields.open_interest_category = ProtoField.new("Open Interest Category", "siac.opra.output.obi.v6.1.openinterestcategory", ftypes.STRING)
@@ -90,7 +90,7 @@ omi_siac_opra_output_obi_v6_1.fields.session_indicator = ProtoField.new("Session
 omi_siac_opra_output_obi_v6_1.fields.short_equity_and_index_quote_category = ProtoField.new("Short Equity And Index Quote Category", "siac.opra.output.obi.v6.1.shortequityandindexquotecategory", ftypes.STRING)
 omi_siac_opra_output_obi_v6_1.fields.short_equity_and_index_quote_message_type = ProtoField.new("Short Equity And Index Quote Message Type", "siac.opra.output.obi.v6.1.shortequityandindexquotemessagetype", ftypes.STRING)
 omi_siac_opra_output_obi_v6_1.fields.size = ProtoField.new("Size", "siac.opra.output.obi.v6.1.size", ftypes.UINT32)
-omi_siac_opra_output_obi_v6_1.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.output.obi.v6.1.strikeprice", ftypes.UINT32)
+omi_siac_opra_output_obi_v6_1.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.output.obi.v6.1.strikeprice", ftypes.INT32)
 omi_siac_opra_output_obi_v6_1.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.output.obi.v6.1.strikepricedenominatorcode", ftypes.STRING)
 omi_siac_opra_output_obi_v6_1.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.output.obi.v6.1.strikepriceshort", ftypes.UINT16)
 omi_siac_opra_output_obi_v6_1.fields.trade_identifier = ProtoField.new("Trade Identifier", "siac.opra.output.obi.v6.1.tradeidentifier", ftypes.UINT32)
@@ -704,7 +704,7 @@ end
 siac_opra_output_obi_v6_1.bid_price_short.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_1.bid_price_short.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = siac_opra_output_obi_v6_1.bid_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_1.fields.bid_price_short, range, value, display)
@@ -1668,7 +1668,7 @@ end
 siac_opra_output_obi_v6_1.offer_price_short.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_1.offer_price_short.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = siac_opra_output_obi_v6_1.offer_price_short.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_1.fields.offer_price_short, range, value, display)
@@ -2258,7 +2258,7 @@ end
 siac_opra_output_obi_v6_1.strike_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_1.strike_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = siac_opra_output_obi_v6_1.strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_siac_opra_output_obi_v6_1.fields.strike_price, range, value, display)
@@ -3246,13 +3246,13 @@ siac_opra_output_obi_v6_1.short_equity_and_index_quote_message.fields = function
   -- Strike Price Short: unsigned integer
   index, strike_price_short = siac_opra_output_obi_v6_1.strike_price_short.dissect(buffer, index, packet, parent)
 
-  -- Bid Price Short: signed integer
+  -- Bid Price Short: unsigned integer
   index, bid_price_short = siac_opra_output_obi_v6_1.bid_price_short.dissect(buffer, index, packet, parent)
 
   -- Bid Size Short: unsigned integer
   index, bid_size_short = siac_opra_output_obi_v6_1.bid_size_short.dissect(buffer, index, packet, parent)
 
-  -- Offer Price Short: signed integer
+  -- Offer Price Short: unsigned integer
   index, offer_price_short = siac_opra_output_obi_v6_1.offer_price_short.dissect(buffer, index, packet, parent)
 
   -- Offer Size Short: unsigned integer
@@ -3518,7 +3518,7 @@ siac_opra_output_obi_v6_1.long_equity_and_index_quote_message.fields = function(
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_1.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_1.strike_price.dissect(buffer, index, packet, parent)
 
   -- Premium Price Denominator Code: alphabetic
@@ -3706,7 +3706,7 @@ siac_opra_output_obi_v6_1.equity_and_index_end_of_day_summary_message.fields = f
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_1.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_1.strike_price.dissect(buffer, index, packet, parent)
 
   -- Volume: unsigned integer
@@ -3877,7 +3877,7 @@ siac_opra_output_obi_v6_1.open_interest_message.fields = function(buffer, offset
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_1.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_1.strike_price.dissect(buffer, index, packet, parent)
 
   -- Open Interest Volume: unsigned integer
@@ -4019,7 +4019,7 @@ siac_opra_output_obi_v6_1.equity_and_index_last_sale_message.fields = function(b
   -- Strike Price Denominator Code: alphabetic
   index, strike_price_denominator_code = siac_opra_output_obi_v6_1.strike_price_denominator_code.dissect(buffer, index, packet, parent)
 
-  -- Strike Price: unsigned integer
+  -- Strike Price: signed integer
   index, strike_price = siac_opra_output_obi_v6_1.strike_price.dissect(buffer, index, packet, parent)
 
   -- Volume: unsigned integer
