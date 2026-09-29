@@ -1863,6 +1863,9 @@ nyse_nationalequities_trades_pillar_v2_6.ssr_triggering_exchange_id.display = fu
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

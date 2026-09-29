@@ -1078,6 +1078,9 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_state.display = function(value)
   if value == "X" then
     return "Market State: Closed (X)"
   end
+  if value == 0 then
+    return "Market State: No Value"
+  end
 
   return "Market State: Unknown("..value..")"
 end
@@ -1086,7 +1089,15 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.market_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_1_a.market_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.market_state, range, value, display)
@@ -2068,6 +2079,9 @@ nyse_nyseequities_bqt_xdp_v2_1_a.session_state.display = function(value)
   if value == "Z" then
     return "Session State: Late Session State (Z)"
   end
+  if value == 0 then
+    return "Session State: No Value"
+  end
 
   return "Session State: Unknown("..value..")"
 end
@@ -2076,7 +2090,15 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.session_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_1_a.session_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.session_state, range, value, display)
@@ -2213,6 +2235,9 @@ nyse_nyseequities_bqt_xdp_v2_1_a.ssr_state.display = function(value)
   if value == "E" then
     return "Ssr State: Short Sale Restriction In Effect (E)"
   end
+  if value == 0 then
+    return "Ssr State: No Value"
+  end
 
   return "Ssr State: Unknown("..value..")"
 end
@@ -2221,7 +2246,15 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.ssr_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_1_a.ssr_state.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nyse_nyseequities_bqt_xdp_v2_1_a.ssr_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.ssr_state, range, value, display)
@@ -2290,6 +2323,9 @@ nyse_nyseequities_bqt_xdp_v2_1_a.ssr_triggering_exchange_id.display = function(v
   end
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Bats (Z)"
+  end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
   end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"

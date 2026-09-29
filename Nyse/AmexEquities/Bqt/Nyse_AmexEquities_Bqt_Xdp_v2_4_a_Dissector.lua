@@ -2491,6 +2491,9 @@ nyse_amexequities_bqt_xdp_v2_4_a.ssr_triggering_exchange_id.display = function(v
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

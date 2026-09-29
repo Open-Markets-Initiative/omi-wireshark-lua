@@ -1951,6 +1951,9 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_n.ssr_triggering_exchange_id.displa
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end
@@ -2313,7 +2316,7 @@ nyse_amexequities_imbalancesfeed_pillar_v2_2_n.unpaired_side.display = function(
   if value == "S" then
     return "Unpaired Side: Sell Side (S)"
   end
-  if value == "" then
+  if value == " " then
     return "Unpaired Side: Not Applicable (<whitespace>)"
   end
 

@@ -1638,6 +1638,9 @@ nyse_nyseequities_bbo_pillar_v2_5_b.ssr_triggering_exchange_id.display = functio
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Bats (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

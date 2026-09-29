@@ -2817,9 +2817,6 @@ nyse_arcaoptions_topfeed_pillar_v1_2_k.ssr_triggering_exchange_id.size = 1
 
 -- Display: Ssr Triggering Exchange Id
 nyse_arcaoptions_topfeed_pillar_v1_2_k.ssr_triggering_exchange_id.display = function(value)
-  if value == " " then
-    return "Ssr Triggering Exchange Id: Na Space Or 0 X 20 (<whitespace>)"
-  end
   if value == "A" then
     return "Ssr Triggering Exchange Id: Nyse American (A)"
   end
@@ -2885,6 +2882,9 @@ nyse_arcaoptions_topfeed_pillar_v1_2_k.ssr_triggering_exchange_id.display = func
   end
   if value == "U" then
     return "Ssr Triggering Exchange Id: Memx (U)"
+  end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
   end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"

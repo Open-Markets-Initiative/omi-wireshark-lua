@@ -1940,6 +1940,9 @@ nyse_texasequities_integratedfeedrefresh_pillar_v2_5_h.ssr_triggering_exchange_i
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

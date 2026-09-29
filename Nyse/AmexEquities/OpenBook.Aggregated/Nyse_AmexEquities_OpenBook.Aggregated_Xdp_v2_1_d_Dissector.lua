@@ -1676,6 +1676,9 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.ssr_triggering_exchange_id.displ
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

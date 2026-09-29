@@ -2759,6 +2759,9 @@ nyse_arcaoptions_topfeed_pillar_v1_2_c.ssr_triggering_exchange_id.display = func
   if value == "U" then
     return "Ssr Triggering Exchange Id: Memx (U)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

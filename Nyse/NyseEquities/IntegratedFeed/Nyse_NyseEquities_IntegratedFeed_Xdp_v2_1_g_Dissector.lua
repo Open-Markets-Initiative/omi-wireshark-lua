@@ -2447,6 +2447,9 @@ nyse_nyseequities_integratedfeed_xdp_v2_1_g.ssr_triggering_exchange_id.display =
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Bats (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

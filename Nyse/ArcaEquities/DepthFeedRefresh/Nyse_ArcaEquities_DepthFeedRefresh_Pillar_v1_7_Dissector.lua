@@ -1835,6 +1835,9 @@ nyse_arcaequities_depthfeedrefresh_pillar_v1_7.ssr_triggering_exchange_id.displa
   if value == "Z" then
     return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
   end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
+  end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end

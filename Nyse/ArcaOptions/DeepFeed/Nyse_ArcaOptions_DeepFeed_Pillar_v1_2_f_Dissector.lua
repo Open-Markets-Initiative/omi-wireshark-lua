@@ -930,8 +930,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.imbalance_side.display = function(value)
   if value == "S" then
     return "Imbalance Side: Sell Side (S)"
   end
-  if value == "-" then
-    return "Imbalance Side: Indicates No Imbalance (-)"
+  if value == " " then
+    return "Imbalance Side: Indicates No Imbalance (<whitespace>)"
   end
 
   return "Imbalance Side: Unknown("..value..")"
@@ -2712,6 +2712,9 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.ssr_triggering_exchange_id.display = fun
   end
   if value == "U" then
     return "Ssr Triggering Exchange Id: Memx (U)"
+  end
+  if value == " " then
+    return "Ssr Triggering Exchange Id: No Value (<whitespace>)"
   end
 
   return "Ssr Triggering Exchange Id: Unknown("..value..")"

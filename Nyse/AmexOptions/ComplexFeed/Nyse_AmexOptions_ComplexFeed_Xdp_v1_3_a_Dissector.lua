@@ -1183,14 +1183,7 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_cond_2.size = 1
 
 -- Display: Trade Cond 2
 nyse_amexoptions_complexfeed_xdp_v1_3_a.trade_cond_2.display = function(value)
-  if value == "P" then
-    return "Trade Cond 2: Complex Trade With Equity (P)"
-  end
-  if value == "L" then
-    return "Trade Cond 2: Complex Trade (L)"
-  end
-
-  return "Trade Cond 2: Unknown("..value..")"
+  return "Trade Cond 2: "..value
 end
 
 -- Dissect: Trade Cond 2
