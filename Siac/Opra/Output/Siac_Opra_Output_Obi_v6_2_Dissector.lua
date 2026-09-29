@@ -2485,10 +2485,11 @@ siac_opra_output_obi_v6_2.scaled_best_bid.display = function(value)
 end
 
 -- Composite: Scaled Best Bid
-siac_opra_output_obi_v6_2.scaled_best_bid.composite = function(buffer, offset, packet, parent)
+siac_opra_output_obi_v6_2.scaled_best_bid.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_2.best_bid_price.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   if best_bid_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
@@ -2511,6 +2512,7 @@ siac_opra_output_obi_v6_2.scaled_best_bid.composite = function(buffer, offset, p
   else
     value = mantissa
   end
+
   local display = siac_opra_output_obi_v6_2.scaled_best_bid.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_2.fields.scaled_best_bid, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_2.best_bid_price.display(mantissa)
@@ -2532,10 +2534,11 @@ siac_opra_output_obi_v6_2.scaled_best_offer.display = function(value)
 end
 
 -- Composite: Scaled Best Offer
-siac_opra_output_obi_v6_2.scaled_best_offer.composite = function(buffer, offset, packet, parent)
+siac_opra_output_obi_v6_2.scaled_best_offer.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_2.best_offer_price.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   if best_offer_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
@@ -2558,6 +2561,7 @@ siac_opra_output_obi_v6_2.scaled_best_offer.composite = function(buffer, offset,
   else
     value = mantissa
   end
+
   local display = siac_opra_output_obi_v6_2.scaled_best_offer.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_2.fields.scaled_best_offer, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_2.best_offer_price.display(mantissa)
@@ -2579,10 +2583,11 @@ siac_opra_output_obi_v6_2.scaled_index_value.display = function(value)
 end
 
 -- Composite: Scaled Index Value
-siac_opra_output_obi_v6_2.scaled_index_value.composite = function(buffer, offset, packet, parent)
+siac_opra_output_obi_v6_2.scaled_index_value.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_2.index_value.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   if index_value_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
@@ -2603,6 +2608,7 @@ siac_opra_output_obi_v6_2.scaled_index_value.composite = function(buffer, offset
   else
     value = mantissa
   end
+
   local display = siac_opra_output_obi_v6_2.scaled_index_value.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_2.fields.scaled_index_value, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_2.index_value.display(mantissa)
@@ -2624,10 +2630,11 @@ siac_opra_output_obi_v6_2.scaled_premium_price.display = function(value)
 end
 
 -- Composite: Scaled Premium Price
-siac_opra_output_obi_v6_2.scaled_premium_price.composite = function(buffer, offset, packet, parent)
+siac_opra_output_obi_v6_2.scaled_premium_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_2.premium_price.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   if premium_price_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
@@ -2648,6 +2655,7 @@ siac_opra_output_obi_v6_2.scaled_premium_price.composite = function(buffer, offs
   else
     value = mantissa
   end
+
   local display = siac_opra_output_obi_v6_2.scaled_premium_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_2.fields.scaled_premium_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_2.premium_price.display(mantissa)
@@ -2669,10 +2677,11 @@ siac_opra_output_obi_v6_2.scaled_strike_price.display = function(value)
 end
 
 -- Composite: Scaled Strike Price
-siac_opra_output_obi_v6_2.scaled_strike_price.composite = function(buffer, offset, packet, parent)
+siac_opra_output_obi_v6_2.scaled_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_2.strike_price.size
   local range = buffer(offset, length)
   local mantissa = range:uint()
+
   local value
   if strike_price_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
@@ -2689,6 +2698,7 @@ siac_opra_output_obi_v6_2.scaled_strike_price.composite = function(buffer, offse
   else
     value = mantissa
   end
+
   local display = siac_opra_output_obi_v6_2.scaled_strike_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_2.fields.scaled_strike_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_2.strike_price.display(mantissa)
@@ -2710,10 +2720,11 @@ siac_opra_output_obi_v6_2.scaled_underlying_price.display = function(value)
 end
 
 -- Composite: Scaled Underlying Price
-siac_opra_output_obi_v6_2.scaled_underlying_price.composite = function(buffer, offset, packet, parent)
+siac_opra_output_obi_v6_2.scaled_underlying_price.dissect = function(buffer, offset, packet, parent)
   local length = siac_opra_output_obi_v6_2.underlying_price.size
   local range = buffer(offset, length)
   local mantissa = range:int64()
+
   local value
   if underlying_price_denominator_code == "A" then
     value = mantissa / (10 ^ 1)
@@ -2736,6 +2747,7 @@ siac_opra_output_obi_v6_2.scaled_underlying_price.composite = function(buffer, o
   else
     value = mantissa
   end
+
   local display = siac_opra_output_obi_v6_2.scaled_underlying_price.display(value)
   local field_tree = parent:add(omi_siac_opra_output_obi_v6_2.fields.scaled_underlying_price, range, value, display)
   local mantissa_display = siac_opra_output_obi_v6_2.underlying_price.display(mantissa)
@@ -4621,11 +4633,13 @@ siac_opra_output_obi_v6_2.packet.dissect = function(buffer, packet, parent)
   -- Block Header: Struct of 9 fields
   index, block_header = siac_opra_output_obi_v6_2.block_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Messages In Block
-  local messages_in_block = buffer(index - 11, 1):uint()
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
 
-  -- Repeating: Message
-  for message_index = 1, messages_in_block do
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
     index, message = siac_opra_output_obi_v6_2.message.dissect(buffer, index, packet, parent, message_index)
   end
 

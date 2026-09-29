@@ -4339,11 +4339,13 @@ siac_opra_output_obi_v4_0.packet.dissect = function(buffer, packet, parent)
   -- Block Header: Struct of 9 fields
   index, block_header = siac_opra_output_obi_v4_0.block_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Messages In Block
-  local messages_in_block = buffer(index - 11, 1):uint()
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
 
-  -- Repeating: Message
-  for message_index = 1, messages_in_block do
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
     index, message = siac_opra_output_obi_v4_0.message.dissect(buffer, index, packet, parent, message_index)
   end
 
