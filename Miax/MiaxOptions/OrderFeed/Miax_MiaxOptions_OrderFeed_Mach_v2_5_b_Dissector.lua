@@ -3688,7 +3688,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.unsequenced_data_packet.size = function(b
   -- Dependency element: Sesm Packet Length
   local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return sesm_packet_length - 2
+  return sesm_packet_length - 1
 end
 
 -- Display: Unsequenced Data Packet
@@ -3741,7 +3741,7 @@ miax_miaxoptions_orderfeed_mach_v2_5_b.sequenced_data_packet.size = function(buf
   -- Dependency element: Sesm Packet Length
   local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return sesm_packet_length - 11
+  return sesm_packet_length - 1
 end
 
 -- Display: Sequenced Data Packet

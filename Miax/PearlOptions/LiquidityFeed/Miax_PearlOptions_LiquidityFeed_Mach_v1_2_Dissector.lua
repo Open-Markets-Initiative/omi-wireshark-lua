@@ -3079,7 +3079,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.unsequenced_data_packet.size = functio
   -- Dependency element: Sesm Packet Length
   local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return sesm_packet_length - 2
+  return sesm_packet_length - 1
 end
 
 -- Display: Unsequenced Data Packet
@@ -3132,7 +3132,7 @@ miax_pearloptions_liquidityfeed_mach_v1_2.sequenced_data_packet.size = function(
   -- Dependency element: Sesm Packet Length
   local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return sesm_packet_length - 11
+  return sesm_packet_length - 1
 end
 
 -- Display: Sequenced Data Packet

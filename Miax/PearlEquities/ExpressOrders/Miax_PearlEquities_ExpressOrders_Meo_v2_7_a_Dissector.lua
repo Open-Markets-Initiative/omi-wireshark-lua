@@ -5486,7 +5486,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.unsequenced_data_packet.size = funct
   -- Dependency element: Esesm Packet Length
   local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return esesm_packet_length - 3
+  return esesm_packet_length - 1
 end
 
 -- Display: Unsequenced Data Packet
@@ -6132,7 +6132,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.sequenced_data_packet.size = functio
   -- Dependency element: Esesm Packet Length
   local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return esesm_packet_length - 12
+  return esesm_packet_length - 1
 end
 
 -- Display: Sequenced Data Packet

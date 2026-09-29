@@ -2245,7 +2245,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.unsequenced_data_packet.size = func
   -- Dependency element: Esesm Packet Length
   local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return esesm_packet_length - 2
+  return esesm_packet_length - 1
 end
 
 -- Display: Unsequenced Data Packet
@@ -2298,7 +2298,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.sequenced_data_packet.size = functi
   -- Dependency element: Esesm Packet Length
   local esesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return esesm_packet_length - 11
+  return esesm_packet_length - 1
 end
 
 -- Display: Sequenced Data Packet

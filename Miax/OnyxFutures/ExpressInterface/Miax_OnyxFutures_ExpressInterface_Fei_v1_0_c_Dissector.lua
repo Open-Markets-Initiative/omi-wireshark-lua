@@ -3602,7 +3602,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.unsequenced_data_packet.size = func
   -- Dependency element: Sesm Packet Length
   local sesm_packet_length = buffer(offset - 3, 2):le_uint()
 
-  return sesm_packet_length
+  return sesm_packet_length - 1
 end
 
 -- Display: Unsequenced Data Packet
