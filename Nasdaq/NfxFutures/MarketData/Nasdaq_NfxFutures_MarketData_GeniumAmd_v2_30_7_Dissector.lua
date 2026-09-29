@@ -1607,6 +1607,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.composite = function
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -1616,6 +1617,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.composite = function
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price.display(mantissa)
 
@@ -1660,6 +1662,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.composite = fun
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_from.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -1669,6 +1672,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.composite = fun
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_from.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_from, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_from.display(mantissa)
 
@@ -1713,6 +1717,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.composite = funct
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_to.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -1722,6 +1727,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.composite = funct
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_price_to.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_price_to, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.price_to.display(mantissa)
 
@@ -1766,6 +1772,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.composite = func
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size.size
   local range = buffer(offset, length)
   local mantissa = range:int64()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -1775,6 +1782,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.composite = func
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_tick_size.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_tick_size, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.tick_size.display(mantissa)
 
@@ -1819,6 +1827,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.composite = fu
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_price.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -1828,6 +1837,7 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.composite = fu
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.scaled_trade_price.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.scaled_trade_price, range, value, display)
   local mantissa_display = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.trade_price.display(mantissa)
 

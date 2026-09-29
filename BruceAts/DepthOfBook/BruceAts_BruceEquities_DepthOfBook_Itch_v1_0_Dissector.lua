@@ -1255,7 +1255,7 @@ udp_table:add_for_decode_as(omi_bruceats_bruceequities_depthofbook_itch_v1_0)
 --   Organization: Bruce ATS
 --   Version: 1.0
 --   Date: Saturday, March 1, 2025
---   Specification: Bruce_Depth_Of_Book.pdf
+--   Specification: Bruce_Depth_of_Book.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

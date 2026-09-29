@@ -2222,6 +2222,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_from.composit
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_from.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -2231,6 +2232,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_from.composit
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_from.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.scaled_price_from, range, value, display)
   local mantissa_display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_from.display(mantissa)
 
@@ -2275,6 +2277,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price.composite = f
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_price_4.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -2284,6 +2287,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price.composite = f
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.scaled_price, range, value, display)
   local mantissa_display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_price_4.display(mantissa)
 
@@ -2328,6 +2332,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_to.composite 
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_to.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -2337,6 +2342,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_to.composite 
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_price_to.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.scaled_price_to, range, value, display)
   local mantissa_display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.price_to.display(mantissa)
 
@@ -2381,6 +2387,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.composite
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.tick_size.size
   local range = buffer(offset, length)
   local mantissa = range:int64()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -2390,6 +2397,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.composite
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_tick_size.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.scaled_tick_size, range, value, display)
   local mantissa_display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.tick_size.display(mantissa)
 
@@ -2434,6 +2442,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_trade_price.composi
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.trade_price.size
   local range = buffer(offset, length)
   local mantissa = range:int()
+
   local value
   local display
   if record.number_of_decimals_in_price == 256 then
@@ -2443,6 +2452,7 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_trade_price.composi
     value = mantissa / (10 ^ record.number_of_decimals_in_price)
     display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.scaled_trade_price.display(value)
   end
+
   local field_tree = parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.scaled_trade_price, range, value, display)
   local mantissa_display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.trade_price.display(mantissa)
 
