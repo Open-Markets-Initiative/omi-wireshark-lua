@@ -1405,19 +1405,19 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_id.dissect = fu
   if record ~= nil then
     nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.order_book_directory.current = record
     if record.order_book_id ~= nil then
-      local entry_order_book_id = field_tree:add("Order Book Id: " .. tostring(record.order_book_id))
+      local entry_order_book_id = field_tree:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.order_book_id, record.order_book_id)
       entry_order_book_id:set_generated()
     end
     if record.number_of_decimals_in_price ~= nil then
-      local entry_number_of_decimals_in_price = field_tree:add("Number Of Decimals In Price: " .. tostring(record.number_of_decimals_in_price))
+      local entry_number_of_decimals_in_price = field_tree:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.number_of_decimals_in_price, record.number_of_decimals_in_price)
       entry_number_of_decimals_in_price:set_generated()
     end
     if record.number_of_decimals_in_strike_price ~= nil then
-      local entry_number_of_decimals_in_strike_price = field_tree:add("Number Of Decimals In Strike Price: " .. tostring(record.number_of_decimals_in_strike_price))
+      local entry_number_of_decimals_in_strike_price = field_tree:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.number_of_decimals_in_strike_price, record.number_of_decimals_in_strike_price)
       entry_number_of_decimals_in_strike_price:set_generated()
     end
     if record.number_of_decimals_in_nominal_value ~= nil then
-      local entry_number_of_decimals_in_nominal_value = field_tree:add("Number Of Decimals In Nominal Value: " .. tostring(record.number_of_decimals_in_nominal_value))
+      local entry_number_of_decimals_in_nominal_value = field_tree:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.number_of_decimals_in_nominal_value, record.number_of_decimals_in_nominal_value)
       entry_number_of_decimals_in_nominal_value:set_generated()
     end
   end

@@ -357,6 +357,9 @@ nasdaq_nasdaqcanada_chixmmd_itch_v1_1_3_5.cross_type.display = function(value)
   if value == "D" then
     return "Cross Type: Derivative Related (D)"
   end
+  if value == "N" then
+    return "Cross Type: Net Asset Value (N)"
+  end
 
   return "Cross Type: Unknown("..value..")"
 end
@@ -2149,6 +2152,7 @@ udp_table:add_for_decode_as(omi_nasdaq_nasdaqcanada_chixmmd_itch_v1_1_3_5)
 --   Version: 1.1.3.5
 --   Date: Monday, February 24, 2025
 --   Specification: Nasdaq-Canada-Multicast-Market-Data-Specification-CHIXMMD-1.1-V3.5.pdf
+--   Specification: Nasdaq Canada Multicast Market Data Specification CHIXMMD 1.1 V3.6_French.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0

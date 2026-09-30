@@ -1585,67 +1585,67 @@ nasdaq_nsmequities_totalview_itch_v5_0_2022.locate_code.dissect = function(buffe
   if record ~= nil then
     nasdaq_nsmequities_totalview_itch_v5_0_2022.stock_directory_message.current = record
     if record.stock_locate ~= nil then
-      local entry_stock_locate = field_tree:add("Stock Locate: " .. tostring(record.stock_locate))
+      local entry_stock_locate = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.stock_locate, record.stock_locate)
       entry_stock_locate:set_generated()
     end
     if record.tracking_number ~= nil then
-      local entry_tracking_number = field_tree:add("Tracking Number: " .. tostring(record.tracking_number))
+      local entry_tracking_number = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.tracking_number, record.tracking_number)
       entry_tracking_number:set_generated()
     end
     if record.stock ~= nil then
-      local entry_stock = field_tree:add("Stock: " .. tostring(record.stock))
+      local entry_stock = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.stock, record.stock)
       entry_stock:set_generated()
     end
     if record.market_category ~= nil then
-      local entry_market_category = field_tree:add("Market Category: " .. tostring(record.market_category))
+      local entry_market_category = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.market_category, record.market_category)
       entry_market_category:set_generated()
     end
     if record.financial_status_indicator ~= nil then
-      local entry_financial_status_indicator = field_tree:add("Financial Status Indicator: " .. tostring(record.financial_status_indicator))
+      local entry_financial_status_indicator = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.financial_status_indicator, record.financial_status_indicator)
       entry_financial_status_indicator:set_generated()
     end
     if record.round_lot_size ~= nil then
-      local entry_round_lot_size = field_tree:add("Round Lot Size: " .. tostring(record.round_lot_size))
+      local entry_round_lot_size = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.round_lot_size, record.round_lot_size)
       entry_round_lot_size:set_generated()
     end
     if record.round_lots_only ~= nil then
-      local entry_round_lots_only = field_tree:add("Round Lots Only: " .. tostring(record.round_lots_only))
+      local entry_round_lots_only = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.round_lots_only, record.round_lots_only)
       entry_round_lots_only:set_generated()
     end
     if record.issue_classification ~= nil then
-      local entry_issue_classification = field_tree:add("Issue Classification: " .. tostring(record.issue_classification))
+      local entry_issue_classification = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.issue_classification, record.issue_classification)
       entry_issue_classification:set_generated()
     end
     if record.issue_sub_type ~= nil then
-      local entry_issue_sub_type = field_tree:add("Issue Sub Type: " .. tostring(record.issue_sub_type))
+      local entry_issue_sub_type = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.issue_sub_type, record.issue_sub_type)
       entry_issue_sub_type:set_generated()
     end
     if record.authenticity ~= nil then
-      local entry_authenticity = field_tree:add("Authenticity: " .. tostring(record.authenticity))
+      local entry_authenticity = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.authenticity, record.authenticity)
       entry_authenticity:set_generated()
     end
     if record.short_sale_threshold_indicator ~= nil then
-      local entry_short_sale_threshold_indicator = field_tree:add("Short Sale Threshold Indicator: " .. tostring(record.short_sale_threshold_indicator))
+      local entry_short_sale_threshold_indicator = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.short_sale_threshold_indicator, record.short_sale_threshold_indicator)
       entry_short_sale_threshold_indicator:set_generated()
     end
     if record.ipo_flag ~= nil then
-      local entry_ipo_flag = field_tree:add("Ipo Flag: " .. tostring(record.ipo_flag))
+      local entry_ipo_flag = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.ipo_flag, record.ipo_flag)
       entry_ipo_flag:set_generated()
     end
     if record.luld_reference_price_tier ~= nil then
-      local entry_luld_reference_price_tier = field_tree:add("Luld Reference Price Tier: " .. tostring(record.luld_reference_price_tier))
+      local entry_luld_reference_price_tier = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.luld_reference_price_tier, record.luld_reference_price_tier)
       entry_luld_reference_price_tier:set_generated()
     end
     if record.etp_flag ~= nil then
-      local entry_etp_flag = field_tree:add("Etp Flag: " .. tostring(record.etp_flag))
+      local entry_etp_flag = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.etp_flag, record.etp_flag)
       entry_etp_flag:set_generated()
     end
     if record.etp_leverage_factor ~= nil then
-      local entry_etp_leverage_factor = field_tree:add("Etp Leverage Factor: " .. tostring(record.etp_leverage_factor))
+      local entry_etp_leverage_factor = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.etp_leverage_factor, record.etp_leverage_factor)
       entry_etp_leverage_factor:set_generated()
     end
     if record.inverse_indicator ~= nil then
-      local entry_inverse_indicator = field_tree:add("Inverse Indicator: " .. tostring(record.inverse_indicator))
+      local entry_inverse_indicator = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.inverse_indicator, record.inverse_indicator)
       entry_inverse_indicator:set_generated()
     end
   end
@@ -2968,67 +2968,67 @@ nasdaq_nsmequities_totalview_itch_v5_0_2022.stock_locate.dissect = function(buff
   if record ~= nil then
     nasdaq_nsmequities_totalview_itch_v5_0_2022.stock_directory_message.current = record
     if record.stock_locate ~= nil then
-      local entry_stock_locate = field_tree:add("Stock Locate: " .. tostring(record.stock_locate))
+      local entry_stock_locate = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.stock_locate, record.stock_locate)
       entry_stock_locate:set_generated()
     end
     if record.tracking_number ~= nil then
-      local entry_tracking_number = field_tree:add("Tracking Number: " .. tostring(record.tracking_number))
+      local entry_tracking_number = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.tracking_number, record.tracking_number)
       entry_tracking_number:set_generated()
     end
     if record.stock ~= nil then
-      local entry_stock = field_tree:add("Stock: " .. tostring(record.stock))
+      local entry_stock = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.stock, record.stock)
       entry_stock:set_generated()
     end
     if record.market_category ~= nil then
-      local entry_market_category = field_tree:add("Market Category: " .. tostring(record.market_category))
+      local entry_market_category = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.market_category, record.market_category)
       entry_market_category:set_generated()
     end
     if record.financial_status_indicator ~= nil then
-      local entry_financial_status_indicator = field_tree:add("Financial Status Indicator: " .. tostring(record.financial_status_indicator))
+      local entry_financial_status_indicator = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.financial_status_indicator, record.financial_status_indicator)
       entry_financial_status_indicator:set_generated()
     end
     if record.round_lot_size ~= nil then
-      local entry_round_lot_size = field_tree:add("Round Lot Size: " .. tostring(record.round_lot_size))
+      local entry_round_lot_size = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.round_lot_size, record.round_lot_size)
       entry_round_lot_size:set_generated()
     end
     if record.round_lots_only ~= nil then
-      local entry_round_lots_only = field_tree:add("Round Lots Only: " .. tostring(record.round_lots_only))
+      local entry_round_lots_only = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.round_lots_only, record.round_lots_only)
       entry_round_lots_only:set_generated()
     end
     if record.issue_classification ~= nil then
-      local entry_issue_classification = field_tree:add("Issue Classification: " .. tostring(record.issue_classification))
+      local entry_issue_classification = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.issue_classification, record.issue_classification)
       entry_issue_classification:set_generated()
     end
     if record.issue_sub_type ~= nil then
-      local entry_issue_sub_type = field_tree:add("Issue Sub Type: " .. tostring(record.issue_sub_type))
+      local entry_issue_sub_type = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.issue_sub_type, record.issue_sub_type)
       entry_issue_sub_type:set_generated()
     end
     if record.authenticity ~= nil then
-      local entry_authenticity = field_tree:add("Authenticity: " .. tostring(record.authenticity))
+      local entry_authenticity = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.authenticity, record.authenticity)
       entry_authenticity:set_generated()
     end
     if record.short_sale_threshold_indicator ~= nil then
-      local entry_short_sale_threshold_indicator = field_tree:add("Short Sale Threshold Indicator: " .. tostring(record.short_sale_threshold_indicator))
+      local entry_short_sale_threshold_indicator = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.short_sale_threshold_indicator, record.short_sale_threshold_indicator)
       entry_short_sale_threshold_indicator:set_generated()
     end
     if record.ipo_flag ~= nil then
-      local entry_ipo_flag = field_tree:add("Ipo Flag: " .. tostring(record.ipo_flag))
+      local entry_ipo_flag = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.ipo_flag, record.ipo_flag)
       entry_ipo_flag:set_generated()
     end
     if record.luld_reference_price_tier ~= nil then
-      local entry_luld_reference_price_tier = field_tree:add("Luld Reference Price Tier: " .. tostring(record.luld_reference_price_tier))
+      local entry_luld_reference_price_tier = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.luld_reference_price_tier, record.luld_reference_price_tier)
       entry_luld_reference_price_tier:set_generated()
     end
     if record.etp_flag ~= nil then
-      local entry_etp_flag = field_tree:add("Etp Flag: " .. tostring(record.etp_flag))
+      local entry_etp_flag = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.etp_flag, record.etp_flag)
       entry_etp_flag:set_generated()
     end
     if record.etp_leverage_factor ~= nil then
-      local entry_etp_leverage_factor = field_tree:add("Etp Leverage Factor: " .. tostring(record.etp_leverage_factor))
+      local entry_etp_leverage_factor = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.etp_leverage_factor, record.etp_leverage_factor)
       entry_etp_leverage_factor:set_generated()
     end
     if record.inverse_indicator ~= nil then
-      local entry_inverse_indicator = field_tree:add("Inverse Indicator: " .. tostring(record.inverse_indicator))
+      local entry_inverse_indicator = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2022.fields.inverse_indicator, record.inverse_indicator)
       entry_inverse_indicator:set_generated()
     end
   end
