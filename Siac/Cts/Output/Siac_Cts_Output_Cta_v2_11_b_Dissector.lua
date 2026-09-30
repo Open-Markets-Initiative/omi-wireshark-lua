@@ -3498,7 +3498,7 @@ siac_cts_output_cta_v2_11_b.sale_condition_1.display = function(value)
     return "Sale Condition 1: Market Center Official Close (M)"
   end
   if value == "N" then
-    return "Sale Condition 1: Reserved (N)"
+    return "Sale Condition 1: Reserved N (N)"
   end
   if value == "O" then
     return "Sale Condition 1: Market Center Opening Trade (O)"
@@ -3540,7 +3540,7 @@ siac_cts_output_cta_v2_11_b.sale_condition_1.display = function(value)
     return "Sale Condition 1: Qualified Contingent Trade (7)"
   end
   if value == "8" then
-    return "Sale Condition 1: Reserved (8)"
+    return "Sale Condition 1: Reserved 8 (8)"
   end
   if value == "9" then
     return "Sale Condition 1: Corrected Consolidated Close Price As Per Listing Market (9)"
@@ -3659,7 +3659,7 @@ siac_cts_output_cta_v2_11_b.security_status.display = function(value)
     return "Security Status: Security Status Not Applicable (<whitespace>)"
   end
   if value == "1" then
-    return "Security Status: Reserved (1)"
+    return "Security Status: Reserved 1 (1)"
   end
   if value == "2" then
     return "Security Status: Trading Halt (2)"
@@ -3668,7 +3668,7 @@ siac_cts_output_cta_v2_11_b.security_status.display = function(value)
     return "Security Status: Resume (3)"
   end
   if value == "4" then
-    return "Security Status: Reserved (4)"
+    return "Security Status: Reserved 4 (4)"
   end
   if value == "5" then
     return "Security Status: Price Indication (5)"
@@ -3689,7 +3689,7 @@ siac_cts_output_cta_v2_11_b.security_status.display = function(value)
     return "Security Status: Closing Imbalance Sell (A)"
   end
   if value == "B" then
-    return "Security Status: Reserved (B)"
+    return "Security Status: Reserved B (B)"
   end
   if value == "C" then
     return "Security Status: No Market Imbalance (C)"
@@ -4184,52 +4184,52 @@ siac_cts_output_cta_v2_11_b.trade_reporting_facility_id.display = function(value
     return "Trade Reporting Facility Id: Trf Not Applicable (<whitespace>)"
   end
   if value == "A" then
-    return "Trade Reporting Facility Id: Not Currently Active (A)"
+    return "Trade Reporting Facility Id: Not Currently Active A (A)"
   end
   if value == "B" then
     return "Trade Reporting Facility Id: Finra Nasdaq Trf Chicago (B)"
   end
   if value == "C" then
-    return "Trade Reporting Facility Id: Not Currently Active (C)"
+    return "Trade Reporting Facility Id: Not Currently Active C (C)"
   end
   if value == "D" then
-    return "Trade Reporting Facility Id: Not Currently Active (D)"
+    return "Trade Reporting Facility Id: Not Currently Active D (D)"
   end
   if value == "I" then
-    return "Trade Reporting Facility Id: Not Currently Active (I)"
+    return "Trade Reporting Facility Id: Not Currently Active I (I)"
   end
   if value == "J" then
-    return "Trade Reporting Facility Id: Not Currently Active (J)"
+    return "Trade Reporting Facility Id: Not Currently Active J (J)"
   end
   if value == "K" then
-    return "Trade Reporting Facility Id: Not Currently Active (K)"
+    return "Trade Reporting Facility Id: Not Currently Active K (K)"
   end
   if value == "M" then
-    return "Trade Reporting Facility Id: Not Currently Active (M)"
+    return "Trade Reporting Facility Id: Not Currently Active M (M)"
   end
   if value == "N" then
     return "Trade Reporting Facility Id: Finra Nyse Trf (N)"
   end
   if value == "P" then
-    return "Trade Reporting Facility Id: Not Currently Active (P)"
+    return "Trade Reporting Facility Id: Not Currently Active P (P)"
   end
   if value == "T" then
     return "Trade Reporting Facility Id: Finra Nasdaq Trf Carteret (T)"
   end
   if value == "V" then
-    return "Trade Reporting Facility Id: Not Currently Active (V)"
+    return "Trade Reporting Facility Id: Not Currently Active V (V)"
   end
   if value == "W" then
-    return "Trade Reporting Facility Id: Not Currently Active (W)"
+    return "Trade Reporting Facility Id: Not Currently Active W (W)"
   end
   if value == "X" then
-    return "Trade Reporting Facility Id: Not Currently Active (X)"
+    return "Trade Reporting Facility Id: Not Currently Active X (X)"
   end
   if value == "Y" then
-    return "Trade Reporting Facility Id: Not Currently Active (Y)"
+    return "Trade Reporting Facility Id: Not Currently Active Y (Y)"
   end
   if value == "Z" then
-    return "Trade Reporting Facility Id: Not Currently Active (Z)"
+    return "Trade Reporting Facility Id: Not Currently Active Z (Z)"
   end
 
   return "Trade Reporting Facility Id: Unknown("..value..")"
@@ -4408,8 +4408,8 @@ siac_cts_output_cta_v2_11_b.timestamp_2.size =
 -- Display: Timestamp 2
 siac_cts_output_cta_v2_11_b.timestamp_2.display = function(packet, parent, value)
   -- Check null value
-  if value == nil then
-    return "No Value"
+  if value == nil or value == UInt64(0) then
+    return "Not Applicable"
 
   end
 
@@ -4448,7 +4448,13 @@ siac_cts_output_cta_v2_11_b.timestamp_2.dissect = function(buffer, offset, packe
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2
     if siac_cts_output_cta_v2_11_b.absolute_time_base == 1 then field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    if seconds == 0 and nanoseconds == 0 then
+      -- Null: the field keeps its type, and the line says so instead
+      parent = parent:add(field, buffer(offset, length), NSTime.new(0, 0))
+      parent:set_text("Timestamp 2: Not Applicable")
+    else
+      parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    end
     local index = siac_cts_output_cta_v2_11_b.timestamp_2.fields(buffer, offset, packet, parent)
 
     return index, parent

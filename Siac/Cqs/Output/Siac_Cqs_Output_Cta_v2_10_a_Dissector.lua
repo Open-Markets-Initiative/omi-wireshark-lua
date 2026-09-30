@@ -3308,8 +3308,8 @@ siac_cqs_output_cta_v2_10_a.timestamp_2.size =
 -- Display: Timestamp 2
 siac_cqs_output_cta_v2_10_a.timestamp_2.display = function(packet, parent, value)
   -- Check null value
-  if value == nil then
-    return "No Value"
+  if value == nil or value == UInt64(0) then
+    return "Not Applicable"
 
   end
 
@@ -3348,7 +3348,13 @@ siac_cqs_output_cta_v2_10_a.timestamp_2.dissect = function(buffer, offset, packe
     -- protocol declares one per base and the preference picks between them
     local field = omi_siac_cqs_output_cta_v2_10_a.fields.timestamp_2
     if siac_cqs_output_cta_v2_10_a.absolute_time_base == 1 then field = omi_siac_cqs_output_cta_v2_10_a.fields.timestamp_2_utc end
-    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    if seconds == 0 and nanoseconds == 0 then
+      -- Null: the field keeps its type, and the line says so instead
+      parent = parent:add(field, buffer(offset, length), NSTime.new(0, 0))
+      parent:set_text("Timestamp 2: Not Applicable")
+    else
+      parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    end
     local index = siac_cqs_output_cta_v2_10_a.timestamp_2.fields(buffer, offset, packet, parent)
 
     return index, parent
