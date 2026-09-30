@@ -2027,15 +2027,15 @@ nyse_arcaequities_trades_pillar_v2_6.symbol_index.dissect = function(buffer, off
   if record ~= nil then
     nyse_arcaequities_trades_pillar_v2_6.symbol_index_mapping_message.current = record
     if record.symbol_index ~= nil then
-      local entry_symbol_index = field_tree:add("Symbol Index: " .. tostring(record.symbol_index))
+      local entry_symbol_index = field_tree:add(omi_nyse_arcaequities_trades_pillar_v2_6.fields.symbol_index, record.symbol_index)
       entry_symbol_index:set_generated()
     end
     if record.symbol ~= nil then
-      local entry_symbol = field_tree:add("Symbol: " .. tostring(record.symbol))
+      local entry_symbol = field_tree:add(omi_nyse_arcaequities_trades_pillar_v2_6.fields.symbol, record.symbol)
       entry_symbol:set_generated()
     end
     if record.price_scale_code ~= nil then
-      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      local entry_price_scale_code = field_tree:add(omi_nyse_arcaequities_trades_pillar_v2_6.fields.price_scale_code, record.price_scale_code)
       entry_price_scale_code:set_generated()
     end
   end

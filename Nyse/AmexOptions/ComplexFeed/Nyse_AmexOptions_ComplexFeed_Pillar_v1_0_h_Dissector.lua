@@ -2082,15 +2082,15 @@ nyse_amexoptions_complexfeed_pillar_v1_0_h.series_index.dissect = function(buffe
   if record ~= nil then
     nyse_amexoptions_complexfeed_pillar_v1_0_h.outright_series_index_mapping_message.current = record
     if record.series_index ~= nil then
-      local entry_series_index = field_tree:add("Series Index: " .. tostring(record.series_index))
+      local entry_series_index = field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.series_index, record.series_index)
       entry_series_index:set_generated()
     end
     if record.option_symbol_root ~= nil then
-      local entry_option_symbol_root = field_tree:add("Option Symbol Root: " .. tostring(record.option_symbol_root))
+      local entry_option_symbol_root = field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.option_symbol_root, record.option_symbol_root)
       entry_option_symbol_root:set_generated()
     end
     if record.price_scale_code ~= nil then
-      local entry_price_scale_code = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+      local entry_price_scale_code = field_tree:add(omi_nyse_amexoptions_complexfeed_pillar_v1_0_h.fields.price_scale_code, record.price_scale_code)
       entry_price_scale_code:set_generated()
     end
   end
