@@ -920,10 +920,6 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_id.dissect = function(
 
   if record ~= nil then
     nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.order_book_directory.current = record
-    if record.order_book_id ~= nil then
-      local entry_order_book_id = field_tree:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.order_book_id, record.order_book_id)
-      entry_order_book_id:set_generated()
-    end
     if record.number_of_decimals_in_price ~= nil then
       local entry_number_of_decimals_in_price = field_tree:add(omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.number_of_decimals_in_price, record.number_of_decimals_in_price)
       entry_number_of_decimals_in_price:set_generated()

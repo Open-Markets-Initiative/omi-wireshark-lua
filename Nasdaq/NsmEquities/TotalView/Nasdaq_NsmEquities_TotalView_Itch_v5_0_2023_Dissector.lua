@@ -1595,10 +1595,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2023.locate_code.dissect = function(buffe
 
   if record ~= nil then
     nasdaq_nsmequities_totalview_itch_v5_0_2023.stock_directory_message.current = record
-    if record.stock_locate ~= nil then
-      local entry_stock_locate = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.stock_locate, record.stock_locate)
-      entry_stock_locate:set_generated()
-    end
     if record.tracking_number ~= nil then
       local entry_tracking_number = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.tracking_number, record.tracking_number)
       entry_tracking_number:set_generated()
@@ -3150,10 +3146,6 @@ nasdaq_nsmequities_totalview_itch_v5_0_2023.stock_locate.dissect = function(buff
 
   if record ~= nil then
     nasdaq_nsmequities_totalview_itch_v5_0_2023.stock_directory_message.current = record
-    if record.stock_locate ~= nil then
-      local entry_stock_locate = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.stock_locate, record.stock_locate)
-      entry_stock_locate:set_generated()
-    end
     if record.tracking_number ~= nil then
       local entry_tracking_number = field_tree:add(omi_nasdaq_nsmequities_totalview_itch_v5_0_2023.fields.tracking_number, record.tracking_number)
       entry_tracking_number:set_generated()
