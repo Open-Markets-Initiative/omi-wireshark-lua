@@ -6769,9 +6769,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 60, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -6784,9 +6781,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 60, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -6795,9 +6789,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 60, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -6808,9 +6799,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 60, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -6820,9 +6808,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 60, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -6831,9 +6816,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_execution_message.fields = func
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 60, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Remove Pct
   local max_remove_pct = nil
@@ -8206,9 +8188,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -8221,9 +8200,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -8232,9 +8208,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -8245,9 +8218,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -8257,9 +8227,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -8268,9 +8235,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_rejected_message.fields = func
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Remove Pct
   local max_remove_pct = nil
@@ -8706,9 +8670,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -8721,9 +8682,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -8732,9 +8690,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -8745,9 +8700,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -8757,9 +8709,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -8768,9 +8717,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_cancelled_message.fields = func
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 31, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Remove Pct
   local max_remove_pct = nil
@@ -9659,9 +9605,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 39, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -9674,9 +9617,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 39, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -9685,9 +9625,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 39, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -9698,9 +9635,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 39, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -9710,9 +9644,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 39, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -9721,9 +9652,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_restated_message.fields = funct
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 39, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Remove Pct
   local max_remove_pct = nil
@@ -10286,9 +10214,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -10301,9 +10226,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -10312,9 +10234,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -10325,9 +10244,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -10337,9 +10253,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -10348,9 +10261,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_modified_message.fields = funct
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Remove Pct
   local max_remove_pct = nil
@@ -11058,9 +10968,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -11073,9 +10980,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -11084,9 +10988,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -11097,9 +10998,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -11109,9 +11007,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -11120,9 +11015,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_rejected_message.fields = funct
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Remove Pct
   local max_remove_pct = nil
@@ -11756,9 +11648,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
     index, return_bitfield_17 = cboe_bzxoptions_binaryorderentry_boe_v2_10.return_bitfield_17.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -11771,9 +11660,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -11782,9 +11668,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -11795,9 +11678,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -11807,9 +11687,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -11818,9 +11695,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.order_acknowledgment_message.fields =
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Return Bitfield 1
-  local return_bitfield_1 = buffer(offset + 38, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Remove Pct
   local max_remove_pct = nil
@@ -12470,9 +12344,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.purge_order_message.fields = function
     index, purge_order_bitfield_2 = cboe_bzxoptions_binaryorderentry_boe_v2_10.purge_order_bitfield_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Purge Order Bitfield 1
-  local purge_order_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -12481,9 +12352,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.purge_order_message.fields = function
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxoptions_binaryorderentry_boe_v2_10.clearing_firm.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Purge Order Bitfield 1
-  local purge_order_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Mass Cancel Lockout
   local mass_cancel_lockout = nil
@@ -12494,9 +12362,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.purge_order_message.fields = function
     index, mass_cancel_lockout = cboe_bzxoptions_binaryorderentry_boe_v2_10.mass_cancel_lockout.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Purge Order Bitfield 1
-  local purge_order_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Mass Cancel Inst
   local mass_cancel_inst = nil
 
@@ -12506,9 +12371,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.purge_order_message.fields = function
     index, mass_cancel_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.mass_cancel_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Purge Order Bitfield 1
-  local purge_order_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Risk Root
   local risk_root = nil
 
@@ -12517,9 +12379,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.purge_order_message.fields = function
   if risk_root_exists then
     index, risk_root = cboe_bzxoptions_binaryorderentry_boe_v2_10.risk_root.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Purge Order Bitfield 1
-  local purge_order_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Mass Cancel Id
   local mass_cancel_id = nil
@@ -13088,9 +12947,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.modify_order_message.fields = functio
     index, modify_order_bitfield_2 = cboe_bzxoptions_binaryorderentry_boe_v2_10.modify_order_bitfield_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -13106,9 +12962,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.modify_order_message.fields = functio
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Ord Type
   local ord_type = nil
 
@@ -13118,9 +12971,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.modify_order_message.fields = functio
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Cancel Orig On Reject
   local cancel_orig_on_reject = nil
 
@@ -13129,9 +12979,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.modify_order_message.fields = functio
   if cancel_orig_on_reject_exists then
     index, cancel_orig_on_reject = cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
@@ -13413,9 +13260,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_order_message.fields = functio
     index, cancel_order_bitfield_2 = cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_order_bitfield_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Cancel Order Bitfield 1
-  local cancel_order_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -13424,9 +13268,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_order_message.fields = functio
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxoptions_binaryorderentry_boe_v2_10.clearing_firm.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Cancel Order Bitfield 1
-  local cancel_order_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Mass Cancel Lockout
   local mass_cancel_lockout = nil
@@ -13437,9 +13278,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_order_message.fields = functio
     index, mass_cancel_lockout = cboe_bzxoptions_binaryorderentry_boe_v2_10.mass_cancel_lockout.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Cancel Order Bitfield 1
-  local cancel_order_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Mass Cancel
   local mass_cancel = nil
 
@@ -13449,9 +13287,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_order_message.fields = functio
     index, mass_cancel = cboe_bzxoptions_binaryorderentry_boe_v2_10.mass_cancel.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Cancel Order Bitfield 1
-  local cancel_order_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Risk Root
   local risk_root = nil
 
@@ -13460,9 +13295,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.cancel_order_message.fields = functio
   if risk_root_exists then
     index, risk_root = cboe_bzxoptions_binaryorderentry_boe_v2_10.risk_root.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Cancel Order Bitfield 1
-  local cancel_order_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Mass Cancel Id
   local mass_cancel_id = nil
@@ -14441,9 +14273,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
     index, new_order_bitfield_9 = cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_bitfield_9.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: New Order Bitfield 1
-  local new_order_bitfield_1 = buffer(offset + 26, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -14452,9 +14281,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
   if clearing_firm_exists then
     index, clearing_firm = cboe_bzxoptions_binaryorderentry_boe_v2_10.clearing_firm.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: New Order Bitfield 1
-  local new_order_bitfield_1 = buffer(offset + 26, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Clearing Account
   local clearing_account = nil
@@ -14468,9 +14294,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
   -- Price Long: BinaryPrice
   index, price_long = cboe_bzxoptions_binaryorderentry_boe_v2_10.price_long.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: New Order Bitfield 1
-  local new_order_bitfield_1 = buffer(offset + 26, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -14479,9 +14302,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
   if exec_inst_exists then
     index, exec_inst = cboe_bzxoptions_binaryorderentry_boe_v2_10.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: New Order Bitfield 1
-  local new_order_bitfield_1 = buffer(offset + 26, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -14492,9 +14312,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
     index, ord_type = cboe_bzxoptions_binaryorderentry_boe_v2_10.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: New Order Bitfield 1
-  local new_order_bitfield_1 = buffer(offset + 26, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Time In Force
   local time_in_force = nil
 
@@ -14504,9 +14321,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
     index, time_in_force = cboe_bzxoptions_binaryorderentry_boe_v2_10.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: New Order Bitfield 1
-  local new_order_bitfield_1 = buffer(offset + 26, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Min Qty
   local min_qty = nil
 
@@ -14515,9 +14329,6 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.new_order_message.fields = function(b
   if min_qty_exists then
     index, min_qty = cboe_bzxoptions_binaryorderentry_boe_v2_10.min_qty.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: New Order Bitfield 1
-  local new_order_bitfield_1 = buffer(offset + 26, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Max Floor
   local max_floor = nil

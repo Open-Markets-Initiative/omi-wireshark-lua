@@ -30564,9 +30564,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.purge_order_message.fields = func
     index, risk_group_i_ds = cboe_edgxequities_binaryorderentry_boe_v2_4_57.risk_group_i_ds.dissect(buffer, index, packet, parent, risk_group_i_ds_index)
   end
 
-  -- Dependency element: Purge Orders Bitfield 1
-  local purge_orders_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -30576,9 +30573,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.purge_order_message.fields = func
     index, clearing_firm = cboe_edgxequities_binaryorderentry_boe_v2_4_57.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Purge Orders Bitfield 1
-  local purge_orders_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Mass Cancel Inst
   local mass_cancel_inst = nil
 
@@ -30587,9 +30581,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.purge_order_message.fields = func
   if mass_cancel_inst_exists then
     index, mass_cancel_inst = cboe_edgxequities_binaryorderentry_boe_v2_4_57.mass_cancel_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Purge Orders Bitfield 1
-  local purge_orders_bitfield_1 = buffer(offset + 2, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Mass Cancel Id
   local mass_cancel_id = nil
@@ -30883,9 +30874,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.modify_order_message.fields = fun
     index, modify_order_bitfield_2 = cboe_edgxequities_binaryorderentry_boe_v2_4_57.modify_order_bitfield_2.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Price
   local price = nil
 
@@ -30894,9 +30882,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.modify_order_message.fields = fun
   if price_exists then
     index, price = cboe_edgxequities_binaryorderentry_boe_v2_4_57.price.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Ord Type
   local ord_type = nil
@@ -30907,9 +30892,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.modify_order_message.fields = fun
     index, ord_type = cboe_edgxequities_binaryorderentry_boe_v2_4_57.ord_type.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Cancel Orig On Reject
   local cancel_orig_on_reject = nil
 
@@ -30919,9 +30901,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.modify_order_message.fields = fun
     index, cancel_orig_on_reject = cboe_edgxequities_binaryorderentry_boe_v2_4_57.cancel_orig_on_reject.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Exec Inst
   local exec_inst = nil
 
@@ -30930,9 +30909,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.modify_order_message.fields = fun
   if exec_inst_exists then
     index, exec_inst = cboe_edgxequities_binaryorderentry_boe_v2_4_57.exec_inst.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Modify Order Bitfield 1
-  local modify_order_bitfield_1 = buffer(offset + 41, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Side
   local side = nil
@@ -31222,9 +31198,6 @@ cboe_edgxequities_binaryorderentry_boe_v2_4_57.cancel_order_message.fields = fun
     -- Cancel Order Bitfield 2: Struct of 8 fields
     index, cancel_order_bitfield_2 = cboe_edgxequities_binaryorderentry_boe_v2_4_57.cancel_order_bitfield_2.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Cancel Order Bitfield 1
-  local cancel_order_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil

@@ -9897,9 +9897,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_decline_v_2_mess
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Trade Capture Report Decline V 2 Return Bitfield 1
-  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -12159,9 +12156,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_confirm_v_2_message.fie
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Trade Capture Confirm V 2 Return Bitfield 1
-  local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -14314,9 +14308,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_reject_v_2_messa
   if intra_firm_trade_ind_exists then
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Trade Capture Report Reject V 2 Return Bitfield 1
-  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Side
   local side = nil
@@ -16474,9 +16465,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_acknowledgment_v
     index, intra_firm_trade_ind = cboe_cboeeurope_tradereporting_boe_v2_0_40.intra_firm_trade_ind.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Trade Capture Report Acknowledgment V 2 Return Bitfield 1
-  local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Side
   local side = nil
 
@@ -16745,9 +16733,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
     index, quote_cancel_rpt_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_rpt_grp.dissect(buffer, index, packet, parent, quote_cancel_rpt_grp_index)
   end
 
-  -- Dependency element: Quote Cancel V 2 Bitfield 1
-  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
 
@@ -16756,9 +16741,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   if clearing_firm_exists then
     index, clearing_firm = cboe_cboeeurope_tradereporting_boe_v2_0_40.clearing_firm.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Quote Cancel V 2 Bitfield 1
-  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Symbol
   local symbol = nil
@@ -16769,9 +16751,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
     index, symbol = cboe_cboeeurope_tradereporting_boe_v2_0_40.symbol.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Quote Cancel V 2 Bitfield 1
-  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Currency
   local currency = nil
 
@@ -16780,9 +16759,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   if currency_exists then
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Quote Cancel V 2 Bitfield 1
-  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Id Source
   local id_source = nil
@@ -16793,9 +16769,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Quote Cancel V 2 Bitfield 1
-  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Security Id
   local security_id = nil
 
@@ -16804,9 +16777,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_cancel_v_2_message.fields = fun
   if security_id_exists then
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Quote Cancel V 2 Bitfield 1
-  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
@@ -16970,9 +16940,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
     index, quote_v_2_bitfield_1 = cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_bitfield_1.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Quote V 2 Bitfield 1
-  local quote_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Symbol
   local symbol = nil
 
@@ -16981,9 +16948,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   if symbol_exists then
     index, symbol = cboe_cboeeurope_tradereporting_boe_v2_0_40.symbol.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Quote V 2 Bitfield 1
-  local quote_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Currency
   local currency = nil
@@ -16994,9 +16958,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Quote V 2 Bitfield 1
-  local quote_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Id Source
   local id_source = nil
 
@@ -17005,9 +16966,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Quote V 2 Bitfield 1
-  local quote_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Security Id
   local security_id = nil
@@ -17018,9 +16976,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Quote V 2 Bitfield 1
-  local quote_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
@@ -17029,9 +16984,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.quote_v_2_message.fields = function(b
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Quote V 2 Bitfield 1
-  local quote_v_2_bitfield_1 = buffer(offset + 21, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Clearing Firm
   local clearing_firm = nil
@@ -17771,9 +17723,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
     index, trd_cap_rpt_side_grp = cboe_cboeeurope_tradereporting_boe_v2_0_40.trd_cap_rpt_side_grp.dissect(buffer, index, packet, parent, trd_cap_rpt_side_grp_index)
   end
 
-  -- Dependency element: Trade Capture Report V 2 Bitfield 1
-  local trade_capture_report_v_2_bitfield_1 = buffer(offset + 33, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Symbol
   local symbol = nil
 
@@ -17782,9 +17731,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   if symbol_exists then
     index, symbol = cboe_cboeeurope_tradereporting_boe_v2_0_40.symbol.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Trade Capture Report V 2 Bitfield 1
-  local trade_capture_report_v_2_bitfield_1 = buffer(offset + 33, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Currency
   local currency = nil
@@ -17795,9 +17741,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
     index, currency = cboe_cboeeurope_tradereporting_boe_v2_0_40.currency.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Trade Capture Report V 2 Bitfield 1
-  local trade_capture_report_v_2_bitfield_1 = buffer(offset + 33, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Id Source
   local id_source = nil
 
@@ -17806,9 +17749,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   if id_source_exists then
     index, id_source = cboe_cboeeurope_tradereporting_boe_v2_0_40.id_source.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Trade Capture Report V 2 Bitfield 1
-  local trade_capture_report_v_2_bitfield_1 = buffer(offset + 33, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Security Id
   local security_id = nil
@@ -17819,9 +17759,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
     index, security_id = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_id.dissect(buffer, index, packet, parent)
   end
 
-  -- Dependency element: Trade Capture Report V 2 Bitfield 1
-  local trade_capture_report_v_2_bitfield_1 = buffer(offset + 33, 1):bytes():tohex(false, " ")
-
   -- Runtime optional field: Security Exchange
   local security_exchange = nil
 
@@ -17830,9 +17767,6 @@ cboe_cboeeurope_tradereporting_boe_v2_0_40.trade_capture_report_v_2_message.fiel
   if security_exchange_exists then
     index, security_exchange = cboe_cboeeurope_tradereporting_boe_v2_0_40.security_exchange.dissect(buffer, index, packet, parent)
   end
-
-  -- Dependency element: Trade Capture Report V 2 Bitfield 1
-  local trade_capture_report_v_2_bitfield_1 = buffer(offset + 33, 1):bytes():tohex(false, " ")
 
   -- Runtime optional field: Last Mkt
   local last_mkt = nil

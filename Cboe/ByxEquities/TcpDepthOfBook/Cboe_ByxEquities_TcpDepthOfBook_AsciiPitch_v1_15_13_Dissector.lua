@@ -867,10 +867,10 @@ cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.size = 1
 
 -- Display: Reg Sho Action
 cboe_byxequities_tcpdepthofbook_asciipitch_v1_15_13.reg_sho_action.display = function(value)
-  if value == "0" then
+  if value == 0 then
     return "Reg Sho Action: No Price Test In Effect (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Reg Sho Action: Reg Sho Price Test Restriction In Effect (1)"
   end
 
