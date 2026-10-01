@@ -27,7 +27,7 @@ omi_iex_iexequities_tops_iextp_v1_66.fields.collar_reference_price = ProtoField.
 omi_iex_iexequities_tops_iextp_v1_66.fields.detail = ProtoField.new("Detail", "iex.iexequities.tops.iextp.v1.66.detail", ftypes.STRING)
 omi_iex_iexequities_tops_iextp_v1_66.fields.etp = ProtoField.new("Etp", "iex.iexequities.tops.iextp.v1.66.etp", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
 omi_iex_iexequities_tops_iextp_v1_66.fields.extended_hours = ProtoField.new("Extended Hours", "iex.iexequities.tops.iextp.v1.66.extendedhours", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_iex_iexequities_tops_iextp_v1_66.fields.extension_number = ProtoField.new("Extension Number", "iex.iexequities.tops.iextp.v1.66.extensionnumber", ftypes.STRING)
+omi_iex_iexequities_tops_iextp_v1_66.fields.extension_number = ProtoField.new("Extension Number", "iex.iexequities.tops.iextp.v1.66.extensionnumber", ftypes.UINT8)
 omi_iex_iexequities_tops_iextp_v1_66.fields.first_message_sequence_number = ProtoField.new("First Message Sequence Number", "iex.iexequities.tops.iextp.v1.66.firstmessagesequencenumber", ftypes.UINT64)
 omi_iex_iexequities_tops_iextp_v1_66.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "iex.iexequities.tops.iextp.v1.66.imbalanceshares", ftypes.UINT32)
 omi_iex_iexequities_tops_iextp_v1_66.fields.imbalance_side = ProtoField.new("Imbalance Side", "iex.iexequities.tops.iextp.v1.66.imbalanceside", ftypes.STRING)
@@ -469,7 +469,7 @@ end
 iex_iexequities_tops_iextp_v1_66.extension_number.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_tops_iextp_v1_66.extension_number.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:uint()
   local display = iex_iexequities_tops_iextp_v1_66.extension_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_tops_iextp_v1_66.fields.extension_number, range, value, display)
@@ -1486,7 +1486,7 @@ iex_iexequities_tops_iextp_v1_66.auction_information_message.fields = function(b
   -- Imbalance Side: Byte
   index, imbalance_side = iex_iexequities_tops_iextp_v1_66.imbalance_side.dissect(buffer, index, packet, parent)
 
-  -- Extension Number: Byte
+  -- Extension Number: Byte (int)
   index, extension_number = iex_iexequities_tops_iextp_v1_66.extension_number.dissect(buffer, index, packet, parent)
 
   -- Scheduled Auction Time: Event Time

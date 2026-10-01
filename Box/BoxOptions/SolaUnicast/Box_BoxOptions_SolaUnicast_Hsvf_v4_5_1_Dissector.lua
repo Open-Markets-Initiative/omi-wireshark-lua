@@ -676,10 +676,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.continue_marker.size = 1
 
 -- Display: Continue Marker
 box_boxoptions_solaunicast_hsvf_v4_5_1.continue_marker.display = function(value)
-  if value == "0" then
+  if value == 0 then
     return "Continue Marker: Bulletin Continues In Next Record (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Continue Marker: Bulletin Ended (1)"
   end
 
@@ -711,13 +711,13 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.deletion_type.size = 1
 
 -- Display: Deletion Type
 box_boxoptions_solaunicast_hsvf_v4_5_1.deletion_type.display = function(value)
-  if value == "1" then
+  if value == 1 then
     return "Deletion Type: Precise Order (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Deletion Type: All Previous Orders In The Specified Side (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Deletion Type: All Orders (3)"
   end
 
@@ -1062,10 +1062,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.gap_control.size = 1
 
 -- Display: Gap Control
 box_boxoptions_solaunicast_hsvf_v4_5_1.gap_control.display = function(value)
-  if value == "0" then
+  if value == 0 then
     return "Gap Control: Will Receive Gap Messages (0)"
   end
-  if value == "1" then
+  if value == 1 then
     return "Gap Control: Will Not Receive Gap Messages (1)"
   end
 

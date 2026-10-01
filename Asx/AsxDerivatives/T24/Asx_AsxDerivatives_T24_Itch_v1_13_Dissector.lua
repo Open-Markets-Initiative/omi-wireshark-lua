@@ -5612,7 +5612,7 @@ asx_asxderivatives_t24_itch_v1_13.protocol_version.verify = function(buffer)
   -- Attempt to read field
   local value = buffer(0, 3):string()
 
-  if value == T24 then
+  if value == "T24" then
     return true
   end
 

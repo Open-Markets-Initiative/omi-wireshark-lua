@@ -4168,10 +4168,10 @@ box_boxoptions_solaorderentry_sail_v2_25.rejection_code.size = 4
 
 -- Display: Rejection Code
 box_boxoptions_solaorderentry_sail_v2_25.rejection_code.display = function(value)
-  if value == "0001" then
+  if value == 0001 then
     return "Rejection Code: Executing Participant Discretion (0001)"
   end
-  if value == "0002" then
+  if value == 0002 then
     return "Rejection Code: Auction Order Failed (0002)"
   end
 

@@ -509,13 +509,13 @@ finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.size = 1
 
 -- Display: Inside Appendage Indicator
 finra_finraotc_bbds_dfi_v2018_1a.inside_appendage_indicator.display = function(value)
-  if value == "1" then
+  if value == 1 then
     return "Inside Appendage Indicator: No Change To Inside Quote (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Inside Appendage Indicator: No Inside Exists (2)"
   end
-  if value == "3" then
+  if value == 3 then
     return "Inside Appendage Indicator: Inside Quote Appendage Is Attached (3)"
   end
 
