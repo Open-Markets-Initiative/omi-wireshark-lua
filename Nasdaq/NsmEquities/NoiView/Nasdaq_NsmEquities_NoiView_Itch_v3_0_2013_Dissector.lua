@@ -893,10 +893,10 @@ nasdaq_nsmequities_noiview_itch_v3_0_2013.luld_reference_price_tier.size = 1
 
 -- Display: Luld Reference Price Tier
 nasdaq_nsmequities_noiview_itch_v3_0_2013.luld_reference_price_tier.display = function(value)
-  if value == "1" then
+  if value == 1 then
     return "Luld Reference Price Tier: Tier 1 Nms Stocks And Select Et Ps (1)"
   end
-  if value == "2" then
+  if value == 2 then
     return "Luld Reference Price Tier: Tier 2 Nms Stocks (2)"
   end
   if value == " " then
