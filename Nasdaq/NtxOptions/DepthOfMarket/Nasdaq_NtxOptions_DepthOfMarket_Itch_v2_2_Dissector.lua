@@ -977,24 +977,20 @@ end
 -- Debug Text
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text = {}
 
--- Size: Debug Text
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.size = 1
-
 -- Display: Debug Text
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.display = function(value)
   return "Debug Text: "..value
 end
 
--- Dissect: Debug Text
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Debug Text
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_ntxoptions_depthofmarket_itch_v2_2.fields.debug_text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- End Of Replay Sequence Number
@@ -4664,9 +4660,15 @@ end
 -- Debug Packet
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet = {}
 
--- Size: Debug Packet
-nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.size =
-  nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.size
+-- Calculate size of: Debug Packet
+nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
 
 -- Display: Debug Packet
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.display = function(packet, parent, length)
@@ -4677,8 +4679,14 @@ end
 nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Debug Text: 1 Byte Ascii String
-  index, debug_text = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.dissect(buffer, index, packet, parent)
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
+  -- Debug Text: 0 Byte Ascii String
+  index, debug_text = nasdaq_ntxoptions_depthofmarket_itch_v2_2.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
 
   return index
 end
@@ -5383,115 +5391,9 @@ nasdaq_ntxoptions_depthofmarket_itch_v2_2.server_packet.fingerprint = function(b
     return true
   end
 
-  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Sequenced Data Packet
   if server_packet_type == "S" then
-    if buffer:len() < 4 then
-      return false
-    end
-
-    local sequenced_message_type = buffer(3, 1):string()
-
-    -- System Event Message
-    if sequenced_message_type == "S" then
-      return true
-    end
-
-    -- Derivative Directory Message
-    if sequenced_message_type == "R" then
-      return true
-    end
-
-    -- Trading Action Message
-    if sequenced_message_type == "H" then
-      return true
-    end
-
-    -- Add Order Short Form Message
-    if sequenced_message_type == "a" then
-      return true
-    end
-
-    -- Add Order Long Form Message
-    if sequenced_message_type == "A" then
-      return true
-    end
-
-    -- Add Quote Short Form Message
-    if sequenced_message_type == "j" then
-      return true
-    end
-
-    -- Add Quote Long Form Message
-    if sequenced_message_type == "J" then
-      return true
-    end
-
-    -- Order Executed Message
-    if sequenced_message_type == "E" then
-      return true
-    end
-
-    -- Order Executed With Price Message
-    if sequenced_message_type == "C" then
-      return true
-    end
-
-    -- Order Cancel Message
-    if sequenced_message_type == "X" then
-      return true
-    end
-
-    -- Order Replace Short Form Message
-    if sequenced_message_type == "u" then
-      return true
-    end
-
-    -- Order Replace Long Form Message
-    if sequenced_message_type == "U" then
-      return true
-    end
-
-    -- Order Delete Message
-    if sequenced_message_type == "D" then
-      return true
-    end
-
-    -- Order Change Message
-    if sequenced_message_type == "G" then
-      return true
-    end
-
-    -- Quote Replace Short Form Message
-    if sequenced_message_type == "k" then
-      return true
-    end
-
-    -- Quote Replace Long Form Message
-    if sequenced_message_type == "K" then
-      return true
-    end
-
-    -- Quote Delete Message
-    if sequenced_message_type == "Y" then
-      return true
-    end
-
-    -- Trade Message
-    if sequenced_message_type == "Q" then
-      return true
-    end
-
-    -- Net Order Imbalance Message
-    if sequenced_message_type == "I" then
-      return true
-    end
-
-    -- End Of Replay Sequence Message
-    if sequenced_message_type == "M" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Server Heartbeat Packet

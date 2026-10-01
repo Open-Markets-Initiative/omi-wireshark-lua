@@ -1433,24 +1433,20 @@ end
 -- Debug Text
 nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text = {}
 
--- Size: Debug Text
-nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.size = 1
-
 -- Display: Debug Text
 nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.display = function(value)
   return "Debug Text: "..value
 end
 
--- Dissect: Debug Text
-nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.size
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Debug Text
+nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:string()
-  local display = nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.display(value, packet, parent, size)
 
   parent:add(omi_nasdaq_nomoptions_otto_ouch_v3_0_0.fields.debug_text, range, value, display)
 
-  return offset + length, value
+  return offset + size, value
 end
 
 -- Disclosure Mask
@@ -6543,9 +6539,15 @@ end
 -- Debug Packet
 nasdaq_nomoptions_otto_ouch_v3_0_0.debug_packet = {}
 
--- Size: Debug Packet
-nasdaq_nomoptions_otto_ouch_v3_0_0.debug_packet.size =
-  nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.size
+-- Calculate size of: Debug Packet
+nasdaq_nomoptions_otto_ouch_v3_0_0.debug_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Debug Text
+  index = index + buffer(offset + index - 3, 2):uint()
+
+  return index
+end
 
 -- Display: Debug Packet
 nasdaq_nomoptions_otto_ouch_v3_0_0.debug_packet.display = function(packet, parent, length)
@@ -6556,8 +6558,14 @@ end
 nasdaq_nomoptions_otto_ouch_v3_0_0.debug_packet.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Debug Text: 1 Byte Ascii String
-  index, debug_text = nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.dissect(buffer, index, packet, parent)
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Debug Text
+  local size_of_debug_text = packet_length - 1
+
+  -- Debug Text: 0 Byte Ascii String
+  index, debug_text = nasdaq_nomoptions_otto_ouch_v3_0_0.debug_text.dissect(buffer, index, packet, parent, size_of_debug_text)
 
   return index
 end
@@ -8257,55 +8265,9 @@ nasdaq_nomoptions_otto_ouch_v3_0_0.client_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Unsequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Unsequenced Data Packet
   if client_packet_type == "U" then
-    if buffer:len() < 4 then
-      return false
-    end
-
-    local unsequenced_message_type = buffer(3, 1):string()
-
-    -- New Order Long Form Message
-    if unsequenced_message_type == "A" then
-      return true
-    end
-
-    -- New Order Short Form Message
-    if unsequenced_message_type == "B" then
-      return true
-    end
-
-    -- Replace Order Message
-    if unsequenced_message_type == "R" then
-      return true
-    end
-
-    -- Cancel Order Message
-    if unsequenced_message_type == "C" then
-      return true
-    end
-
-    -- Mass Cancel Message
-    if unsequenced_message_type == "U" then
-      return true
-    end
-
-    -- New Cross Order Message
-    if unsequenced_message_type == "X" then
-      return true
-    end
-
-    -- Modify Trade Message
-    if unsequenced_message_type == "M" then
-      return true
-    end
-
-    -- Member Kill Switch Request Message
-    if unsequenced_message_type == "K" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Client Heartbeat Packet
@@ -8344,95 +8306,9 @@ nasdaq_nomoptions_otto_ouch_v3_0_0.server_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Sequenced Data Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Sequenced Data Packet
   if server_packet_type == "S" then
-    if buffer:len() < 4 then
-      return false
-    end
-
-    local sequenced_message_type = buffer(3, 1):string()
-
-    -- System Event Message
-    if sequenced_message_type == "z" then
-      return true
-    end
-
-    -- Simple Instrument Directory Message
-    if sequenced_message_type == "o" then
-      return true
-    end
-
-    -- Instrument Trading Action Message
-    if sequenced_message_type == "i" then
-      return true
-    end
-
-    -- Auction Notification Message
-    if sequenced_message_type == "n" then
-      return true
-    end
-
-    -- Order Accepted Long Form Message
-    if sequenced_message_type == "a" then
-      return true
-    end
-
-    -- Order Accepted Short Form Message
-    if sequenced_message_type == "b" then
-      return true
-    end
-
-    -- Order Replaced Message
-    if sequenced_message_type == "r" then
-      return true
-    end
-
-    -- Order Canceled Message
-    if sequenced_message_type == "c" then
-      return true
-    end
-
-    -- Order Executed Message
-    if sequenced_message_type == "e" then
-      return true
-    end
-
-    -- Trade Details Message
-    if sequenced_message_type == "t" then
-      return true
-    end
-
-    -- Cross Order Accepted Message
-    if sequenced_message_type == "x" then
-      return true
-    end
-
-    -- Member Kill Switch Notification Message
-    if sequenced_message_type == "k" then
-      return true
-    end
-
-    -- Mass Cancel Response Message
-    if sequenced_message_type == "u" then
-      return true
-    end
-
-    -- Modify Trade Response Message
-    if sequenced_message_type == "m" then
-      return true
-    end
-
-    -- Reject Message
-    if sequenced_message_type == "j" then
-      return true
-    end
-
-    -- Pending Response Message
-    if sequenced_message_type == "p" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Server Heartbeat Packet
