@@ -35,7 +35,12 @@ omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.market_code = ProtoField.new("M
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_count = ProtoField.new("Message Count", "nasdaq.psxequities.bbo.itch.v2.1.2018.messagecount", ftypes.UINT16)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_length = ProtoField.new("Message Length", "nasdaq.psxequities.bbo.itch.v2.1.2018.messagelength", ftypes.UINT16)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.message_type = ProtoField.new("Message Type", "nasdaq.psxequities.bbo.itch.v2.1.2018.messagetype", ftypes.STRING)
-omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestbid", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid_nav_premium_discount_amount = ProtoField.new("Nasdaq Best Bid Nav Premium Discount Amount", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestbidnavpremiumdiscountamount", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid_proxy_price = ProtoField.new("Nasdaq Best Bid Proxy Price", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestbidproxyprice", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid_size = ProtoField.new("Nasdaq Best Bid Size", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestbidsize", ftypes.UINT32)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_offer_nav_premium_discount_amount = ProtoField.new("Nasdaq Best Offer Nav Premium Discount Amount", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestoffernavpremiumdiscountamount", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_offer_proxy_price = ProtoField.new("Nasdaq Best Offer Proxy Price", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestofferproxyprice", ftypes.DOUBLE)
+omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_offer_size = ProtoField.new("Nasdaq Best Offer Size", "nasdaq.psxequities.bbo.itch.v2.1.2018.nasdaqbestoffersize", ftypes.UINT32)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psxequities.bbo.itch.v2.1.2018.nextsharessymbol", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psxequities.bbo.itch.v2.1.2018.operationalhaltaction", ftypes.STRING)
 omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psxequities.bbo.itch.v2.1.2018.psxbestbidprice", ftypes.DOUBLE)
@@ -832,31 +837,164 @@ nasdaq_psxequities_bbo_itch_v2_1_2018.message_type.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Nasdaq Best Bid
-nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid = {}
+-- Nasdaq Best Bid Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount = {}
 
--- Size: Nasdaq Best Bid
-nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.size = 4
+-- Size: Nasdaq Best Bid Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.size = 4
 
--- Display: Nasdaq Best Bid
-nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.display = function(value)
-  return "Nasdaq Best Bid: "..value
+-- Display: Nasdaq Best Bid Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.display = function(value)
+  return "Nasdaq Best Bid Nav Premium Discount Amount: "..value
 end
 
--- Translate: Nasdaq Best Bid
-nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.translate = function(raw)
+-- Translate: Nasdaq Best Bid Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Nasdaq Best Bid
-nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.size
+-- Dissect: Nasdaq Best Bid Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid_nav_premium_discount_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nasdaq Best Bid Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price = {}
+
+-- Size: Nasdaq Best Bid Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.size = 4
+
+-- Display: Nasdaq Best Bid Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.display = function(value)
+  return "Nasdaq Best Bid Proxy Price: "..value
+end
+
+-- Translate: Nasdaq Best Bid Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Nasdaq Best Bid Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.size
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.translate(raw)
-  local display = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.display(value, buffer, offset, packet, parent)
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid, range, value, display)
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid_proxy_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nasdaq Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size = {}
+
+-- Size: Nasdaq Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size.size = 4
+
+-- Display: Nasdaq Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size.display = function(value)
+  return "Nasdaq Best Bid Size: "..value
+end
+
+-- Dissect: Nasdaq Best Bid Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nasdaq Best Offer Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount = {}
+
+-- Size: Nasdaq Best Offer Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.size = 4
+
+-- Display: Nasdaq Best Offer Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.display = function(value)
+  return "Nasdaq Best Offer Nav Premium Discount Amount: "..value
+end
+
+-- Translate: Nasdaq Best Offer Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Nasdaq Best Offer Nav Premium Discount Amount
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.size
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_offer_nav_premium_discount_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nasdaq Best Offer Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price = {}
+
+-- Size: Nasdaq Best Offer Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.size = 4
+
+-- Display: Nasdaq Best Offer Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.display = function(value)
+  return "Nasdaq Best Offer Proxy Price: "..value
+end
+
+-- Translate: Nasdaq Best Offer Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.translate = function(raw)
+  return raw/10000
+end
+
+-- Dissect: Nasdaq Best Offer Proxy Price
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.size
+  local range = buffer(offset, length)
+  local raw = range:uint()
+  local value = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.translate(raw)
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_offer_proxy_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nasdaq Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size = {}
+
+-- Size: Nasdaq Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size.size = 4
+
+-- Display: Nasdaq Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size.display = function(value)
+  return "Nasdaq Best Offer Size: "..value
+end
+
+-- Dissect: Nasdaq Best Offer Size
+nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_psxequities_bbo_itch_v2_1_2018.fields.nasdaq_best_offer_size, range, value, display)
 
   return offset + length, value
 end
@@ -1370,7 +1508,12 @@ nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_quotation_message.size =
   nasdaq_psxequities_bbo_itch_v2_1_2018.timestamp.size + 
   nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_symbol.size + 
   nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.size + 
-  nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.size
+  nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.size + 
+  nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size.size + 
+  nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.size + 
+  nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.size + 
+  nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size.size + 
+  nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.size
 
 -- Display: Next Shares Quotation Message
 nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_quotation_message.display = function(packet, parent, length)
@@ -1393,8 +1536,23 @@ nasdaq_psxequities_bbo_itch_v2_1_2018.next_shares_quotation_message.fields = fun
   -- Security Class: Alpha
   index, security_class = nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.dissect(buffer, index, packet, parent)
 
-  -- Nasdaq Best Bid: Price (4)
-  index, nasdaq_best_bid = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid.dissect(buffer, index, packet, parent)
+  -- Nasdaq Best Bid Proxy Price: Price (4)
+  index, nasdaq_best_bid_proxy_price = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_proxy_price.dissect(buffer, index, packet, parent)
+
+  -- Nasdaq Best Bid Size: Integer
+  index, nasdaq_best_bid_size = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_size.dissect(buffer, index, packet, parent)
+
+  -- Nasdaq Best Bid Nav Premium Discount Amount: Signed Price (4)
+  index, nasdaq_best_bid_nav_premium_discount_amount = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_bid_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
+
+  -- Nasdaq Best Offer Proxy Price: Price (4)
+  index, nasdaq_best_offer_proxy_price = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_proxy_price.dissect(buffer, index, packet, parent)
+
+  -- Nasdaq Best Offer Size: Integer
+  index, nasdaq_best_offer_size = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_size.dissect(buffer, index, packet, parent)
+
+  -- Nasdaq Best Offer Nav Premium Discount Amount: Signed Price (4)
+  index, nasdaq_best_offer_nav_premium_discount_amount = nasdaq_psxequities_bbo_itch_v2_1_2018.nasdaq_best_offer_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2252,6 +2410,8 @@ udp_table:add_for_decode_as(omi_nasdaq_psxequities_bbo_itch_v2_1_2018)
 --   Version: 2.1.2018
 --   Date: Thursday, May 3, 2018
 --   Specification: PSXbboSpecification2.1.pdf
+--   Specification: PSXbboSpecification2.1.pdf
+--   Specification: PSXbbospecification2.1.pdf
 --
 -- Script:
 --   Generator: 1.5.0.0
