@@ -19138,6 +19138,9 @@ euronext_optiq_marketdatagateway_sbe_v6_63.packet.dissect = function(buffer, pac
   -- Market Data Packet Header: Struct of 4 fields
   index, market_data_packet_header = euronext_optiq_marketdatagateway_sbe_v6_63.market_data_packet_header.dissect(buffer, index, packet, parent)
 
+  -- Dependency element: Packet Flags
+  local packet_flags = buffer(index - 4, 2):bytes():tohex(false, " ")
+
   local optiq_message_conversion = bit.band(packet_flags, 0x0001) == 1
 
   if optiq_message_conversion then
